@@ -17,3 +17,9 @@ def _squeeze_and_check(x, size_gt_1=False):
     if x.size == 0:
         raise TypeError(f"the size should != 0.")
     return x
+
+
+def sphere(x):
+    x = _squeeze_and_check(x)
+    y = np.sum(np.power(x, 2))
+    return y
