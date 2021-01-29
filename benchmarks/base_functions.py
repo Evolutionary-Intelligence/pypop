@@ -20,8 +20,7 @@ def _squeeze_and_check(x, size_gt_1=False):
 
 
 def sphere(x):
-    x = _squeeze_and_check(x)
-    y = np.sum(np.power(x, 2))
+    y = np.sum(np.power(_squeeze_and_check(x), 2))
     return y
 
 
