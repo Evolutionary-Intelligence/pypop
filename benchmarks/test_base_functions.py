@@ -141,7 +141,7 @@ class TestBaseFunctions(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "The size should > 1+"):
             sample.compare_func_values(cigar, 1, np.empty((5,)))
 
-    def test_cigar(self):
+    def test_discus(self):
         sample = Sample()
         x2 = [4000004, 1000001, 0, 1000001, 4000004]
         self.assertTrue(sample.compare_func_values(discus, 2, x2))
