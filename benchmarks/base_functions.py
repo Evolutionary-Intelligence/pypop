@@ -23,3 +23,15 @@ def sphere(x):
     x = _squeeze_and_check(x)
     y = np.sum(np.power(x, 2))
     return y
+
+
+def cigar(x):
+    x = np.power(_squeeze_and_check(x, True), 2)
+    y = x[0] + (10 ** 6) * np.sum(x[1:])
+    return y
+
+
+def discus(x):  # also called tablet
+    x = np.power(_squeeze_and_check(x, True), 2)
+    y = (10 ** 6) * x[0] + np.sum(x[1:])
+    return y
