@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 
-from base_functions import _squeeze_and_check, sphere, cigar, discus
+from base_functions import _squeeze_and_check, sphere, cigar, discus, cigar_discus, ellipsoid
 
 
 class Sample(object):
@@ -157,6 +157,40 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(discus, 7, x7))
         with self.assertRaisesRegex(TypeError, "The size should > 1+"):
             sample.compare_func_values(discus, 1, np.empty((5,)))
+
+    def test_cigar_discus(self):
+        sample = Sample()
+        x2 = [4080004, 1020001, 0, 1020001, 4080004]
+        self.assertTrue(sample.compare_func_values(cigar_discus, 2, x2))
+        x3 = [4040004, 1010001, 0, 1010001, 4040004]
+        self.assertTrue(sample.compare_func_values(cigar_discus, 3, x3))
+        x4 = [0, 1020001, 1020001, 1020001, 16130001, 16130001, 1130016]
+        self.assertTrue(sample.compare_func_values(cigar_discus, 4, x4))
+        x5 = [0, 1030001, 1030001, 1030001, 25290001, 25290001, 1290025]
+        self.assertTrue(sample.compare_func_values(cigar_discus, 5, x5))
+        x6 = [0, 1040001, 1040001, 1040001, 36540001, 36540001, 1540036]
+        self.assertTrue(sample.compare_func_values(cigar_discus, 6, x6))
+        x7 = [0, 1050001, 1050001, 1050001, 49900001, 49900001, 1900049, 36550000]
+        self.assertTrue(sample.compare_func_values(cigar_discus, 7, x7))
+        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+            sample.compare_func_values(cigar_discus, 1, np.empty((5,)))
+
+    def test_ellipsoid(self):
+        sample = Sample()
+        x2 = [4000004, 1000001, 0, 1000001, 4000004]
+        self.assertTrue(sample.compare_func_values(ellipsoid, 2, x2))
+        x3 = [4004004, 1001001, 0, 1001001, 4004004]
+        self.assertTrue(sample.compare_func_values(ellipsoid, 3, x3))
+        x4 = [0, 1010101, 1010101, 1010101, 16090401, 16090401, 1040916]
+        self.assertTrue(sample.compare_func_values(ellipsoid, 4, x4))
+        x5 = [0, 1032655, 1032655, 1032655, 25515092, 25515092, 1136022]
+        self.assertTrue(sample.compare_func_values(ellipsoid, 5, x5))
+        x6 = [0, 1067345, 1067345, 1067345, 37643416, 37643416, 1292664]
+        self.assertTrue(sample.compare_func_values(ellipsoid, 6, x6))
+        x7 = [0, 1111111, 1111111, 1111111, 52866941, 52866941, 1508909, 38669410]
+        self.assertTrue(sample.compare_func_values(ellipsoid, 7, x7))
+        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+            sample.compare_func_values(ellipsoid, 1, np.empty((5,)))
 
 
 if __name__ == '__main__':

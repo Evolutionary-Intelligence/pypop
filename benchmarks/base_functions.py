@@ -34,3 +34,18 @@ def discus(x):  # also called tablet
     x = np.power(_squeeze_and_check(x, True), 2)
     y = (10 ** 6) * x[0] + np.sum(x[1:])
     return y
+
+
+def cigar_discus(x):
+    x = np.power(_squeeze_and_check(x, True), 2)
+    if x.size == 2:
+        y = x[0] + (10 ** 4) * np.sum(x) + (10 ** 6) * x[-1]
+    else:
+        y = x[0] + (10 ** 4) * np.sum(x[1:-1]) + (10 ** 6) * x[-1]
+    return y
+
+
+def ellipsoid(x):
+    x = np.power(_squeeze_and_check(x, True), 2)
+    y = np.dot(np.power(10, 6 * np.linspace(0, 1, x.size)), x)
+    return y
