@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 
-from base_functions import _squeeze_and_check, sphere, cigar, discus, cigar_discus, ellipsoid
+from base_functions import _squeeze_and_check, sphere, cigar, discus, cigar_discus, ellipsoid, different_powers
 
 
 class Sample(object):
@@ -76,19 +76,20 @@ class Sample(object):
             raise TypeError("The number of dimensions should >=1 and <= 7.")
         return np.array(x, dtype=np.float64)
 
-    def compare_func_values(self, func, ndim, y_true):
+    def compare_func_values(self, func, ndim, y_true, atol=1e-08):
         """Compare true (expected) function values with these returned (computed) by base function.
 
         :param func: base function, a function object.
         :param ndim: number of dimensions, an `int` scalar ranged in [1, 7].
         :param y_true: a 1-d `ndarray`, where each element is the true function value of the corresponding test case.
+        :param atol: absolute tolerance parameter, a `float` scalar.
         :return: `True` if all function values computed on test cases match `y_true`; otherwise, `False`.
         """
         x = self.make_test_cases(ndim)
         y = np.empty((x.shape[0],))
         for i in range(x.shape[0]):
             y[i] = func(x[i])
-        return np.allclose(y, y_true)
+        return np.allclose(y, y_true, atol=atol)
 
 
 class TestBaseFunctions(unittest.TestCase):
@@ -191,6 +192,23 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(ellipsoid, 7, x7))
         with self.assertRaisesRegex(TypeError, "The size should > 1+"):
             sample.compare_func_values(ellipsoid, 1, np.empty((5,)))
+
+    def test_different_powers(self):
+        sample = Sample()
+        x2 = [68, 2, 0, 2, 68]
+        self.assertTrue(sample.compare_func_values(different_powers, 2, x2))
+        x3 = [84, 3, 0, 3, 84]
+        self.assertTrue(sample.compare_func_values(different_powers, 3, x3))
+        x4 = [0, 4, 4, 4, 4275.6, 4275.6, 81.3]
+        self.assertTrue(sample.compare_func_values(different_powers, 4, x4, 0.1))
+        x5 = [0, 5, 5, 5, 16739, 16739, 203]
+        self.assertTrue(sample.compare_func_values(different_powers, 5, x5))
+        x6 = [0, 6, 6, 6, 51473.5, 51473.5, 437.1]
+        self.assertTrue(sample.compare_func_values(different_powers, 6, x6, 0.1))
+        x7 = [0, 7, 7, 7, 133908.7, 133908.7, 847.4, 52736.8]
+        self.assertTrue(sample.compare_func_values(different_powers, 7, x7, 0.1))
+        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+            sample.compare_func_values(different_powers, 1, np.empty((5,)))
 
 
 if __name__ == '__main__':

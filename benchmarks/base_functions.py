@@ -49,3 +49,9 @@ def ellipsoid(x):
     x = np.power(_squeeze_and_check(x, True), 2)
     y = np.dot(np.power(10, 6 * np.linspace(0, 1, x.size)), x)
     return y
+
+
+def different_powers(x):
+    x = np.abs(_squeeze_and_check(x, True))
+    y = np.sum(np.power(x, 2 + 4 * np.linspace(0, 1, x.size)))
+    return y
