@@ -55,3 +55,8 @@ def different_powers(x):
     x = np.abs(_squeeze_and_check(x, True))
     y = np.sum(np.power(x, 2 + 4 * np.linspace(0, 1, x.size)))
     return y
+
+
+def schwefel221(x):
+    y = np.max(np.abs(_squeeze_and_check(x)))
+    return y
