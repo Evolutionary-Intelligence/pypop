@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 
 from base_functions import _squeeze_and_check, sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
-    schwefel221
+    schwefel221, rosenbrock
 
 
 class Sample(object):
@@ -227,6 +227,23 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(schwefel221, 6, x6))
         x7 = [0, 1, 1, 1, 7, 7, 7, 6]
         self.assertTrue(sample.compare_func_values(schwefel221, 7, x7))
+
+    def test_rosenbrock(self):
+        sample = Sample()
+        x2 = [409, 4, 1, 0, 401]
+        self.assertTrue(sample.compare_func_values(rosenbrock, 2, x2))
+        x3 = [810, 4, 2, 400, 4002]
+        self.assertTrue(sample.compare_func_values(rosenbrock, 3, x3))
+        x4 = [3, 0, 1212, 804, 2705, 17913, 24330]
+        self.assertTrue(sample.compare_func_values(rosenbrock, 4, x4))
+        x5 = [4, 0, 1616, 808, 14814, 30038, 68450]
+        self.assertTrue(sample.compare_func_values(rosenbrock, 5, x5))
+        x6 = [5, 0, 2020, 808, 50930, 126154, 164579]
+        self.assertTrue(sample.compare_func_values(rosenbrock, 6, x6))
+        x7 = [6, 0, 2424, 1208, 135055, 210303, 349519, 51031]
+        self.assertTrue(sample.compare_func_values(rosenbrock, 7, x7))
+        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+            sample.compare_func_values(rosenbrock, 1, np.empty((5,)))
 
 
 if __name__ == '__main__':

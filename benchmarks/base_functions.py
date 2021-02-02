@@ -60,3 +60,9 @@ def different_powers(x):
 def schwefel221(x):
     y = np.max(np.abs(_squeeze_and_check(x)))
     return y
+
+
+def rosenbrock(x):
+    x = _squeeze_and_check(x, True)
+    y = 100 * np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
+    return y
