@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 
 from base_functions import _squeeze_and_check, sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
-    schwefel221, rosenbrock
+    schwefel221, rosenbrock, Sphere
 
 
 class Sample(object):
@@ -125,6 +125,24 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(sphere, 6, x6))
         x7 = [0, 7, 7, 7, 140, 140, 140, 91]
         self.assertTrue(sample.compare_func_values(sphere, 7, x7))
+
+    def test_Sphere(self):
+        sphere_object = Sphere()
+        sample = Sample()
+        x1 = [4, 1, 0, 1, 4]
+        self.assertTrue(sample.compare_func_values(sphere_object, 1, x1))
+        x2 = [8, 2, 0, 2, 8]
+        self.assertTrue(sample.compare_func_values(sphere_object, 2, x2))
+        x3 = [12, 3, 0, 3, 12]
+        self.assertTrue(sample.compare_func_values(sphere_object, 3, x3))
+        x4 = [0, 4, 4, 4, 30, 30, 30]
+        self.assertTrue(sample.compare_func_values(sphere_object, 4, x4))
+        x5 = [0, 5, 5, 5, 55, 55, 55]
+        self.assertTrue(sample.compare_func_values(sphere_object, 5, x5))
+        x6 = [0, 6, 6, 6, 91, 91, 91]
+        self.assertTrue(sample.compare_func_values(sphere_object, 6, x6))
+        x7 = [0, 7, 7, 7, 140, 140, 140, 91]
+        self.assertTrue(sample.compare_func_values(sphere_object, 7, x7))
 
     def test_cigar(self):
         sample = Sample()

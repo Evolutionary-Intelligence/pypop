@@ -19,9 +19,20 @@ def _squeeze_and_check(x, size_gt_1=False):
     return x
 
 
+# helper class
+class BaseFunction(object):
+    def __init__(self):
+        pass
+
+
 def sphere(x):
     y = np.sum(np.power(_squeeze_and_check(x), 2))
     return y
+
+
+class Sphere(BaseFunction):
+    def __call__(self, x):
+        return sphere(x)
 
 
 def cigar(x):
