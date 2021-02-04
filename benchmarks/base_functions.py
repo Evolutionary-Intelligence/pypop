@@ -52,6 +52,11 @@ def discus(x):  # also called tablet
     return y
 
 
+class Discus(BaseFunction):  # also called Tablet
+    def __call__(self, x):
+        return discus(x)
+
+
 def cigar_discus(x):
     x = np.power(_squeeze_and_check(x, True), 2)
     if x.size == 2:
