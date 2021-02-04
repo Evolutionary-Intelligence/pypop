@@ -41,6 +41,11 @@ def cigar(x):
     return y
 
 
+class Cigar(BaseFunction):
+    def __call__(self, x):
+        return cigar(x)
+
+
 def discus(x):  # also called tablet
     x = np.power(_squeeze_and_check(x, True), 2)
     y = (10 ** 6) * x[0] + np.sum(x[1:])
