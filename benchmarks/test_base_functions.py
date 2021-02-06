@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 
 from base_functions import _squeeze_and_check, sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
-    schwefel221, rosenbrock, Sphere, Cigar, Discus
+    schwefel221, rosenbrock, Sphere, Cigar, Discus, CigarDiscus
 
 
 class Sample(object):
@@ -230,6 +230,24 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(cigar_discus, 7, x7))
         with self.assertRaisesRegex(TypeError, "The size should > 1+"):
             sample.compare_func_values(cigar_discus, 1, np.empty((5,)))
+
+    def test_CigarDiscus(self):
+        cigar_discus_object = CigarDiscus()
+        sample = Sample()
+        x2 = [4080004, 1020001, 0, 1020001, 4080004]
+        self.assertTrue(sample.compare_func_values(cigar_discus_object, 2, x2))
+        x3 = [4040004, 1010001, 0, 1010001, 4040004]
+        self.assertTrue(sample.compare_func_values(cigar_discus_object, 3, x3))
+        x4 = [0, 1020001, 1020001, 1020001, 16130001, 16130001, 1130016]
+        self.assertTrue(sample.compare_func_values(cigar_discus_object, 4, x4))
+        x5 = [0, 1030001, 1030001, 1030001, 25290001, 25290001, 1290025]
+        self.assertTrue(sample.compare_func_values(cigar_discus_object, 5, x5))
+        x6 = [0, 1040001, 1040001, 1040001, 36540001, 36540001, 1540036]
+        self.assertTrue(sample.compare_func_values(cigar_discus_object, 6, x6))
+        x7 = [0, 1050001, 1050001, 1050001, 49900001, 49900001, 1900049, 36550000]
+        self.assertTrue(sample.compare_func_values(cigar_discus_object, 7, x7))
+        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+            sample.compare_func_values(cigar_discus_object, 1, np.empty((5,)))
 
     def test_ellipsoid(self):
         sample = Sample()

@@ -66,6 +66,11 @@ def cigar_discus(x):
     return y
 
 
+class CigarDiscus(BaseFunction):
+    def __call__(self, x):
+        return cigar_discus(x)
+
+
 def ellipsoid(x):
     x = np.power(_squeeze_and_check(x, True), 2)
     y = np.dot(np.power(10, 6 * np.linspace(0, 1, x.size)), x)
