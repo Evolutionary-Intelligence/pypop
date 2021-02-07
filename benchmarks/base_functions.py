@@ -77,6 +77,11 @@ def ellipsoid(x):
     return y
 
 
+class Ellipsoid(BaseFunction):
+    def __call__(self, x):
+        return ellipsoid(x)
+
+
 def different_powers(x):
     x = np.abs(_squeeze_and_check(x, True))
     y = np.sum(np.power(x, 2 + 4 * np.linspace(0, 1, x.size)))
