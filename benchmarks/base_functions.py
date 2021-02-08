@@ -88,6 +88,11 @@ def different_powers(x):
     return y
 
 
+class DifferentPowers(BaseFunction):
+    def __call__(self, x):
+        return different_powers(x)
+
+
 def schwefel221(x):
     y = np.max(np.abs(_squeeze_and_check(x)))
     return y
