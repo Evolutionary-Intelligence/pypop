@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 
 from base_functions import _squeeze_and_check, sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
-    schwefel221, rosenbrock, Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers
+    schwefel221, rosenbrock, Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221
 
 
 class Sample(object):
@@ -335,6 +335,24 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(schwefel221, 6, x6))
         x7 = [0, 1, 1, 1, 7, 7, 7, 6]
         self.assertTrue(sample.compare_func_values(schwefel221, 7, x7))
+
+    def test_Schwefel221(self):
+        schwefel221_object = Schwefel221()
+        sample = Sample()
+        x1 = [2, 1, 0, 1, 2]
+        self.assertTrue(sample.compare_func_values(schwefel221_object, 1, x1))
+        x2 = [2, 1, 0, 1, 2]
+        self.assertTrue(sample.compare_func_values(schwefel221_object, 2, x2))
+        x3 = [2, 1, 0, 1, 2]
+        self.assertTrue(sample.compare_func_values(schwefel221_object, 3, x3))
+        x4 = [0, 1, 1, 1, 4, 4, 4]
+        self.assertTrue(sample.compare_func_values(schwefel221_object, 4, x4))
+        x5 = [0, 1, 1, 1, 5, 5, 5]
+        self.assertTrue(sample.compare_func_values(schwefel221_object, 5, x5))
+        x6 = [0, 1, 1, 1, 6, 6, 6]
+        self.assertTrue(sample.compare_func_values(schwefel221_object, 6, x6))
+        x7 = [0, 1, 1, 1, 7, 7, 7, 6]
+        self.assertTrue(sample.compare_func_values(schwefel221_object, 7, x7))
 
     def test_rosenbrock(self):
         sample = Sample()

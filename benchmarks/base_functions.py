@@ -98,6 +98,11 @@ def schwefel221(x):
     return y
 
 
+class Schwefel221(BaseFunction):
+    def __call__(self, x):
+        return schwefel221(x)
+
+
 def rosenbrock(x):
     x = _squeeze_and_check(x, True)
     y = 100 * np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
