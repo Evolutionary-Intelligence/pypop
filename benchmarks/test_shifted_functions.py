@@ -19,6 +19,12 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(np.all(shift_vector < [1, 2]))
         self.assertTrue(np.allclose(shift_vector, [2.739233746429086125e-01, -9.208531449445187533e-01]))
 
+        shift_vector = _generate_shift_vector(base_sphere, 1, -100, 100, 7)
+        self.assertEqual(shift_vector.size, 1)
+        self.assertTrue(np.all(shift_vector >= -100))
+        self.assertTrue(np.all(shift_vector < 100))
+        self.assertTrue(np.allclose(shift_vector, 2.501909332093339344e+01))
+
 
 if __name__ == '__main__':
     unittest.main()
