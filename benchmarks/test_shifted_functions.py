@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 
 from base_functions import sphere as base_sphere
-from shifted_functions import _generate_shift_vector
+from shifted_functions import _generate_shift_vector, _load_shift_vector
 
 
 class TestShiftedFunctions(unittest.TestCase):
@@ -24,6 +24,15 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(np.all(shift_vector >= -100))
         self.assertTrue(np.all(shift_vector < 100))
         self.assertTrue(np.allclose(shift_vector, 2.501909332093339344e+01))
+
+    def test_load_shift_vector(self):
+        func = base_sphere
+        _generate_shift_vector(func, 2, [-1, -2], [1, 2], 0)
+        shift_vector = _load_shift_vector(func, [0, 0])
+        self.assertTrue(np.allclose(shift_vector, [2.739233746429086125e-01, -9.208531449445187533e-01]))
+
+        shift_vector = _load_shift_vector(func, 0, 77)
+        self.assertTrue(np.allclose(shift_vector, 77))
 
 
 if __name__ == '__main__':
