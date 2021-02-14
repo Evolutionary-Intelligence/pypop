@@ -31,6 +31,11 @@ class TestShiftedFunctions(unittest.TestCase):
         shift_vector = _load_shift_vector(func, [0, 0])
         self.assertTrue(np.allclose(shift_vector, [2.739233746429086125e-01, -9.208531449445187533e-01]))
 
+        _generate_shift_vector(func, 3, -100, 100, 7)
+        shift_vector = _load_shift_vector(func, [0, 0, 0])
+        self.assertTrue(np.allclose(shift_vector,
+                                    [2.501909332093339344e+01, 7.944276019391509180e+01, 5.513713804903869686e+01]))
+
         shift_vector = _load_shift_vector(func, 0, 77)
         self.assertTrue(np.allclose(shift_vector, 77))
 

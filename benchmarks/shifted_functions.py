@@ -17,7 +17,7 @@ def _generate_shift_vector(func, ndim, low, high, seed=None):
     :param low: lower boundary of the shift vector, a `float` scalar or array_like of floats.
     :param high: upper boundary of the shift vector, a `float` scalar or array_like of floats.
     :param seed: seed for random number generator, a `int` scalar.
-    :return: shift_vector: a `ndim`-d vector sampled uniformly in [`low`, `high`).
+    :return: shift vector, a `ndim`-d vector sampled uniformly in [`low`, `high`).
 
     https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html
     """
