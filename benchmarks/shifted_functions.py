@@ -1,7 +1,7 @@
 import os
 import numpy as np
 
-from base_functions import *
+import base_functions
 from base_functions import _squeeze_and_check
 
 
@@ -56,3 +56,9 @@ def _load_shift_vector(func, x, shift_vector=None):
     if shift_vector.size != x.size:
         raise TypeError("shift_vector should have the same size as x.")
     return shift_vector
+
+
+def sphere(x, shift_vector=None):
+    shift_vector = _load_shift_vector(sphere, x, shift_vector)
+    y = base_functions.sphere(x - shift_vector)
+    return y
