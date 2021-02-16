@@ -62,3 +62,9 @@ def sphere(x, shift_vector=None):
     shift_vector = _load_shift_vector(sphere, x, shift_vector)
     y = base_functions.sphere(x - shift_vector)
     return y
+
+
+def cigar(x, shift_vector=None):
+    shift_vector = _load_shift_vector(cigar, x, shift_vector)
+    y = base_functions.cigar(x - shift_vector)
+    return y
