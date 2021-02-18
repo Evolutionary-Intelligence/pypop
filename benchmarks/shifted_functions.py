@@ -68,3 +68,9 @@ def cigar(x, shift_vector=None):
     shift_vector = _load_shift_vector(cigar, x, shift_vector)
     y = base_functions.cigar(x - shift_vector)
     return y
+
+
+def discus(x, shift_vector=None):  # also called tablet
+    shift_vector = _load_shift_vector(discus, x, shift_vector)
+    y = base_functions.discus(x - shift_vector)
+    return y

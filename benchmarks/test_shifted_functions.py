@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 
 from base_functions import sphere as base_sphere
-from shifted_functions import sphere, cigar
+from shifted_functions import sphere, cigar, discus
 from shifted_functions import _generate_shift_vector, _load_shift_vector
 from test_base_functions import Sample
 
@@ -101,6 +101,25 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(cigar, 7, x7))
         with self.assertRaisesRegex(TypeError, "The size should > 1+"):
             shifted_sample.compare_shifted_func_values(cigar, 1, np.empty((5,)))
+
+    def test_Discus(self):
+        for ndim in range(1, 8):
+            _generate_shift_vector(discus, ndim, -100, 100, seed=2)
+        shifted_sample = ShiftedSample()
+        x2 = [4000004, 1000001, 0, 1000001, 4000004]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(discus, 2, x2))
+        x3 = [4000008, 1000002, 0, 1000002, 4000008]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(discus, 3, x3))
+        x4 = [0, 1000003, 1000003, 1000003, 1000029, 1000029, 16000014]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(discus, 4, x4))
+        x5 = [0, 1000004, 1000004, 1000004, 1000054, 1000054, 25000030]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(discus, 5, x5))
+        x6 = [0, 1000005, 1000005, 1000005, 1000090, 1000090, 36000055]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(discus, 6, x6))
+        x7 = [0, 1000006, 1000006, 1000006, 1000139, 1000139, 49000091, 91]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(discus, 7, x7))
+        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+            shifted_sample.compare_shifted_func_values(discus, 1, np.empty((5,)))
 
 
 if __name__ == '__main__':
