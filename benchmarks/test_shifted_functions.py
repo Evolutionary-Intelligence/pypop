@@ -102,7 +102,7 @@ class TestShiftedFunctions(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "The size should > 1+"):
             shifted_sample.compare_shifted_func_values(cigar, 1, np.empty((5,)))
 
-    def test_Discus(self):
+    def test_discus(self):
         for ndim in range(1, 8):
             _generate_shift_vector(discus, ndim, -100, 100, seed=2)
         shifted_sample = ShiftedSample()
