@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 
 from base_functions import sphere as base_sphere
-from shifted_functions import sphere, cigar, discus, cigar_discus
+from shifted_functions import sphere, cigar, discus, cigar_discus, ellipsoid
 from shifted_functions import _generate_shift_vector, _load_shift_vector
 from test_base_functions import Sample
 
@@ -139,6 +139,25 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(cigar_discus, 7, x7))
         with self.assertRaisesRegex(TypeError, "The size should > 1+"):
             shifted_sample.compare_shifted_func_values(cigar_discus, 1, np.empty((5,)))
+
+    def test_ellipsoid(self):
+        for ndim in range(1, 8):
+            _generate_shift_vector(ellipsoid, ndim, -100, 100, seed=4)
+        shifted_sample = ShiftedSample()
+        x2 = [4000004, 1000001, 0, 1000001, 4000004]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(ellipsoid, 2, x2))
+        x3 = [4004004, 1001001, 0, 1001001, 4004004]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(ellipsoid, 3, x3))
+        x4 = [0, 1010101, 1010101, 1010101, 16090401, 16090401, 1040916]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(ellipsoid, 4, x4))
+        x5 = [0, 1032655, 1032655, 1032655, 25515092, 25515092, 1136022]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(ellipsoid, 5, x5))
+        x6 = [0, 1067345, 1067345, 1067345, 37643416, 37643416, 1292664]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(ellipsoid, 6, x6))
+        x7 = [0, 1111111, 1111111, 1111111, 52866941, 52866941, 1508909, 38669410]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(ellipsoid, 7, x7))
+        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+            shifted_sample.compare_shifted_func_values(ellipsoid, 1, np.empty((5,)))
 
 
 if __name__ == '__main__':

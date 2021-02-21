@@ -80,3 +80,9 @@ def cigar_discus(x, shift_vector=None):
     shift_vector = _load_shift_vector(cigar_discus, x, shift_vector)
     y = base_functions.cigar_discus(x - shift_vector)
     return y
+
+
+def ellipsoid(x, shift_vector=None):
+    shift_vector = _load_shift_vector(ellipsoid, x, shift_vector)
+    y = base_functions.ellipsoid(x - shift_vector)
+    return y
