@@ -86,3 +86,9 @@ def ellipsoid(x, shift_vector=None):
     shift_vector = _load_shift_vector(ellipsoid, x, shift_vector)
     y = base_functions.ellipsoid(x - shift_vector)
     return y
+
+
+def different_powers(x, shift_vector=None):
+    shift_vector = _load_shift_vector(different_powers, x, shift_vector)
+    y = base_functions.different_powers(x - shift_vector)
+    return y
