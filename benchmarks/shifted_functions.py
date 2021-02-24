@@ -98,3 +98,9 @@ def schwefel221(x, shift_vector=None):
     shift_vector = _load_shift_vector(schwefel221, x, shift_vector)
     y = base_functions.schwefel221(x - shift_vector)
     return y
+
+
+def rosenbrock(x, shift_vector=None):
+    shift_vector = _load_shift_vector(rosenbrock, x, shift_vector)
+    y = base_functions.rosenbrock(x - shift_vector)
+    return y
