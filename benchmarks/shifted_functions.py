@@ -2,7 +2,7 @@ import os
 import numpy as np
 
 import base_functions
-from base_functions import _squeeze_and_check
+from base_functions import _squeeze_and_check, BaseFunction
 
 
 # helper functions
@@ -62,6 +62,15 @@ def sphere(x, shift_vector=None):
     shift_vector = _load_shift_vector(sphere, x, shift_vector)
     y = base_functions.sphere(x - shift_vector)
     return y
+
+
+class Sphere(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = "sphere"
+
+    def __call__(self, x):
+        return sphere(x)
 
 
 def cigar(x, shift_vector=None):

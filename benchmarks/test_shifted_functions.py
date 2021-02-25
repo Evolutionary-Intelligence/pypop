@@ -2,7 +2,8 @@ import unittest
 import numpy as np
 
 from base_functions import sphere as base_sphere
-from shifted_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers, schwefel221, rosenbrock
+from shifted_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers, schwefel221,\
+    rosenbrock, Sphere
 from shifted_functions import _generate_shift_vector, _load_shift_vector
 from test_base_functions import Sample
 
@@ -82,6 +83,26 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(sphere, 6, x6))
         x7 = [0, 7, 7, 7, 140, 140, 140, 91]
         self.assertTrue(shifted_sample.compare_shifted_func_values(sphere, 7, x7))
+
+    def test_Sphere(self):
+        sphere_object = Sphere()
+        for ndim in range(1, 8):
+            _generate_shift_vector(sphere, ndim, -100, 100, seed=0)
+        shifted_sample = ShiftedSample()
+        x1 = [4, 1, 0, 1, 4]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(sphere_object, 1, x1))
+        x2 = [8, 2, 0, 2, 8]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(sphere_object, 2, x2))
+        x3 = [12, 3, 0, 3, 12]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(sphere_object, 3, x3))
+        x4 = [0, 4, 4, 4, 30, 30, 30]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(sphere_object, 4, x4))
+        x5 = [0, 5, 5, 5, 55, 55, 55]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(sphere_object, 5, x5))
+        x6 = [0, 6, 6, 6, 91, 91, 91]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(sphere_object, 6, x6))
+        x7 = [0, 7, 7, 7, 140, 140, 140, 91]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(sphere_object, 7, x7))
 
     def test_cigar(self):
         for ndim in range(1, 8):
