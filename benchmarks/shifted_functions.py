@@ -69,14 +69,23 @@ class Sphere(BaseFunction):
         BaseFunction.__init__(self)
         self.__name__ = "sphere"
 
-    def __call__(self, x):
-        return sphere(x)
+    def __call__(self, x, shift_vector=None):
+        return sphere(x, shift_vector)
 
 
 def cigar(x, shift_vector=None):
     shift_vector = _load_shift_vector(cigar, x, shift_vector)
     y = base_functions.cigar(x - shift_vector)
     return y
+
+
+class Cigar(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = "cigar"
+
+    def __call__(self, x, shift_vector=None):
+        return cigar(x, shift_vector)
 
 
 def discus(x, shift_vector=None):  # also called tablet
