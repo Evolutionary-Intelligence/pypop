@@ -94,6 +94,15 @@ def discus(x, shift_vector=None):  # also called tablet
     return y
 
 
+class Discus(BaseFunction):  # also called Tablet
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = "discus"
+
+    def __call__(self, x, shift_vector=None):
+        return discus(x, shift_vector)
+
+
 def cigar_discus(x, shift_vector=None):
     shift_vector = _load_shift_vector(cigar_discus, x, shift_vector)
     y = base_functions.cigar_discus(x - shift_vector)
