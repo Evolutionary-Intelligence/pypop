@@ -109,6 +109,15 @@ def cigar_discus(x, shift_vector=None):
     return y
 
 
+class CigarDiscus(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = "cigar_discus"
+
+    def __call__(self, x, shift_vector=None):
+        return cigar_discus(x, shift_vector)
+
+
 def ellipsoid(x, shift_vector=None):
     shift_vector = _load_shift_vector(ellipsoid, x, shift_vector)
     y = base_functions.ellipsoid(x - shift_vector)
