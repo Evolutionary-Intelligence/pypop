@@ -124,6 +124,15 @@ def ellipsoid(x, shift_vector=None):
     return y
 
 
+class Ellipsoid(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = "ellipsoid"
+
+    def __call__(self, x, shift_vector=None):
+        return ellipsoid(x, shift_vector)
+
+
 def different_powers(x, shift_vector=None):
     shift_vector = _load_shift_vector(different_powers, x, shift_vector)
     y = base_functions.different_powers(x - shift_vector)
