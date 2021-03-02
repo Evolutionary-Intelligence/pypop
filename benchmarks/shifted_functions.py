@@ -139,6 +139,15 @@ def different_powers(x, shift_vector=None):
     return y
 
 
+class DifferentPowers(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = "different_powers"
+
+    def __call__(self, x, shift_vector=None):
+        return different_powers(x, shift_vector)
+
+
 def schwefel221(x, shift_vector=None):
     shift_vector = _load_shift_vector(schwefel221, x, shift_vector)
     y = base_functions.schwefel221(x - shift_vector)
