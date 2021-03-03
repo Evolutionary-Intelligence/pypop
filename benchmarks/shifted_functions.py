@@ -154,6 +154,15 @@ def schwefel221(x, shift_vector=None):
     return y
 
 
+class Schwefel221(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = "schwefel221"
+
+    def __call__(self, x, shift_vector=None):
+        return schwefel221(x, shift_vector)
+
+
 def rosenbrock(x, shift_vector=None):
     shift_vector = _load_shift_vector(rosenbrock, x, shift_vector)
     y = base_functions.rosenbrock(x - shift_vector)

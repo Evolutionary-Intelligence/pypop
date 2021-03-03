@@ -3,7 +3,7 @@ import numpy as np
 
 from base_functions import sphere as base_sphere
 from shifted_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers, schwefel221,\
-    rosenbrock, Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers
+    rosenbrock, Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221
 from shifted_functions import _generate_shift_vector, _load_shift_vector
 from test_base_functions import Sample
 
@@ -317,6 +317,26 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221, 6, x6))
         x7 = [0, 1, 1, 1, 7, 7, 7, 6]
         self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221, 7, x7))
+
+    def test_Schwefel221(self):
+        for ndim in range(1, 8):
+            _generate_shift_vector(schwefel221, ndim, -100, 100, seed=6)
+        schwefel221_object = Schwefel221()
+        shifted_sample = ShiftedSample()
+        x1 = [2, 1, 0, 1, 2]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221_object, 1, x1))
+        x2 = [2, 1, 0, 1, 2]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221_object, 2, x2))
+        x3 = [2, 1, 0, 1, 2]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221_object, 3, x3))
+        x4 = [0, 1, 1, 1, 4, 4, 4]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221_object, 4, x4))
+        x5 = [0, 1, 1, 1, 5, 5, 5]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221_object, 5, x5))
+        x6 = [0, 1, 1, 1, 6, 6, 6]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221_object, 6, x6))
+        x7 = [0, 1, 1, 1, 7, 7, 7, 6]
+        self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221_object, 7, x7))
 
     def test_rosenbrock(self):
         for ndim in range(1, 8):
