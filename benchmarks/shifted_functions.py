@@ -167,3 +167,12 @@ def rosenbrock(x, shift_vector=None):
     shift_vector = _load_shift_vector(rosenbrock, x, shift_vector)
     y = base_functions.rosenbrock(x - shift_vector)
     return y
+
+
+class Rosenbrock(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = "rosenbrock"
+
+    def __call__(self, x, shift_vector=None):
+        return rosenbrock(x, shift_vector)
