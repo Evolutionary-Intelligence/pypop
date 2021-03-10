@@ -1,4 +1,13 @@
+from enum import IntEnum
 import numpy as np
+
+
+# helper class
+class Terminations(IntEnum):
+    NO_TERMINATION = 0
+    MAX_FUNCTION_EVALUATIONS = 1
+    MAX_RUNTIME = 2
+    FITNESS_THRESHOLD = 3
 
 
 class Optimizer(object):
@@ -29,6 +38,17 @@ class Optimizer(object):
         self.seed_initialization = options.get("seed_initialization", self.rng.integers(np.iinfo(np.int64).max))
         self.seed_optimization = options.get("seed_optimization", self.rng.integers(np.iinfo(np.int64).max))
         self.record_options = options.get("record_options")
+
+    def _check_terminations(self, n_function_evaluations, runtime, best_so_far_y):
+        if n_function_evaluations >= self.max_function_evaluations:
+            termination_signal = True, Terminations.MAX_FUNCTION_EVALUATIONS
+        elif runtime >= self.max_runtime:
+            termination_signal = True, Terminations.MAX_RUNTIME
+        elif best_so_far_y <= self.fitness_threshold:
+            termination_signal = True, Terminations.FITNESS_THRESHOLD
+        else:
+            termination_signal = False, Terminations.NO_TERMINATION
+        return termination_signal
 
     def initialize(self):
         raise NotImplementedError
