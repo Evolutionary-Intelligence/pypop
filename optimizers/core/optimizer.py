@@ -21,7 +21,7 @@ class Optimizer(object):
         self.max_runtime = options.get("max_runtime", np.Inf)
         self.fitness_threshold = options.get("fitness_threshold", -np.Inf)
         self.n_individuals = options.get("n_individuals")
-        self.seed_rng = options("seed_rng")
+        self.seed_rng = options.get("seed_rng")
         if self.seed_rng is None:
             self.rng = np.random.default_rng()
         else:
@@ -29,3 +29,12 @@ class Optimizer(object):
         self.seed_initialization = options.get("seed_initialization", self.rng.integers(np.iinfo(np.int64).max))
         self.seed_optimization = options.get("seed_optimization", self.rng.integers(np.iinfo(np.int64).max))
         self.record_options = options.get("record_options")
+
+    def initialize(self):
+        raise NotImplementedError
+
+    def iterate(self):
+        raise NotImplementedError
+
+    def optimize(self, fitness_function=None):
+        raise NotImplementedError
