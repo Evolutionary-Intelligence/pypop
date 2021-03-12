@@ -38,6 +38,7 @@ class Optimizer(object):
         self.seed_initialization = options.get("seed_initialization", self.rng.integers(np.iinfo(np.int64).max))
         self.seed_optimization = options.get("seed_optimization", self.rng.integers(np.iinfo(np.int64).max))
         self.record_options = options.get("record_options")
+        self.verbose_options = options.get("verbose_options")
 
     def _check_terminations(self, n_function_evaluations, runtime, best_so_far_y):
         if n_function_evaluations >= self.max_function_evaluations:
