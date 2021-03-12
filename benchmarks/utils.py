@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 # helper function
@@ -14,3 +15,20 @@ def _generate_xyz(func, x, y, num=200):
         for j in range(x.shape[1]):
             z[i, j] = func([x[i, j], y[i, j]])
     return x, y, z
+
+
+def plot_contour(func, x, y, levels=None, num=200, is_save=False):
+    x, y, z = _generate_xyz(func, x, y, num)
+    if levels is None:
+        plt.contourf(x, y, z, cmap=plt.cm.cool)
+        plt.contour(x, y, z, colors="white")
+    else:
+        plt.contourf(x, y, z, levels, cmap=plt.cm.cool)
+        c = plt.contour(x, y, z, levels, colors="white")
+        plt.clabel(c, inline=True, fontsize=12, colors="white")
+    plt.title(func.__name__)
+    plt.xlabel("x")
+    plt.ylabel("y")
+    if is_save:
+        plt.savefig(func.__name__ + "_contour.png")
+    plt.show()
