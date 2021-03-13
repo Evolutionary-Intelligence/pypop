@@ -16,6 +16,7 @@ class Optimizer(object):
     """
     def __init__(self, problem, options):
         # problem-related settings
+        self._is_maximization = problem.get('_is_maximization', False)
         self.fitness_function = problem.get('fitness_function')
         self.ndim_problem = problem['ndim_problem']
         self.upper_boundary = problem.get('upper_boundary')
@@ -30,6 +31,8 @@ class Optimizer(object):
         self.max_function_evaluations = options.get('max_function_evaluations', np.Inf)
         self.max_runtime = options.get('max_runtime', np.Inf)
         self.fitness_threshold = options.get('fitness_threshold', -np.Inf)
+        if self._is_maximization:
+            self.fitness_threshold *= -1
         self.n_individuals = options.get('n_individuals')
         self.seed_rng = options.get('seed_rng')
         if self.seed_rng is None:
@@ -51,6 +54,8 @@ class Optimizer(object):
         self.runtime = options.get('runtime', 0)
         self.start_time = None
         self.best_so_far_y = options.get('best_so_far_y', np.Inf)
+        if self._is_maximization:
+            self.best_so_far_y *= -1
         self.best_so_far_x = None
         self.termination_signal = None
 
@@ -60,13 +65,17 @@ class Optimizer(object):
             termination_signal = True, Terminations.MAX_FUNCTION_EVALUATIONS
         elif self.runtime >= self.max_runtime:
             termination_signal = True, Terminations.MAX_RUNTIME
-        elif self.best_so_far_y <= self.fitness_threshold:
+        elif not self._is_maximization and (self.best_so_far_y <= self.fitness_threshold):
+            termination_signal = True, Terminations.FITNESS_THRESHOLD
+        elif self._is_maximization and (self.best_so_far_y >= self.fitness_threshold):
             termination_signal = True, Terminations.FITNESS_THRESHOLD
         else:
             termination_signal = False, Terminations.NO_TERMINATION
         return termination_signal
 
     def _collect_results(self):
+        if self._is_maximization:
+            self.best_so_far_y *= -1
         return {'best_so_far_x': self.best_so_far_x,
                 'best_so_far_y': self.best_so_far_y,
                 'n_function_evaluations': self.n_function_evaluations,
