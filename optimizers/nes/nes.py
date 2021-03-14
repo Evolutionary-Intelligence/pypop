@@ -36,3 +36,8 @@ class NES(Optimizer):
 
     def _update_distribution(self):
         raise NotImplementedError
+
+    def _collect_results(self):
+        results = Optimizer._collect_results(self)
+        results['n_generations'] = self.n_generations
+        return results
