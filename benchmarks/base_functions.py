@@ -112,3 +112,10 @@ def rosenbrock(x):
 class Rosenbrock(BaseFunction):
     def __call__(self, x):
         return rosenbrock(x)
+
+
+def schwefel12(x):
+    x = _squeeze_and_check(x, True)
+    x = [np.sum(x[:i + 1]) for i in range(x.size)]
+    y = np.sum(np.power(x, 2))
+    return y
