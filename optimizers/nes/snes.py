@@ -6,6 +6,15 @@ from optimizers.nes.utils import fitness_shaping
 
 
 class SNES(NES):
+    """Separable Natural Evolution Strategy (SNES).
+
+    Reference
+    ---------
+    Schaul, T., Glasmachers, T. and Schmidhuber, J., 2011, July.
+    High dimensions and heavy tails for natural evolution strategies.
+    In Proceedings of the Annual Conference on Genetic and Evolutionary Computation (pp. 845-852).
+    https://dl.acm.org/doi/abs/10.1145/2001576.2001692
+    """
     def __init__(self, problem, options):
         NES.__init__(self, problem, options)
         if self.eta_mu is None:  # learning rate of mean of Gaussian search distribution
@@ -14,7 +23,7 @@ class SNES(NES):
             self.eta_sigma = (3 + np.log(self.ndim_problem)) / (5 * np.sqrt(self.ndim_problem))
 
     def initialize(self):
-        s = np.empty((self.n_individuals, self.ndim_problem))  # sample
+        s = np.empty((self.n_individuals, self.ndim_problem))  # samples (population)
         mu = self._initialize_mu()  # mean of Gaussian search distribution
         sigma = np.ones((self.ndim_problem,))  # individual step-sizes (std of Gaussian search distribution)
         y = np.empty((self.n_individuals,))  # fitness
@@ -25,7 +34,7 @@ class SNES(NES):
             termination_signal = self._check_terminations()
             if termination_signal[0]:
                 return s, y
-            # draw sample
+            # draw sample (individual)
             s[k] = self.rng_optimization.standard_normal((self.ndim_problem,))
             z = mu + sigma * s[k]
             # evaluate fitness
@@ -58,7 +67,7 @@ class SNES(NES):
             self.fitness_function = fitness_function
         s, mu, sigma, y = self.initialize()
         while True:
-            # sample and evaluate offspring in batch
+            # sample and evaluate offspring population
             s, y = self.iterate(s, mu, sigma, y)
             termination_signal = self._check_terminations()
             if termination_signal[0]:
