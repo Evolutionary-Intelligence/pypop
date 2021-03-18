@@ -3,7 +3,7 @@ import numpy as np
 
 from base_functions import _squeeze_and_check, sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
     schwefel221, rosenbrock, schwefel12,\
-    Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221, Rosenbrock
+    Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221, Rosenbrock, Schwefel12
 
 
 class Sample(object):
@@ -406,6 +406,24 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(schwefel12, 7, x7))
         with self.assertRaisesRegex(TypeError, "The size should > 1+"):
             sample.compare_func_values(schwefel12, 1, np.empty((5,)))
+
+    def test_Schwefel12(self):
+        schwefel12_object = Schwefel12()
+        sample = Sample()
+        x2 = [4, 1, 0, 5, 20]
+        self.assertTrue(sample.compare_func_values(schwefel12_object, 2, x2))
+        x3 = [8, 2, 0, 6, 24]
+        self.assertTrue(sample.compare_func_values(schwefel12_object, 3, x3))
+        x4 = [0, 30, 30, 2, 146, 10, 18]
+        self.assertTrue(sample.compare_func_values(schwefel12_object, 4, x4))
+        x5 = [0, 55, 55, 3, 371, 19, 55]
+        self.assertTrue(sample.compare_func_values(schwefel12_object, 5, x5))
+        x6 = [0, 91, 91, 7, 812, 28, 195]
+        self.assertTrue(sample.compare_func_values(schwefel12_object, 6, x6))
+        x7 = [0, 140, 140, 8, 1596, 44, 564, 812]
+        self.assertTrue(sample.compare_func_values(schwefel12_object, 7, x7))
+        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+            sample.compare_func_values(schwefel12_object, 1, np.empty((5,)))
 
 
 if __name__ == '__main__':

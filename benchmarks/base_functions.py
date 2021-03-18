@@ -119,3 +119,8 @@ def schwefel12(x):
     x = [np.sum(x[:i + 1]) for i in range(x.size)]
     y = np.sum(np.power(x, 2))
     return y
+
+
+class Schwefel12(BaseFunction):
+    def __call__(self, x):
+        return schwefel12(x)
