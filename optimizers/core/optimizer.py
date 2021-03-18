@@ -43,7 +43,11 @@ class Optimizer(object):
         self.rng_initialization = np.random.default_rng(self.seed_initialization)
         self.seed_optimization = options.get('seed_optimization', self.rng.integers(np.iinfo(np.int64).max))
         self.rng_optimization = np.random.default_rng(self.seed_optimization)
-        self.record_options = options.get('record_options')
+        self.record_options = options.get('record_options', {})
+        if self.record_options.get('record_fitness') is None:
+            self.record_options['record_fitness'] = False
+        if self.record_options.get('frequency_record_fitness') is None:
+            self.record_options['frequency_record_fitness'] = 1000
         self.verbose_options = options.get('verbose_options')
 
         # auxiliary members
@@ -58,6 +62,7 @@ class Optimizer(object):
             self.best_so_far_y *= -1
         self.best_so_far_x = None
         self.termination_signal = None
+        self.fitness = None
 
     def _check_terminations(self):
         self.runtime = time.time() - self.start_time
@@ -73,6 +78,18 @@ class Optimizer(object):
             termination_signal = False, Terminations.NO_TERMINATION
         return termination_signal
 
+    def _compress_fitness(self, fitness):
+        fitness = np.array(fitness)
+        # arrange in non-increasing order
+        for i in range(len(fitness) - 1):
+            if fitness[i] < fitness[i + 1]:
+                fitness[i + 1] = fitness[i]
+        # use 1-based index
+        index = np.arange(1, len(fitness), self.record_options['frequency_record_fitness'])
+        # recover 0-based index via - 1
+        index = np.append(index, len(fitness)) - 1
+        self.fitness = np.stack((index, fitness[index]), 1)
+
     def _collect_results(self):
         if self._is_maximization:
             self.best_so_far_y *= -1
@@ -81,7 +98,8 @@ class Optimizer(object):
                 'n_function_evaluations': self.n_function_evaluations,
                 'runtime': time.time() - self.start_time,
                 'termination_signal': self.termination_signal,
-                'time_function_evaluations': self.time_function_evaluations}
+                'time_function_evaluations': self.time_function_evaluations,
+                'fitness': self.fitness}
 
     def initialize(self):
         raise NotImplementedError
