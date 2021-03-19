@@ -37,6 +37,12 @@ class NES(Optimizer):
     def _update_distribution(self):
         raise NotImplementedError
 
+    def _print_verbose_info(self, y=None):
+        if self.verbose_options['verbose']:
+            if not self.n_generations % self.verbose_options['frequency_verbose']:
+                info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
+                print(info.format(self.n_generations, -self.best_so_far_y, np.min(y), self.n_function_evaluations))
+
     def _collect_results(self):
         results = Optimizer._collect_results(self)
         results['n_generations'] = self.n_generations
