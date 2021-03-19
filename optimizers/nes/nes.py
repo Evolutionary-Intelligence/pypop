@@ -4,6 +4,15 @@ from optimizers.core.optimizer import Optimizer
 
 
 class NES(Optimizer):
+    """Natural Evolution Strategies (NES).
+
+    Reference
+    ---------
+    Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
+    Natural evolution strategies.
+    Journal of Machine Learning Research, 15(1), pp.949-980.
+    https://jmlr.org/papers/v15/wierstra14a.html
+    """
     def __init__(self, problem, options):
         problem['_is_maximization'] = True
         Optimizer.__init__(self, problem, options)
