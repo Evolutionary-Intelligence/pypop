@@ -48,7 +48,11 @@ class Optimizer(object):
             self.record_options['record_fitness'] = False
         if self.record_options.get('frequency_record_fitness') is None:
             self.record_options['frequency_record_fitness'] = 1000
-        self.verbose_options = options.get('verbose_options')
+        self.verbose_options = options.get('verbose_options', {})
+        if self.verbose_options.get('verbose') is None:
+            self.verbose_options['verbose'] = True
+        if self.verbose_options.get('frequency_verbose') is None:
+            self.verbose_options['frequency_verbose'] = 10
 
         # auxiliary members
         self.Terminations = Terminations
