@@ -63,12 +63,15 @@ class SNES(NES):
 
     def optimize(self, fitness_function=None):
         self.start_time = time.time()
+        fitness = []  # store all fitness generated during evolution
         if fitness_function is not None:
             self.fitness_function = fitness_function
         s, mu, sigma, y = self.initialize()
         while True:
             # sample and evaluate offspring population
             s, y = self.iterate(s, mu, sigma, y)
+            if self.record_options['record_fitness']:
+                fitness.extend(y.tolist())
             termination_signal = self._check_terminations()
             if termination_signal[0]:
                 self.termination_signal = termination_signal[1]
@@ -76,8 +79,9 @@ class SNES(NES):
             g_mu, g_sigma = self._compute_gradients(s, y, fitness_shaping)
             mu, sigma = self._update_distribution(mu, sigma, g_mu, g_sigma)
             self.n_generations += 1
-            print('  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e}'.format(
-                self.n_generations, -self.best_so_far_y, np.min(y)))
+            self._print_verbose_info(y)
+        if self.record_options['record_fitness']:
+            self._compress_fitness(fitness[:self.n_function_evaluations])
         results = self._collect_results()
         results['mu'] = mu
         results['sigma'] = sigma
