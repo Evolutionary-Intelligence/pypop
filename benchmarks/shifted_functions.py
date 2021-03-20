@@ -182,3 +182,12 @@ def schwefel12(x, shift_vector=None):
     shift_vector = _load_shift_vector(schwefel12, x, shift_vector)
     y = base_functions.schwefel12(x - shift_vector)
     return y
+
+
+class Schwefel12(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = "schwefel12"
+
+    def __call__(self, x, shift_vector=None):
+        return schwefel12(x, shift_vector)
