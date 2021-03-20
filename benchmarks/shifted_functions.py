@@ -176,3 +176,9 @@ class Rosenbrock(BaseFunction):
 
     def __call__(self, x, shift_vector=None):
         return rosenbrock(x, shift_vector)
+
+
+def schwefel12(x, shift_vector=None):
+    shift_vector = _load_shift_vector(schwefel12, x, shift_vector)
+    y = base_functions.schwefel12(x - shift_vector)
+    return y
