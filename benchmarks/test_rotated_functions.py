@@ -2,7 +2,8 @@ import unittest
 import os
 import numpy as np
 
-from benchmarks.rotated_functions import _generate_rotation_matrix
+from benchmarks.base_functions import sphere as base_sphere
+from benchmarks.rotated_functions import _generate_rotation_matrix, _load_rotation_matrix
 
 
 # helper function
@@ -27,6 +28,15 @@ class Test(unittest.TestCase):
         data_path = os.path.join(data_folder, 'rotation_matrix_' + func + '_dim_' + str(ndim) + '.txt')
         x = np.loadtxt(data_path)
         self.assertTrue(_check_rotation_matrix(x))
+
+    def test_load_rotation_matrix(self):
+        func, ndim, seed = base_sphere, 2, 1
+        _generate_rotation_matrix(func, ndim, seed)
+        rotation_matrix = [[7.227690004350708630e-01, 6.910896989610599839e-01],
+                           [6.910896989610598729e-01, -7.227690004350709740e-01]]
+        self.assertTrue(np.allclose(_load_rotation_matrix(func, np.ones(ndim,)), rotation_matrix))
+        rotation_matrix = np.eye(ndim)
+        self.assertTrue(np.allclose(_load_rotation_matrix(func, np.ones(ndim,), rotation_matrix), rotation_matrix))
 
 
 if __name__ == '__main__':

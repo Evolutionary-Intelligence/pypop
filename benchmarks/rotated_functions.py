@@ -1,6 +1,8 @@
 import os
 import numpy as np
 
+from benchmarks.base_functions import _squeeze_and_check
+
 
 # helper functions
 def _generate_rotation_matrix(func, ndim, seed):
@@ -25,4 +27,26 @@ def _generate_rotation_matrix(func, ndim, seed):
             rotation_matrix[:, i] -= np.dot(rotation_matrix[:, i], rotation_matrix[:, j]) * rotation_matrix[:, j]
         rotation_matrix[:, i] /= np.linalg.norm(rotation_matrix[:, i])
     np.savetxt(data_path, rotation_matrix)
+    return rotation_matrix
+
+
+def _load_rotation_matrix(func, x, rotation_matrix=None):
+    """Load the rotation matrix which needs to be generated in advance.
+        When `None`, the rotation matrix should have been generated and stored in txt form in advance.
+
+    :param func: function name, a `function` object.
+    :param x: decision vector, array_like of floats.
+    :param rotation_matrix: rotation matrix, array_like of floats.
+    :return: rotation matrix, a 2-d `ndarray` of `dtype` `np.float64`, whose shape is `(x.size, x.size)`.
+    """
+    x = _squeeze_and_check(x)
+    if rotation_matrix is None:
+        if (not hasattr(func, 'pypop_rotation_matrix')) or (func.pypop_rotation_matrix.shape != (x.size, x.size)):
+            data_folder = 'pypop_benchmarks_input_data'
+            data_path = os.path.join(data_folder, 'rotation_matrix_' + func.__name__ + '_dim_' + str(x.size) + '.txt')
+            rotation_matrix = np.loadtxt(data_path)
+            func.pypop_rotation_matrix = rotation_matrix
+        rotation_matrix = func.pypop_rotation_matrix
+    if rotation_matrix.shape != (x.size, x.size):
+        raise TypeError(f'rotation matrix should have shape: {(x.size, x.size)}.')
     return rotation_matrix
