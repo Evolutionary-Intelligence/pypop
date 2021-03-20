@@ -10,10 +10,10 @@ def _generate_rotation_matrix(func, ndim, seed):
 
         Note that the generated rotation matrix will be automatically stored in txt form for further use.
 
-        :param func: function name, a `str` or `function` object.
-        :param ndim: number of dimensions of the rotation matrix, an `int` scalar.
-        :param seed: seed for random number generator, a `int` scalar.
-        :return: rotation matrix, a [`ndim` * `ndim`] ndarray.
+    :param func: function name, a `str` or `function` object.
+    :param ndim: number of dimensions of the rotation matrix, an `int` scalar.
+    :param seed: seed for random number generator, a `int` scalar.
+    :return: rotation matrix, a [`ndim` * `ndim`] ndarray.
     """
     if hasattr(func, '__call__'):
         func = func.__name__
