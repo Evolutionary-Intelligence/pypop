@@ -13,12 +13,12 @@ def _generate_rotation_matrix(func, ndim, seed):
         :param seed: seed for random number generator, a `int` scalar.
         :return: rotation matrix, a [`ndim` * `ndim`] ndarray.
     """
-    if hasattr(func, "__call__"):
+    if hasattr(func, '__call__'):
         func = func.__name__
-    data_folder = "pypop_benchmarks_input_data"
+    data_folder = 'pypop_benchmarks_input_data'
     if not os.path.exists(data_folder):
         os.mkdir(data_folder)
-    data_path = os.path.join(data_folder, "rotation_matrix_" + func + "_dim_" + str(ndim) + ".txt")
+    data_path = os.path.join(data_folder, 'rotation_matrix_' + func + '_dim_' + str(ndim) + '.txt')
     rotation_matrix = np.random.default_rng(seed).standard_normal(size=(ndim, ndim))
     for i in range(ndim):
         for j in range(i):
