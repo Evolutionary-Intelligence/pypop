@@ -1,6 +1,7 @@
 import os
 import numpy as np
 
+from benchmarks import base_functions
 from benchmarks.base_functions import _squeeze_and_check
 
 
@@ -45,8 +46,16 @@ def _load_rotation_matrix(func, x, rotation_matrix=None):
             data_folder = 'pypop_benchmarks_input_data'
             data_path = os.path.join(data_folder, 'rotation_matrix_' + func.__name__ + '_dim_' + str(x.size) + '.txt')
             rotation_matrix = np.loadtxt(data_path)
+            if rotation_matrix.size == 1:
+                rotation_matrix = np.array([[float(rotation_matrix)]])
             func.pypop_rotation_matrix = rotation_matrix
         rotation_matrix = func.pypop_rotation_matrix
     if rotation_matrix.shape != (x.size, x.size):
         raise TypeError(f'rotation matrix should have shape: {(x.size, x.size)}.')
     return rotation_matrix
+
+
+def sphere(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(sphere, x, rotation_matrix)
+    y = base_functions.sphere(np.dot(rotation_matrix, x))
+    return y
