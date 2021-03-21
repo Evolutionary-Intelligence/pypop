@@ -65,3 +65,9 @@ def cigar(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(cigar, x, rotation_matrix)
     y = base_functions.cigar(np.dot(rotation_matrix, x))
     return y
+
+
+def discus(x, rotation_matrix=None):  # also called tablet
+    rotation_matrix = _load_rotation_matrix(discus, x, rotation_matrix)
+    y = base_functions.discus(np.dot(rotation_matrix, x))
+    return y
