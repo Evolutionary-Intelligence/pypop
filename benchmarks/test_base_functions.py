@@ -75,7 +75,7 @@ class Sample(object):
                  [-7, 6, 5, 4, 3, 2, -1],
                  [0, 1, 2, 3, 4, 5, 6]]
         else:
-            raise TypeError("The number of dimensions should >=1 and <= 7.")
+            raise TypeError('The number of dimensions should >=1 and <= 7.')
         return np.array(x, dtype=np.float64)
 
     def compare_func_values(self, func, ndim, y_true, atol=1e-08):
@@ -103,11 +103,11 @@ class TestBaseFunctions(unittest.TestCase):
         x2 = np.array([0.0, 1.0])
         self.assertTrue(np.allclose(_squeeze_and_check(x2), x2))
         x3 = np.arange(6).reshape(2, 3)
-        with self.assertRaisesRegex(TypeError, "The number+"):
+        with self.assertRaisesRegex(TypeError, 'The number+'):
             _squeeze_and_check(x3)
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             _squeeze_and_check(x1, True)
-        with self.assertRaisesRegex(TypeError, "the size should != 0."):
+        with self.assertRaisesRegex(TypeError, 'the size should != 0.'):
             _squeeze_and_check([])
 
     def test_sphere(self):
@@ -159,7 +159,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(cigar, 6, x6))
         x7 = [0, 6000001, 6000001, 6000001, 139000001, 139000001, 91000049, 91000000]
         self.assertTrue(sample.compare_func_values(cigar, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(cigar, 1, np.empty((5,)))
 
     def test_Cigar(self):
@@ -177,7 +177,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(cigar_object, 6, x6))
         x7 = [0, 6000001, 6000001, 6000001, 139000001, 139000001, 91000049, 91000000]
         self.assertTrue(sample.compare_func_values(cigar_object, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(cigar_object, 1, np.empty((5,)))
 
     def test_discus(self):
@@ -194,7 +194,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(discus, 6, x6))
         x7 = [0, 1000006, 1000006, 1000006, 1000139, 1000139, 49000091, 91]
         self.assertTrue(sample.compare_func_values(discus, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(discus, 1, np.empty((5,)))
 
     def test_Discus(self):
@@ -212,7 +212,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(discus_object, 6, x6))
         x7 = [0, 1000006, 1000006, 1000006, 1000139, 1000139, 49000091, 91]
         self.assertTrue(sample.compare_func_values(discus_object, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(discus_object, 1, np.empty((5,)))
 
     def test_cigar_discus(self):
@@ -229,7 +229,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(cigar_discus, 6, x6))
         x7 = [0, 1050001, 1050001, 1050001, 49900001, 49900001, 1900049, 36550000]
         self.assertTrue(sample.compare_func_values(cigar_discus, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(cigar_discus, 1, np.empty((5,)))
 
     def test_CigarDiscus(self):
@@ -247,7 +247,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(cigar_discus_object, 6, x6))
         x7 = [0, 1050001, 1050001, 1050001, 49900001, 49900001, 1900049, 36550000]
         self.assertTrue(sample.compare_func_values(cigar_discus_object, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(cigar_discus_object, 1, np.empty((5,)))
 
     def test_ellipsoid(self):
@@ -264,7 +264,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(ellipsoid, 6, x6))
         x7 = [0, 1111111, 1111111, 1111111, 52866941, 52866941, 1508909, 38669410]
         self.assertTrue(sample.compare_func_values(ellipsoid, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(ellipsoid, 1, np.empty((5,)))
 
     def test_Ellipsoid(self):
@@ -282,7 +282,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(ellipsoid_object, 6, x6))
         x7 = [0, 1111111, 1111111, 1111111, 52866941, 52866941, 1508909, 38669410]
         self.assertTrue(sample.compare_func_values(ellipsoid_object, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(ellipsoid_object, 1, np.empty((5,)))
 
     def test_different_powers(self):
@@ -299,7 +299,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(different_powers, 6, x6, 0.1))
         x7 = [0, 7, 7, 7, 133908.7, 133908.7, 847.4, 52736.8]
         self.assertTrue(sample.compare_func_values(different_powers, 7, x7, 0.1))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(different_powers, 1, np.empty((5,)))
 
     def test_DifferentPowers(self):
@@ -317,7 +317,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(different_powers_object, 6, x6, 0.1))
         x7 = [0, 7, 7, 7, 133908.7, 133908.7, 847.4, 52736.8]
         self.assertTrue(sample.compare_func_values(different_powers_object, 7, x7, 0.1))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(different_powers_object, 1, np.empty((5,)))
 
     def test_schwefel221(self):
@@ -369,7 +369,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(rosenbrock, 6, x6))
         x7 = [6, 0, 2424, 1208, 135055, 210303, 349519, 51031]
         self.assertTrue(sample.compare_func_values(rosenbrock, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(rosenbrock, 1, np.empty((5,)))
 
     def test_Rosenbrock(self):
@@ -387,7 +387,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(rosenbrock_object, 6, x6))
         x7 = [6, 0, 2424, 1208, 135055, 210303, 349519, 51031]
         self.assertTrue(sample.compare_func_values(rosenbrock_object, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(rosenbrock_object, 1, np.empty((5,)))
 
     def test_schwefel12(self):
@@ -404,7 +404,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(schwefel12, 6, x6))
         x7 = [0, 140, 140, 8, 1596, 44, 564, 812]
         self.assertTrue(sample.compare_func_values(schwefel12, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(schwefel12, 1, np.empty((5,)))
 
     def test_Schwefel12(self):
@@ -422,7 +422,7 @@ class TestBaseFunctions(unittest.TestCase):
         self.assertTrue(sample.compare_func_values(schwefel12_object, 6, x6))
         x7 = [0, 140, 140, 8, 1596, 44, 564, 812]
         self.assertTrue(sample.compare_func_values(schwefel12_object, 7, x7))
-        with self.assertRaisesRegex(TypeError, "The size should > 1+"):
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare_func_values(schwefel12_object, 1, np.empty((5,)))
 
 
