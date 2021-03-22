@@ -83,3 +83,9 @@ def ellipsoid(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(ellipsoid, x, rotation_matrix)
     y = base_functions.ellipsoid(np.dot(rotation_matrix, x))
     return y
+
+
+def different_powers(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(different_powers, x, rotation_matrix)
+    y = base_functions.different_powers(np.dot(rotation_matrix, x))
+    return y
