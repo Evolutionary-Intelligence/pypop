@@ -3,7 +3,8 @@ import os
 import numpy as np
 
 from benchmarks.base_functions import sphere as base_sphere
-from benchmarks.rotated_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers
+from benchmarks.rotated_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
+    schwefel221
 from benchmarks.rotated_functions import _generate_rotation_matrix, _load_rotation_matrix
 from benchmarks.test_base_functions import Sample
 
@@ -177,6 +178,25 @@ class Test(unittest.TestCase):
         self.assertTrue(rotated_sample.compare_rotated_func_values(different_powers, 7, x7, 0.1))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_sample.compare_rotated_func_values(different_powers, 1, np.empty((5,)))
+
+    def test_schwefel221(self):
+        for ndim in range(1, 8):
+            _generate_rotation_matrix(schwefel221, ndim, 2)
+        rotated_sample = RotatedSample()
+        x1 = [2, 1, 0, 1, 2]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221, 1, x1))
+        x2 = [2, 1, 0, 1, 2]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221, 2, x2))
+        x3 = [2, 1, 0, 1, 2]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221, 3, x3))
+        x4 = [0, 1, 1, 1, 4, 4, 4]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221, 4, x4))
+        x5 = [0, 1, 1, 1, 5, 5, 5]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221, 5, x5))
+        x6 = [0, 1, 1, 1, 6, 6, 6]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221, 6, x6))
+        x7 = [0, 1, 1, 1, 7, 7, 7, 6]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221, 7, x7))
 
 
 if __name__ == '__main__':
