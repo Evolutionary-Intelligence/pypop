@@ -77,3 +77,9 @@ def cigar_discus(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(cigar_discus, x, rotation_matrix)
     y = base_functions.cigar_discus(np.dot(rotation_matrix, x))
     return y
+
+
+def ellipsoid(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(ellipsoid, x, rotation_matrix)
+    y = base_functions.ellipsoid(np.dot(rotation_matrix, x))
+    return y
