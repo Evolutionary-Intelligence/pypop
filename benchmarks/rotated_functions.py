@@ -101,3 +101,9 @@ def rosenbrock(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(rosenbrock, x, rotation_matrix)
     y = base_functions.rosenbrock(np.dot(rotation_matrix, x))
     return y
+
+
+def schwefel12(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(schwefel12, x, rotation_matrix)
+    y = base_functions.schwefel12(np.dot(rotation_matrix, x))
+    return y
