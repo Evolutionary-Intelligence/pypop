@@ -71,3 +71,9 @@ def discus(x, rotation_matrix=None):  # also called tablet
     rotation_matrix = _load_rotation_matrix(discus, x, rotation_matrix)
     y = base_functions.discus(np.dot(rotation_matrix, x))
     return y
+
+
+def cigar_discus(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(cigar_discus, x, rotation_matrix)
+    y = base_functions.cigar_discus(np.dot(rotation_matrix, x))
+    return y
