@@ -21,14 +21,14 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
     x, y, z = _generate_xyz(func, x, y, num)
     if levels is None:
         plt.contourf(x, y, z, cmap=plt.cm.cool)
-        plt.contour(x, y, z, colors="white")
+        plt.contour(x, y, z, colors='white')
     else:
         plt.contourf(x, y, z, levels, cmap=plt.cm.cool)
-        c = plt.contour(x, y, z, levels, colors="white")
-        plt.clabel(c, inline=True, fontsize=12, colors="white")
+        c = plt.contour(x, y, z, levels, colors='white')
+        plt.clabel(c, inline=True, fontsize=12, colors='white')
     plt.title(func.__name__)
-    plt.xlabel("x")
-    plt.ylabel("y")
+    plt.xlabel('x')
+    plt.ylabel('y')
     if is_save:
-        plt.savefig(func.__name__ + "_contour.png")
+        plt.savefig(func.__name__ + '_contour.png')
     plt.show()
