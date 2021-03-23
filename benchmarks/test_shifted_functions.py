@@ -5,7 +5,7 @@ from base_functions import sphere as base_sphere
 from shifted_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers, schwefel221,\
     rosenbrock, schwefel12,\
     Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221, Rosenbrock, Schwefel12
-from shifted_functions import _generate_shift_vector, _load_shift_vector
+from shifted_functions import generate_shift_vector, _load_shift_vector
 from test_base_functions import Sample
 
 
@@ -34,19 +34,19 @@ class ShiftedSample(Sample):
 
 class TestShiftedFunctions(unittest.TestCase):
     def test_generate_shift_vector(self):
-        shift_vector = _generate_shift_vector('sphere', 2, -5, 10, 0)
+        shift_vector = generate_shift_vector('sphere', 2, -5, 10, 0)
         self.assertEqual(shift_vector.size, 2)
         self.assertTrue(np.all(shift_vector >= -5))
         self.assertTrue(np.all(shift_vector < 10))
         self.assertTrue(np.allclose(shift_vector, [4.554425309821814594e+00, -9.531992935419451030e-01]))
 
-        shift_vector = _generate_shift_vector(base_sphere, 2, [-1, -2], [1, 2], 0)
+        shift_vector = generate_shift_vector(base_sphere, 2, [-1, -2], [1, 2], 0)
         self.assertEqual(shift_vector.size, 2)
         self.assertTrue(np.all(shift_vector >= [-1, -2]))
         self.assertTrue(np.all(shift_vector < [1, 2]))
         self.assertTrue(np.allclose(shift_vector, [2.739233746429086125e-01, -9.208531449445187533e-01]))
 
-        shift_vector = _generate_shift_vector(base_sphere, 1, -100, 100, 7)
+        shift_vector = generate_shift_vector(base_sphere, 1, -100, 100, 7)
         self.assertEqual(shift_vector.size, 1)
         self.assertTrue(np.all(shift_vector >= -100))
         self.assertTrue(np.all(shift_vector < 100))
@@ -54,11 +54,11 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_load_shift_vector(self):
         func = base_sphere
-        _generate_shift_vector(func, 2, [-1, -2], [1, 2], 0)
+        generate_shift_vector(func, 2, [-1, -2], [1, 2], 0)
         shift_vector = _load_shift_vector(func, [0, 0])
         self.assertTrue(np.allclose(shift_vector, [2.739233746429086125e-01, -9.208531449445187533e-01]))
 
-        _generate_shift_vector(func, 3, -100, 100, 7)
+        generate_shift_vector(func, 3, -100, 100, 7)
         shift_vector = _load_shift_vector(func, [0, 0, 0])
         self.assertTrue(np.allclose(shift_vector,
                                     [2.501909332093339344e+01, 7.944276019391509180e+01, 5.513713804903869686e+01]))
@@ -68,7 +68,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_sphere(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(sphere, ndim, -100, 100, seed=0)
+            generate_shift_vector(sphere, ndim, -100, 100, seed=0)
         shifted_sample = ShiftedSample()
         x1 = [4, 1, 0, 1, 4]
         self.assertTrue(shifted_sample.compare_shifted_func_values(sphere, 1, x1))
@@ -88,7 +88,7 @@ class TestShiftedFunctions(unittest.TestCase):
     def test_Sphere(self):
         sphere_object = Sphere()
         for ndim in range(1, 8):
-            _generate_shift_vector(sphere, ndim, -100, 100, seed=0)
+            generate_shift_vector(sphere, ndim, -100, 100, seed=0)
         shifted_sample = ShiftedSample()
         x1 = [4, 1, 0, 1, 4]
         self.assertTrue(shifted_sample.compare_shifted_func_values(sphere_object, 1, x1))
@@ -107,7 +107,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_cigar(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(cigar, ndim, -100, 100, seed=1)
+            generate_shift_vector(cigar, ndim, -100, 100, seed=1)
         shifted_sample = ShiftedSample()
         x2 = [4000004, 1000001, 0, 1000001, 4000004]
         self.assertTrue(shifted_sample.compare_shifted_func_values(cigar, 2, x2))
@@ -127,7 +127,7 @@ class TestShiftedFunctions(unittest.TestCase):
     def test_Cigar(self):
         cigar_object = Cigar()
         for ndim in range(1, 8):
-            _generate_shift_vector(cigar, ndim, -100, 100, seed=1)
+            generate_shift_vector(cigar, ndim, -100, 100, seed=1)
         shifted_sample = ShiftedSample()
         x2 = [4000004, 1000001, 0, 1000001, 4000004]
         self.assertTrue(shifted_sample.compare_shifted_func_values(cigar_object, 2, x2))
@@ -146,7 +146,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_discus(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(discus, ndim, -100, 100, seed=2)
+            generate_shift_vector(discus, ndim, -100, 100, seed=2)
         shifted_sample = ShiftedSample()
         x2 = [4000004, 1000001, 0, 1000001, 4000004]
         self.assertTrue(shifted_sample.compare_shifted_func_values(discus, 2, x2))
@@ -166,7 +166,7 @@ class TestShiftedFunctions(unittest.TestCase):
     def test_Discus(self):
         discus_object = Discus()
         for ndim in range(1, 8):
-            _generate_shift_vector(discus, ndim, -100, 100, seed=2)
+            generate_shift_vector(discus, ndim, -100, 100, seed=2)
         shifted_sample = ShiftedSample()
         x2 = [4000004, 1000001, 0, 1000001, 4000004]
         self.assertTrue(shifted_sample.compare_shifted_func_values(discus_object, 2, x2))
@@ -185,7 +185,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_cigar_discus(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(cigar_discus, ndim, -100, 100, seed=3)
+            generate_shift_vector(cigar_discus, ndim, -100, 100, seed=3)
         shifted_sample = ShiftedSample()
         x2 = [4080004, 1020001, 0, 1020001, 4080004]
         self.assertTrue(shifted_sample.compare_shifted_func_values(cigar_discus, 2, x2))
@@ -204,7 +204,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_CigarDiscus(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(cigar_discus, ndim, -100, 100, seed=3)
+            generate_shift_vector(cigar_discus, ndim, -100, 100, seed=3)
         cigar_discus_object = CigarDiscus()
         shifted_sample = ShiftedSample()
         x2 = [4080004, 1020001, 0, 1020001, 4080004]
@@ -224,7 +224,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_ellipsoid(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(ellipsoid, ndim, -100, 100, seed=4)
+            generate_shift_vector(ellipsoid, ndim, -100, 100, seed=4)
         shifted_sample = ShiftedSample()
         x2 = [4000004, 1000001, 0, 1000001, 4000004]
         self.assertTrue(shifted_sample.compare_shifted_func_values(ellipsoid, 2, x2))
@@ -243,7 +243,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_Ellipsoid(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(ellipsoid, ndim, -100, 100, seed=4)
+            generate_shift_vector(ellipsoid, ndim, -100, 100, seed=4)
         ellipsoid_object = Ellipsoid()
         shifted_sample = ShiftedSample()
         x2 = [4000004, 1000001, 0, 1000001, 4000004]
@@ -263,7 +263,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_different_powers(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(different_powers, ndim, -100, 100, seed=5)
+            generate_shift_vector(different_powers, ndim, -100, 100, seed=5)
         shifted_sample = ShiftedSample()
         x2 = [68, 2, 0, 2, 68]
         self.assertTrue(shifted_sample.compare_shifted_func_values(different_powers, 2, x2))
@@ -282,7 +282,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_DifferentPowers(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(different_powers, ndim, -100, 100, seed=5)
+            generate_shift_vector(different_powers, ndim, -100, 100, seed=5)
         different_powers_object = DifferentPowers()
         shifted_sample = ShiftedSample()
         x2 = [68, 2, 0, 2, 68]
@@ -302,7 +302,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_schwefel221(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(schwefel221, ndim, -100, 100, seed=6)
+            generate_shift_vector(schwefel221, ndim, -100, 100, seed=6)
         shifted_sample = ShiftedSample()
         x1 = [2, 1, 0, 1, 2]
         self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221, 1, x1))
@@ -321,7 +321,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_Schwefel221(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(schwefel221, ndim, -100, 100, seed=6)
+            generate_shift_vector(schwefel221, ndim, -100, 100, seed=6)
         schwefel221_object = Schwefel221()
         shifted_sample = ShiftedSample()
         x1 = [2, 1, 0, 1, 2]
@@ -341,7 +341,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_rosenbrock(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(rosenbrock, ndim, -100, 100, seed=7)
+            generate_shift_vector(rosenbrock, ndim, -100, 100, seed=7)
         shifted_sample = ShiftedSample()
         x2 = [409, 4, 1, 0, 401]
         self.assertTrue(shifted_sample.compare_shifted_func_values(rosenbrock, 2, x2))
@@ -360,7 +360,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_Rosenbrock(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(rosenbrock, ndim, -100, 100, seed=7)
+            generate_shift_vector(rosenbrock, ndim, -100, 100, seed=7)
         rosenbrock_object = Rosenbrock()
         shifted_sample = ShiftedSample()
         x2 = [409, 4, 1, 0, 401]
@@ -380,7 +380,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_schwefel12(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(schwefel12, ndim, -100, 100, seed=8)
+            generate_shift_vector(schwefel12, ndim, -100, 100, seed=8)
         shifted_sample = ShiftedSample()
         x2 = [4, 1, 0, 5, 20]
         self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel12, 2, x2))
@@ -399,7 +399,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_Schwefel12(self):
         for ndim in range(1, 8):
-            _generate_shift_vector(schwefel12, ndim, -100, 100, seed=8)
+            generate_shift_vector(schwefel12, ndim, -100, 100, seed=8)
         schwefel12_object = Schwefel12()
         shifted_sample = ShiftedSample()
         x2 = [4, 1, 0, 5, 20]

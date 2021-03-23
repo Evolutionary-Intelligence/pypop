@@ -6,7 +6,7 @@ from base_functions import _squeeze_and_check, BaseFunction
 
 
 # helper functions
-def _generate_shift_vector(func, ndim, low, high, seed=None):
+def generate_shift_vector(func, ndim, low, high, seed=None):
     """Generate a random shift vector of dimension `ndim`, sampled uniformly between
         `low` (inclusive) and `high` (exclusive).
 
