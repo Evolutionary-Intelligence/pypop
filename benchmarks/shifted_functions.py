@@ -22,12 +22,12 @@ def _generate_shift_vector(func, ndim, low, high, seed=None):
     https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html
     """
     low, high = _squeeze_and_check(low), _squeeze_and_check(high)
-    if hasattr(func, "__call__"):
+    if hasattr(func, '__call__'):
         func = func.__name__
-    data_folder = "pypop_benchmarks_input_data"
+    data_folder = 'pypop_benchmarks_input_data'
     if not os.path.exists(data_folder):
         os.mkdir(data_folder)
-    data_path = os.path.join(data_folder, "shift_vector_" + func + "_dim_" + str(ndim) + ".txt")
+    data_path = os.path.join(data_folder, 'shift_vector_' + func + '_dim_' + str(ndim) + '.txt')
     shift_vector = np.random.default_rng(seed).uniform(low, high, size=ndim)
     np.savetxt(data_path, shift_vector)
     return shift_vector
@@ -44,17 +44,17 @@ def _load_shift_vector(func, x, shift_vector=None):
     """
     x = _squeeze_and_check(x)
     if shift_vector is None:
-        if (not hasattr(func, "pypop_shift_vector")) or (func.pypop_shift_vector.size != x.size):
-            data_folder = "pypop_benchmarks_input_data"
-            data_path = os.path.join(data_folder, "shift_vector_" + func.__name__ + "_dim_" + str(x.size) + ".txt")
+        if (not hasattr(func, 'pypop_shift_vector')) or (func.pypop_shift_vector.size != x.size):
+            data_folder = 'pypop_benchmarks_input_data'
+            data_path = os.path.join(data_folder, 'shift_vector_' + func.__name__ + '_dim_' + str(x.size) + '.txt')
             shift_vector = np.loadtxt(data_path)
             func.pypop_shift_vector = shift_vector
         shift_vector = func.pypop_shift_vector
     shift_vector = _squeeze_and_check(shift_vector)
     if shift_vector.shape != x.shape:
-        raise TypeError("shift_vector should have the same shape as x.")
+        raise TypeError('shift_vector should have the same shape as x.')
     if shift_vector.size != x.size:
-        raise TypeError("shift_vector should have the same size as x.")
+        raise TypeError('shift_vector should have the same size as x.')
     return shift_vector
 
 
@@ -67,7 +67,7 @@ def sphere(x, shift_vector=None):
 class Sphere(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
-        self.__name__ = "sphere"
+        self.__name__ = 'sphere'
 
     def __call__(self, x, shift_vector=None):
         return sphere(x, shift_vector)
@@ -82,7 +82,7 @@ def cigar(x, shift_vector=None):
 class Cigar(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
-        self.__name__ = "cigar"
+        self.__name__ = 'cigar'
 
     def __call__(self, x, shift_vector=None):
         return cigar(x, shift_vector)
@@ -97,7 +97,7 @@ def discus(x, shift_vector=None):  # also called tablet
 class Discus(BaseFunction):  # also called Tablet
     def __init__(self):
         BaseFunction.__init__(self)
-        self.__name__ = "discus"
+        self.__name__ = 'discus'
 
     def __call__(self, x, shift_vector=None):
         return discus(x, shift_vector)
@@ -112,7 +112,7 @@ def cigar_discus(x, shift_vector=None):
 class CigarDiscus(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
-        self.__name__ = "cigar_discus"
+        self.__name__ = 'cigar_discus'
 
     def __call__(self, x, shift_vector=None):
         return cigar_discus(x, shift_vector)
@@ -127,7 +127,7 @@ def ellipsoid(x, shift_vector=None):
 class Ellipsoid(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
-        self.__name__ = "ellipsoid"
+        self.__name__ = 'ellipsoid'
 
     def __call__(self, x, shift_vector=None):
         return ellipsoid(x, shift_vector)
@@ -142,7 +142,7 @@ def different_powers(x, shift_vector=None):
 class DifferentPowers(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
-        self.__name__ = "different_powers"
+        self.__name__ = 'different_powers'
 
     def __call__(self, x, shift_vector=None):
         return different_powers(x, shift_vector)
@@ -157,7 +157,7 @@ def schwefel221(x, shift_vector=None):
 class Schwefel221(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
-        self.__name__ = "schwefel221"
+        self.__name__ = 'schwefel221'
 
     def __call__(self, x, shift_vector=None):
         return schwefel221(x, shift_vector)
@@ -172,7 +172,7 @@ def rosenbrock(x, shift_vector=None):
 class Rosenbrock(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
-        self.__name__ = "rosenbrock"
+        self.__name__ = 'rosenbrock'
 
     def __call__(self, x, shift_vector=None):
         return rosenbrock(x, shift_vector)
@@ -187,7 +187,7 @@ def schwefel12(x, shift_vector=None):
 class Schwefel12(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
-        self.__name__ = "schwefel12"
+        self.__name__ = 'schwefel12'
 
     def __call__(self, x, shift_vector=None):
         return schwefel12(x, shift_vector)
