@@ -6,7 +6,7 @@ from benchmarks.base_functions import _squeeze_and_check
 
 
 # helper functions
-def _generate_rotation_matrix(func, ndim, seed):
+def generate_rotation_matrix(func, ndim, seed):
     """Generate a random rotation matrix of dimension [`ndim` * `ndim`], sampled normally.
 
         Note that the generated rotation matrix will be automatically stored in txt form for further use.

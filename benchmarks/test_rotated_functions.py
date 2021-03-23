@@ -5,7 +5,7 @@ import numpy as np
 from benchmarks.base_functions import sphere as base_sphere
 from benchmarks.rotated_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
     schwefel221, rosenbrock, schwefel12
-from benchmarks.rotated_functions import _generate_rotation_matrix, _load_rotation_matrix
+from benchmarks.rotated_functions import generate_rotation_matrix, _load_rotation_matrix
 from benchmarks.test_base_functions import Sample
 
 
@@ -49,7 +49,7 @@ class RotatedSample(Sample):
 class Test(unittest.TestCase):
     def test_generate_rotation_matrix(self):
         func, ndim, seed = 'sphere', 100, 0
-        x = _generate_rotation_matrix(func, ndim, seed)
+        x = generate_rotation_matrix(func, ndim, seed)
         self.assertTrue(_check_rotation_matrix(x))
         data_folder = 'pypop_benchmarks_input_data'
         data_path = os.path.join(data_folder, 'rotation_matrix_' + func + '_dim_' + str(ndim) + '.txt')
@@ -58,7 +58,7 @@ class Test(unittest.TestCase):
 
     def test_load_rotation_matrix(self):
         func, ndim, seed = base_sphere, 2, 1
-        _generate_rotation_matrix(func, ndim, seed)
+        generate_rotation_matrix(func, ndim, seed)
         rotation_matrix = [[7.227690004350708630e-01, 6.910896989610599839e-01],
                            [6.910896989610598729e-01, -7.227690004350709740e-01]]
         self.assertTrue(np.allclose(_load_rotation_matrix(func, np.ones(ndim,)), rotation_matrix))
@@ -67,7 +67,7 @@ class Test(unittest.TestCase):
 
     def test_sphere(self):
         for ndim in range(1, 8):
-            _generate_rotation_matrix(sphere, ndim, 0)
+            generate_rotation_matrix(sphere, ndim, 0)
         rotated_sample = RotatedSample()
         x1 = [4, 1, 0, 1, 4]
         self.assertTrue(rotated_sample.compare_rotated_func_values(sphere, 1, x1))
@@ -86,7 +86,7 @@ class Test(unittest.TestCase):
 
     def test_cigar(self):
         for ndim in range(1, 8):
-            _generate_rotation_matrix(cigar, ndim, 1)
+            generate_rotation_matrix(cigar, ndim, 1)
         rotated_sample = RotatedSample()
         x2 = [4000004, 1000001, 0, 1000001, 4000004]
         self.assertTrue(rotated_sample.compare_rotated_func_values(cigar, 2, x2))
@@ -105,7 +105,7 @@ class Test(unittest.TestCase):
 
     def test_discus(self):
         for ndim in range(1, 8):
-            _generate_rotation_matrix(discus, ndim, 2)
+            generate_rotation_matrix(discus, ndim, 2)
         rotated_sample = RotatedSample()
         x2 = [4000004, 1000001, 0, 1000001, 4000004]
         self.assertTrue(rotated_sample.compare_rotated_func_values(discus, 2, x2))
@@ -124,7 +124,7 @@ class Test(unittest.TestCase):
 
     def test_cigar_discus(self):
         for ndim in range(1, 8):
-            _generate_rotation_matrix(cigar_discus, ndim, 2)
+            generate_rotation_matrix(cigar_discus, ndim, 2)
         rotated_sample = RotatedSample()
         x2 = [4080004, 1020001, 0, 1020001, 4080004]
         self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_discus, 2, x2))
@@ -143,7 +143,7 @@ class Test(unittest.TestCase):
 
     def test_ellipsoid(self):
         for ndim in range(1, 8):
-            _generate_rotation_matrix(ellipsoid, ndim, 2)
+            generate_rotation_matrix(ellipsoid, ndim, 2)
         rotated_sample = RotatedSample()
         x2 = [4000004, 1000001, 0, 1000001, 4000004]
         self.assertTrue(rotated_sample.compare_rotated_func_values(ellipsoid, 2, x2))
@@ -162,7 +162,7 @@ class Test(unittest.TestCase):
 
     def test_different_powers(self):
         for ndim in range(1, 8):
-            _generate_rotation_matrix(different_powers, ndim, 2)
+            generate_rotation_matrix(different_powers, ndim, 2)
         rotated_sample = RotatedSample()
         x2 = [68, 2, 0, 2, 68]
         self.assertTrue(rotated_sample.compare_rotated_func_values(different_powers, 2, x2))
@@ -181,7 +181,7 @@ class Test(unittest.TestCase):
 
     def test_schwefel221(self):
         for ndim in range(1, 8):
-            _generate_rotation_matrix(schwefel221, ndim, 2)
+            generate_rotation_matrix(schwefel221, ndim, 2)
         rotated_sample = RotatedSample()
         x1 = [2, 1, 0, 1, 2]
         self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221, 1, x1))
@@ -200,7 +200,7 @@ class Test(unittest.TestCase):
 
     def test_rosenbrock(self):
         for ndim in range(1, 8):
-            _generate_rotation_matrix(rosenbrock, ndim, 2)
+            generate_rotation_matrix(rosenbrock, ndim, 2)
         rotated_sample = RotatedSample()
         x2 = [409, 4, 1, 0, 401]
         self.assertTrue(rotated_sample.compare_rotated_func_values(rosenbrock, 2, x2))
@@ -219,7 +219,7 @@ class Test(unittest.TestCase):
 
     def test_schwefel12(self):
         for ndim in range(1, 8):
-            _generate_rotation_matrix(schwefel12, ndim, 2)
+            generate_rotation_matrix(schwefel12, ndim, 2)
         rotated_sample = RotatedSample()
         x2 = [4, 1, 0, 5, 20]
         self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel12, 2, x2))
