@@ -1,8 +1,8 @@
 import numpy as np
 
 import base_functions
-from shifted_functions import _load_shift_vector
-from rotated_functions import _load_rotation_matrix
+from benchmarks.shifted_functions import _load_shift_vector
+from benchmarks.rotated_functions import _load_rotation_matrix
 
 
 # helper functions
@@ -16,4 +16,11 @@ def sphere(x, shift_vector=None, rotation_matrix=None):
     shift_vector, rotation_matrix = _load_shift_and_rotation(sphere, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.sphere(x)
+    return y
+
+
+def cigar(x, shift_vector=None, rotation_matrix=None):
+    shift_vector, rotation_matrix = _load_shift_and_rotation(cigar, x, shift_vector, rotation_matrix)
+    x = np.dot(rotation_matrix, x - shift_vector)
+    y = base_functions.cigar(x)
     return y
