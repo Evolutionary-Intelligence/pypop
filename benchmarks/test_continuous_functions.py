@@ -5,7 +5,7 @@ from benchmarks.base_functions import sphere as base_sphere
 from benchmarks.shifted_functions import generate_shift_vector
 from benchmarks.rotated_functions import generate_rotation_matrix
 from benchmarks.continuous_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
-    schwefel221
+    schwefel221, rosenbrock
 from benchmarks.continuous_functions import _load_shift_and_rotation
 from benchmarks.test_base_functions import Sample
 
@@ -185,3 +185,23 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 6, x6))
         x7 = [0, 1, 1, 1, 7, 7, 7, 6]
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 7, x7))
+
+    def test_rosenbrock(self):
+        for ndim in range(1, 8):
+            generate_shift_vector(rosenbrock, ndim, -100, 100, seed=7)
+            generate_rotation_matrix(rosenbrock, ndim, 7)
+        rotated_shifted_sample = RotatedShiftedSample()
+        x2 = [409, 4, 1, 0, 401]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock, 2, x2))
+        x3 = [810, 4, 2, 400, 4002]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock, 3, x3))
+        x4 = [3, 0, 1212, 804, 2705, 17913, 24330]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock, 4, x4))
+        x5 = [4, 0, 1616, 808, 14814, 30038, 68450]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock, 5, x5))
+        x6 = [5, 0, 2020, 808, 50930, 126154, 164579]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock, 6, x6))
+        x7 = [6, 0, 2424, 1208, 135055, 210303, 349519, 51031]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock, 7, x7))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock, 1, np.empty((5,)))
