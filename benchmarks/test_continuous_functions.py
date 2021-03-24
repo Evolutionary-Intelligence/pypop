@@ -4,7 +4,8 @@ import numpy as np
 from benchmarks.base_functions import sphere as base_sphere
 from benchmarks.shifted_functions import generate_shift_vector
 from benchmarks.rotated_functions import generate_rotation_matrix
-from benchmarks.continuous_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers
+from benchmarks.continuous_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
+    schwefel221
 from benchmarks.continuous_functions import _load_shift_and_rotation
 from benchmarks.test_base_functions import Sample
 
@@ -164,3 +165,23 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(different_powers, 7, x7, 0.1))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_shifted_sample.compare_rotated_shifted_func_values(different_powers, 1, np.empty((5,)))
+
+    def test_schwefel221(self):
+        for ndim in range(1, 8):
+            generate_shift_vector(schwefel221, ndim, -100, 100, seed=6)
+            generate_rotation_matrix(schwefel221, ndim, 6)
+        rotated_shifted_sample = RotatedShiftedSample()
+        x1 = [2, 1, 0, 1, 2]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 1, x1))
+        x2 = [2, 1, 0, 1, 2]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 2, x2))
+        x3 = [2, 1, 0, 1, 2]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 3, x3))
+        x4 = [0, 1, 1, 1, 4, 4, 4]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 4, x4))
+        x5 = [0, 1, 1, 1, 5, 5, 5]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 5, x5))
+        x6 = [0, 1, 1, 1, 6, 6, 6]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 6, x6))
+        x7 = [0, 1, 1, 1, 7, 7, 7, 6]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 7, x7))
