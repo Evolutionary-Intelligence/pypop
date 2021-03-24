@@ -24,3 +24,10 @@ def cigar(x, shift_vector=None, rotation_matrix=None):
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.cigar(x)
     return y
+
+
+def discus(x, shift_vector=None, rotation_matrix=None):
+    shift_vector, rotation_matrix = _load_shift_and_rotation(discus, x, shift_vector, rotation_matrix)
+    x = np.dot(rotation_matrix, x - shift_vector)
+    y = base_functions.discus(x)
+    return y

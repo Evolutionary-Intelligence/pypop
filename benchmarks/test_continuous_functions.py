@@ -4,7 +4,7 @@ import numpy as np
 from benchmarks.base_functions import sphere as base_sphere
 from benchmarks.shifted_functions import generate_shift_vector
 from benchmarks.rotated_functions import generate_rotation_matrix
-from benchmarks.continuous_functions import sphere, cigar
+from benchmarks.continuous_functions import sphere, cigar, discus
 from benchmarks.continuous_functions import _load_shift_and_rotation
 from benchmarks.test_base_functions import Sample
 
@@ -84,3 +84,23 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(cigar, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_shifted_sample.compare_rotated_shifted_func_values(cigar, 1, np.empty((5,)))
+
+    def test_discus(self):
+        for ndim in range(1, 8):
+            generate_shift_vector(discus, ndim, -100, 100, seed=2)
+            generate_rotation_matrix(discus, ndim, 2)
+        rotated_shifted_sample = RotatedShiftedSample()
+        x2 = [4000004, 1000001, 0, 1000001, 4000004]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(discus, 2, x2))
+        x3 = [4000008, 1000002, 0, 1000002, 4000008]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(discus, 3, x3))
+        x4 = [0, 1000003, 1000003, 1000003, 1000029, 1000029, 16000014]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(discus, 4, x4))
+        x5 = [0, 1000004, 1000004, 1000004, 1000054, 1000054, 25000030]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(discus, 5, x5))
+        x6 = [0, 1000005, 1000005, 1000005, 1000090, 1000090, 36000055]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(discus, 6, x6))
+        x7 = [0, 1000006, 1000006, 1000006, 1000139, 1000139, 49000091, 91]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(discus, 7, x7))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            rotated_shifted_sample.compare_rotated_shifted_func_values(discus, 1, np.empty((5,)))
