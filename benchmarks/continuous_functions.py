@@ -38,3 +38,10 @@ def cigar_discus(x, shift_vector=None, rotation_matrix=None):
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.cigar_discus(x)
     return y
+
+
+def ellipsoid(x, shift_vector=None, rotation_matrix=None):
+    shift_vector, rotation_matrix = _load_shift_and_rotation(ellipsoid, x, shift_vector, rotation_matrix)
+    x = np.dot(rotation_matrix, x - shift_vector)
+    y = base_functions.ellipsoid(x)
+    return y
