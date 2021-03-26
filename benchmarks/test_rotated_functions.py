@@ -45,13 +45,13 @@ class RotatedSample(Sample):
             y[i] = func(np.dot(np.linalg.inv(rotation_matrix), x[i]))
         return np.allclose(y, y_true, atol=atol)
 
-    def check_origin(self, func):
+    def check_origin(self, func, n_samples=7):
         """Check the origin point at which the function value is zero via random sampling (test cases).
 
         :param func: rotated function, a function object.
+        :param n_samples: number of samples, an `int` scalar.
         :return: `True` if all function values computed on test cases are zeros; otherwise, `False`.
         """
-        n_samples = 7
         ndims = np.random.default_rng().integers(2, 1000, size=(n_samples,))
         self.ndim = ndims
         is_zero = True
