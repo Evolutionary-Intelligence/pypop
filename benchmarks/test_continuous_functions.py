@@ -1,4 +1,4 @@
-from unittest import TestCase
+import unittest
 import numpy as np
 
 from benchmarks.base_functions import sphere as base_sphere
@@ -35,8 +35,28 @@ class RotatedShiftedSample(Sample):
             y[i] = func(np.dot(np.linalg.inv(rotation_matrix), x[i]) + shift_vector)
         return np.allclose(y, y_true, atol=atol)
 
+    def check_origin(self, func, n_samples=7):
+        """Check the origin point at which the function value is zero via random sampling (test cases).
 
-class Test(TestCase):
+        :param func: rotated function, a function object.
+        :param n_samples: number of samples, an `int` scalar.
+        :return: `True` if all function values computed on test cases are zeros; otherwise, `False`.
+        """
+        ndims = np.random.default_rng().integers(2, 1000, size=(n_samples,))
+        self.ndim = ndims
+        is_zero = True
+        for d in ndims:
+            generate_shift_vector(func, d, -5 * np.ones((d,)), 7 * np.ones((d,)), d)
+            generate_rotation_matrix(func, d, d)
+            x = np.zeros((d,))
+            shift_vector, _ = _load_shift_and_rotation(func, x)
+            if np.abs(func(x + shift_vector)) > 1e-9:
+                is_zero = False
+                break
+        return is_zero
+
+
+class Test(unittest.TestCase):
     def test_load_shift_and_rotation(self):
         func, ndim, seed = base_sphere, 2, 1
         generate_shift_vector(func, 2, [-1, -2], [1, 2], 0)
@@ -65,6 +85,7 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(sphere, 6, x6))
         x7 = [0, 7, 7, 7, 140, 140, 140, 91]
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(sphere, 7, x7))
+        self.assertTrue(rotated_shifted_sample.check_origin(sphere))
 
     def test_cigar(self):
         for ndim in range(1, 8):
@@ -85,6 +106,7 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(cigar, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_shifted_sample.compare_rotated_shifted_func_values(cigar, 1, np.empty((5,)))
+        self.assertTrue(rotated_shifted_sample.check_origin(cigar))
 
     def test_discus(self):
         for ndim in range(1, 8):
@@ -105,6 +127,7 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(discus, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_shifted_sample.compare_rotated_shifted_func_values(discus, 1, np.empty((5,)))
+        self.assertTrue(rotated_shifted_sample.check_origin(discus))
 
     def test_cigar_discus(self):
         for ndim in range(1, 8):
@@ -125,6 +148,7 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(cigar_discus, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_shifted_sample.compare_rotated_shifted_func_values(cigar_discus, 1, np.empty((5,)))
+        self.assertTrue(rotated_shifted_sample.check_origin(cigar_discus))
 
     def test_ellipsoid(self):
         for ndim in range(1, 8):
@@ -145,6 +169,7 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(ellipsoid, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_shifted_sample.compare_rotated_shifted_func_values(ellipsoid, 1, np.empty((5,)))
+        self.assertTrue(rotated_shifted_sample.check_origin(ellipsoid))
 
     def test_different_powers(self):
         for ndim in range(1, 8):
@@ -165,6 +190,7 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(different_powers, 7, x7, 0.1))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_shifted_sample.compare_rotated_shifted_func_values(different_powers, 1, np.empty((5,)))
+        self.assertTrue(rotated_shifted_sample.check_origin(different_powers))
 
     def test_schwefel221(self):
         for ndim in range(1, 8):
@@ -185,6 +211,7 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 6, x6))
         x7 = [0, 1, 1, 1, 7, 7, 7, 6]
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel221, 7, x7))
+        self.assertTrue(rotated_shifted_sample.check_origin(schwefel221))
 
     def test_rosenbrock(self):
         for ndim in range(1, 8):
@@ -225,3 +252,8 @@ class Test(TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel12, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel12, 1, np.empty((5,)))
+        self.assertTrue(rotated_shifted_sample.check_origin(schwefel12))
+
+
+if __name__ == '__main__':
+    unittest.main()
