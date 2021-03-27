@@ -2,7 +2,7 @@ import os
 import numpy as np
 
 from benchmarks import base_functions
-from benchmarks.base_functions import _squeeze_and_check
+from benchmarks.base_functions import _squeeze_and_check, BaseFunction
 
 
 # helper functions
@@ -59,6 +59,15 @@ def sphere(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(sphere, x, rotation_matrix)
     y = base_functions.sphere(np.dot(rotation_matrix, x))
     return y
+
+
+class Sphere(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'sphere'
+
+    def __call__(self, x, rotation_matrix=None):
+        return sphere(x, rotation_matrix)
 
 
 def cigar(x, rotation_matrix=None):
