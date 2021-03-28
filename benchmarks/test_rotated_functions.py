@@ -5,7 +5,7 @@ import numpy as np
 from benchmarks.base_functions import sphere as base_sphere
 from benchmarks.rotated_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
     schwefel221, rosenbrock, schwefel12,\
-    Sphere
+    Sphere, Cigar
 from benchmarks.rotated_functions import generate_rotation_matrix, _load_rotation_matrix
 from benchmarks.test_base_functions import Sample
 
@@ -143,6 +143,27 @@ class Test(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_sample.compare_rotated_func_values(cigar, 1, np.empty((5,)))
         self.assertTrue(rotated_sample.check_origin(cigar))
+
+    def test_Cigar(self):
+        cigar_object = Cigar()
+        for ndim in range(1, 8):
+            generate_rotation_matrix(cigar, ndim, 1)
+        rotated_sample = RotatedSample()
+        x2 = [4000004, 1000001, 0, 1000001, 4000004]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_object, 2, x2))
+        x3 = [8000004, 2000001, 0, 2000001, 8000004]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_object, 3, x3))
+        x4 = [0, 3000001, 3000001, 3000001, 29000001, 29000001, 14000016]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_object, 4, x4))
+        x5 = [0, 4000001, 4000001, 4000001, 54000001, 54000001, 30000025]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_object, 5, x5))
+        x6 = [0, 5000001, 5000001, 5000001, 90000001, 90000001, 55000036]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_object, 6, x6))
+        x7 = [0, 6000001, 6000001, 6000001, 139000001, 139000001, 91000049, 91000000]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_object, 7, x7))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            rotated_sample.compare_rotated_func_values(cigar_object, 1, np.empty((5,)))
+        rotated_sample.check_origin(cigar_object)
 
     def test_discus(self):
         for ndim in range(1, 8):
