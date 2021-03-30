@@ -91,6 +91,15 @@ def discus(x, rotation_matrix=None):  # also called tablet
     return y
 
 
+class Discus(BaseFunction):  # also called Tablet
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'discus'
+
+    def __call__(self, x, rotation_matrix=None):
+        return discus(x, rotation_matrix)
+
+
 def cigar_discus(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(cigar_discus, x, rotation_matrix)
     y = base_functions.cigar_discus(np.dot(rotation_matrix, x))

@@ -5,7 +5,7 @@ import numpy as np
 from benchmarks.base_functions import sphere as base_sphere
 from benchmarks.rotated_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
     schwefel221, rosenbrock, schwefel12,\
-    Sphere, Cigar
+    Sphere, Cigar, Discus
 from benchmarks.rotated_functions import generate_rotation_matrix, _load_rotation_matrix
 from benchmarks.test_base_functions import Sample
 
@@ -184,6 +184,27 @@ class Test(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_sample.compare_rotated_func_values(discus, 1, np.empty((5,)))
         self.assertTrue(rotated_sample.check_origin(discus))
+
+    def test_Discus(self):
+        discus_object = Discus()
+        for ndim in range(1, 8):
+            generate_rotation_matrix(discus, ndim, 2)
+        rotated_sample = RotatedSample()
+        x2 = [4000004, 1000001, 0, 1000001, 4000004]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(discus_object, 2, x2))
+        x3 = [4000008, 1000002, 0, 1000002, 4000008]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(discus_object, 3, x3))
+        x4 = [0, 1000003, 1000003, 1000003, 1000029, 1000029, 16000014]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(discus_object, 4, x4))
+        x5 = [0, 1000004, 1000004, 1000004, 1000054, 1000054, 25000030]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(discus_object, 5, x5))
+        x6 = [0, 1000005, 1000005, 1000005, 1000090, 1000090, 36000055]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(discus_object, 6, x6))
+        x7 = [0, 1000006, 1000006, 1000006, 1000139, 1000139, 49000091, 91]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(discus_object, 7, x7))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            rotated_sample.compare_rotated_func_values(discus_object, 1, np.empty((5,)))
+        rotated_sample.check_origin(discus_object)
 
     def test_cigar_discus(self):
         for ndim in range(1, 8):
