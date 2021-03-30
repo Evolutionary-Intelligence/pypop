@@ -5,7 +5,7 @@ import numpy as np
 from benchmarks.base_functions import sphere as base_sphere
 from benchmarks.rotated_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
     schwefel221, rosenbrock, schwefel12,\
-    Sphere, Cigar, Discus
+    Sphere, Cigar, Discus, CigarDiscus
 from benchmarks.rotated_functions import generate_rotation_matrix, _load_rotation_matrix
 from benchmarks.test_base_functions import Sample
 
@@ -225,6 +225,27 @@ class Test(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_sample.compare_rotated_func_values(cigar_discus, 1, np.empty((5,)))
         self.assertTrue(rotated_sample.check_origin(cigar_discus))
+
+    def test_CigarDiscus(self):
+        cigar_discus_object = CigarDiscus()
+        for ndim in range(1, 8):
+            generate_rotation_matrix(cigar_discus, ndim, 2)
+        rotated_sample = RotatedSample()
+        x2 = [4080004, 1020001, 0, 1020001, 4080004]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_discus_object, 2, x2))
+        x3 = [4040004, 1010001, 0, 1010001, 4040004]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_discus_object, 3, x3))
+        x4 = [0, 1020001, 1020001, 1020001, 16130001, 16130001, 1130016]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_discus_object, 4, x4))
+        x5 = [0, 1030001, 1030001, 1030001, 25290001, 25290001, 1290025]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_discus_object, 5, x5))
+        x6 = [0, 1040001, 1040001, 1040001, 36540001, 36540001, 1540036]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_discus_object, 6, x6))
+        x7 = [0, 1050001, 1050001, 1050001, 49900001, 49900001, 1900049, 36550000]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(cigar_discus_object, 7, x7))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            rotated_sample.compare_rotated_func_values(cigar_discus_object, 1, np.empty((5,)))
+        rotated_sample.check_origin(cigar_discus_object)
 
     def test_ellipsoid(self):
         for ndim in range(1, 8):

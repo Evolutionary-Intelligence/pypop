@@ -106,6 +106,15 @@ def cigar_discus(x, rotation_matrix=None):
     return y
 
 
+class CigarDiscus(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'cigar_discus'
+
+    def __call__(self, x, rotation_matrix=None):
+        return cigar_discus(x, rotation_matrix)
+
+
 def ellipsoid(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(ellipsoid, x, rotation_matrix)
     y = base_functions.ellipsoid(np.dot(rotation_matrix, x))
