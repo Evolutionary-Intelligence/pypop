@@ -166,6 +166,15 @@ def rosenbrock(x, rotation_matrix=None):
     return y
 
 
+class Rosenbrock(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'rosenbrock'
+
+    def __call__(self, x, rotation_matrix=None):
+        return rosenbrock(x, rotation_matrix)
+
+
 def schwefel12(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(schwefel12, x, rotation_matrix)
     y = base_functions.schwefel12(np.dot(rotation_matrix, x))
