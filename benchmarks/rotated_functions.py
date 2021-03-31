@@ -136,6 +136,15 @@ def different_powers(x, rotation_matrix=None):
     return y
 
 
+class DifferentPowers(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'different_powers'
+
+    def __call__(self, x, rotation_matrix=None):
+        return different_powers(x, rotation_matrix)
+
+
 def schwefel221(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(schwefel221, x, rotation_matrix)
     y = base_functions.schwefel221(np.dot(rotation_matrix, x))
