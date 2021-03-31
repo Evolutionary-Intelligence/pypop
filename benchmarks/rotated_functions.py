@@ -121,6 +121,15 @@ def ellipsoid(x, rotation_matrix=None):
     return y
 
 
+class Ellipsoid(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'ellipsoid'
+
+    def __call__(self, x, rotation_matrix=None):
+        return ellipsoid(x, rotation_matrix)
+
+
 def different_powers(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(different_powers, x, rotation_matrix)
     y = base_functions.different_powers(np.dot(rotation_matrix, x))
