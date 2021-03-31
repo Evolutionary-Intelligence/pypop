@@ -26,7 +26,7 @@ class SNES(NES):
         s = np.empty((self.n_individuals, self.ndim_problem))  # samples (population)
         mu = self._initialize_mu()  # mean of Gaussian search distribution
         sigma = np.ones((self.ndim_problem,))  # individual step-sizes (std of Gaussian search distribution)
-        y = np.empty((self.n_individuals,))  # fitness
+        y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         return s, mu, sigma, y
 
     def iterate(self, s=None, mu=None, sigma=None, y=None):
