@@ -179,3 +179,12 @@ def schwefel12(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(schwefel12, x, rotation_matrix)
     y = base_functions.schwefel12(np.dot(rotation_matrix, x))
     return y
+
+
+class Schwefel12(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'schwefel12'
+
+    def __call__(self, x, rotation_matrix=None):
+        return schwefel12(x, rotation_matrix)
