@@ -5,7 +5,7 @@ import numpy as np
 from benchmarks.base_functions import sphere as base_sphere
 from benchmarks.rotated_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
     schwefel221, rosenbrock, schwefel12,\
-    Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers
+    Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221
 from benchmarks.rotated_functions import generate_rotation_matrix, _load_rotation_matrix
 from benchmarks.test_base_functions import Sample
 
@@ -331,7 +331,7 @@ class Test(unittest.TestCase):
 
     def test_schwefel221(self):
         for ndim in range(1, 8):
-            generate_rotation_matrix(schwefel221, ndim, 2)
+            generate_rotation_matrix(schwefel221, ndim, 6)
         rotated_sample = RotatedSample()
         x1 = [2, 1, 0, 1, 2]
         self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221, 1, x1))
@@ -348,6 +348,27 @@ class Test(unittest.TestCase):
         x7 = [0, 1, 1, 1, 7, 7, 7, 6]
         self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221, 7, x7))
         self.assertTrue(rotated_sample.check_origin(schwefel221))
+
+    def test_Schwefel221(self):
+        schwefel221_object = Schwefel221()
+        for ndim in range(1, 8):
+            generate_rotation_matrix(schwefel221, ndim, 6)
+        rotated_sample = RotatedSample()
+        x1 = [2, 1, 0, 1, 2]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221_object, 1, x1))
+        x2 = [2, 1, 0, 1, 2]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221_object, 2, x2))
+        x3 = [2, 1, 0, 1, 2]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221_object, 3, x3))
+        x4 = [0, 1, 1, 1, 4, 4, 4]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221_object, 4, x4))
+        x5 = [0, 1, 1, 1, 5, 5, 5]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221_object, 5, x5))
+        x6 = [0, 1, 1, 1, 6, 6, 6]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221_object, 6, x6))
+        x7 = [0, 1, 1, 1, 7, 7, 7, 6]
+        self.assertTrue(rotated_sample.compare_rotated_func_values(schwefel221_object, 7, x7))
+        rotated_sample.check_origin(schwefel221_object)
 
     def test_rosenbrock(self):
         for ndim in range(1, 8):
