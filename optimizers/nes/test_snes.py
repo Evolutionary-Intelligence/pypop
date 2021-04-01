@@ -1,6 +1,6 @@
 import unittest
-
 import numpy as np
+
 from benchmarks.base_functions import ellipsoid
 from snes import SNES
 
