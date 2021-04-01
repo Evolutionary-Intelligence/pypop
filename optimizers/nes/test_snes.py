@@ -1,11 +1,11 @@
-from unittest import TestCase
+import unittest
 
 import numpy as np
 from benchmarks.base_functions import ellipsoid
 from snes import SNES
 
 
-class TestSNES(TestCase):
+class TestSNES(unittest.TestCase):
     def test_run(self):
         ndim_problem = 1000
         problem = {'fitness_function': ellipsoid,
@@ -17,3 +17,7 @@ class TestSNES(TestCase):
         snes = SNES(problem, options)
         results = snes.optimize()
         print(results)
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -40,8 +40,8 @@ class SNES(NES):
             # evaluate fitness
             self.start_function_evaluations = time.time()
             y[k] = self.fitness_function(z)
-            self.n_function_evaluations += 1
             self.time_function_evaluations += time.time() - self.start_function_evaluations
+            self.n_function_evaluations += 1
             # update best-so-far solution and fitness
             if -y[k] > self.best_so_far_y:  # maximization
                 self.best_so_far_y = -y[k]
