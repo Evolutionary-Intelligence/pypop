@@ -80,7 +80,8 @@ class Optimizer(object):
             termination_signal = True, Terminations.FITNESS_THRESHOLD
         else:
             termination_signal = False, Terminations.NO_TERMINATION
-        return termination_signal
+        self.termination_signal = termination_signal[1]
+        return termination_signal[0]
 
     def _compress_fitness(self, fitness):
         fitness = np.array(fitness)
