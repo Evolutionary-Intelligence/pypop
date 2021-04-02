@@ -76,9 +76,7 @@ class PRS(Optimizer):
             if self.record_options['record_fitness']:
                 fitness.append(float(y))
             self._print_verbose_info()
-            termination_signal = self._check_terminations()
-            if termination_signal[0]:
-                self.termination_signal = termination_signal[1]
+            if self._check_terminations():
                 break
         if self.record_options['record_fitness']:
             self._compress_fitness(fitness[:self.n_function_evaluations])
