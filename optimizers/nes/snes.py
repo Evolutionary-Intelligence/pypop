@@ -31,8 +31,7 @@ class SNES(NES):
 
     def iterate(self, s=None, mu=None, sigma=None, y=None):
         for k in range(self.n_individuals):
-            termination_signal = self._check_terminations()
-            if termination_signal[0]:
+            if self._check_terminations():
                 return s, y
             # draw sample (individual)
             s[k] = self.rng_optimization.standard_normal((self.ndim_problem,))
@@ -72,9 +71,7 @@ class SNES(NES):
             s, y = self.iterate(s, mu, sigma, y)
             if self.record_options['record_fitness']:
                 fitness.extend(y.tolist())
-            termination_signal = self._check_terminations()
-            if termination_signal[0]:
-                self.termination_signal = termination_signal[1]
+            if self._check_terminations():
                 break
             g_mu, g_sigma = self._compute_gradients(s, y, fitness_shaping)
             mu, sigma = self._update_distribution(mu, sigma, g_mu, g_sigma)
