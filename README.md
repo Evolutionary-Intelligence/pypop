@@ -1,2 +1,3 @@
 # pypop
-A pure-PYthon library for POPulation-based OPtimization for real-parameter, black-box problems.
+
+```pypop``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for real-parameter, black-box problems (**currently actively developed**).
