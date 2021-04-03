@@ -1,8 +1,8 @@
 import os
 import numpy as np
 
-import base_functions
-from base_functions import _squeeze_and_check, BaseFunction
+from benchmarks import base_functions
+from benchmarks.base_functions import _squeeze_and_check, BaseFunction
 
 
 # helper functions

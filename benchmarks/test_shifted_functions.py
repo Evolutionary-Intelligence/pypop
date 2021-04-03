@@ -1,12 +1,12 @@
 import unittest
 import numpy as np
 
-from base_functions import sphere as base_sphere
-from shifted_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers, schwefel221,\
+from benchmarks.base_functions import sphere as base_sphere
+from benchmarks.shifted_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers, schwefel221,\
     rosenbrock, schwefel12,\
     Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221, Rosenbrock, Schwefel12
-from shifted_functions import generate_shift_vector, _load_shift_vector
-from test_base_functions import Sample
+from benchmarks.shifted_functions import generate_shift_vector, _load_shift_vector
+from benchmarks.test_base_functions import Sample
 
 
 class ShiftedSample(Sample):
