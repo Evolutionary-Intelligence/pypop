@@ -1,8 +1,8 @@
 import unittest
 import numpy as np
 
-from base_functions import _squeeze_and_check, sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
-    schwefel221, rosenbrock, schwefel12,\
+from benchmarks.base_functions import _squeeze_and_check, sphere, cigar, discus, cigar_discus, ellipsoid,\
+    different_powers, schwefel221, rosenbrock, schwefel12,\
     Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221, Rosenbrock, Schwefel12
 
 
