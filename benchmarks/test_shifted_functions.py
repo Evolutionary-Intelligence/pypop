@@ -102,7 +102,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(sphere, 6, x6))
         x7 = [0, 7, 7, 7, 140, 140, 140, 91]
         self.assertTrue(shifted_sample.compare_shifted_func_values(sphere, 7, x7))
-        shifted_sample.check_origin(sphere)
+        self.assertTrue(shifted_sample.check_origin(sphere))
 
     def test_Sphere(self):
         sphere_object = Sphere()
@@ -123,7 +123,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(sphere_object, 6, x6))
         x7 = [0, 7, 7, 7, 140, 140, 140, 91]
         self.assertTrue(shifted_sample.compare_shifted_func_values(sphere_object, 7, x7))
-        shifted_sample.check_origin(sphere_object)
+        self.assertTrue(shifted_sample.check_origin(sphere_object))
 
     def test_cigar(self):
         for ndim in range(1, 8):
@@ -143,7 +143,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(cigar, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(cigar, 1, np.empty((5,)))
-        shifted_sample.check_origin(cigar)
+        self.assertTrue(shifted_sample.check_origin(cigar))
 
     def test_Cigar(self):
         cigar_object = Cigar()
@@ -164,7 +164,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(cigar_object, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(cigar_object, 1, np.empty((5,)))
-        shifted_sample.check_origin(cigar_object)
+        self.assertTrue(shifted_sample.check_origin(cigar_object))
 
     def test_discus(self):
         for ndim in range(1, 8):
@@ -184,7 +184,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(discus, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(discus, 1, np.empty((5,)))
-        shifted_sample.check_origin(discus)
+        self.assertTrue(shifted_sample.check_origin(discus))
 
     def test_Discus(self):
         discus_object = Discus()
@@ -205,7 +205,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(discus_object, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(discus_object, 1, np.empty((5,)))
-        shifted_sample.check_origin(discus_object)
+        self.assertTrue(shifted_sample.check_origin(discus_object))
 
     def test_cigar_discus(self):
         for ndim in range(1, 8):
@@ -225,7 +225,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(cigar_discus, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(cigar_discus, 1, np.empty((5,)))
-        shifted_sample.check_origin(cigar_discus)
+        self.assertTrue(shifted_sample.check_origin(cigar_discus))
 
     def test_CigarDiscus(self):
         for ndim in range(1, 8):
@@ -246,7 +246,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(cigar_discus_object, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(cigar_discus_object, 1, np.empty((5,)))
-        shifted_sample.check_origin(cigar_discus_object)
+        self.assertTrue(shifted_sample.check_origin(cigar_discus_object))
 
     def test_ellipsoid(self):
         for ndim in range(1, 8):
@@ -266,7 +266,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(ellipsoid, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(ellipsoid, 1, np.empty((5,)))
-        shifted_sample.check_origin(ellipsoid)
+        self.assertTrue(shifted_sample.check_origin(ellipsoid))
 
     def test_Ellipsoid(self):
         for ndim in range(1, 8):
@@ -287,7 +287,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(ellipsoid_object, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(ellipsoid_object, 1, np.empty((5,)))
-        shifted_sample.check_origin(ellipsoid_object)
+        self.assertTrue(shifted_sample.check_origin(ellipsoid_object))
 
     def test_different_powers(self):
         for ndim in range(1, 8):
@@ -307,7 +307,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(different_powers, 7, x7, 0.1))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(different_powers, 1, np.empty((5,)))
-        shifted_sample.check_origin(different_powers)
+        self.assertTrue(shifted_sample.check_origin(different_powers))
 
     def test_DifferentPowers(self):
         for ndim in range(1, 8):
@@ -328,7 +328,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(different_powers_object, 7, x7, 0.1))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(different_powers_object, 1, np.empty((5,)))
-        shifted_sample.check_origin(different_powers_object)
+        self.assertTrue(shifted_sample.check_origin(different_powers_object))
 
     def test_schwefel221(self):
         for ndim in range(1, 8):
@@ -348,7 +348,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221, 6, x6))
         x7 = [0, 1, 1, 1, 7, 7, 7, 6]
         self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221, 7, x7))
-        shifted_sample.check_origin(schwefel221)
+        self.assertTrue(shifted_sample.check_origin(schwefel221))
 
     def test_Schwefel221(self):
         for ndim in range(1, 8):
@@ -369,7 +369,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221_object, 6, x6))
         x7 = [0, 1, 1, 1, 7, 7, 7, 6]
         self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel221_object, 7, x7))
-        shifted_sample.check_origin(schwefel221_object)
+        self.assertTrue(shifted_sample.check_origin(schwefel221_object))
 
     def test_rosenbrock(self):
         for ndim in range(1, 8):
@@ -428,7 +428,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel12, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(schwefel12, 1, np.empty((5,)))
-        shifted_sample.check_origin(schwefel12)
+        self.assertTrue(shifted_sample.check_origin(schwefel12))
 
     def test_Schwefel12(self):
         for ndim in range(1, 8):
@@ -449,7 +449,7 @@ class TestShiftedFunctions(unittest.TestCase):
         self.assertTrue(shifted_sample.compare_shifted_func_values(schwefel12_object, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             shifted_sample.compare_shifted_func_values(schwefel12_object, 1, np.empty((5,)))
-        shifted_sample.check_origin(schwefel12_object)
+        self.assertTrue(shifted_sample.check_origin(schwefel12_object))
 
 
 if __name__ == '__main__':
