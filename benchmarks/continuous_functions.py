@@ -52,6 +52,15 @@ def discus(x, shift_vector=None, rotation_matrix=None):
     return y
 
 
+class Discus(BaseFunction):  # also called Tablet
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'discus'
+
+    def __call__(self, x, shift_vector=None, rotation_matrix=None):
+        return discus(x, shift_vector, rotation_matrix)
+
+
 def cigar_discus(x, shift_vector=None, rotation_matrix=None):
     shift_vector, rotation_matrix = _load_shift_and_rotation(cigar_discus, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
