@@ -68,6 +68,17 @@ class Optimizer(object):
         self.termination_signal = None
         self.fitness = None
 
+    def _evaluate_fitness(self, x):
+        self.start_function_evaluations = time.time()
+        y = self.fitness_function(x)
+        self.time_function_evaluations += time.time() - self.start_function_evaluations
+        self.n_function_evaluations += 1
+        # update best-so-far solution and fitness
+        if y < self.best_so_far_y:
+            self.best_so_far_y = y
+            self.best_so_far_x = np.copy(x)
+        return float(y)
+
     def _check_terminations(self):
         self.runtime = time.time() - self.start_time
         if self.n_function_evaluations >= self.max_function_evaluations:
