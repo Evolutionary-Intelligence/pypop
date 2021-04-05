@@ -16,9 +16,7 @@ class PRS(RS):
     """
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
-        self.sampling_distribution = options.get('sampling_distribution')
-        if self.sampling_distribution is None:
-            self.sampling_distribution = 1  # default: 1 -> uniformly distributed
+        self.sampling_distribution = options.get('sampling_distribution', 1)  # default: 1 -> uniformly distributed
         if self.sampling_distribution not in [0, 1]:  # 0 -> normally distributed
             raise ValueError('Only support uniformly or normally distributed random sampling.')
 
@@ -52,17 +50,9 @@ class PRS(RS):
                 is_initialization = False
             else:
                 x = self.iterate()  # sample (individual)
-            # evaluate fitness
-            self.start_function_evaluations = time.time()
-            y = self.fitness_function(x)
-            self.time_function_evaluations += time.time() - self.start_function_evaluations
-            self.n_function_evaluations += 1
-            # update best-so-far solution and fitness
-            if y < self.best_so_far_y:
-                self.best_so_far_y = y
-                self.best_so_far_x = np.copy(x)
+            y = self._evaluate_fitness(x)
             if self.record_options['record_fitness']:
-                fitness.append(float(y))
+                fitness.append(y)
             self._print_verbose_info()
             if self._check_terminations():
                 break
