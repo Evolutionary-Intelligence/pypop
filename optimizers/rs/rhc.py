@@ -1,4 +1,3 @@
-import time
 import numpy as np
 
 from optimizers.rs.rs import RS
@@ -25,27 +24,6 @@ class RHC(RS):
         return x
 
     def iterate(self):
+        # mutate the best-so-far individual
         mutation = self.rng_optimization.standard_normal(size=(self.ndim_problem,))
         return self.best_so_far_x + self.global_std * mutation
-
-    def optimize(self, fitness_function=None):
-        self.start_time = time.time()
-        fitness = []  # store all fitness generated during search
-        if fitness_function is not None:
-            self.fitness_function = fitness_function
-        is_initialization = True
-        while True:
-            if is_initialization:
-                x = self.initialize()
-                is_initialization = False
-            else:
-                x = self.iterate()  # mutate the best-so-far individual
-            y = self._evaluate_fitness(x)
-            if self.record_options['record_fitness']:
-                fitness.append(y)
-            self._print_verbose_info()
-            if self._check_terminations():
-                break
-        if self.record_options['record_fitness']:
-            self._compress_fitness(fitness[:self.n_function_evaluations])
-        return self._collect_results()
