@@ -116,6 +116,15 @@ def schwefel221(x, shift_vector=None, rotation_matrix=None):
     return y
 
 
+class Schwefel221(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'schwefel221'
+
+    def __call__(self, x, shift_vector=None, rotation_matrix=None):
+        return schwefel221(x, shift_vector, rotation_matrix)
+
+
 def rosenbrock(x, shift_vector=None, rotation_matrix=None):
     shift_vector, rotation_matrix = _load_shift_and_rotation(rosenbrock, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
