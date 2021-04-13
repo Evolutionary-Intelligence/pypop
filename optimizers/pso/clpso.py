@@ -14,7 +14,7 @@ class CLPSO(PSO):
     https://ieeexplore.ieee.org/abstract/document/1637688
 
     Origin MATLAB Source Code:
-    http://www.ntu.edu.sg/home/epnsugan/
+    https://www3.ntu.edu.sg/home/epnsugan/
     https://github.com/P-N-Suganthan/CODES/blob/master/2006-IEEE-TEC-CLPSO.zip
     """
     def __init__(self, problems, options):
