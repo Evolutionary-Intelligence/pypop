@@ -74,29 +74,25 @@ class CLPSO(PSO):
     def iterate(self, x=None, y=None, p_x=None, p_y=None, n_x=None, v=None):
         # use online (rather batch) update
         for i in range(self.n_individuals):
+            # update neighbor topology
+            n_x[i], _ = self.topology(p_x, p_y, i, n_x)
+            # update and limit velocities of particles
+            learning_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
+            v[i] = self.w[self.n_generations] * v[i] + self.c * learning_rand * (n_x[i] - x[i])
+            v_i = v[i]
+            v_i[v_i > self.max_v] = self.max_v[v_i > self.max_v]
+            v_i[v_i < self.min_v] = self.min_v[v_i < self.min_v]
+            # update positions of particles
+            # note that the original code does not limit positions in feasible search space
+            x[i] += v[i]
             # evaluate fitness
             if self._check_terminations():
                 return x, y, p_x, p_y, n_x, v
             y[i] = self._evaluate_fitness(x[i])
             if y[i] < p_y[i]:
                 p_x[i], p_y[i] = x[i], y[i]
-                self.flag[i] = 0
+                # note that it is same with the original code but different from the original paper
+                # self.flag[i] = 0
             else:
                 self.flag[i] += 1
-            # update neighbor topology
-            n_x[i], _ = self.topology(p_x, p_y, i, n_x)
-            # update and limit positions of particles
-            learning_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
-            v[i] = self.w[self.n_generations] * v[i] + self.c * learning_rand * (n_x[i] - x[i])
-            v_i = v[i]
-            v_i[v_i > self.max_v] = self.max_v[v_i > self.max_v]
-            v_i[v_i < self.min_v] = self.min_v[v_i < self.min_v]
-            # update and limit positions of particles
-            # note that the original code does not limit positions in feasible search space
-            x[i] += v[i]
-            x_rand = self.rng_optimization.uniform(self.lower_boundary, self.upper_boundary,
-                                                   size=(self.ndim_problem,))
-            x_i = x[i]
-            x_i[x_i > self.upper_boundary] = x_rand[x_i > self.upper_boundary]
-            x_i[x_i < self.lower_boundary] = x_rand[x_i < self.lower_boundary]
         return x, y, p_x, p_y, n_x, v
