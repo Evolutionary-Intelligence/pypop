@@ -13,20 +13,21 @@ class CLPSO(PSO):
     IEEE Transactions on Evolutionary Computation, 10(3), pp.281-295.
     https://ieeexplore.ieee.org/abstract/document/1637688
 
-    Origin MATLAB Source Code:
+    Original MATLAB Source Code:
     https://www3.ntu.edu.sg/home/epnsugan/
     https://github.com/P-N-Suganthan/CODES/blob/master/2006-IEEE-TEC-CLPSO.zip
     """
     def __init__(self, problems, options):
         PSO.__init__(self, problems, options)
+        # comprehensive-learning rate including cognition-learning and society-learning
+        self.c = options.get('c', 1.49445)
+        # refreshing gap (m)
+        # note that it is same with the original code (5) but different from the original paper (7)
+        self.m = options.get('m', 5)
         # learning rates for all particles (pc -> Pc)
         # note that it is same with the original code but different from the original paper
         pc = 5 * np.hstack((np.arange(0, 1, 1 / (self.n_individuals - 1)), 1))
         self.Pc = 0.5 * (np.exp(pc) - np.exp(pc[0])) / (np.exp(pc[-1]) - np.exp(pc[0]))
-        self.c = 1.49445  # comprehensive-learning rate including cognition-learning and society-learning
-        # refreshing gap (m)
-        # note that it is same with the original code (5) but different from the original paper (7)
-        self.m = 5
         # number of generations each particle has not improved its own personally previous-best fitness
         self.flag = np.zeros((self.n_individuals,))
         # linearly decreasing inertia weight
@@ -35,24 +36,24 @@ class CLPSO(PSO):
         self.topology = self.learning_topology
 
     def learning_topology(self, p_x, p_y, i, n_x):
+        # note that for clearer coding it is slightly different from the original code
+        # which used the vector-based form (hard to read), but it is same with the original paper
         if self.flag[i] >= self.m:
             self.flag[i] = 0
             all_exemplars = i * np.ones((self.ndim_problem,))
-            for j in range(self.ndim_problem):
+            for d in range(self.ndim_problem):
                 if self.rng_optimization.random() < self.Pc[i]:
                     # tournament selection
                     left, right = self.rng_optimization.choice(self.n_individuals, 2, replace=False)
                     if p_y[left] < p_y[right]:
-                        n_x[i, j] = p_x[left, j]
-                        all_exemplars[j] = left
+                        n_x[i, d] = p_x[left, d]
+                        all_exemplars[d] = left
                     else:
-                        n_x[i, j] = p_x[right, j]
-                        all_exemplars[j] = right
+                        n_x[i, d] = p_x[right, d]
+                        all_exemplars[d] = right
                 else:
-                    n_x[i, j] = p_x[i, j]
+                    n_x[i, d] = p_x[i, d]
             if np.alltrue(all_exemplars == i):
-                # note that it is slightly different from the original code
-                # but for clearer coding
                 possible_exemplars = set(range(self.n_individuals))
                 possible_exemplars.remove(i)
                 exemplar_dim = self.rng_optimization.integers(self.ndim_problem)
