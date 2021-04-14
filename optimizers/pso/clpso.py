@@ -63,6 +63,7 @@ class CLPSO(PSO):
     def initialize(self):
         x, y, p_x, p_y, n_x, v = PSO.initialize(self)
         # evaluate fitness in advance
+        self.record_fitness_initialization = True
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return x, y, p_x, p_y, n_x, v
