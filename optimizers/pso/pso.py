@@ -24,10 +24,12 @@ class PSO(Optimizer):
         self.cognition = options.get('cognition', 2.0)  # cognition-learning rate
         self.society = options.get('society', 2.0)  # society-learning rate
         self.topology = None  # to control neighbors of society learning
-        self.max_ratio_v = options.get('max_ratio_v', 1.0)  # maximal ratio of velocities w.r.t. entire search range
+        self.max_ratio_v = options.get('max_ratio_v', 0.2)  # maximal ratio of velocities w.r.t. entire search range
         self.max_v = self.max_ratio_v * (self.upper_boundary - self.lower_boundary)
         self.min_v = -self.max_v
         self.n_generations = options.get('n_generations', 0)
+        self.max_generations = int(np.ceil(self.max_function_evaluations / self.n_individuals))
+        self.record_fitness_initialization = False  # record all fitness generated during initialization
 
     def initialize(self):
         rng = self.rng_initialization
@@ -36,10 +38,11 @@ class PSO(Optimizer):
         y = np.empty((self.n_individuals,))  # swarm fitness
         p_x, p_y = np.copy(x), np.copy(y)  # personally previous-best positions and fitness
         n_x = np.copy(x)  # neighborly previous-best positions
-        v = np.zeros((self.n_individuals, self.ndim_problem))  # swarm velocities
+        v = rng.uniform(self.min_v, self.max_v,
+                        size=(self.n_individuals, self.ndim_problem))  # swarm velocities
         return x, y, p_x, p_y, n_x, v
 
-    def iterate(self, x=None, y=None, p_x=None, p_y=None, n_x=None, v=None):
+    def iterate(self, x=None, y=None, p_x=None, p_y=None, n_x=None, v=None):  # use batch (rather online) update
         # evaluate fitness
         for i in range(self.n_individuals):
             if self._check_terminations():
@@ -50,7 +53,7 @@ class PSO(Optimizer):
         # update neighbor topology of each particle
         for i in range(self.n_individuals):
             n_x[i], _ = self.topology(p_x, p_y, i)
-        # update and limit positions of particles
+        # update and limit velocities of particles
         cognition_rand = self.rng_optimization.uniform(size=(self.n_individuals, self.ndim_problem))
         society_rand = self.rng_optimization.uniform(size=(self.n_individuals, self.ndim_problem))
         v = self.w * v +\
@@ -62,10 +65,6 @@ class PSO(Optimizer):
             v_i[v_i < self.min_v] = self.min_v[v_i < self.min_v]
         # update and limit positions of particles
         x += v
-        x_rand = self.rng_optimization.uniform(self.lower_boundary, self.upper_boundary,
-                                               size=(self.n_individuals, self.ndim_problem))
-        x[x > self.upper_boundary] = x_rand[x > self.upper_boundary]
-        x[x < self.lower_boundary] = x_rand[x < self.lower_boundary]
         return x, y, p_x, p_y, n_x, v
 
     def optimize(self, fitness_function=None):
@@ -74,6 +73,8 @@ class PSO(Optimizer):
         if fitness_function is not None:
             self.fitness_function = fitness_function
         x, y, p_x, p_y, n_x, v = self.initialize()
+        if self.record_fitness_initialization and self.record_options['record_fitness']:
+            fitness.extend(y.tolist())
         while True:
             x, y, p_x, p_y, n_x, v = self.iterate(x, y, p_x, p_y, n_x, v)
             if self.record_options['record_fitness']:
