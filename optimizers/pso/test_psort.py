@@ -5,7 +5,7 @@ from benchmarks.base_functions import ellipsoid
 from optimizers.pso.psort import PSORT
 
 
-class TestPRS(unittest.TestCase):
+class TestPSORT(unittest.TestCase):
     def test_run(self):
         ndim_problem = 1000
         problem = {'fitness_function': ellipsoid,
