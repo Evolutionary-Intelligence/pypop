@@ -6,7 +6,7 @@ from benchmarks.shifted_functions import generate_shift_vector
 from benchmarks.rotated_functions import generate_rotation_matrix
 from benchmarks.continuous_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
     schwefel221, rosenbrock, schwefel12,\
-    Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221
+    Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221, Rosenbrock
 from benchmarks.continuous_functions import _load_shift_and_rotation
 from benchmarks.test_base_functions import Sample
 
@@ -387,6 +387,27 @@ class Test(unittest.TestCase):
         self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock, 7, x7))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock, 1, np.empty((5,)))
+
+    def test_Rosenbrock(self):
+        rosenbrock_object = Rosenbrock()
+        for ndim in range(1, 8):
+            generate_shift_vector(rosenbrock, ndim, -100, 100, seed=7)
+            generate_rotation_matrix(rosenbrock, ndim, 7)
+        rotated_shifted_sample = RotatedShiftedSample()
+        x2 = [409, 4, 1, 0, 401]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock_object, 2, x2))
+        x3 = [810, 4, 2, 400, 4002]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock_object, 3, x3))
+        x4 = [3, 0, 1212, 804, 2705, 17913, 24330]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock_object, 4, x4))
+        x5 = [4, 0, 1616, 808, 14814, 30038, 68450]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock_object, 5, x5))
+        x6 = [5, 0, 2020, 808, 50930, 126154, 164579]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock_object, 6, x6))
+        x7 = [6, 0, 2424, 1208, 135055, 210303, 349519, 51031]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock_object, 7, x7))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            rotated_shifted_sample.compare_rotated_shifted_func_values(rosenbrock_object, 1, np.empty((5,)))
 
     def test_schwefel12(self):
         for ndim in range(1, 8):
