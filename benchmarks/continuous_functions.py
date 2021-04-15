@@ -146,3 +146,12 @@ def schwefel12(x, shift_vector=None, rotation_matrix=None):
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.schwefel12(x)
     return y
+
+
+class Schwefel12(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'schwefel12'
+
+    def __call__(self, x, shift_vector=None, rotation_matrix=None):
+        return schwefel12(x, shift_vector, rotation_matrix)

@@ -6,7 +6,7 @@ from benchmarks.shifted_functions import generate_shift_vector
 from benchmarks.rotated_functions import generate_rotation_matrix
 from benchmarks.continuous_functions import sphere, cigar, discus, cigar_discus, ellipsoid, different_powers,\
     schwefel221, rosenbrock, schwefel12,\
-    Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221, Rosenbrock
+    Sphere, Cigar, Discus, CigarDiscus, Ellipsoid, DifferentPowers, Schwefel221, Rosenbrock, Schwefel12
 from benchmarks.continuous_functions import _load_shift_and_rotation
 from benchmarks.test_base_functions import Sample
 
@@ -429,6 +429,28 @@ class Test(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel12, 1, np.empty((5,)))
         self.assertTrue(rotated_shifted_sample.check_origin(schwefel12))
+
+    def test_Schwefel12(self):
+        schwefel12_object = Schwefel12()
+        for ndim in range(1, 8):
+            generate_shift_vector(schwefel12, ndim, -100, 100, seed=8)
+            generate_rotation_matrix(schwefel12, ndim, 8)
+        rotated_shifted_sample = RotatedShiftedSample()
+        x2 = [4, 1, 0, 5, 20]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel12_object, 2, x2))
+        x3 = [8, 2, 0, 6, 24]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel12_object, 3, x3))
+        x4 = [0, 30, 30, 2, 146, 10, 18]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel12_object, 4, x4))
+        x5 = [0, 55, 55, 3, 371, 19, 55]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel12_object, 5, x5))
+        x6 = [0, 91, 91, 7, 812, 28, 195]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel12_object, 6, x6))
+        x7 = [0, 140, 140, 8, 1596, 44, 564, 812]
+        self.assertTrue(rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel12_object, 7, x7))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            rotated_shifted_sample.compare_rotated_shifted_func_values(schwefel12_object, 1, np.empty((5,)))
+        self.assertTrue(rotated_shifted_sample.check_origin(schwefel12_object))
 
 
 if __name__ == '__main__':
