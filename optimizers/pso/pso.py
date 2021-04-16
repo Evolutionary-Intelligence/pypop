@@ -9,6 +9,11 @@ class PSO(Optimizer):
 
     Reference
     ---------
+    Kennedy, J. and Eberhart, R., 1995, November.
+    Particle swarm optimization.
+    In Proceedings of International Conference on Neural Networks (Vol. 4, pp. 1942-1948). IEEE.
+    https://ieeexplore.ieee.org/document/488968
+
     Shi, Y. and Eberhart, R., 1998, May.
     A modified particle swarm optimizer.
     In IEEE World Congress on Computational Intelligence (pp. 69-73). IEEE.
@@ -20,7 +25,6 @@ class PSO(Optimizer):
         Optimizer.__init__(self, problem, options)
         if self.n_individuals is None:  # swarm (population) size
             self.n_individuals = 20  # number of particles
-        self.w = options.get('w', 0.9)  # inertia weight
         self.cognition = options.get('cognition', 2.0)  # cognition-learning rate
         self.society = options.get('society', 2.0)  # society-learning rate
         self.topology = None  # to control neighbors of society learning
@@ -29,6 +33,8 @@ class PSO(Optimizer):
         self.min_v = -self.max_v
         self.n_generations = options.get('n_generations', 0)
         self.max_generations = int(np.ceil(self.max_function_evaluations / self.n_individuals))
+        w = 0.9 - np.arange(1, self.max_generations + 1) * 0.5 * self.max_generations
+        self.w = options.get('w', w)  # inertia weight
         self.record_fitness_initialization = False  # record all fitness generated during initialization
 
     def initialize(self):
@@ -56,7 +62,7 @@ class PSO(Optimizer):
         # update and limit velocities of particles
         cognition_rand = self.rng_optimization.uniform(size=(self.n_individuals, self.ndim_problem))
         society_rand = self.rng_optimization.uniform(size=(self.n_individuals, self.ndim_problem))
-        v = self.w * v +\
+        v = self.w[self.n_generations] * v +\
             self.cognition * cognition_rand * (p_x - x) +\
             self.society * society_rand * (n_x - x)
         for i in range(self.n_individuals):
