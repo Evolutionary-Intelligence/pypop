@@ -33,7 +33,7 @@ class PSO(Optimizer):
         self.min_v = -self.max_v
         self.n_generations = options.get('n_generations', 0)
         self.max_generations = int(np.ceil(self.max_function_evaluations / self.n_individuals))
-        w = 0.9 - np.arange(1, self.max_generations + 1) * 0.5 * self.max_generations
+        w = 0.9 - np.arange(1, self.max_generations + 1) * 0.5 / self.max_generations
         self.w = options.get('w', w)  # inertia weight
         self.record_fitness_initialization = False  # record all fitness generated during initialization
 
@@ -49,6 +49,7 @@ class PSO(Optimizer):
         return x, y, p_x, p_y, n_x, v
 
     def iterate(self, x=None, y=None, p_x=None, p_y=None, n_x=None, v=None):  # use batch (rather online) update
+        rng = self.rng_optimization
         # evaluate fitness
         for i in range(self.n_individuals):
             if self._check_terminations():
@@ -60,17 +61,26 @@ class PSO(Optimizer):
         for i in range(self.n_individuals):
             n_x[i], _ = self.topology(p_x, p_y, i)
         # update and limit velocities of particles
-        cognition_rand = self.rng_optimization.uniform(size=(self.n_individuals, self.ndim_problem))
-        society_rand = self.rng_optimization.uniform(size=(self.n_individuals, self.ndim_problem))
+        cognition_rand = rng.uniform(size=(self.n_individuals, self.ndim_problem))
+        society_rand = rng.uniform(size=(self.n_individuals, self.ndim_problem))
         v = self.w[self.n_generations] * v +\
             self.cognition * cognition_rand * (p_x - x) +\
             self.society * society_rand * (n_x - x)
         for i in range(self.n_individuals):
-            v_i = v[i]
-            v_i[v_i > self.max_v] = self.max_v[v_i > self.max_v]
-            v_i[v_i < self.min_v] = self.min_v[v_i < self.min_v]
+            less_min_v, more_max_v = v[i] < self.min_v, v[i] > self.max_v
+            v[i, less_min_v] = self.min_v[less_min_v]
+            v[i, more_max_v] = self.max_v[more_max_v]
         # update and limit positions of particles
         x += v
+        for i in range(self.n_individuals):
+            x_i = x[i]
+            less_lower_boundary, more_upper_boundary = x_i < self.lower_boundary, x_i > self.upper_boundary
+            x_i[less_lower_boundary] = self.lower_boundary[less_lower_boundary]
+            x_i[less_lower_boundary] += 0.25 * rng.uniform(self.lower_boundary[less_lower_boundary],
+                                                           self.upper_boundary[less_lower_boundary])
+            x_i[more_upper_boundary] = self.upper_boundary[more_upper_boundary]
+            x_i[more_upper_boundary] -= 0.25 * rng.uniform(self.lower_boundary[more_upper_boundary],
+                                                           self.upper_boundary[more_upper_boundary])
         return x, y, p_x, p_y, n_x, v
 
     def optimize(self, fitness_function=None):
