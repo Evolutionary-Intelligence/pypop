@@ -13,6 +13,11 @@ class PSOGT(PSO):
 
     Reference
     ---------
+    Kennedy, J. and Eberhart, R., 1995, November.
+    Particle swarm optimization.
+    In Proceedings of International Conference on Neural Networks (Vol. 4, pp. 1942-1948). IEEE.
+    https://ieeexplore.ieee.org/document/488968
+
     Shi, Y. and Eberhart, R., 1998, May.
     A modified particle swarm optimizer.
     In IEEE World Congress on Computational Intelligence (pp. 69-73). IEEE.
