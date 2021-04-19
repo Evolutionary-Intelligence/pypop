@@ -75,8 +75,7 @@ class Optimizer(object):
         self.n_function_evaluations += 1
         # update best-so-far solution and fitness
         if y < self.best_so_far_y:
-            self.best_so_far_y = y
-            self.best_so_far_x = np.copy(x)
+            self.best_so_far_x, self.best_so_far_y = np.copy(x), y
         return float(y)
 
     def _check_terminations(self):
