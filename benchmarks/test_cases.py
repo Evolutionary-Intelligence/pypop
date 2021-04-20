@@ -1,10 +1,13 @@
 import numpy as np
 
+from benchmarks.shifted_functions import generate_shift_vector, _load_shift_vector
+
 
 class TestCases(object):
     """Test correctness of benchmark functions via sampling (test cases).
     """
-    def __init__(self, ndim=None):
+    def __init__(self, is_shifted=False, ndim=None):
+        self.is_shifted = is_shifted
         self.ndim = ndim
 
     def make_test_cases(self, ndim=None):
@@ -73,18 +76,22 @@ class TestCases(object):
             raise TypeError('The number of dimensions should >=1 and <= 7.')
         return np.array(x, dtype=np.float64)
 
-    def compare(self, func, ndim, y_true, atol=1e-08):
+    def compare(self, func, ndim, y_true, shift_vector=None, atol=1e-08):
         """Compare true (expected) function values with these returned (computed) by benchmark function.
 
         :param func: benchmark function, a function object.
         :param ndim: number of dimensions, an `int` scalar ranged in [1, 7].
         :param y_true: a 1-d `ndarray`, where each element is the true function value of the corresponding test case.
+        :param shift_vector: shift vector, a 1-d `ndarray`.
         :param atol: absolute tolerance parameter, a `float` scalar.
         :return: `True` if all function values computed on test cases match `y_true`; otherwise, `False`.
         """
         x = self.make_test_cases(ndim)
         y = np.empty((x.shape[0],))
         for i in range(x.shape[0]):
+            if self.is_shifted:
+                generate_shift_vector(func, ndim, -10 * np.ones((ndim,)), 7 * np.ones((ndim,)), 2021 + ndim)
+                x[i] = x[i] + _load_shift_vector(func, x[i], shift_vector)
             y[i] = func(x[i])
         return np.allclose(y, y_true, atol=atol)
 
@@ -99,7 +106,11 @@ class TestCases(object):
         self.ndim = ndims
         is_zero = True
         for d in ndims:
-            if np.abs(func(np.zeros((d,)))) > 1e-9:
+            x = np.zeros((d,))
+            if self.is_shifted:
+                generate_shift_vector(func, d, -np.ones((d,)), np.ones((d,)), d)
+                x += _load_shift_vector(func, x)
+            if np.abs(func(x)) > 1e-9:
                 is_zero = False
                 break
         return is_zero
