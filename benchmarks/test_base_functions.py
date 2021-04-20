@@ -74,7 +74,7 @@ class TestBaseFunctions(unittest.TestCase):
         different_powers_object = DifferentPowers()
         for func in [different_powers, different_powers_object]:
             for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_different_powers(ndim - 2), 0.1))
+                self.assertTrue(sample.compare(func, ndim, get_y_different_powers(ndim - 2), atol=0.1))
             with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
                 sample.compare(func, 1, np.empty((5,)))
             self.assertTrue(sample.check_origin(func))
