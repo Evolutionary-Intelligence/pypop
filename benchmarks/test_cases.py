@@ -1,14 +1,16 @@
 import numpy as np
 
 from benchmarks.shifted_functions import generate_shift_vector, _load_shift_vector
+from benchmarks.rotated_functions import generate_rotation_matrix, _load_rotation_matrix
 
 
 class TestCases(object):
     """Test correctness of benchmark functions via sampling (test cases).
     """
-    def __init__(self, is_shifted=False, ndim=None):
+    def __init__(self, is_shifted=False, is_rotated=False):
         self.is_shifted = is_shifted
-        self.ndim = ndim
+        self.is_rotated = is_rotated
+        self.ndim = None
 
     def make_test_cases(self, ndim=None):
         """Make multiple test cases for a specific dimension ranged in [1, 7].
@@ -18,9 +20,7 @@ class TestCases(object):
         :param ndim: number of dimensions, an `int` scalar ranged in [1, 7].
         :return: a 2-d `ndarray` of dtype `np.float64`, where each row is a test case.
         """
-        if ndim is not None:
-            self.ndim = ndim
-
+        self.ndim = ndim
         if ndim == 1:
             x = [[-2],
                  [-1],
@@ -76,19 +76,24 @@ class TestCases(object):
             raise TypeError('The number of dimensions should >=1 and <= 7.')
         return np.array(x, dtype=np.float64)
 
-    def compare(self, func, ndim, y_true, shift_vector=None, atol=1e-08):
+    def compare(self, func, ndim, y_true, shift_vector=None, rotation_matrix=None, atol=1e-08):
         """Compare true (expected) function values with these returned (computed) by benchmark function.
 
         :param func: benchmark function, a function object.
         :param ndim: number of dimensions, an `int` scalar ranged in [1, 7].
         :param y_true: a 1-d `ndarray`, where each element is the true function value of the corresponding test case.
         :param shift_vector: shift vector, a 1-d `ndarray`.
+        :param rotation_matrix: rotation matrix, a 2-d `ndarray`.
         :param atol: absolute tolerance parameter, a `float` scalar.
         :return: `True` if all function values computed on test cases match `y_true`; otherwise, `False`.
         """
         x = self.make_test_cases(ndim)
         y = np.empty((x.shape[0],))
         for i in range(x.shape[0]):
+            if self.is_rotated:
+                generate_rotation_matrix(func, ndim, ndim)
+                rotation_matrix = _load_rotation_matrix(func, x[i], rotation_matrix)
+                x[i] = np.dot(np.linalg.inv(rotation_matrix), x[i])
             if self.is_shifted:
                 generate_shift_vector(func, ndim, -10 * np.ones((ndim,)), 7 * np.ones((ndim,)), 2021 + ndim)
                 x[i] = x[i] + _load_shift_vector(func, x[i], shift_vector)
@@ -102,7 +107,7 @@ class TestCases(object):
         :param n_samples: number of samples, an `int` scalar.
         :return: `True` if all function values computed on test cases are zeros; otherwise, `False`.
         """
-        ndims = np.random.default_rng().integers(2, 1000, size=(n_samples,))
+        ndims = np.random.default_rng().integers(2, 100, size=(n_samples,))
         self.ndim = ndims
         is_zero = True
         for d in ndims:
@@ -110,6 +115,8 @@ class TestCases(object):
             if self.is_shifted:
                 generate_shift_vector(func, d, -np.ones((d,)), np.ones((d,)), d)
                 x += _load_shift_vector(func, x)
+            if self.is_rotated:
+                generate_rotation_matrix(func, d, d)
             if np.abs(func(x)) > 1e-9:
                 is_zero = False
                 break
