@@ -124,3 +124,9 @@ def schwefel12(x):
 class Schwefel12(BaseFunction):
     def __call__(self, x):
         return schwefel12(x)
+
+
+def griewank(x):
+    x = _squeeze_and_check(x)
+    y = np.sum(np.power(x, 2)) / 4000 - np.prod(np.cos(x / np.sqrt(np.arange(1, x.size + 1)))) + 1
+    return y
