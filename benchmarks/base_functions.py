@@ -138,3 +138,9 @@ def ackley(x):
         np.exp(np.sum(np.cos(2 * np.pi * x)) / x.size) +\
         20 + np.exp(1)
     return y
+
+
+def rastrigin(x):
+    x = _squeeze_and_check(x)
+    y = 10 * x.size + np.sum(np.power(x, 2) - 10 * np.cos(2 * np.pi * x))
+    return y
