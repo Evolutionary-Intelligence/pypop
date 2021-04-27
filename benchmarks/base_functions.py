@@ -132,6 +132,11 @@ def griewank(x):
     return y
 
 
+class Griewank(BaseFunction):
+    def __call__(self, x):
+        return griewank(x)
+
+
 def ackley(x):
     x = _squeeze_and_check(x)
     y = -20 * np.exp(-0.2 * np.sqrt(np.sum(np.power(x, 2)) / x.size)) -\
