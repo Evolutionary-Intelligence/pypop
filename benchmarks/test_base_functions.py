@@ -106,6 +106,14 @@ class TestBaseFunctions(unittest.TestCase):
                 sample.compare(func, 1, np.empty((5,)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_griewank(self):
+        sample = TestCases()
+        griewank_object = Griewank()
+        for func in [griewank, griewank_object]:
+            for ndim in range(2, 8):
+                self.assertTrue(sample.compare(func, ndim, get_y_griewank(ndim - 2), atol=0.001))
+            self.assertTrue(sample.check_origin(func))
+
 
 if __name__ == '__main__':
     unittest.main()
