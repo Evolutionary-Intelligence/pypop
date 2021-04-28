@@ -145,6 +145,11 @@ def ackley(x):
     return y
 
 
+class Ackley(BaseFunction):
+    def __call__(self, x):
+        return ackley(x)
+
+
 def rastrigin(x):
     x = _squeeze_and_check(x)
     y = 10 * x.size + np.sum(np.power(x, 2) - 10 * np.cos(2 * np.pi * x))
