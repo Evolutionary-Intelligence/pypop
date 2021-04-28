@@ -114,6 +114,14 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_griewank(ndim - 2), atol=0.001))
             self.assertTrue(sample.check_origin(func))
 
+    def test_ackley(self):
+        sample = TestCases()
+        ackley_object = Ackley()
+        for func in [ackley, ackley_object]:
+            for ndim in range(2, 8):
+                self.assertTrue(sample.compare(func, ndim, get_y_ackley(ndim - 2), atol=0.001))
+            self.assertTrue(sample.check_origin(func))
+
 
 if __name__ == '__main__':
     unittest.main()
