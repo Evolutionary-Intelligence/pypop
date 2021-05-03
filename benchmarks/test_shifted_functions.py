@@ -42,16 +42,14 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_sphere(self):
         sample = TestCases(is_shifted=True)
-        sphere_object = Sphere()
-        for func in [sphere, sphere_object]:
+        for func in [sphere, Sphere()]:
             for ndim in range(1, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_sphere(ndim - 1)))
             self.assertTrue(sample.check_origin(func))
 
     def test_cigar(self):
         sample = TestCases(is_shifted=True)
-        cigar_object = Cigar()
-        for func in [cigar, cigar_object]:
+        for func in [cigar, Cigar()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_cigar(ndim - 2)))
             with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
@@ -60,8 +58,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_discus(self):
         sample = TestCases(is_shifted=True)
-        discus_object = Discus()
-        for func in [discus, discus_object]:
+        for func in [discus, Discus()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_discus(ndim - 2)))
             with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
@@ -70,8 +67,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_cigar_discus(self):
         sample = TestCases(is_shifted=True)
-        cigar_discus_object = CigarDiscus()
-        for func in [cigar_discus, cigar_discus_object]:
+        for func in [cigar_discus, CigarDiscus()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_cigar_discus(ndim - 2)))
             with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
@@ -80,8 +76,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_ellipsoid(self):
         sample = TestCases(is_shifted=True)
-        ellipsoid_object = Ellipsoid()
-        for func in [ellipsoid, ellipsoid_object]:
+        for func in [ellipsoid, Ellipsoid()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_ellipsoid(ndim - 2)))
             with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
@@ -90,8 +85,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_different_powers(self):
         sample = TestCases(is_shifted=True)
-        different_powers_object = DifferentPowers()
-        for func in [different_powers, different_powers_object]:
+        for func in [different_powers, DifferentPowers()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_different_powers(ndim - 2), atol=0.1))
             with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
@@ -100,16 +94,14 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_schwefel221(self):
         sample = TestCases(is_shifted=True)
-        schwefel221_object = Schwefel221()
-        for func in [schwefel221, schwefel221_object]:
+        for func in [schwefel221, Schwefel221()]:
             for ndim in range(1, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_schwefel221(ndim - 1)))
             self.assertTrue(sample.check_origin(func))
 
     def test_rosenbrock(self):
         sample = TestCases(is_shifted=True)
-        rosenbrock_object = Rosenbrock()
-        for func in [rosenbrock, rosenbrock_object]:
+        for func in [rosenbrock, Rosenbrock()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_rosenbrock(ndim - 2)))
             with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
@@ -117,8 +109,7 @@ class TestShiftedFunctions(unittest.TestCase):
 
     def test_schwefel12(self):
         sample = TestCases(is_shifted=True)
-        schwefel12_object = Schwefel12()
-        for func in [schwefel12, schwefel12_object]:
+        for func in [schwefel12, Schwefel12()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_schwefel12(ndim - 2)))
             with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
