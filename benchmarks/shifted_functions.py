@@ -206,3 +206,18 @@ class Griewank(BaseFunction):
 
     def __call__(self, x, shift_vector=None):
         return griewank(x, shift_vector)
+
+
+def ackley(x, shift_vector=None):
+    shift_vector = _load_shift_vector(ackley, x, shift_vector)
+    y = base_functions.ackley(x - shift_vector)
+    return y
+
+
+class Ackley(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'ackley'
+
+    def __call__(self, x, shift_vector=None):
+        return ackley(x, shift_vector)
