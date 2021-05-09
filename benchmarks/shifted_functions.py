@@ -221,3 +221,18 @@ class Ackley(BaseFunction):
 
     def __call__(self, x, shift_vector=None):
         return ackley(x, shift_vector)
+
+
+def rastrigin(x, shift_vector=None):
+    shift_vector = _load_shift_vector(rastrigin, x, shift_vector)
+    y = base_functions.rastrigin(x - shift_vector)
+    return y
+
+
+class Rastrigin(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'rastrigin'
+
+    def __call__(self, x, shift_vector=None):
+        return rastrigin(x, shift_vector)

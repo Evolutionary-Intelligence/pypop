@@ -130,6 +130,13 @@ class TestShiftedFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_ackley(ndim - 2), atol=0.001))
             self.assertTrue(sample.check_origin(func))
 
+    def test_rastrigin(self):
+        sample = TestCases(is_shifted=True)
+        for func in [rastrigin, Rastrigin()]:
+            for ndim in range(2, 8):
+                self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
+            self.assertTrue(sample.check_origin(func))
+
 
 if __name__ == '__main__':
     unittest.main()
