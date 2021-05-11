@@ -113,6 +113,17 @@ class Step(BaseFunction):
         return step(x)
 
 
+def schwefel222(x):
+    x = np.abs(_squeeze_and_check(x))
+    y = np.sum(x) + np.prod(x)
+    return y
+
+
+class Schwefel222(BaseFunction):
+    def __call__(self, x):
+        return schwefel222(x)
+
+
 def rosenbrock(x):
     x = _squeeze_and_check(x, True)
     y = 100 * np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
