@@ -87,6 +87,13 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_step(ndim - 1)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_schwefel222(self):
+        sample = TestCases()
+        for func in [schwefel222, Schwefel222()]:
+            for ndim in range(1, 8):
+                self.assertTrue(sample.compare(func, ndim, get_y_schwefel222(ndim - 1)))
+            self.assertTrue(sample.check_origin(func))
+
     def test_rosenbrock(self):
         sample = TestCases()
         for func in [rosenbrock, Rosenbrock()]:
