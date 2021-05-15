@@ -99,6 +99,13 @@ class TestShiftedFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_schwefel221(ndim - 1)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_step(self):
+        sample = TestCases(is_shifted=True)
+        for func in [step, Step()]:
+            for ndim in range(1, 8):
+                self.assertTrue(sample.compare(func, ndim, get_y_step(ndim - 1)))
+            self.assertTrue(sample.check_origin(func))
+
     def test_rosenbrock(self):
         sample = TestCases(is_shifted=True)
         for func in [rosenbrock, Rosenbrock()]:

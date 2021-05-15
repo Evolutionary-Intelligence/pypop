@@ -163,6 +163,21 @@ class Schwefel221(BaseFunction):
         return schwefel221(x, shift_vector)
 
 
+def step(x, shift_vector=None):
+    shift_vector = _load_shift_vector(step, x, shift_vector)
+    y = base_functions.step(x - shift_vector)
+    return y
+
+
+class Step(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'step'
+
+    def __call__(self, x, shift_vector=None):
+        return step(x, shift_vector)
+
+
 def rosenbrock(x, shift_vector=None):
     shift_vector = _load_shift_vector(rosenbrock, x, shift_vector)
     y = base_functions.rosenbrock(x - shift_vector)
