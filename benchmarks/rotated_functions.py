@@ -160,6 +160,21 @@ class Schwefel221(BaseFunction):
         return schwefel221(x, rotation_matrix)
 
 
+def step(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(step, x, rotation_matrix)
+    y = base_functions.step(np.dot(rotation_matrix, x))
+    return y
+
+
+class Step(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'step'
+
+    def __call__(self, x, rotation_matrix=None):
+        return step(x, rotation_matrix)
+
+
 def rosenbrock(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(rosenbrock, x, rotation_matrix)
     y = base_functions.rosenbrock(np.dot(rotation_matrix, x))
