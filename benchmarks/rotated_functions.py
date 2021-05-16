@@ -248,3 +248,18 @@ class Ackley(BaseFunction):
 
     def __call__(self, x, rotation_matrix=None):
         return ackley(x, rotation_matrix)
+
+
+def rastrigin(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(rastrigin, x, rotation_matrix)
+    y = base_functions.rastrigin(np.dot(rotation_matrix, x))
+    return y
+
+
+class Rastrigin(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'rastrigin'
+
+    def __call__(self, x, rotation_matrix=None):
+        return rastrigin(x, rotation_matrix)
