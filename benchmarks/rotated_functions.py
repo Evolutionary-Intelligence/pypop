@@ -218,3 +218,18 @@ class Schwefel12(BaseFunction):
 
     def __call__(self, x, rotation_matrix=None):
         return schwefel12(x, rotation_matrix)
+
+
+def griewank(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(griewank, x, rotation_matrix)
+    y = base_functions.griewank(np.dot(rotation_matrix, x))
+    return y
+
+
+class Griewank(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'griewank'
+
+    def __call__(self, x, rotation_matrix=None):
+        return griewank(x, rotation_matrix)
