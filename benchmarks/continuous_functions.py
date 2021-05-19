@@ -203,3 +203,19 @@ class Griewank(BaseFunction):
 
     def __call__(self, x, shift_vector=None, rotation_matrix=None):
         return griewank(x, shift_vector, rotation_matrix)
+
+
+def ackley(x, shift_vector=None, rotation_matrix=None):
+    shift_vector, rotation_matrix = _load_shift_and_rotation(ackley, x, shift_vector, rotation_matrix)
+    x = np.dot(rotation_matrix, x - shift_vector)
+    y = base_functions.ackley(x)
+    return y
+
+
+class Ackley(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'ackley'
+
+    def __call__(self, x, shift_vector=None, rotation_matrix=None):
+        return ackley(x, shift_vector, rotation_matrix)
