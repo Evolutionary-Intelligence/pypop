@@ -16,9 +16,7 @@ class RS(Optimizer):
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
         verbose_options = options.get('verbose_options')
-        if verbose_options is None:
-            self.verbose_options['frequency_verbose'] = 1000
-        elif verbose_options.get('frequency_verbose') is None:
+        if (verbose_options is None) or (verbose_options.get('frequency_verbose') is None):
             self.verbose_options['frequency_verbose'] = 1000
         self.x = options.get('x')  # starting search point
 
