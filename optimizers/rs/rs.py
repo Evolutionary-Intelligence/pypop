@@ -23,7 +23,7 @@ class RS(Optimizer):
     def initialize(self):
         raise NotImplementedError
 
-    def iterate(self):
+    def iterate(self):  # for each iteration (generation)
         raise NotImplementedError
 
     def optimize(self, fitness_function=None):
