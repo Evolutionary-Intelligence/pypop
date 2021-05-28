@@ -6,6 +6,8 @@ from optimizers.core.optimizer import Optimizer
 class RS(Optimizer):
     """Random (Stochastic) Search (RS).
 
+    The individual-based iteration (generation) process is used here.
+
     Reference
     ---------
     Brooks, S.H., 1958.
@@ -34,10 +36,10 @@ class RS(Optimizer):
         is_initialization = True
         while True:
             if is_initialization:
-                x = self.initialize()  # individual-based
+                x = self.initialize()
                 is_initialization = False
             else:
-                x = self.iterate()  # individual-based
+                x = self.iterate()
             y = self._evaluate_fitness(x)
             if self.record_options['record_fitness']:
                 fitness.append(y)
