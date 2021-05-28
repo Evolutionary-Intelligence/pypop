@@ -26,7 +26,7 @@ class RS(Optimizer):
     def iterate(self):  # for each iteration (generation)
         raise NotImplementedError
 
-    def optimize(self, fitness_function=None):
+    def optimize(self, fitness_function=None):  # for all iterations (generations)
         self.start_time = time.time()
         fitness = []  # store all fitness generated during search
         if fitness_function is not None:
