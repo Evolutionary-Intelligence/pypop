@@ -4,7 +4,10 @@ from optimizers.rs.rhc import RHC
 
 
 class ARHC(RHC):
-    """Annealed Random (Stochastic) Hill Climber (ARHC).
+    """Annealed Random Hill Climber (ARHC).
+
+    Only support normally distributed random sampling during optimization.
+    But support uniformly or normally distributed random sampling for the initial starting point.
 
     Reference
     ---------
@@ -17,6 +20,7 @@ class ARHC(RHC):
         self.parent_y = np.copy(self.best_so_far_y)
 
     def iterate(self):
+        # mutate the parent individual via adding Gaussian noise
         mutation = self.rng_optimization.standard_normal(size=(self.ndim_problem,))
         return self.parent_x + self.global_std * mutation
 
@@ -24,11 +28,9 @@ class ARHC(RHC):
         y = RHC._evaluate_fitness(self, x)
         # update parent solution and fitness
         if y < self.parent_y:
-            self.parent_y = y
-            self.parent_x = np.copy(x)
+            self.parent_x, self.parent_y = np.copy(x), y
         else:
             accept_prob = np.exp(-np.abs(y - self.parent_y) / self.temperature)
             if self.rng_optimization.random() < accept_prob:
-                self.parent_y = y
-                self.parent_x = np.copy(x)
+                self.parent_x, self.parent_y = np.copy(x), y
         return y
