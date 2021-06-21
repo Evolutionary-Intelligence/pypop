@@ -2,7 +2,6 @@ import unittest
 
 from benchmarks.base_functions import sphere as base_sphere
 from benchmarks.continuous_functions import *
-from benchmarks.continuous_functions import _load_shift_and_rotation
 from test_cases import *
 
 
@@ -11,7 +10,7 @@ class Test(unittest.TestCase):
         func, ndim, seed = base_sphere, 2, 1
         generate_shift_vector(func, 2, [-1, -2], [1, 2], 0)
         generate_rotation_matrix(func, ndim, seed)
-        shift_vector, rotation_matrix = _load_shift_and_rotation(func, [0, 0])
+        shift_vector, rotation_matrix = load_shift_and_rotation(func, [0, 0])
         self.assertTrue(np.allclose(shift_vector, [2.739233746429086125e-01, -9.208531449445187533e-01]))
         self.assertTrue(np.allclose(rotation_matrix, [[7.227690004350708630e-01, 6.910896989610599839e-01],
                                                       [6.910896989610598729e-01, -7.227690004350709740e-01]]))

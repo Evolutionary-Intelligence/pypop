@@ -7,14 +7,14 @@ from benchmarks.rotated_functions import _load_rotation_matrix
 
 
 # helper functions
-def _load_shift_and_rotation(func, x, shift_vector=None, rotation_matrix=None):
+def load_shift_and_rotation(func, x, shift_vector=None, rotation_matrix=None):
     shift_vector = _load_shift_vector(func, x, shift_vector)
     rotation_matrix = _load_rotation_matrix(func, x, rotation_matrix)
     return shift_vector, rotation_matrix
 
 
 def sphere(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(sphere, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(sphere, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.sphere(x)
     return y
@@ -30,7 +30,7 @@ class Sphere(BaseFunction):
 
 
 def cigar(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(cigar, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(cigar, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.cigar(x)
     return y
@@ -46,7 +46,7 @@ class Cigar(BaseFunction):
 
 
 def discus(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(discus, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(discus, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.discus(x)
     return y
@@ -62,7 +62,7 @@ class Discus(BaseFunction):  # also called Tablet
 
 
 def cigar_discus(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(cigar_discus, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(cigar_discus, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.cigar_discus(x)
     return y
@@ -78,7 +78,7 @@ class CigarDiscus(BaseFunction):
 
 
 def ellipsoid(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(ellipsoid, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(ellipsoid, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.ellipsoid(x)
     return y
@@ -94,7 +94,7 @@ class Ellipsoid(BaseFunction):
 
 
 def different_powers(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(different_powers, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(different_powers, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.different_powers(x)
     return y
@@ -110,7 +110,7 @@ class DifferentPowers(BaseFunction):
 
 
 def schwefel221(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(schwefel221, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(schwefel221, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.schwefel221(x)
     return y
@@ -126,7 +126,7 @@ class Schwefel221(BaseFunction):
 
 
 def step(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(step, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(step, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.step(x)
     return y
@@ -142,7 +142,7 @@ class Step(BaseFunction):
 
 
 def schwefel222(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(schwefel222, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(schwefel222, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.schwefel222(x)
     return y
@@ -158,7 +158,7 @@ class Schwefel222(BaseFunction):
 
 
 def rosenbrock(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(rosenbrock, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(rosenbrock, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.rosenbrock(x)
     return y
@@ -174,7 +174,7 @@ class Rosenbrock(BaseFunction):
 
 
 def schwefel12(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(schwefel12, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(schwefel12, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.schwefel12(x)
     return y
@@ -190,7 +190,7 @@ class Schwefel12(BaseFunction):
 
 
 def griewank(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(griewank, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(griewank, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.griewank(x)
     return y
@@ -206,7 +206,7 @@ class Griewank(BaseFunction):
 
 
 def ackley(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(ackley, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(ackley, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.ackley(x)
     return y
@@ -222,7 +222,7 @@ class Ackley(BaseFunction):
 
 
 def rastrigin(x, shift_vector=None, rotation_matrix=None):
-    shift_vector, rotation_matrix = _load_shift_and_rotation(rastrigin, x, shift_vector, rotation_matrix)
+    shift_vector, rotation_matrix = load_shift_and_rotation(rastrigin, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.rastrigin(x)
     return y
