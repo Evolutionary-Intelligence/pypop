@@ -24,8 +24,8 @@ class ARHC(RHC):
         mutation = self.rng_optimization.standard_normal(size=(self.ndim_problem,))
         return self.parent_x + self.global_std * mutation
 
-    def _evaluate_fitness(self, x):
-        y = RHC._evaluate_fitness(self, x)
+    def _evaluate_fitness(self, x, args=None):
+        y = RHC._evaluate_fitness(self, x, args)
         # update parent solution and fitness
         if y < self.parent_y:
             self.parent_x, self.parent_y = np.copy(x), y
