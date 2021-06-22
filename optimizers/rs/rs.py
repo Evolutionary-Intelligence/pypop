@@ -28,7 +28,7 @@ class RS(Optimizer):
     def iterate(self):  # for each iteration (generation)
         raise NotImplementedError
 
-    def optimize(self, fitness_function=None):  # for all iterations (generations)
+    def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
         self.start_time = time.time()
         fitness = []  # store all fitness generated during search
         if fitness_function is not None:
@@ -40,7 +40,7 @@ class RS(Optimizer):
                 is_initialization = False
             else:
                 x = self.iterate()
-            y = self._evaluate_fitness(x)
+            y = self._evaluate_fitness(x, args)
             if self.record_options['record_fitness']:
                 fitness.append(y)
             self._print_verbose_info()
