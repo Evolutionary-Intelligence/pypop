@@ -68,9 +68,12 @@ class Optimizer(object):
         self.termination_signal = None
         self.fitness = None
 
-    def _evaluate_fitness(self, x):
+    def _evaluate_fitness(self, x, args=None):
         self.start_function_evaluations = time.time()
-        y = self.fitness_function(x)
+        if args is None:
+            y = self.fitness_function(x)
+        else:
+            y = self.fitness_function(x, args=args)
         self.time_function_evaluations += time.time() - self.start_function_evaluations
         self.n_function_evaluations += 1
         # update best-so-far solution and fitness
