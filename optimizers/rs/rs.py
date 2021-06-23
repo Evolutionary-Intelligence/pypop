@@ -23,10 +23,10 @@ class RS(Optimizer):
         self.x = options.get('x')  # starting search point
 
     def initialize(self):
-        raise NotImplementedError
+        pass
 
     def iterate(self):  # for each iteration (generation)
-        raise NotImplementedError
+        pass
 
     def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
         self.start_time = time.time()
