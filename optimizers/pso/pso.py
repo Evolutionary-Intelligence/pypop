@@ -25,6 +25,7 @@ class PSO(Optimizer):
         Optimizer.__init__(self, problem, options)
         if self.n_individuals is None:  # swarm (population) size
             self.n_individuals = 20  # number of particles
+        self.swarm_size = (self.n_individuals, self.ndim_problem)
         self.cognition = options.get('cognition', 2.0)  # cognition-learning rate
         self.society = options.get('society', 2.0)  # society-learning rate
         self.topology = None  # to control neighbors of society learning
@@ -39,13 +40,11 @@ class PSO(Optimizer):
 
     def initialize(self):
         rng = self.rng_initialization
-        x = rng.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
-                        size=(self.n_individuals, self.ndim_problem))  # swarm positions
-        y = np.empty((self.n_individuals,))  # swarm fitness
+        x = rng.uniform(self.initial_lower_boundary, self.initial_upper_boundary, size=self.swarm_size)  # positions
+        y = np.empty((self.n_individuals,))  # fitness
         p_x, p_y = np.copy(x), np.copy(y)  # personally previous-best positions and fitness
         n_x = np.copy(x)  # neighborly previous-best positions
-        v = rng.uniform(self.min_v, self.max_v,
-                        size=(self.n_individuals, self.ndim_problem))  # swarm velocities
+        v = rng.uniform(self.min_v, self.max_v, size=self.swarm_size)  # velocities
         return x, y, p_x, p_y, n_x, v
 
     def iterate(self, x=None, y=None, p_x=None, p_y=None, n_x=None, v=None):  # use batch (rather online) update
@@ -56,13 +55,12 @@ class PSO(Optimizer):
                 return x, y, p_x, p_y, n_x, v
             y[i] = self._evaluate_fitness(x[i])
             if y[i] < p_y[i]:
-                p_x[i], p_y[i] = x[i], y[i]
+                p_x[i], p_y[i] = np.copy(x[i]), y[i]
         # update neighbor topology of each particle
         for i in range(self.n_individuals):
             n_x[i], _ = self.topology(p_x, p_y, i)
         # update and limit velocities of particles
-        cognition_rand = rng.uniform(size=(self.n_individuals, self.ndim_problem))
-        society_rand = rng.uniform(size=(self.n_individuals, self.ndim_problem))
+        cognition_rand, society_rand = rng.uniform(size=self.swarm_size), rng.uniform(size=self.swarm_size)
         v = self.w[self.n_generations] * v +\
             self.cognition * cognition_rand * (p_x - x) +\
             self.society * society_rand * (n_x - x)
@@ -72,15 +70,6 @@ class PSO(Optimizer):
             v[i, more_max_v] = self.max_v[more_max_v]
         # update and limit positions of particles
         x += v
-        for i in range(self.n_individuals):
-            x_i = x[i]
-            less_lower_boundary, more_upper_boundary = x_i < self.lower_boundary, x_i > self.upper_boundary
-            x_i[less_lower_boundary] = self.lower_boundary[less_lower_boundary]
-            x_i[less_lower_boundary] += 0.25 * rng.uniform(self.lower_boundary[less_lower_boundary],
-                                                           self.upper_boundary[less_lower_boundary])
-            x_i[more_upper_boundary] = self.upper_boundary[more_upper_boundary]
-            x_i[more_upper_boundary] -= 0.25 * rng.uniform(self.lower_boundary[more_upper_boundary],
-                                                           self.upper_boundary[more_upper_boundary])
         return x, y, p_x, p_y, n_x, v
 
     def optimize(self, fitness_function=None):
@@ -90,11 +79,11 @@ class PSO(Optimizer):
             self.fitness_function = fitness_function
         x, y, p_x, p_y, n_x, v = self.initialize()
         if self.record_fitness_initialization and self.record_options['record_fitness']:
-            fitness.extend(y.tolist())
+            fitness.extend(y)
         while True:
             x, y, p_x, p_y, n_x, v = self.iterate(x, y, p_x, p_y, n_x, v)
             if self.record_options['record_fitness']:
-                fitness.extend(y.tolist())
+                fitness.extend(y)
             if self._check_terminations():
                 break
             self.n_generations += 1
