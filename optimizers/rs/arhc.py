@@ -30,7 +30,7 @@ class ARHC(RHC):
         if y < self.parent_y:
             self.parent_x, self.parent_y = np.copy(x), y
         else:
-            accept_prob = np.exp(-np.abs(y - self.parent_y) / self.temperature)
+            accept_prob = np.exp(-(y - self.parent_y) / self.temperature)
             if self.rng_optimization.random() < accept_prob:
                 self.parent_x, self.parent_y = np.copy(x), y
         return y
