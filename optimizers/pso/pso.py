@@ -38,7 +38,7 @@ class PSO(Optimizer):
         self.w = options.get('w', w)  # inertia weight
         self.record_fitness_initialization = False  # record all fitness generated during initialization
 
-    def initialize(self):
+    def initialize(self, args=None):
         rng = self.rng_initialization
         x = rng.uniform(self.initial_lower_boundary, self.initial_upper_boundary, size=self.swarm_size)  # positions
         y = np.empty((self.n_individuals,))  # fitness
@@ -47,13 +47,13 @@ class PSO(Optimizer):
         v = rng.uniform(self.min_v, self.max_v, size=self.swarm_size)  # velocities
         return x, y, p_x, p_y, n_x, v
 
-    def iterate(self, x=None, y=None, p_x=None, p_y=None, n_x=None, v=None):  # use batch (rather online) update
+    def iterate(self, x=None, y=None, p_x=None, p_y=None, n_x=None, v=None, args=None):  # use batch update
         rng = self.rng_optimization
         # evaluate fitness
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return x, y, p_x, p_y, n_x, v
-            y[i] = self._evaluate_fitness(x[i])
+            y[i] = self._evaluate_fitness(x[i], args)
             if y[i] < p_y[i]:
                 p_x[i], p_y[i] = np.copy(x[i]), y[i]
         # update neighbor topology of each particle
@@ -72,16 +72,16 @@ class PSO(Optimizer):
         x += v
         return x, y, p_x, p_y, n_x, v
 
-    def optimize(self, fitness_function=None):
+    def optimize(self, fitness_function=None, args=None):
         self.start_time = time.time()
         fitness = []  # store all fitness generated during evolution
         if fitness_function is not None:
             self.fitness_function = fitness_function
-        x, y, p_x, p_y, n_x, v = self.initialize()
+        x, y, p_x, p_y, n_x, v = self.initialize(args)
         if self.record_fitness_initialization and self.record_options['record_fitness']:
             fitness.extend(y)
         while True:
-            x, y, p_x, p_y, n_x, v = self.iterate(x, y, p_x, p_y, n_x, v)
+            x, y, p_x, p_y, n_x, v = self.iterate(x, y, p_x, p_y, n_x, v, args)
             if self.record_options['record_fitness']:
                 fitness.extend(y)
             if self._check_terminations():
