@@ -24,25 +24,24 @@ class OPSO(PSO):
     def __init__(self, problem, options):
         PSO.__init__(self, problem, options)
 
-    def initialize(self):
+    def initialize(self, args=None):
         x, y, p_x, p_y, n_x, v = PSO.initialize(self)
-        # evaluate fitness in advance
-        self.record_fitness_initialization = True
+        self.record_fitness_initialization = True  # evaluate fitness in advance
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return x, y, p_x, p_y, n_x, v
-            y[i] = self._evaluate_fitness(x[i])
+            y[i] = self._evaluate_fitness(x[i], args)
         p_y = np.copy(y)
         self.n_generations += 1
         return x, y, p_x, p_y, n_x, v
 
-    def iterate(self, x=None, y=None, p_x=None, p_y=None, n_x=None, v=None):  # use online (rather batch) update
+    def iterate(self, x=None, y=None, p_x=None, p_y=None, n_x=None, v=None, args=None):  # use online update
         rng = self.rng_optimization
         for i in range(self.n_individuals):
-            # evaluate fitness
             if self._check_terminations():
                 return x, y, p_x, p_y, n_x, v
-            y[i] = self._evaluate_fitness(x[i])
+            # evaluate fitness
+            y[i] = self._evaluate_fitness(x[i], args)
             if y[i] < p_y[i]:
                 p_x[i], p_y[i] = x[i], y[i]
             # update neighbor topology
@@ -54,15 +53,7 @@ class OPSO(PSO):
                 self.cognition * cognition_rand * (p_x[i] - x[i]) +\
                 self.society * society_rand * (n_x[i] - x[i])
             less_min_v, more_max_v = v[i] < self.min_v, v[i] > self.max_v
-            v[i, less_min_v] = self.min_v[less_min_v]
-            v[i, more_max_v] = self.max_v[more_max_v]
+            v[i, less_min_v], v[i, more_max_v] = self.min_v[less_min_v], self.max_v[more_max_v]
             # update and limit position
             x[i] += v[i]
-            less_lower_boundary, more_upper_boundary = x[i] < self.lower_boundary, x[i] > self.upper_boundary
-            x[i, less_lower_boundary] = self.lower_boundary[less_lower_boundary]
-            x[i, less_lower_boundary] += 0.25 * rng.uniform(self.lower_boundary[less_lower_boundary],
-                                                            self.upper_boundary[less_lower_boundary])
-            x[i, more_upper_boundary] = self.upper_boundary[more_upper_boundary]
-            x[i, more_upper_boundary] -= 0.25 * rng.uniform(self.lower_boundary[more_upper_boundary],
-                                                            self.upper_boundary[more_upper_boundary])
         return x, y, p_x, p_y, n_x, v
