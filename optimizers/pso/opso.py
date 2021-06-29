@@ -54,6 +54,6 @@ class OPSO(PSO):
                 self.society * society_rand * (n_x[i] - x[i])
             less_min_v, more_max_v = v[i] < self.min_v, v[i] > self.max_v
             v[i, less_min_v], v[i, more_max_v] = self.min_v[less_min_v], self.max_v[more_max_v]
-            # update and limit position
+            # update position
             x[i] += v[i]
         return x, y, p_x, p_y, n_x, v
