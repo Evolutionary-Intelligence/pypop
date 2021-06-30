@@ -16,6 +16,7 @@ class Optimizer(object):
     """
     def __init__(self, problem, options):
         # problem-related settings
+        self.problem = problem
         self._is_maximization = problem.get('_is_maximization', False)
         self.fitness_function = problem.get('fitness_function')
         self.ndim_problem = problem['ndim_problem']
