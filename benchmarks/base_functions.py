@@ -147,6 +147,17 @@ class Schwefel12(BaseFunction):
         return schwefel12(x)
 
 
+def exponential(x):
+    x = _squeeze_and_check(x)
+    y = -np.exp(-0.5 * np.sum(np.power(x, 2)))
+    return y
+
+
+class Exponential(BaseFunction):
+    def __call__(self, x):
+        return exponential(x)
+
+
 def griewank(x):
     x = _squeeze_and_check(x)
     y = np.sum(np.power(x, 2)) / 4000 - np.prod(np.cos(x / np.sqrt(np.arange(1, x.size + 1)))) + 1
