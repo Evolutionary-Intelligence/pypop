@@ -34,7 +34,7 @@ class RS(Optimizer):
         if fitness_function is not None:
             self.fitness_function = fitness_function
         is_initialization = True
-        while True:
+        while not self._check_terminations():
             if is_initialization:
                 x = self.initialize()
                 is_initialization = False
@@ -44,8 +44,6 @@ class RS(Optimizer):
             if self.record_options['record_fitness']:
                 fitness.append(y)
             self._print_verbose_info()
-            if self._check_terminations():
-                break
         if self.record_options['record_fitness']:
             self._compress_fitness(fitness[:self.n_function_evaluations])
         return self._collect_results()
