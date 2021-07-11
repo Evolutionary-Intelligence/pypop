@@ -67,9 +67,6 @@ class SA(RS):
                 self.v[u] /= 1 + self.c[u] * (0.4 - self.n[u] / self.N_S) / 0.4
         self.n = np.zeros((self.ndim_problem,))
 
-    def reduce_temperature(self):
-        self.T *= self.r_T
-
     def optimize(self, fitness_function=None, args=None):
         self.start_time = time.time()
         if fitness_function is not None:
@@ -84,7 +81,7 @@ class SA(RS):
                 if self._check_terminations():
                     break
                 self.adjust_step_vector()
-            self.reduce_temperature()
+            self.T *= self.r_T  # reduce temperature
             self.parent_x, self.parent_y = self.best_so_far_x, self.best_so_far_y
         if self.record_options['record_fitness']:
             self._compress_fitness(fitness[:self.n_function_evaluations])
