@@ -191,3 +191,15 @@ def rastrigin(x):
 class Rastrigin(BaseFunction):
     def __call__(self, x):
         return rastrigin(x)
+
+
+def michalewicz(x):
+    x, y = _squeeze_and_check(x), 0
+    for i in range(x.size):
+        y -= np.sin(x[i]) * np.power(np.sin((i + 1) * np.power(x[i], 2) / np.pi), 20)
+    return y
+
+
+class Michalewicz(BaseFunction):
+    def __call__(self, x):
+        return michalewicz(x)
