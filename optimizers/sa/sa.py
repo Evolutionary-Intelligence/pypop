@@ -67,6 +67,11 @@ class SA(RS):
                 self.v[u] /= 1 + self.c[u] * (0.4 - self.n[u] / self.N_S) / 0.4
         self.n = np.zeros((self.ndim_problem,))
 
+    def _collect_results(self):
+        results = RS._collect_results(self)
+        results['v'] = np.copy(self.v)
+        return results
+
     def optimize(self, fitness_function=None, args=None):
         self.start_time = time.time()
         if fitness_function is not None:
