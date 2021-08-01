@@ -203,3 +203,18 @@ def michalewicz(x):
 class Michalewicz(BaseFunction):
     def __call__(self, x):
         return michalewicz(x)
+
+
+def shubert(x):
+    x, y = _squeeze_and_check(x), 1
+    for i in range(x.size):
+        yy = 0
+        for j in range(1, 6):
+            yy += j * np.cos((j + 1) * x[i] + j)
+        y *= yy
+    return y
+
+
+class Shubert(BaseFunction):
+    def __call__(self, x):
+        return shubert(x)
