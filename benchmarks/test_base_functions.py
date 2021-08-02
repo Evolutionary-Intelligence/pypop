@@ -132,6 +132,11 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_salomon(self):
+        sample = TestCases()
+        for func in [salomon, Salomon()]:
+            self.assertTrue(sample.check_origin(func))
+
     def test_shubert(self):
         minimizers = [[-7.0835, 4.858], [-7.0835, -7.7083], [-1.4251, -7.0835], [5.4828, 4.858],
                       [-1.4251, -0.8003], [4.858, 5.4828], [-7.7083, -7.0835], [-7.0835, -1.4251],

@@ -205,6 +205,17 @@ class Michalewicz(BaseFunction):
         return michalewicz(x)
 
 
+def salomon(x):
+    x = np.sqrt(np.sum(np.power(_squeeze_and_check(x), 2)))
+    y = 1 - np.cos(2 * np.pi * x) + 0.1 * x
+    return y
+
+
+class Salomon(BaseFunction):
+    def __call__(self, x):
+        return salomon(x)
+
+
 def shubert(x):
     x, y = _squeeze_and_check(x), 1
     for i in range(x.size):
