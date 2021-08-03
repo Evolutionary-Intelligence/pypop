@@ -1,5 +1,7 @@
 import unittest
 
+import numpy as np
+
 from benchmarks.base_functions import _squeeze_and_check
 from benchmarks.base_functions import *
 from test_cases import *
@@ -131,6 +133,11 @@ class TestBaseFunctions(unittest.TestCase):
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
             self.assertTrue(sample.check_origin(func))
+
+    def test_levy_montalvo(self):
+        for func in [levy_montalvo, LevyMontalvo()]:
+            for ndim in range(1, 8):
+                self.assertTrue(np.abs(func(-np.ones((ndim,)))) < 1e-9)
 
     def test_michalewicz(self):
         sample = TestCases()
