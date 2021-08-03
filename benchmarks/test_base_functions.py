@@ -113,6 +113,11 @@ class TestBaseFunctions(unittest.TestCase):
                 sample.compare(func, 1, np.empty((5,)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_exponential(self):
+        for func in [exponential, Exponential()]:
+            for ndim in range(1, 8):
+                self.assertTrue(np.abs(func(np.zeros((ndim,))) + 1) < 1e-9)
+
     def test_griewank(self):
         sample = TestCases()
         for func in [griewank, Griewank()]:
