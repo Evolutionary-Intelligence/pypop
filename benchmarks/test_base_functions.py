@@ -132,6 +132,11 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_michalewicz(self):
+        sample = TestCases()
+        for func in [michalewicz, Michalewicz()]:
+            self.assertTrue(sample.check_origin(func))
+
     def test_salomon(self):
         sample = TestCases()
         for func in [salomon, Salomon()]:
