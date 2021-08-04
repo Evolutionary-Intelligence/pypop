@@ -130,6 +130,14 @@ class TestShiftedFunctions(unittest.TestCase):
                 sample.compare(func, 1, np.empty((5,)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_exponential(self):
+        for func in [exponential, Exponential()]:
+            for ndim in range(1, 8):
+                generate_shift_vector(func, ndim, -np.ones((ndim,)), 2 * np.ones((ndim,)), 2021 + ndim)
+                x = np.zeros((ndim,))
+                x += _load_shift_vector(func, x)
+                self.assertTrue(np.abs(func(x) + 1) < 1e-9)
+
     def test_griewank(self):
         sample = TestCases(is_shifted=True)
         for func in [griewank, Griewank()]:

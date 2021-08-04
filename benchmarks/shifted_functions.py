@@ -223,6 +223,21 @@ class Schwefel12(BaseFunction):
         return schwefel12(x, shift_vector)
 
 
+def exponential(x, shift_vector=None):
+    shift_vector = _load_shift_vector(exponential, x, shift_vector)
+    y = base_functions.exponential(x - shift_vector)
+    return y
+
+
+class Exponential(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'exponential'
+
+    def __call__(self, x, shift_vector=None):
+        return exponential(x, shift_vector)
+
+
 def griewank(x, shift_vector=None):
     shift_vector = _load_shift_vector(griewank, x, shift_vector)
     y = base_functions.griewank(x - shift_vector)
