@@ -311,3 +311,18 @@ class Michalewicz(BaseFunction):
 
     def __call__(self, x, shift_vector=None):
         return michalewicz(x, shift_vector)
+
+
+def salomon(x, shift_vector=None):
+    shift_vector = _load_shift_vector(salomon, x, shift_vector)
+    y = base_functions.salomon(x - shift_vector)
+    return y
+
+
+class Salomon(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'salomon'
+
+    def __call__(self, x, shift_vector=None):
+        return salomon(x, shift_vector)
