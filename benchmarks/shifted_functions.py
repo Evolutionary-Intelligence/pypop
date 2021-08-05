@@ -296,3 +296,18 @@ class LevyMontalvo(BaseFunction):
 
     def __call__(self, x, shift_vector=None):
         return levy_montalvo(x, shift_vector)
+
+
+def michalewicz(x, shift_vector=None):
+    shift_vector = _load_shift_vector(michalewicz, x, shift_vector)
+    y = base_functions.michalewicz(x - shift_vector)
+    return y
+
+
+class Michalewicz(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'michalewicz'
+
+    def __call__(self, x, shift_vector=None):
+        return michalewicz(x, shift_vector)
