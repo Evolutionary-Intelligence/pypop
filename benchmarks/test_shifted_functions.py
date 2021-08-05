@@ -159,6 +159,14 @@ class TestShiftedFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_levy_montalvo(self):
+        for func in [levy_montalvo, LevyMontalvo()]:
+            for ndim in range(1, 8):
+                generate_shift_vector(func, ndim, -np.ones((ndim,)), 3 * np.ones((ndim,)), 2021 + ndim)
+                x = -np.ones((ndim,))
+                x += _load_shift_vector(func, x)
+                self.assertTrue(np.abs(func(x)) < 1e-9)
+
 
 if __name__ == '__main__':
     unittest.main()
