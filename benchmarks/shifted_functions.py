@@ -326,3 +326,18 @@ class Salomon(BaseFunction):
 
     def __call__(self, x, shift_vector=None):
         return salomon(x, shift_vector)
+
+
+def shubert(x, shift_vector=None):
+    shift_vector = _load_shift_vector(shubert, x, shift_vector)
+    y = base_functions.shubert(x - shift_vector)
+    return y
+
+
+class Shubert(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'shubert'
+
+    def __call__(self, x, shift_vector=None):
+        return shubert(x, shift_vector)
