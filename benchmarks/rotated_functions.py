@@ -220,6 +220,21 @@ class Schwefel12(BaseFunction):
         return schwefel12(x, rotation_matrix)
 
 
+def exponential(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(exponential, x, rotation_matrix)
+    y = base_functions.exponential(np.dot(rotation_matrix, x))
+    return y
+
+
+class Exponential(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'exponential'
+
+    def __call__(self, x, rotation_matrix=None):
+        return exponential(x, rotation_matrix)
+
+
 def griewank(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(griewank, x, rotation_matrix)
     y = base_functions.griewank(np.dot(rotation_matrix, x))
