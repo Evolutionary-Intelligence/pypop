@@ -167,6 +167,11 @@ class Test(unittest.TestCase):
                 x = np.dot(np.linalg.inv(rotation_matrix), x)
                 self.assertTrue(np.abs(func(x)) < 1e-9)
 
+    def test_michalewicz(self):
+        sample = TestCases(is_rotated=True)
+        for func in [michalewicz, Michalewicz()]:
+            self.assertTrue(sample.check_origin(func))
+
 
 if __name__ == '__main__':
     unittest.main()
