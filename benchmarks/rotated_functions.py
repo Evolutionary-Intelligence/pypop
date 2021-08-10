@@ -308,3 +308,18 @@ class Michalewicz(BaseFunction):
 
     def __call__(self, x, rotation_matrix=None):
         return michalewicz(x, rotation_matrix)
+
+
+def salomon(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(salomon, x, rotation_matrix)
+    y = base_functions.salomon(np.dot(rotation_matrix, x))
+    return y
+
+
+class Salomon(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'salomon'
+
+    def __call__(self, x, rotation_matrix=None):
+        return salomon(x, rotation_matrix)

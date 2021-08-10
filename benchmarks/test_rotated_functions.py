@@ -172,6 +172,11 @@ class Test(unittest.TestCase):
         for func in [michalewicz, Michalewicz()]:
             self.assertTrue(sample.check_origin(func))
 
+    def test_salomon(self):
+        sample = TestCases(is_rotated=True)
+        for func in [salomon, Salomon()]:
+            self.assertTrue(sample.check_origin(func))
+
 
 if __name__ == '__main__':
     unittest.main()
