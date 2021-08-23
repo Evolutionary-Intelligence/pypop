@@ -105,6 +105,17 @@ class Test(unittest.TestCase):
                 sample.compare(func, 1, np.empty((5,)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_exponential(self):
+        for func in [exponential, Exponential()]:
+            for ndim in range(1, 8):
+                x = np.zeros((ndim,))
+                generate_shift_vector(func, ndim, -np.ones((ndim,)), 2 * np.ones((ndim,)), 2021 + ndim)
+                generate_rotation_matrix(func, ndim, ndim)
+                shift_vector, rotation_matrix = load_shift_and_rotation(func, x)
+                x = np.dot(np.linalg.inv(rotation_matrix), x)
+                x += shift_vector
+                self.assertTrue(np.abs(func(x) + 1) < 1e-9)
+
     def test_griewank(self):
         sample = TestCases(is_shifted=True, is_rotated=True)
         for func in [griewank, Griewank()]:
