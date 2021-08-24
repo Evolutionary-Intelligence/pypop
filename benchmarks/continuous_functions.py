@@ -251,3 +251,19 @@ class Rastrigin(BaseFunction):
 
     def __call__(self, x, shift_vector=None, rotation_matrix=None):
         return rastrigin(x, shift_vector, rotation_matrix)
+
+
+def levy_montalvo(x, shift_vector=None, rotation_matrix=None):
+    shift_vector, rotation_matrix = load_shift_and_rotation(levy_montalvo, x, shift_vector, rotation_matrix)
+    x = np.dot(rotation_matrix, x - shift_vector)
+    y = base_functions.levy_montalvo(x)
+    return y
+
+
+class LevyMontalvo(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'levy_montalvo'
+
+    def __call__(self, x, shift_vector=None, rotation_matrix=None):
+        return levy_montalvo(x, shift_vector, rotation_matrix)

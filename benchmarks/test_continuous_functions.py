@@ -137,6 +137,17 @@ class Test(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_levy_montalvo(self):
+        for func in [levy_montalvo, LevyMontalvo()]:
+            for ndim in range(1, 8):
+                x = -np.ones((ndim,))
+                generate_shift_vector(func, ndim, -np.ones((ndim,)), 3 * np.ones((ndim,)), 2021 + ndim)
+                generate_rotation_matrix(func, ndim, ndim)
+                shift_vector, rotation_matrix = load_shift_and_rotation(func, x)
+                x = np.dot(np.linalg.inv(rotation_matrix), x)
+                x += shift_vector
+                self.assertTrue(np.abs(func(x)) < 1e-9)
+
 
 if __name__ == '__main__':
     unittest.main()
