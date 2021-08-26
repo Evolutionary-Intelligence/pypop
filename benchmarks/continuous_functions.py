@@ -267,3 +267,19 @@ class LevyMontalvo(BaseFunction):
 
     def __call__(self, x, shift_vector=None, rotation_matrix=None):
         return levy_montalvo(x, shift_vector, rotation_matrix)
+
+
+def michalewicz(x, shift_vector=None, rotation_matrix=None):
+    shift_vector, rotation_matrix = load_shift_and_rotation(michalewicz, x, shift_vector, rotation_matrix)
+    x = np.dot(rotation_matrix, x - shift_vector)
+    y = base_functions.michalewicz(x)
+    return y
+
+
+class Michalewicz(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'michalewicz'
+
+    def __call__(self, x, shift_vector=None, rotation_matrix=None):
+        return michalewicz(x, shift_vector, rotation_matrix)

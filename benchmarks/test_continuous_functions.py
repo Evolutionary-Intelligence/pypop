@@ -148,6 +148,11 @@ class Test(unittest.TestCase):
                 x += shift_vector
                 self.assertTrue(np.abs(func(x)) < 1e-9)
 
+    def test_michalewicz(self):
+        sample = TestCases(is_shifted=True, is_rotated=True)
+        for func in [michalewicz, Michalewicz()]:
+            self.assertTrue(sample.check_origin(func))
+
 
 if __name__ == '__main__':
     unittest.main()
