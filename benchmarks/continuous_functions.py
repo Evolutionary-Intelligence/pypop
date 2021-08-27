@@ -299,3 +299,19 @@ class Salomon(BaseFunction):
 
     def __call__(self, x, shift_vector=None, rotation_matrix=None):
         return salomon(x, shift_vector, rotation_matrix)
+
+
+def shubert(x, shift_vector=None, rotation_matrix=None):
+    shift_vector, rotation_matrix = load_shift_and_rotation(shubert, x, shift_vector, rotation_matrix)
+    x = np.dot(rotation_matrix, x - shift_vector)
+    y = base_functions.shubert(x)
+    return y
+
+
+class Shubert(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'shubert'
+
+    def __call__(self, x, shift_vector=None, rotation_matrix=None):
+        return shubert(x, shift_vector, rotation_matrix)

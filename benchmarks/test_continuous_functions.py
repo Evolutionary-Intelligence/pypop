@@ -158,6 +158,21 @@ class Test(unittest.TestCase):
         for func in [salomon, Salomon()]:
             self.assertTrue(sample.check_origin(func))
 
+    def test_shubert(self):
+        minimizers = [[-7.0835, 4.858], [-7.0835, -7.7083], [-1.4251, -7.0835], [5.4828, 4.858],
+                      [-1.4251, -0.8003], [4.858, 5.4828], [-7.7083, -7.0835], [-7.0835, -1.4251],
+                      [-7.7083, -0.8003], [-7.7083, 5.4828], [-0.8003, -7.7083], [-0.8003, -1.4251],
+                      [-0.8003, 4.8580], [-1.4251, 5.4828], [5.4828, -7.7083], [4.858, -7.0835],
+                      [5.4828, -1.4251], [4.858, -0.8003]]
+        for func in [shubert, Shubert()]:
+            generate_rotation_matrix(func, 2, 2)
+            generate_shift_vector(func, 2, -7 * np.ones((2,)), 5 * np.ones((2,)), 2021)
+            for minimizer in minimizers:
+                shift_vector, rotation_matrix = load_shift_and_rotation(func, minimizer)
+                minimizer = np.dot(np.linalg.inv(rotation_matrix), minimizer)
+                minimizer += shift_vector
+                self.assertTrue((np.abs(func(minimizer) + 186.7309) < 1e-3))
+
 
 if __name__ == '__main__':
     unittest.main()
