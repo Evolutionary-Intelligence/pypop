@@ -1,13 +1,13 @@
 import unittest
-import numpy as np
 import time
+import numpy as np
 
 from benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from optimizers.rs.prs import PRS
+from optimizers.rs.prs import PRS as Solver
 
 
 class TestPRS(unittest.TestCase):
-    def test_run(self):
+    def test_optimize(self):
         start_run = time.time()
         ndim_problem = 1000
         for f in [ellipsoid, rosenbrock, rastrigin]:
@@ -20,11 +20,11 @@ class TestPRS(unittest.TestCase):
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),
-                       'verbose_options': {'frequency_verbose': 200000},
-                       'record_options': {'record_fitness': True,
-                                          'frequency_record_fitness': 200000}}
-            prs = PRS(problem, options)
-            results = prs.optimize()
+                       'verbose_frequency': 200000,
+                       'record_fitness': True,
+                       'record_fitness_frequency': 200000}
+            solver = Solver(problem, options)
+            results = solver.optimize()
             print(results)
             print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
 

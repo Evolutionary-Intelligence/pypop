@@ -17,7 +17,8 @@ class PRS(RS):
         RS.__init__(self, problem, options)
         self.sampling_distribution = options.get('sampling_distribution', 1)  # default: 1 -> uniformly distributed
         if self.sampling_distribution not in [0, 1]:  # 0 -> normally distributed
-            raise ValueError('Only support uniformly or normally distributed random sampling.')
+            info = 'Currently for optimizer {:s}, only support uniformly or normally distributed random sampling.'
+            raise ValueError(info.format(self.__class__.__name__))
 
     def _sample(self, rng):
         if self.sampling_distribution == 0:
@@ -33,6 +34,5 @@ class PRS(RS):
             x = np.copy(self.x)
         return x
 
-    def iterate(self):
-        # draw sample (individual)
+    def iterate(self):  # draw sample (individual)
         return self._sample(self.rng_optimization)
