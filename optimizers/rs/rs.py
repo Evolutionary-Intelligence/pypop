@@ -17,16 +17,15 @@ class RS(Optimizer):
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        verbose_options = options.get('verbose_options')
-        if (verbose_options is None) or (verbose_options.get('frequency_verbose') is None):
-            self.verbose_options['frequency_verbose'] = 1000
         self.x = options.get('x')  # starting search point
+        if options.get('verbose_frequency') is None:
+            self.verbose_frequency = 1000  # reset the default value from 10 to 1000
 
     def initialize(self):
-        pass
+        raise NotImplementedError
 
     def iterate(self):  # for each iteration (generation)
-        pass
+        raise NotImplementedError
 
     def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
         self.start_time = time.time()
@@ -41,15 +40,14 @@ class RS(Optimizer):
             else:
                 x = self.iterate()
             y = self._evaluate_fitness(x, args)
-            if self.record_options['record_fitness']:
+            if self.record_fitness:
                 fitness.append(y)
             self._print_verbose_info()
-        if self.record_options['record_fitness']:
+        if self.record_fitness:
             self._compress_fitness(fitness[:self.n_function_evaluations])
         return self._collect_results()
 
     def _print_verbose_info(self):
-        if self.verbose_options['verbose']:
-            if not self.n_function_evaluations % self.verbose_options['frequency_verbose']:
-                info = '  * Evaluations {:d}: best_so_far_y {:7.5e}'
-                print(info.format(self.n_function_evaluations, self.best_so_far_y))
+        if self.verbose and (not self.n_function_evaluations % self.verbose_frequency):
+            info = '  * Evaluations {:d}: best_so_far_y {:7.5e}'
+            print(info.format(self.n_function_evaluations, self.best_so_far_y))
