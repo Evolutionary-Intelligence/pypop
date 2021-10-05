@@ -44,16 +44,10 @@ class Optimizer(object):
         self.rng_initialization = np.random.default_rng(self.seed_initialization)
         self.seed_optimization = options.get('seed_optimization', self.rng.integers(np.iinfo(np.int64).max))
         self.rng_optimization = np.random.default_rng(self.seed_optimization)
-        self.record_options = options.get('record_options', {})
-        if self.record_options.get('record_fitness') is None:
-            self.record_options['record_fitness'] = False
-        if self.record_options.get('frequency_record_fitness') is None:
-            self.record_options['frequency_record_fitness'] = 1000
-        self.verbose_options = options.get('verbose_options', {})
-        if self.verbose_options.get('verbose') is None:
-            self.verbose_options['verbose'] = True
-        if self.verbose_options.get('frequency_verbose') is None:
-            self.verbose_options['frequency_verbose'] = 10
+        self.record_fitness = options.get('record_fitness', False)
+        self.record_fitness_frequency = options.get('record_fitness_frequency', 1000)
+        self.verbose = options.get('verbose', True)
+        self.verbose_frequency = options.get('verbose_frequency', 10)
 
         # auxiliary members
         self.Terminations = Terminations
@@ -104,7 +98,7 @@ class Optimizer(object):
             if fitness[i] < fitness[i + 1]:
                 fitness[i + 1] = fitness[i]
         # use 1-based index
-        index = np.arange(1, len(fitness), self.record_options['frequency_record_fitness'])
+        index = np.arange(1, len(fitness), self.record_fitness_frequency)
         # recover 0-based index via - 1
         index = np.append(index, len(fitness)) - 1
         self.fitness = np.stack((index, fitness[index]), 1)
