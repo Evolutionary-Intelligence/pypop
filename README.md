@@ -4,7 +4,7 @@
 
 ## A List of Available Gradient-Free Optimizers (GFO)
 
-* Random (Stochastic) Search (RS)
+* Random (Stochastic) Search (RS) [See e.g. [Brooks, 1958, Operations Research](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244) for Introduction]
 
   * Pure Random Search (PRS)
   
