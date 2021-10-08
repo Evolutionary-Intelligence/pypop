@@ -6,7 +6,7 @@
 
 * Random (Stochastic) Search (RS) [See e.g. [Brooks, 1958, Operations Research](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244) for Introduction]
 
-  * Pure Random Search (PRS)
+  * Pure Random Search (PRS) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html) for Introduction]
   
   * Random Hill Climber (RHC)
   
