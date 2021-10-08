@@ -2,9 +2,13 @@
 
 ```pypop``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for real-parameter, black-box problems (**currently actively developed**).
 
-## A List of Available Gradient-Free Optimizers (GFO)
+## A (*Growing*) List of Available Gradient-Free Optimizers (GFO)
 
-* Random (Stochastic) Search (RS) [See e.g. [Brooks, 1958, Operations Research](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244) for Introduction]
+* **Natural Evolution Strategies (NES)** [See e.g. [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html) for Introduction]
+
+  * Separable Natural Evolution Strategy (SNES) [See [Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692) for Introduction]
+
+* **Random (Stochastic) Search (RS)** [See e.g. [Brooks, 1958, Operations Research](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244) for Introduction]
 
   * Pure Random Search (PRS) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html) for Introduction]
   
