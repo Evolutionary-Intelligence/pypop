@@ -72,8 +72,10 @@ class Optimizer(object):
         self.time_function_evaluations += time.time() - self.start_function_evaluations
         self.n_function_evaluations += 1
         # update best-so-far solution and fitness
-        if y < self.best_so_far_y:
+        if (not self._is_maximization) and (y < self.best_so_far_y):
             self.best_so_far_x, self.best_so_far_y = np.copy(x), y
+        if self._is_maximization and (-y > self.best_so_far_y):
+            self.best_so_far_x, self.best_so_far_y = np.copy(x), -y
         return float(y)
 
     def _check_terminations(self):
