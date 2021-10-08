@@ -31,7 +31,7 @@ class SNES(NES):
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         return s, mu, sigma, y
 
-    def iterate(self, s=None, mu=None, sigma=None, y=None):
+    def iterate(self, s=None, mu=None, sigma=None, y=None, args=None):
         for k in range(self.n_individuals):  # sample population (candidate solutions)
             if self._check_terminations():
                 return s, y
@@ -39,13 +39,7 @@ class SNES(NES):
             s[k] = self.rng_optimization.standard_normal((self.ndim_problem,))
             z = mu + sigma * s[k]
             # evaluate fitness
-            self.start_function_evaluations = time.time()
-            y[k] = self.fitness_function(z)
-            self.time_function_evaluations += time.time() - self.start_function_evaluations
-            self.n_function_evaluations += 1
-            # update best-so-far solution and fitness
-            if -y[k] > self.best_so_far_y:  # maximization
-                self.best_so_far_x, self.best_so_far_y = z, -y[k]
+            y[k] = self._evaluate_fitness(z, args)
         return s, y
 
     def _compute_gradients(self, s=None, y=None):
@@ -60,14 +54,14 @@ class SNES(NES):
         sigma *= np.exp(self.eta_sigma / 2 * g_sigma)
         return mu, sigma
 
-    def optimize(self, fitness_function=None):
+    def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         self.start_time = time.time()
         fitness = []  # store all fitness generated during evolution
         if fitness_function is not None:
             self.fitness_function = fitness_function
         s, mu, sigma, y = self.initialize()
         while True:
-            s, y = self.iterate(s, mu, sigma, y)  # sample and evaluate offspring population
+            s, y = self.iterate(s, mu, sigma, y, args)  # sample and evaluate offspring population
             if self.record_fitness:
                 fitness.extend(y.tolist())
             if self._check_terminations():
