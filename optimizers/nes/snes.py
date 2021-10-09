@@ -43,8 +43,8 @@ class SNES(NES):
         return s, y
 
     def _compute_gradients(self, s=None, y=None):
-        order, upsilon = np.argsort(y), np.copy(self.upsilon)
-        upsilon[order] = np.copy(upsilon)
+        upsilon = np.empty((self.n_individuals,))
+        upsilon[np.argsort(y)] = np.copy(self.upsilon)
         g_mu = np.dot(upsilon, s)
         g_sigma = np.dot(upsilon, np.power(s, 2) - 1)
         return g_mu, g_sigma
