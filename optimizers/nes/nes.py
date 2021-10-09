@@ -58,5 +58,5 @@ class NES(Optimizer):
 
     def _fitness_shaping(self):
         base = np.log(self.n_individuals / 2 + 1)
-        utilities = np.array([max(0, base - np.log(k)) for k in (np.arange(self.n_individuals) + 1)])
+        utilities = np.maximum(0, [base - np.log(k) for k in (np.arange(self.n_individuals) + 1)])
         return utilities / np.sum(utilities) - (1 / self.n_individuals)
