@@ -1,6 +1,10 @@
 # pypop
 
-```pypop``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for real-parameter, black-box problems (**currently actively developed**).
+```PyPop``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for real-parameter, black-box problems (**currently actively developed**). Its goal is to provide a *unified* interface and also *elegant* implementations for **Derivative-Free Optimization (DFO)**, *particularly population-based optimizers*, in order to facilitate research repeatability and real-world applications.
+
+<p align="center">
+<img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/PyPop-Logo-Small-0.png" alt="drawing" width="321"/>
+</p>
 
 ## A (*Growing*) List of Available Gradient-Free Optimizers (GFO)
 
