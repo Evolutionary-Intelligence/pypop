@@ -10,6 +10,8 @@
 
 * **Natural Evolution Strategies (NES)** [See e.g. [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html) for Introduction]
 
+  * Rank-One Natural Evolution Strategy (R1NES) [See [Sun et al., 2013, GECCO](https://dl.acm.org/doi/abs/10.1145/2464576.2464608) for Introduction]
+
   * Separable Natural Evolution Strategy (SNES) [See [Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692) for Introduction]
 
 * **Random (Stochastic) Search (RS)** [See e.g. [Brooks, 1958, Operations Research](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244) for Introduction]
