@@ -20,7 +20,7 @@ class TestSNES(unittest.TestCase):
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),
-                       'verbose_frequency': 200000,
+                       'verbose_frequency': 200,
                        'record_fitness': True,
                        'record_fitness_frequency': 200000}
             solver = Solver(problem, options)
