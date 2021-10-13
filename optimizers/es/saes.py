@@ -53,7 +53,7 @@ class SAES(ES):
                 break
             order = np.argsort(y)[:self.n_parents]
             mu = np.mean(x[order], axis=0)
-            self.sigma = np.mean(sigmas[order], axis=0)
+            self.sigma = np.mean(sigmas[order])
             self.n_generations += 1
             self._print_verbose_info(y)
         if self.record_fitness:
