@@ -34,7 +34,8 @@ class Optimizer(object):
         self.fitness_threshold = options.get('fitness_threshold', -np.Inf)
         if self._is_maximization:
             self.fitness_threshold *= -1
-        self.n_individuals = options.get('n_individuals')
+        self.n_individuals = options.get('n_individuals')  # offspring population size
+        self.n_parents = options.get('n_parents')  # parent population size
         self.seed_rng = options.get('seed_rng')
         if self.seed_rng is None:
             self.rng = np.random.default_rng()
