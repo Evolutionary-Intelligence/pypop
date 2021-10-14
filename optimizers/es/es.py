@@ -25,14 +25,17 @@ class ES(Optimizer):
         Optimizer.__init__(self, problem, options)
         if self.n_individuals is None:  # offspring population size (λ: lambda)
             self.n_individuals = 4 + int(np.floor(3 * np.log(self.ndim_problem)))
-        # to avoid notation confusion in μ, use n_parents and mu to represent
+        # to avoid notation confusion in μ, use `n_parents` and `mu` to represent
         #   parent population size and mean of Gaussian search distribution, respectively
         if self.n_parents is None:  # parent population size (μ: mu)
             self.n_parents = int(self.n_individuals / 2)
+            w_base, w = np.log((self.n_individuals + 1) / 2), np.log(np.arange(self.n_parents) + 1)
+            self.w = (w_base - w) / (self.n_parents * w_base - np.sum(w))
+            self.mu_eff = 1 / np.sum(np.power(self.w, 2))  # μ_eff
         self.mu = options.get('mu')  # mean of Gaussian search distribution (μ)
         if self.mu is None:  # 'mu' has priority over 'x'
             self.mu = options.get('x')
-        self.sigma = options.get('sigma', 0.1)  # global step-size
+        self.sigma = options.get('sigma', 0.1)  # global step-size (σ)
         self.eta_mu = options.get('eta_mu')  # learning rate of mean (η_μ)
         self.eta_sigma = options.get('eta_sigma')  # learning rate of std (η_σ)
         self.n_generations = options.get('n_generations', 0)
