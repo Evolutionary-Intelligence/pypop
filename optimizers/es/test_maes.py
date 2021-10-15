@@ -18,6 +18,7 @@ class TestMAES(unittest.TestCase):
                        'upper_boundary': 5 * np.ones((ndim_problem,))}
             options = {'max_function_evaluations': 2e6,
                        'fitness_threshold': 1e-10,
+                       'max_runtime': 3600,  # 1 hours
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),
                        'verbose_frequency': 200,
