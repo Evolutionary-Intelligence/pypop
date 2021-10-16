@@ -9,6 +9,11 @@ class MAES(ES):
 
     Reference
     ---------
+    Beyer, H.G., 2020, July.
+    Design principles for matrix adaptation evolution strategies.
+    In Proceedings of Annual Conference on Genetic and Evolutionary Computation Companion (pp. 682-700).
+    https://dl.acm.org/doi/abs/10.1145/3377929.3389870
+
     Beyer, H.G. and Sendhoff, B., 2017.
     Simplify your covariance matrix adaptation evolution strategy.
     IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
@@ -31,7 +36,9 @@ class MAES(ES):
         # for M12 in Fig. 3 (E[||N(0,I)||]: expectation of Chi-Square Distribution)
         self.expectation_chi = np.sqrt(self.ndim_problem) * (
             1 - 1 / (4 * self.ndim_problem) - 1 / (21 * np.power(self.ndim_problem, 2)))
-        self.diag_one = np.diag(np.ones((self.ndim_problem,)))  # for M11 in Fig. 3
+        self._fast_version = options.get('_fast_version', False)
+        if not self._fast_version:
+            self.diag_one = np.diag(np.ones((self.ndim_problem,)))  # for M11 in Fig. 3
 
     def initialize(self):  # for M1 in Fig. 3
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
@@ -54,18 +61,27 @@ class MAES(ES):
     def _update_distribution(self, z=None, d=None, mu=None, s=None, tm=None, y=None):
         order = np.argsort(y)
         d_w, z_w = np.zeros((self.ndim_problem,)), np.zeros((self.ndim_problem,))  # for M9, M10 in Fig. 3
-        zz_w = np.zeros((self.ndim_problem, self.ndim_problem))  # for M11 in Fig. 3
+        zz_w = None
+        if not self._fast_version:
+            zz_w = np.zeros((self.ndim_problem, self.ndim_problem))  # for M11 in Fig. 3
         for k in range(self.n_parents):
             d_w += self.w[k] * d[order[k]]
             z_w += self.w[k] * z[order[k]]
-            zz_w += self.w[k] * np.dot(z[order[k]][:, np.newaxis], z[order[k]][np.newaxis, :])
+            if not self._fast_version:
+                zz_w += self.w[k] * np.dot(z[order[k]][:, np.newaxis], z[order[k]][np.newaxis, :])
         # update distribution mean (for M9 in Fig. 3)
         mu += (self.sigma * d_w)
         # update evolution path (s) and transformation matrix (M)
         s = self.s_1 * s + self.s_2 * z_w  # for M10 in Fig. 3
-        tm_1 = self.c_1 * (np.dot(s[:, np.newaxis], s[np.newaxis, :]) - self.diag_one)
-        tm_2 = self.c_w * (zz_w - self.diag_one)
-        tm += 0.5 * np.dot(tm, tm_1 + tm_2)  # for M11 in Fig. 3
+        if not self._fast_version:
+            tm_1 = self.c_1 * (np.dot(s[:, np.newaxis], s[np.newaxis, :]) - self.diag_one)
+            tm_2 = self.c_w * (zz_w - self.diag_one)
+            tm += 0.5 * np.dot(tm, tm_1 + tm_2)  # for M11 in Fig. 3
+        else:
+            tm = (1 - 0.5 * (self.c_1 + self.c_w)) * tm
+            tm += (0.5 * self.c_1) * np.dot(np.dot(tm, s[:, np.newaxis]), s[np.newaxis, :])
+            for k in range(self.n_parents):
+                tm += (0.5 * self.c_w) * self.w[k] * np.dot(d[order[k]][:, np.newaxis], z[order[k]][np.newaxis, :])
         # update global step-size (for M12 in Fig. 3)
         self.sigma *= np.exp(self.c_s / self.d_sigma * (np.linalg.norm(s) / self.expectation_chi - 1))
         return mu, s, tm
