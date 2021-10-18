@@ -22,7 +22,7 @@ class SNES(NES):
             self.eta_mu = 1
         if self.eta_sigma is None:  # learning rate of std of Gaussian search distribution (η_σ)
             self.eta_sigma = (3 + np.log(self.ndim_problem)) / (5 * np.sqrt(self.ndim_problem))
-        self.upsilon = self._fitness_shaping()
+        self._upsilon = self._fitness_shaping()
 
     def initialize(self):
         s = np.empty((self.n_individuals, self.ndim_problem))  # samples (population / candidate solutions)
@@ -44,7 +44,7 @@ class SNES(NES):
 
     def _compute_gradients(self, s=None, y=None):
         upsilon = np.empty((self.n_individuals,))
-        upsilon[np.argsort(y)] = np.copy(self.upsilon)
+        upsilon[np.argsort(y)] = np.copy(self._upsilon)
         g_mu = np.dot(upsilon, s)
         g_sigma = np.dot(upsilon, np.power(s, 2) - 1)
         return g_mu, g_sigma
