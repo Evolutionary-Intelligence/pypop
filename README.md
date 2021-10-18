@@ -32,9 +32,9 @@
 
   * Pure Random Search (**PRS**) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
   
-  * Random Hill Climber (**RHC**)
+  * Random Hill Climber (**RHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html) ]
   
-  * Annealed Random Hill Climber (**ARHC**)
+  * Annealed Random Hill Climber (**ARHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html) ]
 
 ## Research Support
 
