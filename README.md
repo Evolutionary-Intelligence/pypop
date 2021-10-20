@@ -6,7 +6,9 @@
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/PyPop-Logo-Small-0.png" alt="drawing" width="321"/>
 </p>
 
-## A (*Growing*) List of Available Gradient-Free Optimizers (GFO)
+To alleviate the notorious **curse of dimensionality** of DFO (based on *iterative sampling*), the main focus of ```PyPop``` is to cover their relatively new versions for **Large-Scale Optimization**, though their other versions and variants may be also included here (e.g., for benchmarking purpose, for mixing purpose, and sometimes even for practical purpose).
+
+## A (*Growing*) List of **Publically Available** Gradient-Free Optimizers (GFO)
 
 * **Natural Evolution Strategies (NES)** [See e.g. [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html)]
 
@@ -22,7 +24,9 @@
 
   * Fast Matrix Adaptation Evolution Strategy (**FMAES**, Fast-(μ/μ_w, λ)-MA-ES) [See [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870)]
 
-  * Rank One Evolution Strategy (**R1ES**) [See [Li and Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
+  * Rank-m Evolution Strategy with Multiple Evolution Paths (**RMES / RmES**) [See [Li and Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
+
+  * Rank-One Evolution Strategy (**R1ES**) [See [Li and Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
 
   * Matrix Adaptation Evolution Strategy (**MAES**, (μ/μ_w, λ)-MA-ES) [See [Beyer and Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 
@@ -32,10 +36,12 @@
 
   * Pure Random Search (**PRS**) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
   
-  * Random Hill Climber (**RHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html) ]
+  * Random Hill Climber (**RHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
   
-  * Annealed Random Hill Climber (**ARHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html) ]
+  * Annealed Random Hill Climber (**ARHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
 
 ## Research Support
 
 This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed (from 2021 to 2023) by his group members (e.g., **Qiqi Duan**, *Chang Shao*, *Guochen Zhou*, and Youkui Zhang).
+
+We also acknowledge the initial discussions and Python code efforts (dating back to *about* 2017) from Hao Tong from the research group of **Prof. Yao** (CSE, SUSTech @ Shenzhen, China).
