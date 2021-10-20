@@ -1,4 +1,3 @@
-import time
 import numpy as np
 
 from optimizers.es.es import ES
@@ -60,10 +59,8 @@ class R1ES(ES):
         return mu, p, s
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        self.start_time = time.time()
+        ES.optimize(self, fitness_function)
         fitness = []  # store all fitness generated during evolution
-        if fitness_function is not None:
-            self.fitness_function = fitness_function
         x, mu, p, s, y = self.initialize(args)
         fitness.append(y[0])
         while True:
