@@ -124,4 +124,6 @@ class Optimizer(object):
         raise NotImplementedError
 
     def optimize(self, fitness_function=None):
-        raise NotImplementedError
+        self.start_time = time.time()
+        if fitness_function is not None:
+            self.fitness_function = fitness_function
