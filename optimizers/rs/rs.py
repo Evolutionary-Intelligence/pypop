@@ -1,5 +1,3 @@
-import time
-
 from optimizers.core.optimizer import Optimizer
 
 
@@ -28,10 +26,8 @@ class RS(Optimizer):
         raise NotImplementedError
 
     def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
-        self.start_time = time.time()
+        Optimizer.optimize(self, fitness_function)
         fitness = []  # store all fitness generated during search
-        if fitness_function is not None:
-            self.fitness_function = fitness_function
         is_initialization = True
         while not self._check_terminations():
             if is_initialization:
