@@ -1,4 +1,3 @@
-import time
 import numpy as np
 
 from optimizers.es.es import ES
@@ -87,10 +86,8 @@ class MAES(ES):
         return mu, s, tm
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        self.start_time = time.time()
+        ES.optimize(self, fitness_function)
         fitness = []  # store all fitness generated during evolution
-        if fitness_function is not None:
-            self.fitness_function = fitness_function
         z, d, mu, s, tm, y = self.initialize()
         while True:
             z, d, y = self.iterate(z, d, mu, s, tm, y, args)  # sample and evaluate offspring population
