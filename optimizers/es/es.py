@@ -46,9 +46,6 @@ class ES(Optimizer):
     def iterate(self):
         raise NotImplementedError
 
-    def optimize(self, fitness_function=None):
-        raise NotImplementedError
-
     def _initialize_mu(self):
         if self.mu is None:
             rng = self.rng_initialization
