@@ -60,8 +60,8 @@ class ES(Optimizer):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self.n_generations, best_so_far_y, np.min(y), self.n_function_evaluations))
 
-    def _collect_results(self):
-        results = Optimizer._collect_results(self)
+    def _collect_results(self, fitness):
+        results = Optimizer._collect_results(self, fitness)
         results['mu'] = self.mu
         results['sigma'] = self.sigma
         results['n_generations'] = self.n_generations
