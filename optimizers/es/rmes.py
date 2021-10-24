@@ -62,9 +62,7 @@ class RMES(R1ES):
             mu, p, s, mp, t_hat = self._update_distribution(x, mu, p, s, mp, t_hat, y, y_bak)
             self.n_generations += 1
             self._print_verbose_info(y)
-        if self.record_fitness:
-            self._compress_fitness(fitness[:self.n_function_evaluations])
-        results = self._collect_results()
+        results = self._collect_results(fitness)
         results['mu'] = mu
         results['p'] = p
         return results
