@@ -106,9 +106,11 @@ class Optimizer(object):
         index = np.append(index, len(fitness)) - 1
         self.fitness = np.stack((index, fitness[index]), 1)
 
-    def _collect_results(self):
+    def _collect_results(self, fitness):
         if self._is_maximization:
             self.best_so_far_y *= -1
+        if self.record_fitness:
+            self._compress_fitness(fitness[:self.n_function_evaluations])
         return {'best_so_far_x': self.best_so_far_x,
                 'best_so_far_y': self.best_so_far_y,
                 'n_function_evaluations': self.n_function_evaluations,
