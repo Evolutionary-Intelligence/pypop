@@ -25,6 +25,11 @@ class RS(Optimizer):
     def iterate(self):  # for each iteration (generation)
         raise NotImplementedError
 
+    def _print_verbose_info(self):
+        if self.verbose and (not self.n_function_evaluations % self.verbose_frequency):
+            info = '  * Evaluations {:d}: best_so_far_y {:7.5e}'
+            print(info.format(self.n_function_evaluations, self.best_so_far_y))
+
     def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
         Optimizer.optimize(self, fitness_function)
         fitness = []  # store all fitness generated during search
@@ -39,11 +44,4 @@ class RS(Optimizer):
             if self.record_fitness:
                 fitness.append(y)
             self._print_verbose_info()
-        if self.record_fitness:
-            self._compress_fitness(fitness[:self.n_function_evaluations])
-        return self._collect_results()
-
-    def _print_verbose_info(self):
-        if self.verbose and (not self.n_function_evaluations % self.verbose_frequency):
-            info = '  * Evaluations {:d}: best_so_far_y {:7.5e}'
-            print(info.format(self.n_function_evaluations, self.best_so_far_y))
+        return self._collect_results(fitness)
