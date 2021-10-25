@@ -98,9 +98,7 @@ class MAES(ES):
             mu, s, tm = self._update_distribution(z, d, mu, s, tm, y)
             self.n_generations += 1
             self._print_verbose_info(y)
-        if self.record_fitness:
-            self._compress_fitness(fitness[:self.n_function_evaluations])
-        results = self._collect_results()
+        results = self._collect_results(fitness)
         results['mu'] = mu
         results['s'] = s
         return results
