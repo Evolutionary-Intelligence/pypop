@@ -14,7 +14,7 @@ class TestSAES(unittest.TestCase):
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
                        'ndim_problem': ndim_problem,
-                       'lower_boundary': -5 * np.zeros((ndim_problem,)),
+                       'lower_boundary': -5 * np.ones((ndim_problem,)),
                        'upper_boundary': 5 * np.ones((ndim_problem,))}
             options = {'max_function_evaluations': 2e6,
                        'fitness_threshold': 1e-10,
