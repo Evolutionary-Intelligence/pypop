@@ -1,5 +1,7 @@
 # pypop
 
+[![Join the chat at https://gitter.im/pypop-go/community](https://badges.gitter.im/pypop-go/community.svg)](https://gitter.im/pypop-go/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ```PyPop``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for real-parameter, black-box problems (**currently actively developed**). Its goal is to provide a *unified* interface and also *elegant* implementations for **Derivative-Free Optimization (DFO)**, *particularly population-based optimizers*, in order to facilitate research repeatability and also real-world applications.
 
 <p align="center">
