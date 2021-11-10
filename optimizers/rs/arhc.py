@@ -26,7 +26,7 @@ class ARHC(RHC):
     def _evaluate_fitness(self, x, args=None):
         y = RHC._evaluate_fitness(self, x, args)
         # update parent solution and fitness
-        if (y < self.parent_y) or (self.rng_optimization.random() <
-                                   np.exp((self.parent_y - y) / self.temperature)):
+        diff = y - self.parent_y
+        if (diff < 0) or (self.rng_optimization.random() < np.exp(-diff / self.temperature)):
             self.parent_x, self.parent_y = np.copy(x), y
         return y
