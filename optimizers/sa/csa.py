@@ -1,11 +1,10 @@
-import time
 import numpy as np
 
 from optimizers.rs.rs import RS
 
 
-class SA(RS):
-    """Simulated Annealing (SA).
+class CSA(RS):
+    """Simulated Annealing (SA) designed by Corana et al., ACM-TOMS, 1987.
 
     Reference
     ---------
@@ -19,15 +18,17 @@ class SA(RS):
     ACM Transactions on Mathematical Software, 13(3), pp.262-280.
     https://dl.acm.org/doi/abs/10.1145/29380.29864
     https://dl.acm.org/doi/10.1145/66888.356281
+
+    https://esa.github.io/pygmo2/algorithms.html#pygmo.simulated_annealing
     """
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
         step_vector = (self.initial_upper_boundary - self.initial_lower_boundary) * 0.01
         self.v = options.get('v', step_vector)  # starting step vector
-        self.T = options.get('T', 1e7)  # starting temperature
-        self.N_S = options.get('N_S', 20)  # for step variation
+        self.T = options.get('T', 10.0)  # starting temperature
+        self.N_S = options.get('N_S', 10)  # for step variation
         self.c = options.get('c', 2 * np.ones(self.ndim_problem,))  # for step variation criterion
-        self.N_T = options.get('N_T', 100)  # for temperature reduction
+        self.N_T = options.get('N_T', 10)  # for temperature reduction
         self.r_T = options.get('r_T', 0.85)  # for temperature reduction coefficient
         self.n = np.zeros((self.ndim_problem,))  # for step variation
         self.parent_x = np.copy(self.best_so_far_x)
@@ -40,15 +41,15 @@ class SA(RS):
             x = np.copy(self.x)
         y = self._evaluate_fitness(x, args)
         self.parent_x, self.parent_y = x, y
-        return [y]
+        return y
 
-    def perform_cycle(self, args=None):  # perform a cycle of random moves
+    def iterate(self, args=None):  # perform a cycle of random moves
         fitness = []
         for h in range(self.ndim_problem):
             x = np.copy(self.parent_x)
             x[h] = self.parent_x[h] + self.rng_optimization.uniform(-1, 1) * self.v[h]
             y = self._evaluate_fitness(x, args)
-            if self.record_options['record_fitness']:
+            if self.record_fitness:
                 fitness.append(y)
             self._print_verbose_info()
             diff = self.parent_y - y
@@ -67,20 +68,18 @@ class SA(RS):
                 self.v[u] /= 1 + self.c[u] * (0.4 - self.n[u] / self.N_S) / 0.4
         self.n = np.zeros((self.ndim_problem,))
 
-    def _collect_results(self):
-        results = RS._collect_results(self)
+    def _collect_results(self, fitness):
+        results = RS._collect_results(self, fitness)
         results['v'] = np.copy(self.v)
         return results
 
     def optimize(self, fitness_function=None, args=None):
-        self.start_time = time.time()
-        if fitness_function is not None:
-            self.fitness_function = fitness_function
-        fitness = self.initialize(args)  # store all fitness generated during search
+        super(RS, self).optimize(fitness_function)
+        fitness = [self.initialize(args)]  # store all fitness generated during search
         while not self._check_terminations():
             for m in range(self.N_T):
                 for j in range(self.N_S):
-                    fitness.extend(self.perform_cycle(args))
+                    fitness.extend(self.iterate(args))
                     if self._check_terminations():
                         break
                 if self._check_terminations():
@@ -88,6 +87,4 @@ class SA(RS):
                 self.adjust_step_vector()
             self.T *= self.r_T  # reduce temperature
             self.parent_x, self.parent_y = self.best_so_far_x, self.best_so_far_y
-        if self.record_options['record_fitness']:
-            self._compress_fitness(fitness[:self.n_function_evaluations])
-        return self._collect_results()
+        return self._collect_results(fitness)
