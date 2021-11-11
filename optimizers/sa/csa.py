@@ -6,6 +6,9 @@ from optimizers.rs.rs import RS
 class CSA(RS):
     """Simulated Annealing (SA) designed by Corana et al., ACM-TOMS, 1987.
 
+    NOTE that this implementation is slightly different from the original paper:
+        For each cycle of random moves, each variable is iterated equally rather than randomly.
+
     Reference
     ---------
     Kirkpatrick, S., Gelatt, C.D. and Vecchi, M.P., 1983.
@@ -33,6 +36,7 @@ class CSA(RS):
         self.n = np.zeros((self.ndim_problem,))  # for step variation
         self.parent_x = np.copy(self.best_so_far_x)
         self.parent_y = np.copy(self.best_so_far_y)
+        self.n_T_adjustments = 0  # number of temperature adjustments
 
     def initialize(self, args=None):
         if self.x is None:  # starting point
@@ -70,6 +74,7 @@ class CSA(RS):
 
     def _collect_results(self, fitness):
         results = RS._collect_results(self, fitness)
+        results['n_T_adjustments'] = self.n_T_adjustments
         results['v'] = np.copy(self.v)
         return results
 
@@ -86,5 +91,6 @@ class CSA(RS):
                     break
                 self.adjust_step_vector()
             self.T *= self.r_T  # reduce temperature
+            self.n_T_adjustments += 1
             self.parent_x, self.parent_y = self.best_so_far_x, self.best_so_far_y
         return self._collect_results(fitness)
