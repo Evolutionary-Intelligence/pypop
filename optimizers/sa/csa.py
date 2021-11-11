@@ -6,9 +6,6 @@ from optimizers.rs.rs import RS
 class CSA(RS):
     """Simulated Annealing (SA) designed by Corana et al., ACM-TOMS, 1987.
 
-    NOTE that this implementation is slightly different from the original paper:
-        For each cycle of random moves, each variable is iterated equally rather than randomly.
-
     Reference
     ---------
     Kirkpatrick, S., Gelatt, C.D. and Vecchi, M.P., 1983.
@@ -40,7 +37,8 @@ class CSA(RS):
 
     def initialize(self, args=None):
         if self.x is None:  # starting point
-            x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
+            x = self.rng_initialization.uniform(self.initial_lower_boundary,
+                                                self.initial_upper_boundary)
         else:
             x = np.copy(self.x)
         y = self._evaluate_fitness(x, args)
@@ -49,9 +47,11 @@ class CSA(RS):
 
     def iterate(self, args=None):  # perform a cycle of random moves
         fitness = []
-        for h in range(self.ndim_problem):
+        for h in np.arange(self.ndim_problem):
             x = np.copy(self.parent_x)
-            x[h] = self.parent_x[h] + self.rng_optimization.uniform(-1, 1) * self.v[h]
+            search_range = (np.maximum(self.parent_x[h] - self.v[h], self.lower_boundary[h]),
+                            np.minimum(self.parent_x[h] + self.v[h], self.upper_boundary[h]))
+            x[h] = self.rng_optimization.uniform(search_range[0], search_range[1])
             y = self._evaluate_fitness(x, args)
             if self.record_fitness:
                 fitness.append(y)
