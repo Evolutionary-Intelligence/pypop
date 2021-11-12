@@ -18,6 +18,8 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * Separable Natural Evolution Strategy (**SNES**) [See [Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
 
+* **Estimation of Distribution Algorithms** (**EDA**)
+
 * **Particle Swarm Optimization (PSO)** [See e.g. [Kennedy and Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
 
 * **CoOperative co-Evolutionary Algorithms (COEA)** [See e.g. [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html); [Panait et al., 2008, JMLR](https://www.jmlr.org/papers/v9/panait08a.html)]
@@ -25,6 +27,8 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
   * CoOperative SYnapse NeuroEvolution (**COSYNE / CoSyNE**) [See [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html)]
 
 * **Simulated Annealing (SA)** [See e.g. [Kirkpatrick et al., 1983, Science](https://www.science.org/doi/10.1126/science.220.4598.671)]
+
+  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/edit/main/README.md) Enhanced Simulated Annealing (**ESA**) [See [Siarry et al., 1997, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/264029.264043)]
 
   * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/edit/main/README.md) Corana et al.' Simulated Annealing (**CSA**) [See [Corana et al., 1987, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
 
@@ -39,6 +43,8 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
   * Matrix Adaptation Evolution Strategy (**MAES**, (μ/μ_w, λ)-MA-ES) [See [Beyer and Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 
   * Self-Adaptation Evolution Strategy (**SAES**, (μ/μ_I, λ)-σSA-ES) [See e.g. [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
+
+* **Genetic Algorithms (GA)** [See e.g. [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
 
 * **Evolutionary Programming (EP)** [See e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
 
@@ -58,8 +64,12 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * For each optimizer considered here, we expect to give its original/representative reference (including its good implementations/improvements). If you find some important reference missed here, please DO NOT hesitate to contact us (we will be happy to add it if necessary).
 
+* **Respect for Repeatability**
+
+  * For randomized search, properly controlling randomness is very crucial to repeat numerical experiments. Here we follow the *Random Sampling* suggestions from [NumPy](https://numpy.org/doc/stable/reference/random/). In other worlds, you must **explicitly** set the random seed for each optimizer.
+
 ## Research Support
 
 This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed (from 2021 to 2023) by his group members (e.g., **Qiqi Duan**, *Chang Shao*, *Guochen Zhou*, and Youkui Zhang).
 
-We also acknowledge the initial discussions and Python code efforts (dating back to *about* 2017) from Hao Tong from the research group of **Prof. Yao** (CSE, SUSTech @ Shenzhen, China).
+We also acknowledge the initial discussions and Python code efforts (dating back to *about* 2017) with Hao Tong from the research group of **Prof. Yao** (CSE, SUSTech @ Shenzhen, China).
