@@ -18,6 +18,8 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * Separable Natural Evolution Strategy (**SNES**) [See [Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
 
+* **Estimation of Distribution Algorithms** (**EDA**)
+
 * **Particle Swarm Optimization (PSO)** [See e.g. [Kennedy and Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
 
 * **CoOperative co-Evolutionary Algorithms (COEA)** [See e.g. [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html); [Panait et al., 2008, JMLR](https://www.jmlr.org/papers/v9/panait08a.html)]
