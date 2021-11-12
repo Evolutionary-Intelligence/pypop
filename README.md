@@ -60,8 +60,12 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * For each optimizer considered here, we expect to give its original/representative reference (including its good implementations/improvements). If you find some important reference missed here, please DO NOT hesitate to contact us (we will be happy to add it if necessary).
 
+* **Respect for Repeatability**
+
+  * For randomized search, properly controlling randomness is very crucial to repeat numerical experiments. Here we follow the *Random Sampling* suggestions from [NumPy](https://numpy.org/doc/stable/reference/random/). In other worlds, you must **explicitly** set the random seed for each optimizer.
+
 ## Research Support
 
 This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed (from 2021 to 2023) by his group members (e.g., **Qiqi Duan**, *Chang Shao*, *Guochen Zhou*, and Youkui Zhang).
 
-We also acknowledge the initial discussions and Python code efforts (dating back to *about* 2017) from Hao Tong from the research group of **Prof. Yao** (CSE, SUSTech @ Shenzhen, China).
+We also acknowledge the initial discussions and Python code efforts (dating back to *about* 2017) with Hao Tong from the research group of **Prof. Yao** (CSE, SUSTech @ Shenzhen, China).
