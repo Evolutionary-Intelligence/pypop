@@ -58,6 +58,10 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 ## Design Philosophy
 
+* **Respect for Diversity**
+
+  * Given the universality of black-box optimization in science and engineering, different research communities have designed different methods, till now. On the one hand, some of these methods may share similarities more or less. On the other hand, these methods may show significant differences. As a result, we hope to cover such a diversity from different research communities such as artificial intelligence (particularly evolutionary computation and machine learning (zeroth-order optimization)), mathematical optimization (particularly global optimization), operations research, etc..
+
 * **Respect for Originality**
 
   * *“It is both enjoyable and educational to hear the ideas directly from the creators”.* (From Hennessy, J.L. and Patterson, D.A., 2019. Computer architecture: A quantitative approach (Sixth Edition). Elsevier.)
@@ -70,6 +74,6 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 ## Research Support
 
-This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed (from 2021 to 2023) by his group members (e.g., **Qiqi Duan**, *Chang Shao*, *Guochen Zhou*, and Youkui Zhang).
+This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed (from 2021 to 2023) by his group members (e.g., *Qiqi Duan*, *Chang Shao*, *Guochen Zhou*, and Youkui Zhang).
 
 We also acknowledge the initial discussions and Python code efforts (dating back to *about* 2017) with Hao Tong from the research group of **Prof. Yao** (CSE, SUSTech @ Shenzhen, China).
