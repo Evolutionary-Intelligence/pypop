@@ -12,6 +12,16 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 ## A (*Growing*) List of **Publically Available** Gradient-Free Optimizers (GFO)
 
+******* *** *******
+
+![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific version for LSO (e.g., dimension >= 1000).
+
+![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) version for *relatively low-dimensional* problems (though it may also work well under certain LSO circumstances).
+
+![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline version for benchmarking (and even sometimes practical) purpose.
+
+******* *** *******
+
 * **Natural Evolution Strategies (NES)** [See e.g. [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html)]
 
   * Rank-One Natural Evolution Strategy (**R1NES**) [See [Sun et al., 2013, GECCO](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
@@ -28,21 +38,21 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 * **Simulated Annealing (SA)** [See e.g. [Kirkpatrick et al., 1983, Science](https://www.science.org/doi/10.1126/science.220.4598.671)]
 
-  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/edit/main/README.md) Enhanced Simulated Annealing (**ESA**) [See [Siarry et al., 1997, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/264029.264043)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Enhanced Simulated Annealing (**ESA**) [See [Siarry et al., 1997, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/264029.264043)]
 
-  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/edit/main/README.md) Corana et al.' Simulated Annealing (**CSA**) [See [Corana et al., 1987, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Corana et al.' Simulated Annealing (**CSA**) [See [Corana et al., 1987, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
 
 * **Evolution Strategies (ES)** [See e.g. [Beyer and Schwefel, 2002, Natural Computing](https://link.springer.com/article/10.1023/A:1015059928466); [Schwefel, 1984, Ann Oper Res](https://link.springer.com/article/10.1007/BF01876146)]
 
   * Fast Matrix Adaptation Evolution Strategy (**FMAES**, Fast-(μ/μ_w, λ)-MA-ES) [See [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870)]
 
-  * Rank-m Evolution Strategy with Multiple Evolution Paths (**RMES / RmES**) [See [Li and Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-m Evolution Strategy with Multiple Evolution Paths (**RMES / RmES**) [See [Li and Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
 
-  * [![Large--Scale--Optimization](https://img.shields.io/badge/***-Large--Scale--Optimization-orange)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Rank-One Evolution Strategy (**R1ES**) [See [Li and Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-One Evolution Strategy (**R1ES**) [See [Li and Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
 
-  * [![competitor](https://img.shields.io/badge/**-competitor-blue.svg)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Matrix Adaptation Evolution Strategy (**MAES**, (μ/μ_w, λ)-MA-ES) [See [Beyer and Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
+  * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Matrix Adaptation Evolution Strategy (**MAES**, (μ/μ_w, λ)-MA-ES) [See [Beyer and Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 
-  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Self-Adaptation Evolution Strategy (**SAES**, (μ/μ_I, λ)-σSA-ES) [See e.g. [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Self-Adaptation Evolution Strategy (**SAES**, (μ/μ_I, λ)-σSA-ES) [See e.g. [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
 
 * **Genetic Algorithms (GA)** [See e.g. [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
 
@@ -50,11 +60,11 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 * **Random (Stochastic) Search (RS)** [See e.g. [Brooks, 1958, Operations Research](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244)]
 
-  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Pure Random Search (**PRS**) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Pure Random Search (**PRS**) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
 
-  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Random Hill Climber (**RHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Random Hill Climber (**RHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
   
-  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Annealed Random Hill Climber (**ARHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Annealed Random Hill Climber (**ARHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
 
 ## Design Philosophy
 
