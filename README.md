@@ -38,11 +38,11 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * Rank-m Evolution Strategy with Multiple Evolution Paths (**RMES / RmES**) [See [Li and Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
 
-  * Rank-One Evolution Strategy (**R1ES**) [See [Li and Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
+  * [![Large--Scale--Optimization](https://img.shields.io/badge/***-Large--Scale--Optimization-orange)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Rank-One Evolution Strategy (**R1ES**) [See [Li and Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
 
-  * [![competitor](https://img.shields.io/badge/**-competitor-blue.svg)](https://github.com/Evolutionary-Intelligence/pypop/edit/main/README.md) Matrix Adaptation Evolution Strategy (**MAES**, (μ/μ_w, λ)-MA-ES) [See [Beyer and Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
+  * [![competitor](https://img.shields.io/badge/**-competitor-blue.svg)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Matrix Adaptation Evolution Strategy (**MAES**, (μ/μ_w, λ)-MA-ES) [See [Beyer and Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 
-  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/edit/main/README.md) Self-Adaptation Evolution Strategy (**SAES**, (μ/μ_I, λ)-σSA-ES) [See e.g. [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
+  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Self-Adaptation Evolution Strategy (**SAES**, (μ/μ_I, λ)-σSA-ES) [See e.g. [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
 
 * **Genetic Algorithms (GA)** [See e.g. [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
 
@@ -50,11 +50,11 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 * **Random (Stochastic) Search (RS)** [See e.g. [Brooks, 1958, Operations Research](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244)]
 
-  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/edit/main/README.md) Pure Random Search (**PRS**) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
+  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Pure Random Search (**PRS**) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
 
-  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/edit/main/README.md) Random Hill Climber (**RHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
+  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Random Hill Climber (**RHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
   
-  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/edit/main/README.md) Annealed Random Hill Climber (**ARHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
+  * [![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg)](https://github.com/Evolutionary-Intelligence/pypop/main/README.md) Annealed Random Hill Climber (**ARHC**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
 
 ## Design Philosophy
 
@@ -72,7 +72,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * *“It is both enjoyable and educational to hear the ideas directly from the creators”.* (From Hennessy, J.L. and Patterson, D.A., 2019. Computer architecture: A quantitative approach (Sixth Edition). Elsevier.)
 
-  * For each optimizer considered here, we expect to give its original/representative reference (including its good implementations/improvements). If you find some important reference missed here, please DO NOT hesitate to contact us (we will be happy to add it if necessary).
+  * For each optimizer considered here, we expect to give its original/representative reference (including its good implementations/improvements). If you find some important reference missed here, please do NOT hesitate to contact us (we will be happy to add it if necessary).
 
 * **Respect for Repeatability**
 
