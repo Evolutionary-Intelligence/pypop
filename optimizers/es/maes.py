@@ -22,22 +22,22 @@ class MAES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self.c_s = (self.mu_eff + 2) / (self.mu_eff + self.ndim_problem + 5)  # for M10 in Fig. 3
-        self.s_1 = 1 - self.c_s  # for M10 in Fig. 3
-        self.s_2 = np.sqrt(self.mu_eff * self.c_s * (2 - self.c_s))  # for M10 in Fig. 3
-        self.alpha_cov = 2  # for M11 in Fig. 3 (α_cov)
-        self.c_1 = self.alpha_cov / (np.power(self.ndim_problem + 1.3, 2) + self.mu_eff)  # for M11 in Fig. 3
-        self.c_w = np.minimum(1 - self.c_1, self.alpha_cov * (self.mu_eff + 1 / self.mu_eff - 2) / (
-                np.power(self.ndim_problem + 2, 2) + self.alpha_cov * self.mu_eff / 2))  # for M11 in Fig. 3
-        # for M12 in Fig. 3 (d_σ)
-        self.d_sigma = 1 + self.c_s + 2 * np.maximum(
-            0, np.sqrt((self.mu_eff - 1) / (self.ndim_problem + 1)) - 1)
+        self.c_s = options.get('c_s', (self.mu_eff + 2) / (self.mu_eff + self.ndim_problem + 5))  # for M10 in Fig. 3
+        alpha_cov = 2  # for M11 in Fig. 3 (α_cov)
+        self.c_1 = options.get('c_1', alpha_cov / (
+                    np.power(self.ndim_problem + 1.3, 2) + self.mu_eff))  # for M11 in Fig. 3
+        self.c_w = options.get('c_w', np.minimum(1 - self.c_1, alpha_cov * (self.mu_eff + 1 / self.mu_eff - 2) / (
+                np.power(self.ndim_problem + 2, 2) + alpha_cov * self.mu_eff / 2)))  # for M11 in Fig. 3
+        self.d_sigma = options.get('d_sigma', 1 + self.c_s + 2 * np.maximum(  # for M12 in Fig. 3 (d_σ)
+            0, np.sqrt((self.mu_eff - 1) / (self.ndim_problem + 1)) - 1))
+        self._s_1 = 1 - self.c_s  # for M10 in Fig. 3
+        self._s_2 = np.sqrt(self.mu_eff * self.c_s * (2 - self.c_s))  # for M10 in Fig. 3
         # for M12 in Fig. 3 (E[||N(0,I)||]: expectation of Chi-Square Distribution)
-        self.expectation_chi = np.sqrt(self.ndim_problem) * (
+        self._expectation_chi = np.sqrt(self.ndim_problem) * (
             1 - 1 / (4 * self.ndim_problem) - 1 / (21 * np.power(self.ndim_problem, 2)))
         self._fast_version = options.get('_fast_version', False)
         if not self._fast_version:
-            self.diag_one = np.diag(np.ones((self.ndim_problem,)))  # for M11 in Fig. 3
+            self._diag_one = np.diag(np.ones((self.ndim_problem,)))  # for M11 in Fig. 3
 
     def initialize(self):  # for M1 in Fig. 3
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
@@ -71,10 +71,10 @@ class MAES(ES):
         # update distribution mean (for M9 in Fig. 3)
         mu += (self.sigma * d_w)
         # update evolution path (s) and transformation matrix (M)
-        s = self.s_1 * s + self.s_2 * z_w  # for M10 in Fig. 3
+        s = self._s_1 * s + self._s_2 * z_w  # for M10 in Fig. 3
         if not self._fast_version:
-            tm_1 = self.c_1 * (np.dot(s[:, np.newaxis], s[np.newaxis, :]) - self.diag_one)
-            tm_2 = self.c_w * (zz_w - self.diag_one)
+            tm_1 = self.c_1 * (np.dot(s[:, np.newaxis], s[np.newaxis, :]) - self._diag_one)
+            tm_2 = self.c_w * (zz_w - self._diag_one)
             tm += 0.5 * np.dot(tm, tm_1 + tm_2)  # for M11 in Fig. 3
         else:
             tm = (1 - 0.5 * (self.c_1 + self.c_w)) * tm
@@ -82,7 +82,7 @@ class MAES(ES):
             for k in range(self.n_parents):
                 tm += (0.5 * self.c_w) * self.w[k] * np.dot(d[order[k]][:, np.newaxis], z[order[k]][np.newaxis, :])
         # update global step-size (for M12 in Fig. 3)
-        self.sigma *= np.exp(self.c_s / self.d_sigma * (np.linalg.norm(s) / self.expectation_chi - 1))
+        self.sigma *= np.exp(self.c_s / self.d_sigma * (np.linalg.norm(s) / self._expectation_chi - 1))
         return mu, s, tm
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
