@@ -17,7 +17,8 @@ class RHC(PRS):
         if self.initialization_distribution not in [0, 1]:  # 0 -> normally distributed
             info = 'Currently for optimizer {:s}, only support uniformly or normally distributed random initialization.'
             raise ValueError(info.format(self.__class__.__name__))
-        self.initial_std = options.get('initial_std', 1.0)  # only for normally distributed random initialization
+        if self.initialization_distribution == 0:  # only for normally distributed random initialization
+            self.initial_std = options.get('initial_std', 1.0)
         self.global_std = options.get('global_std', 0.1)
 
     def _sample(self, rng):
