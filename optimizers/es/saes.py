@@ -4,7 +4,7 @@ from optimizers.es.es import ES
 
 
 class SAES(ES):
-    """Self-Adaptation Evolution Strategy (SAES, (μ/μ_I, λ)-σSA-ES)
+    """Self-Adaptation Evolution Strategy (SAES, (μ/μ_I, λ)-σSA-ES).
 
     Reference
     ---------
