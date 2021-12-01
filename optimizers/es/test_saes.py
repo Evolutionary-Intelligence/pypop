@@ -19,7 +19,8 @@ class TestSAES(unittest.TestCase):
             options = {'max_function_evaluations': 2e6,
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
-                       'x': 4 * np.ones((ndim_problem,)),
+                       'x': 4 * np.ones((ndim_problem,)),  # mean
+                       'sigma': 0.1,
                        'verbose_frequency': 200,
                        'record_fitness': True,
                        'record_fitness_frequency': 200000}
