@@ -42,7 +42,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Corana et al.' Simulated Annealing (**CSA**) [See [Corana et al., 1987, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
 
-* **Evolution Strategies (ES)** [See e.g. [Beyer and Schwefel, 2002, Natural Computing](https://link.springer.com/article/10.1023/A:1015059928466); [Schwefel, 1984, Ann Oper Res](https://link.springer.com/article/10.1007/BF01876146)]
+* **Evolution Strategies (ES)** [See e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Beyer and Schwefel, 2002, Natural Computing](https://link.springer.com/article/10.1023/A:1015059928466); [Schwefel, 1984, Ann Oper Res](https://link.springer.com/article/10.1007/BF01876146)]
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Mixture Model-based Evolution Strategy (**MMES**) [See [He et al., 2021, TEVC](https://ieeexplore.ieee.org/abstract/document/9244595)]
 
