@@ -29,13 +29,13 @@ class ES(Optimizer):
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
         if self.n_individuals is None:  # offspring population size (λ: lambda)
-            self.n_individuals = 4 + int(np.floor(3 * np.log(self.ndim_problem)))
+            self.n_individuals = 4 + int(3 * np.log(self.ndim_problem))
         if self.n_parents is None:  # parent population size (μ: mu)
             self.n_parents = int(self.n_individuals / 2)
             if self.n_parents > 0:
                 w_base, w = np.log((self.n_individuals + 1) / 2), np.log(np.arange(self.n_parents) + 1)
                 self.w = (w_base - w) / (self.n_parents * w_base - np.sum(w))
-                self.mu_eff = 1 / np.sum(np.power(self.w, 2))  # μ_eff
+                self.mu_eff = 1 / np.sum(np.power(self.w, 2))  # μ_eff / μ_w
         self.mean = options.get('mean')  # mean of Gaussian search distribution
         if self.mean is None:  # 'mean' has priority over 'x'
             self.mean = options.get('x')
