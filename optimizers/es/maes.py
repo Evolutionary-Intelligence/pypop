@@ -22,18 +22,18 @@ class MAES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self.c_s = options.get('c_s', (self.mu_eff + 2) / (self.mu_eff + self.ndim_problem + 5))  # for M10 in Fig. 3
+        self.c_s = options.get('c_s', (self._mu_eff + 2) / (self._mu_eff + self.ndim_problem + 5))  # for M10 in Fig. 3
         alpha_cov = 2  # for M11 in Fig. 3 (α_cov)
         self.c_1 = options.get('c_1', alpha_cov / (
-                    np.power(self.ndim_problem + 1.3, 2) + self.mu_eff))  # for M11 in Fig. 3
-        self.c_w = options.get('c_w', np.minimum(1 - self.c_1, alpha_cov * (self.mu_eff + 1 / self.mu_eff - 2) / (
-                np.power(self.ndim_problem + 2, 2) + alpha_cov * self.mu_eff / 2)))  # for M11 in Fig. 3
+                    np.power(self.ndim_problem + 1.3, 2) + self._mu_eff))  # for M11 in Fig. 3
+        self.c_w = options.get('c_w', np.minimum(1 - self.c_1, alpha_cov * (self._mu_eff + 1 / self._mu_eff - 2) / (
+                np.power(self.ndim_problem + 2, 2) + alpha_cov * self._mu_eff / 2)))  # for M11 in Fig. 3
         self.d_sigma = options.get('d_sigma', 1 + self.c_s + 2 * np.maximum(  # for M12 in Fig. 3 (d_σ)
-            0, np.sqrt((self.mu_eff - 1) / (self.ndim_problem + 1)) - 1))
+            0, np.sqrt((self._mu_eff - 1) / (self.ndim_problem + 1)) - 1))
         self._s_1 = 1 - self.c_s  # for M10 in Fig. 3
-        self._s_2 = np.sqrt(self.mu_eff * self.c_s * (2 - self.c_s))  # for M10 in Fig. 3
-        # for M12 in Fig. 3 (E[||N(0,I)||]: expectation of Chi-Square Distribution)
-        self._expectation_chi = np.sqrt(self.ndim_problem) * (
+        self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))  # for M10 in Fig. 3
+        # for M12 in Fig. 3 (E[||N(0,I)||]: expectation of chi distribution)
+        self._e_chi = np.sqrt(self.ndim_problem) * (
             1 - 1 / (4 * self.ndim_problem) - 1 / (21 * np.power(self.ndim_problem, 2)))
         self._fast_version = options.get('_fast_version', False)
         if not self._fast_version:
@@ -42,34 +42,34 @@ class MAES(ES):
     def initialize(self):  # for M1 in Fig. 3
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
         d = np.empty((self.n_individuals, self.ndim_problem))  # search directions
-        mu = self._initialize_mu()  # mean of Gaussian search distribution
+        mean = self._initialize_mean()  # mean of Gaussian search distribution
         s = np.zeros((self.ndim_problem,))  # evolution path
         tm = np.diag(np.ones((self.ndim_problem,)))  # transformation matrix M
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
-        return z, d, mu, s, tm, y
+        return z, d, mean, s, tm, y
 
-    def iterate(self, z=None, d=None, mu=None, s=None, tm=None, y=None, args=None):
+    def iterate(self, z=None, d=None, mean=None, s=None, tm=None, y=None, args=None):
         for k in range(self.n_individuals):  # for M3 in Fig. 3 (sample population)
             if self._check_terminations():
                 return z, d, y
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))  # for M4 in Fig. 3
             d[k] = np.squeeze(np.dot(tm, z[k][:, np.newaxis]))  # for M5 in Fig. 3
-            y[k] = self._evaluate_fitness(mu + self.sigma * d[k], args)  # for M6 in Fig. 3
+            y[k] = self._evaluate_fitness(mean + self.sigma * d[k], args)  # for M6 in Fig. 3
         return z, d, y
 
-    def _update_distribution(self, z=None, d=None, mu=None, s=None, tm=None, y=None):
+    def _update_distribution(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
         order = np.argsort(y)
         d_w, z_w = np.zeros((self.ndim_problem,)), np.zeros((self.ndim_problem,))  # for M9, M10 in Fig. 3
         zz_w = None
         if not self._fast_version:
             zz_w = np.zeros((self.ndim_problem, self.ndim_problem))  # for M11 in Fig. 3
         for k in range(self.n_parents):
-            d_w += self.w[k] * d[order[k]]
-            z_w += self.w[k] * z[order[k]]
+            d_w += self._w[k] * d[order[k]]
+            z_w += self._w[k] * z[order[k]]
             if not self._fast_version:
-                zz_w += self.w[k] * np.dot(z[order[k]][:, np.newaxis], z[order[k]][np.newaxis, :])
+                zz_w += self._w[k] * np.dot(z[order[k]][:, np.newaxis], z[order[k]][np.newaxis, :])
         # update distribution mean (for M9 in Fig. 3)
-        mu += (self.sigma * d_w)
+        mean += (self.sigma * d_w)
         # update evolution path (s) and transformation matrix (M)
         s = self._s_1 * s + self._s_2 * z_w  # for M10 in Fig. 3
         if not self._fast_version:
@@ -80,25 +80,25 @@ class MAES(ES):
             tm = (1 - 0.5 * (self.c_1 + self.c_w)) * tm
             tm += (0.5 * self.c_1) * np.dot(np.dot(tm, s[:, np.newaxis]), s[np.newaxis, :])
             for k in range(self.n_parents):
-                tm += (0.5 * self.c_w) * self.w[k] * np.dot(d[order[k]][:, np.newaxis], z[order[k]][np.newaxis, :])
+                tm += (0.5 * self.c_w) * self._w[k] * np.dot(d[order[k]][:, np.newaxis], z[order[k]][np.newaxis, :])
         # update global step-size (for M12 in Fig. 3)
-        self.sigma *= np.exp(self.c_s / self.d_sigma * (np.linalg.norm(s) / self._expectation_chi - 1))
-        return mu, s, tm
+        self.sigma *= np.exp(self.c_s / self.d_sigma * (np.linalg.norm(s) / self._e_chi - 1))
+        return mean, s, tm
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         ES.optimize(self, fitness_function)
         fitness = []  # store all fitness generated during evolution
-        z, d, mu, s, tm, y = self.initialize()
+        z, d, mean, s, tm, y = self.initialize()
         while True:
-            z, d, y = self.iterate(z, d, mu, s, tm, y, args)  # sample and evaluate offspring population
+            z, d, y = self.iterate(z, d, mean, s, tm, y, args)  # sample and evaluate offspring population
             if self.record_fitness:
                 fitness.extend(y.tolist())
             if self._check_terminations():
                 break
-            mu, s, tm = self._update_distribution(z, d, mu, s, tm, y)
-            self.n_generations += 1
+            mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
+            self._n_generations += 1
             self._print_verbose_info(y)
         results = self._collect_results(fitness)
-        results['mu'] = mu
+        results['mean'] = mean
         results['s'] = s
         return results
