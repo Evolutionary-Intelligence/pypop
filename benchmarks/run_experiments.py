@@ -12,7 +12,7 @@ class Experiment(object):
         self.index = index
         self.function = function
         self.seed = seed
-        self.ndim_problem = 1000
+        self.ndim_problem = 2000
         self._folder = 'pypop_benchmarks_lso'
         if not os.path.exists(self._folder):
             os.makedirs(self._folder)
@@ -57,12 +57,13 @@ class Experiments(object):
 
     def run(self, optimizer):
         for index in self.indices:
-            for f in self.functions:
+            print('* experiment: {:d} ***:'.format(index))
+            for d, f in enumerate(self.functions):
                 start_time = time.time()
-                print('* function: {:s}'.format(f.__name__))
-                experiment = Experiment(index, f, self.seeds[index, f])
+                print('  * function: {:s}:'.format(f.__name__))
+                experiment = Experiment(index, f, self.seeds[index, d])
                 experiment.run(optimizer)
-                print('    runtime: {:7.5e}'.format(time.time() - start_time))
+                print('    runtime: {:7.5e}.'.format(time.time() - start_time))
 
 
 if __name__ == '__main__':
@@ -77,4 +78,4 @@ if __name__ == '__main__':
         from optimizers.rs.prs import PRS as Optimizer
     experiments = Experiments(params['start'], params['end'])
     experiments.run(Optimizer)
-    print('* Total runtime: {:7.5e}).'.format(time.time() - start_run))
+    print('*** Total runtime: {:7.5e} ***.'.format(time.time() - start_run))
