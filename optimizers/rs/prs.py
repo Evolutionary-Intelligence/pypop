@@ -19,10 +19,14 @@ class PRS(RS):
         if self.sampling_distribution not in [0, 1]:  # 0 -> normally distributed
             info = 'Currently for optimizer {:s}, only support uniformly or normally distributed random sampling.'
             raise ValueError(info.format(self.__class__.__name__))
+        if self.sampling_distribution == 0:
+            self.mean = options.get('mean')
+            self.global_std = options.get('global_std')
+            self.x = np.copy(self.mean)
 
     def _sample(self, rng):
         if self.sampling_distribution == 0:
-            x = rng.standard_normal(size=(self.ndim_problem,))
+            x = self.mean + self.global_std * rng.standard_normal(size=(self.ndim_problem,))
         else:
             x = rng.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         return x
