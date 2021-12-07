@@ -8,7 +8,7 @@ import continuous_functions as cf
 
 
 class Experiment(object):
-    def __init__(self, index, function, ndim_problem=2000, seed=None):
+    def __init__(self, index, function, seed=None, ndim_problem=2000):
         self.index = index
         self.function = function
         self.ndim_problem = ndim_problem
