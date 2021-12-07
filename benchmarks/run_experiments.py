@@ -8,11 +8,11 @@ import continuous_functions as cf
 
 
 class Experiment(object):
-    def __init__(self, index, function, seed):
+    def __init__(self, index, function, ndim_problem=2000, seed=None):
         self.index = index
         self.function = function
+        self.ndim_problem = ndim_problem
         self.seed = seed
-        self.ndim_problem = 2000
         self._folder = 'pypop_benchmarks_lso'
         if not os.path.exists(self._folder):
             os.makedirs(self._folder)
@@ -42,6 +42,18 @@ class Experiment(object):
                                  self.index)
         with open(file, 'wb') as handle:
             pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+    def show(self, solver):
+        import sys
+        from optimizers.core import optimizer
+        sys.modules['optimizer'] = optimizer
+        file = self._file.format(solver.__name__,
+                                 self.function.__name__,
+                                 self.ndim_problem,
+                                 self.index)
+        with open(file, 'rb') as handle:
+            results = pickle.load(handle)
+            return results
 
 
 class Experiments(object):
