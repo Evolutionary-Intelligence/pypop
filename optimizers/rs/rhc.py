@@ -1,3 +1,4 @@
+import numpy as np
 from optimizers.rs.prs import PRS
 
 
@@ -18,12 +19,12 @@ class RHC(PRS):
             info = 'Currently for optimizer {:s}, only support uniformly or normally distributed random initialization.'
             raise ValueError(info.format(self.__class__.__name__))
         if self.initialization_distribution == 0:  # only for normally distributed random initialization
-            self.initial_std = options.get('initial_std', 1.0)
-        self.global_std = options.get('global_std', 0.1)
+            self.mean = options.get('mean')
+        self.global_std = options.get('global_std')
 
     def _sample(self, rng):
         if self.initialization_distribution == 0:
-            x = rng.standard_normal(size=(self.ndim_problem,)) * self.initial_std
+            x = np.copy(self.mean)
         else:
             x = rng.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         return x
