@@ -36,6 +36,8 @@ class R1ES(ES):
 
     def iterate(self, x=None, mean=None, p=None, s=None, y=None, args=None):
         for k in range(self.n_individuals):  # for Line 3 in Algorithm 1
+            if self._check_terminations():
+                return x, y
             z = self.rng.standard_normal((self.ndim_problem,))  # for Line 4 in Algorithm 1
             r = self.rng.standard_normal()  # for Line 4 in Algorithm 1
             # for Line 5 in Algorithm 1
