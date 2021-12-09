@@ -20,7 +20,8 @@ class TestFMAES(unittest.TestCase):
                        'fitness_threshold': 1e-10,
                        'max_runtime': 3600,  # 1 hours
                        'seed_rng': 0,
-                       'x': 4 * np.ones((ndim_problem,)),
+                       'x': 4 * np.ones((ndim_problem,)),  # mean
+                       'sigma': 0.1,
                        'verbose_frequency': 200,
                        'record_fitness': True,
                        'record_fitness_frequency': 200000}
