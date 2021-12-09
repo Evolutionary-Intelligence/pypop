@@ -13,6 +13,11 @@ class MAES(ES):
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation Companion (pp. 682-700).
     https://dl.acm.org/doi/abs/10.1145/3377929.3389870
 
+    Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2019.
+    Large scale black-box optimization by limited-memory matrix adaptation.
+    IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
+    https://ieeexplore.ieee.org/abstract/document/8410043
+
     Beyer, H.G. and Sendhoff, B., 2017.
     Simplify your covariance matrix adaptation evolution strategy.
     IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
