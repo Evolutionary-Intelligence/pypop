@@ -90,7 +90,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 * **Respect for Diversity**
 
-  * Given the universality of black-box optimization in science and engineering, different research communities have designed different methods, till now. On the one hand, some of these methods may share similarities more or less. On the other hand, these methods may show significant differences. As a result, we hope to cover such a diversity from different research communities such as artificial intelligence (particularly machine learning (evolutionary computation and zeroth-order optimization)), mathematical optimization/programming (particularly global optimization), operations research / management science, automatic control, open-source software, and many others.
+  * Given the universality of black-box optimization (BBO) in science and engineering, different research communities have designed different methods and continue to increase. On the one hand, some of these methods may share *more or less* similarities. On the other hand, they may also show significant differences (w.r.t. motivations / objectives / implementations / practitioners). Therefore, we hope to cover such a diversity from different research communities such as artificial intelligence (particularly machine learning (**evolutionary computation** and zeroth-order optimization)), mathematical optimization/programming (particularly global optimization), operations research / management science, automatic control, open-source software, and perhaps others.
 
 * **Respect for Originality**
 
