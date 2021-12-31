@@ -2,7 +2,7 @@
 
 [![GNU General Public License v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE) [![gitter for pypop](https://img.shields.io/badge/gitter-pypop--go-brightgreen.svg)](https://gitter.im/pypop-go/community)
 
-```PyPop``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for real-parameter, black-box problems (**currently actively developed**). Its goal is to provide a *unified* interface and also *elegant* implementations for **Derivative-Free Optimization (DFO)**, *particularly population-based optimizers*, in order to facilitate research repeatability and also real-world applications.
+```PyPop``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for single-objective, real-parameter, black-box problems (**currently actively developed**). Its goal is to provide a *unified* interface and also *elegant* implementations for **Derivative-Free Optimization (DFO)**, *particularly population-based optimizers*, in order to facilitate research repeatability and also real-world applications.
 
 <p align="center">
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/PyPop-Logo-Small-0.png" alt="drawing" width="321"/>
@@ -72,7 +72,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 * **Evolutionary Programming (EP)** [See e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
 
-* **Random (Stochastic) Search (RS)** [See e.g. [Brooks, 1958, Operations Research](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244)]
+* **Random (Stochastic) Search (RS)** [See e.g. [Rastrigin, 1986](https://link.springer.com/content/pdf/10.1007/BFb0007129.pdf); [Brooks, 1958, Operations Research](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Pure Random Search (**PRS**) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
 
@@ -84,13 +84,13 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 * **Respect for Beauty**
 
-  * From the *problem-solving* perspective, we prefer to choose the (empirically) *best* optimizer for the given black-box problem. However, for the *new* problem, the (empirically) *best* optimizer is often unknown in advance (without a prior knowledge). As a rule of thumb, we need to compare a small set of all available optimizers and choose the *best* one from them according to some performance criteria. From the *research* perspective, however, we prefer to some *beautiful* optimizers, though always keeping the **“No Free Lunch” theorem** in mind. Typically, the **Beauty** of one optimizer comes from the following features: **novelty** (e.g., GA), **competitive performance** (e.g., on at least one class of problems), **theoretical insights** (e.g., NES/CMA-ES), **clarity/simplicity** (e.g., ease to understand and implementation), and so on.
+  * From the *problem-solving* perspective, we prefer to choose the (empirically) *best* optimizer for the given black-box problem. However, for the *new* problem, the (empirically) *best* optimizer is often unknown in advance (if without a prior knowledge). As a rule of thumb, we need to compare a (often small) set of all available optimizers and choose the *best* one from them according to some performance criteria. From the *research* perspective, however, we prefer to *beautiful* optimizers, though always keeping the **“No Free Lunch” theorem** in mind. Typically, the **Beauty** of one optimizer comes from the following features: **novelty** (e.g., GA), **competitive performance** (e.g., on at least one class of problems), **theoretical insights** (e.g., NES/CMA-ES), **clarity/simplicity** (e.g., ease to understand and implementation), and so on.
 
   * If you find any DFO to meet the above *Beauty* standard, welcome to launch [issues](https://github.com/Evolutionary-Intelligence/pypop/issues) or [pulls](https://github.com/Evolutionary-Intelligence/pypop/pulls). We will consider to include it in the ```pypop``` library. Note that **any superficial imitation** to the above well-established optimizers (**'Old Wine in a New Bottle'**) will be NOT considered here.
 
 * **Respect for Diversity**
 
-  * Given the universality of black-box optimization in science and engineering, different research communities have designed different methods, till now. On the one hand, some of these methods may share similarities more or less. On the other hand, these methods may show significant differences. As a result, we hope to cover such a diversity from different research communities such as artificial intelligence (particularly evolutionary computation and machine learning (zeroth-order optimization)), mathematical optimization (particularly global optimization), operations research, automatic control, etc..
+  * Given the universality of black-box optimization (BBO) in science and engineering, different research communities have designed different methods and continue to increase. On the one hand, some of these methods may share *more or less* similarities. On the other hand, they may also show significant differences (w.r.t. motivations / objectives / implementations / practitioners). Therefore, we hope to cover such a diversity from different research communities such as artificial intelligence (particularly machine learning (**evolutionary computation** and zeroth-order optimization)), mathematical optimization/programming (particularly global optimization), operations research / management science, automatic control, open-source software, and perhaps others.
 
 * **Respect for Originality**
 
