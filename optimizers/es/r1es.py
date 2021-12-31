@@ -4,7 +4,7 @@ from optimizers.es.es import ES
 
 
 class R1ES(ES):
-    """Rank One Evolution Strategy (R1ES).
+    """Rank-One Evolution Strategy (R1ES).
 
     Reference
     ---------
@@ -34,7 +34,7 @@ class R1ES(ES):
         y = np.tile(self._evaluate_fitness(mean, args), (self.n_individuals,))  # fitness
         return x, mean, p, s, y
 
-    def iterate(self, x=None, mean=None, p=None, s=None, y=None, args=None):
+    def iterate(self, x=None, mean=None, p=None, y=None, args=None):
         for k in range(self.n_individuals):  # for Line 3 in Algorithm 1
             if self._check_terminations():
                 return x, y
@@ -69,7 +69,7 @@ class R1ES(ES):
         fitness.append(y[0])
         while True:
             y_bak = np.sort(y)
-            x, y = self.iterate(x, mean, p, s, y, args)  # sample and evaluate offspring population
+            x, y = self.iterate(x, mean, p, y, args)  # sample and evaluate offspring population
             if self.record_fitness:
                 fitness.extend(y.tolist())
             if self._check_terminations():
