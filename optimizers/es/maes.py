@@ -53,7 +53,7 @@ class MAES(ES):
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         return z, d, mean, s, tm, y
 
-    def iterate(self, z=None, d=None, mean=None, s=None, tm=None, y=None, args=None):
+    def iterate(self, z=None, d=None, mean=None, tm=None, y=None, args=None):
         for k in range(self.n_individuals):  # for M3 in Fig. 3 (sample population)
             if self._check_terminations():
                 return z, d, y
@@ -95,7 +95,7 @@ class MAES(ES):
         fitness = []  # store all fitness generated during evolution
         z, d, mean, s, tm, y = self.initialize()
         while True:
-            z, d, y = self.iterate(z, d, mean, s, tm, y, args)  # sample and evaluate offspring population
+            z, d, y = self.iterate(z, d, mean, tm, y, args)  # sample and evaluate offspring population
             if self.record_fitness:
                 fitness.extend(y.tolist())
             if self._check_terminations():
