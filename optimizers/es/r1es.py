@@ -62,6 +62,14 @@ class R1ES(ES):
         self.sigma *= np.exp(s / self.d_sigma)  # for Line 16 in Algorithm 1
         return mean, p, s
 
+    def restart_initialize(self, mean=None):
+        is_restart = ES.restart_initialize(self)
+        if is_restart:
+            self._p_2 = np.sqrt(self.c * (2 - self.c) * self._mu_eff)
+            self._rr = np.arange(self.n_parents * 2) + 1
+            mean = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
+        return mean
+
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         ES.optimize(self, fitness_function)
         fitness = []  # store all fitness generated during evolution
@@ -77,6 +85,7 @@ class R1ES(ES):
             mean, p, s = self._update_distribution(x, mean, p, s, y, y_bak)
             self._n_generations += 1
             self._print_verbose_info(y)
+            mean = self.restart_initialize(mean)
         results = self._collect_results(fitness)
         results['mean'] = mean
         results['p'] = p
