@@ -43,6 +43,8 @@ class ES(Optimizer):
         self.eta_mean = options.get('eta_mean')  # learning rate of mean
         self.eta_sigma = options.get('eta_sigma')  # learning rate of std
         self._n_generations = 0
+        # for restart
+        self.sigma_threshold = options.get('sigma_threshold', 1e-10)
 
     def initialize(self):
         raise NotImplementedError
@@ -63,6 +65,17 @@ class ES(Optimizer):
             best_so_far_y = -self.best_so_far_y if self._is_maximization else self.best_so_far_y
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, best_so_far_y, np.min(y), self.n_function_evaluations))
+
+    def restart_initialize(self):
+        is_restart = False
+        if self.sigma < self.sigma_threshold:
+            is_restart = True
+            self.n_individuals *= 2
+            self.n_parents = int(self.n_individuals / 2)
+            w_base, w = np.log((self.n_individuals + 1) / 2), np.log(np.arange(self.n_parents) + 1)
+            self._w = (w_base - w) / (self.n_parents * w_base - np.sum(w))
+            self._mu_eff = 1 / np.sum(np.power(self._w, 2))
+        return is_restart
 
     def _collect_results(self, fitness):
         results = Optimizer._collect_results(self, fitness)
