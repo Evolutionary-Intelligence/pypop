@@ -26,9 +26,9 @@ class R1ES(ES):
         self._p_2 = np.sqrt(self.c * (2 - self.c) * self._mu_eff)  # for Line 12 in Algorithm 1
         self._rr = np.arange(self.n_parents * 2) + 1  # for rank-based success rule
 
-    def initialize(self, args=None):
+    def initialize(self, args=None, is_restart=None):
         x = np.empty((self.n_individuals, self.ndim_problem))  # population
-        mean = self._initialize_mean()  # mean of Gaussian search distribution
+        mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         p = np.zeros((self.ndim_problem,))  # principal search direction
         s = 0  # cumulative rank rate
         y = np.tile(self._evaluate_fitness(mean, args), (self.n_individuals,))  # fitness
@@ -62,13 +62,14 @@ class R1ES(ES):
         self.sigma *= np.exp(s / self.d_sigma)  # for Line 16 in Algorithm 1
         return mean, p, s
 
-    def restart_initialize(self, mean=None):
+    def restart_initialize(self, args=None, x=None, mean=None, p=None, s=None, y=None, fitness=None):
         is_restart = ES.restart_initialize(self)
         if is_restart:
             self._p_2 = np.sqrt(self.c * (2 - self.c) * self._mu_eff)
             self._rr = np.arange(self.n_parents * 2) + 1
-            mean = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
-        return mean
+            x, mean, p, s, y = self.initialize(args, is_restart)
+            fitness.append(y[0])
+        return x, mean, p, s, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         ES.optimize(self, fitness_function)
@@ -85,7 +86,7 @@ class R1ES(ES):
             mean, p, s = self._update_distribution(x, mean, p, s, y, y_bak)
             self._n_generations += 1
             self._print_verbose_info(y)
-            mean = self.restart_initialize(mean)
+            x, mean, p, s, y = self.restart_initialize(args, x, mean, p, s, y, fitness)
         results = self._collect_results(fitness)
         results['mean'] = mean
         results['p'] = p
