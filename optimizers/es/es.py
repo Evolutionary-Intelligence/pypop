@@ -52,10 +52,10 @@ class ES(Optimizer):
     def iterate(self):
         raise NotImplementedError
 
-    def _initialize_mean(self):
-        if self.mean is None:
-            rng = self.rng_initialization
-            mean = rng.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
+    def _initialize_mean(self, is_restart=None):
+        if (is_restart is True) or (self.mean is None):
+            mean = self.rng_initialization.uniform(self.initial_lower_boundary,
+                                                   self.initial_upper_boundary)
         else:
             mean = np.copy(self.mean)
         return mean
