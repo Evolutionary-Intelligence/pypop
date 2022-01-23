@@ -13,8 +13,8 @@ class RMES(R1ES):
         self._a_m = np.power(self._a, self.n_evolution_paths)  # for Line 4 in Algorithm 3
         self._b = np.sqrt(self.c_cov)  # for Line 4 in Algorithm 3
 
-    def initialize(self, args=None):
-        x, mean, p, s, y = R1ES.initialize(self, args)
+    def initialize(self, args=None, is_restart=None):
+        x, mean, p, s, y = R1ES.initialize(self, args, is_restart)
         mp = np.zeros((self.n_evolution_paths, self.ndim_problem))  # multiple evolution paths
         t_hat = np.zeros((self.n_evolution_paths,))
         return x, mean, p, s, mp, t_hat, y
@@ -46,6 +46,14 @@ class RMES(R1ES):
         mp[-1], t_hat[-1] = p, self._n_generations
         return mean, p, s, mp, t_hat
 
+    def restart_initialize(self, args=None, x=None, mean=None, p=None, s=None,
+                           mp=None, t_hat=None, y=None, fitness=None):
+        is_restart = ES.restart_initialize(self)
+        if is_restart:
+            x, mean, p, s, mp, t_hat, y = self.initialize(args, is_restart)
+            fitness.append(y[0])
+        return x, mean, p, s, mp, t_hat, y
+
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         ES.optimize(self, fitness_function)
         fitness = []  # store all fitness generated during evolution
@@ -61,6 +69,7 @@ class RMES(R1ES):
             mean, p, s, mp, t_hat = self._update_distribution(x, mean, p, s, mp, t_hat, y, y_bak)
             self._n_generations += 1
             self._print_verbose_info(y)
+            x, mean, p, s, mp, t_hat, y = self.restart_initialize(args, x, mean, p, s, mp, t_hat, y, fitness)
         results = self._collect_results(fitness)
         results['mean'] = mean
         results['p'] = p
