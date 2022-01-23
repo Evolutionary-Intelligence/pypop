@@ -27,6 +27,8 @@ class R1ES(ES):
         self._rr = np.arange(self.n_parents * 2) + 1  # for rank-based success rule
 
     def initialize(self, args=None, is_restart=None):
+        self._p_2 = np.sqrt(self.c * (2 - self.c) * self._mu_eff)
+        self._rr = np.arange(self.n_parents * 2) + 1
         x = np.empty((self.n_individuals, self.ndim_problem))  # population
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         p = np.zeros((self.ndim_problem,))  # principal search direction
@@ -65,8 +67,6 @@ class R1ES(ES):
     def restart_initialize(self, args=None, x=None, mean=None, p=None, s=None, y=None, fitness=None):
         is_restart = ES.restart_initialize(self)
         if is_restart:
-            self._p_2 = np.sqrt(self.c * (2 - self.c) * self._mu_eff)
-            self._rr = np.arange(self.n_parents * 2) + 1
             x, mean, p, s, y = self.initialize(args, is_restart)
             fitness.append(y[0])
         return x, mean, p, s, y
