@@ -19,29 +19,41 @@ class RES(ES):
         if self.eta_sigma is None:
             self.eta_sigma = 1 / np.sqrt(self.ndim_problem + 1)
 
-    def initialize(self, args=None):
-        mean = self._initialize_mean()  # mean of Gaussian search distribution
+    def initialize(self, args=None, is_restart=None):
+        mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         y = self._evaluate_fitness(mean, args)  # fitness
-        return y
+        best_so_far_y = np.copy(y)
+        return mean, y, best_so_far_y
 
-    def iterate(self, args=None):
-        noise = self.rng_optimization.standard_normal((self.ndim_problem,))
-        y = self._evaluate_fitness(self.best_so_far_x + self.sigma * noise, args)
-        return y
+    def iterate(self, args=None, mean=None):
+        x = mean + self.sigma * self.rng_optimization.standard_normal((self.ndim_problem,))
+        y = self._evaluate_fitness(x, args)
+        return x, y
+
+    def restart_initialize(self, args=None, mean=None, y=None, best_so_far_y=None, fitness=None):
+        is_restart = ES.restart_initialize(self)
+        if is_restart:
+            mean, y, best_so_far_y = self.initialize(args, is_restart)
+            fitness.append(y)
+        return mean, y, best_so_far_y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         ES.optimize(self, fitness_function)
-        fitness = [self.initialize()]  # store all fitness generated during evolution
+        mean, y, best_so_far_y = self.initialize(args)
+        fitness = [y]  # store all fitness generated during evolution
         while True:
-            y_bak = np.copy(self.best_so_far_y)
             # sample and evaluate (only one) offspring
-            y = self.iterate(args)
+            x, y = self.iterate(args, mean)
             if self.record_fitness:
                 fitness.append(y)
             if self._check_terminations():
                 break
-            self.sigma *= np.power(np.exp(float(y < y_bak) - 1 / 5), self.eta_sigma)
+            self.sigma *= np.power(np.exp(float(y < best_so_far_y) - 1 / 5), self.eta_sigma)
             self._n_generations += 1
             self._print_verbose_info(y)
+            if y < best_so_far_y:
+                mean, best_so_far_y = x, y
+            mean, y, best_so_far_y = self.restart_initialize(args, mean, y, best_so_far_y, fitness)
         results = self._collect_results(fitness)
+        results['mean'] = mean
         return results
