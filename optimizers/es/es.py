@@ -44,6 +44,7 @@ class ES(Optimizer):
         self.eta_sigma = options.get('eta_sigma')  # learning rate of std
         self._n_generations = 0
         # for restart
+        self._sigma_bak = np.copy(self.sigma)
         self.sigma_threshold = options.get('sigma_threshold', 1e-10)
 
     def initialize(self):
@@ -70,6 +71,7 @@ class ES(Optimizer):
         is_restart = False
         if self.sigma < self.sigma_threshold:
             is_restart = True
+            self.sigma = np.copy(self._sigma_bak)
             self.n_individuals *= 2
             self.n_parents = int(self.n_individuals / 2)
             w_base, w = np.log((self.n_individuals + 1) / 2), np.log(np.arange(self.n_parents) + 1)
