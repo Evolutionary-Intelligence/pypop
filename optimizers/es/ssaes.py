@@ -19,10 +19,7 @@ class SSAES(ES):
         if options.get('n_parents') is None:
             options['n_parents'] = int(options['n_individuals'] / 4)  # mandatory setting for SSAES
         ES.__init__(self, problem, options)
-        self.individual_sigmas = options.get('individual_sigmas')  # individual step-sizes
-        # when only the global step size is given
-        if (self.individual_sigmas is None) and (np.array(self.sigma).size == 1):
-            self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
+        self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
         if self.eta_sigma is None:
             self.eta_sigma = 1 / np.sqrt(self.ndim_problem)
         # learning rate for individual step-sizes
