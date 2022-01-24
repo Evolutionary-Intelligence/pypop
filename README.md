@@ -1,4 +1,4 @@
-# pypop
+# pypop (Pure-PYthon library of POPulation-based OPtimization)
 
 [![GNU General Public License v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE) [![gitter for pypop](https://img.shields.io/badge/gitter-pypop--go-brightgreen.svg)](https://gitter.im/pypop-go/community)
 
@@ -10,7 +10,7 @@
 
 For alleviating the notorious **curse of dimensionality** of DFO (based on *iterative sampling*), the main focus of ```PyPop``` is to cover their **State-Of-The-Art implementations for Large-Scale Optimization (LSO)**, though their other versions and variants may be also included here (e.g., for benchmarking purpose, for mixing purpose, and sometimes even for practical purpose).
 
-## A (*Growing*) List of **Publically Available** Gradient-Free Optimizers (GFO)
+## A (*Still Growing*) List of **Publically Available** Gradient-Free Optimizers (GFO)
 
 ******* *** *******
 
