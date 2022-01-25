@@ -25,20 +25,22 @@ class CSAES(ES):
             self.eta_sigma = np.sqrt(self.n_parents / (self.ndim_problem + self.n_parents))
         self._s_1 = 1 - self.eta_sigma
         self._s_2 = np.sqrt(self.eta_sigma * (2 - self.eta_sigma) * self.n_parents)
-        self.individual_sigmas = options.get('individual_sigmas')  # individual step-sizes
-        # when only the global step size is given
-        if (self.individual_sigmas is None) and (np.array(self.sigma).size == 1):
-            self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
+        self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
         # E[|N(0,1)|]: expectation of half-normal distribution
         self._e_hnd = np.sqrt(2 / np.pi)
         # E[||N(0,I)||]: expectation of chi distribution
         self._e_chi = np.sqrt(self.ndim_problem) * (
                 1 - 1 / (4 * self.ndim_problem) + 1 / (21 * np.power(self.ndim_problem, 2)))
 
-    def initialize(self):
+    def initialize(self, is_restart=None):
+        self.n_parents = int(self.n_individuals / 4)
+        self.eta_sigma = np.sqrt(self.n_parents / (self.ndim_problem + self.n_parents))
+        self._s_1 = 1 - self.eta_sigma
+        self._s_2 = np.sqrt(self.eta_sigma * (2 - self.eta_sigma) * self.n_parents)
+        self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
         z = np.empty((self.n_individuals, self.ndim_problem))  # noise for offspring population
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
-        mean = self._initialize_mean()  # mean of Gaussian search distribution
+        mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         s = np.zeros((self.ndim_problem,))  # evolution path
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         return z, x, mean, s, y
@@ -51,6 +53,21 @@ class CSAES(ES):
             x[k] = mean + self.individual_sigmas * z[k]
             y[k] = self._evaluate_fitness(x[k], args)
         return z, x, y
+
+    def restart_initialize(self, z=None, x=None, mean=None, s=None, y=None):
+        self._fitness_list.append(self.best_so_far_y)
+        is_restart = np.all(self.individual_sigmas < self.sigma_threshold)
+        if len(self._fitness_list) >= self.stagnation:
+            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
+        else:
+            is_restart_2 = False
+        is_restart = is_restart or is_restart_2
+        if is_restart:
+            self.n_restart += 1
+            self.n_individuals *= 2
+            self._fitness_list = [np.Inf]
+            z, x, mean, s, y = self.initialize(True)
+        return z, x, mean, s, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         ES.optimize(self, fitness_function)
@@ -72,6 +89,7 @@ class CSAES(ES):
             mean = np.mean(x[order], axis=0)
             self._n_generations += 1
             self._print_verbose_info(y)
+            z, x, mean, s, y = self.restart_initialize(z, x, mean, s, y)
         results = self._collect_results(fitness)
         results['mean'] = mean
         results['s'] = s
