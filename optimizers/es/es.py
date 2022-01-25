@@ -44,8 +44,12 @@ class ES(Optimizer):
         self.eta_sigma = options.get('eta_sigma')  # learning rate of std
         self._n_generations = 0
         # for restart
+        self.n_restart = 0
         self._sigma_bak = np.copy(self.sigma)
         self.sigma_threshold = options.get('sigma_threshold', 1e-10)
+        self._fitness_list = [self.best_so_far_y]  # store best_so_far_y generated in each generation
+        self.stagnation = options.get('stagnation', self.n_individuals * 100)
+        self.fitness_diff = options.get('fitness_diff', 1e-20)
 
     def initialize(self):
         raise NotImplementedError
@@ -68,15 +72,23 @@ class ES(Optimizer):
             print(info.format(self._n_generations, best_so_far_y, np.min(y), self.n_function_evaluations))
 
     def restart_initialize(self):
-        is_restart = False
-        if self.sigma < self.sigma_threshold:
+        self._fitness_list.append(self.best_so_far_y)
+        is_restart = self.sigma < self.sigma_threshold
+        if len(self._fitness_list) >= self.stagnation:
+            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
+        else:
+            is_restart_2 = False
+        is_restart = is_restart or is_restart_2
+        if is_restart:
             is_restart = True
+            self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
             self.n_individuals *= 2
             self.n_parents = int(self.n_individuals / 2)
             w_base, w = np.log((self.n_individuals + 1) / 2), np.log(np.arange(self.n_parents) + 1)
             self._w = (w_base - w) / (self.n_parents * w_base - np.sum(w))
             self._mu_eff = 1 / np.sum(np.power(self._w, 2))
+            self._fitness_list = [np.Inf]
         return is_restart
 
     def _collect_results(self, fitness):
@@ -84,4 +96,5 @@ class ES(Optimizer):
         results['mean'] = self.mean
         results['sigma'] = self.sigma
         results['_n_generations'] = self._n_generations
+        results['n_restart'] = self.n_restart
         return results
