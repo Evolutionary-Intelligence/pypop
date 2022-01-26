@@ -58,7 +58,7 @@ class ES(Optimizer):
         raise NotImplementedError
 
     def _initialize_mean(self, is_restart=None):
-        if (is_restart is True) or (self.mean is None):
+        if is_restart or (self.mean is None):
             mean = self.rng_initialization.uniform(self.initial_lower_boundary,
                                                    self.initial_upper_boundary)
         else:
@@ -78,9 +78,8 @@ class ES(Optimizer):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         else:
             is_restart_2 = False
-        is_restart = is_restart or is_restart_2
+        is_restart = bool(is_restart or is_restart_2)
         if is_restart:
-            is_restart = True
             self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
             self.n_individuals *= 2
