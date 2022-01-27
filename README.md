@@ -18,7 +18,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 ![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) version for *relatively low-dimensional* problems (though it may also work well under certain LSO circumstances).
 
-![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline version for benchmarking (and even sometimes practical) purpose.
+![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline version for benchmarking (and even sometimes practical) purpose or for theoretical interest.
 
 ******* *** *******
 
