@@ -1,5 +1,6 @@
 import numpy as np
 
+from optimizers.es.es import ES
 from optimizers.es.maes import MAES
 
 
@@ -23,16 +24,20 @@ class LMMAES(MAES):
         self._c_d = 1 / (self.ndim_problem * np.power(1.5, np.arange(self.n_evolution_paths)))
         self._c_c = self.n_parents / (self.ndim_problem * np.power(4.0, np.arange(self.n_evolution_paths)))
 
-    def initialize(self):
+    def initialize(self, is_restart=False):
+        self.c_s = 2 * self.n_parents / self.ndim_problem  # c_sigma in Algorithm 1
+        self._s_1 = 1 - self.c_s
+        self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))  # for Line 13 in Algorithm 1
+        self._c_c = self.n_parents / (self.ndim_problem * np.power(4.0, np.arange(self.n_evolution_paths)))
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
         d = np.empty((self.n_individuals, self.ndim_problem))  # search directions
-        mean = self._initialize_mean()  # mean of Gaussian search distribution
+        mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         s = np.zeros((self.ndim_problem,))  # evolution path (p in Algorithm 1)
         tm = np.zeros((self.n_evolution_paths, self.ndim_problem))  # transformation matrix M
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         return z, d, mean, s, tm, y
 
-    def iterate(self, z=None, d=None, mean=None, s=None, tm=None, y=None, args=None):
+    def iterate(self, z=None, d=None, mean=None, tm=None, y=None, args=None):
         for k in range(self.n_individuals):
             if self._check_terminations():
                 return z, d, y
@@ -58,3 +63,9 @@ class LMMAES(MAES):
         # update global step-size
         self.sigma *= np.exp(self.c_s / 2 * (np.sum(np.power(s, 2)) / self.ndim_problem - 1))
         return mean, s, tm
+
+    def restart_initialize(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
+        is_restart = ES.restart_initialize(self)
+        if is_restart:
+            z, d, mean, s, tm, y = self.initialize(is_restart)
+        return z, d, mean, s, tm, y
