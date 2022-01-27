@@ -26,7 +26,7 @@ class R1ES(ES):
         self._p_2 = np.sqrt(self.c * (2 - self.c) * self._mu_eff)  # for Line 12 in Algorithm 1
         self._rr = np.arange(self.n_parents * 2) + 1  # for rank-based success rule
 
-    def initialize(self, args=None, is_restart=None):
+    def initialize(self, args=None, is_restart=False):
         self._p_2 = np.sqrt(self.c * (2 - self.c) * self._mu_eff)
         self._rr = np.arange(self.n_parents * 2) + 1
         x = np.empty((self.n_individuals, self.ndim_problem))  # population
