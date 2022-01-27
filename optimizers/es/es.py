@@ -57,7 +57,7 @@ class ES(Optimizer):
     def iterate(self):
         raise NotImplementedError
 
-    def _initialize_mean(self, is_restart=None):
+    def _initialize_mean(self, is_restart=False):
         if is_restart or (self.mean is None):
             mean = self.rng_initialization.uniform(self.initial_lower_boundary,
                                                    self.initial_upper_boundary)
