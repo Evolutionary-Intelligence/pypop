@@ -39,7 +39,7 @@ class MAES(ES):
         self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))  # for M10 in Fig. 3
         # for M12 in Fig. 3 (E[||N(0,I)||]: expectation of chi distribution)
         self._e_chi = np.sqrt(self.ndim_problem) * (
-            1 - 1 / (4 * self.ndim_problem) - 1 / (21 * np.power(self.ndim_problem, 2)))
+            1 - 1 / (4 * self.ndim_problem) + 1 / (21 * np.power(self.ndim_problem, 2)))
         self._fast_version = options.get('_fast_version', False)
         if not self._fast_version:
             self._diag_one = np.diag(np.ones((self.ndim_problem,)))  # for M11 in Fig. 3
@@ -103,6 +103,7 @@ class MAES(ES):
             mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
             self._n_generations += 1
             self._print_verbose_info(y)
+            z, d, mean, s, tm, y = self.restart_initialize(z, d, mean, s, tm, y)
         results = self._collect_results(fitness)
         results['mean'] = mean
         results['s'] = s
