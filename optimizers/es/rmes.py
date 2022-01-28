@@ -13,7 +13,7 @@ class RMES(R1ES):
         self._a_m = np.power(self._a, self.n_evolution_paths)  # for Line 4 in Algorithm 3
         self._b = np.sqrt(self.c_cov)  # for Line 4 in Algorithm 3
 
-    def initialize(self, args=None, is_restart=None):
+    def initialize(self, args=None, is_restart=False):
         x, mean, p, s, y = R1ES.initialize(self, args, is_restart)
         mp = np.zeros((self.n_evolution_paths, self.ndim_problem))  # multiple evolution paths
         t_hat = np.zeros((self.n_evolution_paths,))
