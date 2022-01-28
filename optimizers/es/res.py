@@ -19,7 +19,7 @@ class RES(ES):
         if self.eta_sigma is None:
             self.eta_sigma = 1 / np.sqrt(self.ndim_problem + 1)
 
-    def initialize(self, args=None, is_restart=None):
+    def initialize(self, args=None, is_restart=False):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         y = self._evaluate_fitness(mean, args)  # fitness
         best_so_far_y = np.copy(y)
