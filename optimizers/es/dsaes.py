@@ -1,9 +1,9 @@
 import numpy as np
 
-from optimizers.es.ssaes import SSAES
+from optimizers.es.es import ES
 
 
-class DSAES(SSAES):
+class DSAES(ES):
     """Derandomized Self-Adaptation Evolution Strategy (DSAES, Derandomized (1, λ)-σSA-ES).
 
     Reference
@@ -16,15 +16,20 @@ class DSAES(SSAES):
     def __init__(self, problem, options):
         if options.get('n_individuals') is None:
             options['n_individuals'] = 10  # mandatory setting for DSAES
-        super(SSAES, self).__init__(problem, options)
-        self.individual_sigmas = options.get('individual_sigmas')  # individual step-sizes
-        # when only the global step size is given
-        if (self.individual_sigmas is None) and (np.array(self.sigma).size == 1):
-            self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
+        ES.__init__(self, problem, options)
+        self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
         if self.eta_sigma is None:
             self.eta_sigma = 1 / 3
         # E[|N(0,1)|]: expectation of half-normal distribution
         self._e_hnd = np.sqrt(2 / np.pi)
+
+    def initialize(self, is_restart=False):
+        self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
+        x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
+        mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
+        sigmas = np.ones((self.n_individuals, self.ndim_problem))  # individual step-sizes for all offspring
+        y = np.empty((self.n_individuals,))  # fitness (no evaluation)
+        return x, mean, sigmas, y
 
     def iterate(self, x=None, mean=None, sigmas=None, y=None, args=None):
         for k in range(self.n_individuals):  # sample population
@@ -39,8 +44,23 @@ class DSAES(SSAES):
             y[k] = self._evaluate_fitness(x[k], args)
         return x, sigmas, y
 
+    def restart_initialize(self, x=None, mean=None, sigmas=None, y=None):
+        self._fitness_list.append(self.best_so_far_y)
+        is_restart = np.all(self.individual_sigmas < self.sigma_threshold)
+        if len(self._fitness_list) >= self.stagnation:
+            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
+        else:
+            is_restart_2 = False
+        is_restart = is_restart or is_restart_2
+        if is_restart:
+            self.n_restart += 1
+            self.n_individuals *= 2
+            self._fitness_list = [np.Inf]
+            x, mean, sigmas, y = self.initialize(True)
+        return x, mean, sigmas, y
+
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        super(SSAES, self).optimize(fitness_function)
+        ES.optimize(self, fitness_function)
         fitness = []  # store all fitness generated during evolution
         x, mean, sigmas, y = self.initialize()
         while True:
@@ -55,6 +75,7 @@ class DSAES(SSAES):
             mean = np.copy(x[order])
             self._n_generations += 1
             self._print_verbose_info(y)
+            x, mean, sigmas, y = self.restart_initialize(x, mean, sigmas, y)
         results = self._collect_results(fitness)
         results['mean'] = mean
         results['individual_sigmas'] = self.individual_sigmas
