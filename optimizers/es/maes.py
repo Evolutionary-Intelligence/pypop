@@ -28,11 +28,12 @@ class MAES(ES):
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
         self.c_s = options.get('c_s', (self._mu_eff + 2) / (self._mu_eff + self.ndim_problem + 5))  # for M10 in Fig. 3
-        alpha_cov = 2  # for M11 in Fig. 3 (α_cov)
-        self.c_1 = options.get('c_1', alpha_cov / (
+        self.alpha_cov = 2  # for M11 in Fig. 3 (α_cov)
+        self.c_1 = options.get('c_1', self.alpha_cov / (
                     np.power(self.ndim_problem + 1.3, 2) + self._mu_eff))  # for M11 in Fig. 3
-        self.c_w = options.get('c_w', np.minimum(1 - self.c_1, alpha_cov * (self._mu_eff + 1 / self._mu_eff - 2) / (
-                np.power(self.ndim_problem + 2, 2) + alpha_cov * self._mu_eff / 2)))  # for M11 in Fig. 3
+        self.c_w = options.get('c_w', np.minimum(1 - self.c_1, self.alpha_cov * (self._mu_eff + 1 / self._mu_eff - 2) /
+                                                 (np.power(self.ndim_problem + 2, 2) + self.alpha_cov *
+                                                  self._mu_eff / 2)))  # for M11 in Fig. 3
         self.d_sigma = options.get('d_sigma', 1 + self.c_s + 2 * np.maximum(  # for M12 in Fig. 3 (d_σ)
             0, np.sqrt((self._mu_eff - 1) / (self.ndim_problem + 1)) - 1))
         self._s_1 = 1 - self.c_s  # for M10 in Fig. 3
@@ -44,10 +45,17 @@ class MAES(ES):
         if not self._fast_version:
             self._diag_one = np.diag(np.ones((self.ndim_problem,)))  # for M11 in Fig. 3
 
-    def initialize(self):  # for M1 in Fig. 3
+    def initialize(self, is_restart=False):  # for M1 in Fig. 3
+        self.c_s = (self._mu_eff + 2) / (self._mu_eff + self.ndim_problem + 5)
+        self.c_1 = self.alpha_cov / (np.power(self.ndim_problem + 1.3, 2) + self._mu_eff)
+        self.c_w = np.minimum(1 - self.c_1, self.alpha_cov * (self._mu_eff + 1 / self._mu_eff - 2) /
+                              (np.power(self.ndim_problem + 2, 2) + self.alpha_cov * self._mu_eff / 2))
+        self.d_sigma = 1 + self.c_s + 2 * np.maximum(0, np.sqrt((self._mu_eff - 1) / (self.ndim_problem + 1)) - 1)
+        self._s_1 = 1 - self.c_s
+        self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
         d = np.empty((self.n_individuals, self.ndim_problem))  # search directions
-        mean = self._initialize_mean()  # mean of Gaussian search distribution
+        mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         s = np.zeros((self.ndim_problem,))  # evolution path
         tm = np.diag(np.ones((self.ndim_problem,)))  # transformation matrix M
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
@@ -89,6 +97,12 @@ class MAES(ES):
         # update global step-size (for M12 in Fig. 3)
         self.sigma *= np.exp(self.c_s / self.d_sigma * (np.linalg.norm(s) / self._e_chi - 1))
         return mean, s, tm
+
+    def restart_initialize(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
+        is_restart = ES.restart_initialize(self)
+        if is_restart:
+            z, d, mean, s, tm, y = self.initialize(is_restart)
+        return z, d, mean, s, tm, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         ES.optimize(self, fitness_function)
