@@ -32,7 +32,7 @@ class CSAES(ES):
         self._e_chi = np.sqrt(self.ndim_problem) * (
                 1 - 1 / (4 * self.ndim_problem) + 1 / (21 * np.power(self.ndim_problem, 2)))
 
-    def initialize(self, is_restart=None):
+    def initialize(self, is_restart=False):
         self.n_parents = int(self.n_individuals / 4)
         self.eta_sigma = np.sqrt(self.n_parents / (self.ndim_problem + self.n_parents))
         self._s_1 = 1 - self.eta_sigma
