@@ -16,7 +16,7 @@ class R1ES(ES):
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
         self.c_cov = options.get('c_cov', 1 / (3 * np.sqrt(self.ndim_problem) + 5))  # for Line 5 in Algorithm 1
-        self.c = options.get('c', 2 / (self.ndim_problem + 7))  # for Line 12 in Algorithm 1
+        self.c = options.get('c', 2 / (self.ndim_problem + 7))  # for Line 12 in Algorithm 1 (c_c)
         self.c_s = options.get('c_s', 0.3)  # for Line 15 in Algorithm 1
         self.q_star = options.get('q_star', 0.3)  # for Line 15 in Algorithm 1
         self.d_sigma = options.get('d_sigma', 1)  # for Line 16 in Algorithm 1
