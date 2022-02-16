@@ -90,9 +90,9 @@ class ES(Optimizer):
             self._fitness_list = [np.Inf]
         return is_restart
 
-    def _collect_results(self, fitness):
+    def _collect_results(self, fitness, mean=None):
         results = Optimizer._collect_results(self, fitness)
-        results['mean'] = self.mean
+        results['mean'] = mean
         results['sigma'] = self.sigma
         results['_n_generations'] = self._n_generations
         results['n_restart'] = self.n_restart
