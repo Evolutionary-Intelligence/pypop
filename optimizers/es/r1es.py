@@ -49,15 +49,15 @@ class R1ES(ES):
 
     def _update_distribution(self, x=None, mean=None, p=None, s=None, y=None, y_bak=None):
         order = np.argsort(y)
-        y = np.sort(y)
+        y.sort()  # for Line 10 in Algorithm 1
+        # for Line 11 in Algorithm 1
         mean_w = np.zeros((self.ndim_problem,))
         for k in range(self.n_parents):
             mean_w += self._w[k] * x[order[k]]
         p = self._p_1 * p + self._p_2 * (mean_w - mean) / self.sigma  # for Line 12 in Algorithm 1
         mean = mean_w  # for Line 11 in Algorithm 1
         # for rank-based adaptation of mutation strength
-        f = np.hstack((y_bak[:self.n_parents], y[:self.n_parents]))
-        r = np.argsort(f)
+        r = np.argsort(np.hstack((y_bak[:self.n_parents], y[:self.n_parents])))
         rr = self._rr[r < self.n_parents] - self._rr[r >= self.n_parents]
         q = np.dot(self._w, rr) / self.n_parents  # for Line 14 in Algorithm 1
         s = (1 - self.c_s) * s + self.c_s * (q - self.q_star)  # for Line 15 in Algorithm 1
@@ -77,7 +77,7 @@ class R1ES(ES):
         x, mean, p, s, y = self.initialize(args)
         fitness.append(y[0])
         while True:
-            y_bak = np.sort(y)
+            y_bak = np.copy(y)  # for Line 13 in Algorithm 1
             x, y = self.iterate(x, mean, p, y, args)  # sample and evaluate offspring population
             if self.record_fitness:
                 fitness.extend(y.tolist())
@@ -87,7 +87,7 @@ class R1ES(ES):
             self._n_generations += 1
             self._print_verbose_info(y)
             x, mean, p, s, y = self.restart_initialize(args, x, mean, p, s, y, fitness)
-        results = self._collect_results(fitness)
-        results['mean'] = mean
+        results = self._collect_results(fitness, mean)
         results['p'] = p
+        results['s'] = s
         return results
