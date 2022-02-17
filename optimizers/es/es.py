@@ -20,6 +20,12 @@ class ES(Optimizer):
     Natural Computing, 1(1), pp.3-52.
     https://link.springer.com/article/10.1023/A:1015059928466
 
+    Rechenberg, I., 1989.
+    Evolution strategy: Nature’s way of optimization.
+    In Optimization: Methods and applications, possibilities and limitations (pp. 106-126).
+    Springer, Berlin, Heidelberg.
+    https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6
+
     Schwefel, H.P., 1984.
     Evolution strategies: A family of non-linear optimization techniques based on
         imitating some principles of organic evolution.
