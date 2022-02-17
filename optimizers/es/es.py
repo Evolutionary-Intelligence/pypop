@@ -10,7 +10,8 @@ class ES(Optimizer):
     ---------
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
     Evolution strategies.
-    In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
+    In Springer Handbook of Computational Intelligence (pp. 871-898).
+    Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
 
     http://www.scholarpedia.org/article/Evolution_strategies
