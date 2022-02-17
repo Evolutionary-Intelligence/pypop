@@ -48,8 +48,8 @@ class ES(Optimizer):
         self._sigma_bak = np.copy(self.sigma)
         self.sigma_threshold = options.get('sigma_threshold', 1e-10)
         self._fitness_list = [self.best_so_far_y]  # store best_so_far_y generated in each generation
-        self.stagnation = options.get('stagnation', self.n_individuals * 100)
-        self.fitness_diff = options.get('fitness_diff', 1e-20)
+        self.stagnation = options.get('stagnation', self.ndim_problem)  # number of generations
+        self.fitness_diff = options.get('fitness_diff', 1e-10)
 
     def initialize(self):
         raise NotImplementedError
@@ -73,12 +73,10 @@ class ES(Optimizer):
 
     def restart_initialize(self):
         self._fitness_list.append(self.best_so_far_y)
-        is_restart = self.sigma < self.sigma_threshold
+        is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
         if len(self._fitness_list) >= self.stagnation:
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
-        else:
-            is_restart_2 = False
-        is_restart = bool(is_restart or is_restart_2)
+        is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
             self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
