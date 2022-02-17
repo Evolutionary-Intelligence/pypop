@@ -32,15 +32,16 @@ class RMES(R1ES):
             y[k] = self._evaluate_fitness(x[k], args)
         return x, y
 
-    def _update_distribution(self, x=None, mean=None, p=None, s=None, mp=None, t_hat=None, y=None, y_bak=None):
+    def _update_distribution(self, x=None, mean=None, p=None, s=None,
+                             mp=None, t_hat=None, y=None, y_bak=None):
         mean, p, s = R1ES._update_distribution(self, x, mean, p, s, y, y_bak)
         # update multiple evolution paths
-        t_min = np.min(np.diff(t_hat))
+        t_min = np.min(np.diff(t_hat))  # Line 2 in Algorithm 2 (T_min)
         if (t_min > self.generation_gap) or (self._n_generations < self.n_evolution_paths):
             for i in range(self.n_evolution_paths - 1):
                 mp[i], t_hat[i] = mp[i + 1], t_hat[i + 1]
         else:
-            i_apostrophe = np.argmin(np.diff(t_hat))
+            i_apostrophe = np.argmin(np.diff(t_hat))  # Line 6 in Algorithm 2 (i')
             for i in range(i_apostrophe, self.n_evolution_paths - 1):
                 mp[i], t_hat[i] = mp[i + 1], t_hat[i + 1]
         mp[-1], t_hat[-1] = p, self._n_generations
@@ -52,6 +53,7 @@ class RMES(R1ES):
         if is_restart:
             x, mean, p, s, mp, t_hat, y = self.initialize(args, is_restart)
             fitness.append(y[0])
+            self.d_sigma *= 2
         return x, mean, p, s, mp, t_hat, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
@@ -60,7 +62,7 @@ class RMES(R1ES):
         x, mean, p, s, mp, t_hat, y = self.initialize(args)
         fitness.append(y[0])
         while True:
-            y_bak = np.sort(y)
+            y_bak = np.copy(y)  # for Line 13 in Algorithm 1
             x, y = self.iterate(x, mean, p, s, mp, t_hat, y, args)  # sample and evaluate offspring population
             if self.record_fitness:
                 fitness.extend(y.tolist())
@@ -69,8 +71,9 @@ class RMES(R1ES):
             mean, p, s, mp, t_hat = self._update_distribution(x, mean, p, s, mp, t_hat, y, y_bak)
             self._n_generations += 1
             self._print_verbose_info(y)
-            x, mean, p, s, mp, t_hat, y = self.restart_initialize(args, x, mean, p, s, mp, t_hat, y, fitness)
-        results = self._collect_results(fitness)
-        results['mean'] = mean
+            x, mean, p, s, mp, t_hat, y = self.restart_initialize(
+                args, x, mean, p, s, mp, t_hat, y, fitness)
+        results = self._collect_results(fitness, mean)
         results['p'] = p
+        results['s'] = s
         return results
