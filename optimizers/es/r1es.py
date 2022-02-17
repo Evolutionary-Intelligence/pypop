@@ -69,6 +69,7 @@ class R1ES(ES):
         if is_restart:
             x, mean, p, s, y = self.initialize(args, is_restart)
             fitness.append(y[0])
+            self.d_sigma *= 2
         return x, mean, p, s, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
