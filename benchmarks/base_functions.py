@@ -169,6 +169,19 @@ class Griewank(BaseFunction):
         return griewank(x)
 
 
+def bohachevsky(x):
+    x, y = _squeeze_and_check(x), 0
+    for i in range(x.size - 1):
+        y += np.power(x[i], 2) + 2 * np.power(x[i + 1], 2) -\
+             0.3 * np.cos(3 * np.pi * x[i]) - 0.4 * np.cos(4 * np.pi * x[i + 1]) + 0.7
+    return y
+
+
+class Bohachevsky(BaseFunction):
+    def __call__(self, x):
+        return bohachevsky(x)
+
+
 def ackley(x):
     x = _squeeze_and_check(x)
     y = -20 * np.exp(-0.2 * np.sqrt(np.sum(np.power(x, 2)) / x.size)) -\
