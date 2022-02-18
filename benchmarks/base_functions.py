@@ -218,6 +218,20 @@ class ScaledRastrigin(BaseFunction):
         return scaled_rastrigin(x)
 
 
+def skew_rastrigin(x):
+    x = _squeeze_and_check(x)
+    for i in range(x.size):
+        if x[i] > 0:
+            x[i] *= 10
+    y = rastrigin(x)
+    return y
+
+
+class SkewRastrigin(BaseFunction):
+    def __call__(self, x):
+        return skew_rastrigin(x)
+
+
 def levy_montalvo(x):
     x, y = 1 + (1 / 4) * (_squeeze_and_check(x) + 1), 0
     for i in range(x.size - 1):
