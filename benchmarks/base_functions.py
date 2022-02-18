@@ -206,6 +206,18 @@ class Rastrigin(BaseFunction):
         return rastrigin(x)
 
 
+def scaled_rastrigin(x):
+    x, w = _squeeze_and_check(x), np.power(10, np.linspace(0, 1, x.size))
+    x *= w
+    y = 10 * x.size + np.sum(np.power(x, 2) - 10 * np.cos(2 * np.pi * x))
+    return y
+
+
+class ScaledRastrigin(BaseFunction):
+    def __call__(self, x):
+        return scaled_rastrigin(x)
+
+
 def levy_montalvo(x):
     x, y = 1 + (1 / 4) * (_squeeze_and_check(x) + 1), 0
     for i in range(x.size - 1):
