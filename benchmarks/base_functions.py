@@ -281,3 +281,16 @@ def shubert(x):
 class Shubert(BaseFunction):
     def __call__(self, x):
         return shubert(x)
+
+
+def schaffer(x):
+    x, y = _squeeze_and_check(x), 0
+    for i in range(x.size - 1):
+        xx = np.power(x[i], 2) + np.power(x[i + 1], 2)
+        y += np.power(xx, 0.25) * (np.power(np.sin(50 * np.power(xx, 0.1)), 2) + 1)
+    return y
+
+
+class Schaffer(BaseFunction):
+    def __call__(self, x):
+        return schaffer(x)
