@@ -10,7 +10,8 @@ class ES(Optimizer):
     ---------
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
     Evolution strategies.
-    In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
+    In Springer Handbook of Computational Intelligence (pp. 871-898).
+    Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
 
     http://www.scholarpedia.org/article/Evolution_strategies
@@ -19,6 +20,12 @@ class ES(Optimizer):
     Evolution strategies–A comprehensive introduction.
     Natural Computing, 1(1), pp.3-52.
     https://link.springer.com/article/10.1023/A:1015059928466
+
+    Rechenberg, I., 1989.
+    Evolution strategy: Nature’s way of optimization.
+    In Optimization: Methods and Applications, Possibilities and Limitations (pp. 106-126).
+    Springer, Berlin, Heidelberg.
+    https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6
 
     Schwefel, H.P., 1984.
     Evolution strategies: A family of non-linear optimization techniques based on
