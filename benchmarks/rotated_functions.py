@@ -295,6 +295,21 @@ class Rastrigin(BaseFunction):
         return rastrigin(x, rotation_matrix)
 
 
+def scaled_rastrigin(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(scaled_rastrigin, x, rotation_matrix)
+    y = base_functions.scaled_rastrigin(np.dot(rotation_matrix, x))
+    return y
+
+
+class ScaledRastrigin(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'scaled_rastrigin'
+
+    def __call__(self, x, rotation_matrix=None):
+        return scaled_rastrigin(x, rotation_matrix)
+
+
 def levy_montalvo(x, rotation_matrix=None):
     rotation_matrix = _load_rotation_matrix(levy_montalvo, x, rotation_matrix)
     y = base_functions.levy_montalvo(np.dot(rotation_matrix, x))
