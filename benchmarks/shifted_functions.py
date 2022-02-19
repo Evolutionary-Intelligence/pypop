@@ -386,3 +386,18 @@ class Shubert(BaseFunction):
 
     def __call__(self, x, shift_vector=None):
         return shubert(x, shift_vector)
+
+
+def schaffer(x, shift_vector=None):
+    shift_vector = _load_shift_vector(schaffer, x, shift_vector)
+    y = base_functions.schaffer(x - shift_vector)
+    return y
+
+
+class Schaffer(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'schaffer'
+
+    def __call__(self, x, shift_vector=None):
+        return schaffer(x, shift_vector)
