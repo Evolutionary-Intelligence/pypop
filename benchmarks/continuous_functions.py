@@ -221,6 +221,22 @@ class Griewank(BaseFunction):
         return griewank(x, shift_vector, rotation_matrix)
 
 
+def bohachevsky(x, shift_vector=None, rotation_matrix=None):
+    shift_vector, rotation_matrix = load_shift_and_rotation(bohachevsky, x, shift_vector, rotation_matrix)
+    x = np.dot(rotation_matrix, x - shift_vector)
+    y = base_functions.bohachevsky(x)
+    return y
+
+
+class Bohachevsky(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'bohachevsky'
+
+    def __call__(self, x, shift_vector=None, rotation_matrix=None):
+        return bohachevsky(x, shift_vector, rotation_matrix)
+
+
 def ackley(x, shift_vector=None, rotation_matrix=None):
     shift_vector, rotation_matrix = load_shift_and_rotation(ackley, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
