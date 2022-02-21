@@ -285,6 +285,22 @@ class ScaledRastrigin(BaseFunction):
         return scaled_rastrigin(x, shift_vector, rotation_matrix)
 
 
+def skew_rastrigin(x, shift_vector=None, rotation_matrix=None):
+    shift_vector, rotation_matrix = load_shift_and_rotation(skew_rastrigin, x, shift_vector, rotation_matrix)
+    x = np.dot(rotation_matrix, x - shift_vector)
+    y = base_functions.skew_rastrigin(x)
+    return y
+
+
+class SkewRastrigin(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'skew_rastrigin'
+
+    def __call__(self, x, shift_vector=None, rotation_matrix=None):
+        return skew_rastrigin(x, shift_vector, rotation_matrix)
+
+
 def levy_montalvo(x, shift_vector=None, rotation_matrix=None):
     shift_vector, rotation_matrix = load_shift_and_rotation(levy_montalvo, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
