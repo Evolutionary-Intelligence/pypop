@@ -35,9 +35,9 @@ class ES(Optimizer):
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        if self.n_individuals is None:  # offspring population size (λ: lambda)
+        if self.n_individuals is None:  # number of offspring, offspring population size (λ: lambda)
             self.n_individuals = 4 + int(3 * np.log(self.ndim_problem))
-        if self.n_parents is None:  # parent population size (μ: mu)
+        if self.n_parents is None:  # number of parents, parental population size (μ: mu)
             self.n_parents = int(self.n_individuals / 2)
             if self.n_parents > 1:
                 w_base, w = np.log((self.n_individuals + 1) / 2), np.log(np.arange(self.n_parents) + 1)
