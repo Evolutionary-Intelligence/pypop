@@ -383,3 +383,18 @@ class Shubert(BaseFunction):
 
     def __call__(self, x, rotation_matrix=None):
         return shubert(x, rotation_matrix)
+
+
+def schaffer(x, rotation_matrix=None):
+    rotation_matrix = _load_rotation_matrix(schaffer, x, rotation_matrix)
+    y = base_functions.schaffer(np.dot(rotation_matrix, x))
+    return y
+
+
+class Schaffer(BaseFunction):
+    def __init__(self):
+        BaseFunction.__init__(self)
+        self.__name__ = 'schaffer'
+
+    def __call__(self, x, rotation_matrix=None):
+        return schaffer(x, rotation_matrix)
