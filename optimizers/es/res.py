@@ -26,6 +26,7 @@ class RES(ES):
         return mean, y, best_so_far_y
 
     def iterate(self, args=None, mean=None):
+        # sample and evaluate (only one) offspring
         x = mean + self.sigma * self.rng_optimization.standard_normal((self.ndim_problem,))
         y = self._evaluate_fitness(x, args)
         return x, y
@@ -42,7 +43,6 @@ class RES(ES):
         mean, y, best_so_far_y = self.initialize(args)
         fitness = [y]  # store all fitness generated during evolution
         while True:
-            # sample and evaluate (only one) offspring
             x, y = self.iterate(args, mean)
             if self.record_fitness:
                 fitness.append(y)
@@ -54,6 +54,5 @@ class RES(ES):
             if y < best_so_far_y:
                 mean, best_so_far_y = x, y
             mean, y, best_so_far_y = self.restart_initialize(args, mean, y, best_so_far_y, fitness)
-        results = self._collect_results(fitness)
-        results['mean'] = mean
+        results = self._collect_results(fitness, mean)
         return results
