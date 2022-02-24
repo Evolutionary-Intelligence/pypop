@@ -16,7 +16,7 @@ class RES(ES):
     def __init__(self, problem, options):
         options['n_individuals'] = 1  # mandatory setting for RES
         ES.__init__(self, problem, options)
-        if self.eta_sigma is None:
+        if self.eta_sigma is None:  # for Line 5 in Algorithm 44.3 (1 / d)
             self.eta_sigma = 1 / np.sqrt(self.ndim_problem + 1)
 
     def initialize(self, args=None, is_restart=False):
