@@ -5,6 +5,15 @@ from optimizers.es.r1es import R1ES
 
 
 class RMES(R1ES):
+    """Rank-M Evolution Strategy (RMES).
+
+    Reference
+    ---------
+    Li, Z. and Zhang, Q., 2018.
+    A simple yet efficient evolution strategy for large-scale black-box optimization.
+    IEEE Transactions on Evolutionary Computation, 22(5), pp.637-646.
+    https://ieeexplore.ieee.org/abstract/document/8080257
+    """
     def __init__(self, problem, options):
         R1ES.__init__(self, problem, options)
         self.n_evolution_paths = options.get('n_evolution_paths', 2)  # m in Algorithm 2
