@@ -4,7 +4,7 @@ from optimizers.es.es import ES
 
 
 class SSAES(ES):
-    """Schwefel's Self-Adaptation Evolution Strategy (SSAES, (μ/μ, λ)-σSA-ES).
+    """Schwefel's Self-Adaptation Evolution Strategy (SSAES, (μ/μ,λ)-σSA-ES).
 
     Reference
     ---------
@@ -19,16 +19,16 @@ class SSAES(ES):
         if options.get('n_parents') is None:
             options['n_parents'] = int(options['n_individuals'] / 4)  # mandatory setting for SSAES
         ES.__init__(self, problem, options)
-        self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
+        self.axis_sigmas = self.sigma * np.ones((self.ndim_problem,))
         if self.eta_sigma is None:
             self.eta_sigma = 1 / np.sqrt(self.ndim_problem)
         # learning rate for individual step-sizes
-        self.eta_individual_sigmas = options.get('eta_individual_sigmas', 1 / np.power(self.ndim_problem, 1 / 4))
+        self.eta_axis_sigmas = options.get('eta_axis_sigmas', 1 / np.power(self.ndim_problem, 1 / 4))
 
     def initialize(self):
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
         mean = self._initialize_mean()  # mean of Gaussian search distribution
-        sigmas = np.ones((self.n_individuals, self.ndim_problem))  # individual step-sizes for all offspring
+        sigmas = np.empty((self.n_individuals, self.ndim_problem))  # individual step-sizes for all offspring
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         return x, mean, sigmas, y
 
@@ -37,8 +37,8 @@ class SSAES(ES):
             if self._check_terminations():
                 return x, sigmas, y
             sigma = self.eta_sigma * self.rng_optimization.standard_normal()
-            coordinate_sigmas = self.eta_individual_sigmas * self.rng_optimization.standard_normal((self.ndim_problem,))
-            sigmas[k] = self.individual_sigmas * np.exp(coordinate_sigmas) * np.exp(sigma)
+            axis_sigmas = self.eta_axis_sigmas * self.rng_optimization.standard_normal((self.ndim_problem,))
+            sigmas[k] = self.axis_sigmas * np.exp(axis_sigmas) * np.exp(sigma)
             x[k] = mean + sigmas[k] * self.rng_optimization.standard_normal((self.ndim_problem,))
             y[k] = self._evaluate_fitness(x[k], args)
         return x, sigmas, y
@@ -55,11 +55,10 @@ class SSAES(ES):
             if self._check_terminations():
                 break
             order = np.argsort(y)[:self.n_parents]
-            self.individual_sigmas = np.mean(sigmas[order], axis=0)
+            self.axis_sigmas = np.mean(sigmas[order], axis=0)
             mean = np.mean(x[order], axis=0)
             self._n_generations += 1
             self._print_verbose_info(y)
-        results = self._collect_results(fitness)
-        results['mean'] = mean
-        results['individual_sigmas'] = self.individual_sigmas
+        results = self._collect_results(fitness, mean)
+        results['axis_sigmas'] = self.axis_sigmas
         return results
