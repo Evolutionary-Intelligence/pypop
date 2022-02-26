@@ -27,15 +27,11 @@ class MAES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self.c_s = options.get('c_s', (self._mu_eff + 2) / (self._mu_eff + self.ndim_problem + 5))  # for M10 in Fig. 3
+        self.c_s = options.get('c_s', self._set_c_s())  # for M10 in Fig. 3
         self.alpha_cov = 2  # for M11 in Fig. 3 (α_cov)
-        self.c_1 = options.get('c_1', self.alpha_cov / (
-                    np.power(self.ndim_problem + 1.3, 2) + self._mu_eff))  # for M11 in Fig. 3
-        self.c_w = options.get('c_w', np.minimum(1 - self.c_1, self.alpha_cov * (self._mu_eff + 1 / self._mu_eff - 2) /
-                                                 (np.power(self.ndim_problem + 2, 2) + self.alpha_cov *
-                                                  self._mu_eff / 2)))  # for M11 in Fig. 3
-        self.d_sigma = options.get('d_sigma', 1 + self.c_s + 2 * np.maximum(  # for M12 in Fig. 3 (d_σ)
-            0, np.sqrt((self._mu_eff - 1) / (self.ndim_problem + 1)) - 1))
+        self.c_1 = options.get('c_1', self._set_c_1())  # for M11 in Fig. 3
+        self.c_w = options.get('c_w', self._set_c_w())  # for M11 in Fig. 3
+        self.d_sigma = options.get('d_sigma', self._set_d_sigma())  # for M12 in Fig. 3 (d_σ)
         self._s_1 = 1 - self.c_s  # for M10 in Fig. 3
         self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))  # for M10 in Fig. 3
         # for M12 in Fig. 3 (E[||N(0,I)||]: expectation of chi distribution)
@@ -45,12 +41,24 @@ class MAES(ES):
         if not self._fast_version:
             self._diag_one = np.diag(np.ones((self.ndim_problem,)))  # for M11 in Fig. 3
 
+    def _set_c_s(self):
+        return (self._mu_eff + 2) / (self._mu_eff + self.ndim_problem + 5)
+
+    def _set_c_1(self):
+        return self.alpha_cov / (np.power(self.ndim_problem + 1.3, 2) + self._mu_eff)
+
+    def _set_c_w(self):
+        return np.minimum(1 - self.c_1, self.alpha_cov * (self._mu_eff + 1 / self._mu_eff - 2) /
+                          (np.power(self.ndim_problem + 2, 2) + self.alpha_cov * self._mu_eff / 2))
+
+    def _set_d_sigma(self):
+        return 1 + self.c_s + 2 * np.maximum(0, np.sqrt((self._mu_eff - 1) / (self.ndim_problem + 1)) - 1)
+
     def initialize(self, is_restart=False):  # for M1 in Fig. 3
-        self.c_s = (self._mu_eff + 2) / (self._mu_eff + self.ndim_problem + 5)
-        self.c_1 = self.alpha_cov / (np.power(self.ndim_problem + 1.3, 2) + self._mu_eff)
-        self.c_w = np.minimum(1 - self.c_1, self.alpha_cov * (self._mu_eff + 1 / self._mu_eff - 2) /
-                              (np.power(self.ndim_problem + 2, 2) + self.alpha_cov * self._mu_eff / 2))
-        self.d_sigma = 1 + self.c_s + 2 * np.maximum(0, np.sqrt((self._mu_eff - 1) / (self.ndim_problem + 1)) - 1)
+        self.c_s = self._set_c_s()
+        self.c_1 = self._set_c_1()
+        self.c_w = self._set_c_w()
+        self.d_sigma = self._set_d_sigma()
         self._s_1 = 1 - self.c_s
         self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
@@ -118,7 +126,6 @@ class MAES(ES):
             self._n_generations += 1
             self._print_verbose_info(y)
             z, d, mean, s, tm, y = self.restart_initialize(z, d, mean, s, tm, y)
-        results = self._collect_results(fitness)
-        results['mean'] = mean
+        results = self._collect_results(fitness, mean)
         results['s'] = s
         return results
