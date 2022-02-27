@@ -4,7 +4,7 @@ from optimizers.es.es import ES
 
 
 class DSAES(ES):
-    """Derandomized Self-Adaptation Evolution Strategy (DSAES, Derandomized (1, λ)-σSA-ES).
+    """Derandomized Self-Adaptation Evolution Strategy (DSAES, Derandomized (1,λ)-σSA-ES).
 
     Reference
     ---------
@@ -12,19 +12,24 @@ class DSAES(ES):
     Evolution strategies.
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
+
+    Ostermeier, A., Gawelczyk, A. and Hansen, N., 1994.
+    A derandomized approach to self-adaptation of evolution strategies.
+    Evolutionary Computation, 2(4), pp.369-380.
+    https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of
     """
     def __init__(self, problem, options):
         if options.get('n_individuals') is None:
             options['n_individuals'] = 10  # mandatory setting for DSAES
         ES.__init__(self, problem, options)
-        self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
+        self.axis_sigmas = self.sigma * np.ones((self.ndim_problem,))
         if self.eta_sigma is None:
             self.eta_sigma = 1 / 3
         # E[|N(0,1)|]: expectation of half-normal distribution
         self._e_hnd = np.sqrt(2 / np.pi)
 
     def initialize(self, is_restart=False):
-        self.individual_sigmas = self.sigma * np.ones((self.ndim_problem,))
+        self.axis_sigmas = self.sigma * np.ones((self.ndim_problem,))
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         sigmas = np.ones((self.n_individuals, self.ndim_problem))  # individual step-sizes for all offspring
@@ -37,21 +42,19 @@ class DSAES(ES):
                 return x, sigmas, y
             sigma = self.eta_sigma * self.rng_optimization.standard_normal()
             z = self.rng_optimization.standard_normal((self.ndim_problem,))
-            x[k] = mean + np.exp(sigma) * self.individual_sigmas * z
+            x[k] = mean + np.exp(sigma) * self.axis_sigmas * z
             sigma_1 = np.power(np.exp(np.abs(z) / self._e_hnd - 1), 1 / self.ndim_problem)
             sigma_2 = np.power(np.exp(sigma), 1 / np.sqrt(self.ndim_problem))
-            sigmas[k] = self.individual_sigmas * sigma_1 * sigma_2
+            sigmas[k] = self.axis_sigmas * sigma_1 * sigma_2
             y[k] = self._evaluate_fitness(x[k], args)
         return x, sigmas, y
 
     def restart_initialize(self, x=None, mean=None, sigmas=None, y=None):
         self._fitness_list.append(self.best_so_far_y)
-        is_restart = np.all(self.individual_sigmas < self.sigma_threshold)
+        is_restart_1, is_restart_2 = np.all(self.axis_sigmas < self.sigma_threshold), False
         if len(self._fitness_list) >= self.stagnation:
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
-        else:
-            is_restart_2 = False
-        is_restart = is_restart or is_restart_2
+        is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
             self.n_restart += 1
             self.n_individuals *= 2
@@ -71,12 +74,11 @@ class DSAES(ES):
             if self._check_terminations():
                 break
             order = np.argsort(y)[0]
-            self.individual_sigmas = np.copy(sigmas[order])
+            self.axis_sigmas = np.copy(sigmas[order])
             mean = np.copy(x[order])
             self._n_generations += 1
             self._print_verbose_info(y)
             x, mean, sigmas, y = self.restart_initialize(x, mean, sigmas, y)
-        results = self._collect_results(fitness)
-        results['mean'] = mean
-        results['individual_sigmas'] = self.individual_sigmas
+        results = self._collect_results(fitness, mean)
+        results['axis_sigmas'] = self.axis_sigmas
         return results
