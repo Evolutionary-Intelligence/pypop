@@ -49,7 +49,7 @@ class DSAES(ES):
             y[k] = self._evaluate_fitness(x[k], args)
         return x, sigmas, y
 
-    def restart_initialize(self, x=None, mean=None, sigmas=None, y=None):
+    def _restart_initialize(self):
         self._fitness_list.append(self.best_so_far_y)
         is_restart_1, is_restart_2 = np.all(self.axis_sigmas < self.sigma_threshold), False
         if len(self._fitness_list) >= self.stagnation:
@@ -59,6 +59,11 @@ class DSAES(ES):
             self.n_restart += 1
             self.n_individuals *= 2
             self._fitness_list = [np.Inf]
+        return is_restart
+
+    def restart_initialize(self, x=None, mean=None, sigmas=None, y=None):
+        is_restart = self._restart_initialize()
+        if is_restart:
             x, mean, sigmas, y = self.initialize(True)
         return x, mean, sigmas, y
 
