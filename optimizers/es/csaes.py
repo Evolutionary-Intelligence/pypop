@@ -1,9 +1,10 @@
 import numpy as np
 
 from optimizers.es.es import ES
+from optimizers.es.dsaes import DSAES
 
 
-class CSAES(ES):
+class CSAES(DSAES):
     """Cumulative Step-size Adaptation Evolution Strategy (CSAES, (μ/μ,λ)-ES with search path).
 
     CSA: Cumulative Step-size Adaptation (a.k.a. cumulative path length control)
@@ -25,20 +26,14 @@ class CSAES(ES):
             options['n_individuals'] = 4 + int(np.floor(3 * np.log(problem.get('ndim_problem'))))
         if options.get('n_parents') is None:
             options['n_parents'] = int(options['n_individuals'] / 4)
-        ES.__init__(self, problem, options)
-        if self.eta_sigma is None:
-            self.eta_sigma = self._set_eta_sigma()
+        if options.get('eta_sigma') is None:
+            options['eta_sigma'] = np.sqrt(options['n_parents'] / (problem['ndim_problem'] + options['n_parents']))
+        DSAES.__init__(self, problem, options)
         self._s_1 = self._set__s_1()
         self._s_2 = self._set__s_2()
-        self.axis_sigmas = self.sigma * np.ones((self.ndim_problem,))
-        # E[|N(0,1)|]: expectation of half-normal distribution
-        self._e_hnd = np.sqrt(2 / np.pi)
         # E[||N(0,I)||]: expectation of chi distribution
         self._e_chi = np.sqrt(self.ndim_problem) * (
                 1 - 1 / (4 * self.ndim_problem) + 1 / (21 * np.power(self.ndim_problem, 2)))
-
-    def _set_eta_sigma(self):
-        return np.sqrt(self.n_parents / (self.ndim_problem + self.n_parents))
 
     def _set__s_1(self):
         return 1 - self.eta_sigma
@@ -48,7 +43,7 @@ class CSAES(ES):
 
     def initialize(self, is_restart=False):
         self.n_parents = int(self.n_individuals / 4)
-        self.eta_sigma = self._set_eta_sigma()
+        self.eta_sigma = np.sqrt(self.n_parents / (self.ndim_problem + self.n_parents))
         self._s_1 = self._set__s_1()
         self._s_2 = self._set__s_2()
         self.axis_sigmas = self.sigma * np.ones((self.ndim_problem,))
@@ -69,15 +64,8 @@ class CSAES(ES):
         return z, x, y
 
     def restart_initialize(self, z=None, x=None, mean=None, s=None, y=None):
-        self._fitness_list.append(self.best_so_far_y)
-        is_restart_1, is_restart_2 = np.all(self.axis_sigmas < self.sigma_threshold), False
-        if len(self._fitness_list) >= self.stagnation:
-            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
-        is_restart = bool(is_restart_1) or bool(is_restart_2)
+        is_restart = self._restart_initialize()
         if is_restart:
-            self.n_restart += 1
-            self.n_individuals *= 2
-            self._fitness_list = [np.Inf]
             z, x, mean, s, y = self.initialize(True)
         return z, x, mean, s, y
 
