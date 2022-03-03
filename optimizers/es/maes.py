@@ -4,7 +4,7 @@ from optimizers.es.es import ES
 
 
 class MAES(ES):
-    """Matrix Adaptation Evolution Strategy (MAES, (μ/μ_w, λ)-MA-ES).
+    """Matrix Adaptation Evolution Strategy (MAES, (μ/μ_w,λ)-MA-ES).
 
     Reference
     ---------
@@ -70,7 +70,7 @@ class MAES(ES):
         return z, d, mean, s, tm, y
 
     def iterate(self, z=None, d=None, mean=None, tm=None, y=None, args=None):
-        for k in range(self.n_individuals):  # for M3 in Fig. 3 (sample population)
+        for k in range(self.n_individuals):  # for M3 in Fig. 3 (sample offspring population)
             if self._check_terminations():
                 return z, d, y
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))  # for M4 in Fig. 3
@@ -79,9 +79,9 @@ class MAES(ES):
         return z, d, y
 
     def _update_distribution(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
-        order = np.argsort(y)
-        d_w, z_w = np.zeros((self.ndim_problem,)), np.zeros((self.ndim_problem,))  # for M9, M10 in Fig. 3
-        zz_w = None
+        order = np.argsort(y)  # for M8 in Fig. 3
+        # for M9, M10, M11 in Fig. 3
+        d_w, z_w, zz_w = np.zeros((self.ndim_problem,)), np.zeros((self.ndim_problem,)), None
         if not self._fast_version:
             zz_w = np.zeros((self.ndim_problem, self.ndim_problem))  # for M11 in Fig. 3
         for k in range(self.n_parents):
