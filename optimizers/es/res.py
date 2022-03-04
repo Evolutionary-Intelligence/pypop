@@ -32,7 +32,11 @@ class RES(ES):
         return x, y
 
     def restart_initialize(self, args=None, mean=None, y=None, best_so_far_y=None, fitness=None):
-        is_restart = ES.restart_initialize(self)
+        self._fitness_list.append(self.best_so_far_y)
+        is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
+        if len(self._fitness_list) >= self.stagnation:
+            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
+        is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
             mean, y, best_so_far_y = self.initialize(args, is_restart)
             fitness.append(y)

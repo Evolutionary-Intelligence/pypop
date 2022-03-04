@@ -21,10 +21,9 @@ class TestRES(unittest.TestCase):
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),  # mean
                        'sigma': 0.1,
-                       'verbose_frequency': 200000,
+                       'verbose_frequency': 20000,
                        'record_fitness': True,
-                       'record_fitness_frequency': 200000,
-                       'stagnation': 200000}
+                       'record_fitness_frequency': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
