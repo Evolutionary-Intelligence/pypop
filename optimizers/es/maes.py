@@ -30,7 +30,7 @@ class MAES(ES):
         self.c_s = options.get('c_s', self._set_c_s())  # for M10 in Fig. 3
         self.alpha_cov = 2  # for M11 in Fig. 3 (α_cov)
         self.c_1 = options.get('c_1', self._set_c_1())  # for M11 in Fig. 3
-        self.c_w = options.get('c_w', self._set_c_w())  # for M11 in Fig. 3
+        self.c_w = options.get('c_w', self._set_c_w())  # for M11 in Fig. 3 (c_μ)
         self.d_sigma = options.get('d_sigma', self._set_d_sigma())  # for M12 in Fig. 3 (d_σ)
         self._s_1 = 1 - self.c_s  # for M10 in Fig. 3
         self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))  # for M10 in Fig. 3
@@ -98,7 +98,7 @@ class MAES(ES):
             tm_2 = self.c_w * (zz_w - self._diag_one)
             tm += 0.5 * np.dot(tm, tm_1 + tm_2)  # for M11 in Fig. 3
         else:
-            tm = (1 - 0.5 * (self.c_1 + self.c_w)) * tm
+            tm *= (1 - 0.5 * (self.c_1 + self.c_w))
             tm += (0.5 * self.c_1) * np.dot(np.dot(tm, s[:, np.newaxis]), s[np.newaxis, :])
             for k in range(self.n_parents):
                 tm += (0.5 * self.c_w) * self._w[k] * np.dot(d[order[k]][:, np.newaxis], z[order[k]][np.newaxis, :])
