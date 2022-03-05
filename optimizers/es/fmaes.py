@@ -2,7 +2,7 @@ from optimizers.es.maes import MAES
 
 
 class FMAES(MAES):
-    """Fast Matrix Adaptation Evolution Strategy (FMAES, Fast-(μ/μ_w, λ)-MA-ES).
+    """Fast Matrix Adaptation Evolution Strategy (FMAES, Fast-(μ/μ_w,λ)-MA-ES).
 
     Reference
     ---------
