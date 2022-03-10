@@ -4,7 +4,7 @@ from optimizers.es.es import ES
 from optimizers.es.maes import MAES
 
 
-class LMMAES(MAES):
+class LMMAES(ES):
     """Limited-Memory Matrix Adaptation Evolution Strategy (LMMAES).
 
     Reference
@@ -15,20 +15,35 @@ class LMMAES(MAES):
     https://ieeexplore.ieee.org/abstract/document/8410043
     """
     def __init__(self, problem, options):
-        MAES.__init__(self, problem, options)
+        ES.__init__(self, problem, options)
         n_evolution_paths = 4 + int(3 * np.log(self.ndim_problem))
         self.n_evolution_paths = options.get('n_evolution_paths', n_evolution_paths)  # m in Algorithm 1
-        self.c_s = options.get('c_s', 2 * self.n_parents / self.ndim_problem)  # c_sigma in Algorithm 1
-        self._s_1 = 1 - self.c_s  # for Line 13 in Algorithm 1
-        self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))  # for Line 13 in Algorithm 1
-        self._c_d = 1 / (self.ndim_problem * np.power(1.5, np.arange(self.n_evolution_paths)))
-        self._c_c = self.n_parents / (self.ndim_problem * np.power(4.0, np.arange(self.n_evolution_paths)))
+        self.c_s = options.get('c_s', self._set_c_s())  # c_sigma in Algorithm 1
+        self._s_1 = self._set__s_1()  # for Line 13 in Algorithm 1
+        self._s_2 = self._set__s_2()  # for Line 13 in Algorithm 1
+        self._c_d = self._set__c_d()
+        self._c_c = self._set__c_c()
+
+    def _set_c_s(self):
+        return 2 * self.n_individuals / self.ndim_problem
+
+    def _set__s_1(self):
+        return 1 - self.c_s
+
+    def _set__s_2(self):
+        return np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))
+
+    def _set__c_d(self):
+        return 1 / (self.ndim_problem * np.power(1.5, np.arange(self.n_evolution_paths)))
+
+    def _set__c_c(self):
+        return self.n_individuals / (self.ndim_problem * np.power(4.0, np.arange(self.n_evolution_paths)))
 
     def initialize(self, is_restart=False):
-        self.c_s = 2 * self.n_parents / self.ndim_problem  # c_sigma in Algorithm 1
-        self._s_1 = 1 - self.c_s
-        self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))  # for Line 13 in Algorithm 1
-        self._c_c = self.n_parents / (self.ndim_problem * np.power(4.0, np.arange(self.n_evolution_paths)))
+        self.c_s = self._set_c_s()  # c_sigma in Algorithm 1
+        self._s_1 = self._set__s_1()
+        self._s_2 = self._set__s_2()  # for Line 13 in Algorithm 1
+        self._c_c = self._set__c_c()
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
         d = np.empty((self.n_individuals, self.ndim_problem))  # search directions
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
@@ -56,7 +71,7 @@ class LMMAES(MAES):
             z_w += self._w[k] * z[order[k]]
         # update distribution mean
         mean += (self.sigma * d_w)
-        # update evolution path (s) and transformation matrix (M)
+        # update evolution path (p_c, s) and low-rank transformation matrix (tm)
         s = self._s_1 * s + self._s_2 * z_w
         for k in range(self.n_evolution_paths):  # rank-m
             tm[k] = (1 - self._c_c[k]) * tm[k] + np.sqrt(self._mu_eff * self._c_c[k] * (2 - self._c_c[k])) * z_w
@@ -69,3 +84,6 @@ class LMMAES(MAES):
         if is_restart:
             z, d, mean, s, tm, y = self.initialize(is_restart)
         return z, d, mean, s, tm, y
+
+    def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
+        return MAES.optimize(self, fitness_function, args)
