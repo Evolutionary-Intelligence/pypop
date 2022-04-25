@@ -29,7 +29,7 @@ class R1ES(ES):
     def initialize(self, args=None, is_restart=False):
         self._p_2 = np.sqrt(self.c * (2 - self.c) * self._mu_eff)
         self._rr = np.arange(self.n_parents * 2) + 1
-        x = np.empty((self.n_individuals, self.ndim_problem))  # population
+        x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         p = np.zeros((self.ndim_problem,))  # principal search direction
         s = 0  # cumulative rank rate
