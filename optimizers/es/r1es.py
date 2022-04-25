@@ -23,8 +23,8 @@ class R1ES(ES):
         self._x_1 = np.sqrt(1 - self.c_cov)  # for Line 5 in Algorithm 1
         self._x_2 = np.sqrt(self.c_cov)  # for Line 5 in Algorithm 1
         self._p_1 = 1 - self.c  # for Line 12 in Algorithm 1
-        self._p_2 = np.sqrt(self.c * (2 - self.c) * self._mu_eff)  # for Line 12 in Algorithm 1
-        self._rr = np.arange(self.n_parents * 2) + 1  # for rank-based success rule (RSR)
+        self._p_2 = None  # for Line 12 in Algorithm 1
+        self._rr = None  # for rank-based success rule (RSR)
 
     def initialize(self, args=None, is_restart=False):
         self._p_2 = np.sqrt(self.c * (2 - self.c) * self._mu_eff)
