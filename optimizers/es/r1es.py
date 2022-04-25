@@ -73,15 +73,14 @@ class R1ES(ES):
         return x, mean, p, s, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        ES.optimize(self, fitness_function)
-        fitness = []  # store all fitness generated during evolution
+        fitness = ES.optimize(self, fitness_function)
         x, mean, p, s, y = self.initialize(args)
         fitness.append(y[0])
         while True:
             y_bak = np.copy(y)  # for Line 13 in Algorithm 1
             x, y = self.iterate(x, mean, p, y, args)  # sample and evaluate offspring population
             if self.record_fitness:
-                fitness.extend(y.tolist())
+                fitness.extend(y)
             if self._check_terminations():
                 break
             mean, p, s = self._update_distribution(x, mean, p, s, y, y_bak)
