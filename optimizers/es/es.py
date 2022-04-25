@@ -36,7 +36,7 @@ class ES(Optimizer):
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
         if self.n_individuals is None:  # number of offspring, offspring population size (λ: lambda)
-            self.n_individuals = 4 + int(3 * np.log(self.ndim_problem))
+            self.n_individuals = 4 + int(3 * np.log(self.ndim_problem))  # for small population setting
         if self.n_parents is None:  # number of parents, parental population size (μ: mu)
             self.n_parents = int(self.n_individuals / 2)
             if self.n_parents > 1:
