@@ -129,3 +129,5 @@ class Optimizer(object):
         self.start_time = time.time()
         if fitness_function is not None:
             self.fitness_function = fitness_function
+        fitness = []  # store all fitness generated during evolution
+        return fitness
