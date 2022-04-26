@@ -25,10 +25,10 @@ class RMES(R1ES):
     def initialize(self, args=None, is_restart=False):
         x, mean, p, s, y = R1ES.initialize(self, args, is_restart)
         mp = np.zeros((self.n_evolution_paths, self.ndim_problem))  # multiple evolution paths
-        t_hat = np.zeros((self.n_evolution_paths,))
+        t_hat = np.zeros((self.n_evolution_paths,))  # for Algorithm 2
         return x, mean, p, s, mp, t_hat, y
 
-    def iterate(self, x=None, mean=None, p=None, s=None, mp=None, t_hat=None, y=None, args=None):
+    def iterate(self, x=None, mean=None, mp=None, y=None, args=None):
         for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, y
@@ -66,15 +66,14 @@ class RMES(R1ES):
         return x, mean, p, s, mp, t_hat, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        ES.optimize(self, fitness_function)
-        fitness = []  # store all fitness generated during evolution
+        fitness = ES.optimize(self, fitness_function)
         x, mean, p, s, mp, t_hat, y = self.initialize(args)
         fitness.append(y[0])
         while True:
-            y_bak = np.copy(y)  # for Line 13 in Algorithm 1
-            x, y = self.iterate(x, mean, p, s, mp, t_hat, y, args)  # sample and evaluate offspring population
+            y_bak = np.copy(y)
+            x, y = self.iterate(x, mean, mp, y, args)  # sample and evaluate offspring population
             if self.record_fitness:
-                fitness.extend(y.tolist())
+                fitness.extend(y)
             if self._check_terminations():
                 break
             mean, p, s, mp, t_hat = self._update_distribution(x, mean, p, s, mp, t_hat, y, y_bak)
