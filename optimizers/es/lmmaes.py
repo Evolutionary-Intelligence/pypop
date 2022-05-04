@@ -1,7 +1,6 @@
 import numpy as np
 
 from optimizers.es.es import ES
-from optimizers.es.maes import MAES
 
 
 class LMMAES(ES):
@@ -18,34 +17,20 @@ class LMMAES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
+        self.options = options
         n_evolution_paths = 4 + int(3 * np.log(self.ndim_problem))
         self.n_evolution_paths = options.get('n_evolution_paths', n_evolution_paths)  # m in Algorithm 1
-        self.c_s = options.get('c_s', self._set_c_s())  # c_sigma in Algorithm 1
-        self._s_1 = self._set__s_1()  # for Line 13 in Algorithm 1
-        self._s_2 = self._set__s_2()  # for Line 13 in Algorithm 1
-        self._c_d = self._set__c_d()
-        self._c_c = self._set__c_c()
-
-    def _set_c_s(self):
-        return 2 * self.n_individuals / self.ndim_problem
-
-    def _set__s_1(self):
-        return 1 - self.c_s
-
-    def _set__s_2(self):
-        return np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))
-
-    def _set__c_d(self):
-        return 1 / (self.ndim_problem * np.power(1.5, np.arange(self.n_evolution_paths)))
-
-    def _set__c_c(self):
-        return self.n_individuals / (self.ndim_problem * np.power(4.0, np.arange(self.n_evolution_paths)))
+        self.c_s = None  # c_sigma in Algorithm 1
+        self._s_1 = None  # for Line 13 in Algorithm 1
+        self._s_2 = None  # for Line 13 in Algorithm 1
+        self._c_d = 1 / (self.ndim_problem * np.power(1.5, np.arange(self.n_evolution_paths)))
+        self._c_c = None
 
     def initialize(self, is_restart=False):
-        self.c_s = self._set_c_s()  # c_sigma in Algorithm 1
-        self._s_1 = self._set__s_1()
-        self._s_2 = self._set__s_2()  # for Line 13 in Algorithm 1
-        self._c_c = self._set__c_c()
+        self.c_s = self.options.get('c_s', 2 * self.n_individuals / self.ndim_problem)
+        self._s_1 = 1 - self.c_s
+        self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))
+        self._c_c = self.n_individuals / (self.ndim_problem * np.power(4.0, np.arange(self.n_evolution_paths)))
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
         d = np.empty((self.n_individuals, self.ndim_problem))  # search directions
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
@@ -88,4 +73,19 @@ class LMMAES(ES):
         return z, d, mean, s, tm, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        return MAES.optimize(self, fitness_function, args)
+        fitness = ES.optimize(self, fitness_function)
+        z, d, mean, s, tm, y = self.initialize()
+        while True:
+            z, d, y = self.iterate(z, d, mean, tm, y, args)  # sample and evaluate offspring population
+            if self.record_fitness:
+                fitness.extend(y)
+            if self._check_terminations():
+                break
+            mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
+            self._n_generations += 1
+            self._print_verbose_info(y)
+            z, d, mean, s, tm, y = self.restart_initialize(z, d, mean, s, tm, y)
+        results = self._collect_results(fitness, mean)
+        results['s'] = s
+        results['tm'] = tm
+        return results
