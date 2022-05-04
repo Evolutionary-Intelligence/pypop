@@ -13,6 +13,8 @@ class LMMAES(ES):
     Large scale black-box optimization by limited-memory matrix adaptation.
     IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
     https://ieeexplore.ieee.org/abstract/document/8410043
+    
+    https://www.ini.rub.de/upload/editor/file/1604950981_dc3a4459a4160b48d51e/lmmaes.py    (see the official Python version)
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
