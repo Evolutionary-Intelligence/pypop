@@ -46,7 +46,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Mixture Model-based Evolution Strategy (**MMES**) [See [He et al., 2021, TEVC](https://ieeexplore.ieee.org/abstract/document/9244595)]
 
-  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited-Memory Matrix Adaptation Evolution Strategy (**LMMAES**, LM-MA-ES) [See [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited-Memory Matrix Adaptation Evolution Strategy (**[LMMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/optimizers/es/lmmaes.py)**, LM-MA-ES) [See [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-m Evolution Strategy *with Multiple Evolution Paths* (**[RMES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/optimizers/es/rmes.py)**, Rm-ES) [See [Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
 
@@ -72,6 +72,8 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 * **Evolutionary Programming (EP)** [See e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
 
+* **Direct Search (DS)** [See e.g. [Wright, 1996](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable)]
+
 * **Random (Stochastic) Search (RS)** [See e.g. [Rastrigin, 1986](https://link.springer.com/content/pdf/10.1007/BFb0007129.pdf); [Brooks, 1958, Operations Research](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Pure Random Search (**PRS**) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
@@ -86,7 +88,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * From the *problem-solving* perspective, we prefer to choose the (empirically) *best* optimizer for the given black-box problem. However, for the *new* problem, the (empirically) *best* optimizer is often unknown in advance (if without *a prior* knowledge). As a rule of thumb, we need to compare a (often small) set of all available/known optimizers and choose the *best* one from them according to some performance criteria. From the *research* perspective, however, we prefer to *beautiful* optimizers, though always keeping the **[“No Free Lunch” theorem](https://ieeexplore.ieee.org/document/585893)** in mind. Typically, the **beauty** of one optimizer comes from the following features: **novelty** (e.g., GA and PSO), **competitive performance** (e.g., on at least one class of problems), **theoretical insights** (e.g., NES/CMA-ES), **clarity/simplicity** (e.g., ease to understand and implement), and so on.
 
-  * If you find any DFO to meet the above standard, welcome to launch [issues](https://github.com/Evolutionary-Intelligence/pypop/issues) or [pulls](https://github.com/Evolutionary-Intelligence/pypop/pulls). We will consider it to be included in the ```pypop``` library. Note that **any superficial imitation** to the above well-established optimizers (**'Old Wine in a New Bottle'**) will be *NOT* considered.
+  * If you find any DFO to meet the above standard, welcome to launch [issues](https://github.com/Evolutionary-Intelligence/pypop/issues) or [pulls](https://github.com/Evolutionary-Intelligence/pypop/pulls). We will consider it to be included in the ```pypop``` library. Note that **any superficial imitation** to the above well-established optimizers (**['Old Wine in a New Bottle'](https://link.springer.com/article/10.1007/s11721-021-00202-9)**) will be *NOT* considered.
 
 * **Respect for Diversity**
 
