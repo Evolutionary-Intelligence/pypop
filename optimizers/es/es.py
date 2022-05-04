@@ -40,7 +40,7 @@ class ES(Optimizer):
         if self.n_parents is None:  # number of parents, parental population size (μ: mu)
             self.n_parents = int(self.n_individuals / 2)
             if self.n_parents > 1:
-                # Although R1ES, RMES use slightly different settings for self._w (and self._mu_eff),
+                # Although R1ES, RMES, LMMAES use slightly different settings for self._w (and self._mu_eff),
                 # typically such slight differences don't matter in practice.
                 # For consistency and simplicity, we unify these differences in the base class ES.
                 w_base, w = np.log((self.n_individuals + 1) / 2), np.log(np.arange(self.n_parents) + 1)
