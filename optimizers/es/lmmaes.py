@@ -12,8 +12,9 @@ class LMMAES(ES):
     Large scale black-box optimization by limited-memory matrix adaptation.
     IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
     https://ieeexplore.ieee.org/abstract/document/8410043
-    
-    https://www.ini.rub.de/upload/editor/file/1604950981_dc3a4459a4160b48d51e/lmmaes.py    (see the official Python version)
+
+    See the official Python version from Glasmachers:
+    https://www.ini.rub.de/upload/editor/file/1604950981_dc3a4459a4160b48d51e/lmmaes.py
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
@@ -57,7 +58,7 @@ class LMMAES(ES):
             d_w += self._w[k] * d[order[k]]
             z_w += self._w[k] * z[order[k]]
         # update distribution mean
-        mean += (self.sigma * d_w)
+        mean += self.sigma * d_w
         # update evolution path (p_c, s) and low-rank transformation matrix (tm)
         s = self._s_1 * s + self._s_2 * z_w
         for k in range(self.n_evolution_paths):  # rank-m
