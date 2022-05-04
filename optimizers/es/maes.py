@@ -93,8 +93,8 @@ class MAES(ES):
             tm_2 = self.c_w * (zz_w - self._diag_one)
             tm += 0.5 * np.dot(tm, tm_1 + tm_2)  # for M11 in Fig. 3
         else:
-            tm *= (1 - 0.5 * (self.c_1 + self.c_w))
-            tm += (0.5 * self.c_1) * np.dot(np.dot(tm, s[:, np.newaxis]), s[np.newaxis, :])
+            tm = (1 - 0.5 * (self.c_1 + self.c_w)) * tm + (0.5 * self.c_1) * np.dot(
+                np.dot(tm, s[:, np.newaxis]), s[np.newaxis, :])
             for k in range(self.n_parents):
                 tm += (0.5 * self.c_w) * self._w[k] * np.dot(d[order[k]][:, np.newaxis], z[order[k]][np.newaxis, :])
         # update global step-size (for M12 in Fig. 3)
