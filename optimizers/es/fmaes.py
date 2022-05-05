@@ -21,7 +21,8 @@ class FMAES(MAES):
     IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
     https://ieeexplore.ieee.org/document/7875115
 
-    https://homepages.fhv.at/hgb/downloads/ForDistributionFastMAES.tar    (see the official Matlab version)
+    See the official Matlab version from Beyer:
+    https://homepages.fhv.at/hgb/downloads/ForDistributionFastMAES.tar
     """
     def __init__(self, problem, options):
         options['_fast_version'] = True  # mandatory setting for FMAES
