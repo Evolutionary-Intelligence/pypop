@@ -51,7 +51,7 @@ class SSAES(ES):
             # sample and evaluate offspring population
             x, sigmas, y = self.iterate(x, mean, sigmas, y, args)
             if self.record_fitness:
-                fitness.extend(y.tolist())
+                fitness.extend(y)
             if self._check_terminations():
                 break
             order = np.argsort(y)[:self.n_parents]
