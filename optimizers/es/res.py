@@ -4,7 +4,7 @@ from optimizers.es.es import ES
 
 
 class RES(ES):
-    """Rechenberg's Evolution Strategy with 1/5th success rule (RES).
+    """Rechenberg's (1+1)-Evolution Strategy with 1/5th success rule (RES).
 
     Reference
     ---------
@@ -14,7 +14,6 @@ class RES(ES):
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
     """
     def __init__(self, problem, options):
-        options['n_individuals'] = 1  # mandatory setting for RES
         ES.__init__(self, problem, options)
         if self.eta_sigma is None:  # for Line 5 in Algorithm 44.3 (1 / d)
             self.eta_sigma = 1 / np.sqrt(self.ndim_problem + 1)
@@ -38,8 +37,11 @@ class RES(ES):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
+            self.n_restart += 1
+            self.sigma = np.copy(self._sigma_bak)
             mean, y, best_so_far_y = self.initialize(args, is_restart)
             fitness.append(y)
+            self._fitness_list = [best_so_far_y]
         return mean, y, best_so_far_y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
