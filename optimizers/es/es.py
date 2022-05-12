@@ -40,12 +40,16 @@ class ES(Optimizer):
         if self.n_parents is None:  # number of parents, parental population size (μ: mu)
             self.n_parents = int(self.n_individuals / 2)
             if self.n_parents > 1:
-                # Although R1ES, RMES, LMMAES use slightly different settings for self._w (and self._mu_eff),
+                # Although SEPCMAES, R1ES, RMES, LMMAES use slightly different settings
+                # for self._w (and self._mu_eff),
                 # typically such slight differences don't matter in practice.
                 # For consistency and simplicity, we unify these differences in the base class ES.
                 w_base, w = np.log((self.n_individuals + 1) / 2), np.log(np.arange(self.n_parents) + 1)
                 self._w = (w_base - w) / (self.n_parents * w_base - np.sum(w))
                 self._mu_eff = 1 / np.sum(np.power(self._w, 2))  # μ_eff / μ_w
+                # E[||N(0,I)||]: expectation of chi distribution
+                self._e_chi = np.sqrt(self.ndim_problem) * (
+                        1 - 1 / (4 * self.ndim_problem) + 1 / (21 * np.power(self.ndim_problem, 2)))
         self.mean = options.get('mean')  # mean of Gaussian search distribution
         if self.mean is None:  # 'mean' has priority over 'x'
             self.mean = options.get('x')
