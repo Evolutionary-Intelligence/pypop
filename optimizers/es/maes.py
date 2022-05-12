@@ -36,9 +36,6 @@ class MAES(ES):
         self.d_sigma = None  # for M12 in Fig. 3 (d_σ)
         self._s_1 = None  # for M10 in Fig. 3
         self._s_2 = None  # for M10 in Fig. 3
-        # for M12 in Fig. 3 (E[||N(0,I)||]: expectation of chi distribution)
-        self._e_chi = np.sqrt(self.ndim_problem) * (
-            1 - 1 / (4 * self.ndim_problem) + 1 / (21 * np.power(self.ndim_problem, 2)))
         self._fast_version = options.get('_fast_version', False)
         if not self._fast_version:
             self._diag_one = np.diag(np.ones((self.ndim_problem,)))  # for M11 in Fig. 3
