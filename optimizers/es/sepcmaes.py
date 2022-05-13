@@ -6,6 +6,9 @@ from optimizers.es.es import ES
 class SEPCMAES(ES):
     """Separable Covariance Matrix Adaptation Evolution Strategy (SEPCMAES, sep-CMA-ES).
 
+    Note that only the diagonal elements of covariance matrix are saved explicitly,
+    since all off-diagonal elements are not used for sep-CMA-ES.
+
     Reference
     ---------
     Ros, R. and Hansen, N., 2008, September.
@@ -52,11 +55,11 @@ class SEPCMAES(ES):
         return z, x, mean, s, p, c, d, y
 
     def iterate(self, z=None, x=None, mean=None, d=None, y=None, args=None):
-        for k in range(self.n_individuals):
+        for k in range(self.n_individuals):  # Line 2 of Algorithm 1
             if self._check_terminations():
                 return z, x, y
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))
-            x[k] = mean + self.sigma * d * z[k]
+            x[k] = mean + self.sigma * d * z[k]  # Line 3 of Algorithm 1
             y[k] = self._evaluate_fitness(x[k], args)
         return z, x, y
 
@@ -64,22 +67,24 @@ class SEPCMAES(ES):
         order = np.argsort(y)
         zeros = np.zeros((self.ndim_problem,))
         z_w, mean, dz_w = np.copy(zeros), np.copy(zeros), np.copy(zeros)
-        for k in range(self.n_parents):
+        for k in range(self.n_parents):  # Line 4, 5 of Algorithm 1
             z_w += self._w[k] * z[order[k]]
             mean += self._w[k] * x[order[k]]  # update distribution mean
             dz = d * z[order[k]]
             dz_w += self._w[k] * dz * dz
-        s = self._s_1 * s + self._s_2 * z_w
+        s = self._s_1 * s + self._s_2 * z_w  # Line 6 of Algorithm 1
+        # Line 7 of Algorithm 1
         if (np.linalg.norm(s) / np.sqrt(1 - np.power(1 - self.c_s, 2 * self._n_generations))) < (
                 (1.4 + 2 / (self.ndim_problem + 1)) * self._e_chi):
             h = np.sqrt(self.c_c * (2 - self.c_c)) * np.sqrt(self._mu_eff) * d * z_w
         else:
             h = 0
-        p = (1 - self.c_c) * p + h
+        p = (1 - self.c_c) * p + h  # Line 8 of Algorithm 1
         c = (1 - self.c_cov) * c + (1 / self._mu_eff) * self.c_cov * p * p + (
-                self.c_cov * (1 - 1 / self._mu_eff) * dz_w)
+                self.c_cov * (1 - 1 / self._mu_eff) * dz_w)  # Line 9 of Algorithm 1
+        # Line 10 of Algorithm 1
         self.sigma *= np.exp(self.c_s / self.d_sigma * (np.linalg.norm(s) / self._e_chi - 1))
-        d = np.sqrt(c)
+        d = np.sqrt(c)  # Line 11 of Algorithm 1
         return mean, s, p, c, d
 
     def restart_initialize(self, z=None, x=None, mean=None, s=None, p=None, c=None, d=None, y=None):
@@ -93,7 +98,7 @@ class SEPCMAES(ES):
         fitness = ES.optimize(self, fitness_function)
         z, x, mean, s, p, c, d, y = self.initialize()
         while True:
-            self._n_generations += 1
+            self._n_generations += 1  # Line 1 of Algorithm 1
             z, x, y = self.iterate(z, x, mean, d, y, args)  # sample and evaluate offspring population
             if self.record_fitness:
                 fitness.extend(y)
