@@ -32,10 +32,10 @@ class RMES2(R1ES):
         for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, y
-            z = self.rng.standard_normal((self.ndim_problem,))
+            z = self.rng_optimization.standard_normal((self.ndim_problem,))
             sum_p = np.zeros((self.ndim_problem,))
             for i in np.arange(self.n_evolution_paths) + 1:
-                r = self.rng.standard_normal()
+                r = self.rng_optimization.standard_normal()
                 sum_p += np.power(self._a, self.n_evolution_paths - i) * r * mp[i - 1]
             x[k] = mean + self.sigma * (self._a_m * z + self._b * sum_p)
             y[k] = self._evaluate_fitness(x[k], args)
