@@ -40,8 +40,8 @@ class R1ES(ES):
         for k in range(self.n_individuals):  # for Line 3 in Algorithm 1
             if self._check_terminations():
                 return x, y
-            z = self.rng.standard_normal((self.ndim_problem,))  # for Line 4 in Algorithm 1
-            r = self.rng.standard_normal()  # for Line 4 in Algorithm 1
+            z = self.rng_optimization.standard_normal((self.ndim_problem,))  # for Line 4 in Algorithm 1
+            r = self.rng_optimization.standard_normal()  # for Line 4 in Algorithm 1
             # for Line 5 in Algorithm 1
             x[k] = mean + self.sigma * (self._x_1 * z + self._x_2 * r * p)
             y[k] = self._evaluate_fitness(x[k], args)
