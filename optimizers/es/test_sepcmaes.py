@@ -6,7 +6,7 @@ from benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
 from optimizers.es.sepcmaes import SEPCMAES as Solver
 
 
-class TestMAES(unittest.TestCase):
+class TestSEPCMAES(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
         ndim_problem = 1000
