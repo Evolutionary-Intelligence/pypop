@@ -54,7 +54,7 @@ class MMES(ES):
     def iterate(self, x=None, mean=None, q=None, v=None, y=None, args=None):
         for k in range(self.n_mirror_sampling):  # mirror sampling
             zq = np.zeros((self.ndim_problem,))
-            for i in range(self.ms):
+            for _ in range(self.ms):
                 j_k = v[(self.m - self.rng_optimization.geometric(self.c_a) % self.m) - 1]
                 zq += self.rng_optimization.standard_normal() * q[j_k]
             z = self._z_1 * self.rng_optimization.standard_normal((self.ndim_problem,))
