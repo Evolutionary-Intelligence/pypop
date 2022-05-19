@@ -88,7 +88,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 ## Design Philosophy
 
-* **Respect for Beauty**
+* **Respect for Beauty (Elegance)**
 
   * From the *problem-solving* perspective, we prefer to choose the (empirically) *best* optimizer for the given black-box problem. However, for the *new* problem, the (empirically) *best* optimizer is often unknown in advance (if without *a prior* knowledge). As a rule of thumb, we need to compare a (often small) set of all available/known optimizers and choose the *best* one from them according to some performance criteria. From the *research* perspective, however, we prefer to *beautiful* optimizers, though always keeping the **[“No Free Lunch” theorem](https://ieeexplore.ieee.org/document/585893)** in mind. Typically, the **beauty** of one optimizer comes from the following features: **novelty** (e.g., GA and PSO), **competitive performance** (e.g., on at least one class of problems), **theoretical insights** (e.g., NES/CMA-ES), **clarity/simplicity** (e.g., ease to understand and implement), and so on.
 
