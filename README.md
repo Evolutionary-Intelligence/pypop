@@ -60,6 +60,8 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 * **Estimation of Distribution Algorithms** (**EDA**)
 
+* **Cross-Entropy Method** (**CEM**)
+
 * **Particle Swarm Optimization (PSO)** [See e.g. [Kennedy and Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
 
 * **CoOperative co-Evolutionary Algorithms (COEA)** [See e.g. [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html); [Panait et al., 2008, JMLR](https://www.jmlr.org/papers/v9/panait08a.html)]
