@@ -76,7 +76,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Corana et al.' Simulated Annealing (**CSA**) [See [Corana et al., 1987, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
 
-* **Genetic Algorithms (GA)** [See e.g. [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
+* **Genetic Algorithms (GA)** [See e.g. [Forrest, 1993, Science](https://www.science.org/doi/abs/10.1126/science.8346439); [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
 
 * **Evolutionary Programming (EP)** [See e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
 
