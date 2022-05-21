@@ -60,7 +60,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Separable Natural Evolution Strategy (**SNES**) [See [Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
 
-* **Estimation of Distribution Algorithms** (**EDA**)
+* **Estimation of Distribution Algorithms** (**EDA**) [See e.g. [Mühlenbein&Paaß, 1996, PPSN](https://link.springer.com/chapter/10.1007/3-540-61723-X_982)]
 
 * **Cross-Entropy Method** (**CEM**)
 
