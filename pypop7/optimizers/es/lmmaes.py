@@ -1,6 +1,6 @@
 import numpy as np
 
-from optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES
 
 
 class LMMAES(ES):
