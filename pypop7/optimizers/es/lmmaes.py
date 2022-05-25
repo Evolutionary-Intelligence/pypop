@@ -29,8 +29,14 @@ class LMMAES(ES):
 
     def initialize(self, is_restart=False):
         self.c_s = self.options.get('c_s', 2 * self.n_individuals / self.ndim_problem)
-        self._s_1 = 1 - self.c_s
-        self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))
+        _s_1 = 1 - self.c_s
+        if _s_1 < 0:  # undefined in the original paper
+            _s_1 = 0.5
+        self._s_1 = _s_1
+        _s_2 = self._mu_eff * self.c_s * (2 - self.c_s)
+        if _s_2 < 0:  # undefined in the original paper
+            _s_2 = np.power(0.5, 2)
+        self._s_2 = np.sqrt(_s_2)
         self._c_c = self.n_individuals / (self.ndim_problem * np.power(4.0, np.arange(self.n_evolution_paths)))
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
         d = np.empty((self.n_individuals, self.ndim_problem))  # search directions
@@ -62,7 +68,13 @@ class LMMAES(ES):
         # update evolution path (p_c, s) and low-rank transformation matrix (tm)
         s = self._s_1 * s + self._s_2 * z_w
         for k in range(self.n_evolution_paths):  # rank-m
-            tm[k] = (1 - self._c_c[k]) * tm[k] + np.sqrt(self._mu_eff * self._c_c[k] * (2 - self._c_c[k])) * z_w
+            _tm_1 = 1 - self._c_c[k]
+            if _tm_1 < 0:  # undefined in the original paper
+                _tm_1 = 0.5
+            _tm_2 = self._mu_eff * self._c_c[k] * (2 - self._c_c[k])
+            if _tm_2 < 0:  # undefined in the original paper
+                _tm_2 = np.power(0.5, 2)
+            tm[k] = _tm_1 * tm[k] + np.sqrt(_tm_2) * z_w
         # update global step-size
         self.sigma *= np.exp(self.c_s / 2 * (np.sum(np.power(s, 2)) / self.ndim_problem - 1))
         return mean, s, tm
