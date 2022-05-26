@@ -1,6 +1,6 @@
 import numpy as np
 
-from optimizers.core.optimizer import Optimizer
+from pypop7.optimizers.core.optimizer import Optimizer
 
 
 class ES(Optimizer):
