@@ -80,9 +80,8 @@ class LMMAES(ES):
         return mean, s, tm
 
     def restart_initialize(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
-        is_restart = ES.restart_initialize(self)
-        if is_restart:
-            z, d, mean, s, tm, y = self.initialize(is_restart)
+        if ES.restart_initialize(self):
+            z, d, mean, s, tm, y = self.initialize(True)
         return z, d, mean, s, tm, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
