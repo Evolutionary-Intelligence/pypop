@@ -63,6 +63,7 @@ class Optimizer(object):
         self.best_so_far_x = None
         self.termination_signal = None
         self.fitness = None
+        self.is_restart = options.get('is_restart', True)
 
     def _evaluate_fitness(self, x, args=None):
         self.start_function_evaluations = time.time()
