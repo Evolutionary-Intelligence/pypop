@@ -1,6 +1,6 @@
 import numpy as np
 
-from optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES
 
 
 class RES(ES):
@@ -12,10 +12,11 @@ class RES(ES):
     Evolution strategies.
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
+    (See Algorithm 44.3 for details.)
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        if self.eta_sigma is None:  # for Line 5 in Algorithm 44.3 (1 / d)
+        if self.eta_sigma is None:  # for Line 5 (1 / d)
             self.eta_sigma = 1 / np.sqrt(self.ndim_problem + 1)
 
     def initialize(self, args=None, is_restart=False):
@@ -25,7 +26,7 @@ class RES(ES):
         return mean, y, best_so_far_y
 
     def iterate(self, args=None, mean=None):
-        # sample and evaluate (only one) offspring
+        # sample and evaluate (only one) offspring (Line 4 and 5)
         x = mean + self.sigma * self.rng_optimization.standard_normal((self.ndim_problem,))
         y = self._evaluate_fitness(x, args)
         return x, y
@@ -45,9 +46,9 @@ class RES(ES):
         return mean, y, best_so_far_y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        ES.optimize(self, fitness_function)
+        fitness = ES.optimize(self, fitness_function)
         mean, y, best_so_far_y = self.initialize(args)
-        fitness = [y]  # store all fitness generated during evolution
+        fitness.append(y)
         while True:
             x, y = self.iterate(args, mean)
             if self.record_fitness:
