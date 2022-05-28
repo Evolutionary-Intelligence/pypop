@@ -40,6 +40,8 @@ class MVAES(ES):
 
     def iterate(self, mean=None, v=None, z=None, z_1=None, x=None, y=None, args=None):
         for k in range(self.n_individuals):
+            if self._check_terminations():
+                return z, z_1, x, y
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))  # Line 1
             z_1[k] = self.rng_optimization.standard_normal()  # Line 2
             x[k] = mean + self.sigma * (z[k] + z_1[k] * self.w_v * v)  # Line 3
