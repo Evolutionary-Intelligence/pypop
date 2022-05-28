@@ -1,6 +1,6 @@
 import numpy as np
 
-from optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES
 
 
 class MAES(ES):
@@ -117,7 +117,8 @@ class MAES(ES):
             mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
             self._n_generations += 1
             self._print_verbose_info(y)
-            z, d, mean, s, tm, y = self.restart_initialize(z, d, mean, s, tm, y)
+            if self.is_restart:
+                z, d, mean, s, tm, y = self.restart_initialize(z, d, mean, s, tm, y)
         results = self._collect_results(fitness, mean)
         results['s'] = s
         return results
