@@ -15,7 +15,7 @@ if __name__ == '__main__':
         print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem}
-        options = {'max_function_evaluations': 1e6,
+        options = {'max_function_evaluations': 1e5,
                    'fitness_threshold': 1e-10,
                    'seed_rng': 0,
                    'x': np.ones((ndim_problem,)),
@@ -26,16 +26,18 @@ if __name__ == '__main__':
                    'record_fitness': True,
                    'record_fitness_frequency': 1,
                    'is_restart': False}
+        if f == ellipsoid:
+            options['max_function_evaluations'] = 5e5
         solver = Solver(problem, options)
         results = solver.optimize()
         print(results)
-        plt.plot(results['fitness'][:, 0], results['fitness'][:, 1], 'k')
+        plt.plot(results['fitness'][:, 0], results['fitness'][:, 1], 'k', label=r'$\mu$=1,$\lambda$=10,no recombination')
         options['n_individuals'] = 35
         options['n_parents'] = 5
         solver = Solver(problem, options)
         results = solver.optimize()
         print(results)
-        plt.plot(results['fitness'][:, 0], results['fitness'][:, 1], 'k--')
+        plt.plot(results['fitness'][:, 0], results['fitness'][:, 1], 'k--', label=r'$\mu$=5,$\lambda$=35,recombination')
         plt.yscale('log')
         if f == cigar:
             plt.xticks(ticks=[0, 1e4, 2e4, 3e4, 4e4, 5e4])
@@ -53,5 +55,6 @@ if __name__ == '__main__':
         plt.yticks(ticks=[1e-10, 1e-8, 1e-6, 1e-4, 1e-2, 1e0, 1e2, 1e4])
         plt.xlabel('function evaluations')
         plt.ylabel('objective value')
+        plt.legend(loc="upper right", bbox_to_anchor=(1, 1))
         plt.title(f.__name__)
         plt.show()
