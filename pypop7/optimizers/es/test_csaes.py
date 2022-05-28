@@ -1,9 +1,14 @@
+"""This code only tests whether the corresponding optimizer could run or not.
+  In other words, it *cannot* validate the correctness regarding its working procedure.
+  For the correctness validation of programming, refer to the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/wiki/Correctness-Validation-of-Optimizers.md
+"""
 import unittest
 import time
 import numpy as np
 
-from benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from optimizers.es.csaes import CSAES as Solver
+from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
+from pypop7.optimizers.es.csaes import CSAES as Solver
 
 
 class TestCSAES(unittest.TestCase):
