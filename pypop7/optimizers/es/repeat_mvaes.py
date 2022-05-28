@@ -31,13 +31,13 @@ if __name__ == '__main__':
         solver = Solver(problem, options)
         results = solver.optimize()
         print(results)
-        plt.plot(results['fitness'][:, 0], results['fitness'][:, 1], 'k', label=r'$\mu$=1,$\lambda$=10,no recombination')
+        plt.plot(results['fitness'][:, 0], results['fitness'][:, 1], 'k', label=r'$\mu$=1, $\lambda$=10, no recombination')
         options['n_individuals'] = 35
         options['n_parents'] = 5
         solver = Solver(problem, options)
         results = solver.optimize()
         print(results)
-        plt.plot(results['fitness'][:, 0], results['fitness'][:, 1], 'k--', label=r'$\mu$=5,$\lambda$=35,recombination')
+        plt.plot(results['fitness'][:, 0], results['fitness'][:, 1], 'k--', label=r'$\mu$=5, $\lambda$=35, recombination')
         plt.yscale('log')
         if f == cigar:
             plt.xticks(ticks=[0, 1e4, 2e4, 3e4, 4e4, 5e4])
@@ -54,7 +54,7 @@ if __name__ == '__main__':
         plt.ylim([1e-10, 1e4])
         plt.yticks(ticks=[1e-10, 1e-8, 1e-6, 1e-4, 1e-2, 1e0, 1e2, 1e4])
         plt.xlabel('function evaluations')
-        plt.ylabel('objective value')
+        plt.ylabel('fitness')
         plt.legend(loc="upper right", bbox_to_anchor=(1, 1))
         plt.title(f.__name__)
         plt.show()
