@@ -83,7 +83,8 @@ class DSAES(ES):
             mean = np.copy(x[order])  # Line 11
             self._n_generations += 1
             self._print_verbose_info(y)
-            x, mean, sigmas, y = self.restart_initialize(x, mean, sigmas, y)
+            if self.is_restart:
+                x, mean, sigmas, y = self.restart_initialize(x, mean, sigmas, y)
         results = self._collect_results(fitness, mean)
         results['_axis_sigmas'] = self._axis_sigmas
         return results
