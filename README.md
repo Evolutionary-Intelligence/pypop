@@ -84,7 +84,7 @@ For alleviating the notorious **curse of dimensionality** of DFO (based on *iter
 
 * **Differential Evolution (DE)** [See e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 
-* **Direct Search (DS)** [See e.g. [Wright, 1996](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable)]
+* **Direct Search (DS)** [See e.g. [Wright, 1996](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Nelder-Mead Simplex Method (NelderMead) [See [Nelder&Mead, 1965, Computer](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237)]
 
