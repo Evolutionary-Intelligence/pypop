@@ -1,8 +1,8 @@
-"""Repeat experiments on four functions [Sphere, Cigar, Ellipsoid, Rosenbrock] from the following paper:
-    Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2019.
-    Large scale black-box optimization by limited-memory matrix adaptation.
-    IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
-    https://ieeexplore.ieee.org/abstract/document/8410043
+"""Repeat experiments on four functions [Discus, Cigar, Ellipsoid, Rosenbrock] from the following paper:
+    He, X., Zheng, Z. and Zhou, Y., 2021.
+    MMES: Mixture model-based evolution strategy for large-scale optimization.
+    IEEE Transactions on Evolutionary Computation, 25(2), pp.320-333.
+    https://ieeexplore.ieee.org/abstract/document/9244595
 """
 import sys
 import pickle
@@ -59,7 +59,7 @@ def plot(function):
         plt.yticks(ticks=[1e-5, 1e0, 1e5])
     plt.xlabel("FEs")
     plt.ylabel("Objective Value")
-    plt.title(function)
+    plt.title(function.capitalize())
     plt.show()
 
 
