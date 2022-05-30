@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.stats import norm
 
-from optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES
 
 
 class MMES(ES):
@@ -113,8 +113,9 @@ class MMES(ES):
             mean, p, w, q, t, v = self._update_distribution(x, mean, p, w, q, t, v, y, y_bak)
             self._n_generations += 1
             self._print_verbose_info(y)
-            x, mean, p, w, q, t, v, y = self.restart_initialize(
-                args, x, mean, p, w, q, t, v, y, fitness)
+            if self.is_restart:
+                x, mean, p, w, q, t, v, y = self.restart_initialize(
+                    args, x, mean, p, w, q, t, v, y, fitness)
         results = self._collect_results(fitness, mean)
         results['p'] = p
         results['w'] = w
