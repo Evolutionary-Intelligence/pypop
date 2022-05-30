@@ -96,7 +96,8 @@ class LMMAES(ES):
             mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
             self._n_generations += 1
             self._print_verbose_info(y)
-            z, d, mean, s, tm, y = self.restart_initialize(z, d, mean, s, tm, y)
+            if self.is_restart:
+                z, d, mean, s, tm, y = self.restart_initialize(z, d, mean, s, tm, y)
         results = self._collect_results(fitness, mean)
         results['s'] = s
         results['tm'] = tm
