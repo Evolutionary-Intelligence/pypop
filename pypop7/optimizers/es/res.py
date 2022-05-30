@@ -60,6 +60,7 @@ class RES(ES):
             self._print_verbose_info(y)
             if y < best_so_far_y:
                 mean, best_so_far_y = x, y
-            mean, y, best_so_far_y = self.restart_initialize(args, mean, y, best_so_far_y, fitness)
+            if self.is_restart:
+                mean, y, best_so_far_y = self.restart_initialize(args, mean, y, best_so_far_y, fitness)
         results = self._collect_results(fitness, mean)
         return results
