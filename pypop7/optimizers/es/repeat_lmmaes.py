@@ -38,7 +38,7 @@ def plot(function):
     for k in range(len(ndim)):
         result = read_pickle(function, ndim[k])
         plt.plot(result['fitness'][:, 0], result['fitness'][:, 1], color=colors[k],
-                 label="N = "+str(ndim), linestyle='dashed')
+                 label=str(ndim), linestyle='dashed')
     plt.yscale('log')
     plt.xscale('log')
     if function == 'sphere':
@@ -72,7 +72,7 @@ if __name__ == '__main__':
         for d in [128, 256, 512, 1024, 2048, 4096, 8192]:
             problem = {'fitness_function': f,
                        'ndim_problem': d}
-            options = {'max_function_evaluations': 1e9,
+            options = {'max_function_evaluations': 1e9,  # undefined in the original paper
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,  # undefined in the original paper
                        'x': 4 * np.ones((d,)),  # mean
