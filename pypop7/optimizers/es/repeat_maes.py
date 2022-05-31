@@ -103,7 +103,6 @@ class Fig4(MAES):
 
 
 if __name__ == '__main__':
-    max_function_evaluations = [150, 600, 250, 1400, 270, 2800, 270, 3200]
     for f in [sphere, cigar, discus, ellipsoid]:
         for d in [3, 30]:
             problem = {'fitness_function': f,
