@@ -7,8 +7,8 @@ import unittest
 import time
 import numpy as np
 
-from benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from optimizers.es.r1es import R1ES as Solver
+from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
+from pypop7.optimizers.es.r1es import R1ES as Solver
 
 
 class TestR1ES(unittest.TestCase):

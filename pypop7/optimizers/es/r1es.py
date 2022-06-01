@@ -1,6 +1,6 @@
 import numpy as np
 
-from optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES
 
 
 class R1ES(ES):
@@ -86,7 +86,8 @@ class R1ES(ES):
             mean, p, s = self._update_distribution(x, mean, p, s, y, y_bak)
             self._n_generations += 1
             self._print_verbose_info(y)
-            x, mean, p, s, y = self.restart_initialize(args, x, mean, p, s, y, fitness)
+            if self.is_restart:
+                x, mean, p, s, y = self.restart_initialize(args, x, mean, p, s, y, fitness)
         results = self._collect_results(fitness, mean)
         results['p'] = p
         results['s'] = s
