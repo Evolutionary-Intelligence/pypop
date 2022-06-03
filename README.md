@@ -8,7 +8,7 @@
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/PyPop-Logo-Small-0.png" alt="drawing" width="321"/>
 </p>
 
-For alleviating the notorious **curse of dimensionality** of DFO (based on *iterative sampling*), the main focus of ```PyPop7``` is to cover their **State-Of-The-Art implementations for Large-Scale Optimization (LSO)**, though their many other versions and variants are also included here (for benchmarking/mixing purpose, and sometimes even for practical purpose).
+More specifically, for alleviating the notorious **curse of dimensionality** of DFO (based on *iterative sampling*), the primary focus of ```PyPop7``` is to cover their **State-Of-The-Art (SOTA) implementations for Large-Scale Optimization (LSO)**, though many of their other versions and variants are also included here (for benchmarking/mixing purpose, and sometimes even for practical purpose).
 
 ## A (*Still Growing*) List of **Publicly Available** Gradient-Free Optimizers (GFO)
 
