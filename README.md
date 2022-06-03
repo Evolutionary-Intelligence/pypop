@@ -1,14 +1,14 @@
-# pypop (Pure-PYthon library of POPulation-based OPtimization)
+# pypop7 (Pure-PYthon library of POPulation-based black-box OPtimization)
 
 [![GNU General Public License v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE) [![gitter for pypop](https://img.shields.io/badge/gitter-pypop--go-brightgreen.svg)](https://gitter.im/pypop-go/community) [![PyPI for pypop7](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/)
 
-```PyPop``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for single-objective, real-parameter, black-box problems (**currently actively developed**). Its goal is to provide a *unified* interface and also *elegant* implementations for **Derivative-Free Optimization (DFO)**, *particularly population-based optimizers*, in order to facilitate research repeatability and also real-world applications.
+```PyPop7``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for single-objective, real-parameter, black-box problems (**currently actively developed**). Its main goal is to provide a *unified* interface and *elegant* implementations for **Derivative-Free Optimization (DFO)**, *particularly population-based optimizers*, in order to facilitate research repeatability and also real-world applications.
 
 <p align="center">
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/PyPop-Logo-Small-0.png" alt="drawing" width="321"/>
 </p>
 
-For alleviating the notorious **curse of dimensionality** of DFO (based on *iterative sampling*), the main focus of ```PyPop``` is to cover their **State-Of-The-Art implementations for Large-Scale Optimization (LSO)**, though their other versions and variants may be also included here (e.g., for benchmarking purpose, for mixing purpose, and sometimes even for practical purpose).
+For alleviating the notorious **curse of dimensionality** of DFO (based on *iterative sampling*), the main focus of ```PyPop7``` is to cover their **State-Of-The-Art implementations for Large-Scale Optimization (LSO)**, though their many other versions and variants are also included here (for benchmarking/mixing purpose, and sometimes even for practical purpose).
 
 ## A (*Still Growing*) List of **Publicly Available** Gradient-Free Optimizers (GFO)
 
