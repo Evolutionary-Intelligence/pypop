@@ -122,6 +122,10 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 
 ## Reference
 
+* [https://sites.google.com/view/benchmarking-network](https://sites.google.com/view/benchmarking-network)
+
+  * [https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop](https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop)
+
 * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). Foundations of Computational Mathematics, 22(2), pp.507-560.
 
 * Kochenderfer, M.J. and Wheeler, T.A., 2019. [Algorithms for optimization](https://algorithmsbook.com/optimization/). MIT Press.
