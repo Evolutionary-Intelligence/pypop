@@ -1,7 +1,7 @@
 import numpy as np
 
-from optimizers.es.es import ES
-from optimizers.es.r1es import R1ES
+from pypop7.optimizers.es.es import ES
+from pypop7.optimizers.es.r1es import R1ES
 
 
 class RMES2(R1ES):
