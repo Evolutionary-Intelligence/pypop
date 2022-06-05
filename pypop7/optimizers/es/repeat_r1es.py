@@ -4,10 +4,10 @@
     IEEE Transactions on Evolutionary Computation, 22(5), pp.637-646.
     https://ieeexplore.ieee.org/abstract/document/8080257
 """
+import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pickle
 
 from pypop7.benchmarks.base_functions import cigar, ellipsoid, discus, rosenbrock
 from pypop7.optimizers.es.es import ES
