@@ -1,4 +1,4 @@
-from optimizers.es.maes import MAES
+from pypop7.optimizers.es.maes import MAES
 
 
 class FMAES(MAES):
