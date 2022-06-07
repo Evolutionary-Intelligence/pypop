@@ -78,8 +78,9 @@ class RMES2(R1ES):
             mean, p, s, mp, t_hat = self._update_distribution(x, mean, p, s, mp, t_hat, y, y_bak)
             self._n_generations += 1
             self._print_verbose_info(y)
-            x, mean, p, s, mp, t_hat, y = self.restart_initialize(
-                args, x, mean, p, s, mp, t_hat, y, fitness)
+            if self.is_restart:
+                x, mean, p, s, mp, t_hat, y = self.restart_initialize(
+                    args, x, mean, p, s, mp, t_hat, y, fitness)
         results = self._collect_results(fitness, mean)
         results['p'] = p
         results['s'] = s
