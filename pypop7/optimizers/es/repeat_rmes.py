@@ -1,14 +1,15 @@
-"""Repeat Fig. 3 Rm-ES line from the following paper:
+"""Repeat Fig. 3 (Ellipsoid, Discus, Rosenbrock) from the following paper:
     Li, Z. and Zhang, Q., 2018.
     A simple yet efficient evolution strategy for large-scale black-box optimization.
     IEEE Transactions on Evolutionary Computation, 22(5), pp.637-646.
     https://ieeexplore.ieee.org/abstract/document/8080257
 """
+import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pickle
 
+from pypop7.benchmarks.base_functions import ellipsoid, discus, rosenbrock
 from pypop7.optimizers.es.rmes import RMES
 
 sns.set_theme(style='darkgrid')
@@ -27,12 +28,12 @@ def write_pickle(function, ndim, result):
     file.close()
 
 
-def plot(function, probelm_dim):
+def plot(function, ndim):
     plt.figure()
-    result = read_pickle(function, probelm_dim)
+    result = read_pickle(function, ndim)
     plt.yscale('log')
     plt.xscale('log')
-    plt.plot(result['fitness'][:, 0], result['fitness'][:, 1], color='brown')
+    plt.plot(result['fitness'][:, 0], result['fitness'][:, 1], color='orange')
     plt.xlim([1e2, 1e8])
     plt.xticks([1e2, 1e4, 1e6, 1e8])
     if function == 'ellipsoid':
@@ -41,23 +42,18 @@ def plot(function, probelm_dim):
     elif function == 'discus':
         plt.ylim([1e-8, 1e6])
         plt.yticks(ticks=[1e-8, 1e-4, 1e0, 1e4])
-    elif function == 'schwefel12':
-        plt.ylim([1e-8, 1e7])
-        plt.yticks(ticks=[1e-8, 1e-4, 1e0, 1e4])
     elif function == 'rosenbrock':
         plt.ylim([1e-8, 1e10])
         plt.yticks(ticks=[1e-8, 1e-4, 1e0, 1e4, 1e8])
-    plt.xlabel("FEs")
+    plt.xlabel("Function Evaluations")
     plt.ylabel("Objective Value")
     plt.title(function.capitalize())
     plt.show()
 
 
 if __name__ == '__main__':
-    # plot Fig. 2
-    from benchmarks.base_functions import ellipsoid, discus, schwefel12, rosenbrock
     ndim_problem = 1000
-    for f in [ellipsoid, discus, schwefel12, rosenbrock]:
+    for f in [ellipsoid, discus, rosenbrock]:
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem,
                    'lower_boundary': -10 * np.ones((ndim_problem,)),
