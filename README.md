@@ -160,6 +160,8 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 
   * Hansen, N. and Ostermeier, A., 2001. [Completely derandomized self-adaptation in evolution strategies](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in). Evolutionary Computation, 9(2), pp.159-195.
 
+  * Rechenberg, I., 1989. [Evolution strategy: Nature’s way of optimization](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6). In Optimization: Methods and Applications, Possibilities and Limitations (pp. 106-126). Springer, Berlin, Heidelberg.
+
 * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482.
 
   * [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/)
