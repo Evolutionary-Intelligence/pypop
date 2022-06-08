@@ -14,6 +14,7 @@ class MVAES(ES):
     https://dl.acm.org/doi/abs/10.5555/2955239.2955428
     """
     def __init__(self, problem, options):
+        options['n_parents'] = options.get('n_parents', 1)
         ES.__init__(self, problem, options)
         self.w_v = options.get('w_v', 3)
         self.c_s = options.get('c_s', 4 / (self.ndim_problem + 4))
