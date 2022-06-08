@@ -138,6 +138,8 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 
   * Hansel, K., Moos, J. and Derstroff, C., 2021. [Benchmarking the natural gradient in policy gradient methods and evolution strategies](https://link.springer.com/chapter/10.1007/978-3-030-41188-6_7). Reinforcement Learning Algorithms: Analysis and Applications, pp.69-84.
 
+  * He, X., Zheng, Z. and Zhou, Y., 2021. [MMES: Mixture model-based evolution strategy for large-scale optimization](https://ieeexplore.ieee.org/abstract/document/9244595). IEEE Transactions on Evolutionary Computation, 25(2), pp.320-333.
+
   * Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2019. [Large scale black-box optimization by limited-memory matrix adaptation](https://ieeexplore.ieee.org/abstract/document/8410043). IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
 
   * Loshchilov, I., 2017. [LM-CMA: An alternative to L-BFGS for large-scale black box optimization](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale). Evolutionary Computation, 25(1), pp.143-171.
