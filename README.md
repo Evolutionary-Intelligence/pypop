@@ -125,6 +125,8 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 * [https://sites.google.com/view/benchmarking-network](https://sites.google.com/view/benchmarking-network)
 
   * [https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop](https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop)
+  
+  * Whitley, D., Rana, S., Dzubera, J. and Mathias, K.E., 1996. [Evaluating evolutionary algorithms](https://www.sciencedirect.com/science/article/pii/0004370295001247). Artificial Intelligence, 85(1-2), pp.245-276.
 
 * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). Foundations of Computational Mathematics, 22(2), pp.507-560.
 
