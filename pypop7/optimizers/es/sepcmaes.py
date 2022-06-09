@@ -1,6 +1,6 @@
 import numpy as np
 
-from optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES
 
 
 class SEPCMAES(ES):
@@ -106,7 +106,8 @@ class SEPCMAES(ES):
                 break
             mean, s, p, c, d = self._update_distribution(z, x, s, p, c, d, y)
             self._print_verbose_info(y)
-            z, x, mean, s, p, c, d, y = self.restart_initialize(z, x, mean, s, p, c, d, y)
+            if self.is_restart:
+                z, x, mean, s, p, c, d, y = self.restart_initialize(z, x, mean, s, p, c, d, y)
         results = self._collect_results(fitness, mean)
         results['s'] = s
         results['p'] = p
