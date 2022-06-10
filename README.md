@@ -170,6 +170,8 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 
   * Hansen, N. and Ostermeier, A., 2001. [Completely derandomized self-adaptation in evolution strategies](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in). Evolutionary Computation, 9(2), pp.159-195.
 
+  * Hansen, N. and Ostermeier, A., 1996, May. [Adapting arbitrary normal mutation distributions in evolution strategies: The covariance matrix adaptation](https://ieeexplore.ieee.org/abstract/document/542381). In Proceedings of IEEE International Conference on Evolutionary Computation (pp. 312-317). IEEE.
+
   * Rudolph, G., 1992. [On correlated mutations in evolution strategies](https://ls11-www.cs.tu-dortmund.de/people/rudolph/publications/papers/PPSN92.pdf). In International Conference on Parallel Problem Solving from Nature (pp. 105-114).
 
   * Rechenberg, I., 1989. [Evolution strategy: Nature’s way of optimization](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6). In Optimization: Methods and Applications, Possibilities and Limitations (pp. 106-126). Springer, Berlin, Heidelberg.
