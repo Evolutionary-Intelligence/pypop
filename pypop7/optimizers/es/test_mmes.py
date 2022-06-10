@@ -2,8 +2,8 @@ import unittest
 import time
 import numpy as np
 
-from benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from optimizers.es.mmes import MMES as Solver
+from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
+from pypop7.optimizers.es.mmes import MMES as Solver
 
 
 class TestMMES(unittest.TestCase):
