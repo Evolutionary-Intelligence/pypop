@@ -148,6 +148,8 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 
   * Loshchilov, I., 2017. [LM-CMA: An alternative to L-BFGS for large-scale black box optimization](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale). Evolutionary Computation, 25(1), pp.143-171.
 
+  * Akimoto, Y. and Hansen, N., 2016, July. [Projection-based restricted covariance matrix adaptation for high dimension](https://dl.acm.org/doi/abs/10.1145/2908812.2908863). In Proceedings of Genetic and Evolutionary Computation Conference (pp. 197-204). ACM.
+
   * Hansen, N., Arnold, D.V. and Auger, A., 2015. [Evolution strategies](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44). In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
 
   * Hansen, N., Atamna, A. and Auger, A., 2014, September. [How to assess step-size adaptation mechanisms in randomised search](https://link.springer.com/chapter/10.1007/978-3-319-10762-2_6). In International Conference on Parallel Problem Solving from Nature (pp. 60-69). Springer, Cham.
@@ -170,6 +172,8 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 
   * Hansen, N. and Ostermeier, A., 2001. [Completely derandomized self-adaptation in evolution strategies](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in). Evolutionary Computation, 9(2), pp.159-195.
 
+  * Hansen, N. and Ostermeier, A., 1996, May. [Adapting arbitrary normal mutation distributions in evolution strategies: The covariance matrix adaptation](https://ieeexplore.ieee.org/abstract/document/542381). In Proceedings of IEEE International Conference on Evolutionary Computation (pp. 312-317). IEEE.
+
   * Rudolph, G., 1992. [On correlated mutations in evolution strategies](https://ls11-www.cs.tu-dortmund.de/people/rudolph/publications/papers/PPSN92.pdf). In International Conference on Parallel Problem Solving from Nature (pp. 105-114).
 
   * Rechenberg, I., 1989. [Evolution strategy: Nature’s way of optimization](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6). In Optimization: Methods and Applications, Possibilities and Limitations (pp. 106-126). Springer, Berlin, Heidelberg.
@@ -181,6 +185,8 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
   * [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/)
 
   * Beyer, H.G. and Deb, K., 2001. [On self-adaptive features in real-parameter evolutionary algorithms](https://ieeexplore.ieee.org/abstract/document/930314). IEEE Transactions on Evolutionary Computation, 5(3), pp.250-270.
+  
+  * Bäck, T. and Schwefel, H.P., 1993. [An overview of evolutionary algorithms for parameter optimization](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for). Evolutionary Computation, 1(1), pp.1-23.
 
 * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010. [PyBrain](https://jmlr.org/papers/v11/schaul10a.html). Journal of Machine Learning Research, 11(24), pp.743-746.
 
