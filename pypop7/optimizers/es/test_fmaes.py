@@ -2,8 +2,8 @@ import unittest
 import time
 import numpy as np
 
-from benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from optimizers.es.fmaes import FMAES as Solver
+from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
+from pypop7.optimizers.es.fmaes import FMAES as Solver
 
 
 class TestFMAES(unittest.TestCase):
