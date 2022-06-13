@@ -15,8 +15,8 @@ class OPOC(ES):
     (See Algorithm 2 for details.)
     """
     def __init__(self, problem, options):
-        options['n_individuals'] = 1
-        options['n_parents'] = 1
+        options['n_individuals'] = 1  # mandatory setting for OPOC
+        options['n_parents'] = 1  # mandatory setting for OPOC
         ES.__init__(self, problem, options)
         if self.eta_sigma is None:
             self.eta_sigma = 1 / (1 + self.ndim_problem / 2)
@@ -30,29 +30,31 @@ class OPOC(ES):
     def initialize(self, args=None, is_restart=False):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         y = self._evaluate_fitness(mean, args)  # fitness
-        a = np.diag(np.ones(self.ndim_problem,))  # linear transformation
-        best_so_far_y, p_s, l_s = np.copy(y), self.p_ts, 0
-        return mean, y, a, best_so_far_y, p_s, l_s
+        a = np.diag(np.ones(self.ndim_problem,))  # linear transformation (Cholesky factors)
+        best_so_far_y, p_s = np.copy(y), self.p_ts
+        return mean, y, a, best_so_far_y, p_s
 
-    def iterate(self, args=None, mean=None, a=None, best_so_far_y=None, p_s=None, l_s=None):
+    def iterate(self, args=None, mean=None, a=None, best_so_far_y=None, p_s=None):
         # sample and evaluate (only one) offspring
         z = self.rng_optimization.standard_normal((self.ndim_problem,))
         x = mean + self.sigma * np.dot(a, z)
         y = self._evaluate_fitness(x, args)
         if y <= best_so_far_y:
-            mean, best_so_far_y, l_s = x, y, 1
+            l_s = 1
+        else:
+            l_s = 0
+        p_s = (1 - self.c_p) * p_s + self.c_p * l_s
+        self.sigma *= np.exp(self.eta_sigma * (p_s - self.p_ts) / (1 - self.p_ts))
+        if y <= best_so_far_y:
+            mean, best_so_far_y = x, y
             if p_s < self.p_t:
                 z_norm, c_a = np.power(np.linalg.norm(z), 2), np.power(self.c_a, 2)
                 a = self.c_a * a + self.c_a / z_norm * (np.sqrt(1 + ((1 - c_a) * z_norm) / c_a) - 1) * np.dot(
                     np.dot(a, z[:, np.newaxis]), z[np.newaxis, :])
-        else:
-            l_s = 0
-        p_s = (1 - self.c_p) * p_s + self.c_p * l_s
-        self.sigma *= np.exp(self.eta_sigma * (p_s - self.p_ts / (1 - self.p_ts) * (1 - p_s)))
-        return mean, y, a, best_so_far_y, p_s, l_s
+        return mean, y, a, best_so_far_y, p_s
 
     def restart_initialize(self, args=None, mean=None, y=None,
-                           a=None, best_so_far_y=None, p_s=None, l_s=None, fitness=None):
+                           a=None, best_so_far_y=None, p_s=None, fitness=None):
         self._fitness_list.append(self.best_so_far_y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
         if len(self._fitness_list) >= self.stagnation:
@@ -61,17 +63,17 @@ class OPOC(ES):
         if is_restart:
             self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
-            mean, y, a, best_so_far_y, p_s, l_s = self.initialize(args, is_restart)
+            mean, y, a, best_so_far_y, p_s = self.initialize(args, is_restart)
             fitness.append(y)
             self._fitness_list = [best_so_far_y]
-        return mean, y, a, best_so_far_y, p_s, l_s
+        return mean, y, a, best_so_far_y, p_s
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
-        mean, y, a, best_so_far_y, p_s, l_s = self.initialize(args)
+        mean, y, a, best_so_far_y, p_s = self.initialize(args)
         fitness.append(y)
         while True:
-            mean, y, a, best_so_far_y, p_s, l_s = self.iterate(args, mean, a, best_so_far_y, p_s, l_s)
+            mean, y, a, best_so_far_y, p_s = self.iterate(args, mean, a, best_so_far_y, p_s)
             if self.record_fitness:
                 fitness.append(y)
             if self._check_terminations():
@@ -79,7 +81,7 @@ class OPOC(ES):
             self._n_generations += 1
             self._print_verbose_info(y)
             if self.is_restart:
-                mean, y, a, best_so_far_y, p_s, l_s = self.restart_initialize(
-                    args, mean, y, a, best_so_far_y, p_s, l_s, fitness)
+                mean, y, a, best_so_far_y, p_s = self.restart_initialize(
+                    args, mean, y, a, best_so_far_y, p_s, fitness)
         results = self._collect_results(fitness, mean)
         return results
