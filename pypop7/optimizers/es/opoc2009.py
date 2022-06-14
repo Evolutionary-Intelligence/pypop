@@ -83,6 +83,6 @@ class OPOC2009(OPOC):
             self._print_verbose_info(y)
             if self.is_restart:
                 mean, y, a, a_i, best_so_far_y, p_s, p_c = self.restart_initialize(
-                    args, mean, y, a, a_i, best_so_far_y, p_s, p_c)
+                    args, mean, y, a, a_i, best_so_far_y, p_s, p_c, fitness)
         results = self._collect_results(fitness, mean)
         return results
