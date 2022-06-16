@@ -131,6 +131,8 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 * [https://sites.google.com/view/benchmarking-network](https://sites.google.com/view/benchmarking-network)
 
   * [https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop](https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop)
+
+  * Hansen, N., Auger, A., Ros, R., Mersmann, O., Tušar, T. and Brockhoff, D., 2021. [COCO: A platform for comparing continuous optimizers in a black-box setting](https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977). Optimization Methods and Software, 36(1), pp.114-144.
   
   * Whitley, D., Rana, S., Dzubera, J. and Mathias, K.E., 1996. [Evaluating evolutionary algorithms](https://www.sciencedirect.com/science/article/pii/0004370295001247). Artificial Intelligence, 85(1-2), pp.245-276.
 
