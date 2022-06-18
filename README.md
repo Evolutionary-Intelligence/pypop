@@ -10,6 +10,56 @@
 
 More specifically, for alleviating the notorious **curse of dimensionality** of DFO (based on *iterative sampling*), the primary focus of ```PyPop7``` is to cover their **State-Of-The-Art (SOTA) implementations for Large-Scale Optimization (LSO)**, though many of their other versions and variants are also included here (for benchmarking/mixing purpose, and sometimes even for practical purpose).
 
+## How to Use PyPop7
+
+The following three simple steps are enough to utilize the optimization power of [PyPop7](https://pypi.org/project/pypop7/):
+
+1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html):
+
+```bash
+$ pip install pypop7
+```
+
+2. Define your own objective function for the optimization problem at hand:
+
+```Python
+from numpy as np  # for numerical computation, which is also the computing engine of pypop7
+
+# the below example is Rosenbrock, the notorious test function in the optimization community
+def rosenbrock(x):
+    return 100 * np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
+
+# define the fitness (cost) function and also its settings
+ndim_problem = 1000
+problem = {'fitness_function': rosenbrock,  # cost function
+           'ndim_problem': ndim_problem,  # dimension
+           'lower_boundary': -5 * np.ones((ndim_problem,)),  # search boundary
+           'upper_boundary': 5 * np.ones((ndim_problem,))}
+```
+
+3. Run one or more black-box optimizers from ```pypop7```:
+
+```Python
+# all available optimizers can be seen in https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers
+from pypop7.optimizers.es.lmmaes import LMMAES  # here we choose LM-MA-ES owing to its low complexity and metric-learning ability
+# define all the necessary algorithm options (which differ among different optimizers)
+options = {'fitness_threshold': 1e-10,
+           'max_runtime': 3600,  # 1 hours
+           'seed_rng': 0,
+           'x': 4 * np.ones((ndim_problem,)),  # initial mean of search (mutation) distribution
+           'sigma': 0.3,  # # initial global step-size of search (mutation) distribution
+           'verbose_frequency': 500}
+lmmaes = LMMAES(problem, options)  # initilize the optimizer
+results = lmmaes.optimize()  # run its search process
+print(results)
+```
+
+Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo.py) is given on a toy 2-dimensional minimization function, in order to visually show the very interesting/powerful evolutionary search process of [```MAES```](https://ieeexplore.ieee.org/abstract/document/7875115/) (i.e., Covariance Matrix Adaptation):
+
+<p align="center">
+<img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo.gif" alt="drawing" width="432"/>
+</p>
+
 ## A (*Still Growing*) List of **Publicly Available** Gradient-Free Optimizers (GFO)
 
 ******* *** *******
