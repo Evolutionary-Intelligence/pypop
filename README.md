@@ -37,11 +37,13 @@ problem = {'fitness_function': rosenbrock,  # cost function
            'upper_boundary': 5 * np.ones((ndim_problem,))}
 ```
 
-3. Run one or more black-box optimizers from ```pypop7```:
+3. Run one or more black-box optimizers from ```pypop7``` on the given optimization problem:
 
 ```Python
-# all available optimizers can be seen in https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers
-from pypop7.optimizers.es.lmmaes import LMMAES  # here we choose LM-MA-ES owing to its low complexity and metric-learning ability
+# all available optimizers can be seen in
+#    https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers
+# here we choose LM-MA-ES owing to its low complexity and metric-learning ability
+from pypop7.optimizers.es.lmmaes import LMMAES
 # define all the necessary algorithm options (which differ among different optimizers)
 options = {'fitness_threshold': 1e-10,
            'max_runtime': 3600,  # 1 hours
