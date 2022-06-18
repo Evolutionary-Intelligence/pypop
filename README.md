@@ -23,7 +23,7 @@ $ pip install pypop7
 2. Define your own objective function for the optimization problem at hand:
 
 ```Python
-from numpy as np  # for numerical computation, which is also the computing engine of pypop7
+import numpy as np  # for numerical computation, which is also the computing engine of pypop7
 
 # the below example is Rosenbrock, the notorious test function in the optimization community
 def rosenbrock(x):
