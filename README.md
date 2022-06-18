@@ -49,7 +49,7 @@ options = {'fitness_threshold': 1e-10,
            'max_runtime': 3600,  # 1 hours
            'seed_rng': 0,
            'x': 4 * np.ones((ndim_problem,)),  # initial mean of search (mutation) distribution
-           'sigma': 0.3,  # # initial global step-size of search (mutation) distribution
+           'sigma': 0.3,  # initial global step-size of search (mutation) distribution
            'verbose_frequency': 500}
 lmmaes = LMMAES(problem, options)  # initilize the optimizer
 results = lmmaes.optimize()  # run its search process
