@@ -2,7 +2,7 @@ import numpy as np
 
 
 # helper function
-def _squeeze_and_check(x, size_gt_1=False):
+def squeeze_and_check(x, size_gt_1=False):
     """Squeeze the input `x` into 1-d `numpy.ndarray`.
         And check whether its number of dimensions == 1. If not, raise a TypeError.
         Optionally, check whether its size > 1. If not, raise a TypeError.
@@ -26,7 +26,7 @@ class BaseFunction(object):
 
 
 def sphere(x):
-    y = np.sum(np.power(_squeeze_and_check(x), 2))
+    y = np.sum(np.power(squeeze_and_check(x), 2))
     return y
 
 
@@ -36,7 +36,7 @@ class Sphere(BaseFunction):
 
 
 def cigar(x):
-    x = np.power(_squeeze_and_check(x, True), 2)
+    x = np.power(squeeze_and_check(x, True), 2)
     y = x[0] + (10 ** 6) * np.sum(x[1:])
     return y
 
@@ -47,7 +47,7 @@ class Cigar(BaseFunction):
 
 
 def discus(x):  # also called tablet
-    x = np.power(_squeeze_and_check(x, True), 2)
+    x = np.power(squeeze_and_check(x, True), 2)
     y = (10 ** 6) * x[0] + np.sum(x[1:])
     return y
 
@@ -58,7 +58,7 @@ class Discus(BaseFunction):  # also called Tablet
 
 
 def cigar_discus(x):
-    x = np.power(_squeeze_and_check(x, True), 2)
+    x = np.power(squeeze_and_check(x, True), 2)
     if x.size == 2:
         y = x[0] + (10 ** 4) * np.sum(x) + (10 ** 6) * x[-1]
     else:
@@ -72,7 +72,7 @@ class CigarDiscus(BaseFunction):
 
 
 def ellipsoid(x):
-    x = np.power(_squeeze_and_check(x, True), 2)
+    x = np.power(squeeze_and_check(x, True), 2)
     y = np.dot(np.power(10, 6 * np.linspace(0, 1, x.size)), x)
     return y
 
@@ -83,7 +83,7 @@ class Ellipsoid(BaseFunction):
 
 
 def different_powers(x):
-    x = np.abs(_squeeze_and_check(x, True))
+    x = np.abs(squeeze_and_check(x, True))
     y = np.sum(np.power(x, 2 + 4 * np.linspace(0, 1, x.size)))
     return y
 
@@ -94,7 +94,7 @@ class DifferentPowers(BaseFunction):
 
 
 def schwefel221(x):
-    y = np.max(np.abs(_squeeze_and_check(x)))
+    y = np.max(np.abs(squeeze_and_check(x)))
     return y
 
 
@@ -104,7 +104,7 @@ class Schwefel221(BaseFunction):
 
 
 def step(x):
-    y = np.sum(np.power(np.floor(_squeeze_and_check(x) + 0.5), 2))
+    y = np.sum(np.power(np.floor(squeeze_and_check(x) + 0.5), 2))
     return y
 
 
@@ -114,7 +114,7 @@ class Step(BaseFunction):
 
 
 def schwefel222(x):
-    x = np.abs(_squeeze_and_check(x))
+    x = np.abs(squeeze_and_check(x))
     y = np.sum(x) + np.prod(x)
     return y
 
@@ -125,7 +125,7 @@ class Schwefel222(BaseFunction):
 
 
 def rosenbrock(x):
-    x = _squeeze_and_check(x, True)
+    x = squeeze_and_check(x, True)
     y = 100 * np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
     return y
 
@@ -136,7 +136,7 @@ class Rosenbrock(BaseFunction):
 
 
 def schwefel12(x):
-    x = _squeeze_and_check(x, True)
+    x = squeeze_and_check(x, True)
     x = [np.sum(x[:i + 1]) for i in range(x.size)]
     y = np.sum(np.power(x, 2))
     return y
@@ -148,7 +148,7 @@ class Schwefel12(BaseFunction):
 
 
 def exponential(x):
-    x = _squeeze_and_check(x)
+    x = squeeze_and_check(x)
     y = -np.exp(-0.5 * np.sum(np.power(x, 2)))
     return y
 
@@ -159,7 +159,7 @@ class Exponential(BaseFunction):
 
 
 def griewank(x):
-    x = _squeeze_and_check(x)
+    x = squeeze_and_check(x)
     y = np.sum(np.power(x, 2)) / 4000 - np.prod(np.cos(x / np.sqrt(np.arange(1, x.size + 1)))) + 1
     return y
 
@@ -170,7 +170,7 @@ class Griewank(BaseFunction):
 
 
 def bohachevsky(x):
-    x, y = _squeeze_and_check(x), 0
+    x, y = squeeze_and_check(x), 0
     for i in range(x.size - 1):
         y += np.power(x[i], 2) + 2 * np.power(x[i + 1], 2) -\
              0.3 * np.cos(3 * np.pi * x[i]) - 0.4 * np.cos(4 * np.pi * x[i + 1]) + 0.7
@@ -183,7 +183,7 @@ class Bohachevsky(BaseFunction):
 
 
 def ackley(x):
-    x = _squeeze_and_check(x)
+    x = squeeze_and_check(x)
     y = -20 * np.exp(-0.2 * np.sqrt(np.sum(np.power(x, 2)) / x.size)) -\
         np.exp(np.sum(np.cos(2 * np.pi * x)) / x.size) +\
         20 + np.exp(1)
@@ -196,7 +196,7 @@ class Ackley(BaseFunction):
 
 
 def rastrigin(x):
-    x = _squeeze_and_check(x)
+    x = squeeze_and_check(x)
     y = 10 * x.size + np.sum(np.power(x, 2) - 10 * np.cos(2 * np.pi * x))
     return y
 
@@ -207,7 +207,7 @@ class Rastrigin(BaseFunction):
 
 
 def scaled_rastrigin(x):
-    x, w = _squeeze_and_check(x), np.power(10, np.linspace(0, 1, x.size))
+    x, w = squeeze_and_check(x), np.power(10, np.linspace(0, 1, x.size))
     x *= w
     y = 10 * x.size + np.sum(np.power(x, 2) - 10 * np.cos(2 * np.pi * x))
     return y
@@ -219,7 +219,7 @@ class ScaledRastrigin(BaseFunction):
 
 
 def skew_rastrigin(x):
-    x = _squeeze_and_check(x)
+    x = squeeze_and_check(x)
     for i in range(x.size):
         if x[i] > 0:
             x[i] *= 10
@@ -233,7 +233,7 @@ class SkewRastrigin(BaseFunction):
 
 
 def levy_montalvo(x):
-    x, y = 1 + (1 / 4) * (_squeeze_and_check(x) + 1), 0
+    x, y = 1 + (1 / 4) * (squeeze_and_check(x) + 1), 0
     for i in range(x.size - 1):
         y += np.power(x[i] - 1, 2) * (1 + 10 * np.power(np.sin(np.pi * x[i + 1]), 2))
     y += 10 * np.power(np.sin(np.pi * x[0]), 2) + np.power(x[-1] - 1, 2)
@@ -246,7 +246,7 @@ class LevyMontalvo(BaseFunction):
 
 
 def michalewicz(x):
-    x, y = _squeeze_and_check(x), 0
+    x, y = squeeze_and_check(x), 0
     for i in range(x.size):
         y -= np.sin(x[i]) * np.power(np.sin((i + 1) * np.power(x[i], 2) / np.pi), 20)
     return y
@@ -258,7 +258,7 @@ class Michalewicz(BaseFunction):
 
 
 def salomon(x):
-    x = np.sqrt(np.sum(np.power(_squeeze_and_check(x), 2)))
+    x = np.sqrt(np.sum(np.power(squeeze_and_check(x), 2)))
     y = 1 - np.cos(2 * np.pi * x) + 0.1 * x
     return y
 
@@ -269,7 +269,7 @@ class Salomon(BaseFunction):
 
 
 def shubert(x):
-    x, y = _squeeze_and_check(x), 1
+    x, y = squeeze_and_check(x), 1
     for i in range(x.size):
         yy = 0
         for j in range(1, 6):
@@ -284,7 +284,7 @@ class Shubert(BaseFunction):
 
 
 def schaffer(x):
-    x, y = _squeeze_and_check(x), 0
+    x, y = squeeze_and_check(x), 0
     for i in range(x.size - 1):
         xx = np.power(x[i], 2) + np.power(x[i + 1], 2)
         y += np.power(xx, 0.25) * (np.power(np.sin(50 * np.power(xx, 0.1)), 2) + 1)
