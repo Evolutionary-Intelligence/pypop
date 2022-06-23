@@ -252,6 +252,8 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 
   * Heidrich-Meisner, V. and Igel, C., 2008, September. [Evolution strategies for direct policy search](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_43). In International Conference on Parallel Problem Solving from Nature (pp. 428-437). Springer, Berlin, Heidelberg.
 
+  * Arnold, D.V. and MacLeod, A., 2006, July. [Hierarchically organised evolution strategies on the parabolic ridge](https://dl.acm.org/doi/abs/10.1145/1143997.1144080). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 437-444).
+
   * Igel, C., Suttorp, T. and Hansen, N., 2006, July. [A computational efficient covariance matrix update and a (1+1)-CMA for evolution strategies](https://dl.acm.org/doi/abs/10.1145/1143997.1144082). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 453-460). ACM.
 
   * Hansen, N., Müller, S.D. and Koumoutsakos, P., 2003. [Reducing the time complexity of the derandomized evolution strategy with covariance matrix adaptation (CMA-ES)](https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized). Evolutionary Computation, 11(1), pp.1-18.
