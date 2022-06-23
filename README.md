@@ -190,6 +190,8 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 
   * Auger, A. and Hansen, N., 2021, July. [Benchmarking: State-of-the-art and beyond](https://dl.acm.org/doi/abs/10.1145/3449726.3461424). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 339-340).
 
+  * Varelas, K., El Hara, O.A., Brockhoff, D., Hansen, N., Nguyen, D.M., Tušar, T. and Auger, A., 2020. [Benchmarking large-scale continuous optimizers: The bbob-largescale testbed, a COCO software guide and beyond](https://www.sciencedirect.com/science/article/abs/pii/S156849462030675X). Applied Soft Computing, 97, p.106737.
+
   * Moré, J.J. and Wild, S.M., 2009. [Benchmarking derivative-free optimization algorithms](https://epubs.siam.org/doi/abs/10.1137/080724083). SIAM Journal on Optimization, 20(1), pp.172-191.
 
   * Whitley, D., Rana, S., Dzubera, J. and Mathias, K.E., 1996. [Evaluating evolutionary algorithms](https://www.sciencedirect.com/science/article/pii/0004370295001247). Artificial Intelligence, 85(1-2), pp.245-276.
