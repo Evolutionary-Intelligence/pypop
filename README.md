@@ -249,6 +249,8 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
   * Akimoto, Y., Nagata, Y., Ono, I. and Kobayashi, S., 2012. [Theoretical foundation for CMA-ES from information geometry perspective](https://link.springer.com/article/10.1007/s00453-011-9564-8). Algorithmica, 64(4), pp.698-716.
 
   * Akimoto, Y., 2011. [Design of evolutionary computation for continuous optimization](https://drive.google.com/file/d/18PW9syYDy-ndJA7wBmE2hRlxXJRBTTir/view). Doctoral Dissertation, Tokyo Institute of Technology.
+  
+  * Arnold, D.V. and Hansen, N., 2010, July. [Active covariance matrix adaptation for the (1+1)-CMA-ES](https://dl.acm.org/doi/abs/10.1145/1830483.1830556). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 385-392). ACM.
 
   * Heidrich-Meisner, V. and Igel, C., 2009, June. [Hoeffding and Bernstein races for selecting policies in evolutionary direct policy search](https://dl.acm.org/doi/abs/10.1145/1553374.1553426). In Proceedings of International Conference on Machine Learning (pp. 401-408).
 
@@ -256,7 +258,7 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 
   * Heidrich-Meisner, V. and Igel, C., 2008, September. [Evolution strategies for direct policy search](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_43). In International Conference on Parallel Problem Solving from Nature (pp. 428-437). Springer, Berlin, Heidelberg.
 
-  * Arnold, D.V. and MacLeod, A., 2006, July. [Hierarchically organised evolution strategies on the parabolic ridge](https://dl.acm.org/doi/abs/10.1145/1143997.1144080). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 437-444).
+  * Arnold, D.V. and MacLeod, A., 2006, July. [Hierarchically organised evolution strategies on the parabolic ridge](https://dl.acm.org/doi/abs/10.1145/1143997.1144080). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 437-444). ACM.
 
   * Igel, C., Suttorp, T. and Hansen, N., 2006, July. [A computational efficient covariance matrix update and a (1+1)-CMA for evolution strategies](https://dl.acm.org/doi/abs/10.1145/1143997.1144082). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 453-460). ACM.
 
