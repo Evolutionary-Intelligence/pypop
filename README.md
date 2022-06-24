@@ -232,6 +232,8 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 
   * Akimoto, Y. and Hansen, N., 2016, July. [Projection-based restricted covariance matrix adaptation for high dimension](https://dl.acm.org/doi/abs/10.1145/2908812.2908863). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 197-204). ACM.
 
+  * Krause, O. and Igel, C., 2015, January. [A more efficient rank-one covariance matrix update for evolution strategies](https://dl.acm.org/doi/abs/10.1145/2725494.2725496). In Proceedings of ACM Conference on Foundations of Genetic Algorithms (pp. 129-136).
+
   * Hansen, N., Arnold, D.V. and Auger, A., 2015. [Evolution strategies](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44). In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
 
   * Hansen, N., Atamna, A. and Auger, A., 2014, September. [How to assess step-size adaptation mechanisms in randomised search](https://link.springer.com/chapter/10.1007/978-3-319-10762-2_6). In International Conference on Parallel Problem Solving from Nature (pp. 60-69). Springer, Cham.
