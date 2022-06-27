@@ -1,7 +1,6 @@
 import numpy as np
 
 from pypop7.optimizers.cem.cem import CEM
-from pypop7.optimizers.core.optimizer import Optimizer
 import colorednoise
 
 class SECEM(CEM):
@@ -20,7 +19,9 @@ class SECEM(CEM):
         self.noise_beta = options.get('noise_beta')
 
     def initialize(self, is_restart=False):
-        mean, x, y = CEM.initialize(self, is_restart)
+        mean = self._initialize_mean(is_restart)
+        y = np.empty((self.n_individuals,))
+        x = np.empty((self.n_individuals, self.ndim_problem))
         elite_x = np.empty((self.n_parents, self.ndim_problem))
         elite_y = np.empty((self.n_parents,))
         return mean, x, elite_x, y, elite_y
@@ -60,7 +61,7 @@ class SECEM(CEM):
         return mean, elite_x, elite_y
 
     def optimize(self, fitness_function=None, args=None):
-        fitness = Optimizer.optimize(self, fitness_function)
+        fitness = CEM.optimize(self, fitness_function)
         mean, x, elite_x, y, elite_y = self.initialize()
         restart = True
         while True:
