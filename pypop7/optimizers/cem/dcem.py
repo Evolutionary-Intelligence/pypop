@@ -36,12 +36,12 @@ class DCEM(CEM):
         std_y = np.std(y)
         _y = (y - mean_y) / (std_y + 1e-10)
         _y = _y.reshape(self.n_individuals, 1)
-        _y = np.tile(_y, self.ndim_problem)
         _y = torch.from_numpy(_y)
-        I = LML(N=self.n_parents, verbose=self.lml_verbose, eps=self.lml_eps)(-_y)
+        I = LML(N=self.n_parents, verbose=self.lml_verbose, eps=self.lml_eps)(_y)
         I = I.numpy()
         x_I = I * x
         mean = np.mean(x_I, axis=0)
+        # mean = np.clip(mean, self.lower_boundary, self.upper_boundary)
         self.sigma = np.sqrt(np.mean(I * (x - mean)**2, axis=0))
         return mean
 
@@ -59,4 +59,3 @@ class DCEM(CEM):
             mean = self.update_distribution(x, y)
         results = self._collect_results(fitness, mean)
         return results
-
