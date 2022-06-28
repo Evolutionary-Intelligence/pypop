@@ -28,7 +28,7 @@ class SCEM(CEM):
 
     def iterate(self, mean, x, y):
         for i in range(self.n_individuals):
-            x[i] = mean + np.dot(self.sigma, self.rng_optimization.standard_normal((self.ndim_problem,)))
+            x[i] = self.rng_optimization.normal(mean, self.sigma, (1, self.ndim_problem))
             y[i] = self._evaluate_fitness(x[i])
         return x, y
 
