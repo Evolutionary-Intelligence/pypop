@@ -1,8 +1,10 @@
 import numpy as np
+import numba as nb
 
 from pypop7.optimizers.es.es import ES
 
 
+@nb.jit(nopython=True)
 def cholesky_update(rm, z, downdate):
     # https://github.com/scipy/scipy/blob/d20f92fce9f1956bfa65365feeec39621a071932/
     #     scipy/linalg/_decomp_cholesky_update.py
@@ -22,7 +24,6 @@ def cholesky_update(rm, z, downdate):
 
 class OPOA2015(ES):
     """(1+1)-Active-CMA-ES (OPOA2015).
-
     Krause, O. and Igel, C., 2015, January.
     A more efficient rank-one covariance matrix update for evolution strategies.
     In Proceedings of ACM Conference on Foundations of Genetic Algorithms (pp. 129-136).
