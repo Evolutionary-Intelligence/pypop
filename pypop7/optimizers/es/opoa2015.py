@@ -3,6 +3,23 @@ import numpy as np
 from pypop7.optimizers.es.es import ES
 
 
+def cholesky_update(rm, z, downdate):
+    # https://github.com/scipy/scipy/blob/d20f92fce9f1956bfa65365feeec39621a071932/
+    #     scipy/linalg/_decomp_cholesky_update.py
+    rm, z = np.copy(rm.T), np.copy(z)
+    alpha, beta = np.empty_like(z), np.empty_like(z)
+    alpha[-1], beta[-1] = 1., 1.
+    sign = -1 if downdate else 1
+    for r in range(len(z)):
+        a = z[r] / rm[r, r]
+        alpha[r] = alpha[r - 1] + sign * np.power(a, 2)
+        beta[r] = np.sqrt(alpha[r])
+        z[r + 1:] -= a * rm[r, r + 1:]
+        rm[r, r:] *= beta[r] / beta[r - 1]
+        rm[r, r + 1:] += sign * a / (beta[r] * beta[r - 1]) * z[r + 1:]
+    return rm.T
+
+
 class OPOA2015(ES):
     """(1+1)-Active-CMA-ES (OPOA2015).
 
@@ -22,7 +39,6 @@ class OPOA2015(ES):
         self.c_c = options.get('c_c', 2 / (self.ndim_problem + 2))
         self.c_cov = options.get('c_cov', 2 / (np.power(self.ndim_problem, 2) + 6))
         self.p_t = options.get('p_t', 0.44)
-        self.c_a = options.get('c_a', np.sqrt(1 - self.c_cov))
         self.c_m = options.get('c_m', 0.4 / (np.power(self.ndim_problem, 1.6) + 1))
         self.k = options.get('k', 5)
         self._ancestors = []
@@ -37,16 +53,12 @@ class OPOA2015(ES):
         return mean, y, cf, best_so_far_y, p_s, p_c
 
     def _cholesky_update(self, cf=None, alpha=None, beta=None, v=None):  # triangular rank-one update
-        w, b, new_cf = np.copy(v), 1, np.zeros((self.ndim_problem, self.ndim_problem))
-        for j in range(self.ndim_problem):
-            new_cf[j, j] = np.sqrt(alpha * np.power(cf[j, j], 2) + beta / b * np.power(w[j], 2))
-            gamma = alpha * np.power(cf[j, j], 2) * b + beta * np.power(w[j], 2)
-            for k in range(j + 1, self.ndim_problem):
-                w[k] -= w[j] / cf[j, j] * np.sqrt(alpha) * cf[k, j]
-                new_cf[k, j] = np.sqrt(alpha) * new_cf[j, j] / cf[j, j] * cf[k, j]
-                new_cf[k, j] += new_cf[j, j] * beta * w[j] / gamma * w[k]
-            b += beta * np.power(w[j], 2) / (alpha * np.power(cf[j, j], 2))
-        return new_cf
+        assert self.ndim_problem == v.size
+        if beta < 0:
+            downdate, beta = True, -beta
+        else:
+            downdate = False
+        return cholesky_update(np.sqrt(alpha) * cf, np.sqrt(beta) * v, downdate)
 
     def iterate(self, args=None, mean=None, cf=None, best_so_far_y=None, p_s=None, p_c=None):
         # sample and evaluate (only one) offspring
@@ -67,13 +79,13 @@ class OPOA2015(ES):
             p_c *= 1 - self.c_c
             cf = self._cholesky_update(cf, self._c_cf, self.c_cov, p_c)
         elif is_better:
-            p_c = (1 - self.c_c) * p_c + np.sqrt(self.c_c * (2 - self.c_c)) * np.dot(cf, z)
+            p_c = (1 - self.c_c) * p_c + np.sqrt(self.c_c * (2 - self.c_c)) * cf_z
             cf = self._cholesky_update(cf, 1 - self.c_cov, self.c_cov, p_c)
         elif len(self._ancestors) >= self.k and y > self._ancestors[-self.k]:
             del self._ancestors[0]
             c_m = np.minimum(self.c_m, 1 / (2 * np.dot(z, z) - 1))
             cf = self._cholesky_update(cf, 1 + c_m, -c_m, cf_z)
-        return mean, cf, best_so_far_y, p_s, p_c
+        return mean, cf, best_so_far_y, p_s, p_c, y
 
     def restart_initialize(self, args=None, mean=None, y=None, cf=None,
                            best_so_far_y=None, p_s=None, p_c=None, fitness=None):
@@ -96,7 +108,7 @@ class OPOA2015(ES):
         mean, y, cf, best_so_far_y, p_s, p_c = self.initialize(args)
         fitness.append(y)
         while True:
-            mean, cf, best_so_far_y, p_s, p_c = self.iterate(
+            mean, cf, best_so_far_y, p_s, p_c, y = self.iterate(
                 args, mean, cf, best_so_far_y, p_s, p_c)
             if self.record_fitness:
                 fitness.append(y)
