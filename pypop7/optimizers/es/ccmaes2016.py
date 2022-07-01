@@ -35,11 +35,11 @@ class CCMAES2016(ES):
         mean_bak = np.dot(self._w, x[order])
         mean_diff = (mean_bak - mean) / self.sigma
         p_c = (1 - self.c_c) * p_c + np.sqrt(self.c_c * (2 - self.c_c) * self._mu_eff) * mean_diff
+        p_s = (1 - self.c_s) * p_s + np.sqrt(self.c_s * (2 - self.c_s) * self._mu_eff) * st(a, mean_diff, lower=True)
         a *= np.sqrt(1 - self.c_1 - self.c_mu)
         a = cholesky_update(a, np.sqrt(self.c_1) * p_c, False)
         for i in range(self.n_parents):
             a = cholesky_update(a, np.sqrt(self.c_mu * self._w[i]) * (x[order[i]] - mean) / self.sigma, False)
-        p_s = (1 - self.c_s) * p_s + np.sqrt(self.c_s * (2 - self.c_s) * self._mu_eff) * st(a, mean_diff, lower=True)
         self.sigma *= np.exp(self.c_s / self.d * (np.sqrt(np.dot(p_s, p_s)) / self._e_chi - 1))
         mean = mean_bak
         return mean, a, p_s, p_c
