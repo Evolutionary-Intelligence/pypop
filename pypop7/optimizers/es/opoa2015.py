@@ -8,8 +8,7 @@ from pypop7.optimizers.es.es import ES
 def cholesky_update(rm, z, downdate):
     # https://github.com/scipy/scipy/blob/d20f92fce9f1956bfa65365feeec39621a071932/
     #     scipy/linalg/_decomp_cholesky_update.py
-    rm, z = np.copy(rm.T), np.copy(z)
-    alpha, beta = np.empty_like(z), np.empty_like(z)
+    rm, z, alpha, beta = rm.T, z, np.empty_like(z), np.empty_like(z)
     alpha[-1], beta[-1] = 1., 1.
     sign = -1 if downdate else 1
     for r in range(len(z)):
