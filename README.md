@@ -184,6 +184,10 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 
   * For randomized search, properly controlling randomness is very crucial to repeat numerical experiments. Here we follow the *Random Sampling* suggestions from [NumPy](https://numpy.org/doc/stable/reference/random/). In other worlds, you must **explicitly** set the random seed for each optimizer.
 
+## Computational Efficiency
+
+For LSO, computational efficiency is an indispensable performance criterion of DFO [in the post-Moore era](https://www.science.org/doi/10.1126/science.aam9744). To obtain high-performance computation as much as possible, [NumPy](https://www.nature.com/articles/s41586-020-2649-2) is heavily used in this library as the base of numerical computation along with [SciPy](https://www.nature.com/articles/s41592-019-0686-2). Sometimes, [Numba](https://numba.pydata.org/) is also utilized, in order to further accelerate the wall-clock time.
+
 ## Reference
 
 * [https://sites.google.com/view/benchmarking-network](https://sites.google.com/view/benchmarking-network)
