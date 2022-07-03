@@ -80,6 +80,8 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited-Memory Matrix Adaptation Evolution Strategy (**[LMMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmmaes.py)**, LM-MA-ES) [See [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
 
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited Memory Covariance Matrix Adaptation (**LMCMA**, LM-CMA) [See [Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
+
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-m Evolution Strategy *with Multiple Evolution Paths* (**[RMES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/rmes2.py)**, Rm-ES) [See [Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-One Evolution Strategy (**[R1ES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/r1es.py)**, R1-ES) [See [Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
@@ -184,6 +186,10 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 
   * For randomized search, properly controlling randomness is very crucial to repeat numerical experiments. Here we follow the *Random Sampling* suggestions from [NumPy](https://numpy.org/doc/stable/reference/random/). In other worlds, you must **explicitly** set the random seed for each optimizer.
 
+## Computational Efficiency
+
+For LSO, computational efficiency is an indispensable performance criterion of DFO [in the post-Moore era](https://www.science.org/doi/10.1126/science.aam9744). To obtain high-performance computation as much as possible, [NumPy](https://www.nature.com/articles/s41586-020-2649-2) is heavily used in this library as the base of numerical computation along with [SciPy](https://www.nature.com/articles/s41592-019-0686-2). Sometimes, [Numba](https://numba.pydata.org/) is also utilized, in order to further accelerate the wall-clock time.
+
 ## Reference
 
 * [https://sites.google.com/view/benchmarking-network](https://sites.google.com/view/benchmarking-network)
@@ -194,7 +200,7 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 
   * Hansen, N., Auger, A., Ros, R., Mersmann, O., Tušar, T. and Brockhoff, D., 2021. [COCO: A platform for comparing continuous optimizers in a black-box setting](https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977). Optimization Methods and Software, 36(1), pp.114-144.
 
-  * Auger, A. and Hansen, N., 2021, July. [Benchmarking: State-of-the-art and beyond](https://dl.acm.org/doi/abs/10.1145/3449726.3461424). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 339-340).
+  * Auger, A. and Hansen, N., 2021, July. [Benchmarking: State-of-the-art and beyond](https://dl.acm.org/doi/abs/10.1145/3449726.3461424). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 339-340). ACM.
 
   * Varelas, K., El Hara, O.A., Brockhoff, D., Hansen, N., Nguyen, D.M., Tušar, T. and Auger, A., 2020. [Benchmarking large-scale continuous optimizers: The bbob-largescale testbed, a COCO software guide and beyond](https://www.sciencedirect.com/science/article/abs/pii/S156849462030675X). Applied Soft Computing, 97, p.106737.
 
@@ -220,6 +226,8 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 
   * He, X., Zheng, Z. and Zhou, Y., 2021. [MMES: Mixture model-based evolution strategy for large-scale optimization](https://ieeexplore.ieee.org/abstract/document/9244595). IEEE Transactions on Evolutionary Computation, 25(2), pp.320-333.
 
+  * Li, Z., Lin, X., Zhang, Q. and Liu, H., 2020. [Evolution strategies for continuous optimization: A survey of the state-of-the-art](https://www.sciencedirect.com/science/article/abs/pii/S221065021930584X). Swarm and Evolutionary Computation, 56, p.100694.
+
   * Choromanski, K., Pacchiano, A., Parker-Holder, J. and Tang, Y., 2019. [From complexity to simplicity: Adaptive es-active subspaces for blackbox optimization](https://papers.nips.cc/paper/2019/hash/88bade49e98db8790df275fcebb37a13-Abstract.html). In Advances in Neural Information Processing Systems.
 
   * Liu, G., Zhao, L., Yang, F., Bian, J., Qin, T., Yu, N. and Liu, T.Y., 2019, July. [Trust region evolution strategies](https://ojs.aaai.org/index.php/AAAI/article/view/4345). In Proceedings of AAAI Conference on Artificial Intelligence (Vol. 33, No. 01, pp. 4352-4359).
@@ -240,9 +248,11 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 
   * Akimoto, Y. and Hansen, N., 2016, July. [Projection-based restricted covariance matrix adaptation for high dimension](https://dl.acm.org/doi/abs/10.1145/2908812.2908863). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 197-204). ACM.
 
-  * Krause, O. and Igel, C., 2015, January. [A more efficient rank-one covariance matrix update for evolution strategies](https://dl.acm.org/doi/abs/10.1145/2725494.2725496). In Proceedings of ACM Conference on Foundations of Genetic Algorithms (pp. 129-136).
+  * Krause, O. and Igel, C., 2015, January. [A more efficient rank-one covariance matrix update for evolution strategies](https://dl.acm.org/doi/abs/10.1145/2725494.2725496). In Proceedings of ACM Conference on Foundations of Genetic Algorithms (pp. 129-136). ACM.
 
   * Hansen, N., Arnold, D.V. and Auger, A., 2015. [Evolution strategies](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44). In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
+
+  * Loshchilov, I., 2014, July. [A computationally efficient limited memory CMA-ES for large scale optimization](https://dl.acm.org/doi/abs/10.1145/2576768.2598294). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 397-404). ACM.
 
   * Hansen, N., Atamna, A. and Auger, A., 2014, September. [How to assess step-size adaptation mechanisms in randomised search](https://link.springer.com/chapter/10.1007/978-3-319-10762-2_6). In International Conference on Parallel Problem Solving from Nature (pp. 60-69). Springer, Cham.
 
@@ -297,6 +307,10 @@ Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs
 * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010. [PyBrain](https://jmlr.org/papers/v11/schaul10a.html). Journal of Machine Learning Research, 11(24), pp.743-746.
 
   * Schaul, T., 2011. [Studies in continuous black-box optimization](https://people.idsia.ch/~schaul/publications/thesis.pdf). Doctoral Dissertation, Technische Universität München.
+
+* De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005. [A tutorial on the cross-entropy method](https://link.springer.com/article/10.1007/s10479-005-5724-z). Annals of Operations Research, 134(1), pp.19-67.
+
+  * Rubinstein, R.Y. and Kroese, D.P., 2004. [The cross-entropy method: A unified approach to combinatorial optimization, Monte-Carlo simulation, and machine learning](https://link.springer.com/book/10.1007/978-1-4757-4321-0). New York: Springer.
 
 * Bonyadi, M.R. and Michalewicz, Z., 2017. [Particle swarm optimization for single objective continuous space problems: A review](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective). Evolutionary Computation, 25(1), pp.1-54.
 
