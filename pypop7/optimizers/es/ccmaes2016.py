@@ -8,12 +8,27 @@ from pypop7.optimizers.es.opoa2015 import cholesky_update
 class CCMAES2016(ES):
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self.c_s = options.get('c_s', self._mu_eff / (self.ndim_problem + self._mu_eff))
-        self.d = options.get('d', 1 + np.sqrt(self._mu_eff / self.ndim_problem))
-        self.c_c = options.get('c_c', (4 + self._mu_eff / self.ndim_problem) / (
-            self.ndim_problem + 4 + 2 * self._mu_eff / self.ndim_problem))
-        self.c_1 = options.get('c_1', 2 / (np.power(self.ndim_problem, 2) + self._mu_eff))
-        self.c_mu = options.get('c_mu', self._mu_eff / (np.power(self.ndim_problem, 2) + self._mu_eff))
+        self.c_s = options.get('c_s', self._set_c_s())
+        self.d = options.get('d', self._set_d())
+        self.c_c = options.get('c_c', self._set_c_c())
+        self.c_1 = options.get('c_1', self._set_c_1())
+        self.c_mu = options.get('c_mu', self._set_c_mu())
+
+    def _set_c_s(self):
+        return self._mu_eff / (self.ndim_problem + self._mu_eff)
+
+    def _set_d(self):
+        return 1 + np.sqrt(self._mu_eff / self.ndim_problem)
+
+    def _set_c_c(self):
+        return (4 + self._mu_eff / self.ndim_problem) / (
+                self.ndim_problem + 4 + 2 * self._mu_eff / self.ndim_problem)
+
+    def _set_c_1(self):
+        return 2 / (np.power(self.ndim_problem, 2) + self._mu_eff)
+
+    def _set_c_mu(self):
+        return self._mu_eff / (np.power(self.ndim_problem, 2) + self._mu_eff)
 
     def initialize(self, is_restart=None):
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
@@ -22,6 +37,12 @@ class CCMAES2016(ES):
         p_s = np.zeros((self.ndim_problem,))  # evolution path for CSA
         p_c = np.zeros((self.ndim_problem,))  # evolution path for CMA
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
+        if is_restart:
+            self.c_s = self._set_c_s()
+            self.d = self._set_d()
+            self.c_c = self._set_c_c()
+            self.c_1 = self._set_c_1()
+            self.c_mu = self._set_c_mu()
         return x, mean, a, p_s, p_c, y
 
     def iterate(self, x=None, mean=None, a=None, y=None):

@@ -16,11 +16,16 @@ class CCMAES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self.c_s = options.get('c_s', np.sqrt(self._mu_eff) / (np.sqrt(self.ndim_problem) + np.sqrt(self._mu_eff)))
-        self.d_s = options.get('d_s', 1 + 2 * np.maximum(0, np.sqrt(
-            (self._mu_eff - 1) / (self.ndim_problem + 1)) - 1) + self.c_s)
+        self.c_s = options.get('c_s', self._set_c_s())
+        self.d_s = options.get('d_s', self._set_d_s())
         self.c_c = options.get('c_c', 4 / (self.ndim_problem + 4))
         self.c_cov = options.get('c_cov', 2 / np.power(self.ndim_problem + np.sqrt(2), 2))
+
+    def _set_c_s(self):
+        return np.sqrt(self._mu_eff) / (np.sqrt(self.ndim_problem) + np.sqrt(self._mu_eff))
+
+    def _set_d_s(self):
+        return 1 + 2 * np.maximum(0, np.sqrt((self._mu_eff - 1) / (self.ndim_problem + 1)) - 1) + self.c_s
 
     def initialize(self, is_restart=None):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
@@ -31,6 +36,9 @@ class CCMAES(ES):
         p_s = np.zeros((self.ndim_problem,))  # evolution path for global step-size adaptation
         p_c = np.zeros((self.ndim_problem,))  # evolution path for covariance matrix adaptation
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
+        if is_restart:
+            self.c_s = self._set_c_s()
+            self.d_s = self._set_d_s()
         return mean, z, x, a, a_i, p_s, p_c, y
 
     def iterate(self, z=None, x=None, mean=None, a=None, y=None, args=None):
