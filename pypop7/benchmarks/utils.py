@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 # helper function
-def _generate_xyz(func, x, y, num=200):
+def generate_xyz(func, x, y, num=200):
     x, y = np.array(x), np.array(y)
     if x.size == 2:
         x = np.linspace(x[0], x[1], num)
@@ -18,7 +18,7 @@ def _generate_xyz(func, x, y, num=200):
 
 
 def plot_contour(func, x, y, levels=None, num=200, is_save=False):
-    x, y, z = _generate_xyz(func, x, y, num)
+    x, y, z = generate_xyz(func, x, y, num)
     if levels is None:
         plt.contourf(x, y, z, cmap='cool')
         plt.contour(x, y, z, colors='white')
