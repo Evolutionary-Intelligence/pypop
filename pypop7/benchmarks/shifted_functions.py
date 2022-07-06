@@ -1,8 +1,8 @@
 import os
 import numpy as np
 
-from benchmarks import base_functions
-from benchmarks.base_functions import _squeeze_and_check, BaseFunction
+from pypop7.benchmarks import base_functions
+from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
 
 
 # helper functions
@@ -21,7 +21,7 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
 
     https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html
     """
-    low, high = _squeeze_and_check(low), _squeeze_and_check(high)
+    low, high = squeeze_and_check(low), squeeze_and_check(high)
     if hasattr(func, '__call__'):
         func = func.__name__
     data_folder = 'pypop_benchmarks_input_data'
@@ -42,7 +42,7 @@ def _load_shift_vector(func, x, shift_vector=None):
     :param shift_vector: shift vector, array_like of floats.
     :return: shift vector, a 1-d `ndarray` of `dtype` `np.float64` with the same size as `x`.
     """
-    x = _squeeze_and_check(x)
+    x = squeeze_and_check(x)
     if shift_vector is None:
         if (not hasattr(func, 'pypop_shift_vector')) or (func.pypop_shift_vector.size != x.size):
             data_folder = 'pypop_benchmarks_input_data'
@@ -50,7 +50,7 @@ def _load_shift_vector(func, x, shift_vector=None):
             shift_vector = np.loadtxt(data_path)
             func.pypop_shift_vector = shift_vector
         shift_vector = func.pypop_shift_vector
-    shift_vector = _squeeze_and_check(shift_vector)
+    shift_vector = squeeze_and_check(shift_vector)
     if shift_vector.shape != x.shape:
         raise TypeError('shift_vector should have the same shape as x.')
     if shift_vector.size != x.size:
