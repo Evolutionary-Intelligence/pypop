@@ -31,12 +31,10 @@ class LMCMAES(ES):
         self._bd_1 = np.sqrt(1 - self.c_1)  # for Line 13 and 14
         self._bd_2 = self.c_1 / (1 - self.c_1)  # for Line 13 and 14
         self._p_c_1 = 1 - self.c_c  # for Line 9
-        self._it = None
         self._p_c_2 = None  # for Line 9
         self._rr = None  # for PSR
         self._j = None
         self._l = None
-        self._t = None
 
     def initialize(self, is_restart=None):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
@@ -48,21 +46,17 @@ class LMCMAES(ES):
         b = np.empty((self.m,))
         d = np.empty((self.m,))
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
-        self._it = 0
         self._p_c_2 = np.sqrt(self.c_c * (2 - self.c_c) * self._mu_eff)
         self._rr = np.arange(self.n_individuals * 2, 0, -1) - 1
         self._j = [None] * self.m
         self._l = [None] * self.m
-        self._t = [None] * self.m
         return mean, x, p_c, s, vm, pm, b, d, y
 
     def _a_z(self, z=None, pm=None, vm=None, b=None):  # Cholesky factor - vector update
         # Algorithm 3 Az()
         x = np.copy(z)
-        for t in range(0, self._it):
-            j = self._j[t]
-            k = b[j] * np.dot(vm[j], z)
-            x = self._a * x + k * pm[j]
+        for t in range(np.minimum(self.m, self._n_generations)):
+            x = self._a * x + b[self._j[t]] * np.dot(vm[self._j[t]], z) * pm[self._j[t]]
         return x
 
     def iterate(self, mean=None, x=None, pm=None, vm=None, y=None, b=None, args=None):
@@ -76,48 +70,40 @@ class LMCMAES(ES):
         # Algorithm 4 Ainvz()
         x = np.copy(v)
         for t in range(0, i):
-            j_cur = self._j[t]
-            k = d[j_cur] * np.dot(vm[j_cur], x)
-            x = self._c * x - k * vm[j_cur]
+            x = self._c * x - d[self._j[t]] * np.dot(vm[self._j[t]], x) * vm[self._j[t]]
         return x
 
     def _update_distribution(self, mean=None, x=None, p_c=None, s=None, vm=None, pm=None,
                              b=None, d=None, y=None, y_bak=None):
         mean_bak = np.dot(self._w, x[np.argsort(y)[:self.n_parents]])  # Line 8
         p_c = self._p_c_1 * p_c + self._p_c_2 * (mean_bak - mean) / self.sigma  # Line 9
-        i_min = 1
-        if self._n_generations < self.m:
-            self._t[self._n_generations] = self._n_generations
+        if self._n_generations < self.m:  # before self.m generations
+            self._j[self._n_generations] = self._n_generations
+            i_min = self._n_generations
         else:
-            d_min = self._l[self._t[1]] - self._l[self._t[0]]
-            for j in range(1, self.m - 1):
-                d_cur = self._l[self._t[j + 1]] - self._l[self._t[j]]
+            i_min = 1  # start from the latter (1) of pairwise evolution paths
+            d_min = self._l[self._j[i_min]] - self._l[self._j[i_min - 1]]
+            for j in range(2, self.m):
+                d_cur = self._l[self._j[j]] - self._l[self._j[j - 1]]
                 if d_cur < d_min:
-                    d_min, i_min = d_cur, j + 1
-            if d_min >= self.n_steps:
-                i_min = 0
-            if i_min != (self.m - 1):
-                tmp = self._t[i_min]
-                for j in range(i_min, self.m - 1):
-                    self._t[j] = self._t[j + 1]
-                self._t[self.m - 1] = tmp
-        self._it = self._n_generations + 1
-        if self._it > self.m:
-            self._it = self.m
-        for i in range(self._it):
-            self._j[i] = self._t[i]
-        new_idx = self._t[self._it - 1]
-        self._l[new_idx] = self._n_generations
-        pm[new_idx] = p_c
-        if i_min == 1:
-            i_min = 0
-        for i in range(i_min, self._it):
-            j_cur = self._t[i]
-            v = self._a_inv_z(p_c[j_cur], vm, d, i)
-            v_n = np.dot(v, v)
+                    d_min, i_min = d_cur, j
+            # if all pairwise distances exceed self.n_steps, start from 0
+            i_min = 0 if d_min >= self.n_steps else i_min
+            # update indexes of evolution paths (self._j[i_min] is index of evolution path needed to delete)
+            updated = self._j[i_min]
+            for j in range(i_min, self.m - 1):
+                self._j[j] = self._j[j + 1]
+            self._j[self.m - 1] = updated
+        # note that the latest evolution path is stored in self._j[np.minimum(self.m - 1, self._n_generations)]
+        pm[self._j[np.minimum(self.m - 1, self._n_generations)]] = p_c  # add the latest evolution path
+        self._l[self._j[np.minimum(self.m - 1, self._n_generations)]] = self._n_generations  # update its generation
+        # since self._j[i_min] is deleted, all vectors (from vm) depending on it need to be computed again
+        for i in range(i_min, np.minimum(self.m, self._n_generations + 1)):
+            vm[self._j[i]] = self._a_inv_z(pm[self._j[i]], vm, d, i)
+            v_n = np.dot(vm[self._j[i]], vm[self._j[i]])
             bd_3 = np.sqrt(1 + self._bd_2 * v_n)
-            b[j_cur] = self._bd_1 / v_n * (bd_3 - 1)
-            d[j_cur] = 1 / (self._bd_1 * v_n) * (1 - 1 / bd_3)
+            b[self._j[i]] = self._bd_1 / v_n * (bd_3 - 1)
+            d[self._j[i]] = 1 / (self._bd_1 * v_n) * (1 - 1 / bd_3)
         y.sort()
         if self._n_generations > 0:
             r = np.argsort(np.hstack((y, y_bak)))  # for Line 15
@@ -133,7 +119,6 @@ class LMCMAES(ES):
         if is_restart:
             mean, x, p_c, s, vm, pm, b, d, y = self.initialize(is_restart)
             self.d_s *= 2
-            self._n_generations = 0
         return mean, x, p_c, s, vm, pm, b, d, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
