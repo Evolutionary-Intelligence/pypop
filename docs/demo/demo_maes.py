@@ -70,4 +70,4 @@ if __name__ == '__main__':
         plt.pause(0.05)
         camera.snap()
     animation = camera.animate()
-    animation.save('demo.gif')
+    animation.save('demo_maes.gif')
