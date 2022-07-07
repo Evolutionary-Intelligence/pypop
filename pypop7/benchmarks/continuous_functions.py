@@ -1,9 +1,9 @@
 import numpy as np
 
-from benchmarks import base_functions
-from benchmarks.base_functions import BaseFunction
-from benchmarks.shifted_functions import _load_shift_vector
-from benchmarks.rotated_functions import _load_rotation_matrix
+from pypop7.benchmarks import base_functions
+from pypop7.benchmarks.base_functions import BaseFunction
+from pypop7.benchmarks.shifted_functions import _load_shift_vector
+from pypop7.benchmarks.rotated_functions import _load_rotation_matrix
 
 
 # helper functions
