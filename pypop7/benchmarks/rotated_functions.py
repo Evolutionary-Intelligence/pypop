@@ -1,8 +1,8 @@
 import os
 import numpy as np
 
-from benchmarks import base_functions
-from benchmarks.base_functions import _squeeze_and_check, BaseFunction
+from pypop7.benchmarks import base_functions
+from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
 
 
 # helper functions
@@ -40,7 +40,7 @@ def _load_rotation_matrix(func, x, rotation_matrix=None):
     :param rotation_matrix: rotation matrix, array_like of floats.
     :return: rotation matrix, a 2-d `ndarray` of `dtype` `np.float64`, whose shape is `(x.size, x.size)`.
     """
-    x = _squeeze_and_check(x)
+    x = squeeze_and_check(x)
     if rotation_matrix is None:
         if (not hasattr(func, 'pypop_rotation_matrix')) or (func.pypop_rotation_matrix.shape != (x.size, x.size)):
             data_folder = 'pypop_benchmarks_input_data'
