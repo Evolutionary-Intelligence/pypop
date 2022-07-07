@@ -92,6 +92,7 @@ class ES(Optimizer):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
+            self._n_generations = 0
             self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
             self.n_individuals *= 2
