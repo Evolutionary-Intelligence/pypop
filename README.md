@@ -51,16 +51,16 @@ options = {'fitness_threshold': 1e-10,
            'x': 4 * np.ones((ndim_problem,)),  # initial mean of search (mutation) distribution
            'sigma': 0.3,  # initial global step-size of search (mutation) distribution
            'verbose_frequency': 500}
-lmmaes = LMMAES(problem, options)  # initilize the optimizer
+lmmaes = LMMAES(problem, options)  # initialize the optimizer
 results = lmmaes.optimize()  # run its search process
 print(results)
 ```
 
-Below a [DEMO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo.py) is given on a toy 2-dimensional minimization function, in order to visually show the very interesting/powerful evolutionary search process of [```MAES```](https://ieeexplore.ieee.org/abstract/document/7875115/) (i.e., Covariance Matrix Adaptation):
+Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/) are given on a toy 2-dimensional minimization function, in order to visually show the very interesting/powerful evolutionary search process of [```MAES```](https://ieeexplore.ieee.org/abstract/document/7875115/) and [```LMCMAES```](https://dl.acm.org/doi/abs/10.1145/2576768.2598294):
 
-<p align="center">
-<img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo.gif" alt="drawing" width="432"/>
-</p>
+| MA-ES | LM-CMA-ES |
+| ----- | --------- |
+| <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_maes.gif" alt="drawing" width="200"/> | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_lmcmaes.gif" alt="drawing" width="200"/> |
 
 ## A (*Still Growing*) List of **Publicly Available** Gradient-Free Optimizers (GFO)
 
@@ -323,6 +323,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
   * Eberhart, R.C., Shi, Y. and Kennedy, J., 2001. [Swarm intelligence](https://www.elsevier.com/books/swarm-intelligence/eberhart/978-1-55860-595-4). Elsevier.
 
 * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
+
+* [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
 ## Research Support
 
