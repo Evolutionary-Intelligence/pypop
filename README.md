@@ -328,6 +328,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 ## Research Support
 
-This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed (from 2021 to 2023) by his group members (e.g., *Qiqi Duan*, *Chang Shao*, *Guochen Zhou*, and Youkui Zhang).
+This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed by his group members (e.g., *Qiqi Duan*, *Chang Shao*, *Guochen Zhou*, and Youkui Zhang).
+
+Now [Zhuowei Wang](https://scholar.google.com/citations?user=JJb16CAAAAAJ) from University of Technology Sdyney (UTS) takes part in this library as one core developer (for testing).
 
 We also acknowledge the initial discussions and Python code efforts (dating back to *about* 2017) with Hao Tong from the research group of **Prof. Yao** (CSE, SUSTech @ Shenzhen, China).
