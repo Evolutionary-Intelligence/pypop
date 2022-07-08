@@ -14,18 +14,23 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 
 The following three simple steps are enough to utilize the optimization power of [PyPop7](https://pypi.org/project/pypop7/):
 
-1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html):
+1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html):
 
 ```bash
 $ pip install pypop7
 ```
 
-2. Define your own objective function for the optimization problem at hand:
+For simplicity, all required dependencies are *automatically* installed according to [setup.cfg](https://github.com/Evolutionary-Intelligence/pypop/blob/main/setup.cfg).
+
+2. Define your own objective function for the optimization problem at hand,
+
+3. Run one or more black-box optimizers from ```pypop7``` on the given optimization problem:
 
 ```Python
 import numpy as np  # for numerical computation, which is also the computing engine of pypop7
 
-# the below example is Rosenbrock, the notorious test function in the optimization community
+# 2. Define your own objective function for the optimization problem at hand:
+#   the below example is Rosenbrock, the notorious test function in the optimization community
 def rosenbrock(x):
     return 100 * np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
 
@@ -35,24 +40,19 @@ problem = {'fitness_function': rosenbrock,  # cost function
            'ndim_problem': ndim_problem,  # dimension
            'lower_boundary': -5 * np.ones((ndim_problem,)),  # search boundary
            'upper_boundary': 5 * np.ones((ndim_problem,))}
-```
 
-3. Run one or more black-box optimizers from ```pypop7``` on the given optimization problem:
-
-```Python
-# all available optimizers can be seen in
-#    https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers
-# here we choose LM-MA-ES owing to its low complexity and metric-learning ability
+# 3. Run one or more black-box optimizers from ```pypop7``` on the given optimization problem:
+#   here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO
 from pypop7.optimizers.es.lmmaes import LMMAES
 # define all the necessary algorithm options (which differ among different optimizers)
-options = {'fitness_threshold': 1e-10,
-           'max_runtime': 3600,  # 1 hours
-           'seed_rng': 0,
-           'x': 4 * np.ones((ndim_problem,)),  # initial mean of search (mutation) distribution
-           'sigma': 0.3,  # initial global step-size of search (mutation) distribution
+options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than this threshold
+           'max_runtime': 3600,  # 1 hours (terminate when the actual runtime exceeds it)
+           'seed_rng': 0,  # seed of random number generation (which must be explicitly set for repeatability)
+           'x': 4 * np.ones((ndim_problem,)),  # initial mean of search (mutation/sampling) distribution
+           'sigma': 0.3,  # initial global step-size of search distribution
            'verbose_frequency': 500}
 lmmaes = LMMAES(problem, options)  # initialize the optimizer
-results = lmmaes.optimize()  # run its search process
+results = lmmaes.optimize()  # run its (time-consuming) search process
 print(results)
 ```
 
