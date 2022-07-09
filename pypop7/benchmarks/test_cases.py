@@ -1,7 +1,7 @@
 import numpy as np
 
-from benchmarks.shifted_functions import generate_shift_vector, _load_shift_vector
-from benchmarks.rotated_functions import generate_rotation_matrix, _load_rotation_matrix
+from pypop7.benchmarks.shifted_functions import generate_shift_vector, load_shift_vector
+from pypop7.benchmarks.rotated_functions import generate_rotation_matrix, load_rotation_matrix
 
 
 class TestCases(object):
@@ -92,11 +92,11 @@ class TestCases(object):
         for i in range(x.shape[0]):
             if self.is_rotated:
                 generate_rotation_matrix(func, ndim, ndim)
-                rotation_matrix = _load_rotation_matrix(func, x[i], rotation_matrix)
+                rotation_matrix = load_rotation_matrix(func, x[i], rotation_matrix)
                 x[i] = np.dot(np.linalg.inv(rotation_matrix), x[i])
             if self.is_shifted:
                 generate_shift_vector(func, ndim, -10 * np.ones((ndim,)), 7 * np.ones((ndim,)), 2021 + ndim)
-                x[i] = x[i] + _load_shift_vector(func, x[i], shift_vector)
+                x[i] = x[i] + load_shift_vector(func, x[i], shift_vector)
             y[i] = func(x[i])
         return np.allclose(y, y_true, atol=atol)
 
@@ -114,7 +114,7 @@ class TestCases(object):
             x = np.zeros((d,))
             if self.is_shifted:
                 generate_shift_vector(func, d, -np.ones((d,)), np.ones((d,)), d)
-                x += _load_shift_vector(func, x)
+                x += load_shift_vector(func, x)
             if self.is_rotated:
                 generate_rotation_matrix(func, d, d)
             if np.abs(func(x)) > 1e-9:
