@@ -33,7 +33,7 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
     return shift_vector
 
 
-def _load_shift_vector(func, x, shift_vector=None):
+def load_shift_vector(func, x, shift_vector=None):
     """Load the shift vector which needs to be generated in advance.
         When `None`, the shift vector should have been generated and stored in txt form in advance.
 
@@ -59,7 +59,7 @@ def _load_shift_vector(func, x, shift_vector=None):
 
 
 def sphere(x, shift_vector=None):
-    shift_vector = _load_shift_vector(sphere, x, shift_vector)
+    shift_vector = load_shift_vector(sphere, x, shift_vector)
     y = base_functions.sphere(x - shift_vector)
     return y
 
@@ -74,7 +74,7 @@ class Sphere(BaseFunction):
 
 
 def cigar(x, shift_vector=None):
-    shift_vector = _load_shift_vector(cigar, x, shift_vector)
+    shift_vector = load_shift_vector(cigar, x, shift_vector)
     y = base_functions.cigar(x - shift_vector)
     return y
 
@@ -89,7 +89,7 @@ class Cigar(BaseFunction):
 
 
 def discus(x, shift_vector=None):  # also called tablet
-    shift_vector = _load_shift_vector(discus, x, shift_vector)
+    shift_vector = load_shift_vector(discus, x, shift_vector)
     y = base_functions.discus(x - shift_vector)
     return y
 
@@ -104,7 +104,7 @@ class Discus(BaseFunction):  # also called Tablet
 
 
 def cigar_discus(x, shift_vector=None):
-    shift_vector = _load_shift_vector(cigar_discus, x, shift_vector)
+    shift_vector = load_shift_vector(cigar_discus, x, shift_vector)
     y = base_functions.cigar_discus(x - shift_vector)
     return y
 
@@ -119,7 +119,7 @@ class CigarDiscus(BaseFunction):
 
 
 def ellipsoid(x, shift_vector=None):
-    shift_vector = _load_shift_vector(ellipsoid, x, shift_vector)
+    shift_vector = load_shift_vector(ellipsoid, x, shift_vector)
     y = base_functions.ellipsoid(x - shift_vector)
     return y
 
@@ -134,7 +134,7 @@ class Ellipsoid(BaseFunction):
 
 
 def different_powers(x, shift_vector=None):
-    shift_vector = _load_shift_vector(different_powers, x, shift_vector)
+    shift_vector = load_shift_vector(different_powers, x, shift_vector)
     y = base_functions.different_powers(x - shift_vector)
     return y
 
@@ -149,7 +149,7 @@ class DifferentPowers(BaseFunction):
 
 
 def schwefel221(x, shift_vector=None):
-    shift_vector = _load_shift_vector(schwefel221, x, shift_vector)
+    shift_vector = load_shift_vector(schwefel221, x, shift_vector)
     y = base_functions.schwefel221(x - shift_vector)
     return y
 
@@ -164,7 +164,7 @@ class Schwefel221(BaseFunction):
 
 
 def step(x, shift_vector=None):
-    shift_vector = _load_shift_vector(step, x, shift_vector)
+    shift_vector = load_shift_vector(step, x, shift_vector)
     y = base_functions.step(x - shift_vector)
     return y
 
@@ -179,7 +179,7 @@ class Step(BaseFunction):
 
 
 def schwefel222(x, shift_vector=None):
-    shift_vector = _load_shift_vector(schwefel222, x, shift_vector)
+    shift_vector = load_shift_vector(schwefel222, x, shift_vector)
     y = base_functions.schwefel222(x - shift_vector)
     return y
 
@@ -194,7 +194,7 @@ class Schwefel222(BaseFunction):
 
 
 def rosenbrock(x, shift_vector=None):
-    shift_vector = _load_shift_vector(rosenbrock, x, shift_vector)
+    shift_vector = load_shift_vector(rosenbrock, x, shift_vector)
     y = base_functions.rosenbrock(x - shift_vector)
     return y
 
@@ -209,7 +209,7 @@ class Rosenbrock(BaseFunction):
 
 
 def schwefel12(x, shift_vector=None):
-    shift_vector = _load_shift_vector(schwefel12, x, shift_vector)
+    shift_vector = load_shift_vector(schwefel12, x, shift_vector)
     y = base_functions.schwefel12(x - shift_vector)
     return y
 
@@ -224,7 +224,7 @@ class Schwefel12(BaseFunction):
 
 
 def exponential(x, shift_vector=None):
-    shift_vector = _load_shift_vector(exponential, x, shift_vector)
+    shift_vector = load_shift_vector(exponential, x, shift_vector)
     y = base_functions.exponential(x - shift_vector)
     return y
 
@@ -239,7 +239,7 @@ class Exponential(BaseFunction):
 
 
 def griewank(x, shift_vector=None):
-    shift_vector = _load_shift_vector(griewank, x, shift_vector)
+    shift_vector = load_shift_vector(griewank, x, shift_vector)
     y = base_functions.griewank(x - shift_vector)
     return y
 
@@ -254,7 +254,7 @@ class Griewank(BaseFunction):
 
 
 def bohachevsky(x, shift_vector=None):
-    shift_vector = _load_shift_vector(bohachevsky, x, shift_vector)
+    shift_vector = load_shift_vector(bohachevsky, x, shift_vector)
     y = base_functions.bohachevsky(x - shift_vector)
     return y
 
@@ -269,7 +269,7 @@ class Bohachevsky(BaseFunction):
 
 
 def ackley(x, shift_vector=None):
-    shift_vector = _load_shift_vector(ackley, x, shift_vector)
+    shift_vector = load_shift_vector(ackley, x, shift_vector)
     y = base_functions.ackley(x - shift_vector)
     return y
 
@@ -284,7 +284,7 @@ class Ackley(BaseFunction):
 
 
 def rastrigin(x, shift_vector=None):
-    shift_vector = _load_shift_vector(rastrigin, x, shift_vector)
+    shift_vector = load_shift_vector(rastrigin, x, shift_vector)
     y = base_functions.rastrigin(x - shift_vector)
     return y
 
@@ -299,7 +299,7 @@ class Rastrigin(BaseFunction):
 
 
 def scaled_rastrigin(x, shift_vector=None):
-    shift_vector = _load_shift_vector(scaled_rastrigin, x, shift_vector)
+    shift_vector = load_shift_vector(scaled_rastrigin, x, shift_vector)
     y = base_functions.scaled_rastrigin(x - shift_vector)
     return y
 
@@ -314,7 +314,7 @@ class ScaledRastrigin(BaseFunction):
 
 
 def skew_rastrigin(x, shift_vector=None):
-    shift_vector = _load_shift_vector(skew_rastrigin, x, shift_vector)
+    shift_vector = load_shift_vector(skew_rastrigin, x, shift_vector)
     y = base_functions.skew_rastrigin(x - shift_vector)
     return y
 
@@ -329,7 +329,7 @@ class SkewRastrigin(BaseFunction):
 
 
 def levy_montalvo(x, shift_vector=None):
-    shift_vector = _load_shift_vector(levy_montalvo, x, shift_vector)
+    shift_vector = load_shift_vector(levy_montalvo, x, shift_vector)
     y = base_functions.levy_montalvo(x - shift_vector)
     return y
 
@@ -344,7 +344,7 @@ class LevyMontalvo(BaseFunction):
 
 
 def michalewicz(x, shift_vector=None):
-    shift_vector = _load_shift_vector(michalewicz, x, shift_vector)
+    shift_vector = load_shift_vector(michalewicz, x, shift_vector)
     y = base_functions.michalewicz(x - shift_vector)
     return y
 
@@ -359,7 +359,7 @@ class Michalewicz(BaseFunction):
 
 
 def salomon(x, shift_vector=None):
-    shift_vector = _load_shift_vector(salomon, x, shift_vector)
+    shift_vector = load_shift_vector(salomon, x, shift_vector)
     y = base_functions.salomon(x - shift_vector)
     return y
 
@@ -374,7 +374,7 @@ class Salomon(BaseFunction):
 
 
 def shubert(x, shift_vector=None):
-    shift_vector = _load_shift_vector(shubert, x, shift_vector)
+    shift_vector = load_shift_vector(shubert, x, shift_vector)
     y = base_functions.shubert(x - shift_vector)
     return y
 
@@ -389,7 +389,7 @@ class Shubert(BaseFunction):
 
 
 def schaffer(x, shift_vector=None):
-    shift_vector = _load_shift_vector(schaffer, x, shift_vector)
+    shift_vector = load_shift_vector(schaffer, x, shift_vector)
     y = base_functions.schaffer(x - shift_vector)
     return y
 
