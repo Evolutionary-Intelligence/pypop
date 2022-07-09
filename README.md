@@ -322,6 +322,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Eberhart, R.C., Shi, Y. and Kennedy, J., 2001. [Swarm intelligence](https://www.elsevier.com/books/swarm-intelligence/eberhart/978-1-55860-595-4). Elsevier.
 
+* [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/)
+
 * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
 
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
