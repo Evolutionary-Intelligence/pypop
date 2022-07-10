@@ -296,6 +296,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Schwefel, H.P., 1984. [Evolution strategies: A family of non-linear optimization techniques based on imitating some principles of organic evolution](https://link.springer.com/article/10.1007/BF01876146). Annals of Operations Research, 1(2), pp.165-167.
 
+  * Rechenberg, I., 1984. [The evolution strategy. A mathematical model of darwinian evolution](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13). In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer, Berlin, Heidelberg.
+
 * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482.
 
   * [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/)
@@ -330,8 +332,6 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 ## Research Support
 
-This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed by his group members (e.g., *Qiqi Duan*, *Chang Shao*, *Guochen Zhou*, and Youkui Zhang).
+This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed by three of his group members (e.g., *Qiqi Duan*, *Chang Shao*, *Guochen Zhou*).
 
-Now [Zhuowei Wang](https://scholar.google.com/citations?user=JJb16CAAAAAJ) from University of Technology Sdyney (UTS) takes part in this library as one core developer (for testing).
-
-We also acknowledge the initial discussions and Python code efforts (dating back to *about* 2017) with Hao Tong from the research group of **Prof. Yao** (CSE, SUSTech @ Shenzhen, China).
+Now [Zhuowei Wang](https://scholar.google.com/citations?user=JJb16CAAAAAJ) from University of Technology Sydney (UTS) takes part in this library as one core developer (for testing).
