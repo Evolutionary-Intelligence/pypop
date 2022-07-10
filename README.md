@@ -80,7 +80,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited-Memory Matrix Adaptation Evolution Strategy (**[LMMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmmaes.py)**, LM-MA-ES) [See [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
 
-  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited Memory Covariance Matrix Adaptation (**LMCMA**, LM-CMA) [See [Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited Memory Covariance Matrix Adaptation (**[LMCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcma.py)**, LM-CMA) [See [Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
   
     * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited Memory Covariance Matrix Adaptation Evolution Strategy (**[LMCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcmaes.py)**, LM-CMA-ES) [See [Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
 
