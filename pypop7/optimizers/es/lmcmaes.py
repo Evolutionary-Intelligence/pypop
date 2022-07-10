@@ -24,8 +24,9 @@ class LMCMAES(ES):
         self.m = options.get('m', self.n_individuals)  # number of direction vectors
         self.n_steps = options.get('n_steps', self.m)  # target number of generations between vectors
         self.c_c = options.get('c_c', 1 / self.m)  # learning rate for evolution path
-        self.c_1 = 1 / (10 * np.log(self.ndim_problem + 1))  # learning rate for covariance matrix adaptation
-        self.z_star = 0.25  # target success rate for PSR
+        # learning rate for covariance matrix adaptation
+        self.c_1 = options.get('c_1', 1 / (10 * np.log(self.ndim_problem + 1)))
+        self.z_star = options.get('z_star', 0.25)  # target success rate for PSR
         self._a = np.sqrt(1 - self.c_1)  # for Algorithm 3
         self._c = 1 / np.sqrt(1 - self.c_1)  # for Algorithm 4
         self._bd_1 = np.sqrt(1 - self.c_1)  # for Line 13 and 14
