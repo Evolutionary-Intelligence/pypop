@@ -224,7 +224,7 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 * Ollivier, Y., Arnold, L., Auger, A. and Hansen, N., 2017. [Information-geometric optimization algorithms: A unifying picture via invariance principles](https://www.jmlr.org/papers/v18/14-467.html). Journal of Machine Learning Research, 18(18), pp.1-65.
 
- * Akimoto, Y. and Hansen, N., 2022, July. [CMA-ES and advanced adaptation mechanisms](http://www.cmap.polytechnique.fr/~nikolaus.hansen/gecco-2022-cma-tutorial.pdf). In Proceedings of Annual Conference on Genetic and Evolutionary Computation Companion. ACM.
+  * Akimoto, Y. and Hansen, N., 2022, July. [CMA-ES and advanced adaptation mechanisms](http://www.cmap.polytechnique.fr/~nikolaus.hansen/gecco-2022-cma-tutorial.pdf). In Proceedings of Annual Conference on Genetic and Evolutionary Computation Companion. ACM.
 
   * Hansel, K., Moos, J. and Derstroff, C., 2021. [Benchmarking the natural gradient in policy gradient methods and evolution strategies](https://link.springer.com/chapter/10.1007/978-3-030-41188-6_7). Reinforcement Learning Algorithms: Analysis and Applications, pp.69-84.
 
