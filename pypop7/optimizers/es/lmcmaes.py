@@ -62,6 +62,8 @@ class LMCMAES(ES):
 
     def iterate(self, mean=None, x=None, pm=None, vm=None, y=None, b=None, args=None):
         for k in range(self.n_individuals):  # Line 4
+            if self._check_terminations():
+                return x, y
             z = self.rng_optimization.standard_normal((self.ndim_problem,))  # Line 5
             x[k] = mean + self.sigma * self._a_z(z, pm, vm, b)  # Line 6
             y[k] = self._evaluate_fitness(x[k], args)  # Line 7
