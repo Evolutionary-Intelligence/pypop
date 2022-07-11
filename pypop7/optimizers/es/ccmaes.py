@@ -43,6 +43,8 @@ class CCMAES(ES):
 
     def iterate(self, z=None, x=None, mean=None, a=None, y=None, args=None):
         for k in range(self.n_individuals):  # Line 4
+            if self._check_terminations():
+                return z, x, y
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))  # Line 5
             x[k] = mean + self.sigma * np.dot(a, z[k])  # Line 6
             y[k] = self._evaluate_fitness(x[k], args)
