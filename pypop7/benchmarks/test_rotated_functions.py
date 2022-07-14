@@ -1,9 +1,8 @@
 import unittest
 
-from benchmarks.base_functions import sphere as base_sphere
-from benchmarks.rotated_functions import *
-from benchmarks.rotated_functions import _load_rotation_matrix
-from test_cases import *
+from pypop7.benchmarks.base_functions import sphere as base_sphere
+from pypop7.benchmarks.rotated_functions import *
+from pypop7.benchmarks.test_cases import *
 
 
 # helper function
@@ -34,9 +33,9 @@ class Test(unittest.TestCase):
         generate_rotation_matrix(func, ndim, seed)
         rotation_matrix = [[7.227690004350708630e-01, 6.910896989610599839e-01],
                            [6.910896989610598729e-01, -7.227690004350709740e-01]]
-        self.assertTrue(np.allclose(_load_rotation_matrix(func, np.ones(ndim,)), rotation_matrix))
+        self.assertTrue(np.allclose(load_rotation_matrix(func, np.ones(ndim,)), rotation_matrix))
         rotation_matrix = np.eye(ndim)
-        self.assertTrue(np.allclose(_load_rotation_matrix(func, np.ones(ndim,), rotation_matrix), rotation_matrix))
+        self.assertTrue(np.allclose(load_rotation_matrix(func, np.ones(ndim,), rotation_matrix), rotation_matrix))
 
     def test_sphere(self):
         sample = TestCases(is_rotated=True)
@@ -133,7 +132,7 @@ class Test(unittest.TestCase):
             for ndim in range(1, 8):
                 x = np.zeros((ndim,))
                 generate_rotation_matrix(func, ndim, ndim)
-                rotation_matrix = _load_rotation_matrix(func, x)
+                rotation_matrix = load_rotation_matrix(func, x)
                 x = np.dot(np.linalg.inv(rotation_matrix), x)
                 self.assertTrue(np.abs(func(x) + 1) < 1e-9)
 
@@ -163,7 +162,7 @@ class Test(unittest.TestCase):
             for ndim in range(1, 8):
                 x = -np.ones((ndim,))
                 generate_rotation_matrix(func, ndim, ndim)
-                rotation_matrix = _load_rotation_matrix(func, x)
+                rotation_matrix = load_rotation_matrix(func, x)
                 x = np.dot(np.linalg.inv(rotation_matrix), x)
                 self.assertTrue(np.abs(func(x)) < 1e-9)
 
@@ -186,7 +185,7 @@ class Test(unittest.TestCase):
         for func in [shubert, Shubert()]:
             generate_rotation_matrix(func, 2, 2)
             for minimizer in minimizers:
-                rotation_matrix = _load_rotation_matrix(func, minimizer)
+                rotation_matrix = load_rotation_matrix(func, minimizer)
                 minimizer = np.dot(np.linalg.inv(rotation_matrix), minimizer)
                 self.assertTrue((np.abs(func(minimizer) + 186.7309) < 1e-3))
 
