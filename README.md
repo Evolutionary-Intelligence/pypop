@@ -310,6 +310,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Beyer, H.G. and Deb, K., 2001. [On self-adaptive features in real-parameter evolutionary algorithms](https://ieeexplore.ieee.org/abstract/document/930314). IEEE Transactions on Evolutionary Computation, 5(3), pp.250-270.
 
+  * Salomon, R., 1998. [Evolutionary algorithms and gradient search: Similarities and differences](https://ieeexplore.ieee.org/abstract/document/728207). IEEE Transactions on Evolutionary Computation, 2(2), pp.45-55.
+
   * Wolpert, D.H. and Macready, W.G., 1997. [No free lunch theorems for optimization](https://ieeexplore.ieee.org/document/585893). IEEE Transactions on Evolutionary Computation, 1(1), pp.67-82.
 
   * Bäck, T. and Schwefel, H.P., 1993. [An overview of evolutionary algorithms for parameter optimization](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for). Evolutionary Computation, 1(1), pp.1-23.
