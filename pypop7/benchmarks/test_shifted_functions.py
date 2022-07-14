@@ -1,7 +1,6 @@
 import unittest
 
 from pypop7.benchmarks.base_functions import sphere as base_sphere
-from pypop7.benchmarks.shifted_functions import load_shift_vector
 from pypop7.benchmarks.shifted_functions import *
 from pypop7.benchmarks.test_cases import *
 

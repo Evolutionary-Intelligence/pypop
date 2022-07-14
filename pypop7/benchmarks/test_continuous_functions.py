@@ -1,8 +1,8 @@
 import unittest
 
-from benchmarks.base_functions import sphere as base_sphere
-from benchmarks.continuous_functions import *
-from test_cases import *
+from pypop7.benchmarks.base_functions import sphere as base_sphere
+from pypop7.benchmarks.continuous_functions import *
+from pypop7.benchmarks.test_cases import *
 
 
 class Test(unittest.TestCase):
