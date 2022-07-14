@@ -334,6 +334,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
 
+  * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). In Proceedings of International Conference on Genetic Algorithms (pp. 116-121).
+
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
 ## Research Support
