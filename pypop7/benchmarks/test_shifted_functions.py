@@ -1,9 +1,9 @@
 import unittest
 
-from benchmarks.base_functions import sphere as base_sphere
-from benchmarks.shifted_functions import _load_shift_vector
-from benchmarks.shifted_functions import *
-from test_cases import *
+from pypop7.benchmarks.base_functions import sphere as base_sphere
+from pypop7.benchmarks.shifted_functions import load_shift_vector
+from pypop7.benchmarks.shifted_functions import *
+from pypop7.benchmarks.test_cases import *
 
 
 class TestShiftedFunctions(unittest.TestCase):
@@ -29,15 +29,15 @@ class TestShiftedFunctions(unittest.TestCase):
     def test_load_shift_vector(self):
         func = base_sphere
         generate_shift_vector(func, 2, [-1, -2], [1, 2], 0)
-        shift_vector = _load_shift_vector(func, [0, 0])
+        shift_vector = load_shift_vector(func, [0, 0])
         self.assertTrue(np.allclose(shift_vector, [2.739233746429086125e-01, -9.208531449445187533e-01]))
 
         generate_shift_vector(func, 3, -100, 100, 7)
-        shift_vector = _load_shift_vector(func, [0, 0, 0])
+        shift_vector = load_shift_vector(func, [0, 0, 0])
         self.assertTrue(np.allclose(shift_vector,
                                     [2.501909332093339344e+01, 7.944276019391509180e+01, 5.513713804903869686e+01]))
 
-        shift_vector = _load_shift_vector(func, 0, 77)
+        shift_vector = load_shift_vector(func, 0, 77)
         self.assertTrue(np.allclose(shift_vector, 77))
 
     def test_sphere(self):
@@ -135,7 +135,7 @@ class TestShiftedFunctions(unittest.TestCase):
             for ndim in range(1, 8):
                 generate_shift_vector(func, ndim, -np.ones((ndim,)), 2 * np.ones((ndim,)), 2021 + ndim)
                 x = np.zeros((ndim,))
-                x += _load_shift_vector(func, x)
+                x += load_shift_vector(func, x)
                 self.assertTrue(np.abs(func(x) + 1) < 1e-9)
 
     def test_griewank(self):
@@ -164,7 +164,7 @@ class TestShiftedFunctions(unittest.TestCase):
             for ndim in range(1, 8):
                 generate_shift_vector(func, ndim, -np.ones((ndim,)), 3 * np.ones((ndim,)), 2021 + ndim)
                 x = -np.ones((ndim,))
-                x += _load_shift_vector(func, x)
+                x += load_shift_vector(func, x)
                 self.assertTrue(np.abs(func(x)) < 1e-9)
 
     def test_michalewicz(self):
@@ -186,7 +186,7 @@ class TestShiftedFunctions(unittest.TestCase):
         for func in [shubert, Shubert()]:
             generate_shift_vector(func, 2, -7 * np.ones((2,)), 5 * np.ones((2,)), 2021)
             for minimizer in minimizers:
-                minimizer += _load_shift_vector(func, minimizer)
+                minimizer += load_shift_vector(func, minimizer)
                 self.assertTrue((np.abs(func(minimizer) + 186.7309) < 1e-3))
 
 
