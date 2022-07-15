@@ -210,6 +210,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Whitley, D., Rana, S., Dzubera, J. and Mathias, K.E., 1996. [Evaluating evolutionary algorithms](https://www.sciencedirect.com/science/article/pii/0004370295001247). Artificial Intelligence, 85(1-2), pp.245-276.
   
+  * Salomon, R., 1996. [Re-evaluating genetic algorithm performance under coordinate rotation of benchmark functions. A survey of some theoretical and practical aspects of genetic algorithms](https://www.sciencedirect.com/science/article/abs/pii/0303264796016218). BioSystems, 39(3), pp.263-278.
+
   * Moré, J.J., Garbow, B.S. and Hillstrom, K.E., 1981. [Testing unconstrained optimization software](https://dl.acm.org/doi/10.1145/355934.355936). ACM Transactions on Mathematical Software, 7(1), pp.17-41.
 
 * Hutter, F., Kotthoff, L. and Vanschoren, J., 2019. [Automated machine learning: Methods, systems, challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf). Springer Nature.
@@ -308,6 +310,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Beyer, H.G. and Deb, K., 2001. [On self-adaptive features in real-parameter evolutionary algorithms](https://ieeexplore.ieee.org/abstract/document/930314). IEEE Transactions on Evolutionary Computation, 5(3), pp.250-270.
 
+  * Salomon, R., 1998. [Evolutionary algorithms and gradient search: Similarities and differences](https://ieeexplore.ieee.org/abstract/document/728207). IEEE Transactions on Evolutionary Computation, 2(2), pp.45-55.
+
   * Wolpert, D.H. and Macready, W.G., 1997. [No free lunch theorems for optimization](https://ieeexplore.ieee.org/document/585893). IEEE Transactions on Evolutionary Computation, 1(1), pp.67-82.
 
   * Bäck, T. and Schwefel, H.P., 1993. [An overview of evolutionary algorithms for parameter optimization](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for). Evolutionary Computation, 1(1), pp.1-23.
@@ -315,6 +319,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010. [PyBrain](https://jmlr.org/papers/v11/schaul10a.html). Journal of Machine Learning Research, 11(24), pp.743-746.
 
   * Schaul, T., 2011. [Studies in continuous black-box optimization](https://people.idsia.ch/~schaul/publications/thesis.pdf). Doctoral Dissertation, Technische Universität München.
+
+* Brookes, D., Busia, A., Fannjiang, C., Murphy, K. and Listgarten, J., 2020, July. [A view of estimation of distribution algorithms through the lens of expectation-maximization](https://dl.acm.org/doi/abs/10.1145/3377929.3389938). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 189-190). ACM.
 
 * De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005. [A tutorial on the cross-entropy method](https://link.springer.com/article/10.1007/s10479-005-5724-z). Annals of Operations Research, 134(1), pp.19-67.
 
@@ -329,6 +335,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 * [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/)
 
 * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
+
+  * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). In Proceedings of International Conference on Genetic Algorithms (pp. 116-121).
 
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 

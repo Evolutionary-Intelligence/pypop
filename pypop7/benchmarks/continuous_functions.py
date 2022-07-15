@@ -2,14 +2,14 @@ import numpy as np
 
 from pypop7.benchmarks import base_functions
 from pypop7.benchmarks.base_functions import BaseFunction
-from pypop7.benchmarks.shifted_functions import _load_shift_vector
-from pypop7.benchmarks.rotated_functions import _load_rotation_matrix
+from pypop7.benchmarks.shifted_functions import load_shift_vector
+from pypop7.benchmarks.rotated_functions import load_rotation_matrix
 
 
 # helper functions
 def load_shift_and_rotation(func, x, shift_vector=None, rotation_matrix=None):
-    shift_vector = _load_shift_vector(func, x, shift_vector)
-    rotation_matrix = _load_rotation_matrix(func, x, rotation_matrix)
+    shift_vector = load_shift_vector(func, x, shift_vector)
+    rotation_matrix = load_rotation_matrix(func, x, rotation_matrix)
     return shift_vector, rotation_matrix
 
 

@@ -1,18 +1,17 @@
 import numpy as np
 
-import shifted_functions as sf
-from shifted_functions import generate_shift_vector
+from pypop7.benchmarks import shifted_functions as sf
+from pypop7.benchmarks.shifted_functions import generate_shift_vector
 
 
 def generate_shift_vectors(functions=None, ndims=None, seed=None):
     if functions is None:
-        functions = [sf.sphere, sf.cigar, sf.discus, sf.cigar_discus,
-                     sf.ellipsoid, sf.different_powers, sf.schwefel221, sf.step,
-                     sf.schwefel222, sf.rosenbrock, sf.exponential, sf.schwefel12]
+        functions = [sf.sphere, sf.cigar, sf.discus, sf.cigar_discus, sf.ellipsoid,
+                     sf.different_powers, sf.schwefel221, sf.step, sf.rosenbrock, sf.schwefel12]
     if ndims is None:
         ndims = [2, 10, 100, 200, 1000, 2000]
     if seed is None:
-        seed = 20211207
+        seed = 2022
 
     rng = np.random.default_rng(seed)
     seeds = rng.integers(np.iinfo(np.int64).max, size=(len(functions), len(ndims)))
