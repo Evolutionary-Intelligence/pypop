@@ -322,6 +322,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 * Brookes, D., Busia, A., Fannjiang, C., Murphy, K. and Listgarten, J., 2020, July. [A view of estimation of distribution algorithms through the lens of expectation-maximization](https://dl.acm.org/doi/abs/10.1145/3377929.3389938). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 189-190). ACM.
 
+  * Dong, W., Chen, T., Tiňo, P. and Yao, X., 2013. [Scaling up estimation of distribution algorithms for continuous optimization](https://ieeexplore.ieee.org/document/6461934). IEEE Transactions on Evolutionary Computation, 17(6), pp.797-822.
+
 * De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005. [A tutorial on the cross-entropy method](https://link.springer.com/article/10.1007/s10479-005-5724-z). Annals of Operations Research, 134(1), pp.19-67.
 
   * Rubinstein, R.Y. and Kroese, D.P., 2004. [The cross-entropy method: A unified approach to combinatorial optimization, Monte-Carlo simulation, and machine learning](https://link.springer.com/book/10.1007/978-1-4757-4321-0). New York: Springer.
