@@ -234,6 +234,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Li, Z., Lin, X., Zhang, Q. and Liu, H., 2020. [Evolution strategies for continuous optimization: A survey of the state-of-the-art](https://www.sciencedirect.com/science/article/abs/pii/S221065021930584X). Swarm and Evolutionary Computation, 56, p.100694.
 
+  * Akimoto, Y. and Hansen, N., 2020. [Diagonal acceleration for covariance matrix adaptation evolution strategies](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix). Evolutionary Computation, 28(3), pp.405-435.
+
   * Choromanski, K., Pacchiano, A., Parker-Holder, J. and Tang, Y., 2019. [From complexity to simplicity: Adaptive es-active subspaces for blackbox optimization](https://papers.nips.cc/paper/2019/hash/88bade49e98db8790df275fcebb37a13-Abstract.html). In Advances in Neural Information Processing Systems.
 
   * Liu, G., Zhao, L., Yang, F., Bian, J., Qin, T., Yu, N. and Liu, T.Y., 2019, July. [Trust region evolution strategies](https://ojs.aaai.org/index.php/AAAI/article/view/4345). In Proceedings of AAAI Conference on Artificial Intelligence (Vol. 33, No. 01, pp. 4352-4359).
