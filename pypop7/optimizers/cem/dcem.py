@@ -29,6 +29,8 @@ class DCEM(CEM):
         for i in range(self.n_individuals):
             x[i] = self.rng_optimization.normal(mean, self.sigma, self.ndim_problem)
             y[i] = self._evaluate_fitness(x[i])
+            if self._check_terminations():
+                return x, y
         return x, y
 
     def update_distribution(self, x, y):
@@ -41,7 +43,6 @@ class DCEM(CEM):
         I = I.numpy()
         x_I = I * x
         mean = np.mean(x_I, axis=0)
-        # mean = np.clip(mean, self.lower_boundary, self.upper_boundary)
         self.sigma = np.sqrt(np.mean(I * (x - mean)**2, axis=0))
         return mean
 

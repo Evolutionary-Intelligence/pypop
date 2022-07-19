@@ -44,6 +44,8 @@ class COSYNE(CC):
 
     def iterate(self, x, y):
         for i in range(self.n_individuals):
+            if self._check_terminations():
+                return x, y
             y[i] = self._evaluate_fitness(x[i])
         order = np.argsort(y)
         o = self.crossover(x[order[0]], x[order[1]], self.crossover_type)
