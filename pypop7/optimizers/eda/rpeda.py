@@ -79,6 +79,8 @@ class RPEDA(EDA):
         x *= self.sq_d_k * self.sq_rpm_size
         for i in range(self.n_individuals):
             x[i] = np.clip(x[i] + mean, self.lower_boundary, self.upper_boundary)
+            if self._check_terminations():
+                return x, y
             y[i] = self._evaluate_fitness(x[i])
         return x, y
 

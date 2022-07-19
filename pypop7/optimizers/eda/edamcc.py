@@ -31,7 +31,7 @@ class EDAMCC(EDA):
         IEEE TRANSACTIONS ON EVOLUTIONARY COMPUTATION, VOL. 17, NO. 6, DECEMBER 2013
         https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6461934
     """
-    def __init__(self, problem,options):
+    def __init__(self, problem, options):
         EDA.__init__(self, problem, options)
         self.x = None
         self.n_parents = int(0.2 * self.n_individuals)
@@ -95,6 +95,8 @@ class EDAMCC(EDA):
 
         for i in range(self.n_individuals):
             new_x[i] = np.clip(new_x[i], self.lower_boundary, self.upper_boundary)
+            if self._check_terminations():
+                return new_x, y
             y[i] = self._evaluate_fitness(new_x[i])
         order1 = np.argsort(y)
         new_x[order1[-1]] = x[order[0]]
