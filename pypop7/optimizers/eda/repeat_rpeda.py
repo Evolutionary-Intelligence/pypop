@@ -3,7 +3,6 @@
     Towards Large Scale Continuous EDA: A Random Matrix Theory Perspective
     GECCO 2013: 383-390
 """
-import sys
 import pickle
 import numpy as np
 import seaborn as sns
