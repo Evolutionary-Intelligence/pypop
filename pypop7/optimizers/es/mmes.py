@@ -6,14 +6,12 @@ from pypop7.optimizers.es.es import ES
 
 class MMES(ES):
     """Mixture Model-based Evolution Strategy (MMES).
-
     Reference
     ---------
     He, X., Zheng, Z. and Zhou, Y., 2021.
     MMES: Mixture model-based evolution strategy for large-scale optimization.
     IEEE Transactions on Evolutionary Computation, 25(2), pp.320-333.
     https://ieeexplore.ieee.org/abstract/document/9244595
-
     See the official Matlab version from He:
     https://github.com/hxyokokok/MMES
     """
@@ -32,7 +30,7 @@ class MMES(ES):
         # success probability of geometric distribution (different from 4/n in the original paper)
         self.c_a = options.get('c_a', 3.8 / self.ndim_problem)  # same as Matlab code
         self.gamma = options.get('gamma', 1 - np.power(1 - self.c_a, self.m))
-        self.n_mirror_sampling = int(np.ceil(self.n_individuals / 2))
+        self._n_mirror_sampling = None
         self._z_1 = np.sqrt(1 - self.gamma)
         self._z_2 = np.sqrt(self.gamma / self.ms)
         self._p_1 = 1 - self.c_c
@@ -41,6 +39,7 @@ class MMES(ES):
         self._w_2 = np.sqrt(self.c_s * (2 - self.c_s))
 
     def initialize(self, args=None, is_restart=False):
+        self._n_mirror_sampling = int(np.ceil(self.n_individuals / 2))
         x = np.zeros((self.n_individuals, self.ndim_problem))  # offspring population
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         p = np.zeros((self.ndim_problem,))  # evolution path (Line 2 in Algorithm 1)
@@ -52,7 +51,7 @@ class MMES(ES):
         return x, mean, p, w, q, t, v, y
 
     def iterate(self, x=None, mean=None, q=None, v=None, y=None, args=None):
-        for k in range(self.n_mirror_sampling):  # mirror sampling
+        for k in range(self._n_mirror_sampling):  # mirror sampling
             zq = np.zeros((self.ndim_problem,))
             for _ in range(self.ms):
                 j_k = v[(self.m - self.rng_optimization.geometric(self.c_a) % self.m) - 1]
@@ -60,8 +59,8 @@ class MMES(ES):
             z = self._z_1 * self.rng_optimization.standard_normal((self.ndim_problem,))
             z += self._z_2 * zq  # Line 13
             x[k] = mean + self.sigma * z  # Line 14
-            if (self.n_mirror_sampling + k) < self.n_individuals:
-                x[self.n_mirror_sampling + k] = mean - self.sigma * z
+            if (self._n_mirror_sampling + k) < self.n_individuals:
+                x[self._n_mirror_sampling + k] = mean - self.sigma * z
         for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, y
