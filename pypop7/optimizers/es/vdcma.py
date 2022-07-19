@@ -63,6 +63,8 @@ class VDCMA(ES):
             zz[k] = d * (z[k] + (np.sqrt(1 + self._v_2) - 1) * (np.dot(z[k], self._v_) * self._v_))
             x[k] = mean + self.sigma * zz[k]
             y[k] = self._evaluate_fitness(x[k], args)
+            if self._check_terminations():
+                return z, zz, x, y
         return z, zz, x, y
 
     def _p_q(self, zz, w=0):
