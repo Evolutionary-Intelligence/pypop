@@ -30,6 +30,8 @@ class SCEM(CEM):
         for i in range(self.n_individuals):
             x[i] = self.rng_optimization.normal(mean, self.sigma, (1, self.ndim_problem))
             y[i] = self._evaluate_fitness(x[i])
+            if self._check_terminations():
+                return x, y
         return x, y
 
     def _update_parameters(self, mean, x, y):

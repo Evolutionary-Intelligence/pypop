@@ -35,6 +35,8 @@ class SECEM(CEM):
             x[i] = colorednoise.powerlaw_psd_gaussian(self.noise_beta, size=(1, self.ndim_problem))
             x[i] = np.clip(np.dot(x[i], self.sigma) + self.mean, self.lower_boundary, self.upper_boundary)
             y[i] = self._evaluate_fitness(x[i])
+            if self._check_terminations():
+                return x, y
         return x, y
 
     def _update_parameters(self, mean, x, elite_x, y, elite_y):
