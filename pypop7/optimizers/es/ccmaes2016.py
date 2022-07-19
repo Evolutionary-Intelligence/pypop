@@ -47,10 +47,10 @@ class CCMAES2016(ES):
 
     def iterate(self, x=None, mean=None, a=None, y=None):
         for k in range(self.n_individuals):
-            x[k] = mean + self.sigma * np.dot(a, self.rng_optimization.standard_normal((self.ndim_problem,)))
-            y[k] = self._evaluate_fitness(x[k])
             if self._check_terminations():
                 return x, y
+            x[k] = mean + self.sigma * np.dot(a, self.rng_optimization.standard_normal((self.ndim_problem,)))
+            y[k] = self._evaluate_fitness(x[k])
         return x, y
 
     def _update_distribution(self, x=None, mean=None, a=None, p_s=None, p_c=None, y=None):
