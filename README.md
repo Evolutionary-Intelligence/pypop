@@ -104,7 +104,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
     * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) (1+1)-Cholesky-CMA-ES (**[OPOC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/opoc.py)**) [See [Igel et al., 2006, GECCO](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
 
-  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Separable Covariance Matrix Adaptation Evolution Strategy (**[SEPCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/optimizers/es/sepcmaes.py)**, sep-CMA-ES) [See [Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4); [Ros&Hansen, 2008, PPSN](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Separable Covariance Matrix Adaptation Evolution Strategy (**[SEPCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/sepcmaes.py)**, sep-CMA-ES) [See [Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4); [Ros&Hansen, 2008, PPSN](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Main Vector Adaptation Evolution Strategies (**[MVAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/mvaes.py)**, MVA-ES) [See [Poland&Zell, 2001, GECCO](https://dl.acm.org/doi/abs/10.5555/2955239.2955428)]
 
