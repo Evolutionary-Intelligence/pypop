@@ -345,6 +345,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
   * Hauschild, M. and Pelikan, M., 2011. [An introduction and survey of estimation of distribution algorithms](https://www.sciencedirect.com/science/article/abs/pii/S2210650211000435). Swarm and Evolutionary Computation, 1(3), pp.111-128.
 
   * Larrañaga, P. and Lozano, J.A. eds., 2001. [Estimation of distribution algorithms: A new tool for evolutionary computation](https://link.springer.com/book/10.1007/978-1-4615-1539-5). Springer Science & Business Media.
+  
+  * Pelikan, M., Goldberg, D.E. and Cantú-Paz, E., 1999, July. [BOA: The Bayesian optimization algorithm](https://dl.acm.org/doi/abs/10.5555/2933923.2933973). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 525-532). ACM.
 
 * De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005. [A tutorial on the cross-entropy method](https://link.springer.com/article/10.1007/s10479-005-5724-z). Annals of Operations Research, 134(1), pp.19-67.
 
