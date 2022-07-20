@@ -296,6 +296,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Igel, C., Suttorp, T. and Hansen, N., 2006, July. [A computational efficient covariance matrix update and a (1+1)-CMA for evolution strategies](https://dl.acm.org/doi/abs/10.1145/1143997.1144082). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 453-460). ACM.
 
+  * Auger, A. and Hansen, N., 2005, September. [A restart CMA evolution strategy with increasing population size](https://ieeexplore.ieee.org/abstract/document/1554902). In IEEE Congress on Evolutionary Computation (pp. 1769-1776). IEEE.
+
   * Hansen, N., Müller, S.D. and Koumoutsakos, P., 2003. [Reducing the time complexity of the derandomized evolution strategy with covariance matrix adaptation (CMA-ES)](https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized). Evolutionary Computation, 11(1), pp.1-18.
 
   * Beyer, H.G. and Schwefel, H.P., 2002. [Evolution strategies–A comprehensive introduction](https://link.springer.com/article/10.1023/A:1015059928466). Natural Computing, 1(1), pp.3-52.
