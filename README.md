@@ -248,6 +248,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2019. [Large scale black-box optimization by limited-memory matrix adaptation](https://ieeexplore.ieee.org/abstract/document/8410043). IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
 
+  * Li, Z., Zhang, Q., Lin, X. and Zhen, H.L., 2018. [Fast covariance matrix adaptation for large-scale black-box optimization](https://ieeexplore.ieee.org/abstract/document/8533604). IEEE Transactions on Cybernetics, 50(5), pp.2073-2083.
+
   * Varelas, K., Auger, A., Brockhoff, D., Hansen, N., ElHara, O.A., Semet, Y., Kassab, R. and Barbaresco, F., 2018, September. [A comparative study of large-scale variants of CMA-ES](https://link.springer.com/chapter/10.1007/978-3-319-99253-2_1). In International Conference on Parallel Problem Solving from Nature (pp. 3-15). Springer, Cham.
 
   * Müller, N. and Glasmachers, T., 2018, September. [Challenges in high-dimensional reinforcement learning with evolution strategies](https://link.springer.com/chapter/10.1007/978-3-319-99259-4_33). In International Conference on Parallel Problem Solving from Nature (pp. 411-423). Springer, Cham.
