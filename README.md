@@ -284,6 +284,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Akimoto, Y., 2011. [Design of evolutionary computation for continuous optimization](https://drive.google.com/file/d/18PW9syYDy-ndJA7wBmE2hRlxXJRBTTir/view). Doctoral Dissertation, Tokyo Institute of Technology.
   
+  * Akimoto, Y., Nagata, Y., Ono, I. and Kobayashi, S., 2010, September. [Bidirectional relation between CMA evolution strategies and natural evolution strategies](https://link.springer.com/chapter/10.1007/978-3-642-15844-5_16). In International Conference on Parallel Problem Solving from Nature (pp. 154-163). Springer, Berlin, Heidelberg.
+
   * Arnold, D.V. and Hansen, N., 2010, July. [Active covariance matrix adaptation for the (1+1)-CMA-ES](https://dl.acm.org/doi/abs/10.1145/1830483.1830556). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 385-392). ACM.
 
   * Heidrich-Meisner, V. and Igel, C., 2009, June. [Hoeffding and Bernstein races for selecting policies in evolutionary direct policy search](https://dl.acm.org/doi/abs/10.1145/1553374.1553426). In Proceedings of International Conference on Machine Learning (pp. 401-408).
