@@ -324,6 +324,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Miikkulainen, R. and Forrest, S., 2021. [A biological perspective on evolutionary computation](https://www.nature.com/articles/s42256-020-00278-8). Nature Machine Intelligence, 3(1), pp.9-15.
 
+  * Stork, J., Eiben, A.E. and Bartz-Beielstein, T., 2020. [A new taxonomy of global optimization algorithms](https://link.springer.com/article/10.1007/s11047-020-09820-4). Natural Computing, pp.1-24.
+
   * Beyer, H.G. and Deb, K., 2001. [On self-adaptive features in real-parameter evolutionary algorithms](https://ieeexplore.ieee.org/abstract/document/930314). IEEE Transactions on Evolutionary Computation, 5(3), pp.250-270.
 
   * Salomon, R., 1998. [Evolutionary algorithms and gradient search: Similarities and differences](https://ieeexplore.ieee.org/abstract/document/728207). IEEE Transactions on Evolutionary Computation, 2(2), pp.45-55.
