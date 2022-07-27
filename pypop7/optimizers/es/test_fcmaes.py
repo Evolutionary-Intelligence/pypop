@@ -19,12 +19,11 @@ class TestRMES(unittest.TestCase):
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
                        'ndim_problem': ndim_problem,
-                       'lower_boundary': -5 * np.ones((ndim_problem,)),
-                       'upper_boundary': 5 * np.ones((ndim_problem,))}
+                       'lower_boundary': -10 * np.ones((ndim_problem,)),
+                       'upper_boundary': 10 * np.ones((ndim_problem,))}
             options = {'max_function_evaluations': 2e6,
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
-                       'x': 4 * np.ones((ndim_problem,)),  # mean
                        'sigma': 0.1,
                        'verbose_frequency': 200,
                        'record_fitness': True,

@@ -21,6 +21,9 @@ class FCMAES(ES):
         self.d_sigma = 1
         self.q_star = 0.27
         self.T = self.ndim_problem
+        self.sigma_threshold = 1e-12
+        self.fitness_diff = 1e-12
+        self.fitness_rel_diff = 1e-6
         self.s_1 = 1 - self.c_1
         self.s_2 = np.sqrt((1 - self.c_1) * self.c_1)
         self.s_3 = np.sqrt(self.c_1)
@@ -81,7 +84,30 @@ class FCMAES(ES):
         self.sigma *= np.exp(s / self.d_sigma)
         return mean, p, p_hat, s, f
 
-    def optimize(self, fitness_function=None):
+    def restart_initialize(self, args=None, mean=None, x=None, y=None, p=None, p_hat=None,
+                           s=None, f=None):
+        self._fitness_list.append(self.best_so_far_y)
+        is_restart_1, is_restart_2, is_restart_3 = self.sigma < self.sigma_threshold, False, False
+        if len(self._fitness_list) >= self.stagnation:
+            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
+            is_restart_3 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) /\
+                           self._fitness_list[-1] < self.fitness_rel_diff
+        is_restart = bool(is_restart_1) or bool(is_restart_2) or bool(is_restart_3)
+        if is_restart:
+            self.n_restart += 1
+            self.sigma = np.copy(self._sigma_bak)
+            self.n_individuals *= 2
+            self.n_parents = int(self.n_individuals / 2)
+            self.n_evolution_paths = self.n_individuals
+            w_base, w = np.log((self.n_individuals + 1) / 2), np.log(np.arange(self.n_parents) + 1)
+            self._w = (w_base - w) / (self.n_parents * w_base - np.sum(w))
+            self._mu_eff = 1 / np.sum(np.power(self._w, 2))
+            self._fitness_list = [np.Inf]
+            self.d_sigma *= 2
+            mean, x, y, p, p_hat, s, f = self.initialize(args, is_restart)
+        return mean, x, y, p, p_hat, s, f
+
+    def optimize(self, fitness_function=None, args=None):
         fitness = ES.optimize(self, fitness_function)
         mean, x, y, p, p_hat, s, f = self.initialize()
         while True:
@@ -90,8 +116,9 @@ class FCMAES(ES):
                 fitness.extend(y)
             if self._check_terminations():
                 break
+            mean, p, p_hat, s, f = self._update_distribution(mean, x, y, p, p_hat, s, f)
             self._n_generations += 1
             self._print_verbose_info(y)
-            mean, p, p_hat, s, f = self._update_distribution(mean, x, y, p, p_hat, s, f)
+            mean, x, y, p, p_hat, s, f = self.restart_initialize(args, mean, x, y, p, p_hat, s, f)
         results = self._collect_results(fitness, mean)
         return results
