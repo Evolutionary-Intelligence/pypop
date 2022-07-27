@@ -218,6 +218,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). Foundations of Computational Mathematics, 22(2), pp.507-560.
 
+  * Porcelli, M. and Toint, P.L., 2022. [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054). ACM Transactions on Mathematical Software, 48(1), pp.1-25.
+
   * Gao, K. and Sener, O., 2022, June. [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html). In International Conference on Machine Learning (pp. 7077-7101). PMLR.
 
   * Kochenderfer, M.J. and Wheeler, T.A., 2019. [Algorithms for optimization](https://algorithmsbook.com/optimization/). MIT Press.
@@ -227,6 +229,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
   * Nesterov, Y., 2018. [Lectures on convex optimization](https://link.springer.com/book/10.1007/978-3-319-91578-4). Berlin: Springer International Publishing.
 
   * Nesterov, Y. and Spokoiny, V., 2017. [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2). Foundations of Computational Mathematics, 17(2), pp.527-566.
+
+  * Conn, A.R., Scheinberg, K. and Vicente, L.N., 2009. [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768). Society for Industrial and Applied Mathematics.
 
   * Fermi, E., 1952. [Numerical solution of a minimum problem](https://www.osti.gov/servlets/purl/4377177). Los Alamos Scientific Lab., Los Alamos, NM.
 
@@ -371,6 +375,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
   * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). In Proceedings of International Conference on Genetic Algorithms (pp. 116-121).
 
 * Wright, M.H., 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
+
+  * Singer, S. and Nelder, J., 2009. [Nelder-mead algorithm](http://var.scholarpedia.org/article/Nelder-Mead_algorithm). Scholarpedia, 4(7), p.2928.
 
   * Kolda, T.G., Lewis, R.M. and Torczon, V., 2003. [Optimization by direct search: New perspectives on some classical and modern methods](https://epubs.siam.org/doi/abs/10.1137/S003614450242889). SIAM Review, 45(3), pp.385-482.
 
