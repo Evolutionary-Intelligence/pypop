@@ -370,6 +370,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). In Proceedings of International Conference on Genetic Algorithms (pp. 116-121).
 
+* Wright, M.H., 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
+
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
 ## Research Support
