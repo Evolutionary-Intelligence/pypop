@@ -372,6 +372,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 * Wright, M.H., 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
 
+  * Nelder, J.A. and Mead, R., 1965. [A simplex method for function minimization](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237). The Computer Journal, 7(4), pp.308-313.
+
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
 ## Research Support
