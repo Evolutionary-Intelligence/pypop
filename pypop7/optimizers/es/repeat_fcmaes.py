@@ -77,8 +77,8 @@ def plot(function):
     plt.ylabel("objective values")
     plt.title(function.capitalize())
     plt.legend(labels=['n=512', 'n=1024'], loc='best')
-    plt.show()
     plt.savefig('result_' + function + '.png')
+    plt.show()
 
 
 if __name__ == '__main__':
