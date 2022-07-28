@@ -30,7 +30,7 @@ class CCMAES2016(ES):
     def _set_c_mu(self):
         return self._mu_eff / (np.power(self.ndim_problem, 2) + self._mu_eff)
 
-    def initialize(self, is_restart=None):
+    def initialize(self, is_restart=False):
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         a = np.diag(np.ones((self.ndim_problem,)))  # cholesky factor
