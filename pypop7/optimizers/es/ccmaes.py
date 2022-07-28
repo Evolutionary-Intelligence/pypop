@@ -27,7 +27,7 @@ class CCMAES(ES):
     def _set_d_s(self):
         return 1 + 2 * np.maximum(0, np.sqrt((self._mu_eff - 1) / (self.ndim_problem + 1)) - 1) + self.c_s
 
-    def initialize(self, is_restart=None):
+    def initialize(self, is_restart=False):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
