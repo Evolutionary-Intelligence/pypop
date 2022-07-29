@@ -8,9 +8,15 @@ class DS(Optimizer):
 
     Reference
     ---------
+    Wright, M.H., 1996.
+    Direct search methods: Once scorned, now respectable.
+    Pitman Research Notes in Mathematics Series, pp.191-208.
+    https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable
+
     Hooke, R. and Jeeves, T.A., 1961.
     “Direct search” solution of numerical and statistical problems.
     Journal of the ACM, 8(2), pp.212-229.
+    https://dl.acm.org/doi/10.1145/321062.321069
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
@@ -33,8 +39,7 @@ class DS(Optimizer):
 
     def _initialize_x(self, is_restart=False):
         if is_restart or (self.x is None):
-            x = self.rng_initialization.uniform(self.initial_lower_boundary,
-                                                self.initial_upper_boundary)
+            x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         else:
             x = np.copy(self.x)
         return x
