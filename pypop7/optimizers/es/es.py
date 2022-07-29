@@ -62,8 +62,8 @@ class ES(Optimizer):
         self._sigma_bak = np.copy(self.sigma)
         self.sigma_threshold = options.get('sigma_threshold', 1e-10)
         self._fitness_list = [self.best_so_far_y]  # store best_so_far_y generated in each generation
-        self.stagnation = options.get('stagnation', self.ndim_problem)  # number of generations
-        self.fitness_diff = options.get('fitness_diff', 1e-10)
+        self.stagnation = options.get('stagnation', np.maximum(32, self.ndim_problem))  # number of generations
+        self.fitness_diff = options.get('fitness_diff', 1e-10)  # threshold of fitness difference
 
     def initialize(self):
         raise NotImplementedError
@@ -73,8 +73,7 @@ class ES(Optimizer):
 
     def _initialize_mean(self, is_restart=False):
         if is_restart or (self.mean is None):
-            mean = self.rng_initialization.uniform(self.initial_lower_boundary,
-                                                   self.initial_upper_boundary)
+            mean = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         else:
             mean = np.copy(self.mean)
         return mean
