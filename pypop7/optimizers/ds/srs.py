@@ -1,9 +1,9 @@
 import numpy as np
 
-from pypop7.optimizers.dsm.dsm import DSM
+from pypop7.optimizers.ds.ds import DS
 
 
-class SRS(DSM):
+class SRS(DS):
     """Simple Random Search(SRS)
     Reference
     --------------
@@ -37,7 +37,7 @@ class SRS(DSM):
         return x, x_best, y, y_best
 
     def optimize(self, fitness_function=None):
-        fitness = DSM.optimize(self, fitness_function)
+        fitness = DS.optimize(self, fitness_function)
         x, x_best, y_best = self.initialize()
         while True:
             self.sigma = max(self.gamma * self.sigma, self.sigma_min)
