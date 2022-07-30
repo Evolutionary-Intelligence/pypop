@@ -156,7 +156,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
 * **Direct Search (DS)** [See e.g. [Wright, 1996](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
 
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Nelder-Mead Simplex Method ([NM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/nm.py)) [See [Nelder&Mead, 1965, Computer](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Nelder-Mead simplex method ([NM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/nm.py)) [See [Nelder&Mead, 1965, Computer](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Hooke-Jeeves direct search method ([HJ](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/hj.py)) [See [Kochenderfer&Wheeler, 2019](https://algorithmsbook.com/optimization/files/chapter-7.pdf); [Kaupe, 1963, CACM](https://dl.acm.org/doi/pdf/10.1145/366604.366632); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
 
@@ -174,7 +174,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * From the *problem-solving* perspective, we empirically prefer to choose the *best* optimizer for the black-box optimization problem at hand. However, for the *new* problem, the *best* optimizer is often unknown in advance (without *a prior* knowledge). As a rule of thumb, we need to compare a (often small) set of all available/well-known optimizers and choose the *best* one from them according to some predefined performance criteria. From the *research* perspective, however, we like *beautiful* optimizers, though always keeping the **[“No Free Lunch” theorem](https://ieeexplore.ieee.org/document/585893)** in mind. Typically, the **beauty** of one optimizer comes from the following features: **novelty** (e.g., GA/PSO), **competitive performance** on at least one class of problems (e.g., BO), **theoretical insights** (e.g., CMA-ES/NES), **clarity/simplicity** (e.g., CEM/EDA), and **repeatability**.
 
-  * If you find any DFO to meet the above standard, welcome to launch [issues](https://github.com/Evolutionary-Intelligence/pypop/issues) or [pulls](https://github.com/Evolutionary-Intelligence/pypop/pulls). We will consider it to be included in the ```pypop``` library. Note that **[any superficial imitation](https://dl.acm.org/doi/10.1145/3402220.3402221)** to the above well-established optimizers (**['Old Wine in a New Bottle'](https://link.springer.com/article/10.1007/s11721-021-00202-9)**) will be *NOT* considered.
+  * If you find any DFO to meet the above standard, welcome to launch [issues](https://github.com/Evolutionary-Intelligence/pypop/issues) or [pulls](https://github.com/Evolutionary-Intelligence/pypop/pulls). We will consider it to be included in the ```pypop``` library. Note that **any [superficial](https://onlinelibrary.wiley.com/doi/full/10.1111/itor.13176) [imitation](https://dl.acm.org/doi/10.1145/3402220.3402221)** to the above well-established optimizers (**['Old Wine in a New Bottle'](https://link.springer.com/article/10.1007/s11721-021-00202-9)**) will be *NOT* considered.
 
 * **Respect for Diversity**
 
@@ -381,6 +381,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
   * Singer, S. and Nelder, J., 2009. [Nelder-mead algorithm](http://var.scholarpedia.org/article/Nelder-Mead_algorithm). Scholarpedia, 4(7), p.2928.
 
   * Kolda, T.G., Lewis, R.M. and Torczon, V., 2003. [Optimization by direct search: New perspectives on some classical and modern methods](https://epubs.siam.org/doi/abs/10.1137/S003614450242889). SIAM Review, 45(3), pp.385-482.
+
+  * Torczon, V., 1997. [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780). SIAM Journal on Optimization, 7(1), pp.1-25.
 
   * Nelder, J.A. and Mead, R., 1965. [A simplex method for function minimization](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237). The Computer Journal, 7(4), pp.308-313.
 
