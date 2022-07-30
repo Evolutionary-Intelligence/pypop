@@ -38,9 +38,9 @@ class HJ(DS):
         improved = False
         for i in range(self.ndim_problem):
             for sgn in [-1, 1]:
-                xx = np.copy(x)
                 if self._check_terminations():
                     return best_so_far_x, best_so_far_y
+                xx = np.copy(x)
                 xx[i] += sgn * self.sigma
                 y = self._evaluate_fitness(xx, args)
                 if self.record_fitness:
