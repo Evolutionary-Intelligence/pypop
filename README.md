@@ -196,9 +196,7 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 ## Reference
 
-* [https://sites.google.com/view/benchmarking-network](https://sites.google.com/view/benchmarking-network)
-
-  * [https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop](https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop)
+* [https://sites.google.com/view/benchmarking-network](https://sites.google.com/view/benchmarking-network) | [PPSN-2022](https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop)
 
   * Meunier, L., Rakotoarison, H., Wong, P.K., Roziere, B., Rapin, J., Teytaud, O., Moreau, A. and Doerr, C., 2022. [Black-box optimization revisited: Improving algorithm selection wizards through massive benchmarking](https://ieeexplore.ieee.org/abstract/document/9524335). IEEE Transactions on Evolutionary Computation, 26(3), pp.490-500.
 
@@ -378,9 +376,13 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 * Wright, M.H., 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
 
+  * Audet, C., Le Digabel, S., Rochon Montplaisir, V. and Tribes, C., 2022. [Algorithm XXXX: NOMAD version 4: Nonlinear optimization with the MADS algorithm](https://dl.acm.org/doi/abs/10.1145/3544489). ACM Transactions on Mathematical Software.
+
   * Singer, S. and Nelder, J., 2009. [Nelder-mead algorithm](http://var.scholarpedia.org/article/Nelder-Mead_algorithm). Scholarpedia, 4(7), p.2928.
 
   * Kolda, T.G., Lewis, R.M. and Torczon, V., 2003. [Optimization by direct search: New perspectives on some classical and modern methods](https://epubs.siam.org/doi/abs/10.1137/S003614450242889). SIAM Review, 45(3), pp.385-482.
+
+  * Lagarias, J.C., Reeds, J.A., Wright, M.H. and Wright, P.E., 1998. [Convergence properties of the Nelder--Mead simplex method in low dimensions](https://epubs.siam.org/doi/abs/10.1137/S1052623496303470). SIAM Journal on Optimization, 9(1), pp.112-147.
 
   * Torczon, V., 1997. [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780). SIAM Journal on Optimization, 7(1), pp.1-25.
 
@@ -389,6 +391,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
   * Kaupe Jr, A.F., 1963. [Algorithm 178: Direct search](https://dl.acm.org/doi/pdf/10.1145/366604.366632). Communications of the ACM, 6(6), pp.313-314.
 
   * Hooke, R. and Jeeves, T.A., 1961. [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069). Journal of the ACM, 8(2), pp.212-229.
+
+  * Box, G.E., 1957. [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505). Journal of the Royal Statistical Society: Series C (Applied Statistics), 6(2), pp.81-101.
 
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
