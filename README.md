@@ -382,6 +382,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Kolda, T.G., Lewis, R.M. and Torczon, V., 2003. [Optimization by direct search: New perspectives on some classical and modern methods](https://epubs.siam.org/doi/abs/10.1137/S003614450242889). SIAM Review, 45(3), pp.385-482.
 
+  * Lagarias, J.C., Reeds, J.A., Wright, M.H. and Wright, P.E., 1998. [Convergence properties of the Nelder--Mead simplex method in low dimensions](https://epubs.siam.org/doi/abs/10.1137/S1052623496303470). SIAM Journal on Optimization, 9(1), pp.112-147.
+
   * Torczon, V., 1997. [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780). SIAM Journal on Optimization, 7(1), pp.1-25.
 
   * Nelder, J.A. and Mead, R., 1965. [A simplex method for function minimization](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237). The Computer Journal, 7(4), pp.308-313.
