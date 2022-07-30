@@ -28,7 +28,7 @@ class NM(DS):
         self.alpha = options.get('alpha', 1)  # reflection factor
         self.gamma = options.get('gamma', 2)  # expansion factor
         self.beta = options.get('beta', 0.5)  # contraction factor
-        self.shrinkage = options.get('', 0.5)  # shrinkage factor
+        self.shrinkage = options.get('shrinkage', 0.5)  # shrinkage factor
         self.n_individuals = self.ndim_problem + 1
 
     def initialize(self, args=None, is_restart=False):
@@ -44,15 +44,23 @@ class NM(DS):
             y[i] = self._evaluate_fitness(x[i], args)
         return x, y
 
-    def iterate(self, x=None, y=None, args=None):
+    def iterate(self, x=None, y=None, args=None, fitness=None):
         order = np.argsort(y)
         l, h = order[0], order[-1]  # index of lowest and highest points
         p_mean = np.mean(x[order[:-1]], axis=0)  # centroid of all vertices except the worst
         p_star = (1 + self.alpha) * p_mean - self.alpha * x[h]  # reflection
         y_star = self._evaluate_fitness(p_star, args)
+        if self.record_fitness:
+            fitness.append(y_star)
+        if self._check_terminations():
+            return x, y
         if y_star < y[l]:
             p_star_star = self.gamma * p_star + (1 - self.gamma) * p_mean  # expansion
             y_star_star = self._evaluate_fitness(p_star_star, args)
+            if self.record_fitness:
+                fitness.append(y_star_star)
+            if self._check_terminations():
+                return x, y
             if y_star_star < y_star:  # as suggested in [Wright, 1996]
                 x[h], y[h] = p_star_star, y_star_star
             else:
@@ -63,10 +71,18 @@ class NM(DS):
                     x[h], y[h] = p_star, y_star
                 p_star_star = self.beta * x[h] + (1 - self.beta) * p_mean
                 y_star_star = self._evaluate_fitness(p_star_star, args)
+                if self.record_fitness:
+                    fitness.append(y_star_star)
+                if self._check_terminations():
+                    return x, y
                 if y_star_star > y[h]:
                     for i in range(1, self.n_individuals):  # shrinkage
                         x[order[i]] = x[l] + self.shrinkage * (x[order[i]] - x[l])
                         y[order[i]] = self._evaluate_fitness(x[order[i]], args)
+                        if self.record_fitness:
+                            fitness.append(y[order[i]])
+                        if self._check_terminations():
+                            return x, y
                 else:
                     x[h], y[h] = p_star_star, y_star_star
             else:
@@ -92,9 +108,7 @@ class NM(DS):
         x, y = self.initialize(args)
         fitness.extend(y)
         while True:
-            x, y = self.iterate(x, y, args)
-            if self.record_fitness:
-                fitness.extend(y)
+            x, y = self.iterate(x, y, args, fitness)
             if self._check_terminations():
                 break
             self._n_generations += 1
