@@ -390,6 +390,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Hooke, R. and Jeeves, T.A., 1961. [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069). Journal of the ACM, 8(2), pp.212-229.
 
+  * Box, G.E., 1957. [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505). Journal of the Royal Statistical Society: Series C (Applied Statistics), 6(2), pp.81-101.
+
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
 ## Research Support
