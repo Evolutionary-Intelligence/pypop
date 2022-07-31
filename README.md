@@ -250,8 +250,6 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Choromanski, K., Pacchiano, A., Parker-Holder, J. and Tang, Y., 2019. [From complexity to simplicity: Adaptive es-active subspaces for blackbox optimization](https://papers.nips.cc/paper/2019/hash/88bade49e98db8790df275fcebb37a13-Abstract.html). In Advances in Neural Information Processing Systems.
 
-  * Liu, G., Zhao, L., Yang, F., Bian, J., Qin, T., Yu, N. and Liu, T.Y., 2019, July. [Trust region evolution strategies](https://ojs.aaai.org/index.php/AAAI/article/view/4345). In Proceedings of AAAI Conference on Artificial Intelligence (Vol. 33, No. 01, pp. 4352-4359).
-
   * Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2019. [Large scale black-box optimization by limited-memory matrix adaptation](https://ieeexplore.ieee.org/abstract/document/8410043). IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
 
   * Li, Z., Zhang, Q., Lin, X. and Zhen, H.L., 2018. [Fast covariance matrix adaptation for large-scale black-box optimization](https://ieeexplore.ieee.org/abstract/document/8533604). IEEE Transactions on Cybernetics, 50(5), pp.2073-2083.
@@ -324,7 +322,7 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Rechenberg, I., 1984. [The evolution strategy. A mathematical model of darwinian evolution](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13). In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer, Berlin, Heidelberg.
   
-  * Applications: e.g., [Tian&Ha, 2022, EvoStar](https://link.springer.com/chapter/10.1007/978-3-031-03789-4_18); [Nomura et al., 2021, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/17109); [Ha&Schmidhuber, 2018, NeurIPS](https://papers.nips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html); [OpenAI, 2017](https://openai.com/blog/evolution-strategies/); [Chrabąszcz et al., 2018, IJCAI](https://www.ijcai.org/proceedings/2018/197); [Zhang et al., 2017, Science](https://www.science.org/doi/10.1126/science.aal5054)
+  * Applications: e.g., [Tian&Ha, 2022, EvoStar](https://link.springer.com/chapter/10.1007/978-3-031-03789-4_18); [Nomura et al., 2021, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/17109); [Liu et al., 2019, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/4345); [Ha&Schmidhuber, 2018, NeurIPS](https://papers.nips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html); [OpenAI, 2017](https://openai.com/blog/evolution-strategies/); [Chrabąszcz et al., 2018, IJCAI](https://www.ijcai.org/proceedings/2018/197); [Zhang et al., 2017, Science](https://www.science.org/doi/10.1126/science.aal5054)
 
 * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482. [ [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/) ]
 
