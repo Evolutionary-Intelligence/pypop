@@ -388,6 +388,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Nelder, J.A. and Mead, R., 1965. [A simplex method for function minimization](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237). The Computer Journal, 7(4), pp.308-313.
 
+  * Powell, M.J., 1964. [An efficient method for finding the minimum of a function of several variables without calculating derivatives](https://academic.oup.com/comjnl/article-abstract/7/2/155/335330). The Computer Journal, 7(2), pp.155-162.
+
   * Kaupe Jr, A.F., 1963. [Algorithm 178: Direct search](https://dl.acm.org/doi/pdf/10.1145/366604.366632). Communications of the ACM, 6(6), pp.313-314.
 
   * Hooke, R. and Jeeves, T.A., 1961. [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069). Journal of the ACM, 8(2), pp.212-229.
