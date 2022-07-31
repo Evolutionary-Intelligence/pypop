@@ -8,15 +8,30 @@ class DS(Optimizer):
 
     Reference
     ---------
+    Torczon, V., 1997.
+    On the convergence of pattern search algorithms.
+    SIAM Journal on Optimization, 7(1), pp.1-25.
+    https://epubs.siam.org/doi/abs/10.1137/S1052623493250780
+
     Wright, M.H., 1996.
     Direct search methods: Once scorned, now respectable.
     Pitman Research Notes in Mathematics Series, pp.191-208.
     https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable
 
+    Nelder, J.A. and Mead, R., 1965.
+    A simplex method for function minimization.
+    The Computer Journal, 7(4), pp.308-313.
+    https://academic.oup.com/comjnl/article-abstract/7/4/308/354237
+
     Hooke, R. and Jeeves, T.A., 1961.
     “Direct search” solution of numerical and statistical problems.
     Journal of the ACM, 8(2), pp.212-229.
     https://dl.acm.org/doi/10.1145/321062.321069
+
+    Fermi, E. and Metropolis N., 1952.
+    Numerical solution of a minimum problem.
+    Los Alamos Scientific Lab., Los Alamos, NM.
+    https://www.osti.gov/servlets/purl/4377177
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
