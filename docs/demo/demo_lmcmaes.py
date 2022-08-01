@@ -68,7 +68,6 @@ if __name__ == '__main__':
         plot_contour(shi_cd, [-10, 10], [-10, 10], [0, 10, 100, 500, 1000, 2000])
         plt.scatter(res['x_data'][i][:, 0], res['x_data'][i][:, 1], c='white', s=3)
         plt.scatter(res['mean_data'][i][0], res['mean_data'][i][1], c='magenta', s=12)
-        plt.pause(0.05)
         camera.snap()
     animation = camera.animate()
     animation.save('demo_lmcmaes.gif')
