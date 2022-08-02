@@ -6,12 +6,12 @@ from pypop7.optimizers.ds.ds import DS
 class CS(DS):
     """Coordinate Search (CS).
 
-    AKA: alternating directions, alternating variable search, axial relaxation, local variation
+    AKA: alternating directions, alternating variable search, axial relaxation, local variation, compass search
 
     NOTE that the current implementation is a highly simplified version of the Coordinate Search algorithm,
         since its original version needs (3 ** n - 1) samples for each iteration in the worst case, where n
         is the dimensionality of the problem. Such a worst-case complexity limits its applicability for
-        large-scale optimization scenarios. Instead, here we use the greedy strategy for simplicity.
+        large-scale optimization scenarios. Instead, here we use the opportunistic strategy for simplicity.
         See Algorithm 3 from [Torczon, 1997, SIAM-JO] for details.
 
     Reference
@@ -47,7 +47,7 @@ class CS(DS):
                 if self.record_fitness:
                     fitness.append(y)
                 if y < self.best_so_far_y:
-                    x = xx  # greedy
+                    x = xx  # greedy / opportunistic
                     improved = True
                     break
         if not improved:
