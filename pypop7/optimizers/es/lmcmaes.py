@@ -37,7 +37,7 @@ class LMCMAES(ES):
         self._j = None
         self._l = None
 
-    def initialize(self, is_restart=None):
+    def initialize(self, is_restart=False):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
         p_c = np.zeros((self.ndim_problem,))  # evolution path
