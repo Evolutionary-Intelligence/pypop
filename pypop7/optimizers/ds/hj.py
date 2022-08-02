@@ -31,27 +31,26 @@ class HJ(DS):
     def initialize(self, args=None, is_restart=False):
         x = self._initialize_x(is_restart)  # initial point
         y = self._evaluate_fitness(x, args)  # fitness
-        best_so_far_x, best_so_far_y = np.copy(x), y  # base point
-        return x, y, best_so_far_x, best_so_far_y
+        return x, y
 
-    def iterate(self, args=None, x=None, best_so_far_x=None, best_so_far_y=None, fitness=None):
-        improved = False
+    def iterate(self, args=None, x=None, fitness=None):
+        improved, best_so_far_x, best_so_far_y = False, self.best_so_far_x, self.best_so_far_y
         for i in range(self.ndim_problem):
             for sgn in [-1, 1]:
                 if self._check_terminations():
-                    return best_so_far_x, best_so_far_y
-                xx = np.copy(x)
+                    return None
+                xx = np.copy(best_so_far_x)
                 xx[i] += sgn * self.sigma
                 y = self._evaluate_fitness(xx, args)
                 if self.record_fitness:
                     fitness.append(y)
                 if y < best_so_far_y:
-                    best_so_far_x, best_so_far_y, improved = np.copy(xx), y, True
+                    best_so_far_y, improved = y, True
         if not improved:
             self.sigma *= self.gamma  # alpha
-        return best_so_far_x, best_so_far_y
+        return None
 
-    def restart_initialize(self, args=None, x=None, y=None, best_so_far_x=None, best_so_far_y=None, fitness=None):
+    def restart_initialize(self, args=None, x=None, y=None, fitness=None):
         self._fitness_list.append(self.best_so_far_y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
         if len(self._fitness_list) >= self.stagnation:
@@ -60,23 +59,22 @@ class HJ(DS):
         if is_restart:
             self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
-            x, y, best_so_far_x, best_so_far_y = self.initialize(args, is_restart)
+            x, y = self.initialize(args, is_restart)
             fitness.append(y)
-            self._fitness_list = [best_so_far_y]
-        return x, y, best_so_far_x, best_so_far_y
+            self._fitness_list = [self.best_so_far_y]
+        return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DS.optimize(self, fitness_function)
-        x, y, best_so_far_x, best_so_far_y = self.initialize(args)
+        x, y = self.initialize(args)
         fitness.append(y)
         while True:
-            x, y = self.iterate(args, x, best_so_far_x, best_so_far_y, fitness)
+            self.iterate(args, x, fitness)
             if self._check_terminations():
                 break
             self._n_generations += 1
             self._print_verbose_info(y)
             if self.is_restart:
-                x, y, best_so_far_x, best_so_far_y = self.restart_initialize(
-                    args, x, y, best_so_far_x, best_so_far_y, fitness)
+                x, y = self.restart_initialize(args, x, y, fitness)
         results = self._collect_results(fitness)
         return results
