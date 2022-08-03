@@ -402,6 +402,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
+* Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press.
+
 ## Research Support
 
 This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed by three of his group members (e.g., *Qiqi Duan*, *Chang Shao*, *Guochen Zhou*).
