@@ -402,7 +402,7 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
-* Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press.
+* Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
 
 ## Research Support
 
