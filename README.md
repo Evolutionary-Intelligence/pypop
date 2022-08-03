@@ -396,7 +396,7 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Spang, III, H.A., 1962. [A review of minimization techniques for nonlinear functions](https://epubs.siam.org/doi/abs/10.1137/1004089). SIAM Review, 4(4), pp.343-365.
 
-  * Hooke, R. and Jeeves, T.A., 1961. [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069). Journal of the ACM, 8(2), pp.212-229.
+  * Hooke, R. and Jeeves, T.A., 1961. [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069). Journal of the ACM, 8(2), pp.212-229. [ [Python - pymoo](https://pymoo.org/algorithms/soo/pattern.html) ]
 
   * Box, G.E., 1957. [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505). Journal of the Royal Statistical Society: Series C (Applied Statistics), 6(2), pp.81-101.
 
