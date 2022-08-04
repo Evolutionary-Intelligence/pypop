@@ -408,7 +408,7 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Fermi, E. and Metropolis N., 1952. [Numerical solution of a minimum problem](https://www.osti.gov/servlets/purl/4377177). Los Alamos Scientific Lab., Los Alamos, NM.
 
-  * Applications: e.g., [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902)
+  * Applications: e.g., [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Schneider, 1999, Genetics](https://academic.oup.com/genetics/article/152/3/1079/6034947); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902)
 
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
