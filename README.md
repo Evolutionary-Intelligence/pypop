@@ -154,7 +154,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
 * **Differential Evolution (DE)** [See e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 
-* **Direct Search (DS)** [See e.g. [Wright, 1996](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
+* **Direct Search (DS)** [See e.g. [Powell, 1998, Acta-Numerica](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C); [Wright, 1996](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Generalized Pattern Search ([GPS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/gps.py)) [See [Kochenderfer&Wheeler, 2019](https://algorithmsbook.com/optimization/files/chapter-7.pdf); [Torczon, 1997, SIAM-JO](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780)]
   
@@ -387,6 +387,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
   * Kolda, T.G., Lewis, R.M. and Torczon, V., 2003. [Optimization by direct search: New perspectives on some classical and modern methods](https://epubs.siam.org/doi/abs/10.1137/S003614450242889). SIAM Review, 45(3), pp.385-482.
 
   * Lagarias, J.C., Reeds, J.A., Wright, M.H. and Wright, P.E., 1998. [Convergence properties of the Nelder--Mead simplex method in low dimensions](https://epubs.siam.org/doi/abs/10.1137/S1052623496303470). SIAM Journal on Optimization, 9(1), pp.112-147.
+
+  * Powell, M.J., 1998. [Direct search algorithms for optimization calculations](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C). Acta Numerica, 7, pp.287-336.
 
   * Torczon, V., 1997. [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780). SIAM Journal on Optimization, 7(1), pp.1-25.
 
