@@ -368,6 +368,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Poli, R., Kennedy, J. and Blackwell, T., 2007. [Particle swarm optimization](https://link.springer.com/article/10.1007/s11721-007-0002-0). Swarm Intelligence, 1(1), pp.33-57.
 
+  * Parsopoulos, K.E. and Vrahatis, M.N., 2002. [Recent approaches to global optimization problems through particle swarm optimization](https://link.springer.com/article/10.1023/A:1016568309421). Natural Computing, 1(2), pp.235-306.
+
   * Eberhart, R.C., Shi, Y. and Kennedy, J., 2001. [Swarm intelligence](https://www.elsevier.com/books/swarm-intelligence/eberhart/978-1-55860-595-4). Elsevier.
 
 * [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/)
