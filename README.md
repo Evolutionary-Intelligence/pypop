@@ -404,6 +404,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
   * Fermi, E. and Metropolis N., 1952. [Numerical solution of a minimum problem](https://www.osti.gov/servlets/purl/4377177). Los Alamos Scientific Lab., Los Alamos, NM.
 
+  * Applications: e.g., [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902)
+
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
 * Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
