@@ -407,6 +407,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
   * Box, G.E., 1957. [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505). Journal of the Royal Statistical Society: Series C (Applied Statistics), 6(2), pp.81-101.
 
   * Fermi, E. and Metropolis N., 1952. [Numerical solution of a minimum problem](https://www.osti.gov/servlets/purl/4377177). Los Alamos Scientific Lab., Los Alamos, NM.
+  
+    * Anderson, H.L., Davidon, W.C., Glicksman, M. and Kruse, U.E., 1955. [Scattering of positive pions by hydrogen at 189 MeV](https://journals.aps.org/pr/abstract/10.1103/PhysRev.100.279). Physical Review, 100(1), p.279.
 
   * Applications: e.g., [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Schneider, 1999, Genetics](https://academic.oup.com/genetics/article/152/3/1079/6034947); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902)
 
