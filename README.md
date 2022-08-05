@@ -416,6 +416,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 * Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
 
+  * Custódio, A.L., Scheinberg, K. and Nunes Vicente, L., 2017. [Methodologies and software for derivative-free optimization](https://epubs.siam.org/doi/abs/10.1137/1.9781611974683.ch37). Advances and Trends in Optimization with Engineering Applications, pp.495-506.
+
 ## Research Support
 
 This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed by three of his group members (e.g., *Qiqi Duan*, *Chang Shao*, *Guochen Zhou*).
