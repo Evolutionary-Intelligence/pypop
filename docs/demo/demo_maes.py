@@ -59,7 +59,7 @@ if __name__ == '__main__':
     plt.rcParams['font.family'] = 'Times New Roman'
     plt.rcParams['font.size'] = '12'
     camera = Camera(fig)
-    for i in range(15):
+    for i in range(len(res['mean_data'])):
         plt.xlim([-10, 10])
         plt.ylim([-10, 10])
         plt.xticks([-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10])
