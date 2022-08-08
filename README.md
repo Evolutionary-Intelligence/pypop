@@ -61,6 +61,8 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 | MA-ES | LM-CMA-ES |
 | ----- | --------- |
 | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_maes.gif" alt="drawing" width="200"/> | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_lmcmaes.gif" alt="drawing" width="200"/> |
+| **Hooke-Jeeves** | **Nelder-Mead** |
+| <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_hj.gif" alt="drawing" width="200"/> | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_nm.gif" alt="drawing" width="200"/> |
 
 ## A (*Still Growing*) List of **Publicly Available** Gradient-Free Optimizers (GFO)
 
