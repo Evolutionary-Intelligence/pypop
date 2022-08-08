@@ -14,7 +14,7 @@ from pypop7.optimizers.de.jade import JADE as Solver
 class TestJADE(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
-        ndim_problem = 10
+        ndim_problem = 1000
         for f in [ellipsoid, rosenbrock, rastrigin]:
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
@@ -24,11 +24,11 @@ class TestJADE(unittest.TestCase):
             options = {'max_function_evaluations': 2e6,
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
-                       'x': 4 * np.ones((ndim_problem,)),
-                       'n_individuals': 100,
-                       'verbose_frequency': 200,
+                       'x': 4 * np.ones((ndim_problem,)),  # mean
+                       'sigma': 0.1,
+                       'verbose_frequency': 2000,
                        'record_fitness': True,
-                       'record_fitness_frequency': 20000}
+                       'record_fitness_frequency': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
