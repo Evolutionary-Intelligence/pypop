@@ -14,7 +14,7 @@ from pypop7.optimizers.es.rscmsa import RSCMSA as Solver
 class TestRSCMSA(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
-        ndim_problem = 10
+        ndim_problem = 1000
         for f in [ellipsoid, rosenbrock, rastrigin]:
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
