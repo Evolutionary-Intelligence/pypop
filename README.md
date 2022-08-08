@@ -202,6 +202,10 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
 For LSO, computational efficiency is an indispensable performance criterion of DFO [in the post-Moore era](https://www.science.org/doi/10.1126/science.aam9744). To obtain high-performance computation as much as possible, [NumPy](https://www.nature.com/articles/s41586-020-2649-2) is heavily used in this library as the base of numerical computation along with [SciPy](https://www.nature.com/articles/s41592-019-0686-2). Sometimes, [Numba](https://numba.pydata.org/) is also utilized, in order to further accelerate the wall-clock time.
 
+## Development Guide
+
+[PEP 257 – Docstring Conventions](https://peps.python.org/pep-0257/)
+
 ## Reference
 
 * [https://sites.google.com/view/benchmarking-network](https://sites.google.com/view/benchmarking-network) | [PPSN-2022](https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop)
