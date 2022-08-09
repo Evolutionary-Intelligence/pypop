@@ -61,6 +61,8 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 | MA-ES | LM-CMA-ES |
 | ----- | --------- |
 | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_maes.gif" alt="drawing" width="200"/> | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_lmcmaes.gif" alt="drawing" width="200"/> |
+| **Hooke-Jeeves** | **Nelder-Mead** |
+| <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_hj.gif" alt="drawing" width="200"/> | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_nm.gif" alt="drawing" width="200"/> |
 
 ## A (*Still Growing*) List of **Publicly Available** Gradient-Free Optimizers (GFO)
 
@@ -199,6 +201,10 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 ## Computational Efficiency
 
 For LSO, computational efficiency is an indispensable performance criterion of DFO [in the post-Moore era](https://www.science.org/doi/10.1126/science.aam9744). To obtain high-performance computation as much as possible, [NumPy](https://www.nature.com/articles/s41586-020-2649-2) is heavily used in this library as the base of numerical computation along with [SciPy](https://www.nature.com/articles/s41592-019-0686-2). Sometimes, [Numba](https://numba.pydata.org/) is also utilized, in order to further accelerate the wall-clock time.
+
+## Development Guide
+
+[PEP 257 – Docstring Conventions](https://peps.python.org/pep-0257/)
 
 ## Reference
 
@@ -414,7 +420,7 @@ For LSO, computational efficiency is an indispensable performance criterion of D
   
     * Anderson, H.L., Davidon, W.C., Glicksman, M. and Kruse, U.E., 1955. [Scattering of positive pions by hydrogen at 189 MeV](https://journals.aps.org/pr/abstract/10.1103/PhysRev.100.279). Physical Review, 100(1), p.279.
 
-  * Applications: e.g., [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Schneider, 1999, Genetics](https://academic.oup.com/genetics/article/152/3/1079/6034947); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902)
+  * Applications: e.g., [Khaledian et al., 2018, IEEE-TMTT](https://ieeexplore.ieee.org/abstract/document/8335770); [Luhar et al., 2015, JFM](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/framework-for-studying-the-effect-of-compliant-surfaces-on-wall-turbulence/47B8C79442109015690B6B16F891DF09); [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Schneider, 1999, Genetics](https://academic.oup.com/genetics/article/152/3/1079/6034947); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902)
 
 * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
