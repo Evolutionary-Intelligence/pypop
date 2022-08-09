@@ -19,3 +19,5 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
    :caption: Contents:
 
    installation
+   design-philosophy
+   hj
