@@ -9,11 +9,11 @@ Given a large number of optimizers which are keeping to increase almost every da
 
   If you find any to meet the above standard, welcome to launch `issues <https://github.com/Evolutionary-Intelligence/pypop/issues>`_ or `pulls <https://github.com/Evolutionary-Intelligence/pypop/pulls>`_. We will consider it to be included in the *pypop7* library. Note that any `superficial <https://onlinelibrary.wiley.com/doi/full/10.1111/itor.13176>`_ `imitation <https://dl.acm.org/doi/10.1145/3402220.3402221>`_ to the above well-established optimizers (`Old Wine in a New Bottle <https://link.springer.com/article/10.1007/s11721-021-00202-9>`_) will be NOT considered.
 
-..
+.. note::
 
   "If there is a single dominant theme in this ..., it is that practical methods of numerical computation can be simultaneously efficient, clever, and --important-- clear."
 
-  -- Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. Numerical recipes: The art of scientific computing. Cambridge University Press.
+  --- Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. Numerical recipes: The art of scientific computing. Cambridge University Press.
 
 * Respect for **Diversity**
 
@@ -23,11 +23,10 @@ Given a large number of optimizers which are keeping to increase almost every da
 
   For each optimizer included in *pypop7*, we expect to give its original/representative reference (also including its good implementations/improvements). If you find some important references missed, please do NOT hesitate to contact us (and we will be happy to add it if necessary).
 
-..
-
+.. note::
   "It is both enjoyable and educational to hear the ideas directly from the creators".
 
-  -- Hennessy, J.L. and Patterson, D.A., 2019. Computer architecture: A quantitative approach (Sixth Edition). Elsevier.
+  --- Hennessy, J.L. and Patterson, D.A., 2019. Computer architecture: A quantitative approach (Sixth Edition). Elsevier.
 
 * Respect for **Repeatability**
 
