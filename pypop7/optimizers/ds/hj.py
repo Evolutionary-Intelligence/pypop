@@ -6,8 +6,8 @@ from pypop7.optimizers.ds.ds import DS
 class HJ(DS):
     """Hooke-Jeeves direct search method (HJ).
 
-    Reference
-    ---------
+    References
+    ----------
     Kochenderfer, M.J. and Wheeler, T.A., 2019.
     Algorithms for optimization.
     MIT Press.
