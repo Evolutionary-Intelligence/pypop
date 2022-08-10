@@ -20,4 +20,5 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 
    installation
    design-philosophy
-   hj
+   ds/ds
+   ds/hj
