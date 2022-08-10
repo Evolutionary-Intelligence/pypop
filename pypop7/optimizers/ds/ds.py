@@ -14,15 +14,29 @@ class DS(Optimizer):
     Parameters
     ----------
     problem : dict
-              problem arguments.
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : dict
-              optimizer options.
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
+                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
+                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
+                * 'verbose_frequency'        - frequency of printing (`int`, default: `10`);
+              and with two particular settings (`keys`):
+                * 'x'     - initial (starting) point (`array_like`),
+                * 'sigma' - initial (global) step-size (`float`).
 
     Attributes
     ----------
     x     : `array_like`
             initial (starting) point.
-    sigma : float
+    sigma : `float`
             initial (global) step-size.
 
     Methods
