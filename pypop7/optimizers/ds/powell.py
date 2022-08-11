@@ -70,6 +70,8 @@ class POWELL(DS):
         fitness.append(y)
         while True:
             x, y, u = self.iterate(args, x, y, u)
+            if self.record_fitness:
+                fitness.append(y)
             if self._check_terminations():
                 break
             self._n_generations += 1
