@@ -6,15 +6,60 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class DS(Optimizer):
     """Direct Search (DS).
 
-    Reference
-    ---------
+    This is the **base** class for all DS classes.
+
+    .. note:: Its three methods (`initialize`, `iterate`, `optimize`) should be implemented by
+       its subclass.
+
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
+                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
+                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
+                * 'verbose_frequency'        - frequency of printing (`int`, default: `10`);
+              and with two particular settings (`keys`):
+                * 'x'     - initial (starting) point (`array_like`),
+                * 'sigma' - initial (global) step-size (`float`).
+
+    Attributes
+    ----------
+    x     : `array_like`
+            initial (starting) point.
+    sigma : `float`
+            initial (global) step-size.
+
+    Methods
+    -------
+
+    References
+    ----------
+    Kochenderfer, M.J. and Wheeler, T.A., 2019.
+    Algorithms for optimization. MIT Press.
+    https://algorithmsbook.com/optimization/
+    (See Chapter 7: Direct Methods for details.)
+
+    Audet, C. and Hare, W., 2017. Derivative-free and blackbox optimization.
+    Berlin: Springer International Publishing.
+    https://link.springer.com/book/10.1007/978-3-319-68913-5
+
     Torczon, V., 1997.
     On the convergence of pattern search algorithms.
     SIAM Journal on Optimization, 7(1), pp.1-25.
     https://epubs.siam.org/doi/abs/10.1137/S1052623493250780
 
-    Wright, M.H., 1996.
-    Direct search methods: Once scorned, now respectable.
+    `Wright, M.H. <https://www.informs.org/Explore/History-of-O.R.-Excellence/Biographical-Profiles/Wright-Margaret-H>`_
+    , 1996. Direct search methods: Once scorned, now respectable.
     Pitman Research Notes in Mathematics Series, pp.191-208.
     https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable
 
@@ -34,17 +79,27 @@ class DS(Optimizer):
     https://www.osti.gov/servlets/purl/4377177
     """
     def __init__(self, problem, options):
+        """Initialize the parameter settings of the DS class.
+
+        Parameters
+        ----------
+        problem : dict
+                  problem arguments.
+        options : dict
+                  optimizer options.
+        """
         Optimizer.__init__(self, problem, options)
-        self.x = options.get('x')  # initial point
-        self.sigma = options.get('sigma')  # global step-size
-        self._n_generations = 0
+        self.x = options.get('x')  # initial (starting) point
+        self.sigma = options.get('sigma')  # initial (global) step-size
+        self._n_generations = 0  # number of generations
         # for restart
-        self.n_restart = 0
-        self._sigma_bak = np.copy(self.sigma)
-        self.sigma_threshold = options.get('sigma_threshold', 1e-10)
-        self._fitness_list = [self.best_so_far_y]  # store `best_so_far_y` generated in each generation
-        self.stagnation = options.get('stagnation', np.maximum(32, self.ndim_problem))  # number of generations
-        self.fitness_diff = options.get('fitness_diff', 1e-10)  # threshold of fitness difference
+        self.n_restart = 0  # number of restarts
+        self.sigma_threshold = options.get('sigma_threshold', 1e-10)  # stopping threshold of sigma for restart
+        # maximal generation number of fitness stagnation for restart
+        self.stagnation = options.get('stagnation', np.maximum(32, self.ndim_problem))
+        self.fitness_diff = options.get('fitness_diff', 1e-10)  # stopping threshold of fitness difference for restart
+        self._sigma_bak = np.copy(self.sigma)  # bak for restart
+        self._fitness_list = [self.best_so_far_y]  # to store `best_so_far_y` generated in each generation
 
     def initialize(self):
         raise NotImplementedError
@@ -67,6 +122,6 @@ class DS(Optimizer):
     def _collect_results(self, fitness):
         results = Optimizer._collect_results(self, fitness)
         results['sigma'] = self.sigma
-        results['_n_generations'] = self._n_generations
         results['n_restart'] = self.n_restart
+        results['_n_generations'] = self._n_generations
         return results
