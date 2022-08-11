@@ -6,6 +6,77 @@ from pypop7.optimizers.ds.ds import DS
 class HJ(DS):
     """Hooke-Jeeves direct search method (HJ).
 
+    .. note:: `HJ` is one of the most popular and most cited Direct Search methods, originally published in one of
+       the top-tier Computer Science journals (i.e., JACM) in 1961. Although sometimes it is still used to optimize
+       *low-dimensional* black-box problems, it is **highly recommended** to first attempt other more advanced methods
+       for large-scale black-box optimization (LSBBO).
+
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
+                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
+
+                  * if `record_fitness` is set to `False`, it will be ignored,
+                  * if it is set to 1, all fitness generated during optimization will be saved into output results
+                    when `record_fitness` is set to `True`.
+
+                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
+                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+              and with three particular settings (`keys`):
+                * 'x'     - initial (starting) point (`array_like`),
+                * 'sigma' - initial (global) step-size (`float`),
+                * 'gamma' - decreasing factor of step-size (`float`, default: `0.5`).
+
+    Examples
+    --------
+    The below example is using the optimizer `HJ` to minimize the well-known test function *Rosenbrock*:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.ds.hj import HJ
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5 * numpy.ones((2,)),
+       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'x': 3 * numpy.ones((2,)),
+       ...            'sigma': 0.1,
+       ...            'verbose_frequency': 500}
+       >>> hooke_jeeves = HJ(problem, options)  # initialize the optimizer class
+       >>> results = hooke_jeeves.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"Hooke-Jeeves: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+         * Generation 500: best_so_far_y 3.76518e-01, min(y) 3.60400e+03 & Evaluations 2001
+         * Generation 1000: best_so_far_y 2.69498e-01, min(y) 3.60400e+03 & Evaluations 4001
+       Hooke-Jeeves: 5000, 0.22119484961034389
+
+    Furthermore, an interesting visualization of `HJ`'s search trajectory on a 2-dimensional test function is shown in
+        `this GitHub link <https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_hj.gif>`_.
+
+    Attributes
+    ----------
+    x     : `array_like`
+            initial (starting) point.
+    sigma : `float`
+            initial (global) step-size.
+    gamma : `float`
+            decreasing factor of step-size.
+
     References
     ----------
     Kochenderfer, M.J. and Wheeler, T.A., 2019.
@@ -27,6 +98,7 @@ class HJ(DS):
     def __init__(self, problem, options):
         DS.__init__(self, problem, options)
         self.gamma = options.get('gamma', 0.5)  # decreasing factor of step-size (γ)
+        assert self.gamma > 0.0, f'`self.gamma` == {self.gamma}, but should > 0.0.'
 
     def initialize(self, args=None, is_restart=False):
         x = self._initialize_x(is_restart)  # initial point
@@ -35,18 +107,18 @@ class HJ(DS):
 
     def iterate(self, args=None, x=None, fitness=None):
         improved, best_so_far_x, best_so_far_y = False, self.best_so_far_x, self.best_so_far_y
-        for i in range(self.ndim_problem):
-            for sgn in [-1, 1]:
+        for i in range(self.ndim_problem):  # search along each coordinate
+            for sgn in [-1, 1]:  # for two opponent directions
                 if self._check_terminations():
                     return None
                 xx = np.copy(best_so_far_x)
-                xx[i] += sgn * self.sigma
+                xx[i] += sgn*self.sigma
                 y = self._evaluate_fitness(xx, args)
                 if self.record_fitness:
                     fitness.append(y)
                 if y < best_so_far_y:
                     best_so_far_y, improved = y, True
-        if not improved:
+        if not improved:  # decrease step-size if no improvement
             self.sigma *= self.gamma  # alpha
         return None
 
