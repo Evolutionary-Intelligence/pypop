@@ -4,7 +4,7 @@ from pypop7.optimizers.ds.ds import DS
 
 
 class HJ(DS):
-    """Hooke-Jeeves direct search method (HJ).
+    """Hooke-Jeeves direct (pattern) search method (HJ).
 
     .. note:: `HJ` is one of the most popular and most cited Direct Search methods, originally published in one of
        the top-tier Computer Science journals (i.e., JACM) in 1961. Although sometimes it is still used to optimize
@@ -40,7 +40,8 @@ class HJ(DS):
 
     Examples
     --------
-    The below example is using the optimizer `HJ` to minimize the well-known test function *Rosenbrock*:
+    Use the Pattern Search optimizer `HJ` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
@@ -66,7 +67,7 @@ class HJ(DS):
        Hooke-Jeeves: 5000, 0.22119484961034389
 
     Furthermore, an interesting visualization of `HJ`'s search trajectory on a 2-dimensional test function is shown in
-        `this GitHub link <https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_hj.gif>`_.
+    `this GitHub link <https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_hj.gif>`_.
 
     Attributes
     ----------
