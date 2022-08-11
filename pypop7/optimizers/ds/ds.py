@@ -26,8 +26,13 @@ class DS(Optimizer):
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
                 * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
                 * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
+
+                  * if `record_fitness` is set to `False`, it will be ignored,
+                  * if it is set to 1, all fitness generated during optimization will be saved into output results
+                    when `record_fitness` is set to `True`.
+
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing (`int`, default: `10`);
+                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
               and with two particular settings (`keys`):
                 * 'x'     - initial (starting) point (`array_like`),
                 * 'sigma' - initial (global) step-size (`float`).
@@ -90,7 +95,10 @@ class DS(Optimizer):
         """
         Optimizer.__init__(self, problem, options)
         self.x = options.get('x')  # initial (starting) point
+        assert np.array(self.x).shape == (self.ndim_problem,),\
+            f'`np.array(self.x).shape` == ({np.array(self.x).shape},), but should == ({self.ndim_problem},).'
         self.sigma = options.get('sigma')  # initial (global) step-size
+        assert self.sigma > 0.0, f'`self.sigma` == {self.sigma}, but should > 0.0.'
         self._n_generations = 0  # number of generations
         # for restart
         self.n_restart = 0  # number of restarts
