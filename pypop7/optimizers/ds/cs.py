@@ -79,7 +79,7 @@ class CS(DS):
     x     : `array_like`
             initial (starting) point.
     sigma : `float`
-            initial (global) step-size.
+            (global) step-size.
     gamma : `float`
             decreasing factor of step-size.
 
