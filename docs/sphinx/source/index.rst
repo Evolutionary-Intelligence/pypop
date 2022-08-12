@@ -23,3 +23,4 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
    ds/ds
    ds/cs
    ds/hj
+   ds/nm

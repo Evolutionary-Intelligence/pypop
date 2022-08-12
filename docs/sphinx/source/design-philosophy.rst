@@ -11,7 +11,7 @@ Given a large number of optimizers which are keeping to increase almost every da
 
 .. note::
 
-  "If there is a single dominant theme in this ..., it is that practical methods of numerical computation can be simultaneously efficient, clever, and --important-- clear."
+  *"If there is a single dominant theme in this ..., it is that practical methods of numerical computation can be simultaneously efficient, clever, and --important-- clear."*
 
   --- Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. Numerical recipes: The art of scientific computing. Cambridge University Press.
 
@@ -24,7 +24,7 @@ Given a large number of optimizers which are keeping to increase almost every da
   For each optimizer included in *pypop7*, we expect to give its original/representative reference (also including its good implementations/improvements). If you find some important references missed, please do NOT hesitate to contact us (and we will be happy to add it if necessary).
 
 .. note::
-  "It is both enjoyable and educational to hear the ideas directly from the creators".
+  *"It is both enjoyable and educational to hear the ideas directly from the creators".*
 
   --- Hennessy, J.L. and Patterson, D.A., 2019. Computer architecture: A quantitative approach (Sixth Edition). Elsevier.
 
