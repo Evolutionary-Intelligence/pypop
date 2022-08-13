@@ -16,6 +16,8 @@ class NM(DS):
        It is **highly recommended** to first attempt other more advanced methods for large-scale black-box
        optimization (LSBBO).
 
+       AKA downhill simplex method.
+
     Parameters
     ----------
     problem : dict
@@ -100,6 +102,11 @@ class NM(DS):
     Nelder-mead algorithm.
     Scholarpedia, 4(7), p.2928.
     http://var.scholarpedia.org/article/Nelder-Mead_algorithm
+
+    Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007.
+    Numerical recipes: The art of scientific computing.
+    Cambridge University Press.
+    http://numerical.recipes/
 
     Wright, M.H., 1996.
     Direct search methods: Once scorned, now respectable.
