@@ -28,8 +28,8 @@ class DS(Optimizer):
                 * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
 
                   * if `record_fitness` is set to `False`, it will be ignored,
-                  * if it is set to 1, all fitness generated during optimization will be saved into output results
-                    when `record_fitness` is set to `True`.
+                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
+                    will be saved into output results.
 
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
                 * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
@@ -42,7 +42,7 @@ class DS(Optimizer):
     x     : `array_like`
             initial (starting) point.
     sigma : `float`
-            initial (global) step-size.
+            (global) step-size.
 
     Methods
     -------
