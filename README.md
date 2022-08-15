@@ -59,9 +59,9 @@ print(results)
 Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/) are given on a toy 2-dimensional minimization function, in order to visually show the very interesting/powerful evolutionary search process of [```MAES```](https://ieeexplore.ieee.org/abstract/document/7875115/) and [```LMCMAES```](https://dl.acm.org/doi/abs/10.1145/2576768.2598294):
 
 | MA-ES | LM-CMA-ES |
-| ----- | --------- |
+| :---: | :-------: |
 | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_maes.gif" alt="drawing" width="200"/> | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_lmcmaes.gif" alt="drawing" width="200"/> |
-| **Hooke-Jeeves** | **Nelder-Mead** |
+| **Hooke-Jeeves** (1961) | **Nelder-Mead** (1965) |
 | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_hj.gif" alt="drawing" width="200"/> | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_nm.gif" alt="drawing" width="200"/> |
 
 ## A (*Still Growing*) List of **Publicly Available** Gradient-Free Optimizers (GFO)
