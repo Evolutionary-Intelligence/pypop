@@ -1,9 +1,10 @@
 import unittest
 import time
+
 import numpy as np
 
-from benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from optimizers.rs.rhc import RHC as Solver
+from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
+from pypop7.optimizers.rs.rhc import RHC as Solver
 
 
 class TestRHC(unittest.TestCase):
@@ -20,7 +21,7 @@ class TestRHC(unittest.TestCase):
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),
-                       'global_std': 0.1,
+                       'sigma': 0.1,
                        'verbose_frequency': 200000,
                        'record_fitness': True,
                        'record_fitness_frequency': 200000}

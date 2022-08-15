@@ -29,4 +29,5 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
    ds/nm
    rs/rs
    rs/prs
+   rs/rhc
    sponsor
