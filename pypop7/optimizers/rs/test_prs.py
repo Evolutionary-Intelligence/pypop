@@ -1,9 +1,10 @@
 import unittest
 import time
+
 import numpy as np
 
-from benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from optimizers.rs.prs import PRS as Solver
+from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
+from pypop7.optimizers.rs.prs import PRS as Solver
 
 
 class TestPRS(unittest.TestCase):
@@ -38,8 +39,8 @@ class TestPRS(unittest.TestCase):
                        'lower_boundary': -5 * np.ones((ndim_problem,)),
                        'upper_boundary': 5 * np.ones((ndim_problem,))}
             options = {'sampling_distribution': 0,
-                       'mean': 4 * np.ones((ndim_problem,)),
-                       'global_std': 0.1,
+                       'x': 4 * np.ones((ndim_problem,)),
+                       'sigma': 0.1,
                        'max_function_evaluations': 2e6,
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
