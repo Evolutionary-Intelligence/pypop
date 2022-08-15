@@ -30,4 +30,5 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
    rs/rs
    rs/prs
    rs/rhc
+   rs/arhc
    sponsor

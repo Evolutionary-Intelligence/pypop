@@ -1,9 +1,10 @@
 import unittest
 import time
+
 import numpy as np
 
-from benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from optimizers.rs.arhc import ARHC as Solver
+from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
+from pypop7.optimizers.rs.arhc import ARHC as Solver
 
 
 class TestARHC(unittest.TestCase):
@@ -20,6 +21,8 @@ class TestARHC(unittest.TestCase):
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),
+                       'sigma': 0.1,
+                       'temperature': 100,
                        'verbose_frequency': 200000,
                        'record_fitness': True,
                        'record_fitness_frequency': 200000}
