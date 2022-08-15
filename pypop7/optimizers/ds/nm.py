@@ -47,6 +47,7 @@ class NM(DS):
                 * 'gamma'     - expansion factor (`float`, default: `2.0`),
                 * 'beta'      - contraction factor (`float`, default: `0.5`),
                 * 'shrinkage' - shrinkage factor (`float`, default: `0.5`).
+
     Examples
     --------
     Use the Pattern Search optimizer `NM` to minimize the well-known test function
