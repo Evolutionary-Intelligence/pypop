@@ -60,13 +60,13 @@ class PRS(RS):
        >>> prs = PRS(problem, options)  # initialize the optimizer class
        >>> results = prs.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"Pure Random Search: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       >>> print(f"Pure-Random-Search: {results['n_function_evaluations']}, {results['best_so_far_y']}")
          * Generation 0: best_so_far_y 3.60400e+03, min(y) 3.60400e+03 & Evaluations 1
          * Generation 1000: best_so_far_y 1.14977e-01, min(y) 3.01919e+04 & Evaluations 1001
          * Generation 2000: best_so_far_y 1.14977e-01, min(y) 8.06598e+02 & Evaluations 2001
          * Generation 3000: best_so_far_y 1.14977e-01, min(y) 1.81726e+03 & Evaluations 3001
          * Generation 4000: best_so_far_y 1.14977e-01, min(y) 8.62163e+03 & Evaluations 4001
-       Pure Random Search: 5000, 0.11497678820610932
+       Pure-Random-Search: 5000, 0.11497678820610932
 
     Attributes
     ----------
@@ -94,10 +94,12 @@ class PRS(RS):
             raise ValueError(info.format(self.__class__.__name__))
         if self.sampling_distribution == 0:
             self.sigma = options.get('sigma')  # initial (global) step-size
+            if self.sigma is None:
+                raise ValueError('`sigma` should be set.')
 
     def _sample(self, rng):
         if self.sampling_distribution == 0:
-            x = self.x + self.sigma * rng.standard_normal(size=(self.ndim_problem,))
+            x = self.x + self.sigma*rng.standard_normal(size=(self.ndim_problem,))
         else:
             x = rng.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         return x
