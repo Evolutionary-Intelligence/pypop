@@ -1,23 +1,38 @@
 import time
 from enum import IntEnum
+
 import numpy as np
 
 
-# helper class
+# helper class used by all optimizer classes
 class Terminations(IntEnum):
     NO_TERMINATION = 0
-    MAX_FUNCTION_EVALUATIONS = 1
-    MAX_RUNTIME = 2
-    FITNESS_THRESHOLD = 3
+    MAX_FUNCTION_EVALUATIONS = 1  # maximum of function evaluations
+    MAX_RUNTIME = 2  # maximal runtime
+    FITNESS_THRESHOLD = 3  # stopping threshold of fitness
 
 
 class Optimizer(object):
-    """Base class of all optimizers for continuous black-box minimization.
+    """Base (abstract) class of all optimizers for continuous black-box minimization.
+
+    References
+    ----------
+    Kochenderfer, M.J. and Wheeler, T.A., 2019.
+    Algorithms for optimization. MIT Press.
+    https://algorithmsbook.com/optimization/
+    (See Chapter 7: Direct Methods for details.)
+
+    Nesterov, Y., 2018.
+    Lectures on convex optimization.
+    Berlin: Springer International Publishing.
+    https://link.springer.com/book/10.1007/978-3-319-91578-4
+
+    Audet, C. and Hare, W., 2017. Derivative-free and blackbox optimization.
+    Berlin: Springer International Publishing.
+    https://link.springer.com/book/10.1007/978-3-319-68913-5
     """
     def __init__(self, problem, options):
         # problem-related settings
-        self.problem = problem
-        self._is_maximization = problem.get('_is_maximization', False)
         self.fitness_function = problem.get('fitness_function')
         self.ndim_problem = problem['ndim_problem']
         self.upper_boundary = problem.get('upper_boundary')
@@ -27,18 +42,20 @@ class Optimizer(object):
         self.problem_name = problem.get('problem_name')
         if (self.problem_name is None) and hasattr(self.fitness_function, '__name__'):
             self.problem_name = self.fitness_function.__name__
+        # for function maximization, which should NOT be used by end-users (but only by developers)
+        self._is_maximization = problem.get('_is_maximization', False)
 
         # optimizer-related options
         self.max_function_evaluations = options.get('max_function_evaluations', np.Inf)
         self.max_runtime = options.get('max_runtime', np.Inf)
         self.fitness_threshold = options.get('fitness_threshold', -np.Inf)
         if self._is_maximization:
-            self.fitness_threshold *= -1
+            self.fitness_threshold *= -1.0
         self.n_individuals = options.get('n_individuals')  # offspring population size
         self.n_parents = options.get('n_parents')  # parent population size
         self.seed_rng = options.get('seed_rng')
-        if self.seed_rng is None:
-            self.rng = np.random.default_rng()
+        if self.seed_rng is None:  # it is highly recommended to explicitly set *seed_rng*
+            self.rng = np.random.default_rng()  # NOT use it as much as possible
         else:
             self.rng = np.random.default_rng(self.seed_rng)
         self.seed_initialization = options.get('seed_initialization', self.rng.integers(np.iinfo(np.int64).max))
@@ -46,9 +63,11 @@ class Optimizer(object):
         self.seed_optimization = options.get('seed_optimization', self.rng.integers(np.iinfo(np.int64).max))
         self.rng_optimization = np.random.default_rng(self.seed_optimization)
         self.record_fitness = options.get('record_fitness', False)
-        self.record_fitness_frequency = options.get('record_fitness_frequency', 1000)
+        if self.record_fitness:
+            self.record_fitness_frequency = options.get('record_fitness_frequency', 1000)
         self.verbose = options.get('verbose', True)
-        self.verbose_frequency = options.get('verbose_frequency', 10)
+        if self.verbose:
+            self.verbose_frequency = options.get('verbose_frequency', 10)
 
         # auxiliary members
         self.Terminations = Terminations
