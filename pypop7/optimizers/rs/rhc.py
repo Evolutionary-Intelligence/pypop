@@ -36,11 +36,11 @@ class RHC(PRS):
               and with three particular settings (`keys`):
                 * 'x'                         - initial (starting) point (`array_like`),
                 * 'sigma'                     - initial (global) step-size (`float`),
-                * initialization_distribution - random sampling distribution for starting point initialization (
-                  `int`, default: `1`).
+                * initialization_distribution - random sampling distribution for starting point initialization (`int`,
+                  default: `1`).
 
-                    * `1`: *uniform* distribution is used for random sampling,
-                    * `0`: *standard normal* distribution is used for random sampling.
+                  * `1`: *uniform* distribution is used for random sampling,
+                  * `0`: *standard normal* distribution is used for random sampling.
 
     Examples
     --------
@@ -86,13 +86,14 @@ class RHC(PRS):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/hillclimber.py
     """
     def __init__(self, problem, options):
+        # only support normally-distributed random sampling during optimization
+        options['sampling_distribution'] = 0
         PRS.__init__(self, problem, options)
         # default: 1 -> uniformly distributed random sampling
         self.initialization_distribution = options.get('initialization_distribution', 1)
         if self.initialization_distribution not in [0, 1]:  # 0 -> normally distributed random sampling
             info = 'For {:s}, only support uniformly or normally distributed random initialization.'
             raise ValueError(info.format(self.__class__.__name__))
-        self.sigma = options.get('sigma')  # initial (global) step-size
 
     def _sample(self, rng):  # only for `initialize(self)`, not for `iterate(self)`
         if self.initialization_distribution == 0:  # normally distributed
