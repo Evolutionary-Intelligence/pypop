@@ -38,8 +38,8 @@ class ARHC(RHC):
                 * 'x'                         - initial (starting) point (`array_like`),
                 * 'sigma'                     - initial (global) step-size (`float`),
                 * 'temperature'               - annealing temperature (`float`),
-                * initialization_distribution - random sampling distribution for starting point initialization (
-                  `int`, default: `1`).
+                * initialization_distribution - random sampling distribution for starting point initialization (`int`,
+                  default: `1`).
 
                   * `1`: *uniform* distribution is used for random sampling,
                   * `0`: *standard normal* distribution is used for random sampling.
