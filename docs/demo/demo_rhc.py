@@ -4,7 +4,7 @@ from celluloid import Camera
 
 from pypop7.benchmarks.utils import generate_xyz
 from pypop7.optimizers.core.optimizer import Optimizer
-from pypop7.optimizers.rs.prs import PRS
+from pypop7.optimizers.rs.rhc import RHC
 
 
 def plot_contour(func, x, y, levels=None):
@@ -18,7 +18,7 @@ def shi_cd(x):  # fitness function from https://arxiv.org/abs/1610.00040
     return 7 * np.power(x[0], 2) + 6 * x[0] * x[1] + 8 * np.power(x[1], 2)
 
 
-class PRS1(PRS):
+class RHC1(RHC):
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
         x_data = []
@@ -31,11 +31,8 @@ class PRS1(PRS):
             else:
                 x = self.iterate()
             y = self._evaluate_fitness(x, args)
-            if not self._n_generations % self.verbose_frequency or self._check_terminations():
-                best_data.append(self.best_so_far_x)
-                x_data.append(x)
-                print(x)
-                print(self.best_so_far_x)
+            best_data.append(self.best_so_far_x)
+            x_data.append(x)
             if self.record_fitness:
                 fitness.append(y)
             self._print_verbose_info(y)
@@ -54,13 +51,14 @@ if __name__ == '__main__':
            'ndim_problem': ndim_problem,
            'lower_boundary': -10 * np.ones((ndim_problem,)),
            'upper_boundary': 10 * np.ones((ndim_problem,))}
-    opt = {'fitness_threshold': 2.5e-3,
+    opt = {'fitness_threshold': 1e-2,
            'seed_rng': 0,
            'x': np.array([7., -8.]),
+           'sigma': 1.0,
            'record_fitness': False,
            'record_fitness_frequency': 1,
-           'verbose_frequency': 5e3}
-    solver = PRS1(pro, opt)
+           'verbose_frequency': 1}
+    solver = RHC1(pro, opt)
     res = solver.optimize()
     print(res)
     fig = plt.figure()
@@ -77,4 +75,4 @@ if __name__ == '__main__':
         plt.scatter(res['x_data'][i][0], res['x_data'][i][1], c='limegreen', s=3)
         camera.snap()
     animation = camera.animate()
-    animation.save('demo_prs.gif')
+    animation.save('demo_rhc.gif')
