@@ -7,7 +7,8 @@ class RHC(PRS):
     .. note:: Currently `RHC` only supports *normally*-distributed random sampling during optimization.
        But it supports two ways of random sampling (*uniformly* or *normally* distributed) for the initial
        (starting) point. It often suffers from **very slow convergence** for large-scale black-box optimization
-       (LSBBO), since its limited exploration ability originating from its individual-based sampling strategy.
+       (LSBBO), since its limited exploration ability originating from its individual-based sampling strategy
+       (local search).
 
        It is **highly recommended** to first attempt other more advanced methods for LSBBO.
 
