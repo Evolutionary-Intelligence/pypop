@@ -206,6 +206,8 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 [PEP 257 – Docstring Conventions](https://peps.python.org/pep-0257/)
 
+Since this library is built on the wonderful numerical computing library NumPy, we further use the Docstring Conventions from NumPy: [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html).
+
 ## Reference
 
 * [https://sites.google.com/view/benchmarking-network](https://sites.google.com/view/benchmarking-network) | [PPSN-2022](https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop)
