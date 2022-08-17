@@ -9,8 +9,8 @@ class SRS(PRS):
 
     .. note:: `SRS` is an *adaptive* random search method, originally designed by Rosenstein and `Barto
        <https://people.cs.umass.edu/~barto/>`_ (best-known as one of Reinforcement Learning pioneers) for
-       **direct policy search**. Since it uses the *individual-based* sampling strategy, it may suffer from
-       *limited* exploration ability for large-scale black-box optimization (LSBBO).
+       **direct policy search**. Since it uses the *individual-based* sampling strategy (local search),
+       it may suffer from *limited* exploration ability for large-scale black-box optimization (LSBBO).
 
        It is **highly recommended** to first attempt other more advanced methods for LSBBO. Here we include
        it mainly for *benchmarking* purpose.
