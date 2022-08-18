@@ -10,4 +10,4 @@ and *Guochen Zhou*).
     for testing).
   * Now *Mingyang Feng* from University of Birmingham (UoB) helps to search papers involved in this library.
   * Now *Yijun Yang* from University of Technology Sydney (UTS) helps to suggest Bayesian optimization (BO).
-  * Now *Zhao Qi* from Southern University of Science and Technology (SUSTech) helps to proofread all the documents.
+  * Now *Qi Zhao* from Southern University of Science and Technology (SUSTech) helps to proofread all the documents.
