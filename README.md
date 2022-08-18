@@ -174,6 +174,8 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
   
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Annealed Random Hill Climber (**[ARHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/arhc.py)**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
 
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Simple Random Search (**[SRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/srs.py)**) [See [Rosenstein&Barto, 2001, IJCAI](https://dl.acm.org/doi/abs/10.5555/1642194.1642206)]
+
 ## Design Philosophy
 
 * **Respect for Beauty (Elegance)**
