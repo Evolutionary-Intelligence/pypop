@@ -6,7 +6,8 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class ES(Optimizer):
     """Evolution Strategies (ES).
 
-    This is the **base** class for all ES classes.
+    This is the **base** (abstract) class for all ES classes. Please use any of its concrete subclasses to
+    optimize the black-box problem at hand.
 
     .. note:: Its three methods (`initialize`, `iterate`, `optimize`) should be implemented by its subclasses.
 
