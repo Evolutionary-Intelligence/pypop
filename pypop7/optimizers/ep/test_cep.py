@@ -2,7 +2,7 @@ import unittest
 import time
 import numpy as np
 
-from pypop7.benchmarks.base_functions import schwefel222, sphere, schwefel12, step
+from pypop7.benchmarks.base_functions import sphere, schwefel12, schwefel221, step
 from pypop7.optimizers.ep.cep import CEP as Solver
 
 
@@ -10,7 +10,7 @@ class TestSECEM(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
         ndim_problem = 30
-        for f in [step]:
+        for f in [sphere, schwefel12, schwefel221, step]:
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
                        'ndim_problem': ndim_problem,
