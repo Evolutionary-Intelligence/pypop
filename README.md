@@ -374,6 +374,8 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   
   * Pelikan, M., Goldberg, D.E. and Cantú-Paz, E., 1999, July. [BOA: The Bayesian optimization algorithm](https://dl.acm.org/doi/abs/10.5555/2933923.2933973). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 525-532). ACM.
 
+  * Mühlenbein, H., 1997. [The equation for response to selection and its use for prediction](https://tinyurl.com/yt78c786).  Evolutionary Computation, 5(3), pp.303-346.
+
 * De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005. [A tutorial on the cross-entropy method](https://link.springer.com/article/10.1007/s10479-005-5724-z). Annals of Operations Research, 134(1), pp.19-67.
 
   * Rubinstein, R.Y. and Kroese, D.P., 2004. [The cross-entropy method: A unified approach to combinatorial optimization, Monte-Carlo simulation, and machine learning](https://link.springer.com/book/10.1007/978-1-4757-4321-0). New York: Springer.
