@@ -12,6 +12,8 @@ class RHC(PRS):
 
        It is **highly recommended** to first attempt other more advanced methods for LSBBO.
 
+       AKA greedy local search.
+
     Parameters
     ----------
     problem : dict
@@ -84,6 +86,11 @@ class RHC(PRS):
 
     References
     ----------
+    Russell, S. and Norvig P., 2021.
+    Artificial intelligence: A modern approach (Global Edition).
+    Pearson Education.
+    http://aima.cs.berkeley.edu/
+
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/hillclimber.py
     """
     def __init__(self, problem, options):
