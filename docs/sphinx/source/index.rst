@@ -23,6 +23,7 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 
    installation
    design-philosophy
+   es/es
    ds/ds
    ds/cs
    ds/hj
