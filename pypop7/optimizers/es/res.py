@@ -39,7 +39,7 @@ class RES(ES):
                 * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
                 * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
                 * 'eta_sigma'     - learning rate of global step-size (`float`, default:
-                  `1 / np.sqrt(problem['ndim_problem'] + 1)`).
+                  `1.0 / np.sqrt(problem['ndim_problem'] + 1.0)`).
 
     Examples
     --------
@@ -111,7 +111,7 @@ class RES(ES):
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
         if self.eta_sigma is None:  # for Line 5 (1 / d)
-            self.eta_sigma = 1 / np.sqrt(self.ndim_problem + 1)
+            self.eta_sigma = 1.0 / np.sqrt(self.ndim_problem + 1.0)
         assert self.eta_sigma > 0, f'`self.eta_sigma` = {self.eta_sigma}, but should > 0.'
 
     def initialize(self, args=None, is_restart=False):
