@@ -43,9 +43,9 @@ class SSAES(ES):
                 * 'n_parents'       - number of parents (μ: mu), parental population size (`int`, default:
                   `int(options['n_individuals'] / 4)`),
                 * 'eta_sigma'       - learning rate of global step-size (`float`, default:
-                  `1 / np.sqrt(problem['ndim_problem']`),
+                  `1.0 / np.sqrt(problem['ndim_problem']`),
                 * 'eta_axis_sigmas' - learning rate of individual step-sizes (`float`, default:
-                  `1 / np.power(problem['ndim_problem'], 1 / 4)`).
+                  `1.0 / np.power(problem['ndim_problem'], 1.0 / 4.0)`).
 
     Examples
     --------
@@ -107,10 +107,10 @@ class SSAES(ES):
         ES.__init__(self, problem, options)
         self.axis_sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
         if self.eta_sigma is None:
-            self.eta_sigma = 1 / np.sqrt(self.ndim_problem)  # learning rate of global step-size
+            self.eta_sigma = 1.0 / np.sqrt(self.ndim_problem)  # learning rate of global step-size
         assert self.eta_sigma > 0, f'`self.eta_sigma` = {self.eta_sigma}, but should > 0.'
         # learning rate of individual step-sizes
-        self.eta_axis_sigmas = options.get('eta_axis_sigmas', 1 / np.power(self.ndim_problem, 1 / 4))
+        self.eta_axis_sigmas = options.get('eta_axis_sigmas', 1.0 / np.power(self.ndim_problem, 1.0 / 4.0))
 
     def initialize(self):
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
