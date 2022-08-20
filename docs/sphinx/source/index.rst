@@ -28,6 +28,7 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
    es/res
    es/ssaes
    es/dsaes
+   es/csaes
    ds/ds
    ds/cs
    ds/hj

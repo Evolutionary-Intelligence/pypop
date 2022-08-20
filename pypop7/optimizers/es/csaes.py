@@ -5,12 +5,89 @@ from pypop7.optimizers.es.dsaes import DSAES
 
 
 class CSAES(DSAES):
-    """Cumulative Step-size Adaptation Evolution Strategy (CSAES, (μ/μ,λ)-ES with search path).
+    """Cumulative Step-size Adaptation Evolution Strategy (CSAES).
 
-    CSA: Cumulative Step-size Adaptation (a.k.a. cumulative path length control)
+    .. note:: `CSAES` adapts the *individual* step-sizes on-the-fly with *small* populations, according to the
+       well-known `Cumulative Step-size Adaptation (CSA) <http://link.springer.com/chapter/10.1007/3-540-58484-6_263>`_
+       rule from the evolutionary computation community.
 
-    Reference
-    ---------
+       AKA cumulative path length control.
+
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
+                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
+
+                  * if `record_fitness` is set to `False`, it will be ignored,
+                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
+                    will be saved into output results.
+
+                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
+                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+              and with five particular settings (`keys`):
+                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
+                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
+                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
+                  `4 + int(np.floor(3*np.log(problem.get('ndim_problem'))))`),
+                * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
+                  `int(options['n_individuals'] / 4)`),
+                * 'eta_sigma'     - learning rate of global step-size (`float`, default:
+                  `np.sqrt(self.n_parents / (self.ndim_problem + self.n_parents))`).
+
+    Examples
+    --------
+    Use the ES optimizer `CSAES` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.es.csaes import CSAES
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5 * numpy.ones((2,)),
+       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'mean': 3 * numpy.ones((2,)),
+       ...            'sigma': 0.1}
+       >>> csaes = CSAES(problem, options)  # initialize the optimizer class
+       >>> results = csaes.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"CSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+         * Generation 10: best_so_far_y 4.45455e-01, min(y) 7.01985e+00 & Evaluations 60
+         * Generation 20: best_so_far_y 4.45455e-01, min(y) 5.88465e-01 & Evaluations 120
+         ...
+       CSAES: 5000, 0.026416618757717083
+
+    Attributes
+    ----------
+    n_individuals   : `int`
+                      number of offspring (λ: lambda), offspring population size.
+    n_parents       : `int`
+                      number of parents (μ: mu), parental population size.
+    mean            : `array_like`
+                      initial (starting) point, mean of Gaussian search distribution.
+    sigma           : `float`
+                      initial global step-size (σ), mutation strength (`float`).
+    eta_sigma       : `float`
+                      learning rate of global step-size.
+
+    References
+    ----------
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
     Evolution strategies.
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
@@ -25,24 +102,23 @@ class CSAES(DSAES):
     """
     def __init__(self, problem, options):
         if options.get('n_individuals') is None:
-            options['n_individuals'] = 4 + int(np.floor(3 * np.log(problem.get('ndim_problem'))))
+            options['n_individuals'] = 4 + int(np.floor(3*np.log(problem.get('ndim_problem'))))
         if options.get('n_parents') is None:
             options['n_parents'] = int(options['n_individuals'] / 4)
         if options.get('eta_sigma') is None:
-            options['eta_sigma'] = np.sqrt(options['n_parents'] / (problem['ndim_problem'] + options['n_parents']))
+            options['eta_sigma'] = np.sqrt(options['n_parents'] / (
+                    problem['ndim_problem'] + options['n_parents']))
         DSAES.__init__(self, problem, options)
-        self._s_1 = None
-        self._s_2 = None
+        self._s_1 = None  # for Line 8
+        self._s_2 = None  # for Line 8
         # E[||N(0,I)||]: expectation of chi distribution
-        self._e_chi = np.sqrt(self.ndim_problem) * (
-                1 - 1 / (4 * self.ndim_problem) + 1 / (21 * np.power(self.ndim_problem, 2)))
+        self._e_chi = np.sqrt(self.ndim_problem)*(
+                1 - 1 / (4*self.ndim_problem) + 1 / (21*np.power(self.ndim_problem, 2)))
 
     def initialize(self, is_restart=False):
-        self.n_parents = int(self.n_individuals / 4)
-        self.eta_sigma = np.sqrt(self.n_parents / (self.ndim_problem + self.n_parents))
         self._s_1 = 1 - self.eta_sigma
-        self._s_2 = np.sqrt(self.eta_sigma * (2 - self.eta_sigma) * self.n_parents)
-        self._axis_sigmas = self.sigma * np.ones((self.ndim_problem,))
+        self._s_2 = np.sqrt(self.eta_sigma*(2 - self.eta_sigma)*self.n_parents)
+        self._axis_sigmas = self._sigma_bak*np.ones((self.ndim_problem,))
         z = np.empty((self.n_individuals, self.ndim_problem))  # noise for offspring population
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
@@ -55,23 +131,24 @@ class CSAES(DSAES):
             if self._check_terminations():
                 return z, x, y
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))  # Line 5
-            x[k] = mean + self._axis_sigmas * z[k]  # Line 6
+            x[k] = mean + self._axis_sigmas*z[k]  # Line 6
             y[k] = self._evaluate_fitness(x[k], args)
         return z, x, y
 
     def _update_distribution(self, z=None, x=None, s=None, y=None):
         order = np.argsort(y)[:self.n_parents]  # Line 7
-        s = self._s_1 * s + self._s_2 * np.mean(z[order], axis=0)  # Line 8
-        sigmas_1 = np.power(np.exp(np.abs(s) / self._e_hnd - 1), 1 / (3 * self.ndim_problem))
+        s = self._s_1*s + self._s_2*np.mean(z[order], axis=0)  # Line 8
+        sigmas_1 = np.power(np.exp(np.abs(s) / self._e_hnd - 1), 1 / (3*self.ndim_problem))
         sigmas_2 = np.power(np.exp(np.linalg.norm(s) / self._e_chi - 1),
                             self.eta_sigma / (1 + np.sqrt(self.n_parents / self.ndim_problem)))
-        self._axis_sigmas *= (sigmas_1 * sigmas_2)  # Line 9
+        self._axis_sigmas *= (sigmas_1*sigmas_2)  # Line 9
         mean = np.mean(x[order], axis=0)  # Line 11
         return s, mean
 
     def restart_initialize(self, z=None, x=None, mean=None, s=None, y=None):
-        is_restart = self._restart_initialize()
-        if is_restart:
+        if self._restart_initialize():
+            self.n_parents = int(self.n_individuals / 4)
+            self.eta_sigma = np.sqrt(self.n_parents / (self.ndim_problem + self.n_parents))
             z, x, mean, s, y = self.initialize(True)
         return z, x, mean, s, y
 
@@ -91,6 +168,6 @@ class CSAES(DSAES):
             if self.is_restart:
                 z, x, mean, s, y = self.restart_initialize(z, x, mean, s, y)
         results = self._collect_results(fitness, mean)
-        results['s'] = s
         results['_axis_sigmas'] = self._axis_sigmas
+        results['s'] = s
         return results
