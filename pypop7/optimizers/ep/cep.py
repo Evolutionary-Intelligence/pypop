@@ -6,6 +6,53 @@ from pypop7.optimizers.ep.ep import EP
 class CEP(EP):
     """Classical Evolutionary Programming with self-adaptive mutation (CEP).
 
+    .. note:: To obtain satisfactory performance for large-scale black-box optimization, the number of
+       offspring may need to be carefully tuned.
+
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
+                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
+
+                  * if `record_fitness` is set to `False`, it will be ignored,
+                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
+                    will be saved into output results.
+
+                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
+                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+              and with five particular settings (`keys`):
+                * 'n_individuals'  - number of offspring, offspring population size (`int`),
+                * 'sigma'          - initial global step-size (σ), mutation strength (`float`),
+                * 'q'              - number of opponents for pairwise comparisons (`int`, default: `10`),
+                * 'tau'            - learning rate of individual step-sizes (`float`, default:
+                  `1.0 / np.sqrt(2.0*np.sqrt(self.ndim_problem))`),
+                * 'tau_apostrophe' - learning rate of individual step-sizes (`float`, default:
+                  `1.0 / np.sqrt(2.0*self.ndim_problem)`.
+
+    Attributes
+    ----------
+    n_individuals  : `int`
+                     number of offspring, population size.
+    sigma          : `float`
+                     initial global step-size, mutation strength.
+    q              : `int`
+                     number of opponents for pairwise comparisons。
+    tau            : `float`
+                     learning rate of individual step-sizes.
+    tau_apostrophe : `float`
+                     learning rate of individual step-sizes.
+
     References
     ----------
     Yao, X., Liu, Y. and Lin, G., 1999.
@@ -17,7 +64,7 @@ class CEP(EP):
         EP.__init__(self, problem, options)
         self.sigma = options.get('sigma')  # initial global step-size
         self.q = options.get('q', 10)  # number of opponents for pairwise comparisons
-        # two learning rate factors of individual step-size
+        # two learning rate factors of individual step-sizes
         self.tau = options.get('tau', 1.0 / np.sqrt(2.0*np.sqrt(self.ndim_problem)))
         self.tau_apostrophe = options.get('tau_apostrophe', 1.0 / np.sqrt(2.0*self.ndim_problem))
 
