@@ -40,6 +40,34 @@ class CEP(EP):
                 * 'tau_apostrophe' - learning rate of individual step-sizes (`float`, default:
                   `1.0 / np.sqrt(2.0*self.ndim_problem)`.
 
+    Examples
+    --------
+    Use the EP optimizer `CEP` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.ep.cep import CEP
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5 * numpy.ones((2,)),
+       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'sigma': 0.1}
+       >>> cep = CEP(problem, options)  # initialize the optimizer class
+       >>> results = cep.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"CEP: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+         * Generation 10: best_so_far_y 8.48944e-02, min(y) 8.48944e-02 & Evaluations 1100
+         * Generation 20: best_so_far_y 3.41447e-02, min(y) 3.41447e-02 & Evaluations 2100
+         * Generation 30: best_so_far_y 3.41447e-02, min(y) 3.41447e-02 & Evaluations 3100
+         * Generation 40: best_so_far_y 3.41447e-02, min(y) 3.41447e-02 & Evaluations 4100
+       CEP: 5000, 0.02676391622008821
+
     Attributes
     ----------
     n_individuals  : `int`
