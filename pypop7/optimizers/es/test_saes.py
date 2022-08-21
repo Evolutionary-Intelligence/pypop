@@ -1,9 +1,10 @@
 import unittest
 import time
+
 import numpy as np
 
-from benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from optimizers.es.saes import SAES as Solver
+from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
+from pypop7.optimizers.es.saes import SAES as Solver
 
 
 class TestSAES(unittest.TestCase):

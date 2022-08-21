@@ -30,6 +30,7 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
    es/ssaes
    es/dsaes
    es/csaes
+   es/saes
    ds/ds
    ds/cs
    ds/hj
