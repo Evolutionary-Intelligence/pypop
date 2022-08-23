@@ -93,8 +93,8 @@ class CEP(EP):
         self.sigma = options.get('sigma')  # initial global step-size
         self.q = options.get('q', 10)  # number of opponents for pairwise comparisons
         # two learning rate factors of individual step-sizes
-        self.tau = options.get('tau', 1.0 / np.sqrt(2.0*np.sqrt(self.ndim_problem)))
-        self.tau_apostrophe = options.get('tau_apostrophe', 1.0 / np.sqrt(2.0*self.ndim_problem))
+        self.tau = options.get('tau', 1.0 / np.sqrt(2.0*self.ndim_problem))
+        self.tau_apostrophe = options.get('tau_apostrophe', 1.0 / np.sqrt(2.0*np.sqrt(self.ndim_problem)))
 
     def initialize(self, args=None):
         x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
@@ -115,21 +115,22 @@ class CEP(EP):
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return x, sigmas, y, offspring_x, offspring_sigmas, offspring_y
+            base_norm = self.rng_optimization.standard_normal()
             for j in range(self.ndim_problem):
-                n_j = self.rng_optimization.standard_normal()
-                offspring_x[i][j] = x[i][j] + sigmas[i][j]*n_j
                 offspring_sigmas[i][j] = sigmas[i][j]*np.exp(
-                    self.tau_apostrophe*self.rng_optimization.standard_normal() + self.tau*n_j)
+                    self.tau_apostrophe*base_norm +
+                    self.tau*self.rng_optimization.standard_normal())
+                offspring_x[i][j] = x[i][j] + offspring_sigmas[i][j]*self.rng_optimization.standard_normal()
             offspring_y[i] = self._evaluate_fitness(offspring_x[i])
         new_x = np.vstack((offspring_x, x))
         new_sigmas = np.vstack((offspring_sigmas, sigmas))
         new_y = np.hstack((offspring_y, y))
         n_win = np.zeros((2*self.n_individuals,))  # number of win
         for i in range(2*self.n_individuals):
-            for j in self.rng_optimization.choice(2*self.n_individuals, self.q):
+            for j in self.rng_optimization.integers(2*self.n_individuals, size=self.q):
                 if new_y[i] <= new_y[j]:
                     n_win[i] += 1
-        order = np.argsort(n_win)[::-1]  # in decreasing order for minimization
+        order = np.argsort(-n_win)
         for i in range(self.n_individuals):
             x[i] = new_x[order[i]]
             sigmas[i] = new_sigmas[order[i]]
