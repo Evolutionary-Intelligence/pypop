@@ -62,11 +62,14 @@ class CEP(EP):
        >>> results = cep.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CEP: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 10: best_so_far_y 8.48944e-02, min(y) 8.48944e-02 & Evaluations 1100
-         * Generation 20: best_so_far_y 3.41447e-02, min(y) 3.41447e-02 & Evaluations 2100
-         * Generation 30: best_so_far_y 3.41447e-02, min(y) 3.41447e-02 & Evaluations 3100
-         * Generation 40: best_so_far_y 3.41447e-02, min(y) 3.41447e-02 & Evaluations 4100
-       CEP: 5000, 0.02676391622008821
+         * Generation 10: best_so_far_y 2.92722e-01, min(y) 2.92722e-01 & Evaluations 1100
+         * Generation 20: best_so_far_y 5.07126e-02, min(y) 5.07126e-02 & Evaluations 2100
+         * Generation 30: best_so_far_y 1.65202e-03, min(y) 1.65202e-03 & Evaluations 3100
+         * Generation 40: best_so_far_y 1.65202e-03, min(y) 1.65202e-03 & Evaluations 4100
+       CEP: 5000, 0.001652015737093122
+
+    For its correctness checking, refer to `this code-based repeatability report
+    <https://tinyurl.com/b9vpmfdv>`_ for more details.
 
     Attributes
     ----------
@@ -87,14 +90,19 @@ class CEP(EP):
     Evolutionary programming made faster.
     IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
     https://ieeexplore.ieee.org/abstract/document/771163
+
+    Bäck, T. and Schwefel, H.P., 1993.
+    An overview of evolutionary algorithms for parameter optimization.
+    Evolutionary Computation, 1(1), pp.1-23.
+    https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for
     """
     def __init__(self, problem, options):
         EP.__init__(self, problem, options)
         self.sigma = options.get('sigma')  # initial global step-size
         self.q = options.get('q', 10)  # number of opponents for pairwise comparisons
         # two learning rate factors of individual step-sizes
-        self.tau = options.get('tau', 1.0 / np.sqrt(2.0*self.ndim_problem))
-        self.tau_apostrophe = options.get('tau_apostrophe', 1.0 / np.sqrt(2.0*np.sqrt(self.ndim_problem)))
+        self.tau = options.get('tau', 1.0 / np.sqrt(2.0*np.sqrt(self.ndim_problem)))
+        self.tau_apostrophe = options.get('tau_apostrophe', 1.0 / np.sqrt(2.0*self.ndim_problem))
 
     def initialize(self, args=None):
         x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
@@ -115,10 +123,9 @@ class CEP(EP):
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return x, sigmas, y, offspring_x, offspring_sigmas, offspring_y
-            base_norm = self.rng_optimization.standard_normal()
             for j in range(self.ndim_problem):
                 offspring_sigmas[i][j] = sigmas[i][j]*np.exp(
-                    self.tau_apostrophe*base_norm +
+                    self.tau_apostrophe*self.rng_optimization.standard_normal() +
                     self.tau*self.rng_optimization.standard_normal())
                 offspring_x[i][j] = x[i][j] + offspring_sigmas[i][j]*self.rng_optimization.standard_normal()
             offspring_y[i] = self._evaluate_fitness(offspring_x[i])
