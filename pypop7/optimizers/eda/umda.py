@@ -65,6 +65,9 @@ class UMDA(EDA):
          * Generation 20: best_so_far_y 2.93234e-02, min(y) 4.83760e-01 & Evaluations 4200
        UMDA: 5000, 0.029323401402499186
 
+    For its correctness checking, refer to `this code-based repeatability report <
+    https://tinyurl.com/2p8m78r2>`_ for more details.
+
     Attributes
     ----------
     n_individuals : `int`
@@ -84,7 +87,13 @@ class UMDA(EDA):
     In Theoretical Aspects of Evolutionary Computing (pp. 135-173). Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007/978-3-662-04448-3_7
 
-    Larranaga, P., Etxeberria, R., Lozano, J.A., Pena, J.M. and Pe, J.M., 1999.
+    Larranaga, P., Etxeberria, R., Lozano, J.A. and Pena, J.M., 2000.
+    Optimization in continuous domains by learning and simulation of Gaussian networks.
+    Technical Report, Department of Computer Science and Artificial Intelligence,
+    University of the Basque Country.
+    https://tinyurl.com/3bw6n3x4
+
+    Larranaga, P., Etxeberria, R., Lozano, J.A. and Pe, J.M., 1999.
     Optimization by learning and simulation of Bayesian and Gaussian networks.
     Technical Report, Department of Computer Science and Artificial Intelligence,
     University of the Basque Country.
