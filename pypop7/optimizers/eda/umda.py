@@ -65,8 +65,8 @@ class UMDA(EDA):
          * Generation 20: best_so_far_y 2.93234e-02, min(y) 4.83760e-01 & Evaluations 4200
        UMDA: 5000, 0.029323401402499186
 
-    For its correctness checking, refer to `this code-based repeatability report <
-    https://tinyurl.com/2p8m78r2>`_ for more details.
+    For its correctness checking, refer to `this code-based repeatability report
+    <https://tinyurl.com/2p8m78r2>`_ for more details.
 
     Attributes
     ----------
