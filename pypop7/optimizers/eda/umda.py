@@ -129,7 +129,7 @@ class UMDA(EDA):
 
     def optimize(self, fitness_function=None, args=None):
         fitness = EDA.optimize(self, fitness_function)
-        x, y = self.initialize()
+        x, y = self.initialize(args)
         fitness.extend(y)
         while True:
             x, y = self.iterate(x, y, args)
