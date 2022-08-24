@@ -146,7 +146,7 @@ class CEP(EP):
 
     def optimize(self, fitness_function=None, args=None):
         fitness = EP.optimize(self, fitness_function)
-        x, sigmas, y, offspring_x, offspring_sigmas, offspring_y = self.initialize()
+        x, sigmas, y, offspring_x, offspring_sigmas, offspring_y = self.initialize(args)
         fitness.extend(y)
         while True:
             x, sigmas, y, offspring_x, offspring_sigmas, offspring_y = self.iterate(
