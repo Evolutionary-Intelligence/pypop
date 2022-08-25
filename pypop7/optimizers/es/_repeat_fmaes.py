@@ -3,6 +3,9 @@
     Simplify your covariance matrix adaptation evolution strategy.
     IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
     https://ieeexplore.ieee.org/document/7875115
+
+    Since our code obtains very similar performance as the original paper, we argue that
+    the repeatability of `FMAES` can be well-documented (*at least partly*).
 """
 import pickle
 
