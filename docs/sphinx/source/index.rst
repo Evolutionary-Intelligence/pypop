@@ -33,6 +33,7 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
    es/csaes
    es/saes
    es/maes
+   es/fmaes
    eda/eda
    eda/umda
    eda/emna
