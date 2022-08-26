@@ -1,6 +1,6 @@
 # pypop7 (Pure-PYthon library of POPulation-based black-box OPtimization)
 
-[![GNU General Public License v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE) [![gitter for pypop](https://img.shields.io/badge/gitter-pypop--go-brightgreen.svg)](https://gitter.im/pypop-go/community) [![PyPI for pypop7](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/) [![Documentation Status](https://readthedocs.org/projects/pypop/badge/?version=latest)](https://pypop.readthedocs.io/en/latest/?badge=latest)
+[![GNU General Public License v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE) [![gitter for pypop](https://img.shields.io/badge/gitter-pypop--go-brightgreen.svg)](https://gitter.im/pypop-go/community) [![PyPI for pypop7](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/) [![Documentation Status](https://readthedocs.org/projects/pypop/badge/?version=latest)](https://pypop.readthedocs.io/en/latest/?badge=latest) [![Downloads](https://pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7)
 
 ```PyPop7``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for single-objective, real-parameter, black-box problems (**currently actively developed**). Its main goal is to provide a *unified* interface and *elegant* implementations for **Black-Box Optimization (BBO)**, *particularly population-based optimizers*, in order to facilitate research repeatability and also real-world applications.
 
@@ -82,13 +82,13 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited-Memory Matrix Adaptation Evolution Strategy (**[LMMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmmaes.py)**, LM-MA-ES) [See [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
 
-  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited Memory Covariance Matrix Adaptation (**[LMCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcma.py)**, LM-CMA) [See [Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited Memory Covariance Matrix Adaptation (**[LMCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcma.py)**) [see [Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
   
     * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited Memory Covariance Matrix Adaptation Evolution Strategy (**[LMCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcmaes.py)**, LM-CMA-ES) [See [Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-m Evolution Strategy *with Multiple Evolution Paths* (**[RMES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/rmes2.py)**, Rm-ES) [See [Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
 
-  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-One Evolution Strategy (**[R1ES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/r1es.py)**, R1-ES) [See [Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-One Evolution Strategy (**[R1ES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/r1es.py)**) [see [Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Projection-based Covariance Matrix Adaptation (**VKDCMA**, VkD-CMA) [See [Akimoto&Hansen, 2016, GECCO](https://dl.acm.org/doi/abs/10.1145/2908812.2908863)]
 
@@ -114,19 +114,19 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Covariance Matrix Self-Adaptation with Repelling Subpopulations (**RSCMSA**, RS-CMSA) [See [Ahrari et al., 2017, ECJ](https://doi.org/10.1162/evco_a_00182)]
 
-  * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Matrix Adaptation Evolution Strategy (**[MAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/maes.py)**, MA-ES) [See [Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
+  * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Matrix Adaptation Evolution Strategy (**[MAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/maes.py)**) [see [Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 
-    * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Fast Matrix Adaptation Evolution Strategy (**[FMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/fmaes.py)**, Fast-MA-ES) [See [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
+    * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Fast Matrix Adaptation Evolution Strategy (**[FMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/fmaes.py)**) [see [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
 
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Self-Adaptation Evolution Strategy (**SAES**, (μ/μ_I, λ)-σSA-ES) [See e.g. [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Self-Adaptation Evolution Strategy (**[SAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/saes.py)**) [see e.g. [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
 
-    * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Cumulative Step-size Adaptation Evolution Strategy (**CSAES**, (μ/μ,λ)-ES)  [See e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Ostermeier et al., 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_263)]
+    * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Cumulative Step-size Adaptation Evolution Strategy (**[CSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/csaes.py)**)  [see e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Ostermeier et al., 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_263)]
 
-    * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Derandomized Self-Adaptation Evolution Strategy (**DSAES**, (1,λ)-σSA-ES) [See e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Ostermeier et al., 1994, ECJ](https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of)]
+    * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Derandomized Self-Adaptation Evolution Strategy (**[DSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/dsaes.py)**) [see e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Ostermeier et al., 1994, ECJ](https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of)]
 
-    * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Schwefel's Self-Adaptation Evolution Strategy (**[SSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ssaes.py)**) [See e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44)]
+    * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Schwefel's Self-Adaptation Evolution Strategy (**[SSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ssaes.py)**) [see e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44)]
 
-    * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Rechenberg's (1+1)-Evolution Strategy with 1/5th success rule (**[RES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/res.py)**) [See e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Kern et al., 2004](https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e); [Schumer&Steiglitz, 1968, IEEE-TAC](https://ieeexplore.ieee.org/abstract/document/1098903)]
+    * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Rechenberg's (1+1)-Evolution Strategy with 1/5th success rule (**[RES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/res.py)**) [see e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Kern et al., 2004](https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e); [Schumer&Steiglitz, 1968, IEEE-TAC](https://ieeexplore.ieee.org/abstract/document/1098903)]
 
 * **Natural Evolution Strategies (NES)** [See e.g. [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html); [Yi et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522); [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/document/4631255)]
 
@@ -150,31 +150,31 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Corana et al.' Simulated Annealing (**CSA**) [See [Corana et al., 1987, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
 
-* **Genetic Algorithms (GA)** [See e.g. [Forrest, 1993, Science](https://www.science.org/doi/abs/10.1126/science.8346439); [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
+* **Differential Evolution (DE)** [see e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 
-* **Evolutionary Programming (EP)** [See e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
+* **Genetic Algorithms (GA)** [see e.g. [Forrest, 1993, Science](https://www.science.org/doi/abs/10.1126/science.8346439); [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
 
-* **Differential Evolution (DE)** [See e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
+* **Evolutionary Programming ([EP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/ep.py))** [see e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
 
-* **Direct Search ([DS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/ds.py))** [See e.g. [Powell, 1998, Acta-Numerica](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C); [Wright, 1996](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
+* **Direct Search ([DS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/ds.py))** [see e.g. [Powell, 1998, Acta-Numerica](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C); [Wright, 1996](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
 
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Generalized Pattern Search ([GPS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/gps.py)) [See [Kochenderfer&Wheeler, 2019](https://algorithmsbook.com/optimization/files/chapter-7.pdf); [Torczon, 1997, SIAM-JO](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Generalized Pattern Search (**[GPS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/gps.py)**) [see [Kochenderfer&Wheeler, 2019](https://algorithmsbook.com/optimization/files/chapter-7.pdf); [Torczon, 1997, SIAM-JO](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780)]
   
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Nelder-Mead simplex method ([NM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/nm.py)) [See [Nelder&Mead, 1965, Computer](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Nelder-Mead simplex method (**[NM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/nm.py)**) [see [Nelder&Mead, 1965, Computer](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237)]
 
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Hooke-Jeeves direct search method ([HJ](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/hj.py)) [See [Kochenderfer&Wheeler, 2019](https://algorithmsbook.com/optimization/files/chapter-7.pdf); [Kaupe, 1963, CACM](https://dl.acm.org/doi/pdf/10.1145/366604.366632); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Hooke-Jeeves direct search method (**[HJ](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/hj.py)**) [see [Kochenderfer&Wheeler, 2019](https://algorithmsbook.com/optimization/files/chapter-7.pdf); [Kaupe, 1963, CACM](https://dl.acm.org/doi/pdf/10.1145/366604.366632); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
 
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Coordinate Search ([CS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/cs.py)) [See [Torczon, 1997, SIAM-JO](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780); [Fermi&Metropolis, 1952](https://www.osti.gov/servlets/purl/4377177)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Coordinate Search (**[CS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/cs.py)**) [see [Torczon, 1997, SIAM-JO](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780); [Fermi&Metropolis, 1952](https://www.osti.gov/servlets/purl/4377177)]
 
-* **Random (stochastic) Search ([RS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py))** [See e.g. [Bergstra&Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html); [Rastrigin, 1986](https://link.springer.com/content/pdf/10.1007/BFb0007129.pdf); [Solis&Wets, 1981, MOOR](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19); [Brooks, 1958, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244)]
+* **Random (stochastic) Search ([RS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py))** [see e.g. [Bergstra&Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html); [Rastrigin, 1986](https://link.springer.com/content/pdf/10.1007/BFb0007129.pdf); [Solis&Wets, 1981, MOOR](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19); [Brooks, 1958, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244)]
 
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Pure Random Search (**[PRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/prs.py)**) [See e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
-
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Random Hill Climber (**[RHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rhc.py)**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Simple Random Search (**[SRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/srs.py)**) [see [Rosenstein&Barto, 2001, IJCAI](https://dl.acm.org/doi/abs/10.5555/1642194.1642206)]
   
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Annealed Random Hill Climber (**[ARHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/arhc.py)**) [See e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Annealed Random Hill Climber (**[ARHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/arhc.py)**) [see e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
 
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Simple Random Search (**[SRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/srs.py)**) [See [Rosenstein&Barto, 2001, IJCAI](https://dl.acm.org/doi/abs/10.5555/1642194.1642206)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Random Hill Climber (**[RHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rhc.py)**) [see e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
+
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Pure Random Search (**[PRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/prs.py)**) [see e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
 
 ## Design Philosophy
 
@@ -272,8 +272,6 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Varelas, K., Auger, A., Brockhoff, D., Hansen, N., ElHara, O.A., Semet, Y., Kassab, R. and Barbaresco, F., 2018, September. [A comparative study of large-scale variants of CMA-ES](https://link.springer.com/chapter/10.1007/978-3-319-99253-2_1). In International Conference on Parallel Problem Solving from Nature (pp. 3-15). Springer, Cham.
 
-  * Müller, N. and Glasmachers, T., 2018, September. [Challenges in high-dimensional reinforcement learning with evolution strategies](https://link.springer.com/chapter/10.1007/978-3-319-99259-4_33). In International Conference on Parallel Problem Solving from Nature (pp. 411-423). Springer, Cham.
-
   * Li, Z. and Zhang, Q., 2018. [A simple yet efficient evolution strategy for large-scale black-box optimization](https://ieeexplore.ieee.org/abstract/document/8080257). IEEE Transactions on Evolutionary Computation, 22(5), pp.637-646.
 
   * Lehman, J., Chen, J., Clune, J. and Stanley, K.O., 2018, July. [ES is more than just a traditional finite-difference approximator](https://dl.acm.org/doi/abs/10.1145/3205455.3205474). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 450-457). ACM.
@@ -338,7 +336,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Rechenberg, I., 1984. [The evolution strategy. A mathematical model of darwinian evolution](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13). In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer, Berlin, Heidelberg.
   
-  * Applications: e.g., [Tian&Ha, 2022, EvoStar](https://link.springer.com/chapter/10.1007/978-3-031-03789-4_18); [Nomura et al., 2021, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/17109); [Liu et al., 2019, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/4345); [Ha&Schmidhuber, 2018, NeurIPS](https://papers.nips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html); [OpenAI, 2017](https://openai.com/blog/evolution-strategies/); [Chrabąszcz et al., 2018, IJCAI](https://www.ijcai.org/proceedings/2018/197); [Zhang et al., 2017, Science](https://www.science.org/doi/10.1126/science.aal5054)
+  * Applications: e.g., [Tian&Ha, 2022, EvoStar](https://link.springer.com/chapter/10.1007/978-3-031-03789-4_18); [Anand et al., 2021](https://iopscience.iop.org/article/10.1088/2632-2153/abf3ac); [Nomura et al., 2021, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/17109); [Liu et al., 2019, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/4345); [Ha&Schmidhuber, 2018, NeurIPS](https://papers.nips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html); [Müller&Glasmachers, 2018, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-99259-4_33); [Chrabąszcz et al., 2018, IJCAI](https://www.ijcai.org/proceedings/2018/197); [OpenAI, 2017](https://openai.com/blog/evolution-strategies/); [Zhang et al., 2017, Science](https://www.science.org/doi/10.1126/science.aal5054)
 
 * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482. [ [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/) ]
 
@@ -428,7 +426,9 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Applications: e.g., [NM: [Sparrow et al., 2018, Nature](https://www.nature.com/articles/s41586-018-0152-9); [Gillon et al., Nature, 2017](https://www.nature.com/articles/nature21360); [Lau&Rubinstein, Nature, 2012](https://www.nature.com/articles/nature10699) ]; [HJ: [Khaledian et al., 2018, IEEE-TMTT](https://ieeexplore.ieee.org/abstract/document/8335770); [Luhar et al., 2015, JFM](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/framework-for-studying-the-effect-of-compliant-surfaces-on-wall-turbulence/47B8C79442109015690B6B16F891DF09); [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Schneider, 1999, Genetics](https://academic.oup.com/genetics/article/152/3/1079/6034947); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902) ]
 
-* [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
+* [https://bayesoptbook.com/](https://bayesoptbook.com/)
+
+  * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
 * Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
 
