@@ -4,10 +4,10 @@ from pypop7.optimizers.es.maes import MAES
 class FMAES(MAES):
     """Fast Matrix Adaptation Evolution Strategy (FMAES).
 
-    .. note:: `FMAES` is an efficient implementation of `MAES` with *quadractic* time complexity.
+    .. note:: `FMAES` is a more efficient implementation of `MAES` with *quadractic* time complexity.
 
-       It is **highly recommended** to first attempt other more advanced ES variants for large-scale black-box
-       optimization.
+       It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LM-CMA`, `LM-MA-ES`) for
+       large-scale black-box optimization (LSBBO), since `FMAES` has a *quadratic* time complexity.
 
     Parameters
     ----------
@@ -30,21 +30,18 @@ class FMAES(MAES):
                     will be saved into output results.
 
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+                * 'verbose_frequency'        - generation frequency of printing verbose info (`int`, default: `10`);
               and with four particular settings (`keys`):
+                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
                 * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`).
 
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
                 * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
                 * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
                   `int(self.n_individuals / 2)`).
-
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/37ews6h4>`_ for more details.
 
     Examples
     --------
@@ -70,6 +67,9 @@ class FMAES(MAES):
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"FMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        FMAES: 5000, 1.211565542464775e-18
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/37ews6h4>`_ for more details.
 
     Attributes
     ----------
@@ -98,9 +98,6 @@ class FMAES(MAES):
     Simplify your covariance matrix adaptation evolution strategy.
     IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
     https://ieeexplore.ieee.org/document/7875115
-
-    See the official Matlab version from Beyer:
-    https://homepages.fhv.at/hgb/downloads/ForDistributionFastMAES.tar
     """
     def __init__(self, problem, options):
         options['_fast_version'] = True  # mandatory setting for FMAES

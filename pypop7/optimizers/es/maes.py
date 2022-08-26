@@ -12,7 +12,7 @@ class MAES(ES):
        the underlying working principles of `CMA-ES`, which is often thought to be rather complex.
 
        It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LM-CMA`, `LM-MA-ES`) for
-       large-scale black-box optimization (LSBBO), since `MAES` has a *quadratic* time complexity.
+       large-scale black-box optimization (LSBBO), since `MAES` has a *cubic* time complexity.
 
     Parameters
     ----------
