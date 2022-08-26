@@ -21,7 +21,7 @@ a virtual environment (e.g. named as `env_pypop7`):
 .. code-block:: bash
 
     conda create -y --prefix env_pypop7  # you can change the name of virtual environment
-    conda activate env_pypop7
+    conda activate env_pypop7/
     conda install -y --prefix env_pypop7 python=3.8.12
     pip install pypop7
     conda deactivate
