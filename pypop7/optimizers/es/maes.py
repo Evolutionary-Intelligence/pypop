@@ -6,13 +6,13 @@ from pypop7.optimizers.es.es import ES
 class MAES(ES):
     """Matrix Adaptation Evolution Strategy (MAES).
 
-    .. note:: `MAES` is an interesting *simplified* version of the well-established `CMA-ES` but almost without
-       performance loss, designed first by `Beyer <https://homepages.fhv.at/hgb/>`_ and Sendhoff. One advantage
-       of such a simplification is to help better understand the working principles of `CMA-ES`, which is often
-       thought to be rather complex.
+    .. note:: `MAES` is an interesting *simplified* version of the well-established `CMA-ES` but nearly without
+       performance loss, designed first by `Beyer <https://homepages.fhv.at/hgb/>`_ and `Sendhoff
+       <https://tinyurl.com/26szwuaa>`_. One obvious advantage of such a simplification is to help better understand
+       the underlying working principles of `CMA-ES`, which is often thought to be rather complex.
 
-       It is **highly recommended** to first attempt other more advanced ES variants for large-scale black-box
-       optimization, since `MAES` has a cubic/quadratic time complexity (depending on different implementations).
+       It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LM-CMA`, `LM-MA-ES`) for
+       large-scale black-box optimization (LSBBO), since `MAES` has a *quadratic* time complexity.
 
     Parameters
     ----------
@@ -35,14 +35,14 @@ class MAES(ES):
                     will be saved into output results.
 
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+                * 'verbose_frequency'        - generation frequency of printing verbose info (`int`, default: `10`);
               and with four particular settings (`keys`):
+                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
                 * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`).
 
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
                 * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
                 * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
