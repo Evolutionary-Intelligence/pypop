@@ -20,8 +20,7 @@ More specifically, for alleviating the notorious **curse of dimensionality** of 
 .. note::
    Now this library is still under active development.
 
-Quick Start
------------
+**Quick Start**
 
 Three simple steps are enough to utilize the optimization power of `PyPop7 <https://pypi.org/project/pypop7/>`_:
 
@@ -58,8 +57,6 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
        9.8774e-11 3928055
 
-API
----
 
 
 .. toctree::
