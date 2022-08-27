@@ -42,7 +42,7 @@ class EP(Optimizer):
     n_individuals : `int`
                     number of offspring, population size.
     sigma         : `float`
-                    initial global step-size, mutation strength (`float`).
+                    initial global step-size, mutation strength.
 
     Methods
     -------
