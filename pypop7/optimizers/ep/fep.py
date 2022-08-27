@@ -112,6 +112,7 @@ class FEP(CEP):
                     self.tau_apostrophe*base_normal +
                     self.tau*self.rng_optimization.standard_normal())
                 offspring_x[i][j] = x[i][j] + offspring_sigmas[i][j]*self.rng_optimization.standard_cauchy()
+            offspring_x[i] = np.clip(offspring_x[i], self.lower_boundary, self.upper_boundary)
             offspring_y[i] = self._evaluate_fitness(offspring_x[i])
         new_x = np.vstack((offspring_x, x))
         new_sigmas = np.vstack((offspring_sigmas, sigmas))
