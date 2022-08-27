@@ -6,7 +6,12 @@ from pypop7.optimizers.ep.cep import CEP
 class FEP(CEP):
     """Fast Evolutionary Programming with self-adaptive mutation (FEP).
 
-    .. note:: To obtain satisfactory performance for large-scale black-box optimization, the number of
+    .. note:: `FEP` was proposed mainly by Yao et al., recipient of both `Evolutionary Computation
+       Pioneer Award 2013 <https://tinyurl.com/456as566>`_ and `IEEE Frank Rosenblatt Award 2020
+       <https://tinyurl.com/yj28zxfa>`_, where the classical Gaussian distribution is replaced by
+       the Heavy-tailed Cachy distribution for better exploration on hard multi-modal problems.
+
+       To obtain satisfactory performance for large-scale black-box optimization, the number of
        offspring may need to be carefully tuned.
 
     Parameters
@@ -62,11 +67,11 @@ class FEP(CEP):
        >>> results = fep.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"FEP: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 10: best_so_far_y 1.74435e-02, min(y) 1.74435e-02 & Evaluations 1100
-         * Generation 20: best_so_far_y 5.90084e-03, min(y) 5.90084e-03 & Evaluations 2100
-         * Generation 30: best_so_far_y 1.14002e-03, min(y) 1.14002e-03 & Evaluations 3100
-         * Generation 40: best_so_far_y 1.14002e-03, min(y) 1.14002e-03 & Evaluations 4100
-       FEP: 5000, 0.001140024836091582
+         * Generation 10: best_so_far_y 3.81626e-02, min(y) 3.81626e-02 & Evaluations 1100
+         * Generation 20: best_so_far_y 1.70838e-02, min(y) 1.70838e-02 & Evaluations 2100
+         * Generation 30: best_so_far_y 1.09373e-02, min(y) 1.09373e-02 & Evaluations 3100
+         * Generation 40: best_so_far_y 6.31694e-04, min(y) 6.31694e-04 & Evaluations 4100
+       FEP: 5000, 6.614870120522524e-05
 
     Attributes
     ----------
@@ -87,6 +92,11 @@ class FEP(CEP):
     Evolutionary programming made faster.
     IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
     https://ieeexplore.ieee.org/abstract/document/771163
+
+    Bäck, T. and Schwefel, H.P., 1993.
+    An overview of evolutionary algorithms for parameter optimization.
+    Evolutionary Computation, 1(1), pp.1-23.
+    https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for
     """
     def __init__(self, problem, options):
         CEP.__init__(self, problem, options)
@@ -96,22 +106,22 @@ class FEP(CEP):
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return x, sigmas, y, offspring_x, offspring_sigmas, offspring_y
+            base_normal = self.rng_optimization.standard_normal()
             for j in range(self.ndim_problem):
-                n_j = self.rng_optimization.standard_cauchy()
-                offspring_x[i][j] = x[i][j] + sigmas[i][j]*n_j
                 offspring_sigmas[i][j] = sigmas[i][j]*np.exp(
-                    self.tau_apostrophe*self.rng_optimization.standard_normal() +
+                    self.tau_apostrophe*base_normal +
                     self.tau*self.rng_optimization.standard_normal())
+                offspring_x[i][j] = x[i][j] + offspring_sigmas[i][j]*self.rng_optimization.standard_cauchy()
             offspring_y[i] = self._evaluate_fitness(offspring_x[i])
         new_x = np.vstack((offspring_x, x))
         new_sigmas = np.vstack((offspring_sigmas, sigmas))
         new_y = np.hstack((offspring_y, y))
         n_win = np.zeros((2*self.n_individuals,))  # number of win
         for i in range(2*self.n_individuals):
-            for j in self.rng_optimization.choice(2*self.n_individuals, self.q):
+            for j in self.rng_optimization.integers(2*self.n_individuals, size=self.q):
                 if new_y[i] <= new_y[j]:
                     n_win[i] += 1
-        order = np.argsort(n_win)[::-1]  # in decreasing order for minimization
+        order = np.argsort(-n_win)
         for i in range(self.n_individuals):
             x[i] = new_x[order[i]]
             sigmas[i] = new_sigmas[order[i]]
