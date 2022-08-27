@@ -4,7 +4,7 @@ from pypop7.optimizers.es.lmcmaes import LMCMAES
 
 
 class LMCMA(LMCMAES):
-    """Limited Memory Covariance Matrix Adaptation (LMCMA, (μ/μ_w,λ)-LM-CMA).
+    """Limited Memory Covariance Matrix Adaptation (LMCMA).
 
     Reference
     ---------
@@ -21,7 +21,8 @@ class LMCMA(LMCMAES):
         LMCMAES.__init__(self, problem, options)
         self.base_m = options.get('base_m', 4)  # base number of direction vectors
         self.period = options.get('period', np.maximum(1, int(np.log(self.ndim_problem))))  # update period
-        # self.z_star = options.get('z_star', 0.25)  # target success rate for PSR
+        self.c_c = 0.5 / np.sqrt(self.ndim_problem)
+        self.z_star = options.get('z_star', 0.3)  # target success rate for PSR
 
     def _a_z(self, z=None, pm=None, vm=None, b=None, start=None, it=None):
         x = np.copy(z)
@@ -35,13 +36,13 @@ class LMCMA(LMCMAES):
         return random
 
     def iterate(self, mean=None, x=None, pm=None, vm=None, y=None, b=None, args=None):
-        it = int(np.minimum(self.m, (self._n_generations / self.period)))
-        sign, z = 1, np.empty((self.ndim_problem,))  # for mirrored sampling
+        it = int(np.minimum(self.m, (self._n_generations/self.period)))
+        sign, z = 1, None  # for mirrored sampling
         for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, y
             if sign == 1:
-                base_m = (10 * self.base_m if k == 0 else self.base_m) * np.abs(
+                base_m = (10*self.base_m if k == 0 else self.base_m) * np.abs(
                     self.rng_optimization.standard_normal())
                 base_m = it if base_m > it else base_m
                 z = self._a_z(self._rademacher(), pm, vm, b, int(it - base_m if it > 1 else 0), it)
@@ -53,13 +54,15 @@ class LMCMA(LMCMAES):
     def _update_distribution(self, mean=None, x=None, p_c=None, s=None, vm=None, pm=None,
                              b=None, d=None, y=None, y_bak=None):
         mean_bak = np.dot(self._w, x[np.argsort(y)[:self.n_parents]])
-        p_c = self._p_c_1 * p_c + self._p_c_2 * (mean_bak - mean) / self.sigma
+        p_c = self._p_c_1*p_c + self._p_c_2*(mean_bak - mean)/self.sigma
+        y.sort()
         if self._n_generations % self.period == 0:
-            _n_generations = int(self._n_generations / self.period)
+            _n_generations = int(self._n_generations/self.period)
+            i_min = 1
             if _n_generations < self.m:
-                i_min, self._j[_n_generations] = _n_generations, _n_generations
+                self._j[_n_generations] = _n_generations
             elif self.m > 1:
-                i_min, d_min = 1, self._l[self._j[1]] - self._l[self._j[0]]
+                d_min = self._l[self._j[1]] - self._l[self._j[0]]
                 for j in range(2, self.m):
                     d_cur = self._l[self._j[j]] - self._l[self._j[j - 1]]
                     if d_cur < d_min:
@@ -70,21 +73,19 @@ class LMCMA(LMCMAES):
                 for j in range(i_min, self.m - 1):
                     self._j[j] = self._j[j + 1]
                 self._j[self.m - 1] = updated
-            else:
-                i_min = 0
-            pm[self._j[np.minimum(self.m - 1, _n_generations)]] = p_c
-            self._l[self._j[np.minimum(self.m - 1, _n_generations)]] = self._n_generations
+            pm[self._j[np.minimum(self.m, _n_generations + 1) - 1]] = p_c
+            self._l[self._j[np.minimum(self.m, _n_generations + 1) - 1]] = _n_generations*self.period
+            i_min = 0 if i_min == 1 else i_min  # special case
             for i in range(i_min, np.minimum(self.m, _n_generations + 1)):
                 vm[self._j[i]] = self._a_inv_z(pm[self._j[i]], vm, d, i)
                 v_n = np.dot(vm[self._j[i]], vm[self._j[i]])
-                bd_3 = np.sqrt(1 + self._bd_2 * v_n)
-                b[self._j[i]] = self._bd_1 / v_n * (bd_3 - 1)
-                d[self._j[i]] = 1 / (self._bd_1 * v_n) * (1 - 1 / bd_3)
-        y.sort()
+                bd_3 = np.sqrt(1.0 + self._bd_2*v_n)
+                b[self._j[i]] = self._a/v_n*(bd_3 - 1.0)
+                d[self._j[i]] = self._c/v_n*(1.0 - 1.0/bd_3)
         if self._n_generations > 0:
             r = np.argsort(np.hstack((y, y_bak)))
             z_psr = np.sum(self._rr[r < self.n_individuals] - self._rr[r >= self.n_individuals])
             z_psr = z_psr / np.power(self.n_individuals, 2) - self.z_star
-            s = (1 - self.c_s) * s + self.c_s * z_psr
+            s = (1 - self.c_s)*s + self.c_s*z_psr
             self.sigma *= np.exp(s / self.d_s)
         return mean_bak, p_c, s, vm, pm, b, d
