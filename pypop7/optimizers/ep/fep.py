@@ -5,12 +5,15 @@ from pypop7.optimizers.ep.cep import CEP
 
 class FEP(CEP):
     """Fast Evolutionary Programming with self-adaptive mutation (FEP).
+
     .. note:: `FEP` was proposed mainly by Yao et al., recipient of both `Evolutionary Computation
        Pioneer Award 2013 <https://tinyurl.com/456as566>`_ and `IEEE Frank Rosenblatt Award 2020
        <https://tinyurl.com/yj28zxfa>`_, where the classical Gaussian distribution is replaced by
        the Heavy-tailed Cachy distribution for better exploration on hard multi-modal problems.
+
        To obtain satisfactory performance for large-scale black-box optimization, the number of
        offspring may need to be carefully tuned.
+
     Parameters
     ----------
     problem : dict
@@ -26,9 +29,11 @@ class FEP(CEP):
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
                 * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
                 * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
+
                   * if `record_fitness` is set to `False`, it will be ignored,
                   * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
                     will be saved into output results.
+
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
                 * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
               and with five particular settings (`keys`):
@@ -39,12 +44,15 @@ class FEP(CEP):
                   `1.0 / np.sqrt(2.0*np.sqrt(self.ndim_problem))`),
                 * 'tau_apostrophe' - learning rate of individual step-sizes (`float`, default:
                   `1.0 / np.sqrt(2.0*self.ndim_problem)`.
+
     Examples
     --------
     Use the EP optimizer `FEP` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
     .. code-block:: python
        :linenos:
+
        >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.ep.fep import FEP
@@ -64,6 +72,7 @@ class FEP(CEP):
          * Generation 30: best_so_far_y 1.09373e-02, min(y) 1.09373e-02 & Evaluations 3100
          * Generation 40: best_so_far_y 6.31694e-04, min(y) 6.31694e-04 & Evaluations 4100
        FEP: 5000, 6.614870120522524e-05
+
     Attributes
     ----------
     n_individuals  : `int`
@@ -76,12 +85,14 @@ class FEP(CEP):
                      learning rate of individual step-sizes.
     tau_apostrophe : `float`
                      learning rate of individual step-sizes.
+
     References
     ----------
     Yao, X., Liu, Y. and Lin, G., 1999.
     Evolutionary programming made faster.
     IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
     https://ieeexplore.ieee.org/abstract/document/771163
+
     Bäck, T. and Schwefel, H.P., 1993.
     An overview of evolutionary algorithms for parameter optimization.
     Evolutionary Computation, 1(1), pp.1-23.
