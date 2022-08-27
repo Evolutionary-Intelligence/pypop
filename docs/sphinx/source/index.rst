@@ -58,6 +58,10 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
        9.8774e-11 3928055
 
+API
+---
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
