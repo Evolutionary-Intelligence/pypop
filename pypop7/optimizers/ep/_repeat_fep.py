@@ -1,4 +1,8 @@
 """Repeat the following paper for `FEP`:
+    Yao, X., Liu, Y. and Lin, G., 1999.
+    Evolutionary programming made faster.
+    IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
+    https://ieeexplore.ieee.org/abstract/document/771163
 """
 import numpy as np
 
