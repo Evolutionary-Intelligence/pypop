@@ -12,35 +12,18 @@ import matplotlib.pyplot as plt
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, discus, cigar, different_powers
 from pypop7.benchmarks.rotated_functions import generate_rotation_matrix
-from pypop7.benchmarks.rotated_functions import ellipsoid as rotated_ellipsoid
-from pypop7.benchmarks.rotated_functions import rosenbrock as rotated_rosenbrock
-from pypop7.benchmarks.rotated_functions import discus as rotated_discus
-from pypop7.benchmarks.rotated_functions import cigar as rotated_cigar
-from pypop7.benchmarks.rotated_functions import different_powers as rotated_different_powers
+from pypop7.benchmarks.rotated_functions import ellipsoid as rotated_ellipsoid, rosenbrock as rotated_rosenbrock,\
+    discus as rotated_discus, cigar as rotated_cigar, different_powers as rotated_different_powers
 from pypop7.optimizers.es.lmcma import LMCMA as Solver
 
 sns.set_theme(style='darkgrid')
 
 
-def read_pickle(function, ndim):
-    file = function + '_' + str(ndim) + '.pickle'
-    with open(file, 'rb') as handle:
-        result = pickle.load(handle)
-        return result
-
-
-def write_pickle(function, ndim, result):
-    file = open(function + '_' + str(ndim) + '.pickle', 'wb')
-    pickle.dump(result, file)
-    file.close()
-
-
 def plot(function, problem_dim):
     plt.figure()
-    result = read_pickle(function, problem_dim)
-    print(result)
-    plt.yscale('log')
+    result = pickle.load(open(function + '_' + str(problem_dim) + '.pickle', 'rb'))
     plt.xscale('log')
+    plt.yscale('log')
     if function in ['ellipsoid', 'rotated_ellipsoid']:
         plt.ylim([1e-10, 1e10])
         plt.yticks([1e-10, 1e-8, 1e-6, 1e-4, 1e-2, 1e0, 1e2, 1e4, 1e6, 1e8, 1e10])
@@ -74,16 +57,18 @@ def plot(function, problem_dim):
 
 
 if __name__ == '__main__':
-    for f in [ellipsoid, rosenbrock, discus, cigar, different_powers, rotated_ellipsoid,
-              rotated_rosenbrock, rotated_discus, rotated_cigar, rotated_different_powers]:
-        for d in [512]:
+    for f in [ellipsoid, rotated_ellipsoid,
+              rosenbrock, rotated_rosenbrock,
+              discus, rotated_discus,
+              cigar, rotated_cigar,
+              different_powers, rotated_different_powers]:
+        for dim in [512]:
             problem = {'fitness_function': f,
-                       'ndim_problem': d,
-                       'lower_boundary': -5 * np.ones((d,)),
-                       'upper_boundary': 5 * np.ones((d,))}
-            options = {'max_function_evaluations': 2e7,
-                       'fitness_threshold': 1e-10,
-                       'seed_rng': 2022,  # undefined in the original paper
+                       'ndim_problem': dim,
+                       'lower_boundary': -5.0*np.ones((dim,)),
+                       'upper_boundary': 5.0*np.ones((dim,))}
+            options = {'fitness_threshold': 1e-10,
+                       'seed_rng': 0,  # undefined in the original paper
                        'sigma': 3.0,
                        'verbose_frequency': 2e4,
                        'record_fitness': True,
@@ -91,11 +76,12 @@ if __name__ == '__main__':
                        'is_restart': False}
             if f in [rotated_ellipsoid, rotated_rosenbrock, rotated_discus,
                      rotated_cigar, rotated_different_powers]:
-                generate_rotation_matrix(f, d, 2022)
+                generate_rotation_matrix(f, dim, 0)
                 function_name = 'rotated_' + f.__name__
             else:
                 function_name = f.__name__
             solver = Solver(problem, options)
             results = solver.optimize()
-            write_pickle(function_name, d, results)
-            plot(function_name, d)
+            print(results['fitness'])
+            pickle.dump(results, open(function_name + '_' + str(dim) + '.pickle', 'wb'))
+            plot(function_name, dim)
