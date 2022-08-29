@@ -7,7 +7,7 @@ class FMAES(MAES):
     .. note:: `FMAES` is a more efficient implementation of `MAES` with *quadractic* time complexity.
 
        It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LM-CMA`, `LM-MA-ES`) for
-       large-scale black-box optimization (LSBBO), since `FMAES` has a *quadratic* time complexity.
+       large-scale black-box optimization (LSBBO), since `FMAES` has a *quadratic* time complexity w.r.t. each sampling.
 
     Parameters
     ----------
