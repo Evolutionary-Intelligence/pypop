@@ -3,6 +3,13 @@
     Evolutionary programming made faster.
     IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
     https://ieeexplore.ieee.org/abstract/document/771163
+
+    Since its source code is not openly available, the performance differences between our code and the original
+    paper are very hard (if not impossible) to analyze. We notice that different people may give a different
+    implementation based on different understandings of its algorithmic operations.
+
+    Unfortunately, till now our code *cannot* perfectly repeat the results reported by the original paper.
+    We expect that a much closer open-source implementation could be given in the future.
 """
 import numpy as np
 
