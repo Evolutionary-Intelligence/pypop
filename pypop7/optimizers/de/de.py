@@ -4,7 +4,7 @@ from pypop7.optimizers.core.optimizer import Optimizer
 
 
 class DE(Optimizer):
-    """Evolutionary Programming (EP).
+    """Differential Evolution (DE).
 
     This is the **base** (abstract) class for all DE classes. Please use any of its concrete subclasses to
     optimize the black-box problem at hand.
@@ -33,26 +33,23 @@ class DE(Optimizer):
 
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
                 * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
-              and with two particular settings (`keys`):
+              and with one particular setting (`keys`):
                 * 'n_individuals' - number of offspring, offspring population size (`int`),
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`).
 
     Attributes
     ----------
     n_individuals : `int`
                     number of offspring, population size.
-    sigma         : `float`
-                    initial global step-size, mutation strength.
 
     Methods
     -------
 
     References
     ----------
-    Yao, X., Liu, Y. and Lin, G., 1999.
-    Evolutionary programming made faster.
-    IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
-    https://ieeexplore.ieee.org/abstract/document/771163
+    Storn, R., Price, K. 1997.
+    Differential Evolution – A Simple and Efficient Heuristic for global Optimization over Continuous Spaces.
+    Journal of Global Optimization, 11, pp.341–359.
+    https://doi.org/10.1023/A:1008202821328
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
