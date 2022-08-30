@@ -43,10 +43,10 @@ class DES(ES):
             tau = self.rng_optimization.choice(np.min([self._n_generations, self.h]), (3,))  # for Line 14 in Fig. 4.
             x1, x2 = self.rng_optimization.choice(
                 accu_x[(tau[0] * self.n_parents):((tau[0] + 1) * self.n_parents)], (2,))
-            d = np.sqrt(self.c_d / 2) * (x1 - x2) + \
-                np.sqrt(self.c_d) * accu_d[tau[1]] * self.rng_optimization.standard_normal() + \
-                np.sqrt(1 - self.c_d) * accu_p[tau[2]] * self.rng_optimization.standard_normal() + \
-                self.epsilon * np.power((1 - self.c_cov), self._n_generations / 2) * \
+            d = np.sqrt(self.c_d / 2) * (x1 - x2) +\
+                np.sqrt(self.c_d) * accu_d[tau[1]] * self.rng_optimization.standard_normal() +\
+                np.sqrt(1 - self.c_d) * accu_p[tau[2]] * self.rng_optimization.standard_normal() +\
+                self.epsilon * np.power((1 - self.c_cov), self._n_generations / 2) *\
                 self.rng_optimization.standard_normal((self.ndim_problem,))
             x[k] = mean + d
             y[k] = self._evaluate_fitness(x[k], args)
