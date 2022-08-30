@@ -6,12 +6,16 @@ from pypop7.optimizers.es.es import ES
 class RES(ES):
     """Rechenberg's (1+1)-Evolution Strategy with 1/5th success rule (RES).
 
-    .. note:: `RES` is the first ES with self-adaptation of the global step-size, designed by Rechenberg. Since
-       there is only one parent and only one offspring for each generation, `RES` generally shows very limited
-       *exploration* ability for large-scale black-box optimization (LSBBO).
+    .. note:: `RES` is the first ES with self-adaptation of the **global** step-size, designed by Rechenberg. As
+       theoretically investigated in his seminal PhD dissertation, the existence of the narrow **evolution
+       window** eplains the necessarity of step-size self-adaptation to maximize (local) convergence progress.
 
-       It is **highly recommended** to first attempt other more advanced ES variants for LSBBO. Here we include it
-       mainly for *benchmarking* and *theoretical* purpose.
+       Since there is only one parent and only one offspring for each generation, `RES` generally shows very
+       limited *exploration* ability for large-scale black-box optimization (LSBBO). Therefore, it is **highly
+       recommended** to first attempt other more advanced ES variants (e.g. `LM-CMA`, `LM-MA-ES`) for LSBBO.
+       Here we include it mainly for *benchmarking* and *theoretical* purpose.
+
+       AKA two-membered evolution strategy (which can also be seen as gradient climbing in Darwinian evolution).
 
     Parameters
     ----------
