@@ -73,6 +73,9 @@ class FEP(CEP):
          * Generation 40: best_so_far_y 5.81916e-03, min(y) 5.81916e-03 & Evaluations 4100
        FEP: 5000, 0.004682685065944951
 
+    For its correctness checking, refer to `this code-based repeatability report
+    <https://tinyurl.com/2ucvarvy>`_ for more details.
+
     Attributes
     ----------
     n_individuals  : `int`
