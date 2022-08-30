@@ -6,10 +6,10 @@ from pypop7.optimizers.ep.cep import CEP
 class FEP(CEP):
     """Fast Evolutionary Programming with self-adaptive mutation (FEP).
 
-    .. note:: `FEP` was proposed mainly by Yao et al., recipient of both `Evolutionary Computation
-       Pioneer Award 2013 <https://tinyurl.com/456as566>`_ and `IEEE Frank Rosenblatt Award 2020
-       <https://tinyurl.com/yj28zxfa>`_, where the classical Gaussian distribution is replaced by
-       the Heavy-tailed Cachy distribution for better exploration on hard multi-modal problems.
+    .. note:: `FEP` was proposed by Yao, recipient of both `Evolutionary Computation Pioneer Award
+       2013 <https://tinyurl.com/456as566>`_ and `IEEE Frank Rosenblatt Award 2020
+       <https://tinyurl.com/yj28zxfa>`_ and others, where the classical Gaussian sampling distribution
+       is replaced by the Heavy-tailed Cachy distribution for better exploration on hard multi-modal problems.
 
        To obtain satisfactory performance for large-scale black-box optimization, the number of
        offspring may need to be carefully tuned.
@@ -74,7 +74,7 @@ class FEP(CEP):
        FEP: 5000, 0.004682685065944951
 
     For its correctness checking, refer to `this code-based repeatability report
-    <https://tinyurl.com/2ucvarvy>`_ for more details.
+    <https://tinyurl.com/bdh7epah>`_ for more details.
 
     Attributes
     ----------
