@@ -15,7 +15,7 @@ class DES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self.c_d = options.get('c', self.ndim_problem / (self.ndim_problem + 2))  # for Line 16, 17, 18 in Fig. 4.
+        self.c_d = options.get('c_d', self.ndim_problem / (self.ndim_problem + 2))  # for Line 16, 17, 18 in Fig. 4.
         self.c = options.get('c', 1 / np.sqrt(self.ndim_problem))  # for Line 11 in Fig. 4. (c_c)
         self.h = options.get('h', int(6 + 3 * np.sqrt(self.ndim_problem)))  # window size, for Line 14 in Fig. 4. (H)
         self.c_cov = options.get('c_cov', 2 / (self.ndim_problem ** 2))  # for Line 19 in Fig. 4. (c_epsilon)
