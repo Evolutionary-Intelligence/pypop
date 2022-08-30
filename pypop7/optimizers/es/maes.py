@@ -86,7 +86,7 @@ class MAES(ES):
     mean            : `array_like`
                       initial (starting) point, mean of Gaussian search distribution.
     sigma           : `float`
-                      initial global step-size (σ), mutation strength (`float`).
+                      initial global step-size (σ), mutation strength.
 
     References
     ----------
