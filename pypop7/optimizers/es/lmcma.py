@@ -4,53 +4,60 @@ from pypop7.optimizers.es.es import ES
 
 
 class LMCMA(ES):
-    """Limited Memory Covariance Matrix Adaptation (LMCMA).
+    """Limited-Memory Covariance Matrix Adaptation (LMCMA).
 
-    .. note:: `LMCMA` is one **state-of-the-art** variant of `CMA-ES` especially designed for large-scale
-       black-box optimization (LSBBO).
+    .. note:: `LMCMA` is one **State-Of-The-Art (SOTA)** variant of `CMA-ES` designed especially for large-scale
+       black-box optimization (LSBBO). Inspired by the powerful `L-BFGS` (a standard second-order gradient-based
+       optimizer), it stores *m* direction vectors to implicitly reconstruct the covariance matirx, resulting in
+       *O(mn)* time complexity where *n* is the dimensionality of objective function (*m = O(log(n))*).
 
     Parameters
     ----------
-    problem : dict
+    problem : `dict`
               problem arguments with the following common settings (`keys`):
-                * 'fitness_function' - objective function to be **minimized** (`func`),
-                * 'ndim_problem'     - number of dimensionality (`int`),
-                * 'upper_boundary'   - upper boundary of search range (`array_like`),
-                * 'lower_boundary'   - lower boundary of search range (`array_like`).
-    options : dict
+                * `'fitness_function'` - objective function to be **minimized** (`func`),
+                * `'ndim_problem'`     - number of dimensionality (`int`),
+                * `'upper_boundary'`   - upper boundary of search range (`array_like`),
+                * `'lower_boundary'`   - lower boundary of search range (`array_like`).
+    options : `dict`
               optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
+                * `'max_function_evaluations'` - maximum of function evaluations (`int`, default: `np.Inf`),
+                * `'max_runtime'`              - maximal runtime (`float`, default: `np.Inf`),
+                * `'seed_rng'`                 - seed for random number generation needed to be *explicitly* set
+                  (`int`),
+                * `'record_fitness'`           - flag to record fitness list to output results (`bool`, default:
+                  `False`),
+                * `'record_fitness_frequency'` - function evaluations frequency of recording (`int`, default: `1000`),
 
                   * if `record_fitness` is set to `False`, it will be ignored,
                   * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
                     will be saved into output results.
 
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose info (`int`, default: `10`);
-              and with four particular settings (`keys`):
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
-                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
+                * `'verbose'`                  - flag to print verbose information during optimization (`bool`, default:
+                  `True`),
+                * `'verbose_frequency'`        - generation frequency of printing verbose information (`int`, default:
+                  `10`);
+              and with the following particular settings (`keys`):
+                * `'sigma'`         - initial global step-size (σ), mutation strength (`float`),
+                * `'mean'`          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`).
 
-                * 'm'             - number of direction vectors (`int`, default:
+                * `'m'`             - number of direction vectors (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * 'base_m'        - base number of direction vectors (`int`, default: `4`),
-                * 'period'        - update period (`int`, default: `int(np.maximum(1, np.log(self.ndim_problem)))`),
-                * 'n_steps'       - target number of generations between vectors (`int`, default: `self.ndim_problem`),
-                * 'c_1'           - learning rate for covariance matrix adaptation (`float`, default:
+                * `'base_m'`        - base number of direction vectors (`int`, default: `4`),
+                * `'period'`        - update period (`int`, default: `int(np.maximum(1, np.log(self.ndim_problem)))`),
+                * `'n_steps'`       - target number of generations between vectors (`int`, default:
+                  `self.ndim_problem`),
+                * `'c_1'`           - learning rate for covariance matrix adaptation (`float`, default:
                   `1.0/(10.0*np.log(self.ndim_problem + 1.0))`),
-                * 'c_s'           - learning rate for population success rule (`float`, default: `0.3`),
-                * 'd_s'           - changing rate for population success rule (`float`, default: `1.0`),
-                * 'z_star'        - target success rate for population success rule (`float`, default: `0.3`),
-                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
+                * `'c_s'`           - learning rate for population success rule (`float`, default: `0.3`),
+                * `'d_s'`           - changing rate for population success rule (`float`, default: `1.0`),
+                * `'z_star'`        - target success rate for population success rule (`float`, default: `0.3`),
+                * `'n_individuals'` - number of offspring (λ: lambda), offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
+                * `'n_parents'`     - number of parents (μ: mu), parental population size (`int`, default:
                   `int(self.n_individuals / 2)`).
 
     Examples
@@ -160,11 +167,13 @@ class LMCMA(ES):
         return mean, x, p_c, s, vm, pm, b, d, y
 
     def _rademacher(self):
+        """Sample from Rademacher distribution."""
         random = self.rng_optimization.integers(2, size=(self.ndim_problem,))
         random[random == 0] = -1
         return np.double(random)
 
     def _a_z(self, z=None, pm=None, vm=None, b=None, start=None, it=None):
+        """Algorithm 3 Az(): Cholesky factor-vector update."""
         x = np.copy(z)
         for t in range(start, it):
             x = self._a*x + b[self._j[t]]*np.dot(vm[self._j[t]], z)*pm[self._j[t]]
@@ -176,6 +185,7 @@ class LMCMA(ES):
             if self._check_terminations():
                 return x, y
             if sign == 1:
+                # Algorithm 6 SelectSubst(): direction vectors selection
                 base_m = (10.0*self.base_m if k == 0 else self.base_m)*np.abs(
                     self.rng_optimization.standard_normal())
                 base_m = float(self._it if base_m > self._it else base_m)
@@ -186,7 +196,8 @@ class LMCMA(ES):
             sign *= -1  # sample in the opposite direction for mirrored sampling
         return x, y
 
-    def _a_inv_z(self, v=None, vm=None, d=None, i=None):  # inverse Cholesky factor - vector update
+    def _a_inv_z(self, v=None, vm=None, d=None, i=None):
+        """Algorithm 4 Ainvz(): inverse Cholesky factor-vector update."""
         x = np.copy(v)
         for t in range(0, i):
             x = self._c*x - d[self._j[t]]*np.dot(vm[self._j[t]], x)*vm[self._j[t]]
@@ -196,13 +207,18 @@ class LMCMA(ES):
                              b=None, d=None, y=None, y_bak=None):
         mean_bak = np.dot(self._w, x[np.argsort(y)[:self.n_parents]])
         p_c = self._p_c_1*p_c + self._p_c_2*(mean_bak - mean)/self.sigma
-        if self._n_generations % self.period == 0:
-            _n_generations = int(self._n_generations/self.period)
-            i_min = 1
+        # selection and storage of direction vectors - to preserve a certain temporal distance in terms of number of
+        # generations between the stored direction vectors (Algorithm 5)
+        if self._n_generations % self.period == 0:  # temporal distance
+            _n_generations = int(self._n_generations/self.period)  # temporal distance
+            i_min = 1  # index of the first vector that will be replaced by the new one
+            # the higher the index of `self._j` the more recent is the corresponding direction vector
             if _n_generations < self.m:
                 self._j[_n_generations] = _n_generations
             else:
                 if self.m > 1:
+                    # to find a pair of consecutively saved vectors with the distance between them
+                    # closest to a target distance
                     d_min = (self._l[self._j[1]] - self._l[self._j[0]]) - self.n_steps
                     for j in range(2, self.m):
                         d_cur = (self._l[self._j[j]] - self._l[self._j[j - 1]]) - self.n_steps
@@ -222,7 +238,7 @@ class LMCMA(ES):
                 bd_3 = np.sqrt(1.0 + self._bd_2*v_n)
                 b[self._j[i]] = self._a/v_n*(bd_3 - 1.0)
                 d[self._j[i]] = self._c/v_n*(1.0 - 1.0/bd_3)
-        if self._n_generations > 0:  # for population-based success rule
+        if self._n_generations > 0:  # for population-based success rule (PSR)
             r = np.argsort(np.hstack((y, y_bak)))
             z_psr = np.sum(self._rr[r < self.n_individuals] - self._rr[r >= self.n_individuals])
             z_psr = z_psr/np.power(self.n_individuals, 2) - self.z_star
