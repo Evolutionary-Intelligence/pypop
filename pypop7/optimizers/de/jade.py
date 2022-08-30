@@ -1,9 +1,9 @@
 import numpy as np
 
-from pypop7.optimizers.core.optimizer import Optimizer
+from pypop7.optimizers.de.de import DE
 
 
-class JADE(Optimizer):
+class JADE(DE):
     """Adaptive Differential Evolution (JADE).
 
     Reference
@@ -14,95 +14,104 @@ class JADE(Optimizer):
     https://doi.org/10.1109/TEVC.2009.2014613
     """
     def __init__(self, problem, options):
-        Optimizer.__init__(self, problem, options)
-        self.mu_cr = 0.5
-        self.mu_f = 0.5
-        self.archive = np.empty((0, self.ndim_problem))
-        self.p = 0.2
-        self.c = 0.2  # 0.05 - 0.2
-        self._n_generations = 0
+        DE.__init__(self, problem, options)
+        self.mu = options.get('mu', 0.5)  # The initial mean of normal distribution
+        self.median = options.get('median', 0.5)  # The initial location parameter of the Cauchy distribution
+        self.s = options.get('s', 0.1)  # The scale parameter of the Cauchy distribution
+        self.p = options.get('p', 0.05)  # p determines the greediness of the mutation strategy
+        self.c = options.get('c', 0.1)  # 1/c is the life span of a successful crossover probability or mutation factor
+        self.archive = options.get('archive', True)
+        self.boundary_constraint = options.get('boundary_constraint', False)
 
     def initialize(self, args=None):
-        x = self.rng_initialization.uniform(
-            self.initial_lower_boundary, self.initial_upper_boundary,
-            (self.n_individuals, self.ndim_problem))  # initial point
-        yy = []
+        x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
+                                            size=(self.n_individuals, self.ndim_problem))
+        y = np.empty((self.n_individuals,))
         for i in range(self.n_individuals):
-            yy.append(self._evaluate_fitness(x[i], args))
-        return x, yy
+            if self._check_terminations():
+                break
+            y[i] = self._evaluate_fitness(x[i], args)
+        a = np.empty((0, self.ndim_problem))  # the set of archived inferior solutions
+        self._n_generations += 1
+        return x, y, a
 
-    def iterate(self, args=None, x=None, fitness=None):
-        cr = self.rng_optimization.normal(self.mu_cr, 0.1, (self.n_individuals,))
-        f = self.rng_optimization.normal(self.mu_f, 0.1, (self.n_individuals,))
+    def mutate(self, x=None, y=None, a=None):
+        x_mu = np.empty((self.n_individuals,  self.ndim_problem))
+        mu_f = np.empty((self.n_individuals,))  # mutation factors
+        order = np.argsort(y)[:int(np.ceil(self.p * self.n_individuals))]  # Choose the 100p% best individuals
+        x_p = x[self.rng_optimization.choice(order, (self.n_individuals,))]
+        x_un = np.copy(x)
+        if self.archive:
+            x_un = np.vstack((x_un, a))  # The union of the current population and the archive
+        for i in range(self.n_individuals):
+            mu_f[i] = self.s * self.rng_optimization.standard_cauchy() + self.median
+            while mu_f[i] <= 0:
+                mu_f[i] = self.s * self.rng_optimization.standard_cauchy() + self.median
+            if mu_f[i] > 1:
+                mu_f[i] = 1
+            r1 = self.rng_optimization.choice(np.setdiff1d(np.arange(self.n_individuals), i))
+            r2 = self.rng_optimization.choice(np.setdiff1d(np.arange(len(x_un)), np.union1d(i, r1)))
+            x_mu[i] = x[i] + mu_f[i] * (x_p[i] - x[i]) + mu_f[i] * (x[r1] - x_un[r2])
 
-        # The union of the current population and the archive
-        x_union = np.copy(x)
-        if len(self.archive) > 0:
-            x_union = np.vstack((x_union, self.archive))
+            if self.boundary_constraint:
+                idx = np.array(x_mu[i] < self.lower_boundary)
+                if idx.any():
+                    x_mu[i][idx] = (self.lower_boundary[idx] + x[i][idx]) / 2
+                idx = np.array(x_mu[i] > self.upper_boundary)
+                if idx.any():
+                    x_mu[i][idx] = (self.upper_boundary[idx] + x[i][idx]) / 2
+        return x_mu, mu_f
 
-        # r1 and r2
-        n_ind = np.arange(self.n_individuals)
-        r1 = np.array([self.rng_optimization.choice(np.setdiff1d(n_ind, np.array([i]))) for i in n_ind])
-        r2 = np.array([self.rng_optimization.choice(
-            np.setdiff1d(np.arange(len(x_union)), np.union1d(np.array([i]), r1[i]))) for i in n_ind])
-
-        # top 100p%
-        yy = fitness[-self.n_individuals:]
-        sort_index = np.argsort(yy)[:int(self.p * self.n_individuals)]
-        x_best = x[self.rng_optimization.choice(sort_index, (self.n_individuals,))]
-
-        # Mutation
-        f_m = np.tile(f.reshape(self.n_individuals, 1), (1, self.ndim_problem))
-        v = x + f_m * (x_best - x) + f_m * (x[r1] - x_union[r2])
-
-        # Crossover
-        x_crossover = np.zeros((self.n_individuals, self.ndim_problem))
-        r = self.rng_optimization.random((self.n_individuals, self.ndim_problem))
+    def crossover(self, x=None, x_mu=None):
+        cr_p = self.rng_optimization.normal(self.mu, 0.1, (self.n_individuals,))  # crossover probabilities
+        x_cr = np.copy(x)
         for i in range(self.n_individuals):
             for j in range(self.ndim_problem):
-                if (j == self.rng_optimization.integers(0, self.ndim_problem)) or (r[i][j] < cr[i]):
-                    x_crossover[i, j] = v[i, j]
-                else:
-                    x_crossover[i, j] = x[i, j]
+                if (j == self.rng_optimization.integers(self.ndim_problem)) or \
+                        (self.rng_optimization.random() < cr_p[i]):
+                    x_cr[i, j] = x_mu[i, j]
+        return x_cr, cr_p
 
-        # Selection
-        s_f = []  # the set of all successful crossover probabilities
-        s_cr = []  # the set of all successful mutation factors
-        x_new = np.zeros((self.n_individuals, self.ndim_problem))
+    def select(self, args=None, x=None, y=None, a=None, x_cr=None, mu_f=None, cr_p=None):
+        s_f = []  # the set of all successful mutation factors
+        s_p = []  # the set of all successful crossover probabilities
         for i in range(self.n_individuals):
-            y_i = self._evaluate_fitness(x_crossover[i])
-            if yy[i] <= y_i:
-                x_new[i] = x[i]
-                fitness.append(yy[i])
-            else:
-                x_new[i] = x_crossover[i]
-                fitness.append(y_i)
-                self.archive = np.vstack((self.archive, x_crossover[i]))
-                s_cr.append(cr[i])
-                s_f.append(f[i])
+            if self._check_terminations():
+                break
+            y_temp = self._evaluate_fitness(x_cr[i], args)
+            if y_temp < y[i]:
+                x[i] = x_cr[i]
+                y[i] = y_temp
+                if self.archive:
+                    a = np.vstack((a, x_cr[i]))
+                s_f.append(mu_f[i])
+                s_p.append(cr_p[i])
+        return x, y, a, s_f, s_p
 
-        # update
-        self.mu_cr = (1 - self.c) * self.mu_cr + self.c * np.mean(np.array(s_cr))
-        if np.sum(np.array(s_f)) != 0:
-            self.mu_f = (1 - self.c) * self.mu_f + self.c * np.sum(np.power(np.array(s_f), 2)) / np.sum(np.array(s_f))
-        else:
-            self.mu_f = (1 - self.c) * self.mu_f
-        return x_new, fitness
+    def iterate(self, args=None, x=None, y=None, a=None):
+        x_mu, mu_f = self.mutate(x, y, a)
+        x_cr, cr_p = self.crossover(x, x_mu)
+        x, y, a, s_f, s_p = self.select(args, x, y, a, x_cr, mu_f, cr_p)
+
+        if self.archive:
+            if len(a) > self.n_individuals:  # randomly remove solutions from a so that |a| <= self.n_individuals
+                a = np.delete(a, self.rng_optimization.choice(len(a), (len(a) - self.n_individuals,), False), 0)
+        self.mu = (1 - self.c) * self.mu + self.c * np.mean(s_p)  # Update the mean of Normal distribution
+        if np.sum(s_f) != 0:  # Update the location of Cauchy distribution
+            self.median = (1 - self.c) * self.median + self.c * np.sum(np.power(s_f, 2)) / np.sum(s_f)
+        return x, y, a
 
     def optimize(self, fitness_function=None, args=None):
-        fitness = Optimizer.optimize(self, fitness_function)
-        x, y = self.initialize(args)
+        fitness = DE.optimize(self, fitness_function)
+        x, y, a = self.initialize(args)
         fitness.extend(y)
         while True:
-            x, fitness = self.iterate(args, x, fitness)
-
-            # Update archive
-            if len(self.archive) > self.n_individuals:
-                self.archive = self.archive[
-                    self.rng_optimization.choice(np.arange(len(self.archive)), (self.n_individuals,))]
-
+            x, y, a = self.iterate(args, x, y, a)
+            if self.record_fitness:
+                fitness.extend(y)
             if self._check_terminations():
                 break
             self._n_generations += 1
+            self._print_verbose_info(y)
         results = self._collect_results(fitness)
         return results
