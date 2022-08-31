@@ -20,7 +20,7 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem,
                'lower_boundary': -100*np.ones((ndim_problem,)),
                'upper_boundary': 100*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 5000 * 100,
+    options = {'max_function_evaluations': 1500 * 100,
                'n_individuals': 100,
                'seed_rng': 0,  # undefined in the original paper
                }
@@ -29,14 +29,14 @@ if __name__ == '__main__':
     print(results)
     print(results['best_so_far_y'])
     # generation 1500
-    #            6.7E-62
+    #            3.9E-60
     # vs         1.3E-54 (from the original paper)
 
     problem = {'fitness_function': step,
                'ndim_problem': ndim_problem,
                'lower_boundary': -100*np.ones((ndim_problem,)),
                'upper_boundary': 100*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 5000 * 100,
+    options = {'max_function_evaluations': 1500 * 100,
                'n_individuals': 100,
                'seed_rng': 0,  # undefined in the original paper
                }
@@ -45,14 +45,14 @@ if __name__ == '__main__':
     print(results)
     print(results['best_so_far_y'])
     # generation 100 1500
-    #            6.0 0
+    #            4.0 0
     # vs         5.6 0 (from the original paper)
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
                'lower_boundary': -30*np.ones((ndim_problem,)),
                'upper_boundary': 30*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 5000 * 100,
+    options = {'max_function_evaluations': 3000 * 100,
                'n_individuals': 100,
                'seed_rng': 0,  # undefined in the original paper
                }
@@ -60,9 +60,9 @@ if __name__ == '__main__':
     results = jade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # generation 3000    20000
-    #            7.6E-05
-    # vs         3.2E-01 3.2E-01 (from the original paper)
+    # # generation 3000
+    # #            5.5E-07
+    # # vs         3.2E-01 (from the original paper)
 
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,
@@ -76,15 +76,15 @@ if __name__ == '__main__':
     results = jade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # generation 1000    5000
-    #            6.1E-02 0
-    # vs         1.4E-04 0 (from the original paper)
+    # # generation 1000    5000
+    # #            1.3E-01 0
+    # # vs         1.4E-04 0 (from the original paper)
 
     problem = {'fitness_function': ackley,
                'ndim_problem': ndim_problem,
                'lower_boundary': -32*np.ones((ndim_problem,)),
                'upper_boundary': 32*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 5000 * 100,
+    options = {'max_function_evaluations': 2000 * 100,
                'n_individuals': 100,
                'seed_rng': 0,  # undefined in the original paper
                }
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     results = jade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # generation 500     2000
-    #            1.9E-09 7.5E-15
-    # vs         3.0E-09 4.4E-15 (from the original paper)
+    # # generation 500     2000
+    # #            6.8E-10 4.0E-15
+    # # vs         3.0E-09 4.4E-15 (from the original paper)
 

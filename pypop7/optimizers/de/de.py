@@ -46,9 +46,9 @@ class DE(Optimizer):
 
     References
     ----------
-    Storn, R., Price, K. 1997.
-    Differential Evolution – A Simple and Efficient Heuristic for global Optimization over Continuous Spaces.
-    Journal of Global Optimization, 11, pp.341–359.
+    Storn, R., and Price, K. 1997.
+    Differential evolution – a simple and efficient heuristic for global optimization over continuous spaces.
+    Journal of Global Optimization, 11(4), pp.341–359.
     https://doi.org/10.1023/A:1008202821328
     """
     def __init__(self, problem, options):
@@ -58,6 +58,9 @@ class DE(Optimizer):
         self._n_generations = 0
 
     def initialize(self):
+        raise NotImplementedError
+
+    def bound(self):
         raise NotImplementedError
 
     def mutate(self):
