@@ -15,71 +15,69 @@ class DES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self.c_d = self.ndim_problem / (self.ndim_problem + 2)
-        self.c_c = 1 / np.sqrt(self.ndim_problem)
-        self.epsilon = 1e-6
-        self.c_epsilon = 2 / (self.ndim_problem ** 2)
-        self.h = int(6 + 3 * np.sqrt(self.ndim_problem))  # window size
+        self.c_d = options.get('c_d', self.ndim_problem / (self.ndim_problem + 2))  # for Line 16, 17, 18 in Fig. 4.
+        self.c = options.get('c', 1 / np.sqrt(self.ndim_problem))  # for Line 11 in Fig. 4. (c_c)
+        self.h = options.get('h', int(6 + 3 * np.sqrt(self.ndim_problem)))  # window size, for Line 14 in Fig. 4. (H)
+        self.c_cov = options.get('c_cov', 2 / (self.ndim_problem ** 2))  # for Line 19 in Fig. 4. (c_epsilon)
+        self.epsilon = 1e-6  # for Line 19 in Fig. 4.
 
-        self.accu_x = np.empty((0, self.ndim_problem))
-        self.accu_delta = np.empty((0, self.ndim_problem))
-        self.accu_p = np.empty((0, self.ndim_problem))
-
-    def initialize(self, is_restart=False):
-        x = self.rng_initialization.uniform(
-            self.initial_lower_boundary, self.initial_upper_boundary,
-            (self.n_individuals, self.ndim_problem))
-        mean = np.mean(x, 0)
-        y = np.empty((self.n_individuals,))  # fitness (no evaluation)
-        return x, mean, y
-
-    def iterate(self, x=None, mean=None, y=None, args=None):
-        mean_bak = np.copy(mean)
-        order = np.argsort(y)[:self.n_parents]
-        mean = np.mean(np.copy(x[order]), 0)
-        delta = mean - mean_bak
-        if self._n_generations == 1:
-            p = delta
-        else:
-            p = (1 - self.c_c) * self.accu_p[-1] + np.sqrt(self.n_parents * self.c_c * (2 - self.c_c)) * delta
-
-        self.accu_x = np.vstack((self.accu_x, x[order]))[-self.h * self.n_parents:]
-        self.accu_delta = np.vstack((self.accu_delta, delta))[-self.h:]
-        self.accu_p = np.vstack((self.accu_p, p))[-self.h:]
-
-        idx = np.min([self._n_generations, self.h])
-        for k in range(self.n_individuals):  # sample population (Line 13)
+    def initialize(self, args=None):
+        x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
+                                            size=(self.n_individuals, self.ndim_problem))
+        y = np.empty((self.n_individuals,))
+        for i in range(self.n_individuals):
             if self._check_terminations():
-                return x, mean, y
+                break
+            y[i] = self._evaluate_fitness(x[i], args)
+        mean = np.mean(x, 0)
+        accu_p = np.empty((0, self.ndim_problem))
+        accu_d = np.empty((0, self.ndim_problem))
+        accu_x = np.empty((0, self.ndim_problem))
+        self._n_generations += 1
+        return x, mean, accu_p, accu_d, accu_x, y
 
-            tau = self.rng_optimization.choice(idx, (3,))  # (Line 14)
-            x0 = self.accu_x[(tau[0] * self.n_parents):((tau[0] + 1) * self.n_parents)]
-            x1, x2 = self.rng_optimization.choice(x0, (2,))  # (Line 15)
-
-            d = np.sqrt(self.c_d / 2) * (x1 - x2) + \
-                np.sqrt(self.c_d) * self.accu_delta[tau[1]] * self.rng_optimization.standard_normal() + \
-                np.sqrt(1 - self.c_d) * self.accu_p[tau[2]] * self.rng_optimization.standard_normal() + \
-                self.epsilon * np.power((1 - self.c_epsilon), self._n_generations / 2) * \
+    def iterate(self, x=None, mean=None, accu_p=None, accu_d=None, accu_x=None, y=None, args=None):
+        for k in range(self.n_individuals):  # for Line 13 in Fig. 4.
+            if self._check_terminations():
+                return x, y
+            tau = self.rng_optimization.choice(np.min([self._n_generations, self.h]), (3,))  # for Line 14 in Fig. 4.
+            x1, x2 = self.rng_optimization.choice(
+                accu_x[(tau[0] * self.n_parents):((tau[0] + 1) * self.n_parents)], (2,))
+            d = np.sqrt(self.c_d / 2) * (x1 - x2) +\
+                np.sqrt(self.c_d) * accu_d[tau[1]] * self.rng_optimization.standard_normal() +\
+                np.sqrt(1 - self.c_d) * accu_p[tau[2]] * self.rng_optimization.standard_normal() +\
+                self.epsilon * np.power((1 - self.c_cov), self._n_generations / 2) *\
                 self.rng_optimization.standard_normal((self.ndim_problem,))
             x[k] = mean + d
             y[k] = self._evaluate_fitness(x[k], args)
-        return x, mean, y
+        return x, y
 
-    def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
+    def _update_distribution(self, x=None, mean=None, accu_p=None, accu_d=None, accu_x=None, y=None):
+        mean_bak = np.copy(mean)
+        order = np.argsort(y)[:self.n_parents]
+        mean = np.mean(x[order], 0)
+        d = mean - mean_bak  # for Line 7 in Fig. 4.
+        if self._n_generations == 1:
+            p = d  # for Line 9 in Fig. 4.
+        else:
+            p = (1 - self.c) * accu_p[-1] + np.sqrt(self.n_parents * self.c * (2 - self.c)) * d
+        accu_p = np.vstack((accu_p, p))[-self.h:]
+        accu_d = np.vstack((accu_d, d))[-self.h:]
+        accu_x = np.vstack((accu_x, x[order]))[-self.h * self.n_parents:]
+        return mean, accu_p, accu_d, accu_x
+
+    def optimize(self, fitness_function=None, args=None):
         fitness = ES.optimize(self, fitness_function)
-        x, mean, y = self.initialize()
-        for k in range(self.n_individuals):
-            y[k] = self._evaluate_fitness(x[k], args)
+        x, mean, accu_p, accu_d, accu_x, y = self.initialize()
         fitness.extend(y)
-        self._n_generations += 1
         while True:
-            # sample and evaluate offspring population
-            x, mean, y = self.iterate(x, mean, y, args)
+            mean, accu_p, accu_d, accu_x = self._update_distribution(x, mean, accu_p, accu_d, accu_x, y)
+            x, y = self.iterate(x, mean, accu_p, accu_d, accu_x, y, args)
             if self.record_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
             self._n_generations += 1
             self._print_verbose_info(y)
-        results = self._collect_results(fitness, mean)
+        results = self._collect_results(fitness)
         return results
