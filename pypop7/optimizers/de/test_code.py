@@ -24,7 +24,6 @@ class TestCODE(unittest.TestCase):
             options = {'max_function_evaluations': 2e6,
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
-                       'x': 4 * np.ones((ndim_problem,)),  # mean
                        'verbose_frequency': 2000,
                        'record_fitness': True,
                        'record_fitness_frequency': 200000}
