@@ -68,7 +68,7 @@ if __name__ == '__main__':
                        'lower_boundary': -5.0*np.ones((dim,)),
                        'upper_boundary': 5.0*np.ones((dim,))}
             options = {'fitness_threshold': 1e-10,
-                       'seed_rng': 0,  # undefined in the original paper
+                       'seed_rng': 1,  # undefined in the original paper
                        'sigma': 3.0,
                        'verbose_frequency': 2e4,
                        'record_fitness': True,
