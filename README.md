@@ -84,7 +84,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited Memory Covariance Matrix Adaptation (**[LMCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcma.py)**) [see [Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
   
-    * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited Memory Covariance Matrix Adaptation Evolution Strategy (**[LMCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcmaes.py)**, LM-CMA-ES) [See [Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
+    * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Limited Memory Covariance Matrix Adaptation Evolution Strategy (**[LMCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcmaes.py)**) [see [Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-m Evolution Strategy *with Multiple Evolution Paths* (**[RMES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/rmes2.py)**, Rm-ES) [See [Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257)]
 
@@ -174,7 +174,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Random Hill Climber (**[RHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rhc.py)**) [see e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
 
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Pure Random Search (**[PRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/prs.py)**) [see e.g. [Bergstra and Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Pure Random Search (**[PRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/prs.py)**) [see e.g. [Bergstra&Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html)]
 
 ## Design Philosophy
 
@@ -424,7 +424,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   
     * Anderson, H.L., Davidon, W.C., Glicksman, M. and Kruse, U.E., 1955. [Scattering of positive pions by hydrogen at 189 MeV](https://journals.aps.org/pr/abstract/10.1103/PhysRev.100.279). Physical Review, 100(1), p.279.
 
-  * Applications: e.g., [NM: [Sparrow et al., 2018, Nature](https://www.nature.com/articles/s41586-018-0152-9); [Gillon et al., Nature, 2017](https://www.nature.com/articles/nature21360); [Lau&Rubinstein, Nature, 2012](https://www.nature.com/articles/nature10699) ]; [HJ: [Khaledian et al., 2018, IEEE-TMTT](https://ieeexplore.ieee.org/abstract/document/8335770); [Luhar et al., 2015, JFM](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/framework-for-studying-the-effect-of-compliant-surfaces-on-wall-turbulence/47B8C79442109015690B6B16F891DF09); [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Schneider, 1999, Genetics](https://academic.oup.com/genetics/article/152/3/1079/6034947); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902) ]
+  * Applications: e.g., [NM: [Sparrow et al., 2018, Nature](https://www.nature.com/articles/s41586-018-0152-9); [Gillon et al., Nature, 2017](https://www.nature.com/articles/nature21360); [Lau&Rubinstein, Nature, 2012](https://www.nature.com/articles/nature10699) ]; [HJ: [Khaledian et al., 2018, IEEE-TMTT](https://ieeexplore.ieee.org/abstract/document/8335770); [Luhar et al., 2015, JFM](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/framework-for-studying-the-effect-of-compliant-surfaces-on-wall-turbulence/47B8C79442109015690B6B16F891DF09); [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Schneider, 1999, Genetics](https://academic.oup.com/genetics/article/152/3/1079/6034947); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902)]
 
 * [https://bayesoptbook.com/](https://bayesoptbook.com/)
 
