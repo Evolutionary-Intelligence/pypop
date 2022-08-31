@@ -5,6 +5,7 @@
 """
 import unittest
 import time
+
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
@@ -21,7 +22,8 @@ class TestLMCMAES(unittest.TestCase):
                        'ndim_problem': ndim_problem,
                        'lower_boundary': -5 * np.ones((ndim_problem,)),
                        'upper_boundary': 5 * np.ones((ndim_problem,))}
-            options = {'fitness_threshold': 1e-10,
+            options = {'max_function_evaluations': 2e6,
+                       'fitness_threshold': 1e-10,
                        'max_runtime': 3600,  # 1 hours
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),  # mean

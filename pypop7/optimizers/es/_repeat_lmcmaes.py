@@ -3,6 +3,11 @@
     A computationally efficient limited memory CMA-ES for large scale optimization.
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 397-404). ACM.
     https://dl.acm.org/doi/abs/10.1145/2576768.2598294
+
+    Original C++/Matlab source code: https://sites.google.com/site/lmcmaeses/
+
+    Given that our code could perfectly generate the *nearly same* results as the original code,
+    we argue that the repeatability of `LMCMAES` can be well-documented (*at least partly*).
 """
 import pickle
 
