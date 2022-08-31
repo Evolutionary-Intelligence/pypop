@@ -19,7 +19,7 @@ class DES(ES):
         self.c = options.get('c', 1 / np.sqrt(self.ndim_problem))  # for Line 11 in Fig. 4. (c_c)
         self.h = options.get('h', int(6 + 3 * np.sqrt(self.ndim_problem)))  # window size, for Line 14 in Fig. 4. (H)
         self.c_cov = options.get('c_cov', 2 / (self.ndim_problem ** 2))  # for Line 19 in Fig. 4. (c_epsilon)
-        self.epsilon = 1e-6  # for Line 19 in Fig. 4.
+        self.epsilon = options.get('epsilon', 1e-6)  # for Line 19 in Fig. 4.
 
     def initialize(self, args=None):
         x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
@@ -32,7 +32,7 @@ class DES(ES):
 
         order = np.argsort(y)[:self.n_parents]
         accu_mean = np.array([np.mean(x, 0), np.mean(x[order], 0)])
-        accu_p = np.array([accu_mean[-1] - accu_mean[-2]])
+        accu_p = np.array([accu_mean[-1] - accu_mean[-2]])  # for Line 9 in Fig. 4.
         accu_x = x[order]
         self._n_generations += 1
         return x, y, accu_mean, accu_p, accu_x
