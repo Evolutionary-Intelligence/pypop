@@ -156,6 +156,10 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
 * **Evolutionary Programming ([EP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/ep.py))** [see e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
 
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Fast Evolutionary Programming (**[FEP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/fep.py)**) [see [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
+
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Classical Evolutionary Programming (**[CEP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/cep.py)**) [see e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163); [Bäck&Schwefel, 1993, ECJ](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for)]
+
 * **Direct Search ([DS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/ds.py))** [see e.g. [Powell, 1998, Acta-Numerica](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C); [Wright, 1996](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Generalized Pattern Search (**[GPS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/gps.py)**) [see [Kochenderfer&Wheeler, 2019](https://algorithmsbook.com/optimization/files/chapter-7.pdf); [Torczon, 1997, SIAM-JO](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780)]
