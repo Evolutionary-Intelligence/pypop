@@ -50,6 +50,8 @@ class LMCMA(ES):
                 * `'period'`        - update period (`int`, default: `int(np.maximum(1, np.log(self.ndim_problem)))`),
                 * `'n_steps'`       - target number of generations between vectors (`int`, default:
                   `self.ndim_problem`),
+                * 'c_c'           - learning rate for evolution path update (`float`, default:
+                  `0.5/np.sqrt(self.ndim_problem)`),
                 * `'c_1'`           - learning rate for covariance matrix adaptation (`float`, default:
                   `1.0/(10.0*np.log(self.ndim_problem + 1.0))`),
                 * `'c_s'`           - learning rate for population success rule (`float`, default: `0.3`),
@@ -106,6 +108,8 @@ class LMCMA(ES):
                       update period.
     n_steps         : `int`
                       target number of generations between vectors.
+    c_c             : `float`
+                      learning rate for evolution path update.
     c_1             : `float`
                       learning rate for covariance matrix adaptation.
     c_s             : `float`
