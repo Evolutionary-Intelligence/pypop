@@ -6,9 +6,8 @@ from pypop7.optimizers.es.es import ES
 class LMCMAES(ES):
     """Limited-Memory Covariance Matrix Adaptation Evolution Strategy (LMCMAES).
 
-    .. note:: For better optimization performance, please use the lateset version `LMCMA <
-       https://pypop.readthedocs.io/en/latest/es/lmcma.html>`_. Here we include it only for
-       benchmarking purpose.
+    .. note:: For better performance, please use the lateset version `LMCMA <https://tinyurl.com/mry5dw36>`_. Here we
+       include it mainly for benchmarking purpose.
 
     Parameters
     ----------
@@ -46,7 +45,7 @@ class LMCMAES(ES):
                 * 'base_m'        - base number of direction vectors (`int`, default: `4`),
                 * 'period'        - update period (`int`, default: `int(np.maximum(1, np.log(self.ndim_problem)))`),
                 * 'n_steps'       - target number of generations between vectors (`int`, default: `self.ndim_problem`),
-                * 'c_c'           - learning rate for evolution path (`float`, default: `1.0/self.m`).
+                * 'c_c'           - learning rate for evolution path update (`float`, default: `1.0/self.m`).
                 * 'c_1'           - learning rate for covariance matrix adaptation (`float`, default:
                   `1.0/(10.0*np.log(self.ndim_problem + 1.0))`),
                 * 'c_s'           - learning rate for population success rule (`float`, default: `0.3`),
@@ -100,7 +99,7 @@ class LMCMAES(ES):
     n_steps         : `int`
                       target number of generations between vectors.
     c_c             : `float`
-                      learning rate for evolution path.
+                      learning rate for evolution path update.
     c_1             : `float`
                       learning rate for covariance matrix adaptation.
     c_s             : `float`
@@ -125,7 +124,7 @@ class LMCMAES(ES):
         ES.__init__(self, problem, options)
         self.m = options.get('m', 4 + int(3*np.log(self.ndim_problem)))  # number of direction vectors
         self.n_steps = options.get('n_steps', self.m)  # target number of generations between vectors
-        self.c_c = options.get('c_c', 1.0/self.m)  # learning rate for evolution path
+        self.c_c = options.get('c_c', 1.0/self.m)  # learning rate for evolution path update
         self.c_1 = options.get('c_1', 1.0/(10.0*np.log(self.ndim_problem + 1.0)))
         self.c_s = options.get('c_s', 0.3)  # learning rate for population success rule (PSR)
         self.d_s = options.get('d_s', 1.0)  # damping parameter for PSR
