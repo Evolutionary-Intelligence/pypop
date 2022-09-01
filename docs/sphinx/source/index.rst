@@ -75,6 +75,7 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
    es/fmaes
    es/lmcmaes
    es/lmcma
+   es/lmmaes
    es/r1es
    eda/eda
    eda/umda
