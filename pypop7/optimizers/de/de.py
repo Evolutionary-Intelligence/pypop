@@ -10,7 +10,13 @@ class DE(Optimizer):
     optimize the black-box problem at hand.
 
     .. note:: Its six methods (`initialize`, `mutate`, `crossover`, `select`, `iterate`, `optimize`) should
-    be implemented by its subclasses.
+       be implemented by its subclasses.
+
+       Originally `DE` was proposed to solve some challenging real-world problems by Kenneth Price and Rainer Storn,
+       `recipients of Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_. Although there
+       are few significant theoretical advances, it is still widely used in practice owing to its often attractive
+       performance on multimodal functions (`SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ has provided
+       an open-source implementation for `DE`).
 
     Parameters
     ----------
