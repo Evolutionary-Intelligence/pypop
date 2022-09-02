@@ -68,16 +68,16 @@ class JADE(DE):
 
     Attributes
     ----------
-    n_individuals     : `int`
-                        number of offspring (λ: lambda), offspring population size.
-    mu                : `float`
-                        mean of normal distribution for adaptation of crossover probability.
-    median            : `float`
-                        median of Cauchy distribution for adaptation of mutation factor.
-    p                 : `float`
-                        level of greediness of mutation strategy.
-    c                 : `float`
-                        life span.
+    n_individuals : `int`
+                    number of offspring, offspring population size.
+    mu            : `float`
+                    mean of normal distribution for adaptation of crossover probability.
+    median        : `float`
+                    median of Cauchy distribution for adaptation of mutation factor.
+    p             : `float`
+                    level of greediness of mutation strategy.
+    c             : `float`
+                    life span.
 
     References
     ----------
