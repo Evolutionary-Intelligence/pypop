@@ -9,7 +9,8 @@ class DE(Optimizer):
     This is the **base** (abstract) class for all DE classes. Please use any of its concrete subclasses to
     optimize the black-box problem at hand.
 
-    .. note:: Its three methods (`initialize`, `iterate`, `optimize`) should be implemented by its subclasses.
+    .. note:: Its six methods (`initialize`, `mutate`, `crossover`, `select`, `iterate`, `optimize`) should
+    be implemented by its subclasses.
 
     Parameters
     ----------
@@ -34,39 +35,49 @@ class DE(Optimizer):
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
                 * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
               and with one particular setting (`keys`):
-                * 'n_individuals' - number of offspring, offspring population size (`int`),
+                * 'n_individuals' - number of offspring, offspring population size (`int`).
 
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring, population size.
+                    number of offspring, offspring population size.
 
     Methods
     -------
 
     References
     ----------
-    Storn, R., and Price, K. 1997.
+    Price, K.V., 2013.
+    Differential evolution.
+    In Handbook of optimization (pp. 187-214). Springer, Berlin, Heidelberg.
+    https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8
+
+    Price, K.V., Storn, R.M. and Lampinen, J.A., 2006.
+    Differential evolution: A practical approach to global optimization.
+    Springer Science & Business Media.
+    https://link.springer.com/book/10.1007/3-540-31306-0
+
+    Storn, R.M. and Price, K.V. 1997.
     Differential evolution – a simple and efficient heuristic for global optimization over continuous spaces.
     Journal of Global Optimization, 11(4), pp.341–359.
     https://doi.org/10.1023/A:1008202821328
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        if self.n_individuals is None:
+        if self.n_individuals is None:  # number of offspring, offspring population size
             self.n_individuals = 100
         self._n_generations = 0
 
     def initialize(self):
         raise NotImplementedError
 
-    def bound(self):
-        raise NotImplementedError
-
     def mutate(self):
         raise NotImplementedError
 
     def crossover(self):
+        raise NotImplementedError
+
+    def bound(self):
         raise NotImplementedError
 
     def select(self):
