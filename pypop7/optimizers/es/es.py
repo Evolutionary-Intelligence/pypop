@@ -53,19 +53,21 @@ class ES(Optimizer):
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring (λ: lambda), offspring population size.
+                    number of offspring/descendants (λ: lambda), offspring population size.
     n_parents     : `int`
                     number of parents (μ: mu), parental population size.
     mean          : `array_like`
                     initial (starting) point, mean of Gaussian search distribution.
     sigma         : `float`
-                    initial global step-size (σ), mutation strength (`float`).
+                    initial global step-size (σ), mutation strength (rate).
 
     Methods
     -------
 
     References
     ----------
+    https://homepages.fhv.at/hgb/downloads/ES-Is-Not-Gradient-Follower.pdf
+
     Ollivier, Y., Arnold, L., Auger, A. and Hansen, N., 2017.
     Information-geometric optimization algorithms: A unifying picture via invariance principles.
     Journal of Machine Learning Research, 18(18), pp.1-65.
