@@ -1,4 +1,4 @@
-"""Repeat the following paper for `CODE`:
+"""Repeat the following paper:
     Wang, Y., Cai, Z., and Zhang, Q. 2011.
     Differential evolution with composite trial vector generation strategies and control parameters.
     IEEE Transactions on Evolutionary Computation, 15(1), pp.55–66.
@@ -29,8 +29,7 @@ if __name__ == '__main__':
     results = code.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 0.00
-    # vs 0.00 (from the original paper)
+    # 0.00 vs 0.00 (from the original paper)
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
@@ -61,5 +60,4 @@ if __name__ == '__main__':
     results = code.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 0.00
-    # vs 0.00 (from the original paper)
+    # 0.00 vs 0.00 (from the original paper)
