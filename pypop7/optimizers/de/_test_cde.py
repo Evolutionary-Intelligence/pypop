@@ -5,13 +5,14 @@
 """
 import unittest
 import time
+
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from pypop7.optimizers.de.jade import JADE as Solver
+from pypop7.optimizers.de.cde import CDE as Solver
 
 
-class TestJADE(unittest.TestCase):
+class TestCDE(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
         ndim_problem = 1000

@@ -18,6 +18,9 @@ class DE(Optimizer):
        performance on multimodal functions (`SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ has provided
        an open-source implementation for `DE`).
 
+       *"DE borrows the idea from Nelder&Mead of employing information from within the vector population to alter
+       the search space."* --- `Storn&Price, 1997, JGO <https://doi.org/10.1023/A:1008202821328>`_
+
     Parameters
     ----------
     problem : dict
@@ -58,7 +61,7 @@ class DE(Optimizer):
     In Handbook of optimization (pp. 187-214). Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8
 
-    Price, K.V., Storn, R.M. and Lampinen, J.A., 2006.
+    Price, K.V., Storn, R.M. and Lampinen, J.A., 2005.
     Differential evolution: A practical approach to global optimization.
     Springer Science & Business Media.
     https://link.springer.com/book/10.1007/3-540-31306-0
@@ -84,7 +87,7 @@ class DE(Optimizer):
         raise NotImplementedError
 
     def bound(self):
-        raise NotImplementedError
+        pass
 
     def select(self):
         raise NotImplementedError
