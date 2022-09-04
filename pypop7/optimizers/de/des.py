@@ -8,15 +8,20 @@ class DES(ES):
 
     Reference
     ---------
-    Arabas, J., and Jagodziński, D. 2020.
+    Arabas, J. and Jagodziński, D., 2019.
     Toward a matrix-free covariance matrix adaptation evolution strategy.
-    IEEE Transactions on Evolutionary Computation, 24(1), 84–98.
+    IEEE Transactions on Evolutionary Computation, 24(1), pp.84-98.
     https://doi.org/10.1109/TEVC.2019.2907266
     """
+
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
         self.c_d = options.get('c_d', self.n_parents / (self.n_parents + 2))  # for Line 16, 17, 18 in Fig. 4.
-        self.c = options.get('c', 1 / np.sqrt(self.ndim_problem))  # for Line 11 in Fig. 4. (c_c)
+        self._c_d_1 = np.sqrt(self.c_d / 2)
+        self._c_d_2 = np.sqrt(self.c_d)
+        self._c_d_3 = np.sqrt(1 - self.c_d)
+        self.c_c = options.get('c_c', 1 / np.sqrt(self.ndim_problem))  # for Line 11 in Fig. 4. (c_c)
+        self._c_c_1 = np.sqrt(self.n_parents * self.c_c * (2 - self.c_c))
         self.h = options.get('h', int(6 + 3 * np.sqrt(self.ndim_problem)))  # window size, for Line 14 in Fig. 4. (H)
         self.c_cov = options.get('c_cov', 2 / (self.ndim_problem ** 2))  # for Line 19 in Fig. 4. (c_epsilon)
         self.epsilon = options.get('epsilon', 1e-6)  # for Line 19 in Fig. 4.
@@ -44,11 +49,10 @@ class DES(ES):
             tau = self.rng_optimization.choice(np.min([self._n_generations, self.h]), (3,))  # for Line 14 in Fig. 4.
             x1, x2 = self.rng_optimization.choice(
                 accu_x[(tau[0] * self.n_parents):((tau[0] + 1) * self.n_parents)], (2,))
-            d = np.sqrt(self.c_d / 2) * (x1 - x2) +\
-                np.sqrt(self.c_d) * (accu_mean[tau[1] + 1] - accu_mean[tau[1]]) *\
-                self.rng_optimization.standard_normal() +\
-                np.sqrt(1 - self.c_d) * accu_p[tau[2]] * self.rng_optimization.standard_normal() +\
-                self.epsilon * np.power((1 - self.c_cov), self._n_generations / 2) *\
+            d = self._c_d_1 * (x1 - x2) + \
+                self._c_d_2 * self.rng_optimization.standard_normal() * (accu_mean[tau[1] + 1] - accu_mean[tau[1]]) + \
+                self._c_d_3 * self.rng_optimization.standard_normal() * accu_p[tau[2]] + \
+                self.epsilon * np.power((1 - self.c_cov), self._n_generations / 2) * \
                 self.rng_optimization.standard_normal((self.ndim_problem,))
             x[k] = accu_mean[-1] + d
             y[k] = self._evaluate_fitness(x[k], args)
@@ -57,8 +61,7 @@ class DES(ES):
     def _update_distribution(self, x=None, y=None, accu_mean=None, accu_p=None, accu_x=None):
         order = np.argsort(y)[:self.n_parents]
         accu_mean = np.vstack((accu_mean, np.mean(x[order], 0)))[-(self.h + 1):]
-        p = (1 - self.c) * accu_p[-1] +\
-            np.sqrt(self.n_parents * self.c * (2 - self.c)) * (accu_mean[-1] - accu_mean[-2])  # for Line 11 in Fig. 4.
+        p = (1 - self.c_c) * accu_p[-1] + self._c_c_1 * (accu_mean[-1] - accu_mean[-2])  # for Line 11 in Fig. 4.
         accu_p = np.vstack((accu_p, p))[-self.h:]
         accu_x = np.vstack((accu_x, x[order]))[-self.h * self.n_parents:]
         return accu_mean, accu_p, accu_x
