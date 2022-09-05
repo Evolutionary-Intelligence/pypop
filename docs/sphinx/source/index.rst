@@ -82,6 +82,7 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
    eda/emna
    de/de
    de/cde
+   de/tde
    de/jade
    de/code
    ep/ep
