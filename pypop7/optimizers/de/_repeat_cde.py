@@ -1,3 +1,12 @@
+"""Repeat the following paper for `CDE`:
+    Storn, R.M. and Price, K.V. 1997.
+    Differential evolution – a simple and efficient heuristic for global optimization over continuous spaces.
+    Journal of Global Optimization, 11(4), pp.341–359.
+    https://link.springer.com/article/10.1023/A:1008202821328
+
+    Very close performance can be obtained by our code. Therefore, we argue that
+    the repeatability of `CDE` can be well-documented (*at least partly*).
+"""
 import numpy as np
 
 from pypop7.benchmarks.base_functions import sphere, rosenbrock, griewank
