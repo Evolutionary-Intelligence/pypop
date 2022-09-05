@@ -51,13 +51,13 @@ class TDE(DE):
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5 * numpy.ones((2,)),
        ...            'upper_boundary': 5 * numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 50000,  # set optimizer options
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 0}
        >>> tde = TDE(problem, options)  # initialize the optimizer class
        >>> results = tde.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"TDE: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       TDE: 50000, 3.60018754679191e-11
+       TDE: 5000, 6.420787226215637e-21
 
     Attributes
     ----------
@@ -72,6 +72,10 @@ class TDE(DE):
 
     References
     ----------
+    Fan, H.Y. and Lampinen, J., 2003.
+    A trigonometric mutation operation to differential evolution.
+    Journal of Global Optimization, 27(1), pp.105-129.
+    https://link.springer.com/article/10.1023/A:1024653025686
     """
     def __init__(self, problem, options):
         DE.__init__(self, problem, options)
