@@ -58,6 +58,9 @@ class CDE(DE):
        >>> print(f"CDE: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        CDE: 5000, 1.0490841426568313e-10
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/3fc826yt>`_ for more details.
+
     Attributes
     ----------
     n_individuals : `int`
