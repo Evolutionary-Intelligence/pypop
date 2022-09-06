@@ -29,11 +29,11 @@ class RSCMSA(ES):
 
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self.tau = np.sqrt(0.5/self.ndim_problem)  # the learning rate of global step size
-        self.c_cov = self.n_parents/(self.n_parents + self.ndim_problem * (self.ndim_problem + 1))  # 1/tau_c
+        self.tau = np.sqrt(0.5 / self.ndim_problem)  # the learning rate of global step size
+        self.c_cov = self.n_parents / (self.n_parents + self.ndim_problem * (self.ndim_problem + 1))  # 1/tau_c
         self.n_elt = np.maximum(1, int(0.15 * self.n_individuals))  # number of elites
-        self.tau_hat_d = np.sqrt(1/self.ndim_problem)  # the learning rate of the normalized taboo distance
-        self.c_red = np.power(0.99, 1/self.ndim_problem)  # the size of each taboo region shrinks by (1-self.c_red)
+        self.tau_hat_d = np.sqrt(1 / self.ndim_problem)  # the learning rate of the normalized taboo distance
+        self.c_red = np.power(0.99, 1 / self.ndim_problem)  # the size of each taboo region shrinks by (1-self.c_red)
         self.alpha_new = options.get('alpha_new', 0.5)  # target rate of basin identification
         self.c_threshold = options.get('c_threshold', 0.01)  # criticality threshold for taboo points
         self.n_s = options.get('n_subpopulations', 10)  # number of subpopulations
@@ -49,27 +49,27 @@ class RSCMSA(ES):
         archive_x, archive_f, archive_d = np.empty((0, self.ndim_problem)), np.empty((0,)), np.empty((0,))
         return archive_x, archive_f, archive_d
 
-    def find_critical_points_descend_index(self, x, sigma, max_eig_sqrt, archive_x, archive_d):
-        if len(archive_x) > 0:
-            mu1 = np.sqrt(np.sum(np.power(x - archive_x, 2), 1)) / (max_eig_sqrt * sigma)  # L / (mu_1 * sigma_mean)
-            criticality = norm.cdf(mu1 + archive_d) - norm.cdf(mu1 - archive_d)
+    def find_critical_points_descend_index(self, x, sigma, max_eig_sqrt, taboo_points, taboo_points_d):
+        if len(taboo_points) > 0:
+            mu1 = np.sqrt(np.sum(np.power(x - taboo_points, 2), 1)) / (max_eig_sqrt * sigma)  # L / (mu_1 * sigma_mean)
+            criticality = norm.cdf(mu1 + taboo_points_d) - norm.cdf(mu1 - taboo_points_d)
             return np.argsort(-1 * criticality)[np.sort(-1 * criticality) < -1 * self.c_threshold]
         return np.empty((0,))
 
-    def is_new_basin(self, x1, x4, f1, f4, args=None):
+    def is_new_basin(self, x1, f1, x4, f4, args=None):
         new_basin, n = False, 0
         if np.sqrt(np.sum(np.power(x1 - x4, 2))) > 0:
             max_f = np.maximum(f1, f4)
             direction = x4 - x1  # search direction
             delta = np.sqrt(np.sum(np.power(direction, 2)))
             direction = direction / delta / 2.618
-            x2 = x1 + delta*direction
+            x2 = x1 + delta * direction
             f2 = self._evaluate_fitness(x2, args)
             n += 1
             if f2 > max_f:
                 new_basin = True
             elif n < self.budget:  # Max evaluation budget for the hill-valley ( Detect Multimodal) function
-                x3 = x1 + 1.618*delta*direction
+                x3 = x1 + 1.618 * delta * direction
                 f3 = self._evaluate_fitness(x3, args)
                 n += 1
                 if f3 > max_f:
@@ -80,22 +80,22 @@ class RSCMSA(ES):
                             delta = np.sqrt(np.sum(np.power(x4 - x2, 2))) / 2.618
                             x1, f1 = np.copy(x2), np.copy(f2)
                             x2, f2 = np.copy(x3), np.copy(f3)
-                            x3 = x1 + 1.618*delta*direction
+                            x3 = x1 + 1.618 * delta * direction
                             f3 = self._evaluate_fitness(x3, args)
                             n += 1
                         elif f2 > f3:
                             delta = np.sqrt(np.sum(np.power(x3 - x1, 2))) / 2.618
                             x4, f4 = np.copy(x3), np.copy(f3)
                             x3, f3 = np.copy(x2), np.copy(f2)
-                            x2 = x1 + delta*direction
+                            x2 = x1 + delta * direction
                             f2 = self._evaluate_fitness(x2, args)
                             n += 1
                         else:
                             delta = np.sqrt(np.sum(np.power(x3 - x2, 2))) / 2.618034
                             x1, f1 = np.copy(x2), np.copy(f2)
                             x4, f4 = np.copy(x3), np.copy(f3)
-                            x2 = x1 + delta*direction
-                            x3 = x4 - delta*direction
+                            x2 = x1 + delta * direction
+                            x3 = x4 - delta * direction
                             f2 = self._evaluate_fitness(x2, args)
                             f3 = self._evaluate_fitness(x3, args)
                             n += 2
@@ -104,9 +104,9 @@ class RSCMSA(ES):
                             break
         return new_basin
 
-    def update_population_size(self, i_used):
+    def update_population_size(self, average_used_iteration_number):
         factor = (self.max_function_evaluations - self.n_function_evaluations) / (
-                self.n_individuals * self._n_s_bak * i_used)
+                self.n_individuals * self._n_s_bak * average_used_iteration_number)
         if factor >= 2:
             self.n_individuals = 2 * self.n_individuals
             self.n_s = np.copy(self._n_s_bak)
@@ -122,121 +122,141 @@ class RSCMSA(ES):
         self.c_cov = self.n_parents / (self.n_parents + self.ndim_problem * (self.ndim_problem + 1))  # 1/tau_c
         self.n_elt = np.maximum(1, int(0.15 * self.n_individuals))  # number of elites
 
-    def update_archive(self, yy, yy_f, archive_x, archive_f, archive_d, args=None):
-        hat_d = self.hat_d_0
-        if len(archive_f) > 0:
-            if (np.min(yy_f) + self.fitness_threshold) < np.min(archive_f):  # discard archive solutions
-                archive_x, archive_f, archive_d = np.empty((0, self.ndim_problem)), np.empty((0,)), np.empty((0,))
-            else:
-                hat_d = np.percentile(archive_d, self.p)
+    def update_archive(self, best_x, best_y, archive_x, archive_y, archive_d, args=None):
+        hat_d = self.hat_d_0 if len(archive_d) == 0 else np.percentile(archive_d, self.p)
+        if len(archive_y) > 0:
+            if (np.min(best_y) + self.fitness_threshold) < np.min(archive_y):  # discard archive solutions
+                archive_x, archive_y, archive_d = np.empty((0, self.ndim_problem)), np.empty((0,)), np.empty((0,))
 
         # Consider only global minima, among the recently generated solutions
-        index = np.arange(len(yy_f))[yy_f <= self.fitness_threshold + np.min(np.hstack((archive_f, yy_f)))]
+        index = np.arange(self.n_s)[best_y <= (self.fitness_threshold + np.min(np.hstack((archive_y, best_y))))]
         n_rep = np.zeros((len(archive_x),))  # number of subpopulations that have converged to corresponding basin
         for i in index:
-            y, f_y = yy[i], yy_f[i]
-            archive_x = archive_x[
-                np.argsort(np.array([np.sqrt(np.sum(np.power(y - x, 2))) for x in archive_x]))]  # sort
+            archive_x = archive_x[np.argsort([np.sqrt(np.sum(np.power(best_x[i] - x, 2))) for x in archive_x])]  # sort
             is_new = 1
             for j in range(len(archive_x)):
-                x, f_x = archive_x[j], archive_f[j]
-                is_basin = True
-                if (self.max_function_evaluations - self.n_function_evaluations) > self.budget:
-                    is_basin = self.is_new_basin(y, x, f_y, f_x, args)
+                if (self.max_function_evaluations - self.n_function_evaluations) >= self.budget:
+                    is_basin = self.is_new_basin(best_x[i], best_y[i], archive_x[j], archive_y[j], args)
+                else:
+                    self.n_function_evaluations = self.max_function_evaluations
+                    return archive_x, archive_y, archive_d
                 if is_basin:  # share the same basin
-                    if f_y < f_x:
-                        archive_x[j], archive_f[j] = y, f_y
+                    if best_y[i] < archive_y[j]:
+                        archive_x[j], archive_y[j] = best_x[i], best_y[i]
                     n_rep[j] += 1
                     is_new = 0  # not a new basin
                     break
             if is_new == 1:
-                archive_x = np.vstack((archive_x, y))
-                archive_f = np.hstack((archive_f, f_y))
+                archive_x = np.vstack((archive_x, best_x[i]))
+                archive_y = np.hstack((archive_y, best_y[i]))
                 archive_d = np.hstack((archive_d, hat_d))
                 n_rep = np.hstack((n_rep, 0))
 
-        diff = n_rep - self.alpha_new * (len(index) / len(archive_x))
+        diff = n_rep - self.alpha_new * (len(index)/len(archive_x))
         for i in range(len(archive_x)):
             if diff[i] > 0:
-                archive_d[i] *= (1 + diff[i])**self.tau_hat_d
+                archive_d[i] *= (1 + diff[i]) ** self.tau_hat_d
             else:
-                archive_d[i] *= (1 - diff[i])**(-1 * self.tau_hat_d)
-        return archive_x, archive_f, archive_d
+                archive_d[i] *= (1 - diff[i]) ** (-1 * self.tau_hat_d)
+        return archive_x, archive_y, archive_d
 
-    def generate_subpopulation(self, mean, cov, sigma, superior_mean, superior_d,
-                               archive_x, archive_f, archive_d, elt_x, elt_f, elt_z, elt_s,
-                               best_f_ne, median_f_ne, args=None):
-        """
-        elt_x: initial elite solutions of the subpopulation
-        elt_f: initial elite function fitness
-        elt_z: Initial value of the elite variation vector
-        elt_s: Initial value of the elite global step sizes
-        best_f_ne: History of the best of non-elite solutions for each subpopulation
-        med_f_ne: History of the median of non-elite solutions for each subpopulation
-        """
+    def initialize_subpopulation(self, archive_xx, archive_d):
+        hat_d = self.hat_d_0 if len(archive_d) == 0 else np.percentile(archive_d, self.p)
+        base = (self.initial_upper_boundary - self.initial_lower_boundary) ** 2
+        cov, inv_cov, sigma = np.diag(base), np.diag(1/base), self.sigma
+        means = np.empty((self.n_s, self.ndim_problem))
+        for i in range(self.n_s):
+            n_rej = 0
+            while True:
+                accept = True
+                x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
+                for j in range(len(archive_xx)):  # for archived points
+                    accept = calculate_mahalanobis_distance(archive_xx[j], x, inv_cov) >= ((2*hat_d + archive_d[j])*sigma)
+                    if not accept:
+                        break
+                if accept:
+                    for k in range(i):  # for previously sampled points
+                        accept = calculate_mahalanobis_distance(means[k], x, inv_cov) >= (3*hat_d*sigma)
+                        if not accept:
+                            break
+                if accept:
+                    means[i] = x
+                    break
+                else:
+                    n_rej += 1
+                if n_rej > 100:
+                    sigma, n_rej = self.c_red*sigma, 0  # shrink the size of each taboo region
+        sigmas = sigma*np.ones((self.n_s,))
+        means_d = hat_d*np.ones((self.n_s,))
+        return means, sigmas, cov, means_d
+
+    def iterate_subpopulation(self, mean, cov, sigma, elt_x, elt_y, elt_z, elt_s,
+                              best_y_ne, median_y_ne, superior_mean, superior_d,
+                              archive_x, archive_y, archive_d, args):
+
         s = 1  # for temporary shrinkage of the taboo regions
         w, v = np.linalg.eig(cov)
         inv_cov = np.matmul(np.matmul(v, np.diag(1 / w)), v.T)  # Inverse of the matrix
         sqrt_w = np.sqrt(w)
 
         # Generate taboo points
-        taboo_points = np.copy(superior_mean)  # Center of fitter subpopulations
-        taboo_points_d = np.copy(superior_d)  # The normalized taboo distance of fitter subpopulations
+        taboo = np.copy(superior_mean)  # Center of fitter subpopulations
+        taboo_d = np.copy(superior_d)  # The normalized taboo distance of fitter subpopulations
         for i in range(len(archive_x)):  # Consider fitter archived points as taboo points
-            base = np.ones((len(elt_f),))[archive_f[i] < elt_f]
-            if len(base) == len(elt_f):
-                taboo_points = np.vstack((taboo_points, archive_x[i]))
-                taboo_points_d = np.hstack((taboo_points_d, archive_d[i]))
+            base = np.ones((self.n_elt,))[archive_y[i] < elt_y]
+            if len(base) == self.n_elt:
+                taboo = np.vstack((taboo, archive_x[i]))
+                taboo_d = np.hstack((taboo_d, archive_d[i]))
 
         # Determine which taboo points are critical (numpy-ndarray)
-        c_index = self.find_critical_points_descend_index(mean, sigma, np.max(sqrt_w), taboo_points, taboo_points_d)
+        c_index = self.find_critical_points_descend_index(mean, sigma, np.max(sqrt_w), taboo, taboo_d)
 
         # Sample, and Generate \lambda taboo acceptable solutions
         x = np.empty((self.n_individuals, self.ndim_problem))
-        f = np.empty((self.n_individuals,))
+        y = np.empty((self.n_individuals,))
         sigmas = np.zeros((self.n_individuals,))
         z = np.copy(x)
+        sqrt_cov = np.matmul(v, np.diag(sqrt_w))
         for n in range(self.n_individuals):
             accept = False
             while not accept:
                 sigmas[n] = sigma * np.exp(self.rng_optimization.standard_normal() * self.tau)  # for Fig. 2. (R1)
-                sqrt_cov = np.matmul(v, np.diag(sqrt_w))
                 z[n] = np.dot(sqrt_cov, self.rng_optimization.standard_normal((self.ndim_problem,)))  # for Fig. 2. (R2)
                 z[n] = sigmas[n] * z[n]  # for Fig. 2. (R3)
                 x[n] = mean + z[n]  # for Fig. 2. (R4)
                 if len(c_index) == 0:
                     accept = True
                 for c in c_index:
-                    d = calculate_mahalanobis_distance(x[n], taboo_points[c], inv_cov)
-                    accept = d > sigma * taboo_points_d[c] * s
+                    d = calculate_mahalanobis_distance(x[n], taboo[c], inv_cov)
+                    accept = d > sigma * taboo_d[c] * s
                     if not accept:  # reject
                         s *= self.c_red  # Temporary shrink the size of the taboo regions
                         break
-            f[n] = self._evaluate_fitness(x[n], args)
+            y[n] = self._evaluate_fitness(x[n], args)
 
         # best for the non-elite solutions
-        best_f_ne = np.hstack((best_f_ne, np.min(f)))
-        median_f_ne = np.hstack((median_f_ne, np.median(f)))
+        best_y_ne = np.hstack((best_y_ne, np.min(y)))
+        median_y_ne = np.hstack((median_y_ne, np.median(y)))
 
         # Append the surviving elites from the previous generation (Recombine)
-        for k in range(len(elt_f)):
-            if elt_f[k] < self._best_so_far_y_bak:
+        for k in range(len(elt_y)):
+            if elt_y[k] < self._best_so_far_y_bak:
                 accept = False
                 for c in c_index:
-                    d = calculate_mahalanobis_distance(elt_x[k], taboo_points[c], inv_cov)
-                    accept = d > sigma * taboo_points_d[c] * s
+                    d = calculate_mahalanobis_distance(elt_x[k], taboo[c], inv_cov)
+                    accept = d > sigma * taboo_d[c] * s
                     if not accept:
                         break
                 if (len(c_index) == 0) or accept:  # The elite was not in a taboo region
                     x = np.vstack((x, elt_x[k]))
-                    f = np.hstack((f, elt_f[k]))
+                    y = np.hstack((y, elt_y[k]))
                     sigmas = np.hstack((sigmas, elt_s[k]))
                     z = np.vstack((z, elt_z[k]))
 
         # Update parameters of the subpopulation using Equation 6
-        order = np.argsort(f)
+        order = np.argsort(y)
         mean = np.sum(self._w.reshape(self.n_parents, 1) * x[order[:self.n_parents]], 0)
-        c = 0
+        c = np.zeros((self.ndim_problem, self.ndim_problem))
         for i in range(self.n_parents):
             m1, m2 = np.meshgrid(z[order[i]], z[order[i]])
             c += self._w[i] * (m2 * m1)
@@ -244,136 +264,78 @@ class RSCMSA(ES):
         cov = (cov + cov.T) / 2  # A symmetric matrix
         sigma *= np.exp(np.dot(self._w, np.log(sigmas[:self.n_parents]))) / np.exp(np.mean(np.log(sigmas)))
 
-        # Update the elite solutions
-        elt_x = x[order[:self.n_elt]]
-        elt_f = f[order[:self.n_elt]]
-        elt_z = z[order[:self.n_elt]]
-        elt_s = sigmas[order[:self.n_elt]]
-        elt_x_f_z_s = (elt_x, elt_f, elt_z, elt_s)
-        mean_cov_sigma = (mean, cov, sigma)
-        best_x_f = (x[order[0]], f[order[0]])
-        best_median_f_ne = (best_f_ne, median_f_ne)
-        return best_x_f, mean_cov_sigma, elt_x_f_z_s, best_median_f_ne
+        best_x, best_y = x[order[0]], y[order[0]]
+        base = order[:self.n_elt]  # Update the elite solutions
+        elt_x_y_z_s = (x[base], y[base], z[base], sigmas[base])
+        return best_x, best_y, mean, cov, sigma, elt_x_y_z_s, best_y_ne, median_y_ne
 
-    def initialize_subpopulations(self, archive_xx, archive_d):
-        hat_d = self.hat_d_0
-        if len(archive_d) > 0:
-            hat_d = np.percentile(archive_d, self.p)
-
-        base = (self.initial_upper_boundary - self.initial_lower_boundary)**2
-        cov, inv_cov, sigma = np.diag(base), np.diag(1 / base), self.sigma
-        means = np.empty((self.n_s, self.ndim_problem))
-        i, n_rej = 0, 0
-        while i < self.n_s:
-            x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
-            accept = True
-            for j in range(len(archive_xx)):  # for archived points
-                if (2*hat_d + archive_d[j])*sigma > calculate_mahalanobis_distance(archive_xx[j], x, inv_cov):
-                    accept = False
-                    break
-            if accept:
-                for k in range(i):  # for previously sampled points
-                    if 3*hat_d*sigma > calculate_mahalanobis_distance(means[k], x, inv_cov):
-                        accept = False
-                        break
-            if accept:
-                means[i], n_rej = x, 0
-                i += 1
-            else:
-                n_rej += 1
-            if n_rej > 100:
-                sigma, n_rej = self.c_red * sigma, 0  # shrink the size of each taboo region
-        means_d = hat_d * np.ones((self.n_s,))
-        sigmas = sigma * np.ones((self.n_s,))
-        return means, means_d, sigmas, cov
-
-    def iterate(self, means=None, means_d=None, sigmas=None, cov=None,
-                archive_x=None, archive_f=None, archive_d=None, args=None):
-        n1 = 120 + int(30 * self.ndim_problem / self.n_individuals)  # No improvement
-        n2 = 10 + int(30 * self.ndim_problem / self.n_individuals)  # Stalled size (stagnation)
-        elt_x = {k: np.tile(means[k], (self.n_elt, 1)) for k in range(self.n_s)}
-        elt_z = {k: np.zeros((self.n_elt, self.ndim_problem)) for k in range(self.n_s)}
-        elt_f = {k: np.ones((self.n_elt,)) * self._best_so_far_y_bak for k in range(self.n_s)}
-        elt_s = {k: np.ones((self.n_elt,)) * np.mean(sigmas) for k in range(self.n_s)}
-        cov = {k: cov for k in range(self.n_s)}
-        best_f_ne = {k: np.empty((0,)) for k in range(self.n_s)}  # no elite
-        median_f_ne = {k: np.empty((0,)) for k in range(self.n_s)}
+    def iterate(self, means=None, sigmas=None, cov=None, means_d=None,
+                archive_x=None, archive_y=None, archive_d=None, args=None):
+        n1 = 120 + int(30 * self.ndim_problem / self.n_individuals)  # no improvement
+        n2 = 10 + int(30 * self.ndim_problem / self.n_individuals)  # stagnation
+        cov_s = {k: cov for k in range(self.n_s)}
+        elt = {k: (np.tile(means[k], (self.n_elt, 1)),
+                   np.ones((self.n_elt,)) * self._best_so_far_y_bak,
+                   np.zeros((self.n_elt, self.ndim_problem)),
+                   np.ones((self.n_elt,)) * np.mean(sigmas)) for k in range(self.n_s)}
+        best_median_y_ne = {k: (np.empty((0,)), np.empty((0,))) for k in range(self.n_s)}
+        best_y_ne = {k: np.empty((0,)) for k in range(self.n_s)}
+        median_y_ne = {k: np.empty((0,)) for k in range(self.n_s)}
         superior_index = {k: np.arange(k) for k in range(self.n_s)}
         best_x = np.copy(means)
-        best_f = np.ones((self.n_s,)) * self._best_so_far_y_bak
-
-        ap = np.arange(self.n_s)  # Activating subpopulations
-        tp = []  # Terminated subpopulations
+        best_y = np.ones((self.n_s,)) * self._best_so_far_y_bak
+        ap = np.arange(self.n_s)  # activating subpopulations
+        tp = []  # terminated subpopulations
         n_u = np.ones((self.n_s,))  # used iteration number
-        terminate_flag, n_iteration = False, 0
 
-        while (len(ap) > 0) and (not terminate_flag):
+        n_iteration = 0
+        while len(ap) > 0:
             for m in ap:
-                # The number of potential global minima in the current restart. It is used only for termination of the
-                # restart so that sufficient budget remains for analyzing the subpopulations later.
-                # This is a specialization for GECCO2016 competition
-                cnt = np.ones((self.n_s,))[(best_f - self.fitness_threshold) <= min(np.hstack((archive_f, best_f)))]
-                cnt = 1 + np.sum(cnt)
-                if (self.max_function_evaluations - self.n_function_evaluations) <= \
-                        (cnt * self.budget * (len(archive_x) + cnt / 2) + self.n_individuals):
-                    self.n_function_evaluations = self.max_function_evaluations
-                    terminate_flag = True  # terminate the restart
-                    break
-
-                flag = [np.linalg.cond(cov[m]) >= self.n_condition, self._check_terminations(), False, False, False]
-                # Termination condition
+                # Termination subpopulation condition
+                flag = [np.linalg.cond(cov_s[m]) >= self.n_condition, False, False, False]
                 if n_iteration >= n2:
-                    flag[2] = np.max(best_f_ne[m][-n2:]) - np.min(best_f_ne[m][-n2:]) < self.fitness_threshold
+                    flag[1] = (np.max(best_y_ne[m][-n2:]) - np.min(best_y_ne[m][-n2:])) < self.fitness_threshold
                 if n_iteration >= n1:
-                    min_best = np.median(best_f_ne[m][-20:]) - np.median(best_f_ne[m][-n1:(-n1 + 20)])
-                    min_median = np.median(median_f_ne[m][-20:]) - np.median(median_f_ne[m][-n1:(-n1 + 20)])
-                    flag[3] = min_best >= 0
-                    flag[4] = min_median >= 0
-                if any(flag):  # Terminate the subpopulation if a stopping criterion is satisfied
+                    flag[2] = (np.median(best_y_ne[m][-20:]) - np.median(best_y_ne[m][-n1:(-n1 + 20)])) >= 0
+                    flag[3] = (np.median(median_y_ne[m][-20:]) - np.median(median_y_ne[m][-n1:(-n1 + 20)])) >= 0
+                if any(flag):
                     means[m] = best_x[m]
                     tp.append(m)
+                    n_u[m] = n_iteration + 1
                     continue
 
-                n_u[m] = n_iteration + 1
-                superior_mean = means[superior_index[m]]
-                superior_d = means_d[superior_index[m]]
-                best_xx_f, mean_cov_sigma, elt_x_f_s_z, best_median_f_ne = \
-                    self.generate_subpopulation(means[m], cov[m], sigmas[m], superior_mean, superior_d, archive_x,
-                                                archive_f, archive_d, elt_x[m], elt_f[m], elt_z[m], elt_s[m],
-                                                best_f_ne[m], median_f_ne[m], args)
-                best_x[m], best_f[m] = best_xx_f
-                means[m], cov[m], sigmas[m] = mean_cov_sigma
-                elt_x[m], elt_f[m], elt_z[m], elt_s[m] = elt_x_f_s_z
-                best_f_ne[m], median_f_ne[m] = best_median_f_ne
+                best_x[m], best_y[m], means[m], cov_s[m], sigmas[m], elt[m], best_y_ne[m], median_y_ne[m] = \
+                    self.iterate_subpopulation(
+                        means[m], cov_s[m], sigmas[m], elt[m][0], elt[m][1], elt[m][2], elt[m][3],
+                        best_y_ne[m], median_y_ne[m], means[superior_index[m]], means_d[superior_index[m]],
+                        archive_x, archive_y, archive_d, args)
+
+                if self._check_terminations():
+                    return best_x, best_y, np.mean(n_u)
 
             # Find non-terminated subpopulations
-            ap = np.array([i for i in ap if i not in tp])
+            ap = np.setdiff1d(ap, tp)
             if len(ap) > 0:
-                ap = ap[np.argsort(best_f[ap])]
-                base = np.arange(len(best_f))
-                superior_index.update({m: base[best_f < best_f[m]] for m in ap})
+                ap = ap[np.argsort(best_y[ap])]
+                base = np.arange(self.n_s)
+                superior_index.update({m: base[best_y < best_y[m]] for m in ap})
             n_iteration += 1
             n1 = 120 + int(0.2 * n_iteration + 30 * self.ndim_problem / self.n_individuals)
-        return best_x, best_f, np.mean(n_u)
+        return best_x, best_y, np.mean(n_u)
 
     def optimize(self, fitness_function=None, args=None):
         fitness = ES.optimize(self, fitness_function)
-        archive_x, archive_f, archive_d = self.initialize(args)
+        archive_x, archive_y, archive_d = self.initialize(args)
         while True:
-            # Initialize subpopulations (Algorithm 2)
-            means, means_d, sigmas, cov = self.initialize_subpopulations(archive_x, archive_d)
-
-            # Iterate
-            best_x, best_f, u = self.iterate(means, means_d, sigmas, cov, archive_x, archive_f, archive_d, args)
-
+            means, sigmas, cov, means_d = self.initialize_subpopulation(archive_x, archive_d)  # (Algorithm 2)
+            best_x, best_y, n_u = self.iterate(means, sigmas, cov, means_d, archive_x, archive_y, archive_d, args)
             # Update archive (Algorithm 1)
-            archive_x, archive_f, archive_d = self.update_archive(best_x, best_f, archive_x, archive_f, archive_d)
+            archive_x, archive_y, archive_d = self.update_archive(best_x, best_y, archive_x, archive_y, archive_d)
             if self.record_fitness:
-                fitness.extend(best_f)
+                fitness.extend(best_y)
             if self._check_terminations():
                 break
             self._n_generations += 1
-            self._print_verbose_info(best_f)
-            # Restart (Equations 8)
-            self.update_population_size(u)
+            self._print_verbose_info(best_y)
+            self.update_population_size(n_u)  # Restart (Equations 8)
         return self._collect_results(fitness)
