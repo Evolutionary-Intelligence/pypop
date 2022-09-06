@@ -6,6 +6,8 @@ from pypop7.optimizers.de.de import DE
 class CDE(DE):
     """Classic Differential Evolution (CDE).
 
+    .. note:: `DE/rand/1/bin` is typically seen as the **classic/basic** version of `DE`.
+
     Parameters
     ----------
     problem : `dict`
