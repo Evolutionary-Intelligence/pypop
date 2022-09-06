@@ -64,7 +64,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 | **Hooke-Jeeves** (1961) | **Nelder-Mead** (1965) |
 | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_hj.gif" alt="drawing" width="200"/> | <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_nm.gif" alt="drawing" width="200"/> |
 
-## A (*Still Growing*) List of **Publicly Available** Gradient-Free Optimizers (GFO)
+## A (*Still Growing*) List of Publicly Available Black-Box Optimizers (BBO)
 
 ******* *** *******
 
@@ -134,7 +134,9 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Separable Natural Evolution Strategy (**SNES**) [See [Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
 
-* **Estimation of Distribution Algorithms** (**EDA**) [See e.g. [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5); [Pelikan et al., 2002](https://link.springer.com/article/10.1023/A:1013500812258); [Mühlenbein&Paaß, 1996, PPSN](https://link.springer.com/chapter/10.1007/3-540-61723-X_982)]
+* **Estimation of Distribution Algorithms** (**[EDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/eda.py)**) [See e.g. [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5); [Pelikan et al., 2002](https://link.springer.com/article/10.1023/A:1013500812258); [Mühlenbein&Paaß, 1996, PPSN](https://link.springer.com/chapter/10.1007/3-540-61723-X_982)]
+
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Univariate Marginal Distribution Algorithm (**[UMDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/umda.py)**) [see e.g. [Larrañaga&Lozano, 2001](https://link.springer.com/book/10.1007/978-1-4615-1539-5); [Mühlenbein, 1997, ECJ](https://tinyurl.com/yt78c786)]
 
 * **Cross-Entropy Method** (**CEM**) [See e.g. [Rubinstein&Kroese, 2004](https://link.springer.com/book/10.1007/978-1-4757-4321-0)]
 
@@ -143,6 +145,8 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Composite Differential Evolution (**[CODE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/code.py)**) [see [Wang et al., 2011, TEVC](https://doi.org/10.1109/TEVC.2010.2087271)]
 
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Adaptive Differential Evolution (**[JADE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/jade.py)**) [see [Zhang&Sanderson, 2009, TEVC](https://doi.org/10.1109/TEVC.2009.2014613)]
+
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Trigonometric-mutation Differential Evolution (**[TDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/tde.py)**) [see e.g. [Fan&Lampinen, 2003, JGO](https://link.springer.com/article/10.1023/A:1024653025686)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Classic Differential Evolution (**[CDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/cde.py)**) [see e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 

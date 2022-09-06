@@ -10,7 +10,11 @@ class EDA(Optimizer):
     optimize the black-box problem at hand.
 
     .. note:: Its three methods (`initialize`, `iterate`, `optimize`) should be implemented by all its
-       subclasses.
+       subclasses. *`EDA` are a modern branch of evolutionary algorithms with some unique advantages in
+       principle*, as recognized in `[Kabán et al., 2016, ECJ] <https://tinyurl.com/mrxpe28y>`_.
+
+       AKA probabilistic model-building genetic algorithms (PMBGA), iterated density estimation
+       evolutionary algorithms (IDEA).
 
     Parameters
     ----------
@@ -34,7 +38,7 @@ class EDA(Optimizer):
 
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
                 * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
-              and with two particular settings (`keys`):
+              and with the following particular settings (`keys`):
                 * 'n_individuals' - number of offspring, offspring population size (`int`, default: `200`),
                 * 'n_parents'     - number of parents, parental population size (`int`, default:
                   `int(self.n_individuals / 2)`).
@@ -51,10 +55,17 @@ class EDA(Optimizer):
 
     References
     ----------
+    https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=22182
+
     Larrañaga, P. and Lozano, J.A. eds., 2001.
     Estimation of distribution algorithms: A new tool for evolutionary computation.
     Springer Science & Business Media.
     https://link.springer.com/book/10.1007/978-1-4615-1539-5
+
+    Mühlenbein, H. and Mahnig, T., 2001.
+    Evolutionary algorithms: From recombination to search distributions.
+    In Theoretical Aspects of Evolutionary Computing (pp. 135-173). Springer, Berlin, Heidelberg.
+    https://link.springer.com/chapter/10.1007/978-3-662-04448-3_7
 
     Berny, A., 2000, September.
     Selection and reinforcement learning for combinatorial optimization.
@@ -67,6 +78,11 @@ class EDA(Optimizer):
     In International Conference on Parallel Problem Solving from Nature (pp. 767-776).
     Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007/3-540-45356-3_75
+
+    Mühlenbein, H., 1997.
+    The equation for response to selection and its use for prediction.
+    Evolutionary Computation, 5(3), pp.303-346.
+    https://tinyurl.com/yt78c786
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
