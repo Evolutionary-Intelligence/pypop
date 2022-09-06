@@ -49,13 +49,6 @@ class RSCMSA(ES):
         archive_x, archive_f, archive_d = np.empty((0, self.ndim_problem)), np.empty((0,)), np.empty((0,))
         return archive_x, archive_f, archive_d
 
-    def index_critical_points(self, x, sigma, max_eig_sqrt, taboo_points, taboo_points_d):
-        if len(taboo_points) > 0:
-            mu1 = np.sqrt(np.sum(np.power(x - taboo_points, 2), 1)) / (max_eig_sqrt * sigma)  # L / (mu_1 * sigma_mean)
-            criticality = norm.cdf(mu1 + taboo_points_d) - norm.cdf(mu1 - taboo_points_d)
-            return np.argsort(-1 * criticality)[np.sort(-1 * criticality) < -1 * self.c_threshold]
-        return np.empty((0,))
-
     def is_new_basin(self, x1, f1, x4, f4, args=None):
         new_basin, n = False, 0
         if np.sqrt(np.sum(np.power(x1 - x4, 2))) > 0:
@@ -201,7 +194,7 @@ class RSCMSA(ES):
         # Generate taboo points
         taboo, taboo_d = self.generate_taboo_point(superior_mean, superior_d, archive_x, archive_y, archive_d, elt_y)
 
-        # Determine critical taboo points
+        # Determine critical taboo points, Equation (12)
         c_index = self.index_critical_points(mean, sigma, np.max(sqrt_w), taboo, taboo_d)
 
         # Sample
@@ -214,6 +207,7 @@ class RSCMSA(ES):
         x, y, z, sigmas = self.recombine(
             inv_cov, sigma, x, y, z, sigmas, scale, taboo, taboo_d, c_index, elt_x, elt_y, elt_z, elt_s)
 
+        # Equation (b)
         mean, cov, sigma = self._update_distribution(x, z, y, cov, sigma, sigmas)
 
         order = np.argsort(y)
@@ -249,6 +243,14 @@ class RSCMSA(ES):
                 taboo = np.vstack((taboo, archive_x[i]))
                 taboo_d = np.hstack((taboo_d, archive_d[i]))
         return taboo, taboo_d
+
+    def index_critical_points(self, x, sigma, max_eig_sqrt, taboo_points, taboo_points_d):
+        # Equation (12)
+        if len(taboo_points) > 0:
+            mu1 = np.sqrt(np.sum(np.power(x - taboo_points, 2), 1)) / (max_eig_sqrt * sigma)  # L / (mu_1 * sigma_mean)
+            criticality = norm.cdf(mu1 + taboo_points_d) - norm.cdf(mu1 - taboo_points_d)
+            return np.argsort(-1 * criticality)[np.sort(-1 * criticality) < -1 * self.c_threshold]
+        return np.empty((0,))
 
     def sample(self, mean, sigma, sqrt_cov, inv_cov, taboo, taboo_d, c_index, args=None):
         x = np.empty((self.n_individuals, self.ndim_problem))
