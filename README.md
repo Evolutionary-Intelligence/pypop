@@ -144,6 +144,8 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Adaptive Differential Evolution (**[JADE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/jade.py)**) [see [Zhang&Sanderson, 2009, TEVC](https://doi.org/10.1109/TEVC.2009.2014613)]
 
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Trigonometric-mutation Differential Evolution (**[TDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/tde.py)**) [see e.g. [Fan&Lampinen, 2003, JGO](https://link.springer.com/article/10.1023/A:1024653025686)]
+
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Classic Differential Evolution (**[CDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/cde.py)**) [see e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 
 * **Particle Swarm Optimization (PSO)** [See e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146); [Kennedy&Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
