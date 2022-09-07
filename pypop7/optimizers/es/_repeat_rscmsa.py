@@ -14,20 +14,49 @@ from pypop7.optimizers.es.rscmsa import RSCMSA
 
 
 if __name__ == '__main__':
-    ndim_problem = 3
+    ndim_problem = 30
 
     problem = {'fitness_function': sphere,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -100*np.ones((ndim_problem,)),
-               'upper_boundary': 100*np.ones((ndim_problem,))}
+               'lower_boundary': -10*np.ones((ndim_problem,)),
+               'upper_boundary': 10*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 1500 * 100,
-               'fitness_threshold': 1e-10,
+               'fitness_threshold': 1e-5,
                'seed_rng': 0,  # undefined in the original paper
                }
     rscmsa = RSCMSA(problem, options)
     results = rscmsa.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 6.4e-11
+    # 7.09e-05
     # vs (from the original paper)
 
+    problem = {'fitness_function': rosenbrock,
+               'ndim_problem': ndim_problem,
+               'lower_boundary': -10*np.ones((ndim_problem,)),
+               'upper_boundary': 10*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500 * 100,
+               'fitness_threshold': 1e-5,
+               'seed_rng': 0,  # undefined in the original paper
+               }
+    rscmsa = RSCMSA(problem, options)
+    results = rscmsa.optimize()
+    print(results)
+    print(results['best_so_far_y'])
+    # 22.80
+    # vs (from the original paper)
+
+    problem = {'fitness_function': rastrigin,
+               'ndim_problem': ndim_problem,
+               'lower_boundary': -10 * np.ones((ndim_problem,)),
+               'upper_boundary': 10 * np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500 * 100,
+               'fitness_threshold': 1e-5,
+               'seed_rng': 0,  # undefined in the original paper
+               }
+    rscmsa = RSCMSA(problem, options)
+    results = rscmsa.optimize()
+    print(results)
+    print(results['best_so_far_y'])
+    # 64.68
+    # vs (from the original paper)
