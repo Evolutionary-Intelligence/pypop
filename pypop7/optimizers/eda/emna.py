@@ -59,10 +59,10 @@ class EMNA(UMDA):
        >>> emna = EMNA(problem, options)  # initialize the optimizer class
        >>> results = emna.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"UMDA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       >>> print(f"EMNA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
          * Generation 10: best_so_far_y 8.37514e-03, min(y) 3.38137e-01 & Evaluations 2200
          * Generation 20: best_so_far_y 8.37514e-03, min(y) 3.35835e-01 & Evaluations 4200
-       UMDA: 5000, 0.008375142194038284
+       EMNA: 5000, 0.008375142194038284
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/2p8xksyy>`_ for more details.
