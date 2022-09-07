@@ -4,7 +4,7 @@ from scipy.stats import norm
 from pypop7.optimizers.es.es import ES
 
 
-def calculate_mahalanobis_distance(y, x, inv_cov):
+def mahalanobis_distance(y, x, inv_cov):
     if y.ndim == 1:
         return np.sqrt(np.dot(np.dot(y - x, inv_cov), (y - x)))
     if y.ndim == 2:
@@ -48,13 +48,6 @@ class RSCMSA(ES):
     def initialize(self, args=None):
         archive_x, archive_f, archive_d = np.empty((0, self.ndim_problem)), np.empty((0,)), np.empty((0,))
         return archive_x, archive_f, archive_d
-
-    def find_critical_points_descend_index(self, x, sigma, max_eig_sqrt, taboo_points, taboo_points_d):
-        if len(taboo_points) > 0:
-            mu1 = np.sqrt(np.sum(np.power(x - taboo_points, 2), 1)) / (max_eig_sqrt * sigma)  # L / (mu_1 * sigma_mean)
-            criticality = norm.cdf(mu1 + taboo_points_d) - norm.cdf(mu1 - taboo_points_d)
-            return np.argsort(-1 * criticality)[np.sort(-1 * criticality) < -1 * self.c_threshold]
-        return np.empty((0,))
 
     def is_new_basin(self, x1, f1, x4, f4, args=None):
         new_basin, n = False, 0
@@ -135,11 +128,10 @@ class RSCMSA(ES):
             archive_x = archive_x[np.argsort([np.sqrt(np.sum(np.power(best_x[i] - x, 2))) for x in archive_x])]  # sort
             is_new = 1
             for j in range(len(archive_x)):
-                if (self.max_function_evaluations - self.n_function_evaluations) >= self.budget:
-                    is_basin = self.is_new_basin(best_x[i], best_y[i], archive_x[j], archive_y[j], args)
-                else:
-                    self.n_function_evaluations = self.max_function_evaluations
+                is_basin = self.is_new_basin(best_x[i], best_y[i], archive_x[j], archive_y[j], args)
+                if self._check_terminations():
                     return archive_x, archive_y, archive_d
+
                 if is_basin:  # share the same basin
                     if best_y[i] < archive_y[j]:
                         archive_x[j], archive_y[j] = best_x[i], best_y[i]
@@ -152,7 +144,7 @@ class RSCMSA(ES):
                 archive_d = np.hstack((archive_d, hat_d))
                 n_rep = np.hstack((n_rep, 0))
 
-        diff = n_rep - self.alpha_new * (len(index)/len(archive_x))
+        diff = n_rep - self.alpha_new * (len(index) / len(archive_x))
         for i in range(len(archive_x)):
             if diff[i] > 0:
                 archive_d[i] *= (1 + diff[i]) ** self.tau_hat_d
@@ -163,7 +155,7 @@ class RSCMSA(ES):
     def initialize_subpopulation(self, archive_xx, archive_d):
         hat_d = self.hat_d_0 if len(archive_d) == 0 else np.percentile(archive_d, self.p)
         base = (self.initial_upper_boundary - self.initial_lower_boundary) ** 2
-        cov, inv_cov, sigma = np.diag(base), np.diag(1/base), self.sigma
+        cov, inv_cov, sigma = np.diag(base), np.diag(1 / base), self.sigma
         means = np.empty((self.n_s, self.ndim_problem))
         for i in range(self.n_s):
             n_rej = 0
@@ -171,12 +163,12 @@ class RSCMSA(ES):
                 accept = True
                 x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
                 for j in range(len(archive_xx)):  # for archived points
-                    accept = calculate_mahalanobis_distance(archive_xx[j], x, inv_cov) >= ((2*hat_d + archive_d[j])*sigma)
+                    accept = mahalanobis_distance(archive_xx[j], x, inv_cov) >= ((2 * hat_d + archive_d[j]) * sigma)
                     if not accept:
                         break
                 if accept:
                     for k in range(i):  # for previously sampled points
-                        accept = calculate_mahalanobis_distance(means[k], x, inv_cov) >= (3*hat_d*sigma)
+                        accept = mahalanobis_distance(means[k], x, inv_cov) >= (3 * hat_d * sigma)
                         if not accept:
                             break
                 if accept:
@@ -185,20 +177,63 @@ class RSCMSA(ES):
                 else:
                     n_rej += 1
                 if n_rej > 100:
-                    sigma, n_rej = self.c_red*sigma, 0  # shrink the size of each taboo region
-        sigmas = sigma*np.ones((self.n_s,))
-        means_d = hat_d*np.ones((self.n_s,))
+                    sigma, n_rej = self.c_red * sigma, 0  # shrink the size of each taboo region
+        sigmas = sigma * np.ones((self.n_s,))
+        means_d = hat_d * np.ones((self.n_s,))
         return means, sigmas, cov, means_d
 
     def iterate_subpopulation(self, mean, cov, sigma, elt_x, elt_y, elt_z, elt_s,
                               best_y_ne, median_y_ne, superior_mean, superior_d,
                               archive_x, archive_y, archive_d, args):
+        # Singular value decomposition
+        u, s, v = np.linalg.svd(cov)
+        inv_cov = v @ np.diag(1 / s) @ u  # Inverse of the matrix
+        sqrt_w = np.sqrt(s)
+        sqrt_cov = u @ np.diag(sqrt_w)
 
-        s = 1  # for temporary shrinkage of the taboo regions
-        w, v = np.linalg.eig(cov)
-        inv_cov = np.matmul(np.matmul(v, np.diag(1 / w)), v.T)  # Inverse of the matrix
-        sqrt_w = np.sqrt(w)
+        # Generate taboo points
+        taboo, taboo_d = self.generate_taboo_point(superior_mean, superior_d, archive_x, archive_y, archive_d, elt_y)
 
+        # Determine critical taboo points, Equation (12)
+        c_index = self.index_critical_points(mean, sigma, np.max(sqrt_w), taboo, taboo_d)
+
+        # Sample
+        x, y, z, sigmas, scale = self.sample(mean, sigma, sqrt_cov, inv_cov, taboo, taboo_d, c_index, args)
+
+        # for the non-elite solutions
+        best_y_ne = np.hstack((best_y_ne, np.min(y)))
+        median_y_ne = np.hstack((median_y_ne, np.median(y)))
+
+        x, y, z, sigmas = self.recombine(
+            inv_cov, sigma, x, y, z, sigmas, scale, taboo, taboo_d, c_index, elt_x, elt_y, elt_z, elt_s)
+
+        # Equation (b)
+        mean, cov, sigma = self._update_distribution(x, z, y, cov, sigma, sigmas)
+
+        order = np.argsort(y)
+        best_x, best_y = x[order[0]], y[order[0]]
+        base = order[:self.n_elt]  # Update the elite solutions
+        elt_x, elt_y, elt_z, elt_s = x[base], y[base], z[base], sigmas[base]
+        return best_x, best_y, mean, cov, sigma, elt_x, elt_y, elt_z, elt_s, best_y_ne, median_y_ne
+
+    def recombine(self, inv_cov, sigma, x, y, z, sigmas, scale, taboo, taboo_d, c_index, elt_x, elt_y, elt_z, elt_s):
+        # Append the surviving elites from the previous generation
+        for k in range(len(elt_y)):
+            if elt_y[k] < self._best_so_far_y_bak:
+                accept = False
+                for c in c_index:
+                    d = mahalanobis_distance(elt_x[k], taboo[c], inv_cov)
+                    accept = d > sigma * taboo_d[c] * scale
+                    if not accept:
+                        break
+                if accept:
+                    x = np.vstack((x, elt_x[k]))
+                    y = np.hstack((y, elt_y[k]))
+                    z = np.vstack((z, elt_z[k]))
+                    sigmas = np.hstack((sigmas, elt_s[k]))
+        return x, y, z, sigmas
+
+    def generate_taboo_point(self, superior_mean, superior_d, archive_x, archive_y, archive_d, elt_y):
         # Generate taboo points
         taboo = np.copy(superior_mean)  # Center of fitter subpopulations
         taboo_d = np.copy(superior_d)  # The normalized taboo distance of fitter subpopulations
@@ -207,16 +242,22 @@ class RSCMSA(ES):
             if len(base) == self.n_elt:
                 taboo = np.vstack((taboo, archive_x[i]))
                 taboo_d = np.hstack((taboo_d, archive_d[i]))
+        return taboo, taboo_d
 
-        # Determine which taboo points are critical (numpy-ndarray)
-        c_index = self.find_critical_points_descend_index(mean, sigma, np.max(sqrt_w), taboo, taboo_d)
+    def index_critical_points(self, x, sigma, max_eig_sqrt, taboo_points, taboo_points_d):
+        # Equation (12)
+        if len(taboo_points) > 0:
+            mu1 = np.sqrt(np.sum(np.power(x - taboo_points, 2), 1)) / (max_eig_sqrt * sigma)  # L / (mu_1 * sigma_mean)
+            criticality = norm.cdf(mu1 + taboo_points_d) - norm.cdf(mu1 - taboo_points_d)
+            return np.argsort(-1 * criticality)[np.sort(-1 * criticality) < -1 * self.c_threshold]
+        return np.empty((0,))
 
-        # Sample, and Generate \lambda taboo acceptable solutions
+    def sample(self, mean, sigma, sqrt_cov, inv_cov, taboo, taboo_d, c_index, args=None):
         x = np.empty((self.n_individuals, self.ndim_problem))
         y = np.empty((self.n_individuals,))
-        sigmas = np.zeros((self.n_individuals,))
-        z = np.copy(x)
-        sqrt_cov = np.matmul(v, np.diag(sqrt_w))
+        z = np.empty((self.n_individuals, self.ndim_problem))
+        sigmas = np.empty((self.n_individuals,))
+        scale = 1  # for temporary shrinkage of the taboo regions
         for n in range(self.n_individuals):
             accept = False
             while not accept:
@@ -225,34 +266,17 @@ class RSCMSA(ES):
                 z[n] = sigmas[n] * z[n]  # for Fig. 2. (R3)
                 x[n] = mean + z[n]  # for Fig. 2. (R4)
                 if len(c_index) == 0:
-                    accept = True
+                    break
                 for c in c_index:
-                    d = calculate_mahalanobis_distance(x[n], taboo[c], inv_cov)
-                    accept = d > sigma * taboo_d[c] * s
+                    d = mahalanobis_distance(x[n], taboo[c], inv_cov)
+                    accept = d > sigma * taboo_d[c] * scale
                     if not accept:  # reject
-                        s *= self.c_red  # Temporary shrink the size of the taboo regions
+                        scale *= self.c_red  # Temporary shrink the size of the taboo regions
                         break
             y[n] = self._evaluate_fitness(x[n], args)
+        return x, y, z, sigmas, scale
 
-        # best for the non-elite solutions
-        best_y_ne = np.hstack((best_y_ne, np.min(y)))
-        median_y_ne = np.hstack((median_y_ne, np.median(y)))
-
-        # Append the surviving elites from the previous generation (Recombine)
-        for k in range(len(elt_y)):
-            if elt_y[k] < self._best_so_far_y_bak:
-                accept = False
-                for c in c_index:
-                    d = calculate_mahalanobis_distance(elt_x[k], taboo[c], inv_cov)
-                    accept = d > sigma * taboo_d[c] * s
-                    if not accept:
-                        break
-                if (len(c_index) == 0) or accept:  # The elite was not in a taboo region
-                    x = np.vstack((x, elt_x[k]))
-                    y = np.hstack((y, elt_y[k]))
-                    sigmas = np.hstack((sigmas, elt_s[k]))
-                    z = np.vstack((z, elt_z[k]))
-
+    def _update_distribution(self, x=None, z=None, y=None, cov=None, sigma=None, sigmas=None):
         # Update parameters of the subpopulation using Equation 6
         order = np.argsort(y)
         mean = np.sum(self._w.reshape(self.n_parents, 1) * x[order[:self.n_parents]], 0)
@@ -263,22 +287,17 @@ class RSCMSA(ES):
         cov = (1 - self.c_cov) * cov + self.c_cov * c
         cov = (cov + cov.T) / 2  # A symmetric matrix
         sigma *= np.exp(np.dot(self._w, np.log(sigmas[:self.n_parents]))) / np.exp(np.mean(np.log(sigmas)))
-
-        best_x, best_y = x[order[0]], y[order[0]]
-        base = order[:self.n_elt]  # Update the elite solutions
-        elt_x_y_z_s = (x[base], y[base], z[base], sigmas[base])
-        return best_x, best_y, mean, cov, sigma, elt_x_y_z_s, best_y_ne, median_y_ne
+        return mean, cov, sigma
 
     def iterate(self, means=None, sigmas=None, cov=None, means_d=None,
                 archive_x=None, archive_y=None, archive_d=None, args=None):
         n1 = 120 + int(30 * self.ndim_problem / self.n_individuals)  # no improvement
         n2 = 10 + int(30 * self.ndim_problem / self.n_individuals)  # stagnation
         cov_s = {k: cov for k in range(self.n_s)}
-        elt = {k: (np.tile(means[k], (self.n_elt, 1)),
-                   np.ones((self.n_elt,)) * self._best_so_far_y_bak,
-                   np.zeros((self.n_elt, self.ndim_problem)),
-                   np.ones((self.n_elt,)) * np.mean(sigmas)) for k in range(self.n_s)}
-        best_median_y_ne = {k: (np.empty((0,)), np.empty((0,))) for k in range(self.n_s)}
+        elt_x = {k: np.tile(means[k], (self.n_elt, 1)) for k in range(self.n_s)}
+        elt_y = {k: np.ones((self.n_elt,)) * self._best_so_far_y_bak for k in range(self.n_s)}
+        elt_z = {k: np.zeros((self.n_elt, self.ndim_problem)) for k in range(self.n_s)}
+        elt_s = {k: np.ones((self.n_elt,)) * np.mean(sigmas) for k in range(self.n_s)}
         best_y_ne = {k: np.empty((0,)) for k in range(self.n_s)}
         median_y_ne = {k: np.empty((0,)) for k in range(self.n_s)}
         superior_index = {k: np.arange(k) for k in range(self.n_s)}
@@ -304,10 +323,13 @@ class RSCMSA(ES):
                     n_u[m] = n_iteration + 1
                     continue
 
-                best_x[m], best_y[m], means[m], cov_s[m], sigmas[m], elt[m], best_y_ne[m], median_y_ne[m] = \
+                best_x[m], best_y[m], \
+                    means[m], cov_s[m], sigmas[m], elt_x[m], elt_y[m], elt_z[m], elt_s[m], \
+                    best_y_ne[m], median_y_ne[m] = \
                     self.iterate_subpopulation(
-                        means[m], cov_s[m], sigmas[m], elt[m][0], elt[m][1], elt[m][2], elt[m][3],
-                        best_y_ne[m], median_y_ne[m], means[superior_index[m]], means_d[superior_index[m]],
+                        means[m], cov_s[m], sigmas[m], elt_x[m], elt_y[m], elt_z[m], elt_s[m],
+                        best_y_ne[m], median_y_ne[m],
+                        means[superior_index[m]], means_d[superior_index[m]],
                         archive_x, archive_y, archive_d, args)
 
                 if self._check_terminations():
