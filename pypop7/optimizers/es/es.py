@@ -6,18 +6,17 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class ES(Optimizer):
     """Evolution Strategies (ES).
 
-    This is the **base** (abstract) class for all ES classes. Please use any of its concrete subclasses to
-    optimize the black-box problem at hand.
+    This is the **base** (abstract) class for all `ES` classes. Please use any of its instantiated subclasses to
+    optimize the black-box problem at hand. At least its three methods (`initialize`, `iterate`, `optimize`)
+    should be implemented by any of its subclasses.
 
-    .. note:: Its three methods (`initialize`, `iterate`, `optimize`) should be implemented by its subclasses.
-
-       `ES` are a well-established family of randomized population-based search algorithms, proposed originally by two
+    .. note:: `ES` are a well-established family of randomized population-based search algorithms, proposed by two
        German computer scientists Rechenberg and Schwefel (recipients of `Evolutionary Computation Pioneer Award 2002
        <https://tinyurl.com/456as566>`_). One key property of `ES` lies in its adaptability of strategy parameters,
        which can *significantly* accelerate the (local) convergence rate in many cases. Recently, the theoretical
        foundation of its most representative (modern) version called **CMA-ES** has been built on the very interesting
        `Information-Geometric Optimization (IGO) <https://www.jmlr.org/papers/v18/14-467.html>`_ framework via
-       invariance principles.
+       invariance principles (inspired by `NES <https://jmlr.org/papers/v15/wierstra14a.html>`_).
 
        According to the latest `Nature <https://www.nature.com/articles/nature14544.>`_ review, *"the CMA-ES algorithm
        is widely regarded as the state of the art in numerical optimization"*.
