@@ -119,13 +119,12 @@ class RPEDA(EDA):
                 x[0] = xx[0]
             else:
                 x[i] = np.clip(x[i] + mean, self.lower_boundary, self.upper_boundary)
-            y[i] = self._evaluate_fitness(x[i])
+            y[i] = self._evaluate_fitness(x[i], args)
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = EDA.optimize(self, fitness_function)
         x, xx, y = self.initialize()
-        fitness.extend(y)
         while True:
             x, y = self.iterate(xx, y, args)
             if self.record_fitness:
