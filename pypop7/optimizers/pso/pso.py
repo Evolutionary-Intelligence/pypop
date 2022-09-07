@@ -10,8 +10,8 @@ class PSO(Optimizer):
     optimize the black-box problem at hand.
 
     .. note:: `PSO` are a popular family of *swarm*-based search algorithms, proposed together by an electrical
-       engineer (Russell C. Eberhart) and a psychologist (James Kennedy), (recipients of `Evolutionary Computation
-       Pioneer Award 2012 <https://tinyurl.com/456as566>`_). Its underlying motivation comes from very interesting
+       engineer (Russell C. Eberhart) and a psychologist (James Kennedy), recipients of `Evolutionary Computation
+       Pioneer Award 2012 <https://tinyurl.com/456as566>`_. Its underlying motivation comes from very interesting
        collective behaviors (e.g. `flocking <https://dl.acm.org/doi/10.1145/37402.37406>`_) observed from social
        animals, which are regarded as one particular form of *intelligence* or *emergence* by many scientists.
 
@@ -38,7 +38,7 @@ class PSO(Optimizer):
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
                 * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - swarm (population) size, number of particles (`int`， 20),
+                * 'n_individuals' - swarm (population) size, number of particles (`int`, 20),
                 * 'cognition'     - cognitive learning rate (`float`, default: `2.0`),
                 * 'society'       - social learning rate (`float`, default: `2.0`),
                 * 'max_ratio_v'   - maximal ratio of velocities w.r.t. search range (`float`, default: `0.2`).
