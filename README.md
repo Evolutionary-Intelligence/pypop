@@ -152,7 +152,13 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Classic Differential Evolution (**[CDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/cde.py)**) [see e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 
-* **Particle Swarm Optimization (PSO)** [See e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146); [Kennedy&Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
+* **Particle Swarm Optimization (PSO)** [see e.g. [Bonyadi&Michalewicz, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective); [Poli et al., 2007, SI](https://link.springer.com/article/10.1007/s11721-007-0002-0); [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146); [Kennedy&Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
+
+  * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Comprehensive Learning Particle Swarm Optimizer (**[CLPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/clpso.py)**) [see [Liang et al., 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/1637688)]
+
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Particle Swarm Optimizer with a Local (ring) topology (**[SPSOL](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spsol.py)**) [see e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146)]
+
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Particle Swarm Optimizer with a global topology (**[SPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spso.py)**) [see e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146)]
 
 * **CoOperative co-Evolutionary Algorithms (COEA)** [See e.g. [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html); [Panait et al., 2008, JMLR](https://www.jmlr.org/papers/v9/panait08a.html)]
 
