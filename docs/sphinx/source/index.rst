@@ -78,8 +78,4 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
    ds/hj
    ds/nm
    rs/rs
-   rs/prs
-   rs/rhc
-   rs/arhc
-   rs/srs
    sponsor

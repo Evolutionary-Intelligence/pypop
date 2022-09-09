@@ -6,9 +6,13 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class RS(Optimizer):
     """Random (stochastic) Search (optimization) (RS).
 
-    This is the **base** class for all RS classes (including local search).
+    This is the **base** (abstract) class for all RS classes (also including **local search**, particularly
+    its *randomized* versions). At least its two methods (`initialize`, `iterate`) should be implemented by
+    any of its subclasses.
 
-    .. note:: At least its two methods (`initialize`, `iterate`) should be implemented by its subclass.
+    .. note:: `"The topic of local search was reinvigorated in the early 1990s by surprisingly good results
+       for large ... problems ... and by the incorporation of randomness, multiple simultaneous searches,
+       and other improvements." <http://aima.cs.berkeley.edu/global-index.html>`_
 
     Parameters
     ----------
