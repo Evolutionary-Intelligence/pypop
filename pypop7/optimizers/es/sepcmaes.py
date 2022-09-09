@@ -4,13 +4,52 @@ from pypop7.optimizers.es.es import ES
 
 
 class SEPCMAES(ES):
-    """Separable Covariance Matrix Adaptation Evolution Strategy (SEPCMAES, sep-CMA-ES).
+    """Separable Covariance Matrix Adaptation Evolution Strategy (SEPCMAES).
 
-    Note that only the diagonal elements of covariance matrix are saved explicitly,
-    since all off-diagonal elements are not used for sep-CMA-ES.
+    . note:: Only the **diagonal** elements of the full covariance matrix are saved explicitly,
+       since all off-diagonal elements are not used for sep-CMA-ES.
 
-    Reference
-    ---------
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
+                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
+
+                  * if `record_fitness` is set to `False`, it will be ignored,
+                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
+                    will be saved into output results.
+
+                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
+                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+              and with four particular settings (`keys`):
+                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`),
+                * 'n_parents'     - number of parents (μ: mu), parental population size (`int`),
+                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
+                * 'sigma'         - initial global step-size (σ), mutation strength (`float`).
+
+    Attributes
+    ----------
+    n_individuals : `int`
+                    number of offspring/descendants (λ: lambda), offspring population size.
+    n_parents     : `int`
+                    number of parents (μ: mu), parental population size.
+    mean          : `array_like`
+                    initial (starting) point, mean of Gaussian search distribution.
+    sigma         : `float`
+                    initial global step-size (σ), mutation strength (rate).
+
+    References
+    ----------
     Ros, R. and Hansen, N., 2008, September.
     A simple modification in CMA-ES achieving linear time and space complexity.
     In International Conference on Parallel Problem Solving from Nature (pp. 296-305).
@@ -19,7 +58,7 @@ class SEPCMAES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self.c_c = options.get('c_c', 4 / (self.ndim_problem + 4))
+        self.c_c = options.get('c_c', 4.0/(self.ndim_problem + 4.0))
         self.options = options
         self.c_s = None
         self.c_cov = None
@@ -28,22 +67,22 @@ class SEPCMAES(ES):
         self._s_2 = None
 
     def _set_c_cov(self):
-        c_cov = (1 / self._mu_eff) * (2 / np.power(self.ndim_problem + np.sqrt(2), 2)) + (
-            (1 - 1 / self._mu_eff) * np.minimum(1, (2 * self._mu_eff - 1) / (
-                np.power(self.ndim_problem + 2, 2) + self._mu_eff)))
-        c_cov *= (self.ndim_problem + 2) / 3  # for faster adaptation
+        c_cov = (1.0/self._mu_eff)*(2.0/np.power(self.ndim_problem + np.sqrt(2.0), 2)) + (
+            (1.0 - 1.0/self._mu_eff)*np.minimum(1.0, (2.0*self._mu_eff - 1.0) / (
+                np.power(self.ndim_problem + 2.0, 2) + self._mu_eff)))
+        c_cov *= (self.ndim_problem + 2.0)/3.0  # for faster adaptation
         return c_cov
 
     def _set_d_sigma(self):
-        d_sigma = np.maximum((self._mu_eff - 1) / (self.ndim_problem + 1) - 1, 0)
-        return 1 + self.c_s + 2 * np.sqrt(d_sigma)
+        d_sigma = np.maximum((self._mu_eff - 1.0)/(self.ndim_problem + 1.0) - 1.0, 0.0)
+        return 1.0 + self.c_s + 2.0*np.sqrt(d_sigma)
 
     def initialize(self, is_restart=False):
-        self.c_s = self.options.get('c_s', (self._mu_eff + 2) / (self.ndim_problem + self._mu_eff + 3))
+        self.c_s = self.options.get('c_s', (self._mu_eff + 2.0)/(self.ndim_problem + self._mu_eff + 3.0))
         self.c_cov = self.options.get('c_cov', self._set_c_cov())
         self.d_sigma = self.options.get('d_sigma', self._set_d_sigma())
-        self._s_1 = 1 - self.c_s
-        self._s_2 = np.sqrt(self._mu_eff * self.c_s * (2 - self.c_s))
+        self._s_1 = 1.0 - self.c_s
+        self._s_2 = np.sqrt(self._mu_eff*self.c_s*(2.0 - self.c_s))
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
@@ -59,7 +98,7 @@ class SEPCMAES(ES):
             if self._check_terminations():
                 return z, x, y
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))
-            x[k] = mean + self.sigma * d * z[k]  # Line 3 of Algorithm 1
+            x[k] = mean + self.sigma*d*z[k]  # Line 3 of Algorithm 1
             y[k] = self._evaluate_fitness(x[k], args)
         return z, x, y
 
@@ -68,22 +107,22 @@ class SEPCMAES(ES):
         zeros = np.zeros((self.ndim_problem,))
         z_w, mean, dz_w = np.copy(zeros), np.copy(zeros), np.copy(zeros)
         for k in range(self.n_parents):  # Line 4, 5 of Algorithm 1
-            z_w += self._w[k] * z[order[k]]
-            mean += self._w[k] * x[order[k]]  # update distribution mean
-            dz = d * z[order[k]]
-            dz_w += self._w[k] * dz * dz
-        s = self._s_1 * s + self._s_2 * z_w  # Line 6 of Algorithm 1
+            z_w += self._w[k]*z[order[k]]
+            mean += self._w[k]*x[order[k]]  # update distribution mean
+            dz = d*z[order[k]]
+            dz_w += self._w[k]*dz*dz
+        s = self._s_1*s + self._s_2*z_w  # Line 6 of Algorithm 1
         # Line 7 of Algorithm 1
-        if (np.linalg.norm(s) / np.sqrt(1 - np.power(1 - self.c_s, 2 * self._n_generations))) < (
-                (1.4 + 2 / (self.ndim_problem + 1)) * self._e_chi):
-            h = np.sqrt(self.c_c * (2 - self.c_c)) * np.sqrt(self._mu_eff) * d * z_w
+        if (np.linalg.norm(s) / np.sqrt(1.0 - np.power(1.0 - self.c_s, 2.0*self._n_generations))) < (
+                (1.4 + 2.0/(self.ndim_problem + 1.0))*self._e_chi):
+            h = np.sqrt(self.c_c*(2.0 - self.c_c))*np.sqrt(self._mu_eff)*d*z_w
         else:
             h = 0
-        p = (1 - self.c_c) * p + h  # Line 8 of Algorithm 1
-        c = (1 - self.c_cov) * c + (1 / self._mu_eff) * self.c_cov * p * p + (
-                self.c_cov * (1 - 1 / self._mu_eff) * dz_w)  # Line 9 of Algorithm 1
+        p = (1.0 - self.c_c)*p + h  # Line 8 of Algorithm 1
+        c = (1.0 - self.c_cov)*c + (1.0/self._mu_eff)*self.c_cov*p*p + (
+                self.c_cov*(1.0 - 1.0/self._mu_eff)*dz_w)  # Line 9 of Algorithm 1
         # Line 10 of Algorithm 1
-        self.sigma *= np.exp(self.c_s / self.d_sigma * (np.linalg.norm(s) / self._e_chi - 1))
+        self.sigma *= np.exp(self.c_s/self.d_sigma*(np.linalg.norm(s)/self._e_chi - 1.0))
         d = np.sqrt(c)  # Line 11 of Algorithm 1
         return mean, s, p, c, d
 

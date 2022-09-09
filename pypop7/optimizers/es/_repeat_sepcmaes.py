@@ -4,6 +4,9 @@
     In International Conference on Parallel Problem Solving from Nature (pp. 296-305).
     Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30
+
+    Since our code obtains very similar performance as the original paper, we argue that
+    the repeatability of `SEPCMAES` can be well-documented (*at least partly*).
 """
 import numpy as np
 
@@ -51,9 +54,13 @@ if __name__ == '__main__':
         solver = SEPCMAES(problem, options)
         results = solver.optimize()
         print(results)
-        print(f.__name__, 'dim = ', problem['ndim_problem'],
-              ' fitness threshold = ', options['fitness_threshold'])
-        print('functions evaluations = ', results['n_function_evaluations'])
+        print(f.__name__, 'dim =', problem['ndim_problem'],
+              'fitness threshold =', options['fitness_threshold'],
+              'functions evaluations =', results['n_function_evaluations'])
+    # _hyper_ellipsoid dim = 30 fitness threshold = 1e-10 functions evaluations = 6261
+    # _different_powers dim = 30 fitness threshold = 1e-20 functions evaluations = 10238
+    # rosenbrock dim = 30 fitness threshold = 1e-06 functions evaluations = 102590
+
     # Table 3
     ndim_problem = 20
     for f in [ellipsoid, rosenbrock]:
@@ -75,6 +82,8 @@ if __name__ == '__main__':
         solver = SEPCMAES(problem, options)
         results = solver.optimize()
         print(results)
-        print(f.__name__, 'dim = ', problem['ndim_problem'],
-              ' fitness threshold = ', options['fitness_threshold'])
-        print('function evaluations = ', results['n_function_evaluations'])
+        print(f.__name__, 'dim =', problem['ndim_problem'],
+              'fitness threshold =', options['fitness_threshold'],
+              'function evaluations =', results['n_function_evaluations'])
+    # ellipsoid dim = 20 fitness threshold = 1e-09 function evaluations = 5861
+    # rosenbrock dim = 20 fitness threshold = 1e-09 function evaluations = 110151

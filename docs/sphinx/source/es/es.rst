@@ -15,6 +15,7 @@ Evolution Strategies (ES)
    lmcmaes
    fmaes
    maes
+   sepcmaes
    saes
    csaes
    dsaes
