@@ -38,7 +38,7 @@ class PSO(Optimizer):
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
                 * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - swarm (population) size, number of particles (`int`, 20),
+                * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `20`),
                 * 'cognition'     - cognitive learning rate (`float`, default: `2.0`),
                 * 'society'       - social learning rate (`float`, default: `2.0`),
                 * 'max_ratio_v'   - maximal ratio of velocities w.r.t. search range (`float`, default: `0.2`).

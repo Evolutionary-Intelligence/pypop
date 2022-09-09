@@ -29,7 +29,7 @@ class CLPSO(PSO):
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
                 * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - swarm (population) size, number of particles (`int`, 20),
+                * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `20`),
                 * 'c'             - comprehensive learning rate (`float`, default: `1.49445`),
                 * 'm'             - refreshing gap (`int`, default: `7`),
                 * 'max_ratio_v'   - maximal ratio of velocities w.r.t. search range (`float`, default: `0.2`).

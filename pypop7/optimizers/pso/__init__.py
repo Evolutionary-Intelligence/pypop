@@ -4,4 +4,6 @@ from pypop7.optimizers.pso.spsol import SPSOL
 from pypop7.optimizers.pso.clpso import CLPSO
 
 
-__all__ = [PSO, SPSO, SPSOL, CLPSO]
+__all__ = [PSO,  # base (abstract) class
+           SPSO, SPSOL,
+           CLPSO]
