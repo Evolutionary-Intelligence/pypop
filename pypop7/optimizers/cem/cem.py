@@ -4,53 +4,62 @@ from pypop7.optimizers.core.optimizer import Optimizer
 
 
 class CEM(Optimizer):
-    """Cross-Entropy Method(CE)
-    Reference
-    -----------
-    P. T. de Boer, D. P. Kroese, S. Mannor, R. Y. Rubinstein, (2003)
-    A Tutorial on the Cross-Entropy Method
-    http://web.mit.edu/6.454/www/www_fall_2003/gew/CEtutorial.pdf
-    T. Hoem-de-Mello, R. Y. Rubinstein,
-    Estimation of Rare Event Probabilities using Cross-Entropy
-    Proceedings of the 2002 Winter Simulation Conference
-    https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1172900
-    The official python version:
-    https://pypi.org/project/cross-entropy-method/
+    """Cross-Entropy Method (CEM).
+
+    References
+    ----------
+    Kroese, D.P., Porotsky, S. and Rubinstein, R.Y., 2006.
+    The cross-entropy method for continuous multi-extremal optimization.
+    Methodology and Computing in Applied Probability, 8(3), pp.383-407.
+    https://link.springer.com/article/10.1007/s11009-006-9753-0
+
+    De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005.
+    A tutorial on the cross-entropy method.
+    Annals of Operations Research, 134(1), pp.19-67.
+    https://link.springer.com/article/10.1007/s10479-005-5724-z
+
+    Rubinstein, R.Y. and Kroese, D.P., 2004.
+    The cross-entropy method: a unified approach to combinatorial optimization,
+        Monte-Carlo simulation, and machine learning.
+    New York: Springer.
+    https://link.springer.com/book/10.1007/978-1-4757-4321-0
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        if self.n_individuals is None:
-            self.n_individuals = 100
-        if self.n_parents is None:
-            self.n_parents = 10
-        self._n_generations = 0
-        self.sigma = np.ones((self.ndim_problem,)) * options.get('sigma')
-        self.mean = options.get('mean')  # mean of Gaussian search distribution
-        if self.mean is None:  # 'mean' has priority over 'x'
+        if self.n_individuals is None:  # number of individuals (samples) in each iteration
+            self.n_individuals = 1000
+        if self.n_parents is None:  # number of elitists for sampling distribution update
+            self.n_parents = 200
+        self.mean = options.get('mean')  # mean of Gaussian search (sampling/mutation) distribution
+        if self.mean is None:  # 'mean' has a priority over 'x'
             self.mean = options.get('x')
+        assert self.mean is not None
+        self.sigma = options.get('sigma')  # global (overall) step-size
+        assert self.sigma is not None
+        self._sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
+        self._n_generations = 0
 
-    def initialize(self, is_restart=False):
+    def initialize(self):
         raise NotImplementedError
 
-    def iterate(self, mean, x, y):
+    def iterate(self):
         raise NotImplementedError
 
     def _initialize_mean(self, is_restart=False):
         if is_restart or (self.mean is None):
-            mean = self.rng_initialization.uniform(self.initial_lower_boundary,
-                                                   self.initial_upper_boundary)
+            mean = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         else:
             mean = np.copy(self.mean)
         return mean
 
     def _print_verbose_info(self, y):
         if self.verbose and (not self._n_generations % self.verbose_frequency):
-            best_so_far_y = -self.best_so_far_y if self._is_maximization else self.best_so_far_y
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
-            print(info.format(self._n_generations, best_so_far_y, np.min(y), self.n_function_evaluations))
+            print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
     def _collect_results(self, fitness, mean=None):
         results = Optimizer._collect_results(self, fitness)
-        results['sigma'] = self.sigma
+        results['mean'] = mean
+        results['_sigmas'] = self._sigmas
         results['_n_generations'] = self._n_generations
         return results
