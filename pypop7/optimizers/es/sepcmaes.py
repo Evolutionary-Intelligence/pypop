@@ -6,7 +6,7 @@ from pypop7.optimizers.es.es import ES
 class SEPCMAES(ES):
     """Separable Covariance Matrix Adaptation Evolution Strategy (SEPCMAES).
 
-    . note:: Only the **diagonal** elements of the full covariance matrix are saved explicitly,
+    .. note:: Only the **diagonal** elements of the full covariance matrix are saved explicitly,
        since all off-diagonal elements are not used for sep-CMA-ES.
 
     Parameters
@@ -36,6 +36,34 @@ class SEPCMAES(ES):
                 * 'n_parents'     - number of parents (μ: mu), parental population size (`int`),
                 * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
                 * 'sigma'         - initial global step-size (σ), mutation strength (`float`).
+
+    Examples
+    --------
+    Use the ES optimizer `SEPCMAES` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.es.sepcmaes import SEPCMAES
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5 * numpy.ones((2,)),
+       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'mean': 3 * numpy.ones((2,)),
+       ...            'sigma': 0.1}
+       >>> sepcmaes = SEPCMAES(problem, options)  # initialize the optimizer class
+       >>> results = sepcmaes.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"SEPCMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       SEPCMAES: 5000, 0.010606023368122535
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/mpjzv8yh>`_ for more details.
 
     Attributes
     ----------
