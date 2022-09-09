@@ -66,17 +66,6 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
    installation
    design-philosophy
    es/es
-   es/res
-   es/ssaes
-   es/dsaes
-   es/csaes
-   es/saes
-   es/maes
-   es/fmaes
-   es/lmcmaes
-   es/lmcma
-   es/lmmaes
-   es/r1es
    eda/eda
    eda/umda
    eda/emna
