@@ -9,6 +9,6 @@ Particle Swarm Optimizer (PSO)
    :maxdepth: 2
    :caption: PSOs:
 
-   spso
-   spsol
    clpso
+   spsol
+   spso
