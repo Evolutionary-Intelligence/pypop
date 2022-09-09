@@ -23,7 +23,7 @@ if __name__ == '__main__':
     results = des.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 5.940980428780833e-10 vs ~1.0e-8 (from the original paper)
+    #  vs ~1.0e-8 (from the original paper)
 
     problem = {'fitness_function': cigar,
                'ndim_problem': ndim_problem,
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     results = des.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 4.932484159687036e-06 vs ~1.0e-10 (from the original paper)
+    #  vs ~1.0e-10 (from the original paper)
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
@@ -62,7 +62,7 @@ if __name__ == '__main__':
     results = des.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 0.00011713086571115482 vs ~1.0e+2 (from the original paper)
+    #  vs ~1.0e+2 (from the original paper)
 
     problem = {'fitness_function': ellipsoid,
                'ndim_problem': ndim_problem,
@@ -75,4 +75,4 @@ if __name__ == '__main__':
     results = des.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 5.220850734065257e-08 vs ~1.0e+2 (from the original paper)
+    #  vs ~1.0e+2 (from the original paper)
