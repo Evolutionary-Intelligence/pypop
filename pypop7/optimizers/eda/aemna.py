@@ -1,14 +1,14 @@
 import numpy as np
 
-from pypop7.optimizers.eda.umda import UMDA
+from pypop7.optimizers.eda.eda import EDA
 
 
-class EMNA(UMDA):
-    """Estimation of Multivariate Normal Algorithm (EMNA).
+class AEMNA(EDA):
+    """Adaptive Estimation of Multivariate Normal Algorithm (AEMNA).
 
-    .. note:: `EMNA` learns the *full* covariance matrix of the Gaussian sampling distribution, resulting
-       in *high* time and space complexity in each generation. Therefore, it is rarely used for large-scale
-       black-box optimization (LSBBO).
+    .. note:: `AEMNA` learns the *full* covariance matrix of the Gaussian sampling distribution, resulting
+       in *high* time and space complexity in each generation. Therefore, like `EMNA`, it is rarely used
+       for large-scale black-box optimization (LSBBO).
 
        It is **highly recommended** to first attempt other more advanced methods for LSBBO.
 
@@ -41,7 +41,7 @@ class EMNA(UMDA):
 
     Examples
     --------
-    Use the EDA optimizer `EMNA` to minimize the well-known test function
+    Use the EDA optimizer `AEMNA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -49,21 +49,21 @@ class EMNA(UMDA):
 
        >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
-       >>> from pypop7.optimizers.eda.emna import EMNA
+       >>> from pypop7.optimizers.eda.aemna import AEMNA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5 * numpy.ones((2,)),
        ...            'upper_boundary': 5 * numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
-       >>> emna = EMNA(problem, options)  # initialize the optimizer class
-       >>> results = emna.optimize()  # run the optimization process
+       >>> aemna = AEMNA(problem, options)  # initialize the optimizer class
+       >>> results = aemna.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"EMNA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       EMNA: 5000, 0.008375142194038284
+       >>> print(f"AEMNA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       AEMNA: 5000, 0.0023607608362747035
 
     For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/2p8xksyy>`_ for more details.
+    <hhttps://tinyurl.com/5ec2uest>`_ for more details.
 
     Attributes
     ----------
@@ -78,23 +78,51 @@ class EMNA(UMDA):
     Estimation of distribution algorithms: A new tool for evolutionary computation.
     Springer Science & Business Media.
     https://link.springer.com/book/10.1007/978-1-4615-1539-5
-
-    Larranaga, P., Etxeberria, R., Lozano, J.A. and Pena, J.M., 2000.
-    Optimization in continuous domains by learning and simulation of Gaussian networks.
-    Technical Report, Department of Computer Science and Artificial Intelligence,
-    University of the Basque Country.
-    https://tinyurl.com/3bw6n3x4
     """
     def __init__(self, problem, options):
-        UMDA.__init__(self, problem, options)
+        EDA.__init__(self, problem, options)
 
-    def iterate(self, x=None, y=None, args=None):
-        order = np.argsort(y)[:self.n_parents]
-        mean = np.mean(x[order], axis=0)
-        cov = np.cov(np.transpose(x[order]))
+    def initialize(self, args=None):
+        x = self.rng_optimization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
+                                          size=(self.n_individuals, self.ndim_problem))  # population
+        y = np.empty((self.n_individuals,))  # fitness
         for i in range(self.n_individuals):
             if self._check_terminations():
                 break
-            x[i] = self.rng_optimization.multivariate_normal(mean, cov)
             y[i] = self._evaluate_fitness(x[i], args)
-        return x, y
+        order = np.argsort(y)[:self.n_parents]
+        mean, cov = np.mean(x[order], axis=0), np.cov(np.transpose(x[order]))
+        return x, y, mean, cov
+
+    def iterate(self, x=None, y=None, mean=None, cov=None, args=None):
+        xx = self.rng_optimization.multivariate_normal(mean, cov)
+        yy = self._evaluate_fitness(xx, args)
+        order = np.argsort(y)[:self.n_parents]
+        worst = order[-1]
+        if yy < y[worst]:
+            mean_bak = np.copy(mean)
+            mean += (xx - x[worst])/self.n_parents
+            ndim2 = np.power(self.n_parents, 2)
+            for i in range(self.ndim_problem):
+                for j in range(self.ndim_problem):
+                    cov[i, j] = (cov[i, j] - ((xx[i] - x[worst, i])*np.sum(x[order, j] - mean_bak[j]))/ndim2 -
+                                 ((xx[j] - x[worst, j])*np.sum(x[order, i] - mean_bak[i]))/ndim2 +
+                                 ((xx[i] - x[worst, i])*(xx[j] - x[worst, j]))/ndim2 -
+                                 ((x[worst, i] - mean[i])*(x[worst, j] - mean[j]))/self.n_parents +
+                                 ((xx[i] - mean[i])*(xx[j] - mean[j]))/self.n_parents)
+            x[worst], y[worst] = xx, yy
+        return x, y, mean, cov
+
+    def optimize(self, fitness_function=None, args=None):
+        fitness = EDA.optimize(self, fitness_function)
+        x, y, mean, cov = self.initialize(args)
+        fitness.extend(y)
+        while True:  # similar to steady-state genetic algorithm
+            x, y, mean, cov = self.iterate(x, y, mean, cov, args)
+            if self.record_fitness:
+                fitness.extend(y)
+            if self._check_terminations():
+                break
+            self._n_generations += 1
+            self._print_verbose_info(y)
+        return self._collect_results(fitness)

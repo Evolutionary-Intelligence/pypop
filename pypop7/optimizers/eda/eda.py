@@ -57,7 +57,7 @@ class EDA(Optimizer):
     ----------
     https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=22182
 
-    Larrañaga, P. and Lozano, J.A. eds., 2001.
+    Larrañaga, P. and Lozano, J.A. eds., 2002.
     Estimation of distribution algorithms: A new tool for evolutionary computation.
     Springer Science & Business Media.
     https://link.springer.com/book/10.1007/978-1-4615-1539-5
