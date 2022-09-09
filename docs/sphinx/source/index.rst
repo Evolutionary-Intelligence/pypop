@@ -71,8 +71,6 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
    de/de
    pso/pso
    ep/ep
-   ep/cep
-   ep/fep
    ds/ds
    rs/rs
    sponsor

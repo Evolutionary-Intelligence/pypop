@@ -31,7 +31,7 @@ if __name__ == '__main__':
     results = fep.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 22.88404827530138
+    # 15.919371683065265
     # vs 4.6e-2 (from the original paper)
 
     problem = {'fitness_function': ackley,
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     results = fep.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 1.9075267778220923
+    # 1.8248431332886352
     # vs 1.8e-2 (from the original paper)
 
     problem = {'fitness_function': sphere,
@@ -59,7 +59,7 @@ if __name__ == '__main__':
     results = fep.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 0.20284227582986794
+    # 0.014982130779192806
     # vs 5.7e-4 (from the original paper)
 
     problem = {'fitness_function': step,
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     results = fep.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 47.0
+    # 34.0
     # vs 0 (from the original paper)
 
     problem = {'fitness_function': rosenbrock,
@@ -81,11 +81,11 @@ if __name__ == '__main__':
                'lower_boundary': -30*np.ones((ndim_problem,)),
                'upper_boundary': 30*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 20000 * 100,
-               'seed_rng': 0,  # undefined in the original paper
+               'seed_rng': 1,  # undefined in the original paper
                'sigma': 3.0}
     fep = FEP(problem, options)
     results = fep.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 19.653232176391665
+    # 21.19095109757174
     # vs mean 5.06 std 5.87 (from the original paper)
