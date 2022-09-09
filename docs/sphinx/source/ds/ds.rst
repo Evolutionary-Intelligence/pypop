@@ -9,6 +9,6 @@ Direct Search (DS)
    :maxdepth: 2
    :caption: DSs:
 
-   cs
-   hj
    nm
+   hj
+   cs
