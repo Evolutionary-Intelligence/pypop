@@ -1,7 +1,7 @@
 Genetic Algorithms (GA)
 =======================
 
-.. autoclass:: pypop7.optimizers.ga.genitor.GENITOR
+.. autoclass:: pypop7.optimizers.ga.ga.GA
 
 
 
