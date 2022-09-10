@@ -6,17 +6,16 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class DE(Optimizer):
     """Differential Evolution (DE).
 
-    This is the **base** (abstract) class for all DE classes. Please use any of its concrete subclasses to
-    optimize the black-box problem at hand.
+    This is the **base** (abstract) class for all `DE` classes. Please use any of its instantiated subclasses
+    to optimize the black-box problem at hand.
 
-    .. note:: Its six methods (`initialize`, `mutate`, `crossover`, `select`, `iterate`, `optimize`) should
-       be implemented by its subclasses.
+    .. note:: Originally `DE` was proposed to solve some challenging real-world problems by Kenneth Price and
+       Rainer Storn, `recipients of Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_.
+       Although there are *few* significant theoretical advances (to our knowledge), it is **still widely used in
+       practice** owing to its often attractive performance on many multimodal black-box functions.
 
-       Originally `DE` was proposed to solve some challenging real-world problems by Kenneth Price and Rainer Storn,
-       `recipients of Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_. Although there
-       are few significant theoretical advances, it is still widely used in practice owing to its often attractive
-       performance on multimodal functions (`SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ has provided
-       an open-source implementation for `DE`).
+       The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ has provided an
+       open-source implementation for `DE`.
 
        *"DE borrows the idea from Nelder&Mead of employing information from within the vector population to alter
        the search space."* --- `Storn&Price, 1997, JGO <https://doi.org/10.1023/A:1008202821328>`_
@@ -49,7 +48,9 @@ class DE(Optimizer):
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring, offspring population size.
+                    number of offspring, offspring population size. For `DE`, typically a *large* (often >=100)
+                    population size is used to better explore for high-dimensional multimodal functions. Obviously
+                    the *optimal* population size is problem-dependent, relying on fine-tuning.
 
     Methods
     -------
@@ -75,7 +76,7 @@ class DE(Optimizer):
         Optimizer.__init__(self, problem, options)
         if self.n_individuals is None:  # number of offspring, offspring population size
             self.n_individuals = 100
-        self._n_generations = 0
+        self._n_generations = 0  # number of generations
 
     def initialize(self):
         raise NotImplementedError
@@ -85,9 +86,6 @@ class DE(Optimizer):
 
     def crossover(self):
         raise NotImplementedError
-
-    def bound(self):
-        pass
 
     def select(self):
         raise NotImplementedError
