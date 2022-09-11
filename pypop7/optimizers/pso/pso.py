@@ -9,7 +9,7 @@ class PSO(Optimizer):
     This is the **base** (abstract) class for all `PSO` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
-    .. note:: `PSO` are a popular family of *swarm*-based search algorithms, proposed together by an electrical
+    .. note:: `PSO` is a very popular family of *swarm*-based search algorithms, proposed together by an electrical
        engineer (Russell C. Eberhart) and a psychologist (James Kennedy), recipients of `Evolutionary Computation
        Pioneer Award 2012 <https://tinyurl.com/456as566>`_. Its underlying motivation comes from very interesting
        collective behaviors (e.g. `flocking <https://dl.acm.org/doi/10.1145/37402.37406>`_) observed from social
@@ -48,9 +48,9 @@ class PSO(Optimizer):
     n_individuals : `int`
                     swarm (population) size, number of particles.
     cognition     : `float`
-                    cognitive learning rate.
+                    cognitive learning rate, acceleration coefficient.
     society       : `float`
-                    social learning rate.
+                    social learning rate, acceleration coefficient.
     max_ratio_v   : `float`
                     maximal ratio of velocities w.r.t. search range.
 
