@@ -154,7 +154,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
 * **Particle Swarm Optimizer ([PSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/pso.py))** [see e.g. [Bonyadi&Michalewicz, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective); [Escalante et al., 2009, JMLR](https://www.jmlr.org/papers/v10/escalante09a.html); [Poli et al., 2007, SI](https://link.springer.com/article/10.1007/s11721-007-0002-0); [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146); [Kennedy&Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
 
-  * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Comprehensive Learning Particle Swarm Optimizer (**[CLPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/clpso.py)**) [see [Liang et al., 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/1637688)]
+  * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Comprehensive Learning Particle Swarm Optimizer (**[CLPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/clpso.py)**) [see [Liang et al., 2006, TEVC](https://ieeexplore.ieee.org/abstract/document/1637688)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Particle Swarm Optimizer with a Local (ring) topology (**[SPSOL](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spsol.py)**) [see e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146)]
 
