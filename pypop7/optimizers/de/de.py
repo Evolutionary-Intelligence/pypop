@@ -59,7 +59,7 @@ class DE(Optimizer):
     ----------
     Price, K.V., 2013.
     Differential evolution.
-    In Handbook of optimization (pp. 187-214). Springer, Berlin, Heidelberg.
+    In Handbook of Optimization (pp. 187-214). Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8
 
     Price, K.V., Storn, R.M. and Lampinen, J.A., 2005.
