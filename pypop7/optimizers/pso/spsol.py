@@ -1,3 +1,5 @@
+import numpy as np
+
 from pypop7.optimizers.pso.pso import PSO
 
 
@@ -88,7 +90,8 @@ class SPSOL(PSO):
             left = self.n_individuals - 1
         elif i == self.n_individuals - 1:
             right = 0
-        return p_x[left] if p_y[left] <= p_y[right] else p_x[right]
+        ring = [left, i, right]
+        return p_x[ring[int(np.argmin(p_y[ring]))]]
 
     def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None):
         for i in range(self.n_individuals):
