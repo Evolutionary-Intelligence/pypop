@@ -1,13 +1,15 @@
-import random
-
 import numpy as np
+from scipy.stats import cauchy
 
-from pypop7.optimizers.pso.pso import PSO
 from pypop7.optimizers.core.optimizer import Optimizer
+from pypop7.optimizers.pso.pso import PSO
 
 
 class CCPSO2(PSO):
-    """New Cooperative Coevolving Particle Swarm Optimization(CCPSO2)
+    """Cooperative Coevolving Particle Swarm Optimizer (CCPSO2).
+
+    .. note:: `CCPSO2` employs the popular `cooperative coevolution <https://tinyurl.com/57wzdrhm>`_ framework to
+       extend PSO for large-scale black-box optimization (LSBBO) with *random grouping/partitioning*.
 
     Parameters
     ----------
@@ -32,8 +34,8 @@ class CCPSO2(PSO):
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
                 * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - swarm (population) size, number of particles (`int`, 20),
-                * 'p'             - possibility of using cauchy to refresh swarm (`float`, default: `0.5`),
+                * 'n_individuals' - swarm (population) size, number of particles (`int`, default: 30),
+                * 'p'             - probability of using Cauchy sampling distribution (`float`, default: `0.5`).
 
     Examples
     --------
@@ -46,137 +48,121 @@ class CCPSO2(PSO):
        >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.pso.ccpso2 import CCPSO2
-       >>> problem = {'fitness_function': rastrigin,  # define problem arguments
-       ...            'ndim_problem': 1000,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5e6,  # set optimizer options
-       ...            'fitness_threshold': 1e-10
-       ...            'p': 0,
-       ...            'seed_rng': 0}
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 500,
+       ...            'lower_boundary': -5 * numpy.ones((500,)),
+       ...            'upper_boundary': 5 * numpy.ones((500,))}
+       >>> options = {'max_function_evaluations': 500000,  # set optimizer options
+       ...            'seed_rng': 2022}
        >>> ccpso2 = CCPSO2(problem, options)  # initialize the optimizer class
        >>> results = ccpso2.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CCPSO2: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CCPSO2: 2951000, 9.822542779147625e-11
+       CCPSO2: 500000, 874.6603420601381
 
     Attributes
     ----------
     n_individuals : `int`
                     swarm (population) size, number of particles.
     p             : `float`
-                    possibility of using cauchy to refresh swarm
+                    probability of using Cauchy sampling distribution.
 
     References
     ----------
-    X. D. Li, X, Yao
-    Cooperatively Coevolving Particle Swarms for Large Scale Optimization
-    IEEE Trans. Evol. Comput. 16(2): 210-224 (2012)
+    Li, X. and Yao, X., 2011.
+    Cooperatively coevolving particle swarms for large scale optimization.
+    IEEE Transactions on Evolutionary Computation, 16(2), pp.210-224.
     https://ieeexplore.ieee.org/document/5910380/
     """
     def __init__(self, problem, options):
         PSO.__init__(self, problem, options)
-        self.p = options.get('p', 0.5)
-        self.group_size_set = [2, 5, 10, 50, 100, 200]
-        self.s = random.choice(self.group_size_set)
-        self.k = int(self.ndim_problem / self.s)
-        self.global_improved = False
-        self.dimension_indices = list(range(self.ndim_problem))
-        self.x_swarm, self.x_best = None, None
-        self.fx_swarm, self.fx_best = np.inf, np.inf
+        self.n_individuals = options.get('n_individuals', 30)  # swarm (population) size, number of particles
+        self.p = options.get('p', 0.5)  # probability of using Cauchy sampling distribution
+        self.group_sizes = options.get('group_sizes', [2, 5, 10, 50, 100, 250])
+        assert np.alltrue(np.array(self.group_sizes) <= self.ndim_problem)
+        self._indices = np.arange(self.ndim_problem)  # indices of all dimensions
+        self._s_index = 0
+        self._s = self.group_sizes[self._s_index]  # dimension to be optimized by each swarm
+        self._k = int(np.ceil(self.ndim_problem/self._s))  # number of swarms
+        self._improved = True
+        self._best_so_far_y = self.best_so_far_y
 
     def initialize(self, args=None):
         x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
-                                            size=self._swarm_shape)  # positions
-        y = x.copy()
-        x_local = x.copy()
-        self.x_swarm = x[0, :].copy()
-        self.x_best = self.x_swarm.copy()
-        return x, y, x_local
+                                            size=(self.n_individuals, self.ndim_problem))  # positions
+        y = np.empty((self._k, self.n_individuals))  # fitness for all individuals of all swarms
+        p_x, p_y = np.copy(x), np.copy(y)  # personally best positions and fitness
+        n_x = np.copy(x)  # neighborly best positions
+        for i in range(self.n_individuals):
+            if self._check_terminations():
+                return x, y, p_x, p_y, n_x
+            y[:, i] = self._evaluate_fitness(x[i], args)
+        p_y = np.copy(y)
+        return x, y, p_x, p_y, n_x
 
-    def b(self, j, i, x):
-        p = self.x_swarm.copy()
-        for d in range(j * self.s, (j+1) * self.s):
-            p[self.dimension_indices[d]] = x[i][self.dimension_indices[d]]
-        return p
+    def _ring_topology(self, p_x=None, p_y=None, j=None, i=None, indices=None):
+        left, right = i - 1, i + 1
+        if i == 0:
+            left = self.n_individuals - 1
+        elif i == self.n_individuals - 1:
+            right = 0
+        ring = [left, i, right]
+        return p_x[ring[int(np.argmin(p_y[j, ring]))], indices]
 
-    def local_best(self, j, i, fy):
-        v_i = fy[i][j]
-        v_left, v_right = None, None
-        if i != 0:
-            v_left = fy[i - 1][j]
-        else:
-            v_left = fy[self.n_individuals - 1][j]
-        if i != self.n_individuals - 1:
-            v_right = fy[i + 1][j]
-        else:
-            v_right = fy[0][j]
-        if v_i < v_left and v_i < v_right:
-            return i
-        elif v_i < v_right:
-            if i == 0:
-                return self.n_individuals - 1
-            else:
-                return i - 1
-        else:
-            if i == self.n_individuals - 1:
-                return 0
-            else:
-                return i + 1
-
-    def iterate(self, x=None, x_local=None, y=None, args=None):
-        if self.global_improved is False:
-            self.s = random.choice(self.group_size_set)
-            self.k = int(self.ndim_problem / self.s)
-        self.global_improved = False
-        random.shuffle(self.dimension_indices)
-        fx = np.inf * np.ones((self.n_individuals, self.k))
-        fy = fx.copy()
-        y_list = []
-        for j in range(self.k):
-            for i in range(self.n_individuals):
-                fx[i][j] = self._evaluate_fitness(self.b(j, i, x), args)
-                fy[i][j] = self._evaluate_fitness(self.b(j, i, y), args)
-                y_list.extend([fx[i][j], fy[i][j]])
-                if fx[i][j] < fy[i][j]:
-                    for d in range(j * self.s, (j + 1) * self.s):
-                        y[i][self.dimension_indices[d]] = x[i][self.dimension_indices[d]]
-                        fy[i][j] = fx[i][j].copy()
-                if fy[i][j] < self.fx_swarm:
-                    for d in range(j * self.s, (j + 1) * self.s):
-                        self.x_swarm[self.dimension_indices[d]] = y[i][self.dimension_indices[d]]
-                        self.fx_swarm = fy[i][j].copy()
-            for i in range(self.n_individuals):
-                local = self.local_best(j, i, fy)
-                for d in range(j * self.s, (j + 1) * self.s):
-                    x_local[i][self.dimension_indices[d]] = y[local][self.dimension_indices[d]]
-            if self.fx_swarm < self.fx_best:
-                for d in range(j * self.s, (j + 1) * self.s):
-                    self.x_best[self.dimension_indices[d]] = self.x_swarm[self.dimension_indices[d]]
-                self.fx_best = self.fx_swarm
-                self.global_improved = True
-        for j in range(self.k):
-            for i in range(self.n_individuals):
-                for d in range(j * self.s, (j + 1) * self.s):
-                    tempd = self.dimension_indices[d]
-                    if np.random.random() < self.p:
-                        x[i][tempd] = y[i][tempd] + self.rng_optimization.standard_cauchy()\
-                                     * np.abs(y[i][tempd] - x_local[i][tempd])
-                    else:
-                        x[i][tempd] = x_local[i][tempd] + self.rng_optimization.standard_normal() \
-                                      * np.abs(y[i][tempd] - x_local[i][tempd])
-        return x, x_local, y, y_list
+    def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None, fitness=None):
+        if self._improved is False:
+            self._s_index += 1
+            self._s = self.group_sizes[np.min(self._s_index, len(self.group_sizes) - 1)]
+            self._k = int(np.ceil(self.ndim_problem/self._s))
+            self.rng_optimization.shuffle(self._indices)  # random permutation
+            y = np.empty((self._k, self.n_individuals))  # fitness for all individuals of all swarms
+            for j in range(self._k):  # for each swarm
+                for i in range(self.n_individuals):  # for each individual
+                    if self._check_terminations():
+                        return x, y, p_x, p_y, n_x
+                    cv = np.copy(self.best_so_far_x)  # context vector
+                    indices = self._indices[np.arange(j*self._s, (j + 1)*self._s)]
+                    cv[indices] = x[i, indices]
+                    y[j, i] = self._evaluate_fitness(cv, args)
+            fitness.extend(y.flatten())
+            p_y = np.copy(y)
+        self._improved = False
+        for j in range(self._k):  # for each swarm
+            for i in range(self.n_individuals):  # for each individual
+                if self._check_terminations():
+                    return x, y, p_x, p_y, n_x
+                cv = np.copy(self.best_so_far_x)  # context vector
+                indices = self._indices[np.arange(j*self._s, (j + 1)*self._s)]
+                cv[indices] = x[i, indices]
+                y[j, i] = self._evaluate_fitness(cv, args)
+                if y[j, i] < p_y[j, i]:
+                    p_x[i, indices], p_y[j, i] = cv[indices], y[j, i]
+                if y[j, i] < self._best_so_far_y:
+                    self._improved, self._best_so_far_y = True, y[j, i]
+                n_x[i, indices] = self._ring_topology(p_x, p_y, j, i, indices)
+        for j in range(self._k):  # for each swarm
+            for i in range(self.n_individuals):  # for each individual
+                indices = self._indices[np.arange(j*self._s, (j + 1)*self._s)]
+                std = np.abs(p_x[i, indices] - n_x[i, indices])
+                if self.rng_optimization.random() <= self.p:  # sampling from Cauchy distribution
+                    x[i, indices] = p_x[i, indices] + cauchy.rvs(
+                        scale=std, random_state=self.rng_optimization)
+                else:  # sampling from Gaussian distribution
+                    x[i, indices] = n_x[i, indices] + std*self.rng_optimization.standard_normal(
+                        size=(len(indices),))
+        self._n_generations += 1
+        return x, y, p_x, p_y, n_x
 
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
-        x, y, x_local = self.initialize(args)
+        x, y, p_x, p_y, n_x = self.initialize(args)
+        if self.record_fitness:
+            fitness.extend(y[0])
         while True:
-            x, x_local, y, y_list = self.iterate(x, x_local, y, args)
+            x, y, p_x, p_y, n_x = self.iterate(None, x, y, p_x, p_y, n_x, args, fitness)
             if self.record_fitness:
-                fitness.extend(y_list)
+                fitness.extend(y.flatten())
             if self._check_terminations():
                 break
-            self._n_generations += 1
-            self._print_verbose_info(y_list)
-        results = self._collect_results(fitness)
-        return results
+            self._print_verbose_info(y)
+        return self._collect_results(fitness)
