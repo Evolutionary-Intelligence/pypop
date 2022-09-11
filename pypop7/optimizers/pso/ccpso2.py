@@ -34,8 +34,10 @@ class CCPSO2(PSO):
                 * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
                 * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - swarm (population) size, number of particles (`int`, default: 30),
-                * 'p'             - probability of using Cauchy sampling distribution (`float`, default: `0.5`).
+                * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `30`),
+                * 'p'             - probability of using Cauchy sampling distribution (`float`, default: `0.5`),
+                * 'group_sizes'   - a pool of candidate dimensions for grouping (`list`, default:
+                `[2, 5, 10, 50, 100, 250]`).
 
     Examples
     --------
@@ -66,10 +68,12 @@ class CCPSO2(PSO):
                     swarm (population) size, number of particles.
     p             : `float`
                     probability of using Cauchy sampling distribution.
+    group_sizes   : `list`
+                    a pool of candidate dimensions for grouping.
 
     References
     ----------
-    Li, X. and Yao, X., 2011.
+    Li, X. and Yao, X., 2012.
     Cooperatively coevolving particle swarms for large scale optimization.
     IEEE Transactions on Evolutionary Computation, 16(2), pp.210-224.
     https://ieeexplore.ieee.org/document/5910380/
