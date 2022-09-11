@@ -44,8 +44,8 @@ class DE(Optimizer):
                   `True`),
                 * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
                   `10`);
-              and with one particular setting (`keys`):
-                * 'n_individuals' - number of offspring, offspring population size (`int`).
+              and with one particular setting (`key`):
+                * 'n_individuals' - number of offspring, offspring population size (`int`, default: `100`).
 
     Attributes
     ----------
