@@ -180,7 +180,8 @@ class JADE(DE):
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
         x, y, a = self.initialize(args)
-        fitness.extend(y)
+        if self.record_fitness:
+            fitness.extend(y)
         while True:
             x, y, a = self.iterate(args, x, y, a)
             if self.record_fitness:

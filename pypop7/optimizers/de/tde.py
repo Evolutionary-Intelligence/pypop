@@ -138,7 +138,8 @@ class TDE(DE):
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        fitness.extend(y)
+        if self.record_fitness:
+            fitness.extend(y)
         while True:
             x, y = self.iterate(args, x, y)
             if self.record_fitness:
