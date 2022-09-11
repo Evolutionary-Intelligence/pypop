@@ -26,8 +26,10 @@ class SPSO(PSO):
                   * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
                     will be saved into output results.
 
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
+                  `True`),
+                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
+                  `10`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `20`),
                 * 'cognition'     - cognitive learning rate (`float`, default: `2.0`),
@@ -99,4 +101,5 @@ class SPSO(PSO):
             y[i] = self._evaluate_fitness(x[i], args)  # fitness evaluation
             if y[i] < p_y[i]:  # online update
                 p_x[i], p_y[i] = x[i], y[i]
+        self._n_generations += 1
         return v, x, y, p_x, p_y, n_x

@@ -35,8 +35,10 @@ class PSO(Optimizer):
                   * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
                     will be saved into output results.
 
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
+                  `True`),
+                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
+                  `10`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `20`),
                 * 'cognition'     - cognitive learning rate (`float`, default: `2.0`),
@@ -110,7 +112,8 @@ class PSO(Optimizer):
         return v, x, y, p_x, p_y, n_x
 
     def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None):
-        return v, x, y, p_x, p_y, n_x
+        self._n_generations += 1  # to be implemented by its all subclasses
+        raise NotImplementedError
 
     def _print_verbose_info(self, y=None):
         if self.verbose and (not self._n_generations % self.verbose_frequency):
@@ -120,13 +123,13 @@ class PSO(Optimizer):
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
         v, x, y, p_x, p_y, n_x = self.initialize(args)
-        fitness.extend(y)
+        if self.record_fitness:
+            fitness.extend(y)
         while True:
             v, x, y, p_x, p_y, n_x = self.iterate(v, x, y, p_x, p_y, n_x, args)
             if self.record_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
-            self._n_generations += 1
             self._print_verbose_info(y)
         return self._collect_results(fitness)

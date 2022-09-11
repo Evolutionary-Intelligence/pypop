@@ -31,13 +31,15 @@ class CCPSO2(PSO):
                   * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
                     will be saved into output results.
 
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
+                  `True`),
+                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
+                  `10`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `30`),
                 * 'p'             - probability of using Cauchy sampling distribution (`float`, default: `0.5`),
                 * 'group_sizes'   - a pool of candidate dimensions for grouping (`list`, default:
-                `[2, 5, 10, 50, 100, 250]`).
+                  `[2, 5, 10, 50, 100, 250]`).
 
     Examples
     --------
@@ -128,7 +130,8 @@ class CCPSO2(PSO):
                     indices = self._indices[np.arange(j*self._s, (j + 1)*self._s)]
                     cv[indices] = x[i, indices]
                     y[j, i] = self._evaluate_fitness(cv, args)
-            fitness.extend(y.flatten())
+            if self.record_fitness:
+                fitness.extend(y.flatten())
             p_y = np.copy(y)
         self._improved = False
         for j in range(self._k):  # for each swarm

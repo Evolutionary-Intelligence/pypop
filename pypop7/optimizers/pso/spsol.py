@@ -26,8 +26,10 @@ class SPSOL(PSO):
                   * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
                     will be saved into output results.
 
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
+                  `True`),
+                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
+                  `10`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `20`),
                 * 'cognition'     - cognitive learning rate (`float`, default: `2.0`),
@@ -55,7 +57,7 @@ class SPSOL(PSO):
        >>> results = spsol.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SPSOL: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SPSOL: 5000, 2.665755282592661e-05
+       SPSOL: 5000, 3.470837498146212e-08
 
     Attributes
     ----------
@@ -84,7 +86,7 @@ class SPSOL(PSO):
         PSO.__init__(self, problem, options)
         assert self.n_individuals >= 3  # for ring topology
 
-    def ring_topology(self, p_x=None, p_y=None, i=None):
+    def _ring_topology(self, p_x=None, p_y=None, i=None):
         left, right = i - 1, i + 1
         if i == 0:
             left = self.n_individuals - 1
@@ -97,7 +99,7 @@ class SPSOL(PSO):
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return v, x, y, p_x, p_y, n_x
-            n_x[i] = self.ring_topology(p_x, p_y, i)  # online update within ring topology
+            n_x[i] = self._ring_topology(p_x, p_y, i)  # online update within ring topology
             cognition_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
             society_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
             v[i] = (self._w[self._n_generations]*v[i] +
@@ -109,4 +111,5 @@ class SPSOL(PSO):
             y[i] = self._evaluate_fitness(x[i], args)  # fitness evaluation
             if y[i] < p_y[i]:  # online update
                 p_x[i], p_y[i] = x[i], y[i]
+        self._n_generations += 1
         return v, x, y, p_x, p_y, n_x
