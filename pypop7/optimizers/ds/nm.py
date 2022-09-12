@@ -16,7 +16,7 @@ class NM(DS):
        It is **highly recommended** to first attempt other more advanced methods for large-scale black-box
        optimization (LSBBO).
 
-       AKA downhill simplex method.
+       AKA `downhill simplex method <https://www.jmlr.org/papers/v3/strens02a.html>`_.
 
     Parameters
     ----------
@@ -72,11 +72,6 @@ class NM(DS):
        >>> results = nelder_mead.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"Nelder-Mead: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 500: best_so_far_y 1.12608e-19, min(y) 6.94232e-01 & Evaluations 975
-         * Generation 1000: best_so_far_y 1.12608e-19, min(y) 1.63768e+01 & Evaluations 1946
-         * Generation 1500: best_so_far_y 1.12608e-19, min(y) 6.24550e-02 & Evaluations 2934
-         * Generation 2000: best_so_far_y 1.12608e-19, min(y) 3.18114e+01 & Evaluations 3920
-         * Generation 2500: best_so_far_y 1.12608e-19, min(y) 1.84040e+04 & Evaluations 4910
        Nelder-Mead: 5000, 1.1260780227758508e-19
 
     Furthermore, an interesting visualization of `NM`'s search trajectory on a 2-dimensional test function is shown in
@@ -195,14 +190,16 @@ class NM(DS):
             self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
             x, y = self.initialize(args, is_restart)
-            fitness.extend(y)
+            if self.record_fitness:
+                fitness.extend(y)
             self._fitness_list = [self.best_so_far_y]
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DS.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        fitness.extend(y)
+        if self.record_fitness:
+            fitness.extend(y)
         while True:
             x, y = self.iterate(x, y, args, fitness)
             if self._check_terminations():
