@@ -26,18 +26,7 @@ class RS(Optimizer):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
-                  `1000`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with one particular setting (`key`):
                 * 'x' - initial (starting) point (`array_like`).
 
@@ -103,7 +92,7 @@ class RS(Optimizer):
         self.x = options.get('x')  # initial (starting) point
         # reset its default value from 10 to 1000, since typically more iterations can be run
         # for individual-based iterative search
-        self.verbose_frequency = options.get('verbose_frequency', 1000)
+        self.verbose = options.get('verbose', 1000)
         self._n_generations = 0  # number of generations
 
     def initialize(self):
@@ -113,7 +102,7 @@ class RS(Optimizer):
         raise NotImplementedError
 
     def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose_frequency):
+        if self.verbose and (not self._n_generations % self.verbose):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
@@ -125,7 +114,7 @@ class RS(Optimizer):
             else:
                 x = self.iterate()
             y = self._evaluate_fitness(x, args)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.append(y)
             self._print_verbose_info(y)
             self._n_generations += 1
