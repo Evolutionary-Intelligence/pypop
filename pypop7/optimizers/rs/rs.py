@@ -68,7 +68,7 @@ class RS(Optimizer):
 
     Solis, F.J. and Wets, R.J.B., 1981.
     Minimization by random search techniques.
-    Mathematics of operations research, 6(1), pp.19-30.
+    Mathematics of Operations Research, 6(1), pp.19-30.
     https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19
 
     Schrack, G. and Choit, M., 1976.
