@@ -15,8 +15,8 @@ from pypop7.optimizers.ga.g3pcx import G3PCX as Solver
 class TestGENITOR(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
-        ndim_problem = 100
-        for f in [ellipsoid,rastrigin, schwefel12, ackley]:
+        ndim_problem = 20
+        for f in [ellipsoid, rastrigin, schwefel12, ackley]:
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
                        'ndim_problem': ndim_problem,
