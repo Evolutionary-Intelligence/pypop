@@ -71,7 +71,7 @@ class PRS(RS):
     """
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
-        # default: 1 -> uniformly distributed random sampling
+        # set default: 1 -> uniformly distributed random sampling
         self.sampling_distribution = options.get('sampling_distribution', 1)
         if self.sampling_distribution not in [0, 1]:  # 0 -> normally distributed random sampling
             info = 'For {:s}, only support uniformly or normally distributed random sampling.'
@@ -95,5 +95,5 @@ class PRS(RS):
             x = np.copy(self.x)
         return x
 
-    def iterate(self):  # draw a sample (individual)
+    def iterate(self):  # individual-based sampling
         return self._sample(self.rng_optimization)
