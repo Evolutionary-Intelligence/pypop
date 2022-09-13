@@ -6,13 +6,13 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class RS(Optimizer):
     """Random (stochastic) Search (optimization) (RS).
 
-    This is the **base** (abstract) class for all RS classes (also including **local search**, particularly
-    its *randomized* versions). At least its two methods (`initialize`, `iterate`) should be implemented by
-    any of its subclasses.
+    This is the **base** (abstract) class for all RS classes (also including individual-based **local search**,
+    particularly its *randomized* versions). Recently near all of its state-of-the-art versions adopt the
+    **population-based** random sampling strategy for better exploration in the complex search space.
 
     .. note:: `"The topic of local search was reinvigorated in the early 1990s by surprisingly good results
        for large ... problems ... and by the incorporation of randomness, multiple simultaneous searches,
-       and other improvements." <http://aima.cs.berkeley.edu/global-index.html>`_
+       and other improvements." ---[Russell&Norvig, 2022] <http://aima.cs.berkeley.edu/global-index.html>`_
 
     Parameters
     ----------
@@ -34,10 +34,12 @@ class RS(Optimizer):
                   * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
                     will be saved into output results.
 
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `1000`);
+                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
+                  `True`),
+                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
+                  `1000`);
               and with one particular setting (`key`):
-                * 'x'     - initial (starting) point (`array_like`).
+                * 'x' - initial (starting) point (`array_like`).
 
     Attributes
     ----------
@@ -59,6 +61,11 @@ class RS(Optimizer):
     SIAM Journal on Optimization, 14(3), pp.708-731.
     https://epubs.siam.org/doi/abs/10.1137/S105262340240063X
 
+    Rastrigin, L.A., 1986.
+    Random search as a method for optimization and adaptation.
+    In Stochastic Optimization.
+    https://link.springer.com/chapter/10.1007/BFb0007129
+
     Solis, F.J. and Wets, R.J.B., 1981.
     Minimization by random search techniques.
     Mathematics of operations research, 6(1), pp.19-30.
@@ -77,7 +84,9 @@ class RS(Optimizer):
     Matyas, J., 1965.
     Random optimization.
     Automation and Remote control, 26(2), pp.246-253.
-    https://tinyurl.com/25339c4x  (in Russian)
+    https://tinyurl.com/25339c4x
+    (*Since it was written originally in Russian, we cannot read it well. However, owing to its historical
+    position, we still choose to include it here, which causes a nonstandard citation.*)
 
     Rastrigin, L.A., 1963.
     The convergence of the random search method in the extremal control of a many parameter system.
@@ -92,9 +101,9 @@ class RS(Optimizer):
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
         self.x = options.get('x')  # initial (starting) point
-        # reset its default value from 10 to 1000 (since typically more iterations are run)
-        if options.get('verbose_frequency') is None:
-            self.verbose_frequency = 1000
+        # reset its default value from 10 to 1000, since typically more iterations can be run
+        # for individual-based iterative search
+        self.verbose_frequency = options.get('verbose_frequency', 1000)
         self._n_generations = 0  # number of generations
 
     def initialize(self):
@@ -109,12 +118,10 @@ class RS(Optimizer):
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
     def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
-        fitness = Optimizer.optimize(self, fitness_function)
-        is_initialization = True
+        fitness, is_initialization = Optimizer.optimize(self, fitness_function), True
         while not self._check_terminations():
             if is_initialization:
-                x = self.initialize()
-                is_initialization = False
+                x, is_initialization = self.initialize(), False
             else:
                 x = self.iterate()
             y = self._evaluate_fitness(x, args)
