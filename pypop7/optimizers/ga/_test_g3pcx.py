@@ -12,7 +12,7 @@ from pypop7.benchmarks.base_functions import ellipsoid, rastrigin, schwefel12, a
 from pypop7.optimizers.ga.g3pcx import G3PCX as Solver
 
 
-class TestGENITOR(unittest.TestCase):
+class TestG3PCX(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
         ndim_problem = 20
