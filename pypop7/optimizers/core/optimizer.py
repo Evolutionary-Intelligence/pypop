@@ -62,12 +62,8 @@ class Optimizer(object):
         self.rng_initialization = np.random.default_rng(self.seed_initialization)
         self.seed_optimization = options.get('seed_optimization', self.rng.integers(np.iinfo(np.int64).max))
         self.rng_optimization = np.random.default_rng(self.seed_optimization)
-        self.record_fitness = options.get('record_fitness', False)
-        if self.record_fitness:
-            self.record_fitness_frequency = options.get('record_fitness_frequency', 1000)
-        self.verbose = options.get('verbose', True)
-        if self.verbose:
-            self.verbose_frequency = options.get('verbose_frequency', 10)
+        self.saving_fitness = options.get('saving_fitness', 0)
+        self.verbose = options.get('verbose', 10)
 
         # auxiliary members
         self.Terminations = Terminations
@@ -120,16 +116,21 @@ class Optimizer(object):
         for i in range(len(fitness) - 1):
             if fitness[i] < fitness[i + 1]:
                 fitness[i + 1] = fitness[i]
-        # use 1-based index
-        index = np.arange(1, len(fitness), self.record_fitness_frequency)
-        # recover 0-based index via - 1
-        index = np.append(index, len(fitness)) - 1
-        self.fitness = np.stack((index, fitness[index]), 1)
+        if self.saving_fitness == 1:
+            self.fitness = np.stack((np.arange(1, len(fitness) + 1), fitness), 1)
+        elif self.saving_fitness > 1:
+            # use 1-based index
+            index = np.arange(1, len(fitness), self.saving_fitness)
+            # recover 0-based index via - 1
+            index = np.append(index, len(fitness)) - 1
+            self.fitness = np.stack((index, fitness[index]), 1)
+            # recover 1-based index
+            self.fitness[0, 0], self.fitness[-1, 0] = 1, len(fitness)
 
     def _collect_results(self, fitness):
         if self._is_maximization:
             self.best_so_far_y *= -1
-        if self.record_fitness:
+        if self.saving_fitness:
             self._compress_fitness(fitness[:self.n_function_evaluations])
         return {'best_so_far_x': self.best_so_far_x,
                 'best_so_far_y': self.best_so_far_y,
