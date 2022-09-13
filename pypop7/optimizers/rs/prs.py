@@ -10,9 +10,10 @@ class PRS(RS):
         has been successfully applied in several *relatively low-dimensional* problems (particularly
         `hyper-parameter optimization <https://www.jmlr.org/papers/v13/bergstra12a.html>`_), it generally
         suffers from the famous **curse of dimensionality** for large-scale black-box optimization (LSBBO),
-        since its lack of *adaptation*, a highly desirable property for sophisticated search algorithms.
+        since its lack of *adaptation*, a highly desirable property for sophisticated search algorithms. It
+        is **highly recommended** to first attempt other more advanced (e.g. population-based) methods for LSBBO.
 
-        It is **highly recommended** to first attempt other more advanced methods for LSBBO.
+        Here we include it mainly for *benchmarking* purpose.
 
     Parameters
     ----------
@@ -34,10 +35,10 @@ class PRS(RS):
                   * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
                     will be saved into output results.
 
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `1000`);
-              and with one particular setting (`key`):
-                * 'x'     - initial (starting) point (`array_like`).
+                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
+                  `True`),
+                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
+                  `1000`).
 
     Examples
     --------
@@ -60,18 +61,8 @@ class PRS(RS):
        >>> prs = PRS(problem, options)  # initialize the optimizer class
        >>> results = prs.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"Pure-Random-Search: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 0: best_so_far_y 3.60400e+03, min(y) 3.60400e+03 & Evaluations 1
-         * Generation 1000: best_so_far_y 1.14977e-01, min(y) 3.01919e+04 & Evaluations 1001
-         * Generation 2000: best_so_far_y 1.14977e-01, min(y) 8.06598e+02 & Evaluations 2001
-         * Generation 3000: best_so_far_y 1.14977e-01, min(y) 1.81726e+03 & Evaluations 3001
-         * Generation 4000: best_so_far_y 1.14977e-01, min(y) 8.62163e+03 & Evaluations 4001
-       Pure-Random-Search: 5000, 0.11497678820610932
-
-    Attributes
-    ----------
-    x     : `array_like`
-            initial (starting) point.
+       >>> print(f"PRS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       PRS: 5000, 0.11497678820610932
 
     References
     ----------
