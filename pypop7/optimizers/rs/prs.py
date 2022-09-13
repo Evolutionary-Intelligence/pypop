@@ -10,8 +10,9 @@ class PRS(RS):
         has been successfully applied in several *relatively low-dimensional* problems (particularly
         `hyper-parameter optimization <https://www.jmlr.org/papers/v13/bergstra12a.html>`_), it generally
         suffers from the famous **curse of dimensionality** for large-scale black-box optimization (LSBBO),
-        since its lack of *adaptation*, a highly desirable property for sophisticated search algorithms. It
-        is **highly recommended** to first attempt other more advanced (e.g. population-based) methods for LSBBO.
+        since its lack of *adaptation*, a highly desirable property for sophisticated search algorithms.
+        Therefore, it is **highly recommended** to first attempt other more advanced (e.g. population-based)
+        methods for LSBBO.
 
         Here we include it mainly for *benchmarking* purpose.
 
@@ -27,18 +28,7 @@ class PRS(RS):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
-                  `1000`).
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`).
 
     Examples
     --------
@@ -63,6 +53,9 @@ class PRS(RS):
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"PRS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        PRS: 5000, 0.11497678820610932
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/mrx2kffy>`_ for more details.
 
     References
     ----------
