@@ -7,10 +7,10 @@ class ARHC(RHC):
     """Annealed Random Hill Climber (ARHC).
 
     .. note:: The search performance of `ARHC` depends **heavily** on the setting of *temperature* of the
-       annealing process. However, its setting is a non-trival task, since it may vary among different
-       problems and even among different optimization stages for the given problem at hand.
-
-       It is **highly recommended** to first attempt other more advanced methods for LSBBO.
+       annealing process. However, its setting is a **non-trival** task, since it may vary among different
+       problems and even among different optimization stages for the given problem at hand. Therefore, it
+       is **highly recommended** to first attempt other more advanced (e.g. population-based) methods for
+       large-scale black-box optimization.
 
     Parameters
     ----------
@@ -24,22 +24,13 @@ class ARHC(RHC):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `1000`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with three particular settings (`keys`):
                 * 'x'                         - initial (starting) point (`array_like`),
                 * 'sigma'                     - initial (global) step-size (`float`),
                 * 'temperature'               - annealing temperature (`float`),
                 * initialization_distribution - random sampling distribution for starting point initialization (`int`,
-                  default: `1`).
+                  default: `1`). Only when `x` is not set explicitly, it will be used.
 
                   * `1`: *uniform* distribution is used for random sampling,
                   * `0`: *standard normal* distribution is used for random sampling.
@@ -67,13 +58,8 @@ class ARHC(RHC):
        >>> arhc = ARHC(problem, options)  # initialize the optimizer class
        >>> results = arhc.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"Annealed-RHC: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 0: best_so_far_y 3.60400e+03, min(y) 3.60400e+03 & Evaluations 1
-         * Generation 1000: best_so_far_y 2.64114e-04, min(y) 5.91452e-01 & Evaluations 1001
-         * Generation 2000: best_so_far_y 2.64114e-04, min(y) 1.04657e+01 & Evaluations 2001
-         * Generation 3000: best_so_far_y 2.64114e-04, min(y) 4.86862e-01 & Evaluations 3001
-         * Generation 4000: best_so_far_y 2.64114e-04, min(y) 6.62829e-02 & Evaluations 4001
-       Annealed-RHC: 5000, 0.0002641143073543329
+       >>> print(f"ARHC: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       ARHC: 5000, 0.0002641143073543329
 
     Attributes
     ----------
@@ -98,7 +84,7 @@ class ARHC(RHC):
         self._parent_x = np.copy(self.best_so_far_x)
         self._parent_y = np.copy(self.best_so_far_y)
 
-    def iterate(self):  # draw a sample via mutating the parent individual
+    def iterate(self):  # sampling via mutating the parent individual
         noise = self.rng_optimization.standard_normal(size=(self.ndim_problem,))
         return self._parent_x + self.sigma*noise
 
@@ -106,6 +92,6 @@ class ARHC(RHC):
         y = RHC._evaluate_fitness(self, x, args)
         # update parent solution and fitness
         diff = y - self._parent_y
-        if (diff < 0) or (self.rng_optimization.random() < np.exp(-diff / self.temperature)):
+        if (diff < 0) or (self.rng_optimization.random() < np.exp(-diff/self.temperature)):
             self._parent_x, self._parent_y = np.copy(x), y
         return y
