@@ -7,7 +7,7 @@ from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
 from pypop7.optimizers.rs.srs import SRS as Solver
 
 
-class TestRHC(unittest.TestCase):
+class TestSRS(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
         ndim_problem = 1000

@@ -8,12 +8,12 @@ class SRS(PRS):
     """Simple Random Search (SRS).
 
     .. note:: `SRS` is an *adaptive* random search method, originally designed by Rosenstein and `Barto
-       <https://people.cs.umass.edu/~barto/>`_ (best-known as one of Reinforcement Learning pioneers) for
-       **direct policy search**. Since it uses the *individual-based* sampling strategy (local search),
-       it may suffer from *limited* exploration ability for large-scale black-box optimization (LSBBO).
+       <https://people.cs.umass.edu/~barto/>`_ for **direct policy search** from reinforcement learning.
+       Since it uses the simple *individual-based* random sampling strategy, it easily suffers from a *limited*
+       exploration ability for large-scale black-box optimization (LSBBO). Therefore, it is **highly recommended**
+       to first attempt other more advanced (e.g. population-based) methods for LSBBO.
 
-       It is **highly recommended** to first attempt other more advanced methods for LSBBO. Here we include
-       it mainly for *benchmarking* purpose.
+       Here we include it only for *benchmarking* purpose.
 
     Parameters
     ----------
@@ -35,9 +35,11 @@ class SRS(PRS):
                   * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
                     will be saved into output results.
 
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `1000`);
-              and with one particular setting (`key`):
+                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
+                  `True`),
+                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
+                  `1000`);
+              and with the following particular settings (`keys`):
                 * 'x'         - initial (starting) point (`array_like`),
                 * 'sigma'     - initial (global) step-size (`float`),
                 * 'alpha'     - factor of (global) step-size (`float`, default: `0.3`),
@@ -67,13 +69,8 @@ class SRS(PRS):
        >>> srs = SRS(problem, options)  # initialize the optimizer class
        >>> results = srs.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"Simple-Random-Search: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 0: best_so_far_y 3.60400e+03, min(y) 3.60400e+03 & Evaluations 1
-         * Generation 1000: best_so_far_y 5.37254e-01, min(y) 8.88594e-01 & Evaluations 1001
-         * Generation 2000: best_so_far_y 3.23057e-01, min(y) 4.00271e-01 & Evaluations 2001
-         * Generation 3000: best_so_far_y 1.55601e-01, min(y) 2.58220e-01 & Evaluations 3001
-         * Generation 4000: best_so_far_y 3.39708e-02, min(y) 5.27258e-02 & Evaluations 4001
-       Simple-Random-Search: 5000, 0.0017821578376762473
+       >>> print(f"SRS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       SRS: 5000, 0.0017821578376762473
 
     Attributes
     ----------
@@ -126,25 +123,25 @@ class SRS(PRS):
     def iterate(self, x=None, args=None):
         delta_x = self.sigma*self.rng_optimization.standard_normal(size=(self.ndim_problem,))
         y = self._evaluate_fitness(x + delta_x, args)  # random perturbation
-        probability = self.rng_optimization.uniform()
-        if probability < self.beta:
+        if self.rng_optimization.uniform() < self.beta:
             x += self.alpha*delta_x
         else:
             x += self.alpha*(self.best_so_far_x - x)
+        self._n_generations += 1
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        fitness.append(y)
+        if self.record_fitness:
+            fitness.append(y)
         self._print_verbose_info(y)
         while True:
             x, y = self.iterate(x, args)
-            self.sigma = np.maximum(self.gamma*self.sigma, self.min_sigma)
             if self.record_fitness:
                 fitness.append(y)
+            self._print_verbose_info(y)
             if self._check_terminations():
                 break
-            self._n_generations += 1
-            self._print_verbose_info(y)
+            self.sigma = np.maximum(self.gamma*self.sigma, self.min_sigma)
         return self._collect_results(fitness)
