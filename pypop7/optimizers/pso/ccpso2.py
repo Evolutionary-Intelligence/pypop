@@ -9,7 +9,10 @@ class CCPSO2(PSO):
     """Cooperative Coevolving Particle Swarm Optimizer (CCPSO2).
 
     .. note:: `CCPSO2` employs the popular `cooperative coevolution <https://tinyurl.com/57wzdrhm>`_ framework to
-       extend PSO for large-scale black-box optimization (LSBBO) with *random grouping/partitioning*.
+       extend PSO for large-scale black-box optimization (LSBBO) with *random grouping/partitioning*. However, it
+       may suffer from **performance degradation** on *non-separable* functions (particularly ill-conditioned), since
+       its axis-parallel decomposition strategy (see the classical **coordinate descent** from the mathematical
+       programming community for detailed mathematical explanation).
 
     Parameters
     ----------
@@ -23,18 +26,7 @@ class CCPSO2(PSO):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
-                  `10`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `30`),
                 * 'p'             - probability of using Cauchy sampling distribution (`float`, default: `0.5`),
@@ -130,7 +122,7 @@ class CCPSO2(PSO):
                     indices = self._indices[np.arange(j*self._s, (j + 1)*self._s)]
                     cv[indices] = x[i, indices]
                     y[j, i] = self._evaluate_fitness(cv, args)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y.flatten())
             p_y = np.copy(y)
         self._improved = False
@@ -163,11 +155,12 @@ class CCPSO2(PSO):
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
         x, y, p_x, p_y, n_x = self.initialize(args)
-        if self.record_fitness:
+        if self.saving_fitness:
             fitness.extend(y[0])
+        self._print_verbose_info(y)
         while True:
             x, y, p_x, p_y, n_x = self.iterate(None, x, y, p_x, p_y, n_x, args, fitness)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y.flatten())
             if self._check_terminations():
                 break
