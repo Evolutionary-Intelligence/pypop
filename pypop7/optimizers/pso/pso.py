@@ -13,7 +13,8 @@ class PSO(Optimizer):
        engineer (Russell C. Eberhart) and a psychologist (James Kennedy), recipients of `Evolutionary Computation
        Pioneer Award 2012 <https://tinyurl.com/456as566>`_. Its underlying motivation comes from very interesting
        collective behaviors (e.g. `flocking <https://dl.acm.org/doi/10.1145/37402.37406>`_) observed from social
-       animals, which are regarded as one particular form of *intelligence* or *emergence* by many scientists.
+       animals, which are regarded as one particular form of *intelligence* or *emergence* or *self-organization*
+       by many scientists and engineers.
 
     Parameters
     ----------
@@ -27,18 +28,7 @@ class PSO(Optimizer):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
-                  `10`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `20`),
                 * 'cognition'     - cognitive learning rate (`float`, default: `2.0`),
@@ -87,14 +77,14 @@ class PSO(Optimizer):
             self.n_individuals = 20
         self.cognition = options.get('cognition', 2.0)  # cognitive learning rate
         self.society = options.get('society', 2.0)  # social learning rate
-        self.max_ratio_v = options.get('max_ratio_v', 0.2)  # maximal ratio of velocities
+        self.max_ratio_v = options.get('max_ratio_v', 0.2)  # maximal ratio of velocity
         self._max_v = self.max_ratio_v*(self.upper_boundary - self.lower_boundary)  # maximal velocity
         self._min_v = -self._max_v  # minimal velocity
         self._topology = None  # neighbors topology of social learning
         self._n_generations = 0  # number of generations
-        # linearly decreasing inertia weights introduced in [Shi&Eberhart, 1998, WCCI]
+        # set linearly decreasing inertia weights introduced in [Shi&Eberhart, 1998, WCCI]
         self._max_generations = np.ceil(self.max_function_evaluations/self.n_individuals)
-        self._w = 0.9 - 0.5*(np.arange(self._max_generations) + 1)/self._max_generations  # from 0.9 to 0.4
+        self._w = 0.9 - 0.5*(np.arange(self._max_generations) + 1.0)/self._max_generations  # from 0.9 to 0.4
         self._swarm_shape = (self.n_individuals, self.ndim_problem)
 
     def initialize(self, args=None):
@@ -112,22 +102,23 @@ class PSO(Optimizer):
         return v, x, y, p_x, p_y, n_x
 
     def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None):
-        self._n_generations += 1  # to be implemented by its all subclasses
+        self._n_generations += 1
         raise NotImplementedError
 
     def _print_verbose_info(self, y=None):
-        if self.verbose and (not self._n_generations % self.verbose_frequency):
+        if self.verbose and (not self._n_generations % self.verbose):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
         v, x, y, p_x, p_y, n_x = self.initialize(args)
-        if self.record_fitness:
+        if self.saving_fitness:
             fitness.extend(y)
+        self._print_verbose_info(y)
         while True:
             v, x, y, p_x, p_y, n_x = self.iterate(v, x, y, p_x, p_y, n_x, args)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
