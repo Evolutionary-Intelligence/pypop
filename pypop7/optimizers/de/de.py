@@ -9,16 +9,16 @@ class DE(Optimizer):
     This is the **base** (abstract) class for all `DE` classes. Please use any of its instantiated subclasses
     to optimize the black-box problem at hand.
 
-    .. note:: Originally `DE` was proposed to solve some challenging real-world problems by Kenneth Price and
+    .. note:: Originally `DE` was proposed to solve some challenging real-world black-box problems by Kenneth Price and
        Rainer Storn, `recipients of Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_.
-       Although there are *few* significant theoretical advances (to our knowledge), it is **still widely used in
-       practice** owing to its often attractive performance on many multimodal black-box functions.
+       Although there are *few* significant theoretical advances till now (to our knowledge), it is **still widely used
+       in practice**, owing to its often attractive search performance on many multimodal black-box functions.
 
-       The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ has provided an
-       open-source implementation for `DE`.
+       The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ library has provided an
+       open-source Python implementation for `DE`.
 
-       *"DE borrows the idea from Nelder&Mead of employing information from within the vector population to alter
-       the search space."* --- `Storn&Price, 1997, JGO <https://doi.org/10.1023/A:1008202821328>`_
+       `"DE borrows the idea from Nelder&Mead of employing information from within the vector population to alter
+       the search space." ---[Storn&Price, 1997, JGO] <https://doi.org/10.1023/A:1008202821328>`_
 
     Parameters
     ----------
@@ -32,27 +32,16 @@ class DE(Optimizer):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
-                  `10`);
-              and with one particular setting (`key`):
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular setting (`key`):
                 * 'n_individuals' - number of offspring, offspring population size (`int`, default: `100`).
 
     Attributes
     ----------
     n_individuals : `int`
                     number of offspring, offspring population size. For `DE`, typically a *large* (often >=100)
-                    population size is used to better explore for high-dimensional multimodal functions. Obviously
-                    the *optimal* population size is problem-dependent, relying on fine-tuning.
+                    population size is used to better explore for multimodal functions. Obviously the *optimal*
+                    population size is problem-dependent, relying on fine-tuning.
 
     Methods
     -------
@@ -96,7 +85,7 @@ class DE(Optimizer):
         raise NotImplementedError
 
     def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose_frequency):
+        if self.verbose and (not self._n_generations % self.verbose):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
