@@ -5,7 +5,7 @@ from pypop7.optimizers.de.cde import CDE
 
 
 class CODE(CDE):
-    """Composite Differential Evolution (CODE).
+    """COmposite Differential Evolution (CODE).
 
     Parameters
     ----------
@@ -19,18 +19,7 @@ class CODE(CDE):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
-                  `10`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular setting (`key`):
                 * 'n_individuals' - population size (`int`, default: `100`).
 
@@ -90,7 +79,7 @@ class CODE(CDE):
         x1 = np.empty((self.n_individuals, self.ndim_problem))
         x2 = np.empty((self.n_individuals, self.ndim_problem))
         x3 = np.empty((self.n_individuals, self.ndim_problem))
-        # randomly selected from the parameter candidate pool
+        # randomly select from the parameter candidate pool
         base = np.arange(self.n_individuals)
         f_p = self.rng_optimization.choice(self._pool, (self.n_individuals, 3))
         for k in range(self.n_individuals):
@@ -99,7 +88,6 @@ class CODE(CDE):
             r = self.rng_optimization.choice(base_k, (3,), False)
             x1[k] = x[r[0]] + f_p[k, 0, 0]*(x[r[1]] - x[r[2]])  # rand/1/bin
 
-            # the first scaling factor is randomly chosen from 0 to 1
             r = self.rng_optimization.choice(base_k, (5,), False)
             x2[k] = (x[r[0]] + self.rng_optimization.random()*(x[r[1]] - x[r[2]]) +
                      f_p[k, 1, 0]*(x[r[3]] - x[r[4]]))  # rand/2/bin
@@ -135,19 +123,20 @@ class CODE(CDE):
         x, y = self.select(args, x, y, x1)
         x, y = self.select(args, x, y, x2)
         x, y = self.select(args, x, y, x3)
+        self._n_generations += 1
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        if self.record_fitness:
+        if self.saving_fitness:
             fitness.extend(y)
+        self._print_verbose_info(y)
         while True:
             x, y = self.iterate(args, x, y)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
-            self._n_generations += 1
             self._print_verbose_info(y)
         return self._collect_results(fitness)

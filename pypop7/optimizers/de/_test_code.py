@@ -25,9 +25,8 @@ class TestCODE(unittest.TestCase):
             options = {'max_function_evaluations': 2e6,
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
-                       'verbose_frequency': 2000,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 200000}
+                       'saving_fitness': 200000,
+                       'verbose': 2000}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
