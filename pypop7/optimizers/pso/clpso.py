@@ -18,18 +18,7 @@ class CLPSO(PSO):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
-                  `10`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `20`),
                 * 'c'             - comprehensive learning rate (`float`, default: `1.49445`),
@@ -86,10 +75,10 @@ class CLPSO(PSO):
         self.m = options.get('m', 7)  # refreshing gap
         pc = 5*np.linspace(0, 1, self.n_individuals)
         self._pc = 0.5*(np.exp(pc) - np.exp(pc[0]))/(np.exp(pc[-1]) - np.exp(pc[0]))
-        # number of successive generations each particle has not improved its best fitness
+        # set number of successive generations each particle has not improved its best fitness
         self._flag = np.zeros((self.n_individuals,))
-        # linearly decreasing inertia weights
-        self._w = 0.9 - 0.7*(np.arange(self._max_generations) + 1)/self._max_generations
+        # set linearly decreasing inertia weights from 0.9 to 0.2
+        self._w = 0.9 - 0.7*(np.arange(self._max_generations) + 1.0)/self._max_generations
         self._base = range(self.n_individuals)
 
     def learning_topology(self, p_x, p_y, i, n_x):
