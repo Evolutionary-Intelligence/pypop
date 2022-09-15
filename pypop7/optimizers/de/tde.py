@@ -81,7 +81,6 @@ class TDE(DE):
             if self._check_terminations():
                 break
             y[i] = self._evaluate_fitness(x[i], args)
-        self._n_generations += 1
         return x, y
 
     def mutate(self, x=None, y=None):
