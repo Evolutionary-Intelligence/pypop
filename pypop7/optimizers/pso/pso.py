@@ -56,6 +56,10 @@ class PSO(Optimizer):
     Evolutionary Computation, 25(1), pp.1-54.
     https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective
 
+    https://www.cs.cmu.edu/~arielpro/15381f16/c_slides/781f16-26.pdf
+
+    http://www.scholarpedia.org/article/Particle_swarm_optimization
+
     Poli, R., Kennedy, J. and Blackwell, T., 2007.
     Particle swarm optimization.
     Swarm Intelligence, 1(1), pp.33-57.
