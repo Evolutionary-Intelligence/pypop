@@ -20,18 +20,7 @@ class CDE(DE):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
-                  `10`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - population size (`int`, default: `100`),
                 * 'f'             - mutation factor (`float`, default: `0.5`),
@@ -102,7 +91,6 @@ class CDE(DE):
             if self._check_terminations():
                 break
             y[i] = self._evaluate_fitness(x[i], args)
-        self._n_generations += 1
         return x, y
 
     def mutate(self, x=None):
@@ -120,8 +108,8 @@ class CDE(DE):
             j_rand = self.rng_optimization.integers(self.ndim_problem)
             for j in range(self.ndim_problem):
                 if j == j_rand or self.rng_optimization.random() <= self.cr:
-                    pass  # directly inherit from v
-                else:  # directly inherit from x
+                    pass
+                else:
                     v[i, j] = x[i, j]
         return v
 
@@ -138,19 +126,20 @@ class CDE(DE):
         v = self.mutate(x)
         v = self.crossover(v, x)
         x, y = self.select(v, x, y, args)
+        self._n_generations += 1
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        if self.record_fitness:
+        if self.saving_fitness:
             fitness.extend(y)
+        self._print_verbose_info(y)
         while True:
             x, y = self.iterate(args, x, y)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
-            self._n_generations += 1
             self._print_verbose_info(y)
         return self._collect_results(fitness)
