@@ -25,7 +25,7 @@ class ARHC(RHC):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
-              and with three particular settings (`keys`):
+              and with the following particular settings (`keys`):
                 * 'x'                         - initial (starting) point (`array_like`),
                 * 'sigma'                     - initial (global) step-size (`float`),
                 * 'temperature'               - annealing temperature (`float`),
