@@ -13,8 +13,8 @@ class PSO(Optimizer):
        engineer (Russell C. Eberhart) and a psychologist (James Kennedy), recipients of `Evolutionary Computation
        Pioneer Award 2012 <https://tinyurl.com/456as566>`_. Its underlying motivation comes from very interesting
        collective behaviors (e.g. `flocking <https://dl.acm.org/doi/10.1145/37402.37406>`_) observed from social
-       animals, which are regarded as one particular form of *intelligence* or *emergence* or *self-organization*
-       by many scientists and engineers.
+       animals (such as `birds <https://dl.acm.org/doi/10.1145/2629613>`_), which are regarded as one particular form
+       of *intelligence* or *emergence* or *self-organization* by many scientists and engineers.
 
     Parameters
     ----------
