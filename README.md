@@ -142,13 +142,13 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
 * **Cross-Entropy Method ([CEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/cem.py))** [see e.g. [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0); [De Boer et al., 2005, AOR](https://link.springer.com/article/10.1007/s10479-005-5724-z); [Rubinstein&Kroese, 2004](https://link.springer.com/book/10.1007/978-1-4757-4321-0)]
 
-* **Differential Evolution ([DE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/de.py))** [see e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
+* **Differential Evolution ([DE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/de.py))** [see e.g. [Price, 2013](https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8); [Price et al., 2005](https://link.springer.com/book/10.1007/3-540-31306-0); [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Composite Differential Evolution (**[CODE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/code.py)**) [see [Wang et al., 2011, TEVC](https://doi.org/10.1109/TEVC.2010.2087271)]
 
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Adaptive Differential Evolution (**[JADE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/jade.py)**) [see [Zhang&Sanderson, 2009, TEVC](https://doi.org/10.1109/TEVC.2009.2014613)]
 
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Trigonometric-mutation Differential Evolution (**[TDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/tde.py)**) [see e.g. [Fan&Lampinen, 2003, JGO](https://link.springer.com/article/10.1023/A:1024653025686)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Trigonometric-mutation Differential Evolution (**[TDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/tde.py)**) [see [Fan&Lampinen, 2003, JGO](https://link.springer.com/article/10.1023/A:1024653025686)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Classic Differential Evolution (**[CDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/cde.py)**) [see e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 
