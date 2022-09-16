@@ -1,6 +1,7 @@
 """Repeat Fig. 44.2a from the following paper for `PRS`:
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
-    Evolution strategies. In Springer Handbook of Computational Intelligence (pp. 871-898).
+    Evolution strategies.
+    In Springer Handbook of Computational Intelligence (pp. 871-898).
     Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
 """
