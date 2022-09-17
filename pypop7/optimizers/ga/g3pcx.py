@@ -14,6 +14,7 @@ class G3PCX(GA):
                 * 'ndim_problem'     - number of dimensionality (`int`),
                 * 'upper_boundary'   - upper boundary of search range (`array_like`),
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
+
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
@@ -40,25 +41,27 @@ class G3PCX(GA):
     Examples
     --------
     Use the GA optimizer `G3PCX` to minimize the well-known test function
-    `Rosenbrock <http://en.wikipedia.org/wiki/Rastrigin_function>`_:
+    `Rastrigin <http://en.wikipedia.org/wiki/Rastrigin_function>`_:
 
     .. code-block:: python
        :linenos:
 
        >>> import numpy
-       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.benchmarks.base_functions import rastrigin  # function to be minimized
        >>> from pypop7.optimizers.ga.g3pcx import G3PCX
        >>> problem = {'fitness_function': rastrigin,  # define problem arguments
        ...            'ndim_problem': 100,
        ...            'lower_boundary': -5 * numpy.ones((100,)),
        ...            'upper_boundary': 5 * numpy.ones((100,))}
        >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
+       ...            'n_individuals': 100,
+       ...            'n_parents': 3,
        ...            'seed_rng': 2022}
        >>> g3pcx = G3PCX(problem, options)  # initialize the optimizer class
        >>> results = g3pcx.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"G3PCX: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       G3PCX: 191214, 9.993073035730049e-11
+       G3PCX: 185180, 9.208633855450898e-11
 
     Attributes
     ----------
