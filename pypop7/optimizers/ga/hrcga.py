@@ -157,7 +157,7 @@ class HRCGA(GA):
         off_y = self._evaluate_fitness(off_spring, args)
         if off_y < y[order[-1]]:
             x[order[-1]], y[order[-1]], sel_time[order[-1]] = off_spring, off_y, 0
-        if self.record_fitness:
+        if self.saving_fitness:
             fitness.append(off_y)
         return x, y, sel_time, fitness
 
