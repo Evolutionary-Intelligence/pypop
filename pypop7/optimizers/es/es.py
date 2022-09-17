@@ -117,7 +117,7 @@ class ES(Optimizer):
         self.lr_sigma = options.get('lr_sigma')  # learning rate of sigma update
         # set options for restart
         self.sigma_threshold = options.get('sigma_threshold', 1e-12)  # stopping threshold of sigma
-        self.stagnation = options.get('stagnation', 10 + np.ceil(30*self.ndim_problem/self.n_individuals))
+        self.stagnation = options.get('stagnation', int(10 + np.ceil(30*self.ndim_problem/self.n_individuals)))
         self.fitness_diff = options.get('fitness_diff', 1e-12)  # stopping threshold of fitness difference
         self._n_restart = 0  # only for restart
         self._sigma_bak = np.copy(self.sigma)  # only for restart
