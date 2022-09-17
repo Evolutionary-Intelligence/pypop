@@ -27,7 +27,7 @@ class RS(Optimizer):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
-              and with one particular setting (`key`):
+              and with the following particular setting (`key`):
                 * 'x' - initial (starting) point (`array_like`).
 
     Attributes
