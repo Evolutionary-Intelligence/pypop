@@ -84,7 +84,7 @@ class ASGA(GA):
         fitness.extend(y)
         while True:
             x, y, x_as, y_as = self.iterate(x, y, x_as, y_as)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
