@@ -13,9 +13,9 @@ class RES(ES):
        Since there is only one parent and only one offspring for each generation, `RES` generally shows very
        limited *exploration* ability for large-scale black-box optimization (LSBBO). Therefore, it is **highly
        recommended** to first attempt other more advanced ES variants (e.g. `LM-CMA`, `LM-MA-ES`) for LSBBO.
-       Here we include it mainly for *benchmarking* and *theoretical* purpose.
+       Here we include it only for *benchmarking* and *theoretical* purpose.
 
-       AKA two-membered evolution strategy (which can also be seen as gradient climbing in Darwinian evolution).
+       AKA two-membered evolution strategy (which can also be seen as gradient climbing).
 
     Parameters
     ----------
@@ -29,21 +29,12 @@ class RES(ES):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
-              and with three particular settings (`keys`):
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
                 * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
                 * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
-                * 'eta_sigma'     - learning rate of global step-size (`float`, default:
-                  `1.0 / np.sqrt(problem['ndim_problem'] + 1.0)`).
+                * 'lr_sigma'     - learning rate of global step-size (`float`, default:
+                  `1.0/np.sqrt(self.ndim_problem + 1.0)`).
 
     Examples
     --------
@@ -68,25 +59,16 @@ class RES(ES):
        >>> results = res.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"(1+1)-ES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 10: best_so_far_y 6.53220e+01, min(y) 1.01146e+03 & Evaluations 11
-         * Generation 20: best_so_far_y 4.00093e-01, min(y) 4.39918e+03 & Evaluations 21
-         ...
-         * Generation 4910: best_so_far_y 1.27854e-03, min(y) 1.27854e-03 & Evaluations 4989
-         * Generation 4920: best_so_far_y 1.27041e-03, min(y) 1.27041e-03 & Evaluations 4999
        (1+1)-ES: 5000, 0.0012704091706297754
 
     Attributes
     ----------
-    n_individuals : `int`
-                    number of offspring (λ: lambda), offspring population size.
-    n_parents     : `int`
-                    number of parents (μ: mu), parental population size.
-    mean          : `array_like`
-                    initial (starting) point, mean of Gaussian search distribution.
-    sigma         : `float`
-                    initial global step-size (σ), mutation strength (`float`).
-    eta_sigma     : `float`
-                    learning rate of global step-size.
+    mean     : `array_like`
+               mean of Gaussian search distribution.
+    sigma    : `float`
+               mutation strength.
+    lr_sigma : `float`
+               learning rate of global step-size.
 
     References
     ----------
@@ -114,9 +96,9 @@ class RES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        if self.eta_sigma is None:  # for Line 5 (1 / d)
-            self.eta_sigma = 1.0 / np.sqrt(self.ndim_problem + 1.0)
-        assert self.eta_sigma > 0, f'`self.eta_sigma` = {self.eta_sigma}, but should > 0.'
+        if self.lr_sigma is None:  # for Line 5 (1 / d)
+            self.lr_sigma = 1.0/np.sqrt(self.ndim_problem + 1.0)
+        assert self.lr_sigma > 0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.'
 
     def initialize(self, args=None, is_restart=False):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
@@ -128,6 +110,7 @@ class RES(ES):
         # sample and evaluate (only one) offspring (Line 4 and 5)
         x = mean + self.sigma*self.rng_optimization.standard_normal((self.ndim_problem,))
         y = self._evaluate_fitness(x, args)
+        self._n_generations += 1
         return x, y
 
     def restart_initialize(self, args=None, mean=None, y=None, best_so_far_y=None, fitness=None):
@@ -137,25 +120,26 @@ class RES(ES):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
-            self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
             mean, y, best_so_far_y = self.initialize(args, is_restart)
             fitness.append(y)
+            self._n_restart += 1
             self._fitness_list = [best_so_far_y]
         return mean, y, best_so_far_y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, y, best_so_far_y = self.initialize(args)
-        fitness.append(y)
+        if self.saving_fitness:
+            fitness.append(y)
+        self._print_verbose_info(y)
         while True:
             x, y = self.iterate(args, mean)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.append(y)
             if self._check_terminations():
                 break
-            self.sigma *= np.power(np.exp(float(y < best_so_far_y) - 1 / 5), self.eta_sigma)
-            self._n_generations += 1
+            self.sigma *= np.power(np.exp(float(y < best_so_far_y) - 1.0/5.0), self.lr_sigma)
             self._print_verbose_info(y)
             if y < best_so_far_y:
                 mean, best_so_far_y = x, y

@@ -5,6 +5,7 @@
 """
 import unittest
 import time
+
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
@@ -26,9 +27,8 @@ class TestRES(unittest.TestCase):
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),  # mean
                        'sigma': 0.1,
-                       'verbose_frequency': 20000,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 200000}
+                       'verbose': 20000,
+                       'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
