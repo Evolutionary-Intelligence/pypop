@@ -74,9 +74,8 @@ if __name__ == "__main__":
                        'kernel_type': "rbf",  # used in SVM
                        'gamma_type': "auto",  # used in SVM
                        'solver_type': 'bo',  # solver can be bo or turbo
-                       'verbose_frequency': 1,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 1}
+                       'verbose': 1,
+                       'saving_fitness': 1}
             if f.__name__ == "rosenbrock":
                 problem['lower_boundary'] = -10 * np.ones((d,))
             if d == 100:
