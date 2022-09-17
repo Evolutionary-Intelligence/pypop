@@ -58,8 +58,11 @@ class RES(ES):
        >>> res = RES(problem, options)  # initialize the optimizer class
        >>> results = res.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"(1+1)-ES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       (1+1)-ES: 5000, 0.0012704091706297754
+       >>> print(f"RES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       RES: 5001, 0.0012946027847009392
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/5n6ndrn7>`_ for more details.
 
     Attributes
     ----------
