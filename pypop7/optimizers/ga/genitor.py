@@ -90,7 +90,7 @@ class GENITOR(GA):
         fitness.extend(y)
         while True:
             x, y, crossover_probs = self.iterate(x, y, crossover_probs)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
