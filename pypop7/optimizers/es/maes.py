@@ -7,13 +7,15 @@ class MAES(ES):
     """Matrix Adaptation Evolution Strategy (MAES).
 
     .. note:: `MAES` is an interesting *simplified* version of the well-established `CMA-ES` but nearly without
-       performance loss, designed first by `Beyer <https://homepages.fhv.at/hgb/>`_ and `Sendhoff
+       significant performance loss, designed carefully by `Beyer <https://homepages.fhv.at/hgb/>`_ and `Sendhoff
        <https://tinyurl.com/26szwuaa>`_. One obvious advantage of such a simplification is to help better understand
-       the underlying working principles of `CMA-ES`, which is often thought to be rather complex.
+       the underlying working principles (i.e., **invariance**) of `CMA-ES`, which is often thought to be rather
+       complex (resembling second-order optimizers).
 
        It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LM-CMA`, `LM-MA-ES`) for
-       large-scale black-box optimization (LSBBO), since `MAES` has a *cubic* time complexity w.r.t. each sampling.
-       Note that `FMAES` provides a more efficient implementation with *quadratic* time complexity w.r.t. each sampling.
+       large-scale black-box optimization, since `MAES` has a *cubic* time complexity w.r.t. each sampling. Note that
+       another improved version called `FMAES` provides a more efficient implementation with *quadratic* time complexity
+       w.r.t. each sampling.
 
     Parameters
     ----------
@@ -27,27 +29,18 @@ class MAES(ES):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose info (`int`, default: `10`);
-              and with four particular settings (`keys`):
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
                 * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
                 * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
-                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`).
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
                 * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
-                  `int(self.n_individuals / 2)`).
+                  `int(self.n_individuals/2)`).
 
     Examples
     --------
@@ -79,14 +72,14 @@ class MAES(ES):
 
     Attributes
     ----------
-    n_individuals   : `int`
-                      number of offspring (λ: lambda), offspring population size.
-    n_parents       : `int`
-                      number of parents (μ: mu), parental population size.
-    mean            : `array_like`
-                      initial (starting) point, mean of Gaussian search distribution.
-    sigma           : `float`
-                      initial global step-size (σ), mutation strength.
+    n_individuals : `int`
+                    number of offspring (λ: lambda), offspring population size.
+    n_parents     : `int`
+                    number of parents (μ: mu), parental population size.
+    mean          : `array_like`
+                    mean of Gaussian search distribution.
+    sigma         : `float`
+                    mutation strength.
 
     References
     ----------
@@ -134,8 +127,8 @@ class MAES(ES):
         self.c_1 = self.options.get('c_1', self.alpha_cov/(np.power(self.ndim_problem + 1.3, 2) + self._mu_eff))
         self.c_w = self.options.get('c_w', self._set_c_w())
         self.d_sigma = self.options.get('d_sigma', self._set_d_sigma())
-        self._s_1 = 1 - self.c_s
-        self._s_2 = np.sqrt(self._mu_eff*self.c_s*(2 - self.c_s))
+        self._s_1 = 1.0 - self.c_s
+        self._s_2 = np.sqrt(self._mu_eff*self.c_s*(2.0 - self.c_s))
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
         d = np.empty((self.n_individuals, self.ndim_problem))  # search directions
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
@@ -155,7 +148,7 @@ class MAES(ES):
 
     def _update_distribution(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
         order = np.argsort(y)  # for M8 in Fig. 3
-        # for M9, M10, M11 in Fig. 3
+        # set for M9, M10, M11 in Fig. 3
         d_w, z_w, zz_w = np.zeros((self.ndim_problem,)), np.zeros((self.ndim_problem,)), None
         if not self._fast_version:
             zz_w = np.zeros((self.ndim_problem, self.ndim_problem))  # for M11 in Fig. 3
@@ -191,14 +184,15 @@ class MAES(ES):
         fitness = ES.optimize(self, fitness_function)
         z, d, mean, s, tm, y = self.initialize()
         while True:
-            z, d, y = self.iterate(z, d, mean, tm, y, args)  # sample and evaluate offspring population
-            if self.record_fitness:
+            # sample and evaluate offspring population
+            z, d, y = self.iterate(z, d, mean, tm, y, args)
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
             mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
-            self._n_generations += 1
             self._print_verbose_info(y)
+            self._n_generations += 1
             if self.is_restart:
                 z, d, mean, s, tm, y = self.reinitialize(z, d, mean, s, tm, y)
         results = self._collect_results(fitness, mean)
