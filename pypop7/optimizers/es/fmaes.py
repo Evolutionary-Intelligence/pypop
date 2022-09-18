@@ -4,10 +4,11 @@ from pypop7.optimizers.es.maes import MAES
 class FMAES(MAES):
     """Fast Matrix Adaptation Evolution Strategy (FMAES).
 
-    .. note:: `FMAES` is a more efficient implementation of `MAES` with *quadractic* time complexity.
+    .. note:: `FMAES` is a more efficient implementation of `MAES` with *quadractic* time complexity w.r.t. each
+       sampling.
 
        It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LM-CMA`, `LM-MA-ES`) for
-       large-scale black-box optimization (LSBBO), since `FMAES` has a *quadratic* time complexity w.r.t. each sampling.
+       large-scale black-box optimization, since `FMAES` has a *quadratic* time complexity w.r.t. each sampling.
 
     Parameters
     ----------
@@ -21,27 +22,18 @@ class FMAES(MAES):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose info (`int`, default: `10`);
-              and with four particular settings (`keys`):
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
                 * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
                 * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
-                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`).
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
                 * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
-                  `int(self.n_individuals / 2)`).
+                  `int(self.n_individuals/2)`).
 
     Examples
     --------
@@ -78,9 +70,9 @@ class FMAES(MAES):
     n_parents       : `int`
                       number of parents (μ: mu), parental population size.
     mean            : `array_like`
-                      initial (starting) point, mean of Gaussian search distribution.
+                      mean of Gaussian search distribution.
     sigma           : `float`
-                      initial global step-size (σ), mutation strength.
+                      mutation strength.
 
     References
     ----------
