@@ -1,6 +1,72 @@
 """Latent Action Monto Carlo Tree Search(LA-MCTS)
+
+    Parameters
+    ----------
+    problem : `dict`
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : `dict`
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'n_individuals' - population size (`int`, default: `40`),
+                * 'Cp'            - Cp for MCTS (`int`, default: `1`),
+                * 'leaf_size'     - tree leaf size (`int`, default: `10`),
+                * 'kernel_type'   - kernel type for SVM (`string`, default: `rbf`),
+                * 'gamma_type'    - gamma type for SVM (`string`, default: `auto`),
+                * 'solver_type'   - solver type for SVM (`string`, default: `bo`).
+
+    Examples
+    --------
+    Use the BO optimizer `LAMCTS` to minimize the well-known test function
+    `Rastrigin <http://en.wikipedia.org/wiki/Rastrigin_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.bo.lamcts import LAMCTS
+       >>> problem = {'fitness_function': rastrigin,  # define problem arguments
+       ...            'ndim_problem': 20,
+       ...            'lower_boundary': -5 * numpy.ones((2,)),
+       ...            'upper_boundary': 10 * numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 100,  # set optimizer options
+       ...            'n_individuals': 40,
+       ...            'Cp': 1,
+       ...            'leaf_size': 10,
+       ...            'kernel_type': "rbf",
+       ...            'gamma_type': "auto",
+       ...            'solver_type': "bo",
+       ...            'seed_rng': 0}
+       >>> lamcts = LAMCTS(problem, options)  # initialize the optimizer class
+       >>> results = lamcts.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"LAMCTS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       LAMCTS: 100, 318.2422013365453
+
+    Attributes
+    ----------
+    n_individuals  : `int`
+                    number of offspring, offspring population size.
+    Cp             : `int`
+                    Cp for MCTS.
+    leaf_size      : `int`
+                    tree leaf size.
+    kernel_type    : 'string'
+                    kernel type for SVM.
+    gamma_type    : 'string'
+                    gamma type for SVM.
+    solver_type    : 'string'
+                    solver type for SVM.
+
     Reference
-    --------------
+    ---------
     L. Wang, R. Fonseca, Y. Tian
     Learning Search Space Partition for Black-box Optimization using Monte Carlo Tree Search
     NeurIPS 2020
@@ -265,11 +331,11 @@ class Node:
 class LAMCTS(Optimizer):
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        self.kernel_type = options.get('kernel_type')
-        self.gamma_type = options.get('gamma_type')
-        self.Cp = options.get('Cp')
-        self.leaf_size = options.get('leaf_size')
-        self.solver_type = options.get('solver_type')
+        self.kernel_type = options.get('kernel_type', "rbf")
+        self.gamma_type = options.get('gamma_type', "auto")
+        self.Cp = options.get('Cp', 1)
+        self.leaf_size = options.get('leaf_size', 10)
+        self.solver_type = options.get('solver_type', "bo")
         self._n_generations = 0
         self.nodes = []
         self.samples = []
@@ -389,13 +455,13 @@ class LAMCTS(Optimizer):
     def optimize(self, fitness_function=None):
         fitness = Optimizer.optimize(self, fitness_function)
         values = self.initialize()
-        if self.record_fitness:
+        if self.saving_fitness:
             fitness.extend(values)
         while True:
             self.dynamic_treeify()
             leaf, path = self.select()
             values = self.iterate(leaf, path)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(values)
             if self._check_terminations():
                 break
@@ -405,7 +471,7 @@ class LAMCTS(Optimizer):
         return results
 
     def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose_frequency):
+        if self.verbose and (not self._n_generations % self.verbose):
             best_so_far_y = -self.best_so_far_y if self._is_maximization else self.best_so_far_y
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, best_so_far_y, np.min(y), self.n_function_evaluations))

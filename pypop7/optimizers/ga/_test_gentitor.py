@@ -9,10 +9,10 @@ import time
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from pypop7.optimizers.ga.asga import ASGA as Solver
+from pypop7.optimizers.ga.genitor import GENITOR as Solver
 
 
-class TestASGA(unittest.TestCase):
+class TestGENITOR(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
         ndim_problem = 1000

@@ -15,8 +15,8 @@ from pypop7.optimizers.ga.g3pcx import G3PCX as Solver
 class TestG3PCX(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
-        ndim_problem = 20
-        for f in [ellipsoid, rastrigin, schwefel12, ackley]:
+        ndim_problem = 100
+        for f in [rastrigin]:
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
                        'ndim_problem': ndim_problem,
@@ -28,9 +28,8 @@ class TestG3PCX(unittest.TestCase):
                        'n_individuals': 100,
                        'n_parents': 3,
                        'seed_rng': 2022,
-                       'verbose_frequency': 10000,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 200000}
+                       'verbose': 10000,
+                       'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
