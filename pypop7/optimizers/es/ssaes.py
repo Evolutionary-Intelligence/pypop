@@ -7,11 +7,10 @@ class SSAES(ES):
     """Schwefel's Self-Adaptation Evolution Strategy (SSAES).
 
     .. note:: `SSAES` adapts the *individual* step-sizes on-the-fly, proposed by Schwefel. Since it needs the
-       *large* populations (e.g. larger than number of dimensions) for reliable adaptation, `SSAES` often
-       suffers from *slow* convergence for large-scale black-box optimization (LSBBO).
-
-       It is **highly recommended** to first attempt other more advanced ES variants for LSBBO. Here we include
-       it mainly for *benchmarking* and *theoretical* purpose.
+       *relatively large* populations (e.g. larger than number of dimensions) for reliable adaptation, `SSAES`
+       easily suffers from *slow* convergence for large-scale black-box optimization (LSBBO). Therefore, it is
+       **highly recommended** to first attempt other more advanced ES variants (e.g. `LM-CMA`, `LM-MA-ES`) for
+       LSBBO. Here we include it only for *benchmarking* and *theoretical* purpose.
 
     Parameters
     ----------
@@ -25,27 +24,18 @@ class SSAES(ES):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
-              and with six particular settings (`keys`):
-                * 'mean'            - initial (starting) point, mean of Gaussian search distribution (`array_like`),
-                * 'sigma'           - initial global step-size (σ), mutation strength (`float`),
-                * 'n_individuals'   - number of offspring (λ: lambda), offspring population size (`int`, default:
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'mean'           - initial (starting) point, mean of Gaussian search distribution (`array_like`),
+                * 'sigma'          - initial global step-size (σ), mutation strength (`float`),
+                * 'n_individuals'  - number of offspring (λ: lambda), offspring population size (`int`, default:
                   `5*problem['ndim_problem']`),
-                * 'n_parents'       - number of parents (μ: mu), parental population size (`int`, default:
-                  `int(options['n_individuals'] / 4)`),
-                * 'eta_sigma'       - learning rate of global step-size (`float`, default:
-                  `1.0 / np.sqrt(problem['ndim_problem']`),
-                * 'eta_axis_sigmas' - learning rate of individual step-sizes (`float`, default:
-                  `1.0 / np.power(problem['ndim_problem'], 1.0 / 4.0)`).
+                * 'n_parents'      - number of parents (μ: mu), parental population size (`int`, default:
+                  `int(options['n_individuals']/4)`),
+                * 'lr_sigma'       - learning rate of global step-size (`float`, default:
+                  `1.0/np.sqrt(problem['ndim_problem']`),
+                * 'lr_axis_sigmas' - learning rate of individual step-sizes (`float`, default:
+                  `1.0/np.power(problem['ndim_problem'], 1.0/4.0)`).
 
     Examples
     --------
@@ -70,27 +60,22 @@ class SSAES(ES):
        >>> results = ssaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 10: best_so_far_y 2.14285e-01, min(y) 2.14285e-01 & Evaluations 100
-         * Generation 20: best_so_far_y 2.10049e-01, min(y) 2.10462e-01 & Evaluations 200
-         ...
-         * Generation 480: best_so_far_y 1.33198e-01, min(y) 1.33198e-01 & Evaluations 4800
-         * Generation 490: best_so_far_y 1.31319e-01, min(y) 1.31645e-01 & Evaluations 4900
        SSAES: 5000, 0.13131869620062903
 
     Attributes
     ----------
-    n_individuals   : `int`
-                      number of offspring (λ: lambda), offspring population size.
-    n_parents       : `int`
-                      number of parents (μ: mu), parental population size.
-    mean            : `array_like`
-                      initial (starting) point, mean of Gaussian search distribution.
-    sigma           : `float`
-                      initial global step-size (σ), mutation strength (`float`).
-    eta_sigma       : `float`
-                      learning rate of global step-size.
-    eta_axis_sigmas : `float`
-                      learning rate of individual step-sizes.
+    n_individuals  : `int`
+                     number of offspring (λ: lambda), offspring population size.
+    n_parents      : `int`
+                     number of parents (μ: mu), parental population size.
+    mean           : `array_like`
+                     mean of Gaussian search distribution.
+    sigma          : `float`
+                     mutation strength (`float`).
+    lr_sigma       : `float`
+                     learning rate of global step-size.
+    lr_axis_sigmas : `float`
+                     learning rate of individual step-sizes.
 
     References
     ----------
@@ -103,14 +88,14 @@ class SSAES(ES):
         if options.get('n_individuals') is None:
             options['n_individuals'] = 5*problem.get('ndim_problem')
         if options.get('n_parents') is None:
-            options['n_parents'] = int(options['n_individuals'] / 4)
+            options['n_parents'] = int(options['n_individuals']/4)
         ES.__init__(self, problem, options)
-        self.axis_sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
-        if self.eta_sigma is None:
-            self.eta_sigma = 1.0 / np.sqrt(self.ndim_problem)  # learning rate of global step-size
-        assert self.eta_sigma > 0, f'`self.eta_sigma` = {self.eta_sigma}, but should > 0.'
-        # learning rate of individual step-sizes
-        self.eta_axis_sigmas = options.get('eta_axis_sigmas', 1.0 / np.power(self.ndim_problem, 1.0 / 4.0))
+        if self.lr_sigma is None:
+            self.lr_sigma = 1.0/np.sqrt(self.ndim_problem)  # learning rate of global step-size
+        assert self.lr_sigma > 0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.'
+        # set learning rate of individual step-sizes
+        self.lr_axis_sigmas = options.get('lr_axis_sigmas', 1.0/np.power(self.ndim_problem, 1.0/4.0))
+        self._axis_sigmas = self.sigma * np.ones((self.ndim_problem,))  # individual step-sizes
 
     def initialize(self):
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
@@ -120,12 +105,13 @@ class SSAES(ES):
         return x, mean, sigmas, y
 
     def iterate(self, x=None, mean=None, sigmas=None, y=None, args=None):
-        for k in range(self.n_individuals):  # sample population
+        # sample offspring population
+        for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, sigmas, y
-            sigma = self.eta_sigma*self.rng_optimization.standard_normal()
-            axis_sigmas = self.eta_axis_sigmas*self.rng_optimization.standard_normal((self.ndim_problem,))
-            sigmas[k] = self.axis_sigmas*np.exp(axis_sigmas)*np.exp(sigma)
+            sigma = self.lr_sigma*self.rng_optimization.standard_normal()
+            axis_sigmas = self.lr_axis_sigmas*self.rng_optimization.standard_normal((self.ndim_problem,))
+            sigmas[k] = self._axis_sigmas*np.exp(axis_sigmas)*np.exp(sigma)
             x[k] = mean + sigmas[k]*self.rng_optimization.standard_normal((self.ndim_problem,))
             y[k] = self._evaluate_fitness(x[k], args)
         return x, sigmas, y
@@ -136,15 +122,15 @@ class SSAES(ES):
         while True:
             # sample and evaluate offspring population
             x, sigmas, y = self.iterate(x, mean, sigmas, y, args)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
             order = np.argsort(y)[:self.n_parents]
-            self.axis_sigmas = np.mean(sigmas[order], axis=0)
+            self._axis_sigmas = np.mean(sigmas[order], axis=0)
             mean = np.mean(x[order], axis=0)
-            self._n_generations += 1
             self._print_verbose_info(y)
+            self._n_generations += 1
         results = self._collect_results(fitness, mean)
-        results['axis_sigmas'] = self.axis_sigmas
+        results['_axis_sigmas'] = self._axis_sigmas
         return results
