@@ -9,10 +9,11 @@ Evolution Strategies (ES)
    :maxdepth: 2
    :caption: ESs:
 
+   lmcma
+   mmes
    lmmaes
    rmes
    r1es
-   lmcma
    lmcmaes
    fmaes
    maes
