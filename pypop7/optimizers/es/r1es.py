@@ -23,27 +23,18 @@ class R1ES(ES):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose info (`int`, default: `10`);
-              and with four particular settings (`keys`):
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
                 * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
                 * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
-                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`).
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
                 * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
-                  `int(self.n_individuals / 2)`),
+                  `int(self.n_individuals/2)`),
                 * 'c_cov'         - learning rate of low-rank covariance matrix (`float`, default:
                   `1.0/(3.0*np.sqrt(self.ndim_problem) + 5.0)`),
                 * 'c'             - learning rate of evolution path (`float`, default: `2.0/(self.ndim_problem + 7.0)`),
@@ -86,9 +77,9 @@ class R1ES(ES):
     n_parents       : `int`
                       number of parents (μ: mu), parental population size.
     mean            : `array_like`
-                      initial (starting) point, mean of Gaussian search distribution.
+                      mean of Gaussian search distribution.
     sigma           : `float`
-                      initial global step-size (σ), mutation strength (`float`).
+                      mutation strength.
     c_cov           : `float`
                       learning rate of low-rank covariance matrix.
     c               : `float`
@@ -136,7 +127,7 @@ class R1ES(ES):
                 return x, y
             z = self.rng_optimization.standard_normal((self.ndim_problem,))  # for Line 4 in Algorithm 1
             r = self.rng_optimization.standard_normal()  # for Line 4 in Algorithm 1
-            # for Line 5 in Algorithm 1
+            # set for Line 5 in Algorithm 1
             x[k] = mean + self.sigma*(self._x_1*z + self._x_2*r*p)
             y[k] = self._evaluate_fitness(x[k], args)
         return x, y
@@ -144,36 +135,41 @@ class R1ES(ES):
     def _update_distribution(self, x=None, mean=None, p=None, s=None, y=None, y_bak=None):
         order = np.argsort(y)
         y.sort()  # for Line 10 in Algorithm 1
-        # for Line 11 in Algorithm 1
+        # set for Line 11 in Algorithm 1
         mean_w = np.zeros((self.ndim_problem,))
         for k in range(self.n_parents):
             mean_w += self._w[k]*x[order[k]]
-        p = self._p_1*p + self._p_2*(mean_w - mean) / self.sigma  # for Line 12 in Algorithm 1
+        p = self._p_1*p + self._p_2*(mean_w - mean)/self.sigma  # for Line 12 in Algorithm 1
         mean = mean_w  # for Line 11 in Algorithm 1
-        # for rank-based adaptation of mutation strength
+        # set for rank-based adaptation of mutation strength
         r = np.argsort(np.hstack((y_bak[:self.n_parents], y[:self.n_parents])))
         rr = self._rr[r < self.n_parents] - self._rr[r >= self.n_parents]
-        q = np.dot(self._w, rr) / self.n_parents  # for Line 14 in Algorithm 1
-        s = (1 - self.c_s)*s + self.c_s*(q - self.q_star)  # for Line 15 in Algorithm 1
-        self.sigma *= np.exp(s / self.d_sigma)  # for Line 16 in Algorithm 1
+        q = np.dot(self._w, rr)/self.n_parents  # for Line 14 in Algorithm 1
+        s = (1.0 - self.c_s)*s + self.c_s*(q - self.q_star)  # for Line 15 in Algorithm 1
+        self.sigma *= np.exp(s/self.d_sigma)  # for Line 16 in Algorithm 1
         return mean, p, s
 
     def restart_initialize(self, args=None, x=None, mean=None, p=None, s=None, y=None, fitness=None):
         is_restart = ES.restart_initialize(self)
         if is_restart:
             x, mean, p, s, y = self.initialize(args, is_restart)
-            fitness.append(y[0])
+            if self.saving_fitness:
+                fitness.append(y[0])
             self.d_sigma *= 2.0
+            self._print_verbose_info(y)
         return x, mean, p, s, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         x, mean, p, s, y = self.initialize(args)
-        fitness.append(y[0])
+        if self.saving_fitness:
+            fitness.append(y[0])
+        self._print_verbose_info(y)
         while True:
             y_bak = np.copy(y)  # for Line 13 in Algorithm 1
-            x, y = self.iterate(x, mean, p, y, args)  # sample and evaluate offspring population
-            if self.record_fitness:
+            # sample and evaluate offspring population
+            x, y = self.iterate(x, mean, p, y, args)
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
