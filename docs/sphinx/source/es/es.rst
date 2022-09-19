@@ -10,6 +10,7 @@ Evolution Strategies (ES)
    :caption: ESs:
 
    lmmaes
+   rmes
    r1es
    lmcma
    lmcmaes
