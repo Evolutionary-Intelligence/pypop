@@ -48,6 +48,9 @@ class TDE(DE):
        >>> print(f"TDE: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        TDE: 5000, 6.420787226215637e-21
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/56frubv2>`_ for more details.
+
     Attributes
     ----------
     n_individuals : `int`
