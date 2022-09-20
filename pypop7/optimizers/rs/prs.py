@@ -14,7 +14,8 @@ class PRS(RS):
         Therefore, it is **highly recommended** to first attempt other more advanced (e.g. population-based)
         methods for LSBBO.
 
-        Here we include it mainly for *benchmarking* purpose.
+        Here we include it mainly for *benchmarking* purpose. As pointed out in `Probabilistic Machine Learning
+        <https://probml.github.io/pml-book/book2.html>`_, *"this should always be tried as a baseline"*.
 
     Parameters
     ----------
