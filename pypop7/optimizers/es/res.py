@@ -116,7 +116,7 @@ class RES(ES):
         self._n_generations += 1
         return x, y
 
-    def restart_initialize(self, args=None, mean=None, y=None, best_so_far_y=None, fitness=None):
+    def restart_reinitialize(self, args=None, mean=None, y=None, best_so_far_y=None, fitness=None):
         self._fitness_list.append(self.best_so_far_y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
         if len(self._fitness_list) >= self.stagnation:
@@ -147,5 +147,5 @@ class RES(ES):
             if y < best_so_far_y:
                 mean, best_so_far_y = x, y
             if self.is_restart:
-                mean, y, best_so_far_y = self.restart_initialize(args, mean, y, best_so_far_y, fitness)
+                mean, y, best_so_far_y = self.restart_reinitialize(args, mean, y, best_so_far_y, fitness)
         return self._collect_results(fitness, mean)
