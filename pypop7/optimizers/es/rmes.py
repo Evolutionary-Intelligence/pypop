@@ -135,9 +135,8 @@ class RMES(R1ES):
 
     def restart_initialize(self, args=None, x=None, mean=None, p=None, s=None,
                            mp=None, t_hat=None, y=None, fitness=None):
-        is_restart = ES.restart_initialize(self)
-        if is_restart:
-            x, mean, p, s, mp, t_hat, y = self.initialize(args, is_restart)
+        if ES.restart_initialize(self):
+            x, mean, p, s, mp, t_hat, y = self.initialize(args, True)
             if self.saving_fitness:
                 fitness.append(y[0])
             self.d_sigma *= 2.0
