@@ -174,10 +174,9 @@ class MAES(ES):
         self.sigma *= np.exp(self.c_s/self.d_sigma*(np.linalg.norm(s)/self._e_chi - 1.0))
         return mean, s, tm
 
-    def reinitialize(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
-        is_restart = ES.restart_initialize(self)
-        if is_restart:
-            z, d, mean, s, tm, y = self.initialize(is_restart)
+    def restart_reinitialize(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
+        if ES.restart_reinitialize(self):
+            z, d, mean, s, tm, y = self.initialize(True)
         return z, d, mean, s, tm, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
@@ -194,7 +193,7 @@ class MAES(ES):
             self._print_verbose_info(y)
             self._n_generations += 1
             if self.is_restart:
-                z, d, mean, s, tm, y = self.reinitialize(z, d, mean, s, tm, y)
+                z, d, mean, s, tm, y = self.restart_reinitialize(z, d, mean, s, tm, y)
         results = self._collect_results(fitness, mean)
         results['s'] = s
         return results
