@@ -7,59 +7,45 @@ class LMCMA(ES):
     """Limited-Memory Covariance Matrix Adaptation (LMCMA).
 
     .. note:: `LMCMA` is one **State-Of-The-Art (SOTA)** variant of `CMA-ES` designed especially for large-scale
-       black-box optimization (LSBBO). Inspired by the powerful `L-BFGS` (a standard second-order gradient-based
-       optimizer), it stores *m* direction vectors to implicitly reconstruct the covariance matirx, resulting in
-       *O(mn)* time complexity where *n* is the dimensionality of objective function (*m = O(log(n))*).
+       black-box optimization (LSBBO). Inspired by `L-BFGS` (a standard second-order gradient-based optimizer),
+       it stores only *m* direction vectors to reconstruct the covariance matirx on-the-fly, resulting in *O(mn)*
+       time complexity w.r.t. each sampling, where *m = O(log(n))* and *n* is the dimensionality of objective function.
 
     Parameters
     ----------
     problem : `dict`
               problem arguments with the following common settings (`keys`):
-                * `'fitness_function'` - objective function to be **minimized** (`func`),
-                * `'ndim_problem'`     - number of dimensionality (`int`),
-                * `'upper_boundary'`   - upper boundary of search range (`array_like`),
-                * `'lower_boundary'`   - lower boundary of search range (`array_like`).
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : `dict`
               optimizer options with the following common settings (`keys`):
-                * `'max_function_evaluations'` - maximum of function evaluations (`int`, default: `np.Inf`),
-                * `'max_runtime'`              - maximal runtime (`float`, default: `np.Inf`),
-                * `'seed_rng'`                 - seed for random number generation needed to be *explicitly* set
-                  (`int`),
-                * `'record_fitness'`           - flag to record fitness list to output results (`bool`, default:
-                  `False`),
-                * `'record_fitness_frequency'` - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * `'verbose'`                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * `'verbose_frequency'`        - generation frequency of printing verbose information (`int`, default:
-                  `10`);
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * `'sigma'`         - initial global step-size (σ), mutation strength (`float`),
-                * `'mean'`          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
+                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
+                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
-                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`).
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
-                * `'m'`             - number of direction vectors (`int`, default:
+                * 'm'             - number of direction vectors (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * `'base_m'`        - base number of direction vectors (`int`, default: `4`),
-                * `'period'`        - update period (`int`, default: `int(np.maximum(1, np.log(self.ndim_problem)))`),
-                * `'n_steps'`       - target number of generations between vectors (`int`, default:
-                  `self.ndim_problem`),
+                * 'base_m'        - base number of direction vectors (`int`, default: `4`),
+                * 'period'        - update period (`int`, default: `int(np.maximum(1, np.log(self.ndim_problem)))`),
+                * 'n_steps'       - target number of generations between vectors (`int`, default: `self.ndim_problem`),
                 * 'c_c'           - learning rate for evolution path update (`float`, default:
                   `0.5/np.sqrt(self.ndim_problem)`),
-                * `'c_1'`           - learning rate for covariance matrix adaptation (`float`, default:
+                * 'c_1'           - learning rate for covariance matrix adaptation (`float`, default:
                   `1.0/(10.0*np.log(self.ndim_problem + 1.0))`),
-                * `'c_s'`           - learning rate for population success rule (`float`, default: `0.3`),
-                * `'d_s'`           - changing rate for population success rule (`float`, default: `1.0`),
-                * `'z_star'`        - target success rate for population success rule (`float`, default: `0.3`),
-                * `'n_individuals'` - number of offspring (λ: lambda), offspring population size (`int`, default:
+                * 'c_s'           - learning rate for population success rule (`float`, default: `0.3`),
+                * 'd_s'           - changing rate for population success rule (`float`, default: `1.0`),
+                * 'z_star'        - target success rate for population success rule (`float`, default: `0.3`),
+                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * `'n_parents'`     - number of parents (μ: mu), parental population size (`int`, default:
+                * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
                   `int(self.n_individuals / 2)`).
 
     Examples
@@ -97,9 +83,9 @@ class LMCMA(ES):
     n_parents       : `int`
                       number of parents (μ: mu), parental population size.
     mean            : `array_like`
-                      initial (starting) point, mean of Gaussian search distribution.
+                      mean of Gaussian search distribution.
     sigma           : `float`
-                      initial global step-size (σ), mutation strength.
+                      mutation strength.
     m               : `int`
                       number of direction vectors.
     base_m          : `int`
@@ -133,25 +119,25 @@ class LMCMA(ES):
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
         self.m = options.get('m', 4 + int(3*np.log(self.ndim_problem)))  # number of direction vectors
-        self.base_m = options.get('base_m', 4.0)  # base number of direction vectors
+        self.base_m = options.get('base_m', 4)  # base number of direction vectors
         self.period = options.get('period', int(np.maximum(1, np.log(self.ndim_problem))))  # update period
         self.n_steps = options.get('n_steps', self.ndim_problem)  # target number of generations between vectors
         self.c_c = options.get('c_c', 0.5/np.sqrt(self.ndim_problem))  # learning rate for evolution path
-        # learning rate for covariance matrix adaptation (CMA)
+        # set learning rate for covariance matrix adaptation (CMA)
         self.c_1 = options.get('c_1', 1.0/(10.0*np.log(self.ndim_problem + 1.0)))
         self.c_s = options.get('c_s', 0.3)  # learning rate for population success rule (PSR)
         self.d_s = options.get('d_s', 1.0)  # changing rate for PSR
         self.z_star = options.get('z_star', 0.3)  # target success rate for PSR
         self._a = np.sqrt(1.0 - self.c_1)
         self._c = 1.0/np.sqrt(1.0 - self.c_1)
-        self._bd_1 = np.sqrt(1 - self.c_1)
-        self._bd_2 = self.c_1/(1 - self.c_1)
+        self._bd_1 = np.sqrt(1.0 - self.c_1)
+        self._bd_2 = self.c_1/(1.0 - self.c_1)
         self._p_c_1 = 1.0 - self.c_c
         self._p_c_2 = None
         self._j = None
         self._l = None
         self._it = None
-        self._rr = None  # for PSR
+        self._rr = None  # for PSR of global step-size adaptation
 
     def initialize(self, is_restart=False):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
@@ -188,8 +174,7 @@ class LMCMA(ES):
         for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, y
-            if sign == 1:
-                # Algorithm 6 SelectSubst(): direction vectors selection
+            if sign == 1:  # Algorithm 6 SelectSubst(): direction vectors selection
                 base_m = (10.0*self.base_m if k == 0 else self.base_m)*np.abs(
                     self.rng_optimization.standard_normal())
                 base_m = float(self._it if base_m > self._it else base_m)
@@ -197,7 +182,7 @@ class LMCMA(ES):
                                 int(self._it - base_m) if self._it > 1 else 0, self._it)
             x[k] = mean + sign*self.sigma*a_z
             y[k] = self._evaluate_fitness(x[k], args)
-            sign *= -1  # sample in the opposite direction for mirrored sampling
+            sign *= -1  # sampling in the opposite direction for mirrored sampling
         return x, y
 
     def _a_inv_z(self, v=None, vm=None, d=None, i=None):
@@ -211,8 +196,8 @@ class LMCMA(ES):
                              b=None, d=None, y=None, y_bak=None):
         mean_bak = np.dot(self._w, x[np.argsort(y)[:self.n_parents]])
         p_c = self._p_c_1*p_c + self._p_c_2*(mean_bak - mean)/self.sigma
-        # selection and storage of direction vectors - to preserve a certain temporal distance in terms of number of
-        # generations between the stored direction vectors (Algorithm 5)
+        # select and store direction vectors - to preserve a certain temporal distance in terms of
+        # number of generations between the stored direction vectors (Algorithm 5)
         if self._n_generations % self.period == 0:  # temporal distance
             _n_generations = int(self._n_generations/self.period)  # temporal distance
             i_min = 1  # index of the first vector that will be replaced by the new one
@@ -221,7 +206,7 @@ class LMCMA(ES):
                 self._j[_n_generations] = _n_generations
             else:
                 if self.m > 1:
-                    # to find a pair of consecutively saved vectors with the distance between them
+                    # find a pair of consecutively saved vectors with the distance between them
                     # closest to a target distance
                     d_min = (self._l[self._j[1]] - self._l[self._j[0]]) - self.n_steps
                     for j in range(2, self.m):
@@ -250,31 +235,30 @@ class LMCMA(ES):
             self.sigma *= np.exp(s/self.d_s)
         return mean_bak, p_c, s, vm, pm, b, d
 
-    def restart_initialize(self, args=None, mean=None, x=None, p_c=None, s=None, vm=None, pm=None,
-                           b=None, d=None, y=None):
-        is_restart = ES.restart_initialize(self)
-        if is_restart:
-            mean, x, p_c, s, vm, pm, b, d, y = self.initialize(is_restart)
-            self.d_s *= 2
+    def restart_reinitialize(self, mean=None, x=None, p_c=None, s=None, vm=None,
+                             pm=None, b=None, d=None, y=None):
+        if ES.restart_reinitialize(self):
+            mean, x, p_c, s, vm, pm, b, d, y = self.initialize(True)
         return mean, x, p_c, s, vm, pm, b, d, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
-        mean, x, p_c, s, vm, pm, b, d, y = self.initialize(args)
+        mean, x, p_c, s, vm, pm, b, d, y = self.initialize()
         while True:
             y_bak = np.copy(y)
-            x, y = self.iterate(mean, x, pm, vm, y, b, args)  # sample and evaluate offspring population
-            if self.record_fitness:
+            # sample and evaluate offspring population
+            x, y = self.iterate(mean, x, pm, vm, y, b, args)
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
             mean, p_c, s, vm, pm, b, d = self._update_distribution(
                 mean, x, p_c, s, vm, pm, b, d, y, y_bak)
-            self._n_generations += 1
             self._print_verbose_info(y)
+            self._n_generations += 1
             if self.is_restart:
-                mean, x, p_c, s, vm, pm, b, d, y = self.restart_initialize(
-                    args, mean, x, p_c, s, vm, pm, b, d, y)
+                mean, x, p_c, s, vm, pm, b, d, y = self.restart_reinitialize(
+                    mean, x, p_c, s, vm, pm, b, d, y)
         results = self._collect_results(fitness, mean)
         results['p_c'] = p_c
         results['s'] = s
