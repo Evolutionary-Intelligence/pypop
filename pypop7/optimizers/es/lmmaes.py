@@ -18,18 +18,7 @@ class LMMAES(ES):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
-                  `10`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'sigma'             - initial global step-size (σ), mutation strength (`float`),
                 * 'mean'              - initial (starting) point, mean of Gaussian search distribution (`array_like`),
@@ -42,7 +31,9 @@ class LMMAES(ES):
                 * 'n_individuals'     - number of offspring (λ: lambda), offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
                 * 'n_parents'         - number of parents (μ: mu), parental population size (`int`, default:
-                  `int(self.n_individuals / 2)`).
+                  `int(self.n_individuals / 2)`),
+                * 'c_s'               - learning rate of evolution path (`float`, default:
+                  `2.0*self.n_individuals/self.ndim_problem`).
 
     Examples
     --------
@@ -85,6 +76,8 @@ class LMMAES(ES):
                         initial global step-size (σ), mutation strength.
     n_evolution_paths : `int`
                         number of evolution paths.
+    c_s               : `float`
+                        learning rate of evolution path.
 
     References
     ----------
@@ -109,12 +102,12 @@ class LMMAES(ES):
 
     def initialize(self, is_restart=False):
         self.c_s = self.options.get('c_s', 2.0*self.n_individuals/self.ndim_problem)
-        _s_1 = 1 - self.c_s
-        if _s_1 < 0:  # undefined in the original paper
+        _s_1 = 1.0 - self.c_s
+        if _s_1 < 0.0:  # undefined in the original paper
             _s_1 = 0.5
         self._s_1 = _s_1
         _s_2 = self._mu_eff*self.c_s*(2.0 - self.c_s)
-        if _s_2 < 0:  # undefined in the original paper
+        if _s_2 < 0.0:  # undefined in the original paper
             _s_2 = np.power(0.5, 2)
         self._s_2 = np.sqrt(_s_2)
         self._c_c = self.n_individuals/(self.ndim_problem*np.power(4.0, np.arange(self.n_evolution_paths)))
@@ -133,7 +126,7 @@ class LMMAES(ES):
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))
             d[k] = z[k]
             for j in range(np.minimum(self._n_generations, self.n_evolution_paths)):
-                d[k] = (1 - self._c_d[j])*d[k] + self._c_d[j]*tm[j]*np.dot(tm[j], d[k])
+                d[k] = (1.0 - self._c_d[j])*d[k] + self._c_d[j]*tm[j]*np.dot(tm[j], d[k])
             y[k] = self._evaluate_fitness(mean + self.sigma*d[k], args)
         return z, d, y
 
@@ -148,19 +141,19 @@ class LMMAES(ES):
         # update evolution path (p_c, s) and low-rank transformation matrix (tm)
         s = self._s_1*s + self._s_2*z_w
         for k in range(self.n_evolution_paths):  # rank-m
-            _tm_1 = 1 - self._c_c[k]
-            if _tm_1 < 0:  # undefined in the original paper
+            _tm_1 = 1.0 - self._c_c[k]
+            if _tm_1 < 0.0:  # undefined in the original paper
                 _tm_1 = 0.5
-            _tm_2 = self._mu_eff*self._c_c[k]*(2 - self._c_c[k])
-            if _tm_2 < 0:  # undefined in the original paper
+            _tm_2 = self._mu_eff*self._c_c[k]*(2.0 - self._c_c[k])
+            if _tm_2 < 0.0:  # undefined in the original paper
                 _tm_2 = np.power(0.5, 2)
             tm[k] = _tm_1*tm[k] + np.sqrt(_tm_2)*z_w
         # update global step-size
         self.sigma *= np.exp(self.c_s/2.0*(np.sum(np.power(s, 2))/self.ndim_problem - 1.0))
         return mean, s, tm
 
-    def restart_initialize(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
-        if ES.restart_initialize(self):
+    def restart_reinitialize(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
+        if ES.restart_reinitialize(self):
             z, d, mean, s, tm, y = self.initialize(True)
         return z, d, mean, s, tm, y
 
@@ -168,16 +161,17 @@ class LMMAES(ES):
         fitness = ES.optimize(self, fitness_function)
         z, d, mean, s, tm, y = self.initialize()
         while True:
-            z, d, y = self.iterate(z, d, mean, tm, y, args)  # sample and evaluate offspring population
-            if self.record_fitness:
+            # sample and evaluate offspring population
+            z, d, y = self.iterate(z, d, mean, tm, y, args)
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
             mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
-            self._n_generations += 1
             self._print_verbose_info(y)
+            self._n_generations += 1
             if self.is_restart:
-                z, d, mean, s, tm, y = self.restart_initialize(z, d, mean, s, tm, y)
+                z, d, mean, s, tm, y = self.restart_reinitialize(z, d, mean, s, tm, y)
         results = self._collect_results(fitness, mean)
         results['s'] = s
         results['tm'] = tm
