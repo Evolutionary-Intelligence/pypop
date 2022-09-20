@@ -10,7 +10,7 @@ class RHC(PRS):
        Therefore, it is **highly recommended** to first attempt other more advanced (e.g. population-based)
        methods for LSBBO.
 
-       AKA greedy randomized local search.
+       AKA randomized local search, steepest descent, greedy search.
 
     Parameters
     ----------
