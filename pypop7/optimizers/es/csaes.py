@@ -134,8 +134,8 @@ class CSAES(DSAES):
         mean = np.mean(x[order], axis=0)  # Line 11
         return s, mean
 
-    def restart_initialize(self, z=None, x=None, mean=None, s=None, y=None):
-        if self._restart_initialize():
+    def restart_reinitialize(self, z=None, x=None, mean=None, s=None, y=None):
+        if self._restart_reinitialize():
             self.n_parents = int(self.n_individuals/4)
             self.lr_sigma = np.sqrt(self.n_parents/(self.ndim_problem + self.n_parents))
             z, x, mean, s, y = self.initialize(True)
@@ -155,7 +155,7 @@ class CSAES(DSAES):
             self._print_verbose_info(y)
             self._n_generations += 1
             if self.is_restart:
-                z, x, mean, s, y = self.restart_initialize(z, x, mean, s, y)
+                z, x, mean, s, y = self.restart_reinitialize(z, x, mean, s, y)
         results = self._collect_results(fitness, mean)
         results['s'] = s
         results['_axis_sigmas'] = self._axis_sigmas
