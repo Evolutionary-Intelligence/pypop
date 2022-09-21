@@ -1,5 +1,5 @@
 """Repeat HillClimber algorithm in pybrain with python version=2.7
-    The code is as following
+    The code is as following:
     import time
     import numpy as np
     from pybrain.optimization.hillclimber import HillClimber as HC
