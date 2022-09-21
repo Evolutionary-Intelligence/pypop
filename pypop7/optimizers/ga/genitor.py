@@ -25,7 +25,7 @@ class GENITOR(GA):
     Examples
     --------
     Use the GA optimizer `GENITOR` to minimize the well-known test function
-    `Rosenbrock <http://en.wikipedia.org/wiki/Raosenbrock_function>`_:
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
