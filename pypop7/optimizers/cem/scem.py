@@ -21,8 +21,8 @@ class SCEM(CEM):
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
               and with the following particular settings (`keys`):
-                * 'n_individuals' - population size (`int`, default: `20`),
-                * 'n_parents' - parent size (`int`, default: `10`),
+                * 'n_individuals' - population size (`int`, default: `1000`),
+                * 'n_parents' - parent size (`int`, default: `200`),
                 * 'mean' - initial mean value (`array_like`, default: `4 * np.ones((ndim_problem,))`),
                 * 'sigma' - initial global step-size (σ), mutation strength (`float`, default: '1.0'),
                 * 'alpha' - smoothing factor (`float`, default: `0.8`),
@@ -45,11 +45,11 @@ class SCEM(CEM):
        >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
        ...            'n_individuals': 20,
        ...            'n_parents': 10,
-       ...            'mean': 4 * np.ones((ndim_problem,)),
+       ...            'mean': 4 * np.ones((100,)),
        ...            'sigma': 0.1,
        ...            'seed_rng': 2022}
        >>> scem = SCEM(problem, options)  # initialize the optimizer class
-       >>> results = secm.optimize()  # run the optimization process
+       >>> results = scem.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SCEM: 1000000, 296947.9431526677

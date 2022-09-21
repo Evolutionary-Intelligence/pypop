@@ -23,8 +23,8 @@ class DCEM(CEM):
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
               and with the following particular settings (`keys`):
-                * 'n_individuals' - population size (`int`, default: `20`),
-                * 'n_parents' - parent size (`int`, default: `10`),
+                * 'n_individuals' - population size (`int`, default: `100`),
+                * 'n_parents' - parent size (`int`, default: `200`),
                 * 'mean' - initial mean value (`array_like`, default: `4 * np.ones((ndim_problem,))`),
                 * 'sigma' - initial global step-size (σ), mutation strength (`float`, default: '1.0'),
                 * 'lml_verbose' - whether lml model is verbose (`int`, default: `0`),
@@ -48,7 +48,7 @@ class DCEM(CEM):
        >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
        ...            'n_individuals': 20,
        ...            'n_parents': 10,
-       ...            'mean': 4 * np.ones((ndim_problem,)),
+       ...            'mean': 4 * np.ones((1000,)),
        ...            'sigma': 1.0,
        ...            'seed_rng': 2022}
        >>> dcem = DCEM(problem, options)  # initialize the optimizer class
