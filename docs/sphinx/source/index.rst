@@ -77,4 +77,5 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
    rs/rs
    bbo
    ongoing-work
+   applications
    sponsor
