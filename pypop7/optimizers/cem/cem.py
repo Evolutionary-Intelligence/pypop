@@ -34,7 +34,7 @@ class CEM(Optimizer):
         if self.mean is None:  # 'mean' has a priority over 'x'
             self.mean = options.get('x')
         assert self.mean is not None
-        self.sigma = options.get('sigma')  # global (overall) step-size
+        self.sigma = options.get('sigma', 1.0)  # global (overall) step-size
         assert self.sigma is not None
         self._sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
         self._n_generations = 0
