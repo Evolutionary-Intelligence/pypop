@@ -1,3 +1,8 @@
+"""This code only tests whether the corresponding optimizer could run or not.
+  In other words, it *cannot* validate the correctness regarding its working procedure.
+  For the correctness validation of programming, refer to the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/wiki/Correctness-Validation-of-Optimizers.md
+"""
 import unittest
 import time
 import numpy as np
@@ -24,9 +29,8 @@ class TestSECEM(unittest.TestCase):
                        'fraction_reused_elites': 0.3,
                        'sigma': 0.5,
                        'noise_beta': 2.0,
-                       'verbose_frequency': 200,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 1}
+                       'verbose': 200,
+                       'saving_fitness': 1}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
