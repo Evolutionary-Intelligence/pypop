@@ -51,7 +51,7 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
        ...            'seed_rng': 0,  # seed of random number generation (which must be set for repeatability)
        ...            'x': 4 * np.ones((ndim_problem,)),  # initial mean of search (mutation/sampling) distribution
        ...            'sigma': 0.3,  # initial global step-size of search distribution
-       ...            'verbose_frequency': 500}
+       ...            'verbose': 500}
        >>> lmmaes = LMMAES(problem, options)  # initialize the optimizer
        >>> results = lmmaes.optimize()  # run its (time-consuming) search process
        >>> # print the best-so-far fitness and used function evaluations returned by the black-box optimizer
