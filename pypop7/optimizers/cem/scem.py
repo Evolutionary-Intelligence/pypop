@@ -6,6 +6,67 @@ from pypop7.optimizers.cem.cem import CEM
 class SCEM(CEM):
     """Standard Cross-Entropy Method (SCEM).
 
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+              and with the following particular settings (`keys`):
+                * 'n_individuals' - population size (`int`, default: `1000`),
+                * 'n_parents' - parent size (`int`, default: `200`),
+                * 'mean' - initial mean value (`array_like`, default: `4 * np.ones((ndim_problem,))`),
+                * 'sigma' - initial global step-size (σ), mutation strength (`float`, default: '1.0'),
+                * 'alpha' - smoothing factor (`float`, default: `0.8`),
+
+    Examples
+    --------
+    Use the CEM optimizer `SCEM` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.cem.scem import SCEM
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 100,
+       ...            'lower_boundary': -5 * numpy.ones((100,)),
+       ...            'upper_boundary': 5 * numpy.ones((100,))}
+       >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
+       ...            'n_individuals': 20,
+       ...            'n_parents': 10,
+       ...            'mean': 4 * np.ones((100,)),
+       ...            'sigma': 0.1,
+       ...            'seed_rng': 2022}
+       >>> scem = SCEM(problem, options)  # initialize the optimizer class
+       >>> results = scem.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"SCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       SCEM: 1000000, 296947.9431526677
+
+    Attributes
+    ----------
+    n_individuals : `int`
+                    number of offspring (λ: lambda), offspring population size.
+    n_parents     : `int`
+                    number of parents (μ: mu), parental population size.
+    mean          : `array_like`
+                    mean of Gaussian search distribution.
+    sigma         : `float`
+                    mutation strength.
+    alpha         : `float`
+                    smoothing factor
+
     References
     ----------
     Kroese, D.P., Porotsky, S. and Rubinstein, R.Y., 2006.
@@ -48,7 +109,7 @@ class SCEM(CEM):
         mean, x, y = self.initialize()
         while True:
             x, y = self.iterate(mean, x, y, args)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break

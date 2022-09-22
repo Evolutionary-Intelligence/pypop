@@ -19,17 +19,32 @@ class GENITOR(GA):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - population size (`int`, default: `100`),
+
+    Examples
+    --------
+    Use the GA optimizer `GENITOR` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.ga.genitor import GENITOR
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 100,
+       ...            'lower_boundary': -5 * numpy.ones((100,)),
+       ...            'upper_boundary': 5 * numpy.ones((100,))}
+       >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
+       ...            'n_individuals': 100,
+       ...            'seed_rng': 2022}
+       >>> genitor = GENITOR(problem, options)  # initialize the optimizer class
+       >>> results = genitor.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"GENITOR: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       GENITOR: 200000, 1330.4144752335092
 
     Attributes
     ----------

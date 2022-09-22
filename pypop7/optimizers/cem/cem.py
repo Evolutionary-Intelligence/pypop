@@ -34,7 +34,7 @@ class CEM(Optimizer):
         if self.mean is None:  # 'mean' has a priority over 'x'
             self.mean = options.get('x')
         assert self.mean is not None
-        self.sigma = options.get('sigma')  # global (overall) step-size
+        self.sigma = options.get('sigma', 1.0)  # global (overall) step-size
         assert self.sigma is not None
         self._sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
         self._n_generations = 0
@@ -53,7 +53,7 @@ class CEM(Optimizer):
         return mean
 
     def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose_frequency):
+        if self.verbose and (not self._n_generations % self.verbose):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
