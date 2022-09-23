@@ -26,9 +26,8 @@ class TestRPEDA(unittest.TestCase):
                        'fitness_threshold': 1e-10,
                        'max_runtime': 3600,  # 1 hours
                        'seed_rng': 0,
-                       'verbose_frequency': 50,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 200000}
+                       'verbose': 50,
+                       'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)

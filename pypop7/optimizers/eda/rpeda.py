@@ -6,6 +6,10 @@ from pypop7.optimizers.eda.eda import EDA
 class RPEDA(EDA):
     """Random-Projection Estimation of Distribution Algorithm (RPEDA).
 
+    .. note:: `RPEDA` uses **random matrix theory (RMT)** to sample individuals on multiple embedded subspace,
+       though it still evaluates individuals on the original search space. It has a **quadractic** time
+       complexity w.r.t. each sampling for large-scale black-box optimization.
+
     Parameters
     ----------
     problem : dict
@@ -18,16 +22,7 @@ class RPEDA(EDA):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - number of offspring, offspring population size (`int`, default: `300`),
                 * 'n_parents'     - number of parents, parental population size (`int`, default:
@@ -127,13 +122,13 @@ class RPEDA(EDA):
         x, xx, y = self.initialize()
         while True:
             x, y = self.iterate(xx, y, args)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
             # select top individuals
             order = np.argsort(y)[:self.n_parents]
             xx = np.copy(x[order])
-            self._n_generations += 1
             self._print_verbose_info(y)
+            self._n_generations += 1
         return self._collect_results(fitness)
