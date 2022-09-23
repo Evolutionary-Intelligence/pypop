@@ -6,12 +6,10 @@ from pypop7.optimizers.eda.eda import EDA
 class UMDA(EDA):
     """Univariate Marginal Distribution Algorithm for normal models (UMDA).
 
-    .. note:: `UMDA` learns only the diagonal elements of covariance matrix of the Gaussian sampling
-       distribution, resulting in *linear* time complexity for each generation. Therefore, it can be
-       seen as a simple *baseline* for large-scale black-box optimization (LSBBO).
-
-       To obtain satisfactory performance for LSBBO, the number of offspring may need to be carefully
-       tuned.
+    .. note:: `UMDA` learns only the *diagonal* elements of covariance matrix of the Gaussian sampling
+       distribution, resulting in a *linear* time complexity w.r.t. each sampling. Therefore, it can be
+       seen as a *baseline* for large-scale black-box optimization (LSBBO). To obtain satisfactory
+       performance for LSBBO, the number of offspring may need to be carefully tuned.
 
     Parameters
     ----------
@@ -61,8 +59,6 @@ class UMDA(EDA):
        >>> results = umda.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"UMDA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 10: best_so_far_y 2.93234e-02, min(y) 3.38630e-01 & Evaluations 2200
-         * Generation 20: best_so_far_y 2.93234e-02, min(y) 4.83760e-01 & Evaluations 4200
        UMDA: 5000, 0.029323401402499186
 
     For its correctness checking, refer to `this code-based repeatability report
@@ -123,17 +119,19 @@ class UMDA(EDA):
         for i in range(self.n_individuals):
             if self._check_terminations():
                 break
-            x[i] = mean + sigmas * self.rng_optimization.standard_normal(size=(self.ndim_problem,))
+            x[i] = mean + sigmas*self.rng_optimization.standard_normal(size=(self.ndim_problem,))
             y[i] = self._evaluate_fitness(x[i], args)
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = EDA.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        fitness.extend(y)
+        if self.saving_fitness:
+            fitness.extend(y)
+        self._print_verbose_info(y)
         while True:
             x, y = self.iterate(x, y, args)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
