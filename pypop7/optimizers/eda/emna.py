@@ -7,7 +7,7 @@ class EMNA(UMDA):
     """Estimation of Multivariate Normal Algorithm (EMNA).
 
     .. note:: `EMNA` learns the *full* covariance matrix of the Gaussian sampling distribution, resulting
-       in a *cubic* time and space complexity w.r.t. each sampling. Therefore, it is **rarely** used for
+       in a *cubic* time complexity w.r.t. each sampling. Therefore, it is **rarely** used for
        large-scale black-box optimization (LSBBO). It is **highly recommended** to first attempt other more
        advanced methods for LSBBO.
 
