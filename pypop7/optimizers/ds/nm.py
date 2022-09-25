@@ -6,7 +6,7 @@ from pypop7.optimizers.ds.ds import DS
 class NM(DS):
     """Nelder-Mead simplex method (NM).
 
-    .. note:: `NM` is perhaps the best-known and most-cited Direct (Pattern) Search method (citations > 35000).
+    .. note:: `NM` is perhaps the best-known and most-cited Direct (Pattern) Search method, till now.
        As pointed out by `Wright <https://tinyurl.com/mrmemn34>`_ (`Member of National Academy of Engineering
        1997 <https://www.nae.edu/MembersSection/MemberDirectory/30068.aspx>`_), *"In addition to concerns about
        the lack of theory, mainstream optimization researchers were not impressed by the Nelder-Mead method's
@@ -14,7 +14,7 @@ class NM(DS):
        *relatively low-dimensional* objective functions.
 
        It is **highly recommended** to first attempt other more advanced methods for large-scale black-box
-       optimization (LSBBO).
+       optimization.
 
        AKA `downhill simplex method <https://www.jmlr.org/papers/v3/strens02a.html>`_.
 
@@ -30,17 +30,8 @@ class NM(DS):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
-              and with six particular settings (`keys`):
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
                 * 'x'         - initial (starting) point (`array_like`),
                 * 'sigma'     - initial (global) step-size (`float`),
                 * 'alpha'     - reflection factor (`float`, default: `1.0`),
@@ -67,12 +58,12 @@ class NM(DS):
        ...            'seed_rng': 2022,
        ...            'x': 3 * numpy.ones((2,)),
        ...            'sigma': 0.1,
-       ...            'verbose_frequency': 500}
-       >>> nelder_mead = NM(problem, options)  # initialize the optimizer class
-       >>> results = nelder_mead.optimize()  # run the optimization process
+       ...            'verbose': 500}
+       >>> nm = NM(problem, options)  # initialize the optimizer class
+       >>> results = nm.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"Nelder-Mead: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       Nelder-Mead: 5000, 1.1260780227758508e-19
+       >>> print(f"NM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       NM: 5000, 1.3337953711044745e-13
 
     Furthermore, an interesting visualization of `NM`'s search trajectory on a 2-dimensional test function is shown in
     `this GitHub link <https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_nm.gif>`_.
@@ -80,9 +71,9 @@ class NM(DS):
     Attributes
     ----------
     x         : `array_like`
-                initial (starting) point.
+                starting point.
     sigma     : `float`
-                (global) step-size.
+                final (global) step-size.
     alpha     : `float`
                 reflection factor
     gamma     : `float`
@@ -141,14 +132,14 @@ class NM(DS):
         p_mean = np.mean(x[order[:-1]], axis=0)  # centroid of all vertices except the worst
         p_star = (1 + self.alpha)*p_mean - self.alpha*x[h]  # reflection
         y_star = self._evaluate_fitness(p_star, args)
-        if self.record_fitness:
+        if self.saving_fitness:
             fitness.append(y_star)
         if self._check_terminations():
             return x, y
         if y_star < y[l]:
             p_star_star = self.gamma*p_star + (1 - self.gamma)*p_mean  # expansion
             y_star_star = self._evaluate_fitness(p_star_star, args)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.append(y_star_star)
             if self._check_terminations():
                 return x, y
@@ -162,7 +153,7 @@ class NM(DS):
                     x[h], y[h] = p_star, y_star
                 p_star_star = self.beta*x[h] + (1 - self.beta)*p_mean
                 y_star_star = self._evaluate_fitness(p_star_star, args)
-                if self.record_fitness:
+                if self.saving_fitness:
                     fitness.append(y_star_star)
                 if self._check_terminations():
                     return x, y
@@ -170,7 +161,7 @@ class NM(DS):
                     for i in range(1, self.n_individuals):  # shrinkage
                         x[order[i]] = x[l] + self.shrinkage*(x[order[i]] - x[l])
                         y[order[i]] = self._evaluate_fitness(x[order[i]], args)
-                        if self.record_fitness:
+                        if self.saving_fitness:
                             fitness.append(y[order[i]])
                         if self._check_terminations():
                             return x, y
@@ -187,19 +178,21 @@ class NM(DS):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
-            self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
             x, y = self.initialize(args, is_restart)
-            if self.record_fitness:
+            if self.saving_fitness:
                 fitness.extend(y)
             self._fitness_list = [self.best_so_far_y]
+            self._n_restart += 1
+            self._print_verbose_info(y)
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DS.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        if self.record_fitness:
+        if self.saving_fitness:
             fitness.extend(y)
+        self._print_verbose_info(y)
         while True:
             x, y = self.iterate(x, y, args, fitness)
             if self._check_terminations():
@@ -208,5 +201,4 @@ class NM(DS):
             self._print_verbose_info(y)
             if self.is_restart:
                 x, y = self.restart_initialize(args, x, y, fitness)
-        results = self._collect_results(fitness)
-        return results
+        return self._collect_results(fitness)
