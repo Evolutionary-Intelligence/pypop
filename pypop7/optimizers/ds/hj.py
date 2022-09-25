@@ -6,10 +6,10 @@ from pypop7.optimizers.ds.ds import DS
 class HJ(DS):
     """Hooke-Jeeves direct (pattern) search method (HJ).
 
-    .. note:: `HJ` is one of the most popular and most cited Direct Search methods, originally published in one of
+    .. note:: `HJ` is one of the most popular and most cited `DS` methods, originally published in one of
        the top-tier Computer Science journals (i.e., JACM) in 1961. Although sometimes it is still used to optimize
        *low-dimensional* black-box problems, it is **highly recommended** to first attempt other more advanced methods
-       for large-scale black-box optimization (LSBBO).
+       for large-scale black-box optimization.
 
     Parameters
     ----------
@@ -23,17 +23,8 @@ class HJ(DS):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
-              and with three particular settings (`keys`):
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
                 * 'x'     - initial (starting) point (`array_like`),
                 * 'sigma' - initial (global) step-size (`float`),
                 * 'gamma' - decreasing factor of step-size (`float`, default: `0.5`).
@@ -61,9 +52,7 @@ class HJ(DS):
        >>> hooke_jeeves = HJ(problem, options)  # initialize the optimizer class
        >>> results = hooke_jeeves.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"Hooke-Jeeves: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 500: best_so_far_y 3.76518e-01, min(y) 3.60400e+03 & Evaluations 2001
-         * Generation 1000: best_so_far_y 2.69498e-01, min(y) 3.60400e+03 & Evaluations 4001
+       >>> print(f"HJ: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        Hooke-Jeeves: 5000, 0.22119484961034389
 
     Furthermore, an interesting visualization of `HJ`'s search trajectory on a 2-dimensional test function is shown in
@@ -72,7 +61,7 @@ class HJ(DS):
     Attributes
     ----------
     x     : `array_like`
-            initial (starting) point.
+            search point.
     sigma : `float`
             (global) step-size.
     gamma : `float`
@@ -108,18 +97,18 @@ class HJ(DS):
 
     def iterate(self, args=None, x=None, fitness=None):
         improved, best_so_far_x, best_so_far_y = False, self.best_so_far_x, self.best_so_far_y
-        for i in range(self.ndim_problem):  # search along each coordinate
+        for i in range(self.ndim_problem):  # to search along each coordinate
             for sgn in [-1, 1]:  # for two opponent directions
                 if self._check_terminations():
                     return None
                 xx = np.copy(best_so_far_x)
                 xx[i] += sgn*self.sigma
                 y = self._evaluate_fitness(xx, args)
-                if self.record_fitness:
+                if self.saving_fitness:
                     fitness.append(y)
                 if y < best_so_far_y:
                     best_so_far_y, improved = y, True
-        if not improved:  # decrease step-size if no improvement
+        if not improved:  # to decrease step-size if no improvement
             self.sigma *= self.gamma  # alpha
         return None
 
@@ -130,17 +119,21 @@ class HJ(DS):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
-            self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
             x, y = self.initialize(args, is_restart)
-            fitness.append(y)
+            if self.saving_fitness:
+                fitness.append(y)
             self._fitness_list = [self.best_so_far_y]
+            self._n_restart += 1
+            self._print_verbose_info(y)
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DS.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        fitness.append(y)
+        if self.saving_fitness:
+            fitness.append(y)
+        self._print_verbose_info(y)
         while True:
             self.iterate(args, x, fitness)
             if self._check_terminations():
@@ -149,5 +142,4 @@ class HJ(DS):
             self._print_verbose_info(y)
             if self.is_restart:
                 x, y = self.restart_initialize(args, x, y, fitness)
-        results = self._collect_results(fitness)
-        return results
+        return self._collect_results(fitness)

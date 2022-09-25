@@ -27,9 +27,8 @@ class TestHJ(unittest.TestCase):
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),
                        'sigma': 0.1,
-                       'verbose_frequency': 200,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 20000}
+                       'verbose': 200,
+                       'saving_fitness': 20000}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
