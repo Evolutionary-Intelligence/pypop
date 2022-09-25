@@ -6,10 +6,11 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class DS(Optimizer):
     """Direct Search (DS).
 
-    This is the **base** class for all DS classes.
+    This is the **base** (abstract) class for all `DS` classes. Please use any of its instantiated subclasses to
+    optimize the black-box problem at hand.
 
-    .. note:: Its three methods (`initialize`, `iterate`, `optimize`) should be implemented by
-       its subclass.
+    .. note:: Most of modern `DS` adopt the population-based sampling strategy, no matter **deterministic** or
+       **stochastic**.
 
     Parameters
     ----------
@@ -23,17 +24,8 @@ class DS(Optimizer):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
-              and with two particular settings (`keys`):
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
                 * 'x'     - initial (starting) point (`array_like`),
                 * 'sigma' - initial (global) step-size (`float`).
 
@@ -84,7 +76,7 @@ class DS(Optimizer):
     https://www.osti.gov/servlets/purl/4377177
     """
     def __init__(self, problem, options):
-        """Initialize the parameter settings of the DS class.
+        """Initialize the parameter settings of the `DS` class.
 
         Parameters
         ----------
@@ -100,14 +92,13 @@ class DS(Optimizer):
         self.sigma = options.get('sigma')  # initial (global) step-size
         assert self.sigma > 0.0, f'`self.sigma` == {self.sigma}, but should > 0.0.'
         self._n_generations = 0  # number of generations
-        # for restart
-        self.n_restart = 0  # number of restarts
+        # set for restart
         self.sigma_threshold = options.get('sigma_threshold', 1e-10)  # stopping threshold of sigma for restart
-        # maximal generation number of fitness stagnation for restart
-        self.stagnation = options.get('stagnation', np.maximum(32, self.ndim_problem))
+        self.stagnation = options.get('stagnation', np.maximum(10, self.ndim_problem))
         self.fitness_diff = options.get('fitness_diff', 1e-10)  # stopping threshold of fitness difference for restart
         self._sigma_bak = np.copy(self.sigma)  # bak for restart
         self._fitness_list = [self.best_so_far_y]  # to store `best_so_far_y` generated in each generation
+        self._n_restart = 0  # number of restarts
 
     def initialize(self):
         raise NotImplementedError
@@ -123,13 +114,13 @@ class DS(Optimizer):
         return x
 
     def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose_frequency):
+        if self.verbose and (not self._n_generations % self.verbose):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
     def _collect_results(self, fitness):
         results = Optimizer._collect_results(self, fitness)
         results['sigma'] = self.sigma
-        results['n_restart'] = self.n_restart
+        results['_n_restart'] = self._n_restart
         results['_n_generations'] = self._n_generations
         return results
