@@ -14,18 +14,17 @@ class SCEM(CEM):
                 * 'ndim_problem'     - number of dimensionality (`int`),
                 * 'upper_boundary'   - upper boundary of search range (`array_like`),
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
-
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - population size (`int`, default: `1000`),
-                * 'n_parents' - parent size (`int`, default: `200`),
-                * 'mean' - initial mean value (`array_like`, default: `4 * np.ones((ndim_problem,))`),
-                * 'sigma' - initial global step-size (σ), mutation strength (`float`, default: '1.0'),
-                * 'alpha' - smoothing factor (`float`, default: `0.8`),
+                * 'mean'          - initial mean (`array_like`),
+                * 'sigma'         - initial global step-size (`float`),
+                * 'n_individuals' - offspring population size (`int`, default: `1000`),
+                * 'n_parents'     - parent population size (`int`, default: `200`),
+                * 'alpha'         - smoothing factor (`float`, default: `0.8`).
 
     Examples
     --------
@@ -45,9 +44,9 @@ class SCEM(CEM):
        >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
        ...            'n_individuals': 20,
        ...            'n_parents': 10,
+       ...            'seed_rng': 2022,
        ...            'mean': 4 * np.ones((100,)),
-       ...            'sigma': 0.1,
-       ...            'seed_rng': 2022}
+       ...            'sigma': 0.1}
        >>> scem = SCEM(problem, options)  # initialize the optimizer class
        >>> results = scem.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -57,9 +56,9 @@ class SCEM(CEM):
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring (λ: lambda), offspring population size.
+                    number of offspring, offspring population size.
     n_parents     : `int`
-                    number of parents (μ: mu), parental population size.
+                    number of parents, parental population size.
     mean          : `array_like`
                     mean of Gaussian search distribution.
     sigma         : `float`
@@ -87,7 +86,7 @@ class SCEM(CEM):
     def initialize(self, is_restart=False):
         mean = self._initialize_mean(is_restart)
         x = np.empty((self.n_individuals, self.ndim_problem))  # samples (population)
-        y = np.empty((self.n_individuals,))  # fitness (cost)
+        y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         return mean, x, y
 
     def iterate(self, mean=None, x=None, y=None, args=None):
@@ -113,7 +112,7 @@ class SCEM(CEM):
                 fitness.extend(y)
             if self._check_terminations():
                 break
-            self._n_generations += 1
             self._print_verbose_info(y)
+            self._n_generations += 1
             mean = self._update_parameters(mean, x, y)
         return self._collect_results(fitness, mean)
