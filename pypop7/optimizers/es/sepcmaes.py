@@ -6,8 +6,8 @@ from pypop7.optimizers.es.es import ES
 class SEPCMAES(ES):
     """Separable Covariance Matrix Adaptation Evolution Strategy (SEPCMAES).
 
-    .. note:: Only the **diagonal** elements of the full covariance matrix are saved explicitly,
-       since all off-diagonal elements are not used for sep-CMA-ES.
+    .. note:: `SEPCMAES` learns only the **diagonal** elements of the full covariance matrix explicitly, leading
+       to a *linear* time complexity w.r.t. each sampling for large-scale black-box optimization.
 
     Parameters
     ----------
@@ -21,21 +21,16 @@ class SEPCMAES(ES):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
-              and with four particular settings (`keys`):
-                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`),
-                * 'n_parents'     - number of parents (μ: mu), parental population size (`int`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
                 * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`).
+                * 'sigma'         - initial global step-size, mutation strength (`float`),
+                * 'n_individuals' - number of offspring, offspring population size (`int`default:
+                  `4 + int(3*np.log(self.ndim_problem))`),
+                * 'n_parents'     - number of parents, parental population size (`int`, default:
+                  `int(self.n_individuals / 2)`),
+                * 'c_c'           - learning rate of evolution path update (`float`, default:
+                  `4.0/(self.ndim_problem + 4.0)`).
 
     Examples
     --------
@@ -75,6 +70,8 @@ class SEPCMAES(ES):
                     initial (starting) point, mean of Gaussian search distribution.
     sigma         : `float`
                     initial global step-size (σ), mutation strength (rate).
+    c_c           : `float`
+                    learning rate of evolution path update.
 
     References
     ----------
@@ -149,16 +146,15 @@ class SEPCMAES(ES):
         p = (1.0 - self.c_c)*p + h  # Line 8 of Algorithm 1
         c = (1.0 - self.c_cov)*c + (1.0/self._mu_eff)*self.c_cov*p*p + (
                 self.c_cov*(1.0 - 1.0/self._mu_eff)*dz_w)  # Line 9 of Algorithm 1
-        # Line 10 of Algorithm 1
+        # implement Line 10 of Algorithm 1
         self.sigma *= np.exp(self.c_s/self.d_sigma*(np.linalg.norm(s)/self._e_chi - 1.0))
         d = np.sqrt(c)  # Line 11 of Algorithm 1
         return mean, s, p, c, d
 
-    def restart_initialize(self, z=None, x=None, mean=None, s=None, p=None, c=None, d=None, y=None):
-        is_restart = ES.restart_initialize(self)
+    def restart_reinitialize(self, z=None, x=None, mean=None, s=None, p=None, c=None, d=None, y=None):
+        is_restart = ES.restart_reinitialize(self)
         if is_restart:
             z, x, mean, s, p, c, d, y = self.initialize(is_restart)
-            self._n_generations = 0
         return z, x, mean, s, p, c, d, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
@@ -166,15 +162,16 @@ class SEPCMAES(ES):
         z, x, mean, s, p, c, d, y = self.initialize()
         while True:
             self._n_generations += 1  # Line 1 of Algorithm 1
-            z, x, y = self.iterate(z, x, mean, d, y, args)  # sample and evaluate offspring population
-            if self.record_fitness:
+            # sample and evaluate offspring population
+            z, x, y = self.iterate(z, x, mean, d, y, args)
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
             mean, s, p, c, d = self._update_distribution(z, x, s, p, c, d, y)
             self._print_verbose_info(y)
             if self.is_restart:
-                z, x, mean, s, p, c, d, y = self.restart_initialize(z, x, mean, s, p, c, d, y)
+                z, x, mean, s, p, c, d, y = self.restart_reinitialize(z, x, mean, s, p, c, d, y)
         results = self._collect_results(fitness, mean)
         results['s'] = s
         results['p'] = p
