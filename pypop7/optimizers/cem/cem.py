@@ -6,6 +6,12 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class CEM(Optimizer):
     """Cross-Entropy Method (CEM).
 
+    This is the **base** (abstract) class for all `CEM` classes. Please use any of its instantiated subclasses to
+    optimize the black-box problem at hand.
+
+    .. note:: `CEM` is a class of well-established, principled population-based optimizers, proposed originally
+       by Rubinstein, whose core idea is based on Kullback–Leibler (or cross-entropy) minimization.
+
     References
     ----------
     Kroese, D.P., Porotsky, S. and Rubinstein, R.Y., 2006.
@@ -26,15 +32,14 @@ class CEM(Optimizer):
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        if self.n_individuals is None:  # number of individuals (samples) in each iteration
+        if self.n_individuals is None:  # number of individuals (samples)
             self.n_individuals = 1000
-        if self.n_parents is None:  # number of elitists for sampling distribution update
+        if self.n_parents is None:  # number of elitists
             self.n_parents = 200
         self.mean = options.get('mean')  # mean of Gaussian search (sampling/mutation) distribution
-        if self.mean is None:  # 'mean' has a priority over 'x'
+        if self.mean is None:
             self.mean = options.get('x')
-        assert self.mean is not None
-        self.sigma = options.get('sigma', 1.0)  # global (overall) step-size
+        self.sigma = options.get('sigma')  # global (overall) step-size
         assert self.sigma is not None
         self._sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
         self._n_generations = 0
