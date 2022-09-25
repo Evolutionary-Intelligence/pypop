@@ -12,8 +12,8 @@ class CS(DS):
        it is *rarely* used to optimize black-box problems, it is **highly recommended** to first attempt other more
        advanced methods for large-scale black-box optimization (LSBBO).
 
-       Since its original version needs `3**n - 1` samples for each iteration in the worst case, where `n` is the
-       dimensionality of the problem. Such a worst-case complexity limits its applicability for LSBBO scenarios.
+       Its original version needs `3**n - 1` samples for each iteration in the worst case, where `n` is the
+       dimensionality of the problem. Such a worst-case complexity limits its applicability for LSBBO severely.
        Instead, here we use the **opportunistic** strategy for simplicity.
        See Algorithm 3 from `Torczon, 1997, SIAM-JO <https://epubs.siam.org/doi/abs/10.1137/S1052623493250780>`_.
 
@@ -31,17 +31,8 @@ class CS(DS):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose info during optimization (`bool`, default: `True`),
-                * 'verbose_frequency'        - frequency of printing verbose info (`int`, default: `10`);
-              and with three particular settings (`keys`):
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
                 * 'x'     - initial (starting) point (`array_like`),
                 * 'sigma' - initial (global) step-size (`float`),
                 * 'gamma' - decreasing factor of step-size (`float`, default: `0.5`).
@@ -66,13 +57,11 @@ class CS(DS):
        ...            'x': 3 * numpy.ones((2,)),
        ...            'sigma': 1.0,
        ...            'verbose_frequency': 500}
-       >>> coordinate_search = CS(problem, options)  # initialize the optimizer class
-       >>> results = coordinate_search.optimize()  # run the optimization process
+       >>> cs = CS(problem, options)  # initialize the optimizer class
+       >>> results = cs.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"Coordinate Search: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-         * Generation 500: best_so_far_y 2.74643e+01, min(y) 1.98634e+03 & Evaluations 2017
-         * Generation 1000: best_so_far_y 1.48952e+00, min(y) 3.66059e+04 & Evaluations 4033
-       Coordinate Search: 5000, 0.1491367032979898
+       >>> print(f"CS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       CS: 5000, 0.1491367032979898
 
     Attributes
     ----------
@@ -118,20 +107,20 @@ class CS(DS):
 
     def iterate(self, args=None, x=None, fitness=None):
         improved = False
-        for i in range(self.ndim_problem):  # search along each coordinate
+        for i in range(self.ndim_problem):  # to search along each coordinate
             for sgn in [-1, 1]:  # for two opponent directions
                 if self._check_terminations():
                     return x
                 xx = np.copy(x)
                 xx[i] += sgn * self.sigma
                 y = self._evaluate_fitness(xx, args)
-                if self.record_fitness:
+                if self.saving_fitness:
                     fitness.append(y)
                 if y < self.best_so_far_y:
                     x = xx  # greedy / opportunistic
                     improved = True
                     break
-        if not improved:  # decrease step-size if no improvement
+        if not improved:  # to decrease step-size if no improvement
             self.sigma *= self.gamma
         return x
 
@@ -142,17 +131,24 @@ class CS(DS):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
-            self.n_restart += 1
             self.sigma = np.copy(self._sigma_bak)
             x, y = self.initialize(args, is_restart)
-            fitness.append(y)
+            if self.saving_fitness:
+                fitness.append(y)
             self._fitness_list = [self.best_so_far_y]
+            self._n_generations = 0
+            self._n_restart += 1
+            if self.verbose:
+                print(' ....... restart .......')
+            self._print_verbose_info(y)
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DS.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        fitness.append(y)
+        if self.saving_fitness:
+            fitness.append(y)
+        self._print_verbose_info(y)
         while True:
             x = self.iterate(args, x, fitness)
             if self._check_terminations():
@@ -161,5 +157,4 @@ class CS(DS):
             self._print_verbose_info(y)
             if self.is_restart:
                 x, y = self.restart_initialize(args, x, y, fitness)
-        results = self._collect_results(fitness)
-        return results
+        return self._collect_results(fitness)
