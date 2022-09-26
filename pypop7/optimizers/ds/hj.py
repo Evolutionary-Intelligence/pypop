@@ -53,7 +53,7 @@ class HJ(DS):
        >>> results = hj.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"HJ: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-
+       HJ: 5000, 0.22119484961034389
 
     Furthermore, an interesting visualization of `HJ`'s search trajectory on a 2-dimensional test function is shown in
     `this GitHub link <https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_hj.gif>`_.
