@@ -175,9 +175,9 @@ class MMES(ES):
         self.sigma *= np.exp(norm.cdf(w) - 1.0 + self.a_z)  # Line 29
         return mean, p, w, q, t, v
 
-    def restart_initialize(self, args=None, x=None, mean=None, p=None, w=None, q=None,
-                           t=None, v=None, y=None, fitness=None):
-        is_restart = ES.restart_initialize(self)
+    def restart_reinitialize(self, args=None, x=None, mean=None, p=None, w=None, q=None,
+                             t=None, v=None, y=None, fitness=None):
+        is_restart = ES.restart_reinitialize(self)
         if is_restart:
             x, mean, p, w, q, t, v, y = self.initialize(args, is_restart)
             if self.saving_fitness:
@@ -203,7 +203,7 @@ class MMES(ES):
             self._n_generations += 1
             self._print_verbose_info(y)
             if self.is_restart:
-                x, mean, p, w, q, t, v, y = self.restart_initialize(
+                x, mean, p, w, q, t, v, y = self.restart_reinitialize(
                     args, x, mean, p, w, q, t, v, y, fitness)
         results = self._collect_results(fitness, mean)
         results['p'] = p
