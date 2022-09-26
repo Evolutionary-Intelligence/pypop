@@ -159,6 +159,8 @@ class ES(Optimizer):
             self._n_restart += 1
             self._fitness_list = [np.Inf]
             self._n_generations = 0
+            if self.verbose:
+                print(' ....... restart .......')
         return is_restart
 
     def _collect_results(self, fitness=None, mean=None):
