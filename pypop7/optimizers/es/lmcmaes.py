@@ -6,8 +6,8 @@ from pypop7.optimizers.es.es import ES
 class LMCMAES(ES):
     """Limited-Memory Covariance Matrix Adaptation Evolution Strategy (LMCMAES).
 
-    .. note:: For better performance, please use the lateset version `LMCMA <https://tinyurl.com/mry5dw36>`_. Here we
-       include it mainly for benchmarking purpose.
+    .. note:: For better performance, please use its lateset version `LMCMA <https://tinyurl.com/mry5dw36>`_.
+       Here we include it mainly for benchmarking purpose.
 
     Parameters
     ----------
@@ -21,24 +21,13 @@ class LMCMAES(ES):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
-                * 'record_fitness'           - flag to record fitness list to output results (`bool`, default: `False`),
-                * 'record_fitness_frequency' - function evaluations frequency of recording (`int`, default: `1000`),
-
-                  * if `record_fitness` is set to `False`, it will be ignored,
-                  * if `record_fitness` is set to `True` and it is set to 1, all fitness generated during optimization
-                    will be saved into output results.
-
-                * 'verbose'                  - flag to print verbose information during optimization (`bool`, default:
-                  `True`),
-                * 'verbose_frequency'        - generation frequency of printing verbose information (`int`, default:
-                  `10`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
+                * 'sigma'         - initial global step-size, mutation strength (`float`),
                 * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
-                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`).
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'm'             - number of direction vectors (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
@@ -51,10 +40,10 @@ class LMCMAES(ES):
                 * 'c_s'           - learning rate for population success rule (`float`, default: `0.3`),
                 * 'd_s'           - changing rate for population success rule (`float`, default: `1.0`),
                 * 'z_star'        - target success rate for population success rule (`float`, default: `0.3`),
-                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
+                * 'n_individuals' - number of offspring, offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
-                  `int(self.n_individuals / 2)`).
+                * 'n_parents'     - number of parents, parental population size (`int`, default:
+                  `int(self.n_individuals/2)`).
 
     Examples
     --------
@@ -128,7 +117,7 @@ class LMCMAES(ES):
         self.c_1 = options.get('c_1', 1.0/(10.0*np.log(self.ndim_problem + 1.0)))
         self.c_s = options.get('c_s', 0.3)  # learning rate for population success rule (PSR)
         self.d_s = options.get('d_s', 1.0)  # damping parameter for PSR
-        # learning rate for covariance matrix adaptation
+        # set learning rate for covariance matrix adaptation (CMA)
         self.z_star = options.get('z_star', 0.25)  # target success rate for PSR
         self._a = np.sqrt(1.0 - self.c_1)  # for Algorithm 3
         self._c = 1.0/np.sqrt(1.0 - self.c_1)  # for Algorithm 4
@@ -175,7 +164,7 @@ class LMCMAES(ES):
                 a_z = self._a_z(z, pm, vm, b)
             x[k] = mean + sign*self.sigma*a_z  # Line 6
             y[k] = self._evaluate_fitness(x[k], args)  # Line 7
-            sign *= -1  # sample in the opposite direction for mirrored sampling
+            sign *= -1  # sampling in the opposite direction for mirrored sampling
         return x, y
 
     def _a_inv_z(self, v=None, vm=None, d=None, i=None):  # inverse Cholesky factor - vector update
@@ -198,7 +187,7 @@ class LMCMAES(ES):
                 d_cur = self._l[self._j[j]] - self._l[self._j[j - 1]]
                 if d_cur < d_min:
                     d_min, i_min = d_cur, j
-            # if all pairwise distances exceed `self.n_steps`, start from 0
+            # start from 0 if all pairwise distances exceed `self.n_steps`
             i_min = 0 if d_min >= self.n_steps else i_min
             # update indexes of evolution paths (`self._j[i_min]` is index of evolution path needed to delete)
             updated = self._j[i_min]
@@ -206,8 +195,8 @@ class LMCMAES(ES):
                 self._j[j] = self._j[j + 1]
             self._j[self.m - 1] = updated
         self._it = np.minimum(self._n_generations + 1, self.m)
-        self._l[self._j[self._it - 1]] = self._n_generations  # update its generation
-        pm[self._j[self._it - 1]] = p_c  # add the latest evolution path
+        self._l[self._j[self._it - 1]] = self._n_generations  # to update its generation
+        pm[self._j[self._it - 1]] = p_c  # to add the latest evolution path
         # since `self._j[i_min]` is deleted, all vectors (from vm) depending on it need to be computed again
         for i in range(0 if i_min == 1 else i_min, self._it):
             vm[self._j[i]] = self._a_inv_z(pm[self._j[i]], vm, d, i)
@@ -223,9 +212,9 @@ class LMCMAES(ES):
             self.sigma *= np.exp(s/self.d_s)  # Line 18
         return mean_bak, p_c, s, vm, pm, b, d
 
-    def restart_initialize(self, args=None, mean=None, x=None, p_c=None, s=None,
-                           vm=None, pm=None, b=None, d=None, y=None):
-        is_restart = ES.restart_initialize(self)
+    def restart_reinitialize(self, args=None, mean=None, x=None, p_c=None, s=None,
+                             vm=None, pm=None, b=None, d=None, y=None):
+        is_restart = ES.restart_reinitialize(self)
         if is_restart:
             mean, x, p_c, s, vm, pm, b, d, y = self.initialize(is_restart)
             self.d_s *= 2.0
@@ -236,17 +225,18 @@ class LMCMAES(ES):
         mean, x, p_c, s, vm, pm, b, d, y = self.initialize(args)
         while True:
             y_bak = np.copy(y)
-            x, y = self.iterate(mean, x, pm, vm, y, b, args)  # sample and evaluate offspring population
-            if self.record_fitness:
+            # sample and evaluate offspring population
+            x, y = self.iterate(mean, x, pm, vm, y, b, args)
+            if self.saving_fitness:
                 fitness.extend(y)
             if self._check_terminations():
                 break
             mean, p_c, s, vm, pm, b, d = self._update_distribution(
                 mean, x, p_c, s, vm, pm, b, d, y, y_bak)
-            self._n_generations += 1
             self._print_verbose_info(y)
+            self._n_generations += 1
             if self.is_restart:
-                mean, x, p_c, s, vm, pm, b, d, y = self.restart_initialize(
+                mean, x, p_c, s, vm, pm, b, d, y = self.restart_reinitialize(
                     args, mean, x, p_c, s, vm, pm, b, d, y)
         results = self._collect_results(fitness, mean)
         results['p_c'] = p_c
