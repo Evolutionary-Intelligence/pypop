@@ -171,7 +171,7 @@ class NM(DS):
                 x[h], y[h] = p_star, y_star
         return x, y
 
-    def restart_initialize(self, args=None, x=None, y=None, fitness=None):
+    def restart_reinitialize(self, args=None, x=None, y=None, fitness=None):
         self._fitness_list.append(self.best_so_far_y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
         if len(self._fitness_list) >= self.stagnation:
@@ -183,7 +183,10 @@ class NM(DS):
             if self.saving_fitness:
                 fitness.extend(y)
             self._fitness_list = [self.best_so_far_y]
+            self._n_generations = 0
             self._n_restart += 1
+            if self.verbose:
+                print(' ....... restart .......')
             self._print_verbose_info(y)
         return x, y
 
@@ -200,5 +203,5 @@ class NM(DS):
             self._n_generations += 1
             self._print_verbose_info(y)
             if self.is_restart:
-                x, y = self.restart_initialize(args, x, y, fitness)
+                x, y = self.restart_reinitialize(args, x, y, fitness)
         return self._collect_results(fitness)
