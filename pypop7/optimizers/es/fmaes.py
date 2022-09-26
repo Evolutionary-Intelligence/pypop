@@ -5,10 +5,9 @@ class FMAES(MAES):
     """Fast Matrix Adaptation Evolution Strategy (FMAES).
 
     .. note:: `FMAES` is a more efficient implementation of `MAES` with *quadractic* time complexity w.r.t. each
-       sampling.
-
-       It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LM-CMA`, `LM-MA-ES`) for
-       large-scale black-box optimization, since `FMAES` has a *quadratic* time complexity w.r.t. each sampling.
+       sampling. It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LM-CMA`,
+       `LM-MA-ES`) for large-scale black-box optimization, since `FMAES` has a *quadratic* time complexity w.r.t.
+       each sampling.
 
     Parameters
     ----------
@@ -58,7 +57,7 @@ class FMAES(MAES):
        >>> results = fmaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"FMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       FMAES: 5000, 1.211565542464775e-18
+       FMAES: 5000, 4.8405890931611924e-17
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/37ews6h4>`_ for more details.
