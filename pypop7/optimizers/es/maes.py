@@ -65,7 +65,7 @@ class MAES(ES):
        >>> results = maes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"MAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       MAES: 5000, 1.2115636638626886e-18
+       MAES: 5000, 4.840520170399301e-17
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/3zvve79b>`_ for more details.
