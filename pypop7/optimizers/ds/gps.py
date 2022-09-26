@@ -54,7 +54,7 @@ class GPS(DS):
        >>> results = gps.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"GPS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-
+       GPS: 5000, 0.6182686369768672
 
     Attributes
     ----------
