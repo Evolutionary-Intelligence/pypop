@@ -71,7 +71,7 @@ class LMCMA(ES):
        >>> results = lmcma.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"LMCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       LMCMA: 5000, 4.847191511188738e-13
+       LMCMA: 5000, 7.54648196471487e-07
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/24jnfhbs>`_ for more details.
