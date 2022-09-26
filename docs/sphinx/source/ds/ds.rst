@@ -9,6 +9,7 @@ Direct Search (DS)
    :maxdepth: 2
    :caption: DSs:
 
+   gps
    nm
    hj
    cs
