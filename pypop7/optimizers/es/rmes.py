@@ -133,9 +133,9 @@ class RMES(R1ES):
         mp[-1], t_hat[-1] = p, self._n_generations
         return mean, p, s, mp, t_hat
 
-    def restart_initialize(self, args=None, x=None, mean=None, p=None, s=None,
-                           mp=None, t_hat=None, y=None, fitness=None):
-        if ES.restart_initialize(self):
+    def restart_reinitialize(self, args=None, x=None, mean=None, p=None, s=None,
+                             mp=None, t_hat=None, y=None, fitness=None):
+        if ES.restart_reinitialize(self):
             x, mean, p, s, mp, t_hat, y = self.initialize(args, True)
             if self.saving_fitness:
                 fitness.append(y[0])
@@ -160,7 +160,7 @@ class RMES(R1ES):
             self._n_generations += 1
             self._print_verbose_info(y)
             if self.is_restart:
-                x, mean, p, s, mp, t_hat, y = self.restart_initialize(
+                x, mean, p, s, mp, t_hat, y = self.restart_reinitialize(
                     args, x, mean, p, s, mp, t_hat, y, fitness)
         results = self._collect_results(fitness, mean)
         results['p'] = p
