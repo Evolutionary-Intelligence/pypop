@@ -55,7 +55,7 @@ class SEPCMAES(ES):
        >>> results = sepcmaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SEPCMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SEPCMAES: 5000, 0.010606023368122535
+       SEPCMAES: 5000, 0.0028541286223351006
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/mpjzv8yh>`_ for more details.
@@ -148,7 +148,12 @@ class SEPCMAES(ES):
                 self.c_cov*(1.0 - 1.0/self._mu_eff)*dz_w)  # Line 9 of Algorithm 1
         # implement Line 10 of Algorithm 1
         self.sigma *= np.exp(self.c_s/self.d_sigma*(np.linalg.norm(s)/self._e_chi - 1.0))
-        d = np.sqrt(c)  # Line 11 of Algorithm 1
+        if np.any(c <= 0):  # undefined in the original paper
+            cc = np.copy(c)
+            cc[cc <= 0] = 1.0
+            d = np.sqrt(cc)
+        else:
+            d = np.sqrt(c)  # Line 11 of Algorithm 1
         return mean, s, p, c, d
 
     def restart_reinitialize(self, z=None, x=None, mean=None, s=None, p=None, c=None, d=None, y=None):
