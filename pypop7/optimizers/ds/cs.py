@@ -124,7 +124,7 @@ class CS(DS):
             self.sigma *= self.gamma
         return x
 
-    def restart_initialize(self, args=None, x=None, y=None, fitness=None):
+    def restart_reinitialize(self, args=None, x=None, y=None, fitness=None):
         self._fitness_list.append(self.best_so_far_y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
         if len(self._fitness_list) >= self.stagnation:
@@ -156,5 +156,5 @@ class CS(DS):
             self._n_generations += 1
             self._print_verbose_info(y)
             if self.is_restart:
-                x, y = self.restart_initialize(args, x, y, fitness)
+                x, y = self.restart_reinitialize(args, x, y, fitness)
         return self._collect_results(fitness)
