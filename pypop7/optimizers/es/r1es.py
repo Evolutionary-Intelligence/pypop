@@ -65,7 +65,7 @@ class R1ES(ES):
        >>> results = r1es.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"R1ES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       R1ES: 5000, 0.0005057573524421161
+       R1ES: 5000, 0.0011906055009915095
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/2aywpp2p>`_ for more details.
@@ -149,8 +149,8 @@ class R1ES(ES):
         self.sigma *= np.exp(s/self.d_sigma)  # for Line 16 in Algorithm 1
         return mean, p, s
 
-    def restart_initialize(self, args=None, x=None, mean=None, p=None, s=None, y=None, fitness=None):
-        if ES.restart_initialize(self):
+    def restart_reinitialize(self, args=None, x=None, mean=None, p=None, s=None, y=None, fitness=None):
+        if ES.restart_reinitialize(self):
             x, mean, p, s, y = self.initialize(args, True)
             if self.saving_fitness:
                 fitness.append(y[0])
@@ -176,7 +176,7 @@ class R1ES(ES):
             self._n_generations += 1
             self._print_verbose_info(y)
             if self.is_restart:
-                x, mean, p, s, y = self.restart_initialize(args, x, mean, p, s, y, fitness)
+                x, mean, p, s, y = self.restart_reinitialize(args, x, mean, p, s, y, fitness)
         results = self._collect_results(fitness, mean)
         results['p'] = p
         results['s'] = s
