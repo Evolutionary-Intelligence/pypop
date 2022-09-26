@@ -49,11 +49,11 @@ class HJ(DS):
        ...            'x': 3 * numpy.ones((2,)),
        ...            'sigma': 0.1,
        ...            'verbose_frequency': 500}
-       >>> hooke_jeeves = HJ(problem, options)  # initialize the optimizer class
-       >>> results = hooke_jeeves.optimize()  # run the optimization process
+       >>> hj = HJ(problem, options)  # initialize the optimizer class
+       >>> results = hj.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"HJ: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       Hooke-Jeeves: 5000, 0.22119484961034389
+
 
     Furthermore, an interesting visualization of `HJ`'s search trajectory on a 2-dimensional test function is shown in
     `this GitHub link <https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_hj.gif>`_.
@@ -61,9 +61,9 @@ class HJ(DS):
     Attributes
     ----------
     x     : `array_like`
-            search point.
+            starting search point.
     sigma : `float`
-            (global) step-size.
+            final (global) step-size.
     gamma : `float`
             decreasing factor of step-size.
 
@@ -112,7 +112,7 @@ class HJ(DS):
             self.sigma *= self.gamma  # alpha
         return None
 
-    def restart_initialize(self, args=None, x=None, y=None, fitness=None):
+    def restart_reinitialize(self, args=None, x=None, y=None, fitness=None):
         self._fitness_list.append(self.best_so_far_y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
         if len(self._fitness_list) >= self.stagnation:
@@ -124,7 +124,10 @@ class HJ(DS):
             if self.saving_fitness:
                 fitness.append(y)
             self._fitness_list = [self.best_so_far_y]
+            self._n_generations = 0
             self._n_restart += 1
+            if self.verbose:
+                print(' ....... restart .......')
             self._print_verbose_info(y)
         return x, y
 
@@ -141,5 +144,5 @@ class HJ(DS):
             self._n_generations += 1
             self._print_verbose_info(y)
             if self.is_restart:
-                x, y = self.restart_initialize(args, x, y, fitness)
+                x, y = self.restart_reinitialize(args, x, y, fitness)
         return self._collect_results(fitness)
