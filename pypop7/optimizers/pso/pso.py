@@ -58,12 +58,33 @@ class PSO(Optimizer):
 
     https://www.cs.cmu.edu/~arielpro/15381f16/c_slides/781f16-26.pdf
 
+    Floreano, D. and Mattiussi, C., 2008.
+    Bio-inspired artificial intelligence: Theories, methods, and technologies.
+    MIT Press.
+    https://mitpress.mit.edu/9780262062718/bio-inspired-artificial-intelligence/
+    (See [Chapter 7.2 Particle Swarm Optimization] for details.)
+
     http://www.scholarpedia.org/article/Particle_swarm_optimization
 
     Poli, R., Kennedy, J. and Blackwell, T., 2007.
     Particle swarm optimization.
     Swarm Intelligence, 1(1), pp.33-57.
     https://link.springer.com/article/10.1007/s11721-007-0002-0
+
+    Venter, G. and Sobieszczanski-Sobieski, J., 2003.
+    Particle swarm optimization.
+    AIAA Journal, 41(8), pp.1583-1589.
+    https://arc.aiaa.org/doi/abs/10.2514/2.2111
+
+    Clerc, M. and Kennedy, J., 2002.
+    The particle swarm-explosion, stability, and convergence in a multidimensional complex space.
+    IEEE Transactions on Evolutionary Computation, 6(1), pp.58-73.
+    https://ieeexplore.ieee.org/abstract/document/985692
+
+    Eberhart, R.C., Shi, Y. and Kennedy, J., 2001.
+    Swarm intelligence.
+    Elsevier.
+    https://www.elsevier.com/books/swarm-intelligence/eberhart/978-1-55860-595-4
 
     Shi, Y. and Eberhart, R., 1998, May.
     A modified particle swarm optimizer.
