@@ -61,6 +61,17 @@ class SPSOL(PSO):
 
     References
     ----------
+    Floreano, D. and Mattiussi, C., 2008.
+    Bio-inspired artificial intelligence: Theories, methods, and technologies.
+    MIT Press.
+    https://mitpress.mit.edu/9780262062718/bio-inspired-artificial-intelligence/
+    (See [Chapter 7.2 Particle Swarm Optimization] for details.)
+
+    Venter, G. and Sobieszczanski-Sobieski, J., 2003.
+    Particle swarm optimization.
+    AIAA Journal, 41(8), pp.1583-1589.
+    https://arc.aiaa.org/doi/abs/10.2514/2.2111
+
     Shi, Y. and Eberhart, R., 1998, May.
     A modified particle swarm optimizer.
     In IEEE World Congress on Computational Intelligence (pp. 69-73). IEEE.
@@ -68,8 +79,13 @@ class SPSOL(PSO):
 
     Kennedy, J. and Eberhart, R., 1995, November.
     Particle swarm optimization.
-    In Proceedings of International Conference on Neural Networks (Vol. 4, pp. 1942-1948). IEEE.
+    In Proceedings of International Conference on Neural Networks (pp. 1942-1948). IEEE.
     https://ieeexplore.ieee.org/document/488968
+
+    Eberhart, R. and Kennedy, J., 1995, October.
+    A new optimizer using particle swarm theory.
+    In Proceedings of International Symposium on Micro Machine and Human Science (pp. 39-43). IEEE.
+    https://ieeexplore.ieee.org/abstract/document/494215
     """
     def __init__(self, problem, options):
         PSO.__init__(self, problem, options)
