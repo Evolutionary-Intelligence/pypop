@@ -1,8 +1,8 @@
 Black-Box Optimization (BBO)
 ============================
 
-.. note:: *”Certainly, and especially because of the broad availability of difficult and important applications, this
-   promises to be an exciting, interesting, and challenging area for many years to come.“* ---[Conn et al., 2009:
+.. note:: *"Certainly, and especially because of the broad availability of difficult and important applications, this
+   promises to be an exciting, interesting, and challenging area for many years to come."* ---[Conn et al., 2009:
    INTRODUCTION TO DERIVATIVE-FREE OPTIMIZATION]
 
 No Free Lunch Theorems (NFL)
