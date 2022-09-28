@@ -40,6 +40,11 @@ class RS(Optimizer):
 
     References
     ----------
+    Gao, K. and Sener, O., 2022, June.
+    Generalizing Gaussian Smoothing for Random Search.
+    In International Conference on Machine Learning (pp. 7077-7101). PMLR.
+    https://proceedings.mlr.press/v162/gao22f.html
+
     Bergstra, J. and Bengio, Y., 2012.
     Random search for hyper-parameter optimization.
     Journal of Machine Learning Research, 13(2).
