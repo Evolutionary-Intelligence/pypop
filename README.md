@@ -404,11 +404,27 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
 * Bonyadi, M.R. and Michalewicz, Z., 2017. [Particle swarm optimization for single objective continuous space problems: A review](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective). Evolutionary Computation, 25(1), pp.1-54.
 
+  * Weiel, M., Götz, M., Klein, A., Coquelin, D., Floca, R. and Schug, A., 2021. [Dynamic particle swarm optimization of biomolecular simulation parameters with flexible objective functions](https://www.nature.com/articles/s42256-021-00366-3). Nature Machine Intelligence, 3(8), pp.727-734.
+
+  * Escalante, H.J., Montes, M. and Sucar, L.E., 2009. [Particle swarm model selection](https://www.jmlr.org/papers/v10/escalante09a.html). Journal of Machine Learning Research, 10(15), pp.405−440.
+
+  * Floreano, D. and Mattiussi, C., 2008. [Bio-inspired artificial intelligence: Theories, methods, and technologies](https://mitpress.mit.edu/9780262062718/bio-inspired-artificial-intelligence/). MIT Press.
+
   * Poli, R., Kennedy, J. and Blackwell, T., 2007. [Particle swarm optimization](https://link.springer.com/article/10.1007/s11721-007-0002-0). Swarm Intelligence, 1(1), pp.33-57.
+
+  * Venter, G. and Sobieszczanski-Sobieski, J., 2003. [Particle swarm optimization](https://arc.aiaa.org/doi/abs/10.2514/2.2111). AIAA Journal, 41(8), pp.1583-1589.
 
   * Parsopoulos, K.E. and Vrahatis, M.N., 2002. [Recent approaches to global optimization problems through particle swarm optimization](https://link.springer.com/article/10.1023/A:1016568309421). Natural Computing, 1(2), pp.235-306.
 
+  * Clerc, M. and Kennedy, J., 2002. [The particle swarm-explosion, stability, and convergence in a multidimensional complex space](https://ieeexplore.ieee.org/abstract/document/985692). IEEE Transactions on Evolutionary Computation, 6(1), pp.58-73.
+
   * Eberhart, R.C., Shi, Y. and Kennedy, J., 2001. [Swarm intelligence](https://www.elsevier.com/books/swarm-intelligence/eberhart/978-1-55860-595-4). Elsevier.
+
+  * Shi, Y. and Eberhart, R., 1998, May. [A modified particle swarm optimizer](https://ieeexplore.ieee.org/abstract/document/699146). In IEEE World Congress on Computational Intelligence (pp. 69-73). IEEE.
+
+  * Kennedy, J. and Eberhart, R., 1995, November. [Particle swarm optimization](https://ieeexplore.ieee.org/document/488968). In Proceedings of International Conference on Neural Networks (pp. 1942-1948). IEEE.
+
+  * Applications: e.g., [Pontani&Conway, 2010, JGCD](https://arc.aiaa.org/doi/abs/10.2514/1.48475); [Hassan et al., 2005, AIAA](https://arc.aiaa.org/doi/abs/10.2514/6.2005-1897).
 
 * [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/)
 
