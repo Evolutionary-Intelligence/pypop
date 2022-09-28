@@ -1,8 +1,14 @@
-"""Repeat Fig.3 and Fig.4 from the following paper:
+"""Repeat the following paper for `LMCMA`:
     Loshchilov, I., 2017.
     LM-CMA: An alternative to L-BFGS for large-scale black box optimization.
     Evolutionary Computation, 25(1), pp.143-171.
     https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale
+
+    All generated figures can be accessed via the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmcma
+
+    Luckily our code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that the repeatability of `LMCMA` could be **well-documented**.
 """
 import pickle
 
@@ -16,12 +22,10 @@ from pypop7.benchmarks.rotated_functions import ellipsoid as rotated_ellipsoid, 
     discus as rotated_discus, cigar as rotated_cigar, different_powers as rotated_different_powers
 from pypop7.optimizers.es.lmcma import LMCMA as Solver
 
-sns.set_theme(style='darkgrid')
 
-
-def plot(function, problem_dim):
+def plot(function, ndim):
     plt.figure()
-    result = pickle.load(open(function + '_' + str(problem_dim) + '.pickle', 'rb'))
+    result = pickle.load(open(function + '_' + str(ndim) + '.pickle', 'rb'))
     plt.xscale('log')
     plt.yscale('log')
     if function in ['ellipsoid', 'rotated_ellipsoid']:
@@ -57,6 +61,7 @@ def plot(function, problem_dim):
 
 
 if __name__ == '__main__':
+    sns.set_theme(style='darkgrid')
     for f in [ellipsoid, rotated_ellipsoid,
               rosenbrock, rotated_rosenbrock,
               discus, rotated_discus,
@@ -70,9 +75,8 @@ if __name__ == '__main__':
             options = {'fitness_threshold': 1e-10,
                        'seed_rng': 1,  # undefined in the original paper
                        'sigma': 3.0,
-                       'verbose_frequency': 2e4,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 1,
+                       'verbose': 2e4,
+                       'saving_fitness': 1,
                        'is_restart': False}
             if f in [rotated_ellipsoid, rotated_rosenbrock, rotated_discus,
                      rotated_cigar, rotated_different_powers]:
