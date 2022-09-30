@@ -192,6 +192,8 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
 * **Random (stochastic) Search ([RS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py))** [see e.g. [Gao&Sener, 2022, ICML](https://proceedings.mlr.press/v162/gao22f.html); [Bergstra&Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html); [Rastrigin, 1986](https://link.springer.com/content/pdf/10.1007/BFb0007129.pdf); [Solis&Wets, 1981, MOOR](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19); [Brooks, 1958, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244)]
 
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) BErnoulli Smoothing (**[BES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/bes.py)**) [see [Gao&Sener, 2022, ICML](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/bes.py)]
+
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Simple Random Search (**[SRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/srs.py)**) [see [Rosenstein&Barto, 2001, IJCAI](https://dl.acm.org/doi/abs/10.5555/1642194.1642206)]
   
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Annealed Random Hill Climber (**[ARHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/arhc.py)**) [see e.g. [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
