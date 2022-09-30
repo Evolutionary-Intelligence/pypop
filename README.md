@@ -50,7 +50,7 @@ options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness
            'seed_rng': 0,  # seed of random number generation (which must be explicitly set for repeatability)
            'x': 4 * np.ones((ndim_problem,)),  # initial mean of search (mutation/sampling) distribution
            'sigma': 0.3,  # initial global step-size of search distribution
-           'verbose_frequency': 500}
+           'verbose': 500}
 lmmaes = LMMAES(problem, options)  # initialize the optimizer
 results = lmmaes.optimize()  # run its (time-consuming) search process
 print(results)
@@ -192,7 +192,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
 * **Random (stochastic) Search ([RS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py))** [see e.g. [Gao&Sener, 2022, ICML](https://proceedings.mlr.press/v162/gao22f.html); [Bergstra&Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html); [Rastrigin, 1986](https://link.springer.com/content/pdf/10.1007/BFb0007129.pdf); [Solis&Wets, 1981, MOOR](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19); [Brooks, 1958, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244)]
 
-  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) BErnoulli Smoothing (**[BES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/bes.py)**) [see [Gao&Sener, 2022, ICML](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/bes.py)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) BErnoulli Smoothing (**[BES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/bes.py)**) [see [Gao&Sener, 2022, ICML](https://proceedings.mlr.press/v162/gao22f.html)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Simple Random Search (**[SRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/srs.py)**) [see [Rosenstein&Barto, 2001, IJCAI](https://dl.acm.org/doi/abs/10.5555/1642194.1642206)]
   
