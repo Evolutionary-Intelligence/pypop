@@ -9,6 +9,7 @@ Random Search (RS)
    :maxdepth: 2
    :caption: RSs:
 
+   bes
    srs
    arhc
    rhc
