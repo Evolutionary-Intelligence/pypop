@@ -13,13 +13,14 @@ class BES(RS):
     Generalizing Gaussian Smoothing for Random Search.
     In International Conference on Machine Learning (pp. 7077-7101). PMLR.
     https://proceedings.mlr.press/v162/gao22f.html
+    https://icml.cc/media/icml-2022/Slides/16434.pdf
     """
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
-        self.verbose = options.get('verbose', 10)
         self.n_individuals = options.get('n_individuals', 100)  # number of individuals (samples)
-        self.c = options.get('c', 0.1)  # factor of finite-difference gradient estimate
         self.lr = options.get('lr', 0.001)  # learning rate
+        self.c = options.get('c', 0.1)  # factor of finite-difference gradient estimate
+        self.verbose = options.get('verbose', 10)
 
     def initialize(self, is_restart=False):
         if is_restart or (self.x is None):
