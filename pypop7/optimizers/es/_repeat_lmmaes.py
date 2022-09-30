@@ -1,4 +1,4 @@
-"""Repeat experiments on four functions [Sphere, Cigar, Ellipsoid, Rosenbrock] from the following paper:
+"""Repeat the following paper for `LMMAES`:
     Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2019.
     Large scale black-box optimization by limited-memory matrix adaptation.
     IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
@@ -60,14 +60,12 @@ if __name__ == '__main__':
         for d in [128, 256, 512, 1024, 2048, 4096, 8192]:
             problem = {'fitness_function': f,
                        'ndim_problem': d}
-            options = {'max_function_evaluations': 1e9,  # undefined in the original paper
-                       'fitness_threshold': 1e-10,
+            options = {'fitness_threshold': 1e-10,
                        'seed_rng': 0,  # undefined in the original paper
                        'x': 4 * np.ones((d,)),  # mean
                        'sigma': 3,
-                       'verbose_frequency': 5000,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 100,
+                       'verbose': 5000,
+                       'saving_fitness': 100,
                        'is_restart': False}
             solver = Solver(problem, options)
             results = solver.optimize()
