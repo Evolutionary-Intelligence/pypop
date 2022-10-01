@@ -110,7 +110,7 @@ class CCPSO2(PSO):
     def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None, fitness=None):
         if self._improved is False:
             self._s_index += 1
-            self._s = self.group_sizes[np.min(self._s_index, len(self.group_sizes) - 1)]
+            self._s = self.group_sizes[np.minimum(self._s_index, len(self.group_sizes) - 1)]
             self._k = int(np.ceil(self.ndim_problem/self._s))
             self.rng_optimization.shuffle(self._indices)  # random permutation
             y = np.empty((self._k, self.n_individuals))  # fitness for all individuals of all swarms
