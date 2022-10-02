@@ -5,7 +5,7 @@ Black-Box Optimization (BBO)
    promises to be an exciting, interesting, and challenging area for many years to come."* ---[Conn et al., 2009:
    INTRODUCTION TO DERIVATIVE-FREE OPTIMIZATION]
 
-The **Black-Box** nature of many real-world optimization problems comes from one or more of the following factors,
+The **black-box** nature of many real-world optimization problems comes from one or more of the following factors,
 as shown in e.g. the classical book [INTRODUCTION TO DERIVATIVE-FREE OPTIMIZATION]:
 
 * increasing complexity in mathematical modeling,
@@ -24,6 +24,10 @@ Curse of Dimensionality for Large-Scale BBO (LSBBO)
 
 POPulation-based OPtimization/Search (POP)
 ------------------------------------------
+
+.. note:: *"The essence of an evolutionary approach to solve a problem is to equate possible solutions to individuals
+   in a population, and to introduce a notion of fitness on the basis of solution quality."* ---`[Eiben&Smith, 2015,
+   Nature] <https://www.nature.com/articles/nature14544>`_
 
 General-Purpose Optimization Algorithms
 ---------------------------------------
