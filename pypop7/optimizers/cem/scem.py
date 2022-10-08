@@ -61,9 +61,9 @@ class SCEM(CEM):
     mean          : `array_like`
                     initial mean of Gaussian search distribution.
     n_individuals : `int`
-                    number of offspring, offspring population size.
+                    number of offspring, aka offspring population size.
     n_parents     : `int`
-                    number of parents, parental population size.
+                    number of parents, aka parental population size.
     sigma         : `float`
                     final global step-size, aka mutation strength.
 
