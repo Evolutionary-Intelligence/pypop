@@ -17,18 +17,22 @@ class SCEM(CEM):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'mean'          - initial mean (`array_like`),
                 * 'sigma'         - initial global step-size (`float`),
+                * 'mean'          - initial mean of Gaussian search distribution (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
                 * 'n_individuals' - offspring population size (`int`, default: `1000`),
                 * 'n_parents'     - parent population size (`int`, default: `200`),
                 * 'alpha'         - smoothing factor (`float`, default: `0.8`).
 
     Examples
     --------
-    Use the CEM optimizer `SCEM` to minimize the well-known test function
+    Use the `CEM` optimizer `SCEM` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -39,32 +43,29 @@ class SCEM(CEM):
        >>> from pypop7.optimizers.cem.scem import SCEM
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 100,
-       ...            'lower_boundary': -5 * numpy.ones((100,)),
-       ...            'upper_boundary': 5 * numpy.ones((100,))}
+       ...            'lower_boundary': -5*numpy.ones((100,)),
+       ...            'upper_boundary': 5*numpy.ones((100,))}
        >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
-       ...            'n_individuals': 20,
-       ...            'n_parents': 10,
        ...            'seed_rng': 2022,
-       ...            'mean': 4 * np.ones((100,)),
-       ...            'sigma': 0.1}
+       ...            'sigma': 0.3}  # the global step-size may need to be tuned for better performance
        >>> scem = SCEM(problem, options)  # initialize the optimizer class
        >>> results = scem.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SCEM: 1000000, 296947.9431526677
+       SCEM: 1000000, 45712.10913791263
 
     Attributes
     ----------
+    alpha         : `float`
+                    smoothing factor.
+    mean          : `array_like`
+                    initial mean of Gaussian search distribution.
     n_individuals : `int`
                     number of offspring, offspring population size.
     n_parents     : `int`
                     number of parents, parental population size.
-    mean          : `array_like`
-                    mean of Gaussian search distribution.
     sigma         : `float`
-                    mutation strength.
-    alpha         : `float`
-                    smoothing factor
+                    final global step-size, aka mutation strength.
 
     References
     ----------
@@ -72,7 +73,7 @@ class SCEM(CEM):
     The cross-entropy method for continuous multi-extremal optimization.
     Methodology and Computing in Applied Probability, 8(3), pp.383-407.
     https://link.springer.com/article/10.1007/s11009-006-9753-0
-    (See [B Main CE Program] for the official Matlab code.)
+    (See [Appendix B Main CE Program] for the official Matlab code.)
 
     De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005.
     A tutorial on the cross-entropy method.
