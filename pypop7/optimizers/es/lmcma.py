@@ -6,10 +6,10 @@ from pypop7.optimizers.es.es import ES
 class LMCMA(ES):
     """Limited-Memory Covariance Matrix Adaptation (LMCMA).
 
-    .. note:: `LMCMA` is one **State-Of-The-Art (SOTA)** variant of `CMA-ES` designed especially for large-scale
-       black-box optimization (LSBBO). Inspired by `L-BFGS` (a standard second-order gradient-based optimizer),
-       it stores only *m* direction vectors to reconstruct the covariance matirx on-the-fly, resulting in *O(mn)*
-       time complexity w.r.t. each sampling, where *m = O(log(n))* and *n* is the dimensionality of objective function.
+    .. note:: Currently `LMCMA` is a **State-Of-The-Art** variant of `CMA-ES` designed especially for large-scale
+       black-box optimization. Inspired by `L-BFGS` (a well-established *second-order* gradient-based optimizer),
+       it stores only *m* direction vectors to reconstruct the covariance matirx on-the-fly, resulting in **O(mn)**
+       time complexity w.r.t. each sampling, where *m=O(log(n))* and *n* is the dimensionality of objective function.
 
     Parameters
     ----------
@@ -22,11 +22,11 @@ class LMCMA(ES):
     options : `dict`
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
-                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'mean'          - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
@@ -43,14 +43,14 @@ class LMCMA(ES):
                 * 'c_s'           - learning rate for population success rule (`float`, default: `0.3`),
                 * 'd_s'           - changing rate for population success rule (`float`, default: `1.0`),
                 * 'z_star'        - target success rate for population success rule (`float`, default: `0.3`),
-                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
-                  `int(self.n_individuals / 2)`).
+                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
+                  `int(self.n_individuals/2)`).
 
     Examples
     --------
-    Use the ES optimizer `LMCMA` to minimize the well-known test function
+    Use the `ES` optimizer `LMCMA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -61,12 +61,12 @@ class LMCMA(ES):
        >>> from pypop7.optimizers.es.lmcma import LMCMA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3 * numpy.ones((2,)),
-       ...            'sigma': 0.1}
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> lmcma = LMCMA(problem, options)  # initialize the optimizer class
        >>> results = lmcma.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -78,32 +78,32 @@ class LMCMA(ES):
 
     Attributes
     ----------
-    n_individuals   : `int`
-                      number of offspring (λ: lambda), offspring population size.
-    n_parents       : `int`
-                      number of parents (μ: mu), parental population size.
-    mean            : `array_like`
-                      mean of Gaussian search distribution.
-    sigma           : `float`
-                      mutation strength.
-    m               : `int`
-                      number of direction vectors.
-    base_m          : `int`
-                      base number of direction vectors.
-    period          : `int`
-                      update period.
-    n_steps         : `int`
-                      target number of generations between vectors.
-    c_c             : `float`
-                      learning rate for evolution path update.
-    c_1             : `float`
-                      learning rate for covariance matrix adaptation.
-    c_s             : `float`
-                      learning rate for population success rule.
-    d_s             : `float`
-                      changing rate for population success rule.
-    z_star          : `float`
-                      target success rate for population success rule.
+    base_m        : `int`
+                    base number of direction vectors.
+    c_c           : `float`
+                    learning rate for evolution path update.
+    c_s           : `float`
+                    learning rate for population success rule.
+    c_1           : `float`
+                    learning rate for covariance matrix adaptation.
+    d_s           : `float`
+                    changing rate for population success rule.
+    m             : `int`
+                    number of direction vectors.
+    mean          : `array_like`
+                    mean of Gaussian search distribution.
+    n_individuals : `int`
+                    number of offspring (λ: lambda), offspring population size.
+    n_parents     : `int`
+                    number of parents (μ: mu), parental population size.
+    n_steps       : `int`
+                    target number of generations between vectors.
+    period        : `int`
+                    update period.
+    sigma         : `float`
+                    mutation strength.
+    z_star        : `float`
+                    target success rate for population success rule.
 
     References
     ----------
@@ -115,10 +115,12 @@ class LMCMA(ES):
 
     See the official C++ version from Loshchilov, which provides an interface for Matlab users:
     https://sites.google.com/site/ecjlmcma/
+    (Unfortunately, this website link appears to be not available now.)
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
         self.m = options.get('m', 4 + int(3*np.log(self.ndim_problem)))  # number of direction vectors
+        assert 0 < self.m <= self.ndim_problem
         self.base_m = options.get('base_m', 4)  # base number of direction vectors
         self.period = options.get('period', int(np.maximum(1, np.log(self.ndim_problem))))  # update period
         self.n_steps = options.get('n_steps', self.ndim_problem)  # target number of generations between vectors
@@ -137,13 +139,13 @@ class LMCMA(ES):
         self._j = None
         self._l = None
         self._it = None
-        self._rr = None  # for PSR of global step-size adaptation
+        self._rr = None  # for PSR
 
     def initialize(self, is_restart=False):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
         p_c = np.zeros((self.ndim_problem,))  # evolution path
-        s = 0.0  # for PSR of global step-size adaptation
+        s = 0.0  # for PSR
         vm = np.empty((self.m, self.ndim_problem))
         pm = np.empty((self.m, self.ndim_problem))
         b = np.empty((self.m,))
@@ -157,7 +159,7 @@ class LMCMA(ES):
         return mean, x, p_c, s, vm, pm, b, d, y
 
     def _rademacher(self):
-        """Sample from Rademacher distribution."""
+        """Sampling from Rademacher distribution."""
         random = self.rng_optimization.integers(2, size=(self.ndim_problem,))
         random[random == 0] = -1
         return np.double(random)
@@ -197,17 +199,17 @@ class LMCMA(ES):
         mean_bak = np.dot(self._w, x[np.argsort(y)[:self.n_parents]])
         p_c = self._p_c_1*p_c + self._p_c_2*(mean_bak - mean)/self.sigma
         # select and store direction vectors - to preserve a certain temporal distance in terms of
-        # number of generations between the stored direction vectors (Algorithm 5)
+        #   number of generations between the stored direction vectors (Algorithm 5)
         if self._n_generations % self.period == 0:  # temporal distance
             _n_generations = int(self._n_generations/self.period)  # temporal distance
             i_min = 1  # index of the first vector that will be replaced by the new one
-            # the higher the index of `self._j` the more recent is the corresponding direction vector
+            # the higher the index of `self._j`, the more recent is the corresponding direction vector
             if _n_generations < self.m:
                 self._j[_n_generations] = _n_generations
             else:
                 if self.m > 1:
                     # find a pair of consecutively saved vectors with the distance between them
-                    # closest to a target distance
+                    #   closest to a target distance
                     d_min = (self._l[self._j[1]] - self._l[self._j[0]]) - self.n_steps
                     for j in range(2, self.m):
                         d_cur = (self._l[self._j[j]] - self._l[self._j[j - 1]]) - self.n_steps
@@ -227,7 +229,7 @@ class LMCMA(ES):
                 bd_3 = np.sqrt(1.0 + self._bd_2*v_n)
                 b[self._j[i]] = self._a/v_n*(bd_3 - 1.0)
                 d[self._j[i]] = self._c/v_n*(1.0 - 1.0/bd_3)
-        if self._n_generations > 0:  # for population-based success rule (PSR)
+        if self._n_generations > 0:  # for PSR
             r = np.argsort(np.hstack((y, y_bak)))
             z_psr = np.sum(self._rr[r < self.n_individuals] - self._rr[r >= self.n_individuals])
             z_psr = z_psr/np.power(self.n_individuals, 2) - self.z_star
