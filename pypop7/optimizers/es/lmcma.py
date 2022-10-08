@@ -91,7 +91,7 @@ class LMCMA(ES):
     m             : `int`
                     number of direction vectors.
     mean          : `array_like`
-                    mean of Gaussian search distribution.
+                    initial mean of Gaussian search distribution.
     n_individuals : `int`
                     number of offspring (λ: lambda), offspring population size.
     n_parents     : `int`
@@ -101,7 +101,7 @@ class LMCMA(ES):
     period        : `int`
                     update period.
     sigma         : `float`
-                    mutation strength.
+                    final mutation strength.
     z_star        : `float`
                     target success rate for population success rule.
 
