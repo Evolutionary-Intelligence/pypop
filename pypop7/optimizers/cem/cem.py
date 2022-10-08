@@ -12,6 +12,11 @@ class CEM(Optimizer):
     .. note:: `CEM` is a class of well-established, principled population-based optimizers, proposed originally
        by Rubinstein, whose core idea is based on Kullback–Leibler (or cross-entropy) minimization.
 
+       "CEM is not only based on fundamental principles (cross-entropy distance, maximum likelihood, etc.), but is
+       also very easy to program (with far fewer parameters than many other global optimization heuristics), and
+       gives consistently accurate results, and is therefore worth considering when faced with a difficult
+       optimization problem."---[Kroese et al., 2006, MCAP]
+
     References
     ----------
     Kroese, D.P., Porotsky, S. and Rubinstein, R.Y., 2006.
