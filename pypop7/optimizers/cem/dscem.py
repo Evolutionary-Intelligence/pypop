@@ -54,6 +54,10 @@ class DSCEM(CEM):
        >>> results = dscem.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"DSCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       DSCEM: 1000000, 158.66725776324424
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/43f6kjee>`_ for more details.
 
     Attributes
     ----------
