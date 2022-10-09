@@ -42,7 +42,7 @@ class DSCEM(CEM):
 
        >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
-       >>> from pypop7.optimizers.cem.scem import SCEM
+       >>> from pypop7.optimizers.cem.dscem import DSCEM
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 100,
        ...            'lower_boundary': -5*numpy.ones((100,)),
@@ -108,7 +108,7 @@ class DSCEM(CEM):
     def _update_parameters(self, mean=None, x=None, y=None):
         xx = x[np.argsort(y)[:self.n_parents]]
         mean = self.alpha*np.mean(xx, axis=0) + (1.0-self.alpha)*mean
-        b_mod = self.beta - self.beta*np.power(1.0 - 1.0/(self._n_generations + 1), self.q)
+        b_mod = self.beta - self.beta*np.power(1.0 - 1.0/self._n_generations, self.q)
         self._sigmas = b_mod*np.std(xx, axis=0) + (1.0 - b_mod)*self._sigmas
         return mean
 
