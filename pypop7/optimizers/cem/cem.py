@@ -10,7 +10,7 @@ class CEM(Optimizer):
     optimize the black-box problem at hand.
 
     .. note:: `CEM` is a class of well-established, principled population-based optimizers, proposed originally
-       by Rubinstein, whose core idea is based on Kullback–Leibler (or cross-entropy) minimization.
+       by Rubinstein, whose core idea is based on **Kullback–Leibler (or cross-entropy) minimization**.
 
        "CEM is not only based on fundamental principles (cross-entropy distance, maximum likelihood, etc.), but is
        also very easy to program (with far fewer parameters than many other global optimization heuristics), and
@@ -30,8 +30,8 @@ class CEM(Optimizer):
     https://link.springer.com/article/10.1007/s10479-005-5724-z
 
     Rubinstein, R.Y. and Kroese, D.P., 2004.
-    The cross-entropy method: a unified approach to combinatorial optimization,
-        Monte-Carlo simulation, and machine learning.
+    The cross-entropy method: a unified approach to combinatorial optimization, Monte-Carlo simulation,
+    and machine learning.
     New York: Springer.
     https://link.springer.com/book/10.1007/978-1-4757-4321-0
     """
