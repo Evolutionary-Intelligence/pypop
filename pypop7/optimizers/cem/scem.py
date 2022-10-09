@@ -6,6 +6,8 @@ from pypop7.optimizers.cem.cem import CEM
 class SCEM(CEM):
     """Standard Cross-Entropy Method (SCEM).
 
+    .. note:: `SCEM` uses the fixed smoothing strategy to update the mean and std of Gaussian search distribution.
+
     Parameters
     ----------
     problem : dict
