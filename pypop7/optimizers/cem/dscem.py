@@ -6,6 +6,8 @@ from pypop7.optimizers.cem.cem import CEM
 class DSCEM(CEM):
     """Dynamic Smoothing Cross-Entropy Method (DSCEM).
 
+    .. note:: `DSCEM` uses the dynamic smoothing strategy to update the mean and std of Gaussian search distribution.
+
     Parameters
     ----------
     problem : dict
