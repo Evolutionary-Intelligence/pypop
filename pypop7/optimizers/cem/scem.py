@@ -54,6 +54,9 @@ class SCEM(CEM):
        >>> print(f"SCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SCEM: 1000000, 45712.10913791263
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/yc67n5bd>`_ for more details.
+
     Attributes
     ----------
     alpha         : `float`
