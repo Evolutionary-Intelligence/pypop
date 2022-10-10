@@ -19,6 +19,11 @@ class CEM(Optimizer):
 
     References
     ----------
+    Rubinstein, R.Y. and Kroese, D.P., 2016.
+    Simulation and the Monte Carlo method (Third Edition).
+    John Wiley & Sons.
+    https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980
+
     Kroese, D.P., Porotsky, S. and Rubinstein, R.Y., 2006.
     The cross-entropy method for continuous multi-extremal optimization.
     Methodology and Computing in Applied Probability, 8(3), pp.383-407.
