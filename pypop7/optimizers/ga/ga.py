@@ -83,6 +83,11 @@ class GA(Optimizer):
     Genetic algorithms and machine learning.
     Machine Learning, 3(2), pp.95-99.
     https://link.springer.com/article/10.1023/A:1022602019183
+
+    Holland, J.H., 1962.
+    Outline for a logical theory of adaptive systems.
+    Journal of the ACM, 9(3), pp.297-314.
+    https://dl.acm.org/doi/10.1145/321127.321128
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
