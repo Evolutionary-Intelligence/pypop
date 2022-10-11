@@ -36,7 +36,7 @@ class DSCEM(CEM):
 
     Examples
     --------
-    Use the `CEM` optimizer `SCEM` to minimize the well-known test function
+    Use the `CEM` optimizer `DSCEM` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
