@@ -444,9 +444,13 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
 * [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/)
 
-* Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
+* Genetic Algorithm (GA)
+
+  * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
 
   * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). In Proceedings of International Conference on Genetic Algorithms (pp. 116-121).
+
+  * Holland, J.H., 1962. [Outline for a logical theory of adaptive systems](https://dl.acm.org/doi/10.1145/321127.321128). Journal of the ACM, 9(3), pp.297-314.
 
 * Wright, M.H., 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
 
