@@ -416,9 +416,11 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Rubinstein, R.Y. and Kroese, D.P., 2004. [The cross-entropy method: A unified approach to combinatorial optimization, Monte-Carlo simulation, and machine learning](https://link.springer.com/book/10.1007/978-1-4757-4321-0). New York: Springer.
 
-* Bonyadi, M.R. and Michalewicz, Z., 2017. [Particle swarm optimization for single objective continuous space problems: A review](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective). Evolutionary Computation, 25(1), pp.1-54.
+* Particle Swarm Optimizer (PSO)
 
   * Weiel, M., Götz, M., Klein, A., Coquelin, D., Floca, R. and Schug, A., 2021. [Dynamic particle swarm optimization of biomolecular simulation parameters with flexible objective functions](https://www.nature.com/articles/s42256-021-00366-3). Nature Machine Intelligence, 3(8), pp.727-734.
+
+  * Bonyadi, M.R. and Michalewicz, Z., 2017. [Particle swarm optimization for single objective continuous space problems: A review](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective). Evolutionary Computation, 25(1), pp.1-54.
 
   * Escalante, H.J., Montes, M. and Sucar, L.E., 2009. [Particle swarm model selection](https://www.jmlr.org/papers/v10/escalante09a.html). Journal of Machine Learning Research, 10(15), pp.405−440.
 
