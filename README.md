@@ -404,9 +404,13 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Mühlenbein, H., 1997. [The equation for response to selection and its use for prediction](https://tinyurl.com/yt78c786).  Evolutionary Computation, 5(3), pp.303-346.
 
-* De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005. [A tutorial on the cross-entropy method](https://link.springer.com/article/10.1007/s10479-005-5724-z). Annals of Operations Research, 134(1), pp.19-67.
+* Cross-Entropy Method (CEM)
 
   * Amos, B. and Yarats, D., 2020, November. [The differentiable cross-entropy method](https://proceedings.mlr.press/v119/amos20a.html). In International Conference on Machine Learning (pp. 291-302). PMLR.
+
+  * Rubinstein, R.Y. and Kroese, D.P., 2016. [Simulation and the Monte Carlo method (Third Edition)](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980). John Wiley & Sons.
+
+  * De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005. [A tutorial on the cross-entropy method](https://link.springer.com/article/10.1007/s10479-005-5724-z). Annals of Operations Research, 134(1), pp.19-67.
 
   * Rubinstein, R.Y. and Kroese, D.P., 2004. [The cross-entropy method: A unified approach to combinatorial optimization, Monte-Carlo simulation, and machine learning](https://link.springer.com/book/10.1007/978-1-4757-4321-0). New York: Springer.
 
