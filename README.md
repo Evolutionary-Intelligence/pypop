@@ -388,7 +388,9 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Schaul, T., 2011. [Studies in continuous black-box optimization](https://people.idsia.ch/~schaul/publications/thesis.pdf). Doctoral Dissertation, Technische Universität München.
 
-* Brookes, D., Busia, A., Fannjiang, C., Murphy, K. and Listgarten, J., 2020, July. [A view of estimation of distribution algorithms through the lens of expectation-maximization](https://dl.acm.org/doi/abs/10.1145/3377929.3389938). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 189-190). ACM.
+* Estimation of Distribution Algorithm (EDA)
+
+  * Brookes, D., Busia, A., Fannjiang, C., Murphy, K. and Listgarten, J., 2020, July. [A view of estimation of distribution algorithms through the lens of expectation-maximization](https://dl.acm.org/doi/abs/10.1145/3377929.3389938). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 189-190). ACM.
 
   * Kabán, A., Bootkrajang, J. and Durrant, R.J., 2016. [Toward large-scale continuous EDA: A random matrix theory perspective](https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix). Evolutionary Computation, 24(2), pp.255-291.
 
