@@ -142,7 +142,9 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
 * **Cross-Entropy Method ([CEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/cem.py))** [see e.g. [Rubinstein&Kroese, 2016](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980); [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0); [De Boer et al., 2005, AOR](https://link.springer.com/article/10.1007/s10479-005-5724-z); [Rubinstein&Kroese, 2004](https://link.springer.com/book/10.1007/978-1-4757-4321-0)]
 
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Dynamic Smoothing Cross-Entropy Method (**[DSCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/dscem.py)**) [see e.g. [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Differentiable Cross-Entropy Method (**[DCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/dcem.py)**) [see [Amos&Yarats, 2020, ICML](https://proceedings.mlr.press/v119/amos20a.html)]
+
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Dynamic-Smoothing Cross-Entropy Method (**[DSCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/dscem.py)**) [see e.g. [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0)]
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Cross-Entropy Method (**[SCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/scem.py)**) [see e.g. [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0)]
 
