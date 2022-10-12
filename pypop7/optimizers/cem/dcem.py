@@ -6,7 +6,7 @@ from pypop7.optimizers.cem.cem import CEM
 
 
 class DCEM(CEM):
-    """Differentiable Cross-entropy Method (DCEM).
+    """Differentiable Cross-Entropy Method (DCEM).
 
     .. note:: Since the `lml` library may be not successfully installed via `pip`, please run the following
        two commands before invoking this optimizer (**a necessary manual step**):
