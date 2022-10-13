@@ -17,27 +17,26 @@ class LMMAES(ES):
     options : `dict`
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'             - initial global step-size (σ), mutation strength (`float`),
-                * 'mean'              - initial (starting) point, mean of Gaussian search distribution (`array_like`),
+                * 'sigma'             - initial global step-size (`float`),
+                * 'mean'              - initial (starting) point (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`).
 
                 * 'n_evolution_paths' - number of evolution paths (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_individuals'     - number of offspring (λ: lambda), offspring population size (`int`, default:
-                  `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_parents'         - number of parents (μ: mu), parental population size (`int`, default:
-                  `int(self.n_individuals / 2)`),
+                * 'n_individuals'     - number of offspring (`int`, default: `4 + int(3*np.log(self.ndim_problem))`),
+                * 'n_parents'         - number of parents (`int`, default:
+                  `int(self.n_individuals/2)`),
                 * 'c_s'               - learning rate of evolution path (`float`, default:
                   `2.0*self.n_individuals/self.ndim_problem`).
 
     Examples
     --------
-    Use the ES optimizer `LMMAES` to minimize the well-known test function
+    Use the `ES` optimizer `LMMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -48,12 +47,12 @@ class LMMAES(ES):
        >>> from pypop7.optimizers.es.lmmaes import LMMAES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 200,
-       ...            'lower_boundary': -5 * numpy.ones((200,)),
-       ...            'upper_boundary': 5 * numpy.ones((200,))}
+       ...            'lower_boundary': -5*numpy.ones((200,)),
+       ...            'upper_boundary': 5*numpy.ones((200,))}
        >>> options = {'max_function_evaluations': 500000,  # set optimizer options
        ...            'seed_rng': 0,
-       ...            'mean': 3 * numpy.ones((200,)),
-       ...            'sigma': 0.1,
+       ...            'mean': 3*numpy.ones((200,)),
+       ...            'sigma': 0.1,  # the global step-size may need to be tuned for better performance
        ...            'is_restart': False}
        >>> lmmaes = LMMAES(problem, options)  # initialize the optimizer class
        >>> results = lmmaes.optimize()  # run the optimization process
@@ -66,18 +65,18 @@ class LMMAES(ES):
 
     Attributes
     ----------
-    n_individuals     : `int`
-                        number of offspring (λ: lambda), offspring population size.
-    n_parents         : `int`
-                        number of parents (μ: mu), parental population size.
-    mean              : `array_like`
-                        initial (starting) point, mean of Gaussian search distribution.
-    sigma             : `float`
-                        initial global step-size (σ), mutation strength.
-    n_evolution_paths : `int`
-                        number of evolution paths.
     c_s               : `float`
                         learning rate of evolution path.
+    mean              : `array_like`
+                        initial point, aka mean of Gaussian search distribution.
+    n_evolution_paths : `int`
+                        number of evolution paths.
+    n_individuals     : `int`
+                        number of offspring, aka offspring population size.
+    n_parents         : `int`
+                        number of parents, aka parental population size.
+    sigma             : `float`
+                        final global step-size (σ), aka mutation strength.
 
     References
     ----------
