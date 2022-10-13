@@ -282,7 +282,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Conn, A.R., Scheinberg, K. and Vicente, L.N., 2009. [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768). Society for Industrial and Applied Mathematics.
 
-* Ollivier, Y., Arnold, L., Auger, A. and Hansen, N., 2017. [Information-geometric optimization algorithms: A unifying picture via invariance principles](https://www.jmlr.org/papers/v18/14-467.html). Journal of Machine Learning Research, 18(18), pp.1-65. [ [A visual guide to evolution strategies](https://blog.otoro.net/2017/10/29/visual-evolution-strategies/) ]
+* Evolution Strategy (ES) [ [A visual guide to evolution strategies](https://blog.otoro.net/2017/10/29/visual-evolution-strategies/) ]
 
   * Glasmachers, T. and Krause, O., 2022. [Convergence analysis of the Hessian estimation evolution strategy](https://direct.mit.edu/evco/article-abstract/30/1/27/102711/Convergence-Analysis-of-the-Hessian-Estimation). Evolutionary Computation, 30(1), pp.27-50.
 
@@ -307,6 +307,8 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Li, Z. and Zhang, Q., 2018. [A simple yet efficient evolution strategy for large-scale black-box optimization](https://ieeexplore.ieee.org/abstract/document/8080257). IEEE Transactions on Evolutionary Computation, 22(5), pp.637-646.
 
   * Lehman, J., Chen, J., Clune, J. and Stanley, K.O., 2018, July. [ES is more than just a traditional finite-difference approximator](https://dl.acm.org/doi/abs/10.1145/3205455.3205474). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 450-457). ACM.
+
+  * Ollivier, Y., Arnold, L., Auger, A. and Hansen, N., 2017. [Information-geometric optimization algorithms: A unifying picture via invariance principles](https://www.jmlr.org/papers/v18/14-467.html). Journal of Machine Learning Research, 18(18), pp.1-65.
 
   * Loshchilov, I., 2017. [LM-CMA: An alternative to L-BFGS for large-scale black box optimization](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale). Evolutionary Computation, 25(1), pp.143-171.
 
@@ -338,8 +340,6 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Arnold, D.V. and Hansen, N., 2010, July. [Active covariance matrix adaptation for the (1+1)-CMA-ES](https://dl.acm.org/doi/abs/10.1145/1830483.1830556). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 385-392). ACM.
 
-  * Heidrich-Meisner, V. and Igel, C., 2009, June. [Hoeffding and Bernstein races for selecting policies in evolutionary direct policy search](https://dl.acm.org/doi/abs/10.1145/1553374.1553426). In Proceedings of International Conference on Machine Learning (pp. 401-408).
-
   * Suttorp, T., Hansen, N. and Igel, C., 2009. [Efficient covariance matrix update for variable metric evolution strategies](https://link.springer.com/article/10.1007/s10994-009-5102-1). Machine Learning, 75(2), pp.167-197.
 
   * Heidrich-Meisner, V. and Igel, C., 2008, September. [Evolution strategies for direct policy search](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_43). In International Conference on Parallel Problem Solving from Nature (pp. 428-437). Springer, Berlin, Heidelberg.
@@ -368,7 +368,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Rechenberg, I., 1984. [The evolution strategy. A mathematical model of darwinian evolution](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13). In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer, Berlin, Heidelberg.
   
-  * Applications: e.g., [Tian&Ha, 2022, EvoStar](https://link.springer.com/chapter/10.1007/978-3-031-03789-4_18); [Anand et al., 2021](https://iopscience.iop.org/article/10.1088/2632-2153/abf3ac); [Nomura et al., 2021, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/17109); [Liu et al., 2019, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/4345); [Ha&Schmidhuber, 2018, NeurIPS](https://papers.nips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html); [Müller&Glasmachers, 2018, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-99259-4_33); [Chrabąszcz et al., 2018, IJCAI](https://www.ijcai.org/proceedings/2018/197); [OpenAI, 2017](https://openai.com/blog/evolution-strategies/); [Zhang et al., 2017, Science](https://www.science.org/doi/10.1126/science.aal5054)
+  * Applications: e.g., [Tian&Ha, 2022, EvoStar](https://link.springer.com/chapter/10.1007/978-3-031-03789-4_18); [Anand et al., 2021, MLST](https://iopscience.iop.org/article/10.1088/2632-2153/abf3ac); [Nomura et al., 2021, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/17109); [Liu et al., 2019, AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/4345); [Ha&Schmidhuber, 2018, NeurIPS](https://papers.nips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html); [Müller&Glasmachers, 2018, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-99259-4_33); [Chrabąszcz et al., 2018, IJCAI](https://www.ijcai.org/proceedings/2018/197); [OpenAI, 2017](https://openai.com/blog/evolution-strategies/); [Zhang et al., 2017, Science](https://www.science.org/doi/10.1126/science.aal5054); [Heidrich-Meisner&Igel, 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553426)
 
 * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482. [ [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/) ]
 
