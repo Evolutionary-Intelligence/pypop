@@ -4,8 +4,11 @@
     IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
     https://ieeexplore.ieee.org/abstract/document/8410043
 
-    Given that our code could generate the *very close* results as the original code,
-    we argue that the repeatability of `LMMAES` can be well-documented (*at least partly*).
+    All generated figures can be accessed via the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmmaes
+
+    Luckily our code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that the repeatability of `LMMAES` could be **well-documented** (*at least partly*).
 """
 import pickle
 
@@ -15,8 +18,6 @@ import matplotlib.pyplot as plt
 
 from pypop7.benchmarks.base_functions import sphere, cigar, ellipsoid, rosenbrock
 from pypop7.optimizers.es.lmmaes import LMMAES as Solver
-
-sns.set_theme(style='darkgrid')
 
 
 def plot(function):
@@ -56,6 +57,7 @@ def plot(function):
 
 
 if __name__ == '__main__':
+    sns.set_theme(style='darkgrid')
     for f in [sphere, cigar, ellipsoid, rosenbrock]:
         for d in [128, 256, 512, 1024, 2048, 4096, 8192]:
             problem = {'fitness_function': f,
