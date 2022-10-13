@@ -87,8 +87,6 @@ class DS(Optimizer):
         """
         Optimizer.__init__(self, problem, options)
         self.x = options.get('x')  # initial (starting) point
-        assert np.array(self.x).shape == (self.ndim_problem,),\
-            f'`np.array(self.x).shape` == ({np.array(self.x).shape},), but should == ({self.ndim_problem},).'
         self.sigma = options.get('sigma')  # initial (global) step-size
         assert self.sigma > 0.0, f'`self.sigma` == {self.sigma}, but should > 0.0.'
         self._n_generations = 0  # number of generations
