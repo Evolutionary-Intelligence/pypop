@@ -28,8 +28,9 @@ class LMMAES(ES):
 
                 * 'n_evolution_paths' - number of evolution paths (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_individuals'     - number of offspring (`int`, default: `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_parents'         - number of parents (`int`, default:
+                * 'n_individuals'     - number of offspring, aka offspring population size (`int`, default:
+                  `4 + int(3*np.log(self.ndim_problem))`),
+                * 'n_parents'         - number of parents, aka parental population size (`int`, default:
                   `int(self.n_individuals/2)`),
                 * 'c_s'               - learning rate of evolution path (`float`, default:
                   `2.0*self.n_individuals/self.ndim_problem`).
@@ -76,7 +77,7 @@ class LMMAES(ES):
     n_parents         : `int`
                         number of parents, aka parental population size.
     sigma             : `float`
-                        final global step-size (σ), aka mutation strength.
+                        final global step-size, aka mutation strength.
 
     References
     ----------
