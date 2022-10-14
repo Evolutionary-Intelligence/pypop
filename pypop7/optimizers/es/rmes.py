@@ -64,7 +64,7 @@ class RMES(R1ES):
        RMES: 5000, 0.0005698039779344841
 
     For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/2aywpp2p>`_ for more details.
+    <https://tinyurl.com/wx3wakxj>`_ for more details.
 
     Attributes
     ----------
@@ -75,7 +75,7 @@ class RMES(R1ES):
     generation_gap    : `int`
                         generation gap.
     mean              : `array_like`
-                        mean of Gaussian search distribution.
+                        initial mean of Gaussian search distribution.
     n_evolution_paths : `int`
                         number of evolution paths.
     n_individuals     : `int`
@@ -83,7 +83,7 @@ class RMES(R1ES):
     n_parents         : `int`
                         number of parents (μ: mu), aka parental population size.
     sigma             : `float`
-                        mutation strength.
+                        final mutation strength.
 
     References
     ----------
