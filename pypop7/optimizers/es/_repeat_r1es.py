@@ -1,20 +1,24 @@
-"""Repeat Fig. 2 (Cigar) and Fig. 3 (Ellipsoid, Discus, Rosenbrock) from the following paper:
+"""Repeat the following paper for `R1ES`:
     Li, Z. and Zhang, Q., 2018.
     A simple yet efficient evolution strategy for large-scale black-box optimization.
     IEEE Transactions on Evolutionary Computation, 22(5), pp.637-646.
     https://ieeexplore.ieee.org/abstract/document/8080257
+
+    All generated figures can be accessed via the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/r1es
+
+    Luckily our code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that the repeatability of `R1ES` could be **well-documented**.
 """
 import pickle
 
 import numpy as np
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 from pypop7.benchmarks.base_functions import cigar, ellipsoid, discus, rosenbrock
 from pypop7.optimizers.es.es import ES
 from pypop7.optimizers.es.r1es import R1ES
-
-sns.set_theme(style='darkgrid')
 
 
 def plot(function, ndim):
@@ -41,23 +45,23 @@ def plot(function, ndim):
 
 
 class Fig2(R1ES):  # to save data for Fig. 2
-    def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
+    def optimize(self, fitness_function=None, args=None):
         fit = ES.optimize(self, fitness_function)
         xx, mean, p, s, y = self.initialize(args)
         fit.append(y[0])
         e1 = np.hstack((1, np.zeros((self.ndim_problem - 1,))))  # for similarity between p and e1
         f, p_norm, stepsize, theta = [], [], [], []  # for plotting data
         while True:
-            y_bak = np.copy(y)  # for Line 13 in Algorithm 1
-            xx, y = self.iterate(xx, mean, p, y, args)  # sample and evaluate offspring population
-            if self.record_fitness:
+            y_bak = np.copy(y)
+            xx, y = self.iterate(xx, mean, p, y, args)
+            if self.saving_fitness:
                 fit.extend(y)
             if self._check_terminations():
                 break
             mean, p, s = self._update_distribution(xx, mean, p, s, y, y_bak)
             self._n_generations += 1
             self._print_verbose_info(y)
-            xx, mean, p, s, y = self.restart_initialize(args, xx, mean, p, s, y, fit)
+            xx, mean, p, s, y = self.restart_reinitialize(args, xx, mean, p, s, y, fit)
             f.append(np.min(y))
             p_norm.append(np.linalg.norm(p))
             stepsize.append(self.sigma)
@@ -73,6 +77,7 @@ class Fig2(R1ES):  # to save data for Fig. 2
 
 
 if __name__ == '__main__':
+    sns.set_theme(style='darkgrid')
     # plot Fig. 2
     ndim_problem = 200
     problem = {'fitness_function': cigar,
@@ -81,8 +86,7 @@ if __name__ == '__main__':
                'upper_boundary': 10 * np.ones((ndim_problem,))}
     options = {'fitness_threshold': 1e-8,
                'seed_rng': 2022,  # not given in the original paper
-               'sigma': 20 / 3,
-               'verbose_frequency': 200}
+               'sigma': 20 / 3}
     r1es = Fig2(problem, options)
     results = r1es.optimize()
     x = np.arange(len(results['f'])) + 1
@@ -110,9 +114,7 @@ if __name__ == '__main__':
                    'max_function_evaluations': 1e8,
                    'seed_rng': 2022,  # not given in the original paper
                    'sigma': 20 / 3,
-                   'verbose_frequency': 20000,
-                   'record_fitness': True,
-                   'record_fitness_frequency': 1,
+                   'saving_fitness': 1,
                    'is_restart': False}
         r1es = Fig2(problem, options)
         results = r1es.optimize()
