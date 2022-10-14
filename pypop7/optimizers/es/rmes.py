@@ -18,29 +18,29 @@ class RMES(R1ES):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
-                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
+                * 'sigma'             - initial global step-size, aka mutation strength (`float`),
+                * 'mean'              - initial (starting) point, aka mean of Gaussian search distribution
+                  (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_evolution_paths' - number of evolution paths (`int`, default: `2`),
                 * 'generation_gap'    - generation gap (`int`, default: `self.ndim_problem`),
-                * 'n_individuals'     - number of offspring (λ: lambda), offspring population size (`int`, default:
+                * 'n_individuals'     - number of offspring, aka offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_parents'         - number of parents (μ: mu), parental population size (`int`, default:
+                * 'n_parents'         - number of parents, aka parental population size (`int`, default:
                   `int(self.n_individuals/2)`),
                 * 'c_cov'             - learning rate of low-rank covariance matrix (`float`, default:
                   `1.0/(3.0*np.sqrt(self.ndim_problem) + 5.0)`),
-                * 'd_sigma'           - change factor of cumulative (global) step-size adaptation (`float`, default:
-                  `1.0`).
+                * 'd_sigma'           - delay factor of cumulative step-size adaptation (`float`, default: `1.0`).
 
     Examples
     --------
-    Use the ES optimizer `RMES` to minimize the well-known test function
+    Use the `ES` optimizer `RMES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -51,12 +51,12 @@ class RMES(R1ES):
        >>> from pypop7.optimizers.es.rmes import RMES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3 * numpy.ones((2,)),
-       ...            'sigma': 0.1}
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> rmes = RMES(problem, options)  # initialize the optimizer class
        >>> results = rmes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -68,22 +68,22 @@ class RMES(R1ES):
 
     Attributes
     ----------
-    n_individuals     : `int`
-                        number of offspring (λ: lambda), offspring population size.
-    n_parents         : `int`
-                        number of parents (μ: mu), parental population size.
-    mean              : `array_like`
-                        mean of Gaussian search distribution.
-    sigma             : `float`
-                        mutation strength.
-    n_evolution_paths : `int`
-                        number of evolution paths
-    generation_gap    : `int`
-                        generation gap.
     c_cov             : `float`
                         learning rate of low-rank covariance matrix.
     d_sigma           : `float`
-                        change factor of cumulative (global) step-size adaptation.
+                        delay factor of cumulative step-size adaptation.
+    generation_gap    : `int`
+                        generation gap.
+    mean              : `array_like`
+                        mean of Gaussian search distribution.
+    n_evolution_paths : `int`
+                        number of evolution paths.
+    n_individuals     : `int`
+                        number of offspring (λ: lambda), aka offspring population size.
+    n_parents         : `int`
+                        number of parents (μ: mu), aka parental population size.
+    sigma             : `float`
+                        mutation strength.
 
     References
     ----------
