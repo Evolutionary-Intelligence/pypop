@@ -23,18 +23,18 @@ class DS(Optimizer):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'x'     - initial (starting) point (`array_like`),
-                * 'sigma' - initial (global) step-size (`float`).
+                * 'sigma' - initial global step-size (`float`).
 
     Attributes
     ----------
+    sigma : `float`
+            final global step-size.
     x     : `array_like`
             initial (starting) point.
-    sigma : `float`
-            (global) step-size.
 
     Methods
     -------
@@ -46,7 +46,8 @@ class DS(Optimizer):
     https://algorithmsbook.com/optimization/
     (See Chapter 7: Direct Methods for details.)
 
-    Audet, C. and Hare, W., 2017. Derivative-free and blackbox optimization.
+    Audet, C. and Hare, W., 2017.
+    Derivative-free and blackbox optimization.
     Berlin: Springer International Publishing.
     https://link.springer.com/book/10.1007/978-3-319-68913-5
 
@@ -76,24 +77,15 @@ class DS(Optimizer):
     https://www.osti.gov/servlets/purl/4377177
     """
     def __init__(self, problem, options):
-        """Initialize the parameter settings of the `DS` class.
-
-        Parameters
-        ----------
-        problem : dict
-                  problem arguments.
-        options : dict
-                  optimizer options.
-        """
         Optimizer.__init__(self, problem, options)
         self.x = options.get('x')  # initial (starting) point
-        self.sigma = options.get('sigma')  # initial (global) step-size
+        self.sigma = options.get('sigma')  # initial global step-size
         assert self.sigma > 0.0, f'`self.sigma` == {self.sigma}, but should > 0.0.'
         self._n_generations = 0  # number of generations
         # set for restart
-        self.sigma_threshold = options.get('sigma_threshold', 1e-10)  # stopping threshold of sigma for restart
+        self.sigma_threshold = options.get('sigma_threshold', 1e-12)  # stopping threshold of sigma for restart
         self.stagnation = options.get('stagnation', np.maximum(10, self.ndim_problem))
-        self.fitness_diff = options.get('fitness_diff', 1e-10)  # stopping threshold of fitness difference for restart
+        self.fitness_diff = options.get('fitness_diff', 1e-12)  # stopping threshold of fitness difference for restart
         self._sigma_bak = np.copy(self.sigma)  # bak for restart
         self._fitness_list = [self.best_so_far_y]  # to store `best_so_far_y` generated in each generation
         self._n_restart = 0  # number of restarts
