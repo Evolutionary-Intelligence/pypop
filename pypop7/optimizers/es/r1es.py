@@ -7,9 +7,9 @@ class R1ES(ES):
     """Rank-One Evolution Strategy (R1ES).
 
     .. note:: `R1ES` is a **low-rank** version of `CMA-ES` specifically designed for large-scale black-box optimization
-       (LSBBO) by Li and `Zhang <https://tinyurl.com/32hsbx28>`_. It often works well when there is a dominated search
+       (LSBBO) by Li and `Zhang <https://tinyurl.com/32hsbx28>`_. It often works well when there is a `dominated` search
        direction embedded in the subspace. For more complex landscapes (e.g., there are multiple promising search
-       directions), other competitive LSBBO variants (e.g., `Rm-ES`, `LM-CMA`, `LM-MA-ES`) may be more preferred.
+       directions), other LSBBO variants (e.g., `RMES`, `LMCMA`, `LMMAES`) of `CMA-ES` may be more preferred.
 
     Parameters
     ----------
@@ -22,29 +22,30 @@ class R1ES(ES):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
-                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'mean'          - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
-                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
+                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
                   `int(self.n_individuals/2)`),
-                * 'c_cov'         - learning rate of low-rank covariance matrix (`float`, default:
+                * 'c_cov'         - learning rate of low-rank covariance matrix adaptation (`float`, default:
                   `1.0/(3.0*np.sqrt(self.ndim_problem) + 5.0)`),
-                * 'c'             - learning rate of evolution path (`float`, default: `2.0/(self.ndim_problem + 7.0)`),
-                * 'c_s'           - learning rate of cumulative (global) step-size adaptation (`float`, default: `0.3`),
-                * 'q_star'        - baseline of cumulative (global) step-size adaptation (`float`, default: `0.3`)，
-                * 'd_sigma'       - change factor of cumulative (global) step-size adaptation (`float`, default: `1.0`).
+                * 'c'             - learning rate of evolution path update (`float`, default:
+                  `2.0/(self.ndim_problem + 7.0)`),
+                * 'c_s'           - learning rate of cumulative step-size adaptation (`float`, default: `0.3`),
+                * 'q_star'        - baseline of cumulative step-size adaptation (`float`, default: `0.3`)，
+                * 'd_sigma'       - delay factor of cumulative step-size adaptation (`float`, default: `1.0`).
 
     Examples
     --------
-    Use the ES optimizer `R1ES` to minimize the well-known test function
+    Use the `ES` optimizer `R1ES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -55,12 +56,12 @@ class R1ES(ES):
        >>> from pypop7.optimizers.es.r1es import R1ES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3 * numpy.ones((2,)),
-       ...            'sigma': 0.1}
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> r1es = R1ES(problem, options)  # initialize the optimizer class
        >>> results = r1es.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -72,24 +73,24 @@ class R1ES(ES):
 
     Attributes
     ----------
-    n_individuals   : `int`
-                      number of offspring (λ: lambda), offspring population size.
-    n_parents       : `int`
-                      number of parents (μ: mu), parental population size.
-    mean            : `array_like`
-                      mean of Gaussian search distribution.
-    sigma           : `float`
-                      mutation strength.
-    c_cov           : `float`
-                      learning rate of low-rank covariance matrix.
     c               : `float`
-                      learning rate of evolution path.
+                      learning rate of evolution path update.
+    c_cov           : `float`
+                      learning rate of low-rank covariance matrix adaptation.
     c_s             : `float`
-                      learning rate of cumulative (global) step-size adaptation.
-    q_star          : `float`
-                      baseline of cumulative (global) step-size adaptation.
+                      learning rate of cumulative step-size adaptation.
     d_sigma         : `float`
-                      change factor of cumulative (global) step-size adaptation.
+                      delay factor of cumulative step-size adaptation.
+    mean            : `array_like`
+                      initial mean of Gaussian search distribution.
+    n_individuals   : `int`
+                      number of offspring, aka offspring population size.
+    n_parents       : `int`
+                      number of parents, aka parental population size.
+    q_star          : `float`
+                      baseline of cumulative step-size adaptation.
+    sigma           : `float`
+                      final mutation strength.
 
     References
     ----------
