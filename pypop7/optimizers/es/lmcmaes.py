@@ -7,7 +7,7 @@ class LMCMAES(ES):
     """Limited-Memory Covariance Matrix Adaptation Evolution Strategy (LMCMAES).
 
     .. note:: For better performance, please use its lateset version `LMCMA <https://tinyurl.com/mry5dw36>`_.
-       Here we include it mainly for benchmarking purpose.
+       Here we include it mainly for *benchmarking* purpose.
 
     Parameters
     ----------
@@ -20,11 +20,11 @@ class LMCMAES(ES):
     options : `dict`
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'         - initial global step-size, mutation strength (`float`),
-                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'mean'          - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
@@ -38,16 +38,16 @@ class LMCMAES(ES):
                 * 'c_1'           - learning rate for covariance matrix adaptation (`float`, default:
                   `1.0/(10.0*np.log(self.ndim_problem + 1.0))`),
                 * 'c_s'           - learning rate for population success rule (`float`, default: `0.3`),
-                * 'd_s'           - changing rate for population success rule (`float`, default: `1.0`),
+                * 'd_s'           - delay rate for population success rule (`float`, default: `1.0`),
                 * 'z_star'        - target success rate for population success rule (`float`, default: `0.3`),
-                * 'n_individuals' - number of offspring, offspring population size (`int`, default:
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_parents'     - number of parents, parental population size (`int`, default:
+                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
                   `int(self.n_individuals/2)`).
 
     Examples
     --------
-    Use the ES optimizer `LMCMAES` to minimize the well-known test function
+    Use the `ES` optimizer `LMCMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -58,12 +58,12 @@ class LMCMAES(ES):
        >>> from pypop7.optimizers.es.lmcmaes import LMCMAES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3 * numpy.ones((2,)),
-       ...            'sigma': 0.1}
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> lmcmaes = LMCMAES(problem, options)  # initialize the optimizer class
        >>> results = lmcmaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -75,26 +75,26 @@ class LMCMAES(ES):
 
     Attributes
     ----------
-    n_individuals   : `int`
-                      number of offspring (λ: lambda), offspring population size.
-    n_parents       : `int`
-                      number of parents (μ: mu), parental population size.
-    mean            : `array_like`
-                      initial (starting) point, mean of Gaussian search distribution.
-    sigma           : `float`
-                      initial global step-size (σ), mutation strength.
-    m               : `int`
-                      number of direction vectors.
-    n_steps         : `int`
-                      target number of generations between vectors.
     c_c             : `float`
                       learning rate for evolution path update.
-    c_1             : `float`
-                      learning rate for covariance matrix adaptation.
     c_s             : `float`
                       learning rate for population success rule.
+    c_1             : `float`
+                      learning rate for covariance matrix adaptation.
     d_s             : `float`
-                      changing rate for population success rule.
+                      delay rate for population success rule.
+    m               : `int`
+                      number of direction vectors.
+    mean            : `array_like`
+                      initial (starting) point, aka mean of Gaussian search distribution.
+    n_individuals   : `int`
+                      number of offspring, aka offspring population size.
+    n_parents       : `int`
+                      number of parents, aka parental population size.
+    n_steps         : `int`
+                      target number of generations between vectors.
+    sigma           : `float`
+                      initial global step-size, aka mutation strength.
     z_star          : `float`
                       target success rate for population success rule.
 
@@ -147,8 +147,7 @@ class LMCMAES(ES):
         self._it = 0
         return mean, x, p_c, s, vm, pm, b, d, y
 
-    def _a_z(self, z=None, pm=None, vm=None, b=None):
-        # Algorithm 3 Az()
+    def _a_z(self, z=None, pm=None, vm=None, b=None):  # Algorithm 3 Az()
         x = np.copy(z)
         for t in range(self._it):
             x = self._a*x + b[self._j[t]]*np.dot(vm[self._j[t]], z)*pm[self._j[t]]
@@ -167,8 +166,7 @@ class LMCMAES(ES):
             sign *= -1  # sampling in the opposite direction for mirrored sampling
         return x, y
 
-    def _a_inv_z(self, v=None, vm=None, d=None, i=None):  # inverse Cholesky factor - vector update
-        # Algorithm 4 Ainvz()
+    def _a_inv_z(self, v=None, vm=None, d=None, i=None):  # Algorithm 4 Ainvz()
         x = np.copy(v)
         for t in range(0, i):
             x = self._c*x - d[self._j[t]]*np.dot(vm[self._j[t]], x)*vm[self._j[t]]
@@ -216,7 +214,7 @@ class LMCMAES(ES):
                              vm=None, pm=None, b=None, d=None, y=None):
         is_restart = ES.restart_reinitialize(self)
         if is_restart:
-            mean, x, p_c, s, vm, pm, b, d, y = self.initialize(is_restart)
+            mean, x, p_c, s, vm, pm, b, d, y = self.initialize(True)
             self.d_s *= 2.0
         return mean, x, p_c, s, vm, pm, b, d, y
 
