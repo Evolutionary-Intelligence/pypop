@@ -1,4 +1,4 @@
-"""Repeat the following paper for `HJ`:
+"""Repeat the following paper for `CLPSO`:
     Liang, J.J., Qin, A.K., Suganthan, P.N. and Baskar, S., 2006.
     Comprehensive learning particle swarm optimizer for global optimization of multimodal functions.
     IEEE Transactions on Evolutionary Computation, 10(3), pp.281-295.
