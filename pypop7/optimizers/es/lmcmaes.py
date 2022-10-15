@@ -32,14 +32,13 @@ class LMCMAES(ES):
                 * 'm'             - number of direction vectors (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
                 * 'base_m'        - base number of direction vectors (`int`, default: `4`),
-                * 'period'        - update period (`int`, default: `int(np.maximum(1, np.log(self.ndim_problem)))`),
-                * 'n_steps'       - target number of generations between vectors (`int`, default: `self.ndim_problem`),
+                * 'n_steps'       - target number of generations between vectors (`int`, default: `self.m`),
                 * 'c_c'           - learning rate for evolution path update (`float`, default: `1.0/self.m`).
                 * 'c_1'           - learning rate for covariance matrix adaptation (`float`, default:
                   `1.0/(10.0*np.log(self.ndim_problem + 1.0))`),
                 * 'c_s'           - learning rate for population success rule (`float`, default: `0.3`),
                 * 'd_s'           - delay rate for population success rule (`float`, default: `1.0`),
-                * 'z_star'        - target success rate for population success rule (`float`, default: `0.3`),
+                * 'z_star'        - target success rate for population success rule (`float`, default: `0.25`),
                 * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
                 * 'n_parents'     - number of parents, aka parental population size (`int`, default:
