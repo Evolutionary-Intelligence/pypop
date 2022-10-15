@@ -6,9 +6,9 @@ from pypop7.optimizers.ds.ds import DS
 class HJ(DS):
     """Hooke-Jeeves direct (pattern) search method (HJ).
 
-    .. note:: `HJ` is one of the most popular and most cited `DS` methods, originally published in one of
-       the top-tier Computer Science journals (i.e., JACM) in 1961. Although sometimes it is still used to optimize
-       *low-dimensional* black-box problems, it is **highly recommended** to first attempt other more advanced methods
+    .. note:: `HJ` is one of the most-popular and most-cited `DS` methods, originally published in one of
+       the *top-tier* Computer Science journals (**JACM**) in 1961. Although sometimes it is still used to optimize
+       *low-dimensional* black-box problems, it is **highly recommended** to attempt other more advanced methods
        for large-scale black-box optimization.
 
     Parameters
@@ -22,16 +22,20 @@ class HJ(DS):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
+                * 'sigma' - initial global step-size (`float`),
                 * 'x'     - initial (starting) point (`array_like`),
-                * 'sigma' - initial (global) step-size (`float`),
-                * 'gamma' - decreasing factor of step-size (`float`, default: `0.5`).
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'gamma' - decreasing factor of global step-size (`float`, default: `0.5`).
 
     Examples
     --------
-    Use the Pattern Search optimizer `HJ` to minimize the well-known test function
+    Use the `DS` optimizer `HJ` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -42,12 +46,12 @@ class HJ(DS):
        >>> from pypop7.optimizers.ds.hj import HJ
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'x': 3 * numpy.ones((2,)),
-       ...            'sigma': 0.1,
+       ...            'x': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1,  # the global step-size may need to be tuned for better performance
        ...            'verbose_frequency': 500}
        >>> hj = HJ(problem, options)  # initialize the optimizer class
        >>> results = hj.optimize()  # run the optimization process
@@ -55,17 +59,17 @@ class HJ(DS):
        >>> print(f"HJ: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        HJ: 5000, 0.22119484961034389
 
-    Furthermore, an interesting visualization of `HJ`'s search trajectory on a 2-dimensional test function is shown in
-    `this GitHub link <https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_hj.gif>`_.
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/4p94862d>`_ for more details.
 
     Attributes
     ----------
+    gamma : `float`
+            decreasing factor of global step-size.
+    sigma : `float`
+            final global step-size.
     x     : `array_like`
             starting search point.
-    sigma : `float`
-            final (global) step-size.
-    gamma : `float`
-            decreasing factor of step-size.
 
     References
     ----------
@@ -87,11 +91,11 @@ class HJ(DS):
     """
     def __init__(self, problem, options):
         DS.__init__(self, problem, options)
-        self.gamma = options.get('gamma', 0.5)  # decreasing factor of step-size (γ)
+        self.gamma = options.get('gamma', 0.5)  # decreasing factor of global step-size (γ)
         assert self.gamma > 0.0, f'`self.gamma` == {self.gamma}, but should > 0.0.'
 
     def initialize(self, args=None, is_restart=False):
-        x = self._initialize_x(is_restart)  # initial point
+        x = self._initialize_x(is_restart)  # initial (starting) search point
         y = self._evaluate_fitness(x, args)  # fitness
         return x, y
 
