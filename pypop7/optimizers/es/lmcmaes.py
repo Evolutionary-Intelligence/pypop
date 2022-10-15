@@ -31,7 +31,6 @@ class LMCMAES(ES):
 
                 * 'm'             - number of direction vectors (`int`, default:
                   `4 + int(3*np.log(self.ndim_problem))`),
-                * 'base_m'        - base number of direction vectors (`int`, default: `4`),
                 * 'n_steps'       - target number of generations between vectors (`int`, default: `self.m`),
                 * 'c_c'           - learning rate for evolution path update (`float`, default: `1.0/self.m`).
                 * 'c_1'           - learning rate for covariance matrix adaptation (`float`, default:
