@@ -104,9 +104,7 @@ if __name__ == '__main__':
                        'seed_rng': 2022,  # not given in the original paper
                        'x': np.ones((dim,)),
                        'sigma': 1.0,
-                       'verbose_frequency': 10,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 1}
+                       'saving_fitness': 1}
             solver = Fig4(problem, options)
             results = solver.optimize()
             pickle.dump(results, open(f.__name__ + '_' + str(dim) + '.pickle', 'wb'))
