@@ -15,7 +15,7 @@ class ES(Optimizer):
        parameters**, which generally can *significantly* accelerate the (local) convergence rate. Recently, the
        theoretical foundation of its most representative (modern) version called **CMA-ES** has been well built on
        the `Information-Geometric Optimization (IGO) <https://www.jmlr.org/papers/v18/14-467.html>`_ framework via
-       invariance principles (inspired by `NES <https://jmlr.org/papers/v15/wierstra14a.html>`_).
+       **invariance** principles (inspired by `NES <https://jmlr.org/papers/v15/wierstra14a.html>`_).
 
        According to the latest `Nature <https://www.nature.com/articles/nature14544.>`_ review, *"the CMA-ES algorithm
        is widely regarded as the state of the art in numerical optimization"*.
@@ -34,21 +34,21 @@ class ES(Optimizer):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`),
-                * 'n_parents'     - number of parents (μ: mu), parental population size (`int`),
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`),
+                * 'n_parents'     - number of parents, aka parental population size (`int`),
                 * 'mean'          - initial (starting) point (`array_like`),
-                * 'sigma'         - initial global step-size, mutation strength (`float`).
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`).
 
     Attributes
     ----------
-    n_individuals : `int`
-                    number of offspring/descendants (λ: lambda), offspring population size.
-    n_parents     : `int`
-                    number of parents (μ: mu), parental population size.
     mean          : `array_like`
-                    mean of Gaussian search/sampling/mutation distribution.
+                    initial mean of Gaussian search/sampling/mutation distribution.
+    n_individuals : `int`
+                    number of offspring/descendants, aka offspring population size.
+    n_parents     : `int`
+                    number of parents/ancestors, aka parental population size.
     sigma         : `float`
-                    std of Gaussian search/sampling/mutation distribution, mutation strength.
+                    final overall std of Gaussian search/sampling/mutation distribution, aka mutation strength.
 
     Methods
     -------
