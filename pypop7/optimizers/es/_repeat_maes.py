@@ -1,23 +1,25 @@
-"""Repeat Fig. 4 (Sphere, Cigar, Tablet (aka Discus), Ellipsoid) from the following paper:
+"""Repeat the following paper for `MAES`:
     Beyer, H.G. and Sendhoff, B., 2017.
     Simplify your covariance matrix adaptation evolution strategy.
     IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
     https://ieeexplore.ieee.org/document/7875115
+    https://homepages.fhv.at/hgb/downloads/ForDistributionFastMAES.tar
 
-    Since our code obtains very similar performance as the original paper, we argue that
-    the repeatability of `MAES` can be well-documented (*at least partly*).
+    All generated figures can be accessed via the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/maes
+
+    Luckily our code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that the repeatability of `MAES` could be **well-documented**.
 """
 import pickle
 
 import numpy as np
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 from pypop7.benchmarks.base_functions import sphere, cigar, discus, ellipsoid
 from pypop7.optimizers.es.es import ES
 from pypop7.optimizers.es.maes import MAES
-
-sns.set_theme(style='darkgrid')
 
 
 def plot(function, ndim):
@@ -70,13 +72,13 @@ def plot(function, ndim):
 
 
 class Fig4(MAES):
-    def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
+    def optimize(self, fitness_function=None, args=None):
         fit = ES.optimize(self, fitness_function)
         z, d, mean, s, tm, y = self.initialize()
         best_f, stepsize = [], []  # for plotting data
         while True:
-            z, d, y = self.iterate(z, d, mean, tm, y, args)  # sample and evaluate offspring population
-            if self.record_fitness:
+            z, d, y = self.iterate(z, d, mean, tm, y, args)
+            if self.saving_fitness:
                 fit.extend(y)
             best_f.append(np.min(y))
             stepsize.append(self.sigma)
@@ -93,6 +95,7 @@ class Fig4(MAES):
 
 
 if __name__ == '__main__':
+    sns.set_theme(style='darkgrid')
     for f in [sphere, cigar, discus, ellipsoid]:
         for dim in [3, 30]:
             problem = {'fitness_function': f,
