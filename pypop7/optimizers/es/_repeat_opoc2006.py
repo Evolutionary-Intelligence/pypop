@@ -3,6 +3,12 @@
     A computational efficient covariance matrix update and a (1+1)-CMA for evolution strategies.
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 453-460). ACM.
     https://dl.acm.org/doi/abs/10.1145/1143997.1144082
+
+    All generated figures can be accessed via the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/opoc2006
+
+    Luckily our code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that the repeatability of `OPOC2006` could be **well-documented**.
 """
 import pickle
 

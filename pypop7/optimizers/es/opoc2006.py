@@ -45,6 +45,9 @@ class OPOC2006(ES):
        >>> print(f"OPOC2006: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        OPOC2006: 5000, 4.487260671217195e-16
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/w5xmyvd5>`_ for more details.
+
     References
     ----------
     Igel, C., Suttorp, T. and Hansen, N., 2006, July.
