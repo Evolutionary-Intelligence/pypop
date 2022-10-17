@@ -8,10 +8,10 @@ import time
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from pypop7.optimizers.es.opoc import OPOC as Solver
+from pypop7.optimizers.es.opoc2006 import OPOC2006 as Solver
 
 
-class TestOPOC(unittest.TestCase):
+class TestOPOC2006(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
         ndim_problem = 1000
@@ -27,9 +27,8 @@ class TestOPOC(unittest.TestCase):
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),  # mean
                        'sigma': 0.1,
-                       'verbose_frequency': 20000,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 200000}
+                       'verbose': 20000,
+                       'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
