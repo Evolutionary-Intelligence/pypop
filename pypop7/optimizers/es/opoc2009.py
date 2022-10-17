@@ -21,6 +21,34 @@ class OPOC2009(OPOC2006):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`).
 
+    Examples
+    --------
+    Use the `ES` optimizer `OPOC2009` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.es.opoc2009 import OPOC2009
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       >>> opoc2009 = OPOC2009(problem, options)  # initialize the optimizer class
+       >>> results = opoc2009.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"OPOC2009: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       OPOC2009: 5000, 1.272623066137026e-16
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/3ba4ctny>`_ for more details.
+
     References
     ----------
     Suttorp, T., Hansen, N. and Igel, C., 2009.
