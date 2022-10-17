@@ -78,10 +78,7 @@ class OPOC2006(ES):
         z = self.rng_optimization.standard_normal((self.ndim_problem,))
         x = mean + self.sigma*np.dot(a, z)
         y = self._evaluate_fitness(x, args)
-        if y <= best_so_far_y:
-            l_s = 1
-        else:
-            l_s = 0
+        l_s = 1 if y <= best_so_far_y else 0
         p_s = (1.0 - self.c_p)*p_s + self.c_p*l_s
         self.sigma *= np.exp(self.lr_sigma*(p_s - self.p_ts)/(1.0 - self.p_ts))
         if y <= best_so_far_y:
