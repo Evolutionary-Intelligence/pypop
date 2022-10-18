@@ -178,7 +178,7 @@ Below [DEMOs](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/
 
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Corana et al.' Simulated Annealing (**CSA**) [See [Corana et al., 1987, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
 
-* **Genetic Algorithms (GA)** [see e.g. [Forrest, 1993, Science](https://www.science.org/doi/abs/10.1126/science.8346439); [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
+* **Genetic Algorithms (GA)** [see e.g. [Forrest, 1993, Science](https://www.science.org/doi/abs/10.1126/science.8346439); [Holland, 1973, SICOMP](https://epubs.siam.org/doi/10.1137/0202009); [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
 
 * **Evolutionary Programming ([EP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/ep.py))** [see e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
 
@@ -455,6 +455,8 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
 
   * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). In Proceedings of International Conference on Genetic Algorithms (pp. 116-121).
+
+  * Holland, J.H., 1973. [Genetic algorithms and the optimal allocation of trials](https://epubs.siam.org/doi/10.1137/0202009). SIAM Journal on Computing, 2(2), pp.88-105.
 
   * Holland, J.H., 1962. [Outline for a logical theory of adaptive systems](https://dl.acm.org/doi/10.1145/321127.321128). Journal of the ACM, 9(3), pp.297-314.
 
