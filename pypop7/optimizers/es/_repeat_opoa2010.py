@@ -1,3 +1,15 @@
+"""Repeat the following paper for `OPOA2010`:
+    Arnold, D.V. and Hansen, N., 2010, July.
+    Active covariance matrix adaptation for the (1+1)-CMA-ES.
+    In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 385-392). ACM.
+    https://dl.acm.org/doi/abs/10.1145/1830483.1830556
+
+    All generated figures can be accessed via the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/opoa2010
+
+    Luckily our code could repeat the data reported in the original paper *nearly well*.
+    Therefore, we argue that the repeatability of `OPOA2010` could be **well-documented**.
+"""
 import pickle
 
 import numpy as np
