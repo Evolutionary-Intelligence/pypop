@@ -1,0 +1,4 @@
+(1+1)-Active-CMA-ES 2010 (OPOA2010)
+===================================
+
+.. autoclass:: pypop7.optimizers.es.opoa2010.OPOA2010

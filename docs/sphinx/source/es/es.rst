@@ -17,6 +17,7 @@ Evolution Strategies (ES)
    lmcmaes
    fmaes
    maes
+   opoa2010
    opoc2009
    sepcmaes
    opoc2006
