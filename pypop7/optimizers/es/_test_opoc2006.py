@@ -5,6 +5,7 @@
 """
 import unittest
 import time
+
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
