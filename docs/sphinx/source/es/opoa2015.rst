@@ -1,0 +1,4 @@
+(1+1)-Active-CMA-ES 2015 (OPOA2015)
+===================================
+
+.. autoclass:: pypop7.optimizers.es.opoa2015.OPOA2015
