@@ -19,6 +19,7 @@ Evolution Strategies (ES)
    maes
    opoa2015
    opoa2010
+   ccmaes2009
    opoc2009
    sepcmaes
    opoc2006
