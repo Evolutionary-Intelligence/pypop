@@ -24,6 +24,50 @@ def cholesky_update(rm, z, downdate):
 class OPOA2015(ES):
     """(1+1)-Active-CMA-ES 2015 (OPOA2015).
 
+    Parameters
+    ----------
+    problem : `dict`
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : `dict`
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`).
+
+    Examples
+    --------
+    Use the `ES` optimizer `OPOA2015` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.es.opoa2015 import OPOA2015
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       >>> opoa2015 = OPOA2015(problem, options)  # initialize the optimizer class
+       >>> results = opoa2015.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"OPOA2015: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       OPOA2015: 5000, 6.710440903901067e-16
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/mrxu4suj>`_ for more details.
+
+    References
+    ----------
     Krause, O. and Igel, C., 2015, January.
     A more efficient rank-one covariance matrix update for evolution strategies.
     In Proceedings of ACM Conference on Foundations of Genetic Algorithms (pp. 129-136).
