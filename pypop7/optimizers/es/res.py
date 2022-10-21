@@ -8,11 +8,11 @@ class RES(ES):
 
     .. note:: `RES` is the first ES with self-adaptation of the **global** step-size, designed by Rechenberg. As
        theoretically investigated in his seminal PhD dissertation, the existence of the narrow **evolution
-       window** eplains the necessarity of step-size self-adaptation to maximize (local) convergence progress.
+       window** eplains the necessarity of step-size adaptation to maximize (local) convergence progress.
 
        Since there is only one parent and only one offspring for each generation, `RES` generally shows very
        limited *exploration* ability for large-scale black-box optimization (LSBBO). Therefore, it is **highly
-       recommended** to first attempt other more advanced ES variants (e.g. `LM-CMA`, `LM-MA-ES`) for LSBBO.
+       recommended** to first attempt other more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for LSBBO.
        Here we include it only for *benchmarking* and *theoretical* purpose.
 
        AKA two-membered evolution strategy (which can also be seen as gradient climbing).
@@ -28,17 +28,21 @@ class RES(ES):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
-                * 'lr_sigma'     - learning rate of global step-size (`float`, default:
+                * 'sigma'    - initial global step-size, aka mutation strength (`float`),
+                * 'mean'     - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'lr_sigma' - learning rate of global step-size adaptation (`float`, default:
                   `1.0/np.sqrt(self.ndim_problem + 1.0)`).
 
     Examples
     --------
-    Use the ES optimizer `RES` to minimize the well-known test function
+    Use the `ES` optimizer `RES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -49,12 +53,12 @@ class RES(ES):
        >>> from pypop7.optimizers.es.res import RES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3 * numpy.ones((2,)),
-       ...            'sigma': 0.1}
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> res = RES(problem, options)  # initialize the optimizer class
        >>> results = res.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -66,12 +70,12 @@ class RES(ES):
 
     Attributes
     ----------
-    mean     : `array_like`
-               mean of Gaussian search distribution.
-    sigma    : `float`
-               mutation strength.
     lr_sigma : `float`
-               learning rate of global step-size.
+               learning rate of global step-size adaptation.
+    mean     : `array_like`
+               initial mean of Gaussian search distribution.
+    sigma    : `float`
+               final global step-size, aka mutation strength.
 
     References
     ----------
@@ -99,7 +103,7 @@ class RES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        if self.lr_sigma is None:  # for Line 5 (1 / d)
+        if self.lr_sigma is None:  # for Line 5
             self.lr_sigma = 1.0/np.sqrt(self.ndim_problem + 1.0)
         assert self.lr_sigma > 0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.'
 
@@ -110,10 +114,9 @@ class RES(ES):
         return mean, y, best_so_far_y
 
     def iterate(self, args=None, mean=None):
-        # sample and evaluate (only one) offspring (Line 4 and 5)
+        # sample and evaluate only one offspring (Line 4 and 5)
         x = mean + self.sigma*self.rng_optimization.standard_normal((self.ndim_problem,))
         y = self._evaluate_fitness(x, args)
-        self._n_generations += 1
         return x, y
 
     def restart_reinitialize(self, args=None, mean=None, y=None, best_so_far_y=None, fitness=None):
@@ -123,11 +126,14 @@ class RES(ES):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
-            self.sigma = np.copy(self._sigma_bak)
-            mean, y, best_so_far_y = self.initialize(args, is_restart)
-            fitness.append(y)
             self._n_restart += 1
+            self.sigma = np.copy(self._sigma_bak)
+            mean, y, best_so_far_y = self.initialize(args, True)
+            if self.saving_fitness:
+                fitness.append(y)
             self._fitness_list = [best_so_far_y]
+            self._print_verbose_info(y)
+            self._n_generations = 1
         return mean, y, best_so_far_y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
@@ -136,16 +142,19 @@ class RES(ES):
         if self.saving_fitness:
             fitness.append(y)
         self._print_verbose_info(y)
+        self._n_generations = 1
         while True:
             x, y = self.iterate(args, mean)
             if self.saving_fitness:
                 fitness.append(y)
+            self._print_verbose_info(y)
+            self._n_generations += 1
             if self._check_terminations():
                 break
             self.sigma *= np.power(np.exp(float(y < best_so_far_y) - 1.0/5.0), self.lr_sigma)
-            self._print_verbose_info(y)
             if y < best_so_far_y:
                 mean, best_so_far_y = x, y
             if self.is_restart:
-                mean, y, best_so_far_y = self.restart_reinitialize(args, mean, y, best_so_far_y, fitness)
+                mean, y, best_so_far_y = self.restart_reinitialize(
+                    args, mean, y, best_so_far_y, fitness)
         return self._collect_results(fitness, mean)
