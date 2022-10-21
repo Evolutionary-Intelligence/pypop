@@ -9,7 +9,7 @@ class FMAES(MAES):
        with the combination of matrix-matrix addition and matrix-vector multiplication (*quadractic time complexity*)
        for covariance matrix adaptation (CMA).
 
-       It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LM-CMA`, `LM-MA-ES`) for
+       It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for
        large-scale black-box optimization, since `FMAES` still has a computationally-intensive *quadratic* time
        complexity w.r.t. each sampling.
 
