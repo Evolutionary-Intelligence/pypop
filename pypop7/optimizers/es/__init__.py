@@ -7,8 +7,10 @@ from pypop7.optimizers.es.saes import SAES
 from pypop7.optimizers.es.opoc2006 import OPOC2006
 from pypop7.optimizers.es.sepcmaes import SEPCMAES
 from pypop7.optimizers.es.opoc2009 import OPOC2009
+from pypop7.optimizers.es.ccmaes2009 import CCMAES2009
 from pypop7.optimizers.es.opoa2010 import OPOA2010
 from pypop7.optimizers.es.opoa2015 import OPOA2015
+from pypop7.optimizers.es.ccmaes2016 import CCMAES2016
 from pypop7.optimizers.es.maes import MAES
 from pypop7.optimizers.es.fmaes import FMAES
 from pypop7.optimizers.es.r1es import R1ES
@@ -21,5 +23,5 @@ from pypop7.optimizers.es.mmes import MMES
 
 __all__ = [ES,  # base (abstract) class
            RES, SSAES, DSAES, CSAES, SAES,  # representative ES versions during development
-           OPOC2006, OPOC2009, OPOA2010, OPOA2015, MAES, FMAES,  # modern ES versions often with SOTA performance
+           OPOC2006, OPOC2009, CCMAES2009, OPOA2010, OPOA2015, CCMAES2016, MAES, FMAES,  # modern ES versions
            SEPCMAES, R1ES, RMES, LMCMAES, LMCMA, LMMAES, MMES]  # especially for large-scale black-box optimization
