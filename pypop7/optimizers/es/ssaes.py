@@ -6,10 +6,10 @@ from pypop7.optimizers.es.es import ES
 class SSAES(ES):
     """Schwefel's Self-Adaptation Evolution Strategy (SSAES).
 
-    .. note:: `SSAES` adapts the *individual* step-sizes on-the-fly, proposed by Schwefel. Since it needs the
-       *relatively large* populations (e.g. larger than number of dimensions) for reliable adaptation, `SSAES`
-       easily suffers from *slow* convergence for large-scale black-box optimization (LSBBO). Therefore, it is
-       **highly recommended** to first attempt other more advanced ES variants (e.g. `LM-CMA`, `LM-MA-ES`) for
+    .. note:: `SSAES` adapts all the *individual* step-sizes on-the-fly, proposed by Schwefel. Since it needs the
+       *relatively large* populations (e.g. larger than number of dimensionality) for reliable self-adaptation,
+       `SSAES` easily suffers from *very slow* convergence for large-scale black-box optimization (LSBBO). Therefore,
+       it is **highly recommended** to first attempt other more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for
        LSBBO. Here we include it only for *benchmarking* and *theoretical* purpose.
 
     Parameters
@@ -23,23 +23,27 @@ class SSAES(ES):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'mean'           - initial (starting) point, mean of Gaussian search distribution (`array_like`),
-                * 'sigma'          - initial global step-size (σ), mutation strength (`float`),
-                * 'n_individuals'  - number of offspring (λ: lambda), offspring population size (`int`, default:
-                  `5*problem['ndim_problem']`),
-                * 'n_parents'      - number of parents (μ: mu), parental population size (`int`, default:
+                * 'sigma'    - initial global step-size, aka mutation strength (`float`),
+                * 'mean'     - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'n_individuals'  - number of offspring, aka offspring population size (`int`, default:
+                  `5*problem.get('ndim_problem')`),
+                * 'n_parents'      - number of parents, aka parental population size (`int`, default:
                   `int(options['n_individuals']/4)`),
-                * 'lr_sigma'       - learning rate of global step-size (`float`, default:
-                  `1.0/np.sqrt(problem['ndim_problem']`),
-                * 'lr_axis_sigmas' - learning rate of individual step-sizes (`float`, default:
-                  `1.0/np.power(problem['ndim_problem'], 1.0/4.0)`).
+                * 'lr_sigma'       - learning rate of global step-size adaptation (`float`, default:
+                  `1.0/np.sqrt(self.ndim_problem)`),
+                * 'lr_axis_sigmas' - learning rate of individual step-sizes adaptation (`float`, default:
+                  `1.0/np.power(self.ndim_problem, 1.0/4.0)`).
 
     Examples
     --------
-    Use the ES optimizer `SSAES` to minimize the well-known test function
+    Use the `ES` optimizer `SSAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -50,12 +54,12 @@ class SSAES(ES):
        >>> from pypop7.optimizers.es.ssaes import SSAES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3 * numpy.ones((2,)),
-       ...            'sigma': 0.1}
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> ssaes = SSAES(problem, options)  # initialize the optimizer class
        >>> results = ssaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -64,18 +68,18 @@ class SSAES(ES):
 
     Attributes
     ----------
-    n_individuals  : `int`
-                     number of offspring (λ: lambda), offspring population size.
-    n_parents      : `int`
-                     number of parents (μ: mu), parental population size.
-    mean           : `array_like`
-                     mean of Gaussian search distribution.
-    sigma          : `float`
-                     mutation strength (`float`).
-    lr_sigma       : `float`
-                     learning rate of global step-size.
     lr_axis_sigmas : `float`
-                     learning rate of individual step-sizes.
+                     learning rate of individual step-sizes adaptation.
+    lr_sigma       : `float`
+                     learning rate of global step-size adaptation.
+    mean           : `array_like`
+                     initial mean of Gaussian search distribution.
+    n_individuals  : `int`
+                     number of offspring, aka offspring population size.
+    n_parents      : `int`
+                     number of parents, aka parental population size.
+    sigma          : `float`
+                     final global step-size, aka mutation strength.
 
     References
     ----------
@@ -91,11 +95,11 @@ class SSAES(ES):
             options['n_parents'] = int(options['n_individuals']/4)
         ES.__init__(self, problem, options)
         if self.lr_sigma is None:
-            self.lr_sigma = 1.0/np.sqrt(self.ndim_problem)  # learning rate of global step-size
+            self.lr_sigma = 1.0/np.sqrt(self.ndim_problem)  # learning rate of global step-size adaptation
         assert self.lr_sigma > 0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.'
-        # set learning rate of individual step-sizes
+        # set learning rate of individual step-sizes adaptation
         self.lr_axis_sigmas = options.get('lr_axis_sigmas', 1.0/np.power(self.ndim_problem, 1.0/4.0))
-        self._axis_sigmas = self.sigma * np.ones((self.ndim_problem,))  # individual step-sizes
+        self._axis_sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
 
     def initialize(self):
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
