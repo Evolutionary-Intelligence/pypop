@@ -132,6 +132,8 @@ class RES(ES):
             if self.saving_fitness:
                 fitness.append(y)
             self._fitness_list = [best_so_far_y]
+            if self.verbose:
+                print(' ....... restart .......')
             self._print_verbose_info(y)
             self._n_generations = 1
         return mean, y, best_so_far_y
