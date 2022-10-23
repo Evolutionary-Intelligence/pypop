@@ -6,8 +6,8 @@ from pypop7.optimizers.es.es import ES
 class DSAES(ES):
     """Derandomized Self-Adaptation Evolution Strategy (DSAES).
 
-    .. note:: `DSAES` adapts the *individual* step-sizes on-the-fly with *small* populations. To obtain
-       satisfactory performance for large-scale black-box optimization, the number of offspring may
+    .. note:: `DSAES` adapts all the *individual* step-sizes on-the-fly with *relatively small* populations.
+       To obtain satisfactory performance for large-scale black-box optimization, the number of offspring may
        need to be carefully tuned.
 
     Parameters
@@ -21,17 +21,21 @@ class DSAES(ES):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
-                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default: `10`),
-                * 'lr_sigma'      - learning rate of global step-size (`float`, default: `1.0/3.0`).
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'mean'          - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `10`),
+                * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default: `1.0/3.0`).
 
     Examples
     --------
-    Use the ES optimizer `DSAES` to minimize the well-known test function
+    Use the `ES` optimizer `DSAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -42,12 +46,12 @@ class DSAES(ES):
        >>> from pypop7.optimizers.es.dsaes import DSAES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3 * numpy.ones((2,)),
-       ...            'sigma': 0.1}
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> dsaes = DSAES(problem, options)  # initialize the optimizer class
        >>> results = dsaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -56,14 +60,14 @@ class DSAES(ES):
 
     Attributes
     ----------
-    n_individuals : `int`
-                    number of offspring (λ: lambda), offspring population size.
-    mean          : `array_like`
-                    mean of Gaussian search distribution.
-    sigma         : `float`
-                    mutation strength.
     lr_sigma      : `float`
-                    learning rate of global step-size.
+                    learning rate of global step-size adaptation.
+    mean          : `array_like`
+                    initial mean of Gaussian search distribution.
+    n_individuals : `int`
+                    number of offspring, aka offspring population size.
+    sigma         : `float`
+                    final global step-size, aka mutation strength.
 
     References
     ----------
@@ -82,7 +86,7 @@ class DSAES(ES):
         if options.get('n_individuals') is None:
             options['n_individuals'] = 10
         ES.__init__(self, problem, options)
-        if self.lr_sigma is None:
+        if self.lr_sigma is None:  # learning rate of global step-size adaptation
             self.lr_sigma = 1.0/3.0
         self._axis_sigmas = None
         self._e_hnd = np.sqrt(2.0/np.pi)  # E[|N(0,1)|]: expectation of half-normal distribution
@@ -111,7 +115,7 @@ class DSAES(ES):
             y[k] = self._evaluate_fitness(x[k], args)
         return x, sigmas, y
 
-    def _restart_reinitialize(self):
+    def restart_reinitialize(self, x=None, mean=None, sigmas=None, y=None):
         self._fitness_list.append(self.best_so_far_y)
         is_restart_1, is_restart_2 = np.all(self._axis_sigmas < self.sigma_threshold), False
         if len(self._fitness_list) >= self.stagnation:
@@ -123,11 +127,7 @@ class DSAES(ES):
             self._n_generations = 0
             self._fitness_list = [np.Inf]
             if self.verbose:
-                print(' ...*... restart ...*...')
-        return is_restart
-
-    def restart_reinitialize(self, x=None, mean=None, sigmas=None, y=None):
-        if self._restart_reinitialize():
+                print(' ....... restart .......')
             x, mean, sigmas, y = self.initialize(True)
         return x, mean, sigmas, y
 
