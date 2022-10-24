@@ -127,6 +127,7 @@ class RES(ES):
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
             self._n_restart += 1
+            self._n_generations = 0
             self.sigma = np.copy(self._sigma_bak)
             mean, y, best_so_far_y = self.initialize(args, True)
             if self.saving_fitness:
