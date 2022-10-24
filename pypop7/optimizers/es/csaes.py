@@ -63,7 +63,7 @@ class CSAES(DSAES):
        >>> results = csaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CSAES: 5000, 0.026416618757717083
+       CSAES: 5000, 0.010658832794896005
 
     Attributes
     ----------
