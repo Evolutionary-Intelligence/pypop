@@ -7,8 +7,8 @@ from pypop7.optimizers.es.dsaes import DSAES
 class CSAES(DSAES):
     """Cumulative Step-size Adaptation Evolution Strategy (CSAES).
 
-    .. note:: `CSAES` adapts the *individual* step-sizes on-the-fly with *small* populations, according to the
-       well-known `Cumulative Step-size Adaptation (CSA) <http://link.springer.com/chapter/10.1007/3-540-58484-6_263>`_
+    .. note:: `CSAES` adapts all the *individual* step-sizes on-the-fly with *relatively small* populations, according
+       to the well-known `Cumulative Step-size Adaptation <http://link.springer.com/chapter/10.1007/3-540-58484-6_263>`_
        rule from the evolutionary computation community.
 
        AKA cumulative path length control.
@@ -24,21 +24,25 @@ class CSAES(DSAES):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'mean'          - initial (starting) point, mean of Gaussian search distribution (`array_like`),
-                * 'sigma'         - initial global step-size (σ), mutation strength (`float`),
-                * 'n_individuals' - number of offspring (λ: lambda), offspring population size (`int`, default:
-                  `4 + int(np.floor(3*np.log(problem.get('ndim_problem'))))`),
-                * 'n_parents'     - number of parents (μ: mu), parental population size (`int`, default:
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'mean'          - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
+                  `4 + int(np.floor(3*np.log(problem['ndim_problem'])))`),
+                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
                   `int(options['n_individuals']/4)`),
-                * 'lr_sigma'     - learning rate of global step-size (`float`, default:
+                * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default:
                   `np.sqrt(options['n_parents']/(problem['ndim_problem'] + options['n_parents']))`).
 
     Examples
     --------
-    Use the ES optimizer `CSAES` to minimize the well-known test function
+    Use the `ES` optimizer `CSAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -49,12 +53,12 @@ class CSAES(DSAES):
        >>> from pypop7.optimizers.es.csaes import CSAES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3 * numpy.ones((2,)),
-       ...            'sigma': 0.1}
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> csaes = CSAES(problem, options)  # initialize the optimizer class
        >>> results = csaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -63,16 +67,16 @@ class CSAES(DSAES):
 
     Attributes
     ----------
-    n_individuals : `int`
-                    number of offspring (λ: lambda), offspring population size.
-    n_parents     : `int`
-                    number of parents (μ: mu), parental population size.
-    mean          : `array_like`
-                    mean of Gaussian search distribution.
-    sigma         : `float`
-                    mutation strength.
     lr_sigma      : `float`
-                    learning rate of global step-size.
+                    learning rate of global step-size adaptation.
+    mean          : `array_like`
+                    initial mean of Gaussian search distribution.
+    n_individuals : `int`
+                    number of offspring, aka offspring population size.
+    n_parents     : `int`
+                    number of parents, aka parental population size.
+    sigma         : `float`
+                    final global step-size, aka mutation strength.
 
     References
     ----------
@@ -89,17 +93,17 @@ class CSAES(DSAES):
     http://link.springer.com/chapter/10.1007/3-540-58484-6_263
     """
     def __init__(self, problem, options):
-        if options.get('n_individuals') is None:
-            options['n_individuals'] = 4 + int(np.floor(3*np.log(problem.get('ndim_problem'))))
-        if options.get('n_parents') is None:
+        if options.get('n_individuals') is None:  # number of offspring, aka offspring population size
+            options['n_individuals'] = 4 + int(np.floor(3*np.log(problem['ndim_problem'])))
+        if options.get('n_parents') is None:  # number of parents, aka parental population size
             options['n_parents'] = int(options['n_individuals']/4)
-        if options.get('lr_sigma') is None:
+        if options.get('lr_sigma') is None:  # learning rate of global step-size adaptation
             options['lr_sigma'] = np.sqrt(options['n_parents']/(
                     problem['ndim_problem'] + options['n_parents']))
         DSAES.__init__(self, problem, options)
         self._s_1 = None  # for Line 8
         self._s_2 = None  # for Line 8
-        # E[||N(0,I)||]: expectation of chi distribution
+        # set E[||N(0,I)||]: expectation of chi distribution
         self._e_chi = np.sqrt(self.ndim_problem)*(
                 1.0 - 1.0/(4.0*self.ndim_problem) + 1.0/(21.0*np.power(self.ndim_problem, 2)))
 
@@ -135,9 +139,20 @@ class CSAES(DSAES):
         return s, mean
 
     def restart_reinitialize(self, z=None, x=None, mean=None, s=None, y=None):
-        if self._restart_reinitialize():
+        self._fitness_list.append(self.best_so_far_y)
+        is_restart_1, is_restart_2 = np.all(self._axis_sigmas < self.sigma_threshold), False
+        if len(self._fitness_list) >= self.stagnation:
+            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
+        is_restart = bool(is_restart_1) or bool(is_restart_2)
+        if is_restart:
+            self._n_restart += 1
+            self.n_individuals *= 2
             self.n_parents = int(self.n_individuals/4)
             self.lr_sigma = np.sqrt(self.n_parents/(self.ndim_problem + self.n_parents))
+            self._n_generations = 0
+            self._fitness_list = [np.Inf]
+            if self.verbose:
+                print(' ....... restart .......')
             z, x, mean, s, y = self.initialize(True)
         return z, x, mean, s, y
 
