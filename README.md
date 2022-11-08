@@ -242,8 +242,6 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Miikkulainen, R. and Forrest, S., 2021. [A biological perspective on evolutionary computation](https://www.nature.com/articles/s42256-020-00278-8). Nature Machine Intelligence, 3(1), pp.9-15.
 
-  * Stork, J., Eiben, A.E. and Bartz-Beielstein, T., 2020. [A new taxonomy of global optimization algorithms](https://link.springer.com/article/10.1007/s11047-020-09820-4). Natural Computing, pp.1-24.
-
   * Beyer, H.G. and Deb, K., 2001. [On self-adaptive features in real-parameter evolutionary algorithms](https://ieeexplore.ieee.org/abstract/document/930314). IEEE Transactions on Evolutionary Computation, 5(3), pp.250-270.
 
   * Salomon, R., 1998. [Evolutionary algorithms and gradient search: Similarities and differences](https://ieeexplore.ieee.org/abstract/document/728207). IEEE Transactions on Evolutionary Computation, 2(2), pp.45-55.
@@ -255,6 +253,8 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Bäck, T. and Schwefel, H.P., 1993. [An overview of evolutionary algorithms for parameter optimization](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for). Evolutionary Computation, 1(1), pp.1-23.
 
   * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
+
+  * [Taxonomy](https://link.springer.com/article/10.1007/s11047-020-09820-4)
 
 * [https://sites.google.com/view/benchmarking-network](https://sites.google.com/view/benchmarking-network) | [PPSN-2022](https://sites.google.com/view/benchmarking-network/home/activities/ppsn-2022-workshop)
 
