@@ -410,7 +410,11 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
   * Rubinstein, R.Y. and Kroese, D.P., 2004. [The cross-entropy method: A unified approach to combinatorial optimization, Monte-Carlo simulation, and machine learning](https://link.springer.com/book/10.1007/978-1-4757-4321-0). New York: Springer.
   
-  * Applications: e.g., [Simmons-Edler et al., 2019, ICML-RL4RealLife](https://openreview.net/forum?id=SyeHbtgSiN)
+  * Applications: e.g., [Simmons-Edler et al., 2019, ICML-RL4RealLife](https://openreview.net/forum?id=SyeHbtgSiN).
+
+* Differential Evolution (DE)
+
+  * Applications: e.g., [Laganowsky et al., 2014, Nature](https://www.nature.com/articles/nature13419); [An et al., 2020, PNAS](https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117).
 
 * Particle Swarm Optimizer (PSO)
 
