@@ -414,7 +414,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
 * Differential Evolution (DE)
 
-  * Applications: e.g., [Laganowsky et al., 2014, Nature](https://www.nature.com/articles/nature13419); [An et al., 2020, PNAS](https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117).
+  * Applications: e.g., [Mehta et al., 2021, JCAP](https://iopscience.iop.org/article/10.1088/1475-7516/2021/07/033); [Laganowsky et al., 2014, Nature](https://www.nature.com/articles/nature13419); [An et al., 2020, PNAS](https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117).
 
 * Particle Swarm Optimizer (PSO)
 
