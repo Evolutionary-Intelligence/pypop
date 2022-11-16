@@ -72,6 +72,7 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
    cem/cem
    de/de
    pso/pso
+   sa/sa
    ga/ga
    ep/ep
    ds/ds
