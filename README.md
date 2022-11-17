@@ -455,46 +455,31 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Holland, J.H., 1973. [Genetic algorithms and the optimal allocation of trials](https://epubs.siam.org/doi/10.1137/0202009). SIAM Journal on Computing, 2(2), pp.88-105.
   * Holland, J.H., 1962. [Outline for a logical theory of adaptive systems](https://dl.acm.org/doi/10.1145/321127.321128). Journal of the ACM, 9(3), pp.297-314.
 
-* Wright, M.H., 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
-
+* Pattern Search
   * Audet, C., Le Digabel, S., Rochon Montplaisir, V. and Tribes, C., 2022. [Algorithm XXXX: NOMAD version 4: Nonlinear optimization with the MADS algorithm](https://dl.acm.org/doi/abs/10.1145/3544489). ACM Transactions on Mathematical Software.
-
   * Brent, R.P., 2013. [Algorithms for minimization without derivatives](https://maths-people.anu.edu.au/~brent/pub/pub011.html). Courier Corporation.
-
   * Singer, S. and Nelder, J., 2009. [Nelder-mead algorithm](http://var.scholarpedia.org/article/Nelder-Mead_algorithm). Scholarpedia, 4(7), p.2928.
-
   * Kolda, T.G., Lewis, R.M. and Torczon, V., 2003. [Optimization by direct search: New perspectives on some classical and modern methods](https://epubs.siam.org/doi/abs/10.1137/S003614450242889). SIAM Review, 45(3), pp.385-482.
-
   * Lagarias, J.C., Reeds, J.A., Wright, M.H. and Wright, P.E., 1998. [Convergence properties of the Nelder--Mead simplex method in low dimensions](https://epubs.siam.org/doi/abs/10.1137/S1052623496303470). SIAM Journal on Optimization, 9(1), pp.112-147.
-
   * Powell, M.J., 1998. [Direct search algorithms for optimization calculations](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C). Acta Numerica, 7, pp.287-336.
-
   * Torczon, V., 1997. [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780). SIAM Journal on Optimization, 7(1), pp.1-25.
-
+  * Wright, M.H., 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
   * Nelder, J.A. and Mead, R., 1965. [A simplex method for function minimization](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237). The Computer Journal, 7(4), pp.308-313.
-
   * Powell, M.J., 1964. [An efficient method for finding the minimum of a function of several variables without calculating derivatives](https://academic.oup.com/comjnl/article-abstract/7/2/155/335330). The Computer Journal, 7(2), pp.155-162.
-
   * Kaupe Jr, A.F., 1963. [Algorithm 178: Direct search](https://dl.acm.org/doi/pdf/10.1145/366604.366632). Communications of the ACM, 6(6), pp.313-314.
-
   * Spang, III, H.A., 1962. [A review of minimization techniques for nonlinear functions](https://epubs.siam.org/doi/abs/10.1137/1004089). SIAM Review, 4(4), pp.343-365.
-
   * Hooke, R. and Jeeves, T.A., 1961. [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069). Journal of the ACM, 8(2), pp.212-229. [ [Python - pymoo](https://pymoo.org/algorithms/soo/pattern.html) | [This Week's Citation Classic](http://garfield.library.upenn.edu/classics1980/A1980JK10100001.pdf) ]
-
   * Box, G.E., 1957. [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505). Journal of the Royal Statistical Society: Series C (Applied Statistics), 6(2), pp.81-101.
-
   * Fermi, E. and Metropolis N., 1952. [Numerical solution of a minimum problem](https://www.osti.gov/servlets/purl/4377177). Los Alamos Scientific Lab., Los Alamos, NM.
-  
     * Anderson, H.L., Davidon, W.C., Glicksman, M. and Kruse, U.E., 1955. [Scattering of positive pions by hydrogen at 189 MeV](https://journals.aps.org/pr/abstract/10.1103/PhysRev.100.279). Physical Review, 100(1), p.279.
-
   * Applications: e.g., [NM: [Sparrow et al., 2018, Nature](https://www.nature.com/articles/s41586-018-0152-9); [Gillon et al., Nature, 2017](https://www.nature.com/articles/nature21360); [Lau&Rubinstein, Nature, 2012](https://www.nature.com/articles/nature10699) ]; [HJ: [Khaledian et al., 2018, IEEE-TMTT](https://ieeexplore.ieee.org/abstract/document/8335770); [Luhar et al., 2015, JFM](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/framework-for-studying-the-effect-of-compliant-surfaces-on-wall-turbulence/47B8C79442109015690B6B16F891DF09); [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Schneider, 1999, Genetics](https://academic.oup.com/genetics/article/152/3/1079/6034947); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902)]
 
-* [https://bayesoptbook.com/](https://bayesoptbook.com/)
-
+* Bayesian Optimization (BO)
+  * [https://bayesoptbook.com/](https://bayesoptbook.com/)
   * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
 
-* Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
-
+* Software
+  * Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
   * Custódio, A.L., Scheinberg, K. and Nunes Vicente, L., 2017. [Methodologies and software for derivative-free optimization](https://epubs.siam.org/doi/abs/10.1137/1.9781611974683.ch37). Advances and Trends in Optimization with Engineering Applications, pp.495-506.
 
 ## Research Support
