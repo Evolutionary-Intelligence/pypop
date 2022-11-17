@@ -5,4 +5,5 @@ Simulated Annealing (SA)
    :maxdepth: 2
    :caption: SAs:
 
+   esa
    csa
