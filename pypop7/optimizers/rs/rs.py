@@ -25,7 +25,7 @@ class RS(Optimizer):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular setting (`key`):
                 * 'x' - initial (starting) point (`array_like`).
@@ -41,7 +41,7 @@ class RS(Optimizer):
     References
     ----------
     Gao, K. and Sener, O., 2022, June.
-    Generalizing Gaussian Smoothing for Random Search.
+    Generalizing Gaussian smoothing for random search.
     In International Conference on Machine Learning (pp. 7077-7101). PMLR.
     https://proceedings.mlr.press/v162/gao22f.html
 
