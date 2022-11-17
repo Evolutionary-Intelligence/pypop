@@ -444,14 +444,15 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
 * [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/)
 
+* Simulated Annealing (SA)
+  * Siarry, P., Berthiau, G., Durdin, F. and Haussy, J., 1997. [Enhanced simulated annealing for globally minimizing functions of many-continuous variables](https://dl.acm.org/doi/abs/10.1145/264029.264043). ACM Transactions on Mathematical Software, 23(2), pp.209-228.
+  * Corana, A., Marchesi, M., Martini, C. and Ridella, S., 1987. [Minimizing multimodal functions of continuous variables with the “simulated annealing” algorithm](https://dl.acm.org/doi/abs/10.1145/29380.29864). ACM Transactions on Mathematical Software, 13(3), pp.262-280. [ [Corrigenda](https://dl.acm.org/doi/10.1145/66888.356281) ]
+  * Kirkpatrick, S., Gelatt, C.D. and Vecchi, M.P., 1983. [Optimization by simulated annealing](https://science.sciencemag.org/content/220/4598/671). Science, 220(4598), pp.671-680.
+
 * Genetic Algorithm (GA)
-
   * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
-
   * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). In Proceedings of International Conference on Genetic Algorithms (pp. 116-121).
-
   * Holland, J.H., 1973. [Genetic algorithms and the optimal allocation of trials](https://epubs.siam.org/doi/10.1137/0202009). SIAM Journal on Computing, 2(2), pp.88-105.
-
   * Holland, J.H., 1962. [Outline for a logical theory of adaptive systems](https://dl.acm.org/doi/10.1145/321127.321128). Journal of the ACM, 9(3), pp.297-314.
 
 * Wright, M.H., 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
