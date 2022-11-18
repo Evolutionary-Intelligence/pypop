@@ -24,5 +24,5 @@ if __name__ == '__main__':
                    'verbose': 1e3}
         solver = Solver(problem, options)
         results = solver.optimize()
-        print(results)      # 4.093170247188027e-12 vs 0.19331169 (from pymoo)
+        print(results)      # 1.0402465133729777e-06 vs 1.60e+00 (from original paper)
         print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
