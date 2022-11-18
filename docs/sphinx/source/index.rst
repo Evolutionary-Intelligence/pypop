@@ -67,6 +67,7 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
 
    installation
    design-philosophy
+   tutorials/tutorials
    es/es
    eda/eda
    cem/cem
