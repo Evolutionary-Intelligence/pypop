@@ -477,6 +477,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 * Bayesian Optimization (BO)
   * [https://bayesoptbook.com/](https://bayesoptbook.com/)
   * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
+  * Wang, L., Fonseca, R. and Tian, Y., 2020. [Learning search space partition for black-box optimization using monte carlo tree search](https://proceedings.neurips.cc/paper/2020/hash/e2ce14e81dba66dbff9cbc35ecfdb704-Abstract.html). Advances in Neural Information Processing Systems, 33, pp.19511-19522. [ [Python](https://github.com/facebookresearch/LaMCTS) ]
 
 * Software
   * Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
