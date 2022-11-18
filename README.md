@@ -383,63 +383,37 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Schaul, T., 2011. [Studies in continuous black-box optimization](https://people.idsia.ch/~schaul/publications/thesis.pdf). Doctoral Dissertation, Technische Universität München.
 
 * Estimation of Distribution Algorithm (EDA)
-
   * Brookes, D., Busia, A., Fannjiang, C., Murphy, K. and Listgarten, J., 2020, July. [A view of estimation of distribution algorithms through the lens of expectation-maximization](https://dl.acm.org/doi/abs/10.1145/3377929.3389938). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 189-190). ACM.
-
   * Kabán, A., Bootkrajang, J. and Durrant, R.J., 2016. [Toward large-scale continuous EDA: A random matrix theory perspective](https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix). Evolutionary Computation, 24(2), pp.255-291.
-
   * Pelikan, M., Hauschild, M.W. and Lobo, F.G., 2015. [Estimation of distribution algorithms](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_45). In Springer Handbook of Computational Intelligence (pp. 899-928). Springer, Berlin, Heidelberg.
-
   * Dong, W., Chen, T., Tiňo, P. and Yao, X., 2013. [Scaling up estimation of distribution algorithms for continuous optimization](https://ieeexplore.ieee.org/document/6461934). IEEE Transactions on Evolutionary Computation, 17(6), pp.797-822.
-  
   * Hauschild, M. and Pelikan, M., 2011. [An introduction and survey of estimation of distribution algorithms](https://www.sciencedirect.com/science/article/abs/pii/S2210650211000435). Swarm and Evolutionary Computation, 1(3), pp.111-128.
-
   * Larrañaga, P. and Lozano, J.A. eds., 2001. [Estimation of distribution algorithms: A new tool for evolutionary computation](https://link.springer.com/book/10.1007/978-1-4615-1539-5). Springer Science & Business Media.
-  
   * Pelikan, M., Goldberg, D.E. and Cantú-Paz, E., 1999, July. [BOA: The Bayesian optimization algorithm](https://dl.acm.org/doi/abs/10.5555/2933923.2933973). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 525-532). ACM.
-
   * Mühlenbein, H., 1997. [The equation for response to selection and its use for prediction](https://tinyurl.com/yt78c786).  Evolutionary Computation, 5(3), pp.303-346.
 
 * Cross-Entropy Method (CEM)
-
   * Amos, B. and Yarats, D., 2020, November. [The differentiable cross-entropy method](https://proceedings.mlr.press/v119/amos20a.html). In International Conference on Machine Learning (pp. 291-302). PMLR.
-
   * Rubinstein, R.Y. and Kroese, D.P., 2016. [Simulation and the Monte Carlo method (Third Edition)](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980). John Wiley & Sons.
-
   * De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005. [A tutorial on the cross-entropy method](https://link.springer.com/article/10.1007/s10479-005-5724-z). Annals of Operations Research, 134(1), pp.19-67.
-
   * Rubinstein, R.Y. and Kroese, D.P., 2004. [The cross-entropy method: A unified approach to combinatorial optimization, Monte-Carlo simulation, and machine learning](https://link.springer.com/book/10.1007/978-1-4757-4321-0). New York: Springer.
-  
   * Applications: e.g., [Simmons-Edler et al., 2019, ICML-RL4RealLife](https://openreview.net/forum?id=SyeHbtgSiN).
 
 * Differential Evolution (DE)
-
   * Applications: e.g., [Mehta et al., 2021, JCAP](https://iopscience.iop.org/article/10.1088/1475-7516/2021/07/033); [Laganowsky et al., 2014, Nature](https://www.nature.com/articles/nature13419); [An et al., 2020, PNAS](https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117).
 
 * Particle Swarm Optimizer (PSO)
-
   * Weiel, M., Götz, M., Klein, A., Coquelin, D., Floca, R. and Schug, A., 2021. [Dynamic particle swarm optimization of biomolecular simulation parameters with flexible objective functions](https://www.nature.com/articles/s42256-021-00366-3). Nature Machine Intelligence, 3(8), pp.727-734.
-
   * Bonyadi, M.R. and Michalewicz, Z., 2017. [Particle swarm optimization for single objective continuous space problems: A review](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective). Evolutionary Computation, 25(1), pp.1-54.
-
   * Escalante, H.J., Montes, M. and Sucar, L.E., 2009. [Particle swarm model selection](https://www.jmlr.org/papers/v10/escalante09a.html). Journal of Machine Learning Research, 10(15), pp.405−440.
-
   * Floreano, D. and Mattiussi, C., 2008. [Bio-inspired artificial intelligence: Theories, methods, and technologies](https://mitpress.mit.edu/9780262062718/bio-inspired-artificial-intelligence/). MIT Press.
-
   * Poli, R., Kennedy, J. and Blackwell, T., 2007. [Particle swarm optimization](https://link.springer.com/article/10.1007/s11721-007-0002-0). Swarm Intelligence, 1(1), pp.33-57.
-
   * Venter, G. and Sobieszczanski-Sobieski, J., 2003. [Particle swarm optimization](https://arc.aiaa.org/doi/abs/10.2514/2.2111). AIAA Journal, 41(8), pp.1583-1589.
-
   * Parsopoulos, K.E. and Vrahatis, M.N., 2002. [Recent approaches to global optimization problems through particle swarm optimization](https://link.springer.com/article/10.1023/A:1016568309421). Natural Computing, 1(2), pp.235-306.
-
   * Clerc, M. and Kennedy, J., 2002. [The particle swarm-explosion, stability, and convergence in a multidimensional complex space](https://ieeexplore.ieee.org/abstract/document/985692). IEEE Transactions on Evolutionary Computation, 6(1), pp.58-73.
-
   * Eberhart, R.C., Shi, Y. and Kennedy, J., 2001. [Swarm intelligence](https://www.elsevier.com/books/swarm-intelligence/eberhart/978-1-55860-595-4). Elsevier.
-
   * Shi, Y. and Eberhart, R., 1998, May. [A modified particle swarm optimizer](https://ieeexplore.ieee.org/abstract/document/699146). In IEEE World Congress on Computational Intelligence (pp. 69-73). IEEE.
-
   * Kennedy, J. and Eberhart, R., 1995, November. [Particle swarm optimization](https://ieeexplore.ieee.org/document/488968). In Proceedings of International Conference on Neural Networks (pp. 1942-1948). IEEE.
-
   * Applications: e.g., [Pontani&Conway, 2010, JGCD](https://arc.aiaa.org/doi/abs/10.2514/1.48475); [Hassan et al., 2005, AIAA](https://arc.aiaa.org/doi/abs/10.2514/6.2005-1897).
 
 * [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/)
