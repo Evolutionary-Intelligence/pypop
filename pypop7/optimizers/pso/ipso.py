@@ -92,10 +92,8 @@ class IPSO(PSO):
             xx = xx + self.rng_initialization.uniform(size=(self.ndim_problem,)) * (n_x[-1] - xx)
             yy = self._evaluate_fitness(xx, args)  # fitness evaluation
             v = np.vstack((v, np.zeros((self.ndim_problem,))))
-            x = np.vstack((x, xx))
-            y = np.hstack((y, yy))
-            p_x = np.vstack((p_x, xx))
-            p_y = np.hstack((p_y, yy))
+            x, y = np.vstack((x, xx)), np.hstack((y, yy))
+            p_x, p_y = np.vstack((p_x, xx)), np.hstack((p_y, yy))
             n_x = np.vstack((n_x, p_x[np.argmin(p_y)]))
             self.n_individuals += 1
         self._n_generations += 1

@@ -53,9 +53,9 @@ class IPSOLS(PSO):
         self.cognition = options.get('cognition', 2.05)  # cognitive learning rate
         self.society = options.get('society', 2.05)  # social learning rate
         self.constriction = options.get('constriction', 0.729)  # constriction factor
-
-        self.e = np.ones((self.n_individuals,))
-        self.tolerance = 0.01
+        # for local search
+        self.e = np.ones((self.n_individuals,))  # Whether a local search should be invoked for particles or not
+        self.powell_tolerance = 0.01  # Powell's method tolerance
         self.powell_max_iterations = 10  # Powell's method maximum number of iterations
         self.powell_step_size = 0.2  # Powell's method step size: 20% of the length of the search range
 
@@ -69,9 +69,10 @@ class IPSOLS(PSO):
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return v, x, y, p_x, p_y, n_x
-            if self.e[i]:
-                x[i] = minimize(self.fitness_function, x[i], method="Powell", tol=self.tolerance,
-                                options={"maxiter": self.powell_max_iterations})
+            res = minimize(self.fitness_function, x[i], method="Powell",
+                           tol=self.powell_tolerance, options={"maxiter": self.powell_max_iterations})
+            self.n_function_evaluations += (res.nfev - 1)
+            x[i] = res.x
             y[i] = self._evaluate_fitness(x[i], args)
         p_y = np.copy(y)
         return v, x, y, p_x, p_y, n_x
@@ -79,7 +80,17 @@ class IPSOLS(PSO):
     def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None):
         for i in range(self.n_individuals):
             if self.e[i]:
-                pass
+                if self._check_terminations():
+                    return v, x, y, p_x, p_y, n_x
+                res = minimize(self.fitness_function, x[i], method="Powell",
+                               tol=self.powell_tolerance, options={"maxiter": self.powell_max_iterations})
+                self.n_function_evaluations += (res.nfev - 1)
+                x[i] = res.x
+                y[i] = self._evaluate_fitness(x[i], args)
+                if y[i] < p_y[i]:
+                    p_x[i], p_y[i] = x[i], y[i]
+                if res.success:
+                    self.e[i] = 0
 
         # Horizontal social learning
         for i in range(self.n_individuals):
@@ -88,14 +99,15 @@ class IPSOLS(PSO):
             n_x[i] = p_x[np.argmin(p_y)]  # online update within global topology
             cognition_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
             society_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
-            v[i] = self.constriction*(v[i] + self.cognition*cognition_rand * (p_x[i] - x[i]) +
-                                        self.society*society_rand*(n_x[i] - x[i]))  # velocity update
+            v[i] = self.constriction * (v[i] + self.cognition * cognition_rand * (p_x[i] - x[i]) +
+                                        self.society * society_rand * (n_x[i] - x[i]))  # velocity update
             min_v, max_v = v[i] < self._min_v, v[i] > self._max_v
             v[i, min_v], v[i, max_v] = self._min_v[min_v], self._max_v[max_v]
             x[i] += v[i]  # position update
             y[i] = self._evaluate_fitness(x[i], args)  # fitness evaluation
             if y[i] < p_y[i]:  # online update
                 p_x[i], p_y[i] = x[i], y[i]
+                self.e[i] = 1  # not converged to a local optimum
 
         # Population growth and vertical social learning
         if self.n_individuals < self.max_n_individuals:
@@ -105,10 +117,8 @@ class IPSOLS(PSO):
             xx = xx + self.rng_initialization.uniform(size=(self.ndim_problem,)) * (n_x[-1] - xx)
             yy = self._evaluate_fitness(xx, args)  # fitness evaluation
             v = np.vstack((v, np.zeros((self.ndim_problem,))))
-            x = np.vstack((x, xx))
-            y = np.hstack((y, yy))
-            p_x = np.vstack((p_x, xx))
-            p_y = np.hstack((p_y, yy))
+            x, y = np.vstack((x, xx)), np.hstack((y, yy))
+            p_x, p_y = np.vstack((p_x, xx)), np.hstack((p_y, yy))
             n_x = np.vstack((n_x, p_x[np.argmin(p_y)]))
             self.e = np.hstack((self.e, 1))
             self.n_individuals += 1
