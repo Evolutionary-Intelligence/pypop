@@ -1,6 +1,13 @@
 Tutorials
 =========
 
+Here we provide several interesting examples to help `newbie` better use this library by studying and running them.
+
+* Lens Shape Optimization (15-dimensional)
+
+For all optimizers from this library `PyPop7`, we also provide a *toy* example on their corresponding
+`API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_ documentations.
+
 Lens Shape Optimization
 -----------------------
 
