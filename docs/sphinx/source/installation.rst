@@ -12,6 +12,9 @@ Pip via Python Package Index (PyPI)
 
     pip install pypop7
 
+Note that `pip <https://pip.pypa.io/en/stable/>`_ is the package installer for Python. You can use it to install
+various packages from the Python Package Index (PyPI).
+
 Conda-based Virtual Environment
 -------------------------------
 
