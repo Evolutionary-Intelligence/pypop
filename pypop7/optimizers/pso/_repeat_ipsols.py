@@ -20,9 +20,10 @@ if __name__ == '__main__':
                    'ndim_problem': ndim_problem,
                    'lower_boundary': -32.768 * np.ones((ndim_problem,)),
                    'upper_boundary': 32.768 * np.ones((ndim_problem,))}
-        options = {'max_function_evaluations': 1e6,
+        options = {'seed_rng': 0,  # not given in the original paper
+                   'max_function_evaluations': 1e6,
                    'verbose': 1e3}
         solver = Solver(problem, options)
         results = solver.optimize()
-        print(results)      # 5.268099290134387e-09 vs 5.91e-10 (from original paper)
+        print(results)      # 1.4559745853404138e-08 vs 5.91e-10 (from original paper)
         print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
