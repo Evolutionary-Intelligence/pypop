@@ -44,8 +44,8 @@ First, generate shift vectors and rotation matrices needed in the experiments:
         import time
         import numpy as np
 
-        from pypop7.shifted_functions import generate_shift_vector
-        from pypop7.rotated_functions import generate_rotation_matrix
+        from pypop7.benchmarks.shifted_functions import generate_shift_vector
+        from pypop7.benchmarks.rotated_functions import generate_rotation_matrix
 
 
         def generate_sv_and_rm(functions=None, ndims=None, seed=None):
@@ -89,7 +89,7 @@ Then, invoke different optimizers on these (rotated and shifted) test functions:
 
         import numpy as np
 
-        import pypop7.continuous_functions as cf
+        import pypop7.benchmarks.continuous_functions as cf
 
 
         class Experiment(object):
@@ -155,8 +155,8 @@ Then, invoke different optimizers on these (rotated and shifted) test functions:
         if __name__ == '__main__':
             start_runtime = time.time()
             parser = argparse.ArgumentParser()
-            parser.add_argument('--start', '-s', type=int)
-            parser.add_argument('--end', '-e', type=int)
+            parser.add_argument('--start', '-s', type=int)  # starting index of experiments (from 0 to 49)
+            parser.add_argument('--end', '-e', type=int)  # ending index of experiments (from 0 to 49)
             parser.add_argument('--optimizer', '-o', type=str)
             parser.add_argument('--ndim_problem', '-d', type=int, default=2000)
             args = parser.parse_args()
@@ -183,3 +183,9 @@ Please run the above code (named as `run_experiments.py`) in the background, sin
     .. code-block:: bash
 
         $ nohup python run_experiments.py -s=1 -e=2 -o=LMCMA >LMCMA_1_2.out 2>&1 &  # on Linux
+
+Benchmarking on the Famous NeverGrad Platform
+---------------------------------------------
+
+Benchmarking on the Well-Designed COCO Platform
+-----------------------------------------------
