@@ -70,7 +70,7 @@ First, generate shift vectors and rotation matrices needed in the experiments:
                     start_time = time.time()
                     generate_rotation_matrix(f, d, seeds[i, j])
                     print('* {:d}-d {:s}: runtime {:7.5e}'.format(
-                        d, f.__name__, time.time() - start_time))
+                        d, f, time.time() - start_time))
             print('*** Total runtime: {:7.5e}.'.format(time.time() - start_run))
 
 
@@ -184,8 +184,38 @@ Please run the above code (named as `run_experiments.py`) in the background, sin
 
         $ nohup python run_experiments.py -s=1 -e=2 -o=LMCMA >LMCMA_1_2.out 2>&1 &  # on Linux
 
-Benchmarking on the Famous NeverGrad Platform
----------------------------------------------
-
 Benchmarking on the Well-Designed COCO Platform
 -----------------------------------------------
+
+From the evolutionary computation community, `COCO <https://github.com/numbbo/coco>`_ is a *well-designed* platform for
+comparing continuous optimizers in a black-box setting.
+
+    .. code-block:: python
+
+        import cocoex
+        import numpy as np
+
+        from pypop7.optimizers.ds.nm import NM as Solver
+
+
+        if __name__ == '__main__':
+            print(cocoex.known_suite_names)
+            suite = cocoex.Suite('bbob', '', '')
+            for current_problem in suite:
+                print(current_problem)
+                d = current_problem.dimension
+                problem = {'fitness_function': current_problem,
+                           'ndim_problem': d,
+                           'lower_boundary': -10 * np.ones((d,)),
+                           'upper_boundary': 10 * np.ones((d,))}
+                options = {'max_function_evaluations': 1e3 * d,
+                           'seed_rng': 2022,
+                           'sigma': 1.0,
+                           'verbose': False,
+                           'saving_fitness': 2000}
+                solver = Solver(problem, options)
+                results = solver.optimize()
+                print('  best-so-far fitness:', results['best_so_far_y'])
+
+Benchmarking on the Famous NeverGrad Platform
+---------------------------------------------
