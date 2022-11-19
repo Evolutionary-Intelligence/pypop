@@ -5,6 +5,8 @@ Here we provide several interesting examples to help `newbie` better use this li
 
 * Lens Shape Optimization (15-dimensional)
 * Benchmarking for Large-Scale Black-Box Optimization (up to 2000-dimensional)
+* Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (up to 640-dimensional)
+* Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (by FacebookResearch)
 
 For all optimizers from this library `PyPop7`, we also provide a *toy* example on their corresponding
 `API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_ documentations.
@@ -187,8 +189,9 @@ Please run the above code (named as `run_experiments.py`) in the background, sin
 Benchmarking on the Well-Designed COCO Platform
 -----------------------------------------------
 
-From the evolutionary computation community, `COCO <https://github.com/numbbo/coco>`_ is a *well-designed* platform for
-comparing continuous optimizers in a black-box setting.
+From the `evolutionary computation <https://www.nature.com/articles/nature14544>`_ community,
+`COCO <https://github.com/numbbo/coco>`_ is a *well-designed* platform for comparing continuous optimizers
+in a black-box setting.
 
     .. code-block:: python
 
