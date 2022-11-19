@@ -55,7 +55,7 @@ POPulation-based OPtimization/Search (POP)
    in a population, and to introduce a notion of fitness on the basis of solution quality."* ---`[Eiben&Smith, 2015,
    Nature] <https://www.nature.com/articles/nature14544>`_
 
-Population-based optimizers (POP) usually have the following advantages, when compared to individual-based counterparts:
+Population-based (particularly evolutionary) optimizers (POP) usually have the following advantages, when compared to individual-based counterparts:
 
 * few assumptions (even assumptions-free),
 * flexible framework (easy integration with problem-specific knowledge),
@@ -70,6 +70,6 @@ Limitations of BBO
    your problem are smooth and free of noise you should not use derivative-free methods.."* ---[Conn et al., 2009:
    INTRODUCTION TO DERIVATIVE-FREE OPTIMIZATION]
 
-Importantly, **no all** optimization problems fit in black-box optimizers. In fact, its arbitrary abuse in science and
+Importantly, **not all** optimization problems fit in black-box optimizers. In fact, its arbitrary abuse in science and
 engineering can lead to wide criticism. Although not always, black-box optimizers often be seen as *"the last choice of
 search methods"*.
