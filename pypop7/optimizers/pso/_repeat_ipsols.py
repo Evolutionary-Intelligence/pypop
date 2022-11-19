@@ -9,7 +9,7 @@ import time
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ackley
-from pypop7.optimizers.pso.ipso import IPSO as Solver
+from pypop7.optimizers.pso.ipsols import IPSOLS as Solver
 
 if __name__ == '__main__':
     start_run = time.time()
@@ -25,5 +25,5 @@ if __name__ == '__main__':
                    'verbose': 1e3}
         solver = Solver(problem, options)
         results = solver.optimize()
-        print(results)      # 1.6400460762344693e-05 vs 1.60e+00 (from original paper)
+        print(results)      # 1.4559745853404138e-08 vs 5.91e-10 (from original paper)
         print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
