@@ -12,3 +12,5 @@ and *Guochen Zhou*).
     MacOS X.
   * Now *Yijun Yang* from UTS helps to suggest papers about Bayesian Optimization (BO).
   * Now *Qi Zhao* from Southern University of Science and Technology (SUSTech) helps to proofread all the documents.
+
+We also acknowledge the initial (dating back to 2017) discussions with Hao Tong (when at SUSTech).
