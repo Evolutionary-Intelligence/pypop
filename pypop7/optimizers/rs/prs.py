@@ -28,7 +28,7 @@ class PRS(RS):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`).
 
     Examples
@@ -64,6 +64,11 @@ class PRS(RS):
     Random search for hyper-parameter optimization.
     Journal of Machine Learning Research, 13(2).
     https://www.jmlr.org/papers/v13/bergstra12a.html
+
+    Schmidhuber, J., Hochreiter, S. and Bengio, Y., 2001.
+    Evaluating benchmark problems by random guessing.
+    A Field Guide to Dynamical Recurrent Networks, pp.231-235.
+    https://ml.jku.at/publications/older/ch9.pdf
 
     Brooks, S.H., 1958.
     A discussion of random methods for seeking maxima.
