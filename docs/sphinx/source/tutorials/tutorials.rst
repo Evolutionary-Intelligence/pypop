@@ -45,7 +45,7 @@ real-parameter optimization problem, which is minimizing the energy of a cluster
     .. code-block:: python
 
         import numpy as np
-        import pygmo as pg  # need to be installed:
+        import pygmo as pg  # need to be installed: https://esa.github.io/pygmo2/install.html
         from pypop7.optimizers.de.cde import CDE
 
         prob = pg.problem(pg.lennard_jones(150))
