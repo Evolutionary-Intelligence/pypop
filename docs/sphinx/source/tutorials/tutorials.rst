@@ -4,6 +4,7 @@ Tutorials
 Here we provide several interesting examples to help `newbie` better use this library by studying and running them.
 
 * Lens Shape Optimization (15-dimensional)
+* Lennard-Jones Cluster Optimization (444-dimensional)
 * Benchmarking for Large-Scale Black-Box Optimization (up to 2000-dimensional)
 * Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (up to 640-dimensional)
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (by FacebookResearch)
@@ -28,6 +29,54 @@ Refer to `Beyer, 2020, GECCO <https://dl.acm.org/doi/abs/10.1145/3377929.3389870
 To repeat this interesting figure, please run the following code:
 https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/lens_optimization.py.
 
+Lennard-Jones Cluster Optimization
+----------------------------------
+
+.. image:: images/Lennard-Jones-cluster-optimization.gif
+   :width: 321px
+   :align: center
+
+Note that the above figure (three clusters of atoms) is from http://doye.chem.ox.ac.uk/jon/structures/LJ/pictures/LJ.new.gif.
+
+In chemistry, `Lennard-Jones Cluster Optimization <https://tinyurl.com/4ukrspc9>`_ is a popular single-objective
+real-parameter optimization problem, which is minimizing the energy of a cluster of atoms assuming a
+`Lennard-Jones <http://doye.chem.ox.ac.uk/jon/structures/LJ.html>`_ potential between each pair.
+
+    .. code-block:: python
+
+        import numpy as np
+        import pygmo as pg  # need to be installed:
+        from pypop7.optimizers.de.cde import CDE
+
+        prob = pg.problem(pg.lennard_jones(150))
+        print(prob)  # 444-dimensional
+        problem = {'fitness_function': prob.fitness,
+                   'ndim_problem': 444,
+                   'upper_boundary': 3*np.ones((444,)),
+                   'lower_boundary': -3*np.ones((444,))}
+        options = {'max_runtime': 60*20,  # seconds
+                  'seed_rng': 2022,
+                  'verbose': 0}
+        solver = CDE(problem, options)  # without boundary constraints
+        print(solver.optimize())
+        # {'best_so_far_x': array([-7.12511989e+00, -2.44864527e+00, -1.14938685e+00, -6.42257789e+00,
+        #                          ...
+        #                          -4.33634454e+00, -1.97948805e+00, -2.16883202e+00,  7.28669948e+00]),
+        #  'best_so_far_y': array([-19.21300728]),
+        #  'n_function_evaluations': 365443,
+        #  'runtime': 1200.0091643333435,
+        #  'termination_signal': <Terminations.MAX_RUNTIME: 2>,
+        #  'time_function_evaluations': 971.9173715114594,
+        #  'fitness': None,
+        #  '_n_generations': 3654}
+
+The above code only runs 20 minutes for `DE`. Therefore, better results could be expected with much more runtime.
+For more interesting applications of `DE` on challenging real-world problems, refer to e.g.,
+`[An et al., 2020, PNAS] <https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117>`_;
+`[Gagnon et al., 2017, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.053203>`_;
+`[Laganowsky et al., 2014, Nature] <https://www.nature.com/articles/nature13419>`_;
+`[Lovett et al., 2013, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.110.220501>`_,
+just to name a few.
 
 Benchmarking for Large-Scale Black-Box Optimization (LSBBO)
 -----------------------------------------------------------
@@ -110,7 +159,7 @@ Then, invoke different optimizers on these (rotated and shifted) test functions:
                            'ndim_problem': self.ndim_problem,
                            'upper_boundary': 10.0*np.ones((self.ndim_problem,)),
                            'lower_boundary': -10.0*np.ones((self.ndim_problem,))}
-                options = {'max_function_evaluations': np.Inf,
+                options = {'max_function_evaluations': 100000 * self.ndim_problem,
                            'max_runtime': 3600*3,  # seconds
                            'fitness_threshold': 1e-10,
                            'seed_rng': self.seed,
