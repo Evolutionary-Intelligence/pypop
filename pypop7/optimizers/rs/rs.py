@@ -55,6 +55,11 @@ class RS(Optimizer):
     SIAM Journal on Optimization, 14(3), pp.708-731.
     https://epubs.siam.org/doi/abs/10.1137/S105262340240063X
 
+    Schmidhuber, J., Hochreiter, S. and Bengio, Y., 2001.
+    Evaluating benchmark problems by random guessing.
+    A Field Guide to Dynamical Recurrent Networks, pp.231-235.
+    https://ml.jku.at/publications/older/ch9.pdf
+
     Rastrigin, L.A., 1986.
     Random search as a method for optimization and adaptation.
     In Stochastic Optimization.
