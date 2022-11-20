@@ -85,6 +85,10 @@ Benchmarking of optimization algorithms plays a very crucial role on understandi
 performance, analyzing their advantages and limitations, and also choosing state-of-the-art (SOTA) versions, usually
 before applying them to more challenging real-world problems.
 
+.. note:: *“A biased benchmark, excluding large parts of the real-world needs, leads to biased conclusions, no matter
+   how many experiments we perform.”* ---`[Meunier et al., 2022, IEEE-TEVC]
+   <https://ieeexplore.ieee.org/abstract/document/9524335>`_
+
 Here we show how to benchmark multiple black-box optimizers on a *relatively large* (10) collection of
 LSBBO test functions, in order to mainly compare their *local search* capability:
 
@@ -271,3 +275,9 @@ in a black-box setting.
 
 Benchmarking on the Famous NeverGrad Platform
 ---------------------------------------------
+
+As pointed out in the recent paper `[Meunier et al., 2022, IEEE-TEVC]
+<https://ieeexplore.ieee.org/abstract/document/9524335>`_, *"Existing studies in black-box optimization suffer from
+low generalizability, caused by a typically selective choice of problem instances used for training and testing of
+different optimization algorithms. Among other issues, this practice promotes overfitting and poor-performing user
+guidelines."*
