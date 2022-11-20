@@ -10,7 +10,12 @@ class RHC(PRS):
        Therefore, it is **highly recommended** to first attempt other more advanced (e.g. population-based)
        methods for LSBBO.
 
-       AKA randomized local search, steepest descent, greedy search.
+       "They have two key advantages: (1) they use very little memory; and (2) they can often find reasonable solutions
+       in large or infinite state spaces for which systematic algorithms are unsuitable."---`[Russell&Norvig, 2021]
+       <http://aima.cs.berkeley.edu/>`_
+
+       **"The hill-climbing search algorithm is the most basic local search technique."**---`[Russell&Norvig, 2021]
+       <http://aima.cs.berkeley.edu/>`_
 
     Parameters
     ----------
@@ -23,16 +28,17 @@ class RHC(PRS):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'x'                         - initial (starting) point (`array_like`),
-                * 'sigma'                     - initial (global) step-size (`float`),
-                * initialization_distribution - random sampling distribution for starting point initialization (`int`,
-                  default: `1`). Only when `x` is not set explicitly, it will be used.
+                * 'x'                           - initial (starting) point (`array_like`),
+                * 'sigma'                       - initial global step-size (`float`),
+                * 'initialization_distribution' - random sampling distribution for starting point initialization (`int`,
+                  default: `1`). Only when `x` is not set *explicitly*, it will be used.
 
                   * `1`: *uniform* distribution is used for random sampling,
-                  * `0`: *standard normal* distribution is used for random sampling.
+                  * `0`: *standard normal* distribution is used for random sampling with mean `0` and std `1` for
+                    each dimension.
 
     Examples
     --------
@@ -64,7 +70,7 @@ class RHC(PRS):
     x                           : `array_like`
                                   initial (starting) point.
     sigma                       : `float`
-                                  (global) step-size.
+                                  initial global step-size.
     initialization_distribution : `int`
                                   random sampling distribution for initialization of starting point.
 
@@ -73,7 +79,7 @@ class RHC(PRS):
     Russell, S. and Norvig P., 2021.
     Artificial intelligence: A modern approach (Global Edition).
     Pearson Education.
-    http://aima.cs.berkeley.edu/
+    http://aima.cs.berkeley.edu/    (See CHAPTER 4: SEARCH IN COMPLEX ENVIRONMENTS)
 
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/hillclimber.py
     """
