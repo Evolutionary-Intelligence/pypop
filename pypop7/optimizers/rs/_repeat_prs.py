@@ -1,13 +1,19 @@
-"""Repeat Fig. 44.2a from the following paper for `PRS`:
+"""Repeat the following paper for `PRS`:
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
     Evolution strategies.
     In Springer Handbook of Computational Intelligence (pp. 871-898).
     Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
+
+    All generated figures can be accessed via the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/repeatability/prs/_repeat_prs.png
+
+    Luckily our code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that the repeatability of `PRS` could be **well-documented**.
 """
 import numpy as np
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 from pypop7.benchmarks.base_functions import sphere
 from pypop7.optimizers.rs.prs import PRS
