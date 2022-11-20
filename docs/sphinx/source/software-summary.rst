@@ -3,7 +3,7 @@ Software Summary and Comparisons
 
 .. note:: This page is actively updated, since many open-source software are missed here.
 
-`pygmo <https://esa.github.io/pygmo2/>`_ is a scientific Python library for massively parallel optimization.
+`pygmo <https://esa.github.io/pygmo2/>`_ is *a scientific Python library for massively parallel optimization*.
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.de
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.sade
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.de1220
@@ -14,6 +14,8 @@ Software Summary and Comparisons
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.simulated_annealing
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.cmaes
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.xnes
+
+`IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for Iterative Optimization Heuristics (IOHs)*.
 
 https://nlopt.readthedocs.io/en/latest/
 
