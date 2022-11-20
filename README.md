@@ -59,13 +59,9 @@ print(results)
 ## A (*Still Growing*) List of Publicly Available Black-Box Optimizers (BBO)
 
 ******* *** *******
-
-![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific version for LSO (e.g., dimension >= 1000).
-
-![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) version for *relatively low-dimensional* problems (though it may also work well under certain LSO circumstances).
-
-![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline version for benchmarking purpose or for theoretical interest.
-
+* ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific version for LSO (e.g., dimension >= 1000).
+* ![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) version for *relatively low-dimensional* problems (though it may also work well under certain LSO circumstances).
+* ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline version for benchmarking purpose or for theoretical interest.
 ******* *** *******
 
 * **Evolution Strategies (ES)** [See e.g. [Ollivier et al., 2017, JMLR](https://www.jmlr.org/papers/v18/14-467.html); [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4); [Rudolph, 2012](https://link.springer.com/referenceworkentry/10.1007/978-3-540-92910-9_22); [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466); [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6); [Schwefel, 1984](https://link.springer.com/article/10.1007/BF01876146)]
@@ -104,59 +100,39 @@ print(results)
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Estimation of Multivariate Normal Algorithm (**[EMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/emna.py)**) [see e.g. [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
 
 * **Cross-Entropy Method ([CEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/cem.py))** [see e.g. [Rubinstein&Kroese, 2016](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980); [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0); [De Boer et al., 2005, AOR](https://link.springer.com/article/10.1007/s10479-005-5724-z); [Rubinstein&Kroese, 2004](https://link.springer.com/book/10.1007/978-1-4757-4321-0)]
-
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Differentiable Cross-Entropy Method (**[DCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/dcem.py)**) [see [Amos&Yarats, 2020, ICML](https://proceedings.mlr.press/v119/amos20a.html)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Dynamic-Smoothing Cross-Entropy Method (**[DSCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/dscem.py)**) [see e.g. [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Cross-Entropy Method (**[SCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/scem.py)**) [see e.g. [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0)]
 
 * **Differential Evolution ([DE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/de.py))** [see e.g. [Price, 2013](https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8); [Price et al., 2005](https://link.springer.com/book/10.1007/3-540-31306-0); [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
-
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Composite Differential Evolution (**[CODE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/code.py)**) [see [Wang et al., 2011, TEVC](https://doi.org/10.1109/TEVC.2010.2087271)]
-
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Adaptive Differential Evolution (**[JADE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/jade.py)**) [see [Zhang&Sanderson, 2009, TEVC](https://doi.org/10.1109/TEVC.2009.2014613)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Trigonometric-mutation Differential Evolution (**[TDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/tde.py)**) [see [Fan&Lampinen, 2003, JGO](https://link.springer.com/article/10.1023/A:1024653025686)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Classic Differential Evolution (**[CDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/cde.py)**) [see e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 
 * **Particle Swarm Optimizer ([PSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/pso.py))** [see e.g. [Bonyadi&Michalewicz, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective); [Escalante et al., 2009, JMLR](https://www.jmlr.org/papers/v10/escalante09a.html); [Dorigo et al., 2008](http://www.scholarpedia.org/article/Particle_swarm_optimization); [Poli et al., 2007, SI](https://link.springer.com/article/10.1007/s11721-007-0002-0); [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146); [Kennedy&Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
-
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Cooperative Coevolving Particle Swarm Optimizer (**[CCPSO2](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/ccpso2.py)**) [see [Li&Yao, 2012, TEVC](https://ieeexplore.ieee.org/document/5910380/)]
-
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Comprehensive Learning Particle Swarm Optimizer (**[CLPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/clpso.py)**) [see [Liang et al., 2006, TEVC](https://ieeexplore.ieee.org/abstract/document/1637688)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Particle Swarm Optimizer with a Local (ring) topology (**[SPSOL](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spsol.py)**) [see e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Particle Swarm Optimizer with a global topology (**[SPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spso.py)**) [see e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146)]
 
 * **CoOperative co-Evolutionary Algorithms (COEA)** [See e.g. [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html); [Panait et al., 2008, JMLR](https://www.jmlr.org/papers/v9/panait08a.html)]
-
   * CoOperative SYnapse NeuroEvolution (**COSYNE**, CoSyNE) [See [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html)]
 
 * **Simulated Annealing (SA)** [see e.g. [Kirkpatrick et al., 1983, Science](https://www.science.org/doi/10.1126/science.220.4598.671); [Hastings, 1970, Biometrika](https://academic.oup.com/biomet/article/57/1/97/284580); [Metropolis et al., 1953, JCP](https://aip.scitation.org/doi/abs/10.1063/1.1699114)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Enhanced Simulated Annealing (**[ESA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/esa.py)**) [see [Siarry et al., 1997, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/264029.264043)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Corana et al.' Simulated Annealing (**[CSA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/csa.py)**) [see [Corana et al., 1987, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
 
 * **Genetic Algorithms (GA)** [see e.g. [Forrest, 1993, Science](https://www.science.org/doi/abs/10.1126/science.8346439); [Holland, 1973, SICOMP](https://epubs.siam.org/doi/10.1137/0202009); [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
 
 * **Evolutionary Programming ([EP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/ep.py))** [see e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Fast Evolutionary Programming (**[FEP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/fep.py)**) [see [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Classical Evolutionary Programming (**[CEP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/cep.py)**) [see e.g. [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163); [Bäck&Schwefel, 1993, ECJ](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for)]
 
 * **Direct Search ([DS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/ds.py))** [see e.g. [Powell, 1998, Acta-Numerica](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C); [Wright, 1996](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Generalized Pattern Search (**[GPS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/gps.py)**) [see [Kochenderfer&Wheeler, 2019](https://algorithmsbook.com/optimization/files/chapter-7.pdf); [Torczon, 1997, SIAM-JO](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780)]
-  
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Nelder-Mead simplex method (**[NM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/nm.py)**) [see [Nelder&Mead, 1965, Computer](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Hooke-Jeeves direct search method (**[HJ](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/hj.py)**) [see [Kochenderfer&Wheeler, 2019](https://algorithmsbook.com/optimization/files/chapter-7.pdf); [Kaupe, 1963, CACM](https://dl.acm.org/doi/pdf/10.1145/366604.366632); [Hooke&Jeeves, 1961, JACM](https://dl.acm.org/doi/10.1145/321062.321069)]
-
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Coordinate Search (**[CS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/cs.py)**) [see [Torczon, 1997, SIAM-JO](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780); [Fermi&Metropolis, 1952](https://www.osti.gov/servlets/purl/4377177)]
 
 * **Random (stochastic) Search ([RS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py))** [see e.g. [Gao&Sener, 2022, ICML](https://proceedings.mlr.press/v162/gao22f.html); [Bergstra&Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html); [Rastrigin, 1986](https://link.springer.com/content/pdf/10.1007/BFb0007129.pdf); [Solis&Wets, 1981, MOOR](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19); [Brooks, 1958, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244)]
@@ -228,7 +204,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Hansen, N., Auger, A., Ros, R., Mersmann, O., Tušar, T. and Brockhoff, D., 2021. [COCO: A platform for comparing continuous optimizers in a black-box setting](https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977). Optimization Methods and Software, 36(1), pp.114-144.
   * Auger, A. and Hansen, N., 2021, July. [Benchmarking: State-of-the-art and beyond](https://dl.acm.org/doi/abs/10.1145/3449726.3461424). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 339-340). ACM.
   * Varelas, K., El Hara, O.A., Brockhoff, D., Hansen, N., Nguyen, D.M., Tušar, T. and Auger, A., 2020. [Benchmarking large-scale continuous optimizers: The bbob-largescale testbed, a COCO software guide and beyond](https://www.sciencedirect.com/science/article/abs/pii/S156849462030675X). Applied Soft Computing, 97, p.106737.
-  * Hansen, N., Ros, R., Mauny, N., Schoenauer, M. and Auger, A., 2011. [Impacts of invariance in search: When CMA-ES and PSO face ill-conditioned and non-separable problems](https://www.sciencedirect.com/science/article/pii/S1568494611000974). Applied Soft Computing, 11(8), 5755-5769.
+  * Hansen, N., Ros, R., Mauny, N., Schoenauer, M. and Auger, A., 2011. [Impacts of invariance in search: When CMA-ES and PSO face ill-conditioned and non-separable problems](https://www.sciencedirect.com/science/article/pii/S1568494611000974). Applied Soft Computing, 11(8), pp.5755-5769.
   * Moré, J.J. and Wild, S.M., 2009. [Benchmarking derivative-free optimization algorithms](https://epubs.siam.org/doi/abs/10.1137/080724083). SIAM Journal on Optimization, 20(1), pp.172-191.
   * Whitley, D., Rana, S., Dzubera, J. and Mathias, K.E., 1996. [Evaluating evolutionary algorithms](https://www.sciencedirect.com/science/article/pii/0004370295001247). Artificial Intelligence, 85(1-2), pp.245-276.
   * Salomon, R., 1996. [Re-evaluating genetic algorithm performance under coordinate rotation of benchmark functions. A survey of some theoretical and practical aspects of genetic algorithms](https://www.sciencedirect.com/science/article/abs/pii/0303264796016218). BioSystems, 39(3), pp.263-278.
