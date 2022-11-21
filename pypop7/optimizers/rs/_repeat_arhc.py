@@ -8,7 +8,7 @@
     Therefore, we argue that the repeatability of `ARHC` could be **well-documented**.
 
     The baseline Python code is shown below:
-    --------------------------------
+    ----------------------------------------
     import time
 
     import numpy as np
