@@ -8,12 +8,11 @@ class SRS(PRS):
     """Simple Random Search (SRS).
 
     .. note:: `SRS` is an *adaptive* random search method, originally designed by Rosenstein and `Barto
-       <https://people.cs.umass.edu/~barto/>`_ for **direct policy search** from reinforcement learning.
-       Since it uses the simple *individual-based* random sampling strategy, it easily suffers from a *limited*
-       exploration ability for large-scale black-box optimization (LSBBO). Therefore, it is **highly recommended**
-       to first attempt other more advanced (e.g. population-based) methods for LSBBO.
-
-       Here we include it only for *benchmarking* purpose.
+       <https://people.cs.umass.edu/~barto/>`_ for **direct policy search** in reinforcement learning.
+       Since it uses the simple *individual-based* random sampling strategy, it easily suffers from a
+       *limited* exploration ability for large-scale black-box optimization (LSBBO). Therefore, it is
+       **highly recommended** to first attempt other more advanced (e.g. population-based) methods for
+       LSBBO. Here we include it only for *benchmarking* purpose.
 
     Parameters
     ----------
@@ -26,15 +25,18 @@ class SRS(PRS):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'x'         - initial (starting) point (`array_like`),
-                * 'sigma'     - initial (global) step-size (`float`),
-                * 'alpha'     - factor of (global) step-size (`float`, default: `0.3`),
+                * 'sigma'     - initial global step-size (`float`),
+                * 'alpha'     - factor of global step-size (`float`, default: `0.3`),
                 * 'beta'      - adjustment probability for exploration-exploitation trade-off (`float`, default: `0`),
                 * 'gamma'     - factor of search decay (`float`, default: `0.99`),
-                * 'min_sigma' - minimum of (global) step-size (`float`, default: `0.01`).
+                * 'min_sigma' - minimum of global step-size (`float`, default: `0.01`).
+
+    For its correctness checking of coding, the code-based repeatability report cannot be provided owing to
+    the lack of its simulation envrionment.
 
     Examples
     --------
@@ -63,18 +65,18 @@ class SRS(PRS):
 
     Attributes
     ----------
-    x                           : `array_like`
-                                  initial (starting) point.
-    sigma                       : `float`
-                                  (global) step-size.
     alpha                       : `float`
-                                  factor of (global) step-size.
+                                  factor of global step-size.
     beta                        : `float`
                                   adjustment probability for exploration-exploitation trade-off.
     gamma                       : `float`
                                   factor of search decay.
     min_sigma                   :  `float`
-                                  minimum of (global) step-size.
+                                  minimum of global step-size.
+    sigma                       : `float`
+                                  global step-size.
+    x                           : `array_like`
+                                  initial (starting) point.
 
     References
     ----------

@@ -70,12 +70,12 @@ class RHC(PRS):
 
     Attributes
     ----------
-    x                           : `array_like`
-                                  initial (starting) point.
-    sigma                       : `float`
-                                  initial global step-size.
     initialization_distribution : `int`
                                   random sampling distribution for initialization of starting point.
+    sigma                       : `float`
+                                  initial global step-size.
+    x                           : `array_like`
+                                  initial (starting) point.
 
     References
     ----------

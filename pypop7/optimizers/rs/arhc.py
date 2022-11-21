@@ -66,14 +66,14 @@ class ARHC(RHC):
 
     Attributes
     ----------
-    x                           : `array_like`
-                                  initial (starting) point.
+    initialization_distribution : `int`
+                                  random sampling distribution for initialization of starting point.
     sigma                       : `float`
                                   initial global step-size.
     temperature                 : `float`
                                   annealing temperature.
-    initialization_distribution : `int`
-                                  random sampling distribution for initialization of starting point.
+    x                           : `array_like`
+                                  initial (starting) point.
 
     References
     ----------
