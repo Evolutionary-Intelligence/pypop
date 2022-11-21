@@ -7,6 +7,65 @@ from pypop7.optimizers.rs.rs import RS
 class BES(RS):
     """BErnoulli Smoothing (BES).
 
+    .. note:: This is a **highly simplified** version of the original BES algorithm without noisy evaluations.
+       We leave the *noisy evaluations* case for the future work.
+
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'n_individuals' - number of individuals/samples (`int`, default: `100`),
+                * 'lr'            - learning rate (`float`, default: `0.001`),
+                * 'c'             - factor of finite-difference gradient estimate (`float`, default: `0.1`).
+
+    Examples
+    --------
+    Use the Random Search optimizer `BES` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.rs.bes import BES
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 100,
+       ...            'lower_boundary': -2 * numpy.ones((100,)),
+       ...            'upper_boundary': 2 * numpy.ones((100,))}
+       >>> options = {'max_function_evaluations': 10000*101,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'n_individuals': 10,
+       ...            'c': 0.1,
+       ...            'lr': 0.000001}
+       >>> bes = BES(problem, options)  # initialize the optimizer class
+       >>> results = bes.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"BES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       BES: 1010000, 133.79696876596637
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/37hke555>`_ for more details.
+
+    Attributes
+    ----------
+    c             : `float`
+                    factor of finite-difference gradient estimate.
+    lr            : `float`
+                    learning rate.
+    n_individuals : `int`
+                    number of individuals/samples.
+
     References
     ----------
     Gao, K. and Sener, O., 2022, June.
