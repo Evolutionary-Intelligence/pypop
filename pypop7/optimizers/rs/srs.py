@@ -35,9 +35,6 @@ class SRS(PRS):
                 * 'gamma'     - factor of search decay (`float`, default: `0.99`),
                 * 'min_sigma' - minimum of global step-size (`float`, default: `0.01`).
 
-    For its correctness checking of coding, the code-based repeatability report cannot be provided owing to
-    the lack of its simulation envrionment.
-
     Examples
     --------
     Use the Random Search optimizer `SRS` to minimize the well-known test function
@@ -62,6 +59,9 @@ class SRS(PRS):
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SRS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SRS: 5000, 0.0017821578376762473
+
+    For its correctness checking of coding, the code-based repeatability report cannot be provided owing to
+    the lack of its simulation envrionment.
 
     Attributes
     ----------
