@@ -6,11 +6,10 @@ from pypop7.optimizers.rs.rhc import RHC
 class ARHC(RHC):
     """Annealed Random Hill Climber (ARHC).
 
-    .. note:: The search performance of `ARHC` depends **heavily** on the setting of *temperature* of the
-       annealing process. However, its setting is a **non-trival** task, since it may vary among different
-       problems and even among different optimization stages for the given problem at hand. Therefore, it
-       is **highly recommended** to first attempt other more advanced (e.g. population-based) methods for
-       large-scale black-box optimization.
+    .. note:: The search performance of `ARHC` depends **heavily** on the *temperature* setting of the annealing
+       process. However, its setting is a **non-trival** task, since it may vary among different problems and even
+       among different optimization stages for the given problem at hand. Therefore, it is **highly recommended**
+       to first attempt other more advanced (e.g. population-based) methods for large-scale black-box optimization.
 
     Parameters
     ----------
@@ -23,17 +22,18 @@ class ARHC(RHC):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'x'                         - initial (starting) point (`array_like`),
-                * 'sigma'                     - initial (global) step-size (`float`),
-                * 'temperature'               - annealing temperature (`float`),
-                * initialization_distribution - random sampling distribution for starting point initialization (`int`,
-                  default: `1`). Only when `x` is not set explicitly, it will be used.
+                * 'x'                           - initial (starting) point (`array_like`),
+                * 'sigma'                       - initial global step-size (`float`),
+                * 'temperature'                 - annealing temperature (`float`),
+                * 'initialization_distribution' - random sampling distribution for starting point initialization (`int`,
+                  default: `1`). Only when `x` is not set *explicitly*, it will be used.
 
                   * `1`: *uniform* distribution is used for random sampling,
-                  * `0`: *standard normal* distribution is used for random sampling.
+                  * `0`: *standard normal* distribution is used for random sampling with mean `0` and std `1` for
+                    each dimension.
 
     Examples
     --------
@@ -61,12 +61,15 @@ class ARHC(RHC):
        >>> print(f"ARHC: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        ARHC: 5000, 0.0002641143073543329
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/2s3v8z7h>`_ for more details.
+
     Attributes
     ----------
     x                           : `array_like`
                                   initial (starting) point.
     sigma                       : `float`
-                                  (global) step-size.
+                                  initial global step-size.
     temperature                 : `float`
                                   annealing temperature.
     initialization_distribution : `int`
@@ -74,11 +77,16 @@ class ARHC(RHC):
 
     References
     ----------
+    Russell, S. and Norvig P., 2021.
+    Artificial intelligence: A modern approach (Global Edition).
+    Pearson Education.
+    http://aima.cs.berkeley.edu/    (See CHAPTER 4: SEARCH IN COMPLEX ENVIRONMENTS)
+
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/hillclimber.py
     """
     def __init__(self, problem, options):
         RHC.__init__(self, problem, options)
-        self.temperature = options.get('temperature')
+        self.temperature = options.get('temperature')  # annealing temperature
         if self.temperature is None:
             raise ValueError('`temperature` should be set.')
         self._parent_x = np.copy(self.best_so_far_x)
