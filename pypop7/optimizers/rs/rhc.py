@@ -65,6 +65,9 @@ class RHC(PRS):
        >>> print(f"RHC: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        RHC: 5000, 7.13722829962456e-05
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/3u864ju3>`_ for more details.
+
     Attributes
     ----------
     x                           : `array_like`
