@@ -2,7 +2,7 @@ from pypop7.optimizers.rs.prs import PRS
 
 
 class RHC(PRS):
-    """Random Hill Climber (RHC).
+    """Random (stochastic) Hill Climber (RHC).
 
     .. note:: Currently `RHC` only supports *normally*-distributed random sampling during optimization.
        It often suffers from **slow convergence** for large-scale black-box optimization (LSBBO), since
