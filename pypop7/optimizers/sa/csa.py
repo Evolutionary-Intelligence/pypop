@@ -1,9 +1,10 @@
 import numpy as np
 
 from pypop7.optimizers.rs.rs import RS
+from pypop7.optimizers.sa.sa import SA
 
 
-class CSA(RS):
+class CSA(SA):
     """Corana et al.' Simulated Annealing (CSA).
 
     .. note:: "The algorithm is essentially an iterative random search procedure with adaptive moves along
@@ -23,13 +24,13 @@ class CSA(RS):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
               and with the following particular settings (`keys`):
-                * 'sigma'                    - initial global step-size (`float`),
-                * 'temperature'              - annealing temperature (`float`),
-                * 'n_sv'                     - frequency of step variation (`int`, default: `20`),
-                * 'c'                        - factor of step variation (`float`, default: `2.0`),
-                * 'n_tr'                     - frequency of temperature reduction (`int`, default:
-                                               `np.maximum(100, 5*self.ndim_problem)`),
-                * 'f_tr'                     - factor of temperature reduction (`int`, default: `0.85`).
+                * 'sigma'       - initial global step-size (`float`),
+                * 'temperature' - annealing temperature (`float`),
+                * 'n_sv'        - frequency of step variation (`int`, default: `20`),
+                * 'c'           - factor of step variation (`float`, default: `2.0`),
+                * 'n_tr'        - frequency of temperature reduction (`int`, default:
+                                  `np.maximum(100, 5*self.ndim_problem)`),
+                * 'f_tr'        - factor of temperature reduction (`int`, default: `0.85`).
 
     Examples
     --------
@@ -74,7 +75,7 @@ class CSA(RS):
     https://science.sciencemag.org/content/220/4598/671
     """
     def __init__(self, problem, options):
-        RS.__init__(self, problem, options)
+        SA.__init__(self, problem, options)
         self.sigma = options.get('sigma')
         self.v = self.sigma*np.ones((self.ndim_problem,))  # step vector
         self.temperature = options.get('temperature')  # temperature
@@ -142,6 +143,6 @@ class CSA(RS):
                 self._adjust_step_vector()
             self.temperature *= self.f_tr  # temperature reducing
             self.parent_x, self.parent_y = np.copy(self.best_so_far_x), np.copy(self.best_so_far_y)
-        results = RS._collect_results(self, fitness)
+        results = self._collect_results(fitness)
         results['v'] = np.copy(self.v)
         return results
