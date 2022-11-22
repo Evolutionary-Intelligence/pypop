@@ -65,7 +65,7 @@ class ESA(SA):
         self.n2 = options.get('n2', 100)  # factor to control temperature stage w.r.t. attempted moves
         self.p = options.get('p', int(np.ceil(self.ndim_problem/3)))  # number of subspaces
         # set parameters at current temperature stage
-        self._temperature = None
+        self.temperature = options.get('temperature')
         self._elowst = None
         self._avgyst = 0
         self._mvokst = 0  # number of accepted moves
@@ -86,14 +86,15 @@ class ESA(SA):
         self._parent_x, self._parent_y = np.copy(x), np.copy(y)
         fitness = [y]
         self._print_verbose_info(y)
-        for _ in range(49):
-            xx = self.rng_initialization.uniform(self.lower_boundary, self.upper_boundary)
-            yy = self._evaluate_fitness(xx, args)
-            if self.saving_fitness:
-                fitness.append(yy)
-            self._n_generations += 1
-            self._print_verbose_info(y)
-        self._temperature = -np.mean(fitness)/np.log(0.5)
+        if self.temperature is None:
+            for _ in range(49):
+                xx = self.rng_initialization.uniform(self.lower_boundary, self.upper_boundary)
+                yy = self._evaluate_fitness(xx, args)
+                if self.saving_fitness:
+                    fitness.append(yy)
+                self._n_generations += 1
+                self._print_verbose_info(y)
+            self.temperature = -np.mean(fitness)/np.log(0.5)
         return y, fitness
 
     def iterate(self, p=None, args=None, fitness=None):
@@ -114,7 +115,7 @@ class ESA(SA):
             self._mtotst[k] += 1
             self._nmvst += 1
             diff = self._parent_y - y
-            if (diff >= 0) or (self.rng_optimization.random() < np.exp(diff/self._temperature)):
+            if (diff >= 0) or (self.rng_optimization.random() < np.exp(diff/self.temperature)):
                 self._parent_x, self._parent_y = np.copy(x), np.copy(y)
                 self._mokst[k] += 1
                 self._mvokst += 1
@@ -153,7 +154,7 @@ class ESA(SA):
                 if n_p >= self.p:  # to re-partition
                     p, n_p = self.rng_optimization.permutation(self.ndim_problem), 0
             self._avgyst /= self._nmvst
-            self._temperature *= np.maximum(np.minimum(self._elowst/self._avgyst, 0.9), 0.1)
+            self.temperature *= np.maximum(np.minimum(self._elowst/self._avgyst, 0.9), 0.1)
             self._adjust_step_vector()
             self._reset_parameters()
         return self._collect_results(fitness)
