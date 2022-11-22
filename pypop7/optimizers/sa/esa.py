@@ -1,9 +1,10 @@
 import numpy as np
 
 from pypop7.optimizers.rs.rs import RS
+from pypop7.optimizers.sa.sa import SA
 
 
-class ESA(RS):
+class ESA(SA):
     """Enhanced Simulated Annealing (ESA).
 
     Parameters
@@ -59,7 +60,7 @@ class ESA(RS):
     https://dl.acm.org/doi/abs/10.1145/264029.264043
     """
     def __init__(self, problem, options):
-        RS.__init__(self, problem, options)
+        SA.__init__(self, problem, options)
         self.n1 = options.get('n1', 12)  # factor to control temperature stage w.r.t. accepted moves
         self.n2 = options.get('n2', 100)  # factor to control temperature stage w.r.t. attempted moves
         self.p = options.get('p', int(np.ceil(self.ndim_problem/3)))  # number of subspaces
