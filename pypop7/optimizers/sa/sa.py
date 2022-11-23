@@ -56,6 +56,16 @@ class SA(RS):
     Optimization by simulated annealing.
     Science, 220(4598), pp.671-680.
     https://science.sciencemag.org/content/220/4598/671
+
+    Hastings, W.K., 1970.
+    Monte Carlo sampling methods using Markov chains and their applications.
+    Biometrika, 57(1), pp.97-109.
+    https://academic.oup.com/biomet/article/57/1/97/284580
+
+    Metropolis, N., Rosenbluth, A.W., Rosenbluth, M.N., Teller, A.H. and Teller, E., 1953.
+    Equation of state calculations by fast computing machines.
+    Journal of Chemical Physics, 21(6), pp.1087-1092.
+    https://aip.scitation.org/doi/abs/10.1063/1.1699114
     """
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
