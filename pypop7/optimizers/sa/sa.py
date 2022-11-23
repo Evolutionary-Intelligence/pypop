@@ -7,6 +7,9 @@ class SA(RS):
     This is the **base** (abstract) class for all SA classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
+    .. note:: `“Typical advantages of SA algorithms are their very mild memory requirements and the small
+       computational effort per iteration.”---[Bouttier&Gavra, 2019] <https://www.jmlr.org/papers/v20/16-588.html>`_
+
     Parameters
     ----------
     problem : dict
