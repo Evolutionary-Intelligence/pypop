@@ -321,6 +321,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * [https://bayesoptbook.com/](https://bayesoptbook.com/)
   * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
   * Wang, L., Fonseca, R. and Tian, Y., 2020. [Learning search space partition for black-box optimization using monte carlo tree search](https://proceedings.neurips.cc/paper/2020/hash/e2ce14e81dba66dbff9cbc35ecfdb704-Abstract.html). Advances in Neural Information Processing Systems, 33, pp.19511-19522. [ [Python](https://github.com/facebookresearch/LaMCTS) ]
+  * Jones, D.R., Schonlau, M. and Welch, W.J., 1998. Efficient global optimization of expensive black-box functions. Journal of Global Optimization, 13(4), 455-492. [ [www](https://link.springer.com/article/10.1023/A:1008306431147) ]
 
 * Automated Machine Learning (AutoML)
   * Hutter, F., Kotthoff, L. and Vanschoren, J., 2019. [Automated machine learning: Methods, systems, challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf). Springer Nature.
