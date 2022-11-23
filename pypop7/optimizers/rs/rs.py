@@ -12,7 +12,7 @@ class RS(Optimizer):
 
     .. note:: `"The topic of local search was reinvigorated in the early 1990s by surprisingly good results
        for large ... problems ... and by the incorporation of randomness, multiple simultaneous searches,
-       and other improvements." ---[Russell&Norvig, 2022] <http://aima.cs.berkeley.edu/global-index.html>`_
+       and other improvements."---[Russell&Norvig, 2022] <http://aima.cs.berkeley.edu/global-index.html>`_
 
     Parameters
     ----------
