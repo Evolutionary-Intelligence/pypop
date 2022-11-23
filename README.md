@@ -285,12 +285,15 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Kennedy, J. and Eberhart, R., 1995, November. [Particle swarm optimization](https://ieeexplore.ieee.org/document/488968). In Proceedings of International Conference on Neural Networks (pp. 1942-1948). IEEE.
   * Applications: e.g., [Pontani&Conway, 2010, JGCD](https://arc.aiaa.org/doi/abs/10.2514/1.48475); [Hassan et al., 2005, AIAA](https://arc.aiaa.org/doi/abs/10.2514/6.2005-1897).
 
-* Simultaneous Perturbation Stochastic Approximation (SPSA) [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/)
+* Simultaneous Perturbation Stochastic Approximation (SPSA) [ [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/) ]
 
 * Simulated Annealing (SA)
+  * Bouttier, C. and Gavra, I., 2019. [Convergence rate of a simulated annealing algorithm with noisy observations](https://www.jmlr.org/papers/v20/16-588.html). Journal of Machine Learning Research, 20(1), pp.127-171.
   * Siarry, P., Berthiau, G., Durdin, F. and Haussy, J., 1997. [Enhanced simulated annealing for globally minimizing functions of many-continuous variables](https://dl.acm.org/doi/abs/10.1145/264029.264043). ACM Transactions on Mathematical Software, 23(2), pp.209-228.
   * Corana, A., Marchesi, M., Martini, C. and Ridella, S., 1987. [Minimizing multimodal functions of continuous variables with the “simulated annealing” algorithm](https://dl.acm.org/doi/abs/10.1145/29380.29864). ACM Transactions on Mathematical Software, 13(3), pp.262-280. [ [Corrigenda](https://dl.acm.org/doi/10.1145/66888.356281) ]
   * Kirkpatrick, S., Gelatt, C.D. and Vecchi, M.P., 1983. [Optimization by simulated annealing](https://science.sciencemag.org/content/220/4598/671). Science, 220(4598), pp.671-680.
+  * Hastings, W.K., 1970. [Monte Carlo sampling methods using Markov chains and their applications](https://academic.oup.com/biomet/article/57/1/97/284580). Biometrika, 57(1), pp.97-109.
+  * Metropolis, N., Rosenbluth, A.W., Rosenbluth, M.N., Teller, A.H. and Teller, E., 1953. [Equation of state calculations by fast computing machines](https://aip.scitation.org/doi/abs/10.1063/1.1699114). Journal of Chemical Physics, 21(6), pp.1087-1092.
 
 * Genetic Algorithm (GA)
   * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
