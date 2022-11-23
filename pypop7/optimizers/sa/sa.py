@@ -33,6 +33,11 @@ class SA(RS):
 
     References
     ----------
+    Bouttier, C. and Gavra, I., 2019.
+    Convergence rate of a simulated annealing algorithm with noisy observations.
+    Journal of Machine Learning Research, 20(1), pp.127-171.
+    https://www.jmlr.org/papers/v20/16-588.html
+
     Siarry, P., Berthiau, G., Durdin, F. and Haussy, J., 1997.
     Enhanced simulated annealing for globally minimizing functions of many-continuous variables.
     ACM Transactions on Mathematical Software, 23(2), pp.209-228.
