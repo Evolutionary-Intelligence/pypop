@@ -8,7 +8,8 @@ class SA(RS):
     optimize the black-box problem at hand.
 
     .. note:: `“Typical advantages of SA algorithms are their very mild memory requirements and the small
-       computational effort per iteration.”---[Bouttier&Gavra, 2019] <https://www.jmlr.org/papers/v20/16-588.html>`_
+       computational effort per iteration.”---[Bouttier&Gavra, 2019, JMLR]
+       <https://www.jmlr.org/papers/v20/16-588.html>`_
 
     Parameters
     ----------
@@ -45,6 +46,11 @@ class SA(RS):
     Enhanced simulated annealing for globally minimizing functions of many-continuous variables.
     ACM Transactions on Mathematical Software, 23(2), pp.209-228.
     https://dl.acm.org/doi/abs/10.1145/264029.264043
+
+    Bertsimas, D. and Tsitsiklis, J., 1993.
+    Simulated annealing.
+    Statistical Science, 8(1), pp.10-15.
+    https://tinyurl.com/yknunnpt
 
     Corana, A., Marchesi, M., Martini, C. and Ridella, S., 1987.
     Minimizing multimodal functions of continuous variables with the "simulated annealing" algorithm.
