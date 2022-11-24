@@ -73,8 +73,6 @@ class ESA(SA):
         self._nmvst = 0  # number of attempted moves
         self._mtotst = np.zeros((self.ndim_problem,))  # numbers of attempted moves for each dimension
         self._v = None  # step vector
-        self._parent_x = None
-        self._parent_y = None
 
     def initialize(self, args=None):
         self._v = 0.25*(self.upper_boundary - self.lower_boundary)
@@ -83,7 +81,7 @@ class ESA(SA):
         else:
             x = np.copy(self.x)
         y = self._evaluate_fitness(x, args)
-        self._parent_x, self._parent_y = np.copy(x), np.copy(y)
+        self.parent_x, self.parent_y = np.copy(x), np.copy(y)
         fitness = [y]
         self._print_verbose_info(y)
         if self.temperature is None:
@@ -101,7 +99,7 @@ class ESA(SA):
         for k in p:  # without overselecting
             if self._check_terminations():
                 break
-            x, sign = np.copy(self._parent_x), self.rng_optimization.choice([-1, 1])
+            x, sign = np.copy(self.parent_x), self.rng_optimization.choice([-1, 1])
             xx = x[k] + sign*self._v[k]
             if (xx < self.lower_boundary[k]) or (xx > self.upper_boundary[k]):
                 xx = x[k] - sign*self._v[k]
@@ -114,9 +112,9 @@ class ESA(SA):
             self._avgyst += y
             self._mtotst[k] += 1
             self._nmvst += 1
-            diff = self._parent_y - y
+            diff = self.parent_y - y
             if (diff >= 0) or (self.rng_optimization.random() < np.exp(diff/self.temperature)):
-                self._parent_x, self._parent_y = np.copy(x), np.copy(y)
+                self.parent_x, self.parent_y = np.copy(x), np.copy(y)
                 self._mokst[k] += 1
                 self._mvokst += 1
             if (diff >= 0) and (y < self._elowst):
@@ -137,7 +135,7 @@ class ESA(SA):
         self._mokst = np.zeros((self.ndim_problem,))
         self._nmvst = 0
         self._mtotst = np.zeros((self.ndim_problem,))
-        self._elowst = self._parent_y
+        self._elowst = self.parent_y
         self._avgyst = 0
 
     def optimize(self, fitness_function=None, args=None):

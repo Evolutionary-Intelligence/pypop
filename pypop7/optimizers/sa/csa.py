@@ -86,8 +86,6 @@ class CSA(SA):
         self.n_tr = options.get('n_tr', np.maximum(100, 5*self.ndim_problem))
         self.f_tr = options.get('r_T', 0.85)  # factor of temperature reduction (r_T)
         self._sv = np.zeros((self.ndim_problem,))  # for step variation
-        self.parent_x = None
-        self.parent_y = None
 
     def initialize(self, args=None):
         if self.x is None:  # starting point
