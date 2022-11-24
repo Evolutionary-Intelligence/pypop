@@ -7,8 +7,8 @@ from pypop7.optimizers.rs.rs import RS
 class BES(RS):
     """BErnoulli Smoothing (BES).
 
-    .. note:: This is a **highly simplified** version of the original BES algorithm without noisy evaluations.
-       We leave the *noisy evaluations* case for the future work.
+    .. note:: This is a **highly simplified** version of the original BES algorithm without noisy fitness evaluations.
+       We leave the *noisy fitness evaluations* case for the future work.
 
     Parameters
     ----------

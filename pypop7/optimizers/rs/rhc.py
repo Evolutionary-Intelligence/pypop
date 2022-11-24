@@ -5,7 +5,7 @@ class RHC(PRS):
     """Random (stochastic) Hill Climber (RHC).
 
     .. note:: Currently `RHC` only supports *normally*-distributed random sampling during optimization.
-       It often suffers from **slow convergence** for large-scale black-box optimization (LSBBO), since
+       It often suffers from **slow convergence** for large-scale black-box optimization (LSBBO), owing to
        its limited exploration ability originating from its individual-based local sampling strategy.
        Therefore, it is **highly recommended** to first attempt other more advanced (e.g. population-based)
        methods for LSBBO.

@@ -8,8 +8,8 @@ class ARHC(RHC):
 
     .. note:: The search performance of `ARHC` depends **heavily** on the *temperature* setting of the annealing
        process. However, its setting is a **non-trival** task, since it may vary among different problems and even
-       among different optimization stages for the given problem at hand. Therefore, it is **highly recommended**
-       to first attempt other more advanced (e.g. population-based) methods for large-scale black-box optimization.
+       among different optimization stages for the problem at hand. Therefore, it is **highly recommended** to
+       first attempt other more advanced (e.g. population-based) methods for large-scale black-box optimization.
 
     Parameters
     ----------

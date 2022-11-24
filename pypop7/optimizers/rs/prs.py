@@ -10,7 +10,7 @@ class PRS(RS):
         has been successfully applied in several *relatively low-dimensional* problems (particularly
         `hyper-parameter optimization <https://www.jmlr.org/papers/v13/bergstra12a.html>`_), it generally
         suffers from the famous **curse of dimensionality** for large-scale black-box optimization (LSBBO),
-        since its lack of *adaptation*, a highly desirable property for sophisticated search algorithms.
+        owing to its lack of *adaptation*, a highly desirable property for sophisticated search algorithms.
         Therefore, it is **highly recommended** to first attempt other more advanced (e.g. population-based)
         methods for LSBBO.
 
