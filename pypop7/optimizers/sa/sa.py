@@ -80,6 +80,7 @@ class SA(RS):
     """
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
+        self.temperature = options.get('temperature')  # annealing temperature
         self.parent_x = None
         self.parent_y = None
 

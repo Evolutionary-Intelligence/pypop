@@ -65,7 +65,6 @@ class ESA(SA):
         self.n2 = options.get('n2', 100)  # factor to control temperature stage w.r.t. attempted moves
         self.p = options.get('p', int(np.ceil(self.ndim_problem/3)))  # number of subspaces
         # set parameters at current temperature stage
-        self.temperature = options.get('temperature')
         self._elowst = None
         self._avgyst = 0
         self._mvokst = 0  # number of accepted moves

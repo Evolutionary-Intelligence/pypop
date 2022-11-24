@@ -78,7 +78,6 @@ class CSA(SA):
         SA.__init__(self, problem, options)
         self.sigma = options.get('sigma')
         self.v = self.sigma*np.ones((self.ndim_problem,))  # step vector
-        self.temperature = options.get('temperature')  # temperature
         self.n_sv = options.get('n_sv', 20)  # frequency of step variation (N_S)
         c = options.get('c', 2.0)  # factor of step variation
         self.f_sv = c*np.ones(self.ndim_problem,)
