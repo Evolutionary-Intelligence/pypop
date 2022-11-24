@@ -1,0 +1,109 @@
+\providecommand{\bbobecdfcaptionsinglefunctionssingledim}[1]{
+Empirical cumulative distribution of simulated (bootstrapped)
+             runtimes, measured in number of $f$-evaluations,
+             divided by dimension (FEvals/DIM) for the $51$ 
+             targets $10^{[-8..2]}$ in dimension #1.
+}
+\providecommand{\cocoversion}{{\scriptsize\sffamily{}\color{Gray}Data produced with COCO v2.6}}
+\providecommand{\numofalgs}{1}
+\providecommand{\algname}{coco-benchmarking-maes-fmin{}}
+\providecommand{\algfolder}{coco-benchmarking-maes-fmin/}
+\providecommand{\bbobecdfcaptionallgroups}[1]{
+Empirical cumulative distribution of simulated (bootstrapped)
+             runtimes, measured in number of $f$-evaluations,
+             divided by dimension (FEvals/DIM) for the $51$ 
+             targets $10^{[-8..2]}$ for all function groups and all 
+             dimensions. The aggregation over all 24 
+             functions is shown in the last plot.
+}
+\providecommand{\bbobecdfcaptionsinglefcts}[2]{
+Empirical cumulative distribution of simulated (bootstrapped) runtimes in number
+             of $f$-evaluations divided by dimension (FEvals/DIM) for the 
+             $51$ targets $10^{[-8..2]}$
+             for functions $f_{#1}$ to $f_{#2}$ and all dimensions. 
+}
+\providecommand{\bbobpptablecaption}[1]{
+%
+        Expected runtime (\ERT\ in number of $f$-evaluations) divided by the \ERT\ of the best algorithm from BBOB 2009 in #1. This \ERT\
+        ratio and, in braces as dispersion measure, the half difference between 90 and
+        10\%-tile of bootstrapped run lengths appear in the second row of each cell,  
+        the best \ERT\
+        %
+        (preceded by the target \Df-value in \textit{italics}) in the first. 
+        \#succ is the number of trials that reached the target value of the last column.
+        %
+        The median number of conducted evaluations is additionally given in 
+        \textit{italics}, if the target in the last column was never reached. 
+        \textbf{Bold} entries are statistically significantly better (according to
+        the rank-sum test) compared to the best algorithm from BBOB 2009, with
+        $p = 0.05$ or $p = 10^{-k}$ when the number $k > 1$ is following the
+        $\downarrow$ symbol, with Bonferroni correction by the number of
+        functions (24).
+        
+}
+\providecommand{\bbobppfigdimlegend}[1]{
+%
+        Scaling of runtime with dimension to reach certain target values \Df.
+        Lines: expected runtime (\ERT);
+        Cross (+): median runtime of successful runs to reach the most difficult
+        target that was reached at least once (but not always);
+        Cross ({\color{red}$\times$}): maximum number of
+        $f$-evaluations in any trial. Notched boxes: interquartile range with median of simulated runs; 
+        All values are divided by dimension and  
+        plotted as $\log_{10}$ values versus dimension. %
+        %
+        Shown is the \ERT\ for fixed target precision values of $10^k$ with $k$ given
+        in the legend.
+        Numbers above \ERT-symbols (if appearing) indicate the number of trials
+        reaching the respective target. The light thick line with diamonds indicates the best algorithm from BBOB 2009 for the most difficult target.  Horizontal lines mean linear scaling, slanted
+        grid lines depict quadratic scaling.
+}
+\providecommand{\bbobpprldistrlegend}[1]{
+%
+         Empirical cumulative distribution functions (ECDF), plotting the fraction of
+         trials with an outcome not larger than the respective value on the $x$-axis.
+         #1%
+         Left subplots: ECDF of the number of $f$-evaluations  divided by search space dimension $D$,
+         to fall below $\fopt+\Df$ with $\Df=10^{k}$, where $k$ is the first value in the legend.
+         The thick red line represents the most difficult target value $\fopt+ 10^{-8}$. %
+         Legends indicate for each target the number of functions that were solved in at
+         least one trial within the displayed budget.
+         Right subplots: ECDF of the best achieved $\Df$
+         for running times of $0.5D, 1.2D, 3D, 10D, 100D, 1000D,\dots$ $f$-evaluations (from right to left cycling cyan-magenta-black\dots) and final $\Df$-value (red),
+         where \Df and \textsf{Df} denote the difference to the optimal function value. 
+         Light brown lines in the background show ECDFs for the most difficult target of all
+            algorithms benchmarked during BBOB-2009.
+}
+\providecommand{\bbobloglossfigurecaption}[1]{
+%
+        \ERT\ loss ratios (see Figure~\ref{tab:ERTloss} for details).
+
+        Each cross ({\color{blue}$+$}) represents a single function, the line
+        is the geometric mean.
+        
+}
+\providecommand{\bbobloglosstablecaption}[1]{
+%
+        \ERT\ loss ratio versus the budget in number of $f$-evaluations
+        divided by dimension.
+        For each given budget \FEvals, the target value \ftarget\ is computed
+        as the best target $f$-value reached within the
+        budget by the given algorithm.
+        Shown is then the \ERT\ to reach \ftarget\ for the given algorithm
+        or the budget, if the best algorithm from BBOB 2009
+        reached a better target within the budget,
+        divided by the \ERT\ of the best algorithm from BBOB 2009 to reach \ftarget.
+        Line: geometric mean. Box-Whisker error bar: 25-75\%-ile with median
+        (box), 10-90\%-ile (caps), and minimum and maximum \ERT\ loss ratio
+        (points). The vertical line gives the maximal number of function evaluations
+        in a single trial in this function subset. See also
+        Figure~\ref{fig:ERTlogloss} for results on each function subgroup.
+        
+}
+\providecommand{\pptablefooter}{
+\end{tabular}
+}
+\providecommand{\pptableheader}{
+\begin{tabular}{@{}c@{}|*{7}{@{}r@{}@{}l@{}}|@{}r@{}@{}l@{}}
+$\Delta f$ & \multicolumn{2}{c}{1e+1} & \multicolumn{2}{c}{1e+0} & \multicolumn{2}{c}{1e-1} & \multicolumn{2}{c}{1e-2} & \multicolumn{2}{c}{1e-3} & \multicolumn{2}{c}{1e-5} & \multicolumn{2}{c}{1e-7} & \multicolumn{2}{|@{}r@{}}{\#succ}\\\hline
+}
