@@ -4,7 +4,7 @@ import time
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from pypop7.optimizers.sa import CSA as Solver
+from pypop7.optimizers.sa.csa import CSA as Solver
 
 
 class TestCSA(unittest.TestCase):
