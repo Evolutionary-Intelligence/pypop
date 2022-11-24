@@ -7,9 +7,14 @@ class SA(RS):
     This is the **base** (abstract) class for all SA classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
-    .. note:: `“Typical advantages of SA algorithms are their very mild memory requirements and the small
-       computational effort per iteration.”---[Bouttier&Gavra, 2019, JMLR]
+    .. note:: `"Typical advantages of SA algorithms are their very mild memory requirements and the small
+       computational effort per iteration."---[Bouttier&Gavra, 2019, JMLR]
        <https://www.jmlr.org/papers/v20/16-588.html>`_
+
+       `"The SA algorithm can also be viewed as a local search algorithm in which there are occasional
+       upward moves that lead to a cost increase. One hopes that such upward moves will help escape
+       from local minima."---[Bertsimas&Tsitsiklis, 1993, Statistical Science]
+       <https://tinyurl.com/yknunnpt>`_
 
     Parameters
     ----------
