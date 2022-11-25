@@ -9,5 +9,6 @@ Simulated Annealing (SA)
    :maxdepth: 2
    :caption: SAs:
 
+   nsa
    esa
    csa
