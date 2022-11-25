@@ -7,6 +7,9 @@ from pypop7.optimizers.sa.sa import SA
 class ESA(SA):
     """Enhanced Simulated Annealing (ESA).
 
+    .. note:: `ESA` adopts the well-known **decomposition** strategy to alleviate the *curse of dimensionality*
+       for large-scale black-box optimization.
+
     Parameters
     ----------
     problem : dict
