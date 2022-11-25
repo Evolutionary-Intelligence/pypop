@@ -46,7 +46,7 @@ class COSYNE(CC):
        >>> results = cosyne.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"COSYNE: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       COSYNE: 300061, 0.561405461371189(1.0746113061904907 in Evotorch)
+       COSYNE: 300061, 0.561405461371189(1.0746113061904907 in EvoTorch)
 
     Attributes
     ----------
