@@ -23,13 +23,60 @@ class NSA(SA):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
-              and with the following particular setting (`key`):
-                * 'x' - initial (starting) point (`array_like`).
+              and with the following particular settings (`keys`):
+                * 'x'         - initial (starting) point (`array_like`),
+                * 'sigma'     - initial global step-size (`float`),
+                * 'is_noisy'  - whether to minimize the noisy cost function (`bool`, default: `True`),
+                * 'schedule'  - schedule for sampling intensity (`str`, default: `linear`),
+                  * currently only two (*linear* or *quadratic*) schedules are supported for sampling intensity,
+                * 'n_samples' - number of samples for each iteration (`int`),
+                * 'rt'        - reducing factor of annealing temperature (`float`, default: `0.99`).
+
+    Examples
+    --------
+    Use the Simulated Annealing optimizer `NSA` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.sa.nsa import NSA
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5 * numpy.ones((2,)),
+       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'x': 3 * numpy.ones((2,)),
+       ...            'sigma': 1.0,
+       ...            'is_noisy': False,
+       ...            'n_samples': 1,
+       ...            'temperature': 100}
+       >>> nsa = NSA(problem, options)  # initialize the optimizer class
+       >>> results = nsa.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"NSA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       NSA: 5000, 0.006086567926462302
+
+    For its correctness checking of coding, the code-based repeatability report cannot be provided owing to
+    the lack of details of its experiments on the `Ackley` test function.
 
     Attributes
     ----------
-    x     : `array_like`
-            initial (starting) point.
+    is_noisy  : `bool`
+                whether to minimize a noisy cost function.
+    n_samples : `int`
+                number of samples for each iteration.
+    rt        : `float`
+                reducing factor of annealing temperature.
+    schedule  : `str`
+                schedule for sampling intensity.
+    sigma     : `float`
+                initial global step-size.
+    x         : `array_like`
+                initial (starting) point.
 
     References
     ----------
@@ -46,7 +93,8 @@ class NSA(SA):
         assert self.schedule in ['linear', 'quadratic'],\
             'Currently only two (*linear* or *quadratic*) schedules are supported for sampling intensity.'
         self.n_samples = options.get('n_samples')
-        self.rc = options.get('cr', 0.99)  # reducing factor of temperature
+        self.rt = options.get('cr', 0.99)  # reducing factor of temperature
+        self.temperature_threshold = options.get('temperature_threshold', 1e-200)
         self._tk = 0
 
     def initialize(self, args=None):
@@ -101,5 +149,5 @@ class NSA(SA):
             if self.saving_fitness:
                 fitness.extend(y)
                 fitness.extend(parent_y)
-            self.temperature *= self.rc  # temperature reducing
+            self.temperature = np.maximum(self.temperature*self.rt, self.temperature_threshold)
         return self._collect_results(fitness)
