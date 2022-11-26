@@ -289,6 +289,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
 * Simulated Annealing (SA)
   * Bouttier, C. and Gavra, I., 2019. [Convergence rate of a simulated annealing algorithm with noisy observations](https://www.jmlr.org/papers/v20/16-588.html). Journal of Machine Learning Research, 20(1), pp.127-171.
+  * Gerber, M. and Bornn, L., 2017. [Improving simulated annealing through derandomization](https://link.springer.com/article/10.1007/s10898-016-0461-1). Journal of Global Optimization, 68(1), pp.189-217.
   * Siarry, P., Berthiau, G., Durdin, F. and Haussy, J., 1997. [Enhanced simulated annealing for globally minimizing functions of many-continuous variables](https://dl.acm.org/doi/abs/10.1145/264029.264043). ACM Transactions on Mathematical Software, 23(2), pp.209-228.
   * Bertsimas, D. and Tsitsiklis, J., 1993. [Simulated annealing](https://tinyurl.com/yknunnpt). Statistical Science, 8(1), pp.10-15.
   * Corana, A., Marchesi, M., Martini, C. and Ridella, S., 1987. [Minimizing multimodal functions of continuous variables with the “simulated annealing” algorithm](https://dl.acm.org/doi/abs/10.1145/29380.29864). ACM Transactions on Mathematical Software, 13(3), pp.262-280. [ [Corrigenda](https://dl.acm.org/doi/10.1145/66888.356281) ]
