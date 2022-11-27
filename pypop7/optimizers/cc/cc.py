@@ -4,9 +4,34 @@ from pypop7.optimizers.core.optimizer import Optimizer
 
 
 class CC(Optimizer):
-    """Cooperative Coevolution
+    """Cooperative Coevolution(CC)
+
+    This is the **base** (abstract) class for all CC classes.
+
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+              and with the following particular setting (`key`):
+                * 'x' - initial (starting) point (`array_like`).
+
+    Attributes
+    ----------
+    x     : `array_like`
+            initial (starting) point.
+    Methods
+    -------
+
     Reference
-    -----------
+    ---------
     F. Gomez, J. Schmidhuber, R. Miikkulainen
     Accelerated Neural Evolution through Cooperatively Coevolved Synapses
     https://jmlr.org/papers/v9/gomez08a.html
@@ -64,14 +89,12 @@ class CC(Optimizer):
             x = np.copy(self.x)
         return x
 
-    def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose_frequency):
-            best_so_far_y = -self.best_so_far_y if self._is_maximization else self.best_so_far_y
-            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
-            print(info.format(self._n_generations, best_so_far_y, np.min(y), self.n_function_evaluations))
-
     def _collect_results(self, fitness, mean=None):
         results = Optimizer._collect_results(self, fitness)
-        results['sigma'] = self.sigma
         results['_n_generations'] = self._n_generations
         return results
+
+    def _print_verbose_info(self, y):
+        if self.verbose and (not self._n_generations % self.verbose):
+            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
+            print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))

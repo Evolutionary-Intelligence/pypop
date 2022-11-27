@@ -1,3 +1,8 @@
+"""This code only tests whether the corresponding optimizer could run or not.
+  In other words, it *cannot* validate the correctness regarding its working procedure.
+  For the correctness validation of programming, refer to the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/wiki/Correctness-Validation-of-Optimizers.md
+"""
 import unittest
 import time
 import numpy as np
@@ -16,9 +21,8 @@ class TestSCEM(unittest.TestCase):
                        'ndim_problem': ndim_problem,
                        'lower_boundary': -5 * np.ones((ndim_problem,)),
                        'upper_boundary': 5 * np.ones((ndim_problem,))}
-            options = {'max_function_evaluations': 2e6,
+            options = {'max_function_evaluations': 3e5,
                        'fitness_threshold': 1e-10,
-                       'x': 4 * np.ones((ndim_problem,)),  # mean
                        'n_individuals': 20,
                        'n_combine': 2,
                        'prob_mutate': 0.3,
