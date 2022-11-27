@@ -52,7 +52,7 @@ class GENITOR(GA):
        GENITOR: 1000000, 1340.6238831110309
 
     For its correctness checking of coding, the code-based repeatability report cannot be provided owing to
-    the lack of its simulation envrionment.
+    the lack of its simulation environment.
 
     Attributes
     ----------
