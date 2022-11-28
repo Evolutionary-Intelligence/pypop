@@ -1,0 +1,82 @@
+  * Generation 0: best_so_far_y 2.70207e+09, min(y) 2.70207e+09 & Evaluations 2000
+  * Generation 1: best_so_far_y 3.15815e+06, min(y) 3.15815e+06 & Evaluations 2200
+  * Generation 2: best_so_far_y 1.43008e+01, min(y) 1.43008e+01 & Evaluations 2400
+  * Generation 3: best_so_far_y 1.40513e+01, min(y) 1.40513e+01 & Evaluations 2600
+  * Generation 4: best_so_far_y 1.40513e+01, min(y) 1.44672e+01 & Evaluations 2800
+  * Generation 5: best_so_far_y 1.40513e+01, min(y) 1.43124e+01 & Evaluations 3000
+  * Generation 6: best_so_far_y 1.40513e+01, min(y) 1.42867e+01 & Evaluations 3200
+  * Generation 7: best_so_far_y 1.40513e+01, min(y) 1.44222e+01 & Evaluations 3400
+  * Generation 8: best_so_far_y 1.40513e+01, min(y) 1.45623e+01 & Evaluations 3600
+  * Generation 9: best_so_far_y 1.40306e+01, min(y) 1.40306e+01 & Evaluations 3800
+  * Generation 10: best_so_far_y 1.40306e+01, min(y) 1.43897e+01 & Evaluations 4000
+  * Generation 11: best_so_far_y 1.40306e+01, min(y) 1.47948e+01 & Evaluations 4200
+  * Generation 12: best_so_far_y 1.40306e+01, min(y) 1.41184e+01 & Evaluations 4400
+  * Generation 13: best_so_far_y 1.40306e+01, min(y) 1.42082e+01 & Evaluations 4600
+  * Generation 14: best_so_far_y 1.40306e+01, min(y) 1.51957e+01 & Evaluations 4800
+  * Generation 15: best_so_far_y 1.40306e+01, min(y) 1.47814e+01 & Evaluations 5000
+  * Generation 16: best_so_far_y 1.40306e+01, min(y) 1.45084e+01 & Evaluations 5200
+  * Generation 17: best_so_far_y 1.40306e+01, min(y) 1.42807e+01 & Evaluations 5400
+  * Generation 18: best_so_far_y 1.40306e+01, min(y) 1.44749e+01 & Evaluations 5600
+  * Generation 19: best_so_far_y 1.40306e+01, min(y) 1.42052e+01 & Evaluations 5800
+  * Generation 20: best_so_far_y 1.40306e+01, min(y) 1.41786e+01 & Evaluations 6000
+  * Generation 21: best_so_far_y 1.40306e+01, min(y) 1.47038e+01 & Evaluations 6200
+  * Generation 22: best_so_far_y 1.40306e+01, min(y) 1.42006e+01 & Evaluations 6400
+  * Generation 23: best_so_far_y 1.40306e+01, min(y) 1.46404e+01 & Evaluations 6600
+  * Generation 24: best_so_far_y 1.40306e+01, min(y) 1.47471e+01 & Evaluations 6800
+  * Generation 25: best_so_far_y 1.40306e+01, min(y) 1.40486e+01 & Evaluations 7000
+  * Generation 26: best_so_far_y 1.40306e+01, min(y) 1.47133e+01 & Evaluations 7200
+  * Generation 27: best_so_far_y 1.40306e+01, min(y) 1.50017e+01 & Evaluations 7400
+  * Generation 28: best_so_far_y 1.40306e+01, min(y) 1.41392e+01 & Evaluations 7600
+  * Generation 29: best_so_far_y 1.40306e+01, min(y) 1.56826e+01 & Evaluations 7800
+{'best_so_far_x': array([-0.0035692 , -0.00858268,  0.00891219, -0.00236469, -0.00021452,
+       -0.00113425,  0.00717549,  0.00456572, -0.00664016,  0.00267412,
+        0.00530511,  0.00623529,  0.01419698, -0.00631668,  0.01067267]),
+ 'best_so_far_y': 14.03062287458637,
+ 'n_function_evaluations': 8000,
+ 'runtime': 359.5238494873047,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 0.20156478881835938,
+ 'fitness': None,
+ '_n_generations': 29}
+14.03062287458637
+  * Generation 0: best_so_far_y 1.78045e+01, min(y) 1.78045e+01 & Evaluations 2000
+  * Generation 1: best_so_far_y 2.37157e+00, min(y) 2.37157e+00 & Evaluations 2200
+  * Generation 2: best_so_far_y 2.16280e-02, min(y) 2.16280e-02 & Evaluations 2400
+  * Generation 3: best_so_far_y 1.41520e-02, min(y) 1.41520e-02 & Evaluations 2600
+  * Generation 4: best_so_far_y 1.41520e-02, min(y) 1.66870e-01 & Evaluations 2800
+  * Generation 5: best_so_far_y 1.41520e-02, min(y) 1.02220e-01 & Evaluations 3000
+  * Generation 6: best_so_far_y 1.41520e-02, min(y) 9.04281e-02 & Evaluations 3200
+  * Generation 7: best_so_far_y 1.41520e-02, min(y) 1.83818e-01 & Evaluations 3400
+  * Generation 8: best_so_far_y 1.41520e-02, min(y) 5.66661e-02 & Evaluations 3600
+  * Generation 9: best_so_far_y 1.41520e-02, min(y) 5.80693e-02 & Evaluations 3800
+  * Generation 10: best_so_far_y 1.41520e-02, min(y) 1.18180e-01 & Evaluations 4000
+  * Generation 11: best_so_far_y 1.41520e-02, min(y) 1.14253e-01 & Evaluations 4200
+  * Generation 12: best_so_far_y 1.41520e-02, min(y) 3.54115e-02 & Evaluations 4400
+  * Generation 13: best_so_far_y 1.41520e-02, min(y) 3.34062e-02 & Evaluations 4600
+  * Generation 14: best_so_far_y 1.41520e-02, min(y) 7.43183e-02 & Evaluations 4800
+  * Generation 15: best_so_far_y 1.41520e-02, min(y) 3.31854e-02 & Evaluations 5000
+  * Generation 16: best_so_far_y 1.41520e-02, min(y) 1.15426e-01 & Evaluations 5200
+  * Generation 17: best_so_far_y 1.41520e-02, min(y) 3.61559e-02 & Evaluations 5400
+  * Generation 18: best_so_far_y 1.41520e-02, min(y) 1.67488e-01 & Evaluations 5600
+  * Generation 19: best_so_far_y 1.41520e-02, min(y) 5.50012e-02 & Evaluations 5800
+  * Generation 20: best_so_far_y 1.41520e-02, min(y) 2.45695e-01 & Evaluations 6000
+  * Generation 21: best_so_far_y 1.41520e-02, min(y) 4.80192e-02 & Evaluations 6200
+  * Generation 22: best_so_far_y 1.41520e-02, min(y) 2.03654e-02 & Evaluations 6400
+  * Generation 23: best_so_far_y 1.41520e-02, min(y) 1.32440e-01 & Evaluations 6600
+  * Generation 24: best_so_far_y 1.41520e-02, min(y) 1.35813e-01 & Evaluations 6800
+  * Generation 25: best_so_far_y 1.21116e-02, min(y) 1.21116e-02 & Evaluations 7000
+  * Generation 26: best_so_far_y 1.21116e-02, min(y) 6.67352e-02 & Evaluations 7200
+  * Generation 27: best_so_far_y 1.21116e-02, min(y) 1.85536e-02 & Evaluations 7400
+  * Generation 28: best_so_far_y 1.21116e-02, min(y) 7.74017e-02 & Evaluations 7600
+  * Generation 29: best_so_far_y 1.21116e-02, min(y) 2.81283e-02 & Evaluations 7800
+{'best_so_far_x': array([ 0.00084547,  0.00554887,  0.00048074,  0.00319943, -0.00233398,
+       -0.00357853,  0.00340011,  0.00120083, -0.00096986,  0.00547273,
+        0.00035537, -0.00393487,  0.00015622, -0.00232421,  0.0015114 ]),
+ 'best_so_far_y': 0.012111557779814763,
+ 'n_function_evaluations': 8000,
+ 'runtime': 370.54363560676575,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 0.21845102310180664,
+ 'fitness': None,
+ '_n_generations': 29}
+0.012111557779814763
