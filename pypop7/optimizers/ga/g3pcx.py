@@ -73,11 +73,12 @@ class G3PCX(GA):
 
     References
     ----------
-    Kalyanmoy Deb, Ashish Anand, and Dhiraj Joshi.
-    A computationally efficient evolutionary algorithm for real-parameter optimization.
-    Evolutionary Computation, 10(4):371–395, 2002.
-    Part of the code is referenced from:
     https://pymoo.org/algorithms/soo/g3pcx.html
+    
+    Deb, K., Anand, A. and Joshi, D., 2002.
+    A computationally efficient evolutionary algorithm for real-parameter optimization.
+    Evolutionary Computation, 10(4), pp.371-395.
+    https://direct.mit.edu/evco/article-abstract/10/4/371/1136/A-Computationally-Efficient-Evolutionary-Algorithm
     """
     def __init__(self, problem, options):
         GA.__init__(self, problem, options)
