@@ -9,4 +9,5 @@ Genetic Algorithms (GA)
    :maxdepth: 2
    :caption: GAs:
 
+   asga
    genitor
