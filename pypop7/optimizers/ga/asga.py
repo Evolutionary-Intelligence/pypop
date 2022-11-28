@@ -5,7 +5,7 @@ from athena.active import ActiveSubspaces
 
 
 class ASGA(GA):
-    """Active Subspace GA (ASGA).
+    """Active Subspace Genetic Algorithm (ASGA).
 
     Parameters
     ----------
@@ -73,7 +73,7 @@ class ASGA(GA):
     ----------
     Demo, N., Tezzele, M. and Rozza, G., 2021.
     A supervised learning approach involving active subspaces for an efficient genetic algorithm in
-      high-dimensional optimization problems.
+    high-dimensional optimization problems.
     SIAM Journal on Scientific Computing, 43(3), pp.B831-B853.
     https://epubs.siam.org/doi/10.1137/20M1345219
     """
