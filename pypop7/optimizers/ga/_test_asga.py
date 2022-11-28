@@ -15,7 +15,7 @@ from pypop7.optimizers.ga.asga import ASGA as Solver
 class TestASGA(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
-        ndim_problem = 1000
+        ndim_problem = 50
         for f in [ellipsoid, rosenbrock, rastrigin]:
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
@@ -26,7 +26,7 @@ class TestASGA(unittest.TestCase):
                        'fitness_threshold': 1e-10,
                        'max_runtime': 3600,  # 1 hours
                        'seed_rng': 0,
-                       'verbose': 50000,
+                       'verbose': 1,
                        'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
