@@ -18,19 +18,21 @@ Software Summary and Comparisons
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for Iterative Optimization Heuristics (IOHs)*.
 
 `https://github.com/CMA-ES <https://github.com/CMA-ES>`_ is *a collection of various implementations of the powerful CMA-ES algorithm*.
-  * https://github.com/CMA-ES/pycma (Python)
-  * https://github.com/CMA-ES/libcmaes (C++)
   * https://github.com/CMA-ES/c-cmaes (C)
+  * https://github.com/CMA-ES/libcmaes (C++)
+  * https://github.com/CMA-ES/pycma (Python)
 
 `pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.
-  * https://pymoo.org/algorithms/soo/ga.html
+  * https://pymoo.org/algorithms/soo/cmaes.html
   * https://pymoo.org/algorithms/soo/de.html
+  * https://pymoo.org/algorithms/soo/es.html
+  * https://pymoo.org/algorithms/soo/ga.html
+  * https://pymoo.org/algorithms/soo/g3pcx.html
+  * https://pymoo.org/algorithms/soo/isres.html
   * https://pymoo.org/algorithms/soo/nelder.html
   * https://pymoo.org/algorithms/soo/pattern.html
-  * https://pymoo.org/algorithms/soo/cmaes.html
-  * https://pymoo.org/algorithms/soo/es.html
+  * https://pymoo.org/algorithms/soo/pso.html
   * https://pymoo.org/algorithms/soo/sres.html
-  * https://pymoo.org/algorithms/soo/isres.html
 
 https://nlopt.readthedocs.io/en/latest/
 
@@ -51,10 +53,8 @@ R
 
 https://cran.r-project.org/web/views/Optimization.html
 
-* https://cran.r-project.org/web/packages/cmaes/index.html
-
 * https://cran.r-project.org/web/packages/CEoptim/index.html
-
+* https://cran.r-project.org/web/packages/cmaes/index.html
 * https://cran.r-project.org/web/packages/DEoptimR/index.html
 
   * Currently, it only provides an implementation of the `jDE` algorithm by Brest et al. (2006).
