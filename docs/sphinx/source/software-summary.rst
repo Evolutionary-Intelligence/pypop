@@ -17,14 +17,25 @@ Software Summary and Comparisons
 
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for Iterative Optimization Heuristics (IOHs)*.
 
+
+`https://github.com/CMA-ES <https://github.com/CMA-ES>`_ is *a collection of various implementations of the powerful CMA-ES algorithm*.
+  * https://github.com/CMA-ES/pycma (Python)
+  * https://github.com/CMA-ES/libcmaes (C++)
+  * https://github.com/CMA-ES/c-cmaes (C)
+
 https://nlopt.readthedocs.io/en/latest/
 
 https://coin-or.github.io/Ipopt/
 
 https://scipy.org/
 
-R for Statistical Computing
+Python
 ------
+
+* https://github.com/fmfn/BayesianOptimization
+
+R
+-
 
 https://cran.r-project.org/web/views/Optimization.html
 
@@ -34,9 +45,9 @@ https://cran.r-project.org/web/views/Optimization.html
 
 * https://cran.r-project.org/web/packages/DEoptimR/index.html
 
-  Currently, it only provides an implementation of the `jDE` algorithm by Brest et al. (2006).
+  * Currently, it only provides an implementation of the `jDE` algorithm by Brest et al. (2006).
 
-CMA-ES
+Matlab
 ------
 
-* https://github.com/CMA-ES
+* https://github.com/blockchain-group/DIRECTGO
