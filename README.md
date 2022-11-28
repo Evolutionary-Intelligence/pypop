@@ -202,6 +202,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Moré, J.J. and Wild, S.M., 2009. [Benchmarking derivative-free optimization algorithms](https://epubs.siam.org/doi/abs/10.1137/080724083). SIAM Journal on Optimization, 20(1), pp.172-191.
   * Whitley, D., Rana, S., Dzubera, J. and Mathias, K.E., 1996. [Evaluating evolutionary algorithms](https://www.sciencedirect.com/science/article/pii/0004370295001247). Artificial Intelligence, 85(1-2), pp.245-276.
   * Salomon, R., 1996. [Re-evaluating genetic algorithm performance under coordinate rotation of benchmark functions. A survey of some theoretical and practical aspects of genetic algorithms](https://www.sciencedirect.com/science/article/abs/pii/0303264796016218). BioSystems, 39(3), pp.263-278.
+  * Fogel, D.B. and Beyer, H.G., 1995. [A note on the empirical evaluation of intermediate recombination](https://direct.mit.edu/evco/article-abstract/3/4/491/749/A-Note-on-the-Empirical-Evaluation-of-Intermediate). Evolutionary Computation, 3(4), pp.491-495.
   * Moré, J.J., Garbow, B.S. and Hillstrom, K.E., 1981. [Testing unconstrained optimization software](https://dl.acm.org/doi/10.1145/355934.355936). ACM Transactions on Mathematical Software, 7(1), pp.17-41.
 
 * Evolution Strategy (ES) [ [A visual guide to evolution strategies](https://blog.otoro.net/2017/10/29/visual-evolution-strategies/) ]
