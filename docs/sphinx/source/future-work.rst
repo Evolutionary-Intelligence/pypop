@@ -21,3 +21,23 @@ PSO
 * De Oca, M. A. M., Stutzle, T., Birattari, M., & Dorigo, M. (2009). Frankenstein's PSO: A composite particle swarm optimization algorithm. IEEE Transactions on Evolutionary Computation, 13(5), 1120-1132.
 * Mendes, R., Kennedy, J., & Neves, J. (2004). The fully informed particle swarm: simpler, maybe better. IEEE Transactions on Evolutionary Computation, 8(3), 204-210.
 * Clerc, M., & Kennedy, J. (2002). The particle swarm-explosion, stability, and convergence in a multidimensional complex space. IEEE Transactions on Evolutionary Computation, 6(1), 58-73.
+
+MA
+--
+
+* Lozano, M., Herrera, F., Krasnogor, N., & Molina, D. (2004). Real-coded memetic algorithms with crossover hill-climbing. Evolutionary Computation, 12(3), 273-302.
+
+GA
+--
+
+* Drugan, M. M., & Thierens, D. (2010). Geometrical recombination operators for real-coded evolutionary mcmcs. Evolutionary Computation, 18(2), 157-198.
+
+RS
+--
+
+* Sener, O., & Koltun, V. (2019, September). Learning to guide random search. In International Conference on Learning Representations.
+
+BBO
+---
+
+* Flaxman, A. D., Kalai, A. T., & McMahan, H. B. (2005, January). Online convex optimization in the bandit setting: gradient descent without a gradient. In Proceedings of Annual ACM-SIAM symposium on Discrete Algorithms (pp. 385-394).
