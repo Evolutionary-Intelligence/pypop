@@ -27,25 +27,28 @@ class G3PCX(GA):
     Examples
     --------
     Use the Genetic Algorithm optimizer `G3PCX` to minimize the well-known test function
-    `Rastrigin <http://en.wikipedia.org/wiki/Rastrigin_function>`_:
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
 
        >>> import numpy
-       >>> from pypop7.benchmarks.base_functions import rastrigin  # function to be minimized
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.ga.g3pcx import G3PCX
-       >>> problem = {'fitness_function': rastrigin,  # define problem arguments
-       ...            'ndim_problem': 100,
-       ...            'lower_boundary': -5 * numpy.ones((100,)),
-       ...            'upper_boundary': 5 * numpy.ones((100,))}
-       >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5 * numpy.ones((2,)),
+       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> g3pcx = G3PCX(problem, options)  # initialize the optimizer class
        >>> results = g3pcx.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"G3PCX: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       G3PCX: 185180, 9.208633855450898e-11
+       G3PCX: 5000, 0.0
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/yc39x6d5>`_ for more details.
 
     Attributes
     ----------
@@ -95,22 +98,23 @@ class G3PCX(GA):
         # (Step 2:) generate offspring from the chosen parents using a recombination scheme
         xx, yy = np.empty((self.n_offsprings, self.ndim_problem)), np.empty((self.n_offsprings,))
         g = np.mean(x[parents], axis=0)  # mean vector of the chosen parents
-        diff = np.empty((self.n_parents - 1, self.ndim_problem))  # for perpendicular distance computation
         for i in range(self.n_offsprings):
             if self._check_terminations():
                 break
             p = self._elitist  # for faster local convergence
-            d, d_mean = g - x[p], np.empty((self.n_parents - 1,))
+            d = g - x[p]
+            d_norm = np.linalg.norm(d)
+            d_mean = np.empty((self.n_parents - 1,))
+            diff = np.empty((self.n_parents - 1, self.ndim_problem))  # for distance computation
             for ii, j in enumerate(parents[1:]):
-                diff[ii] = x[j] - x[p]
+                diff[ii] = x[j] - x[p]  # distance from one parent
             for ii in range(self.n_parents - 1):
-                d_mean[ii] = np.linalg.norm(diff[ii])*np.sqrt(1.0 - np.power(
-                    np.dot(diff[ii], d)/(np.linalg.norm(diff[ii])*np.linalg.norm(d)), 2))
+                d_mean[ii] = np.linalg.norm(diff[ii])*np.sqrt(
+                    1.0 - np.power(np.dot(diff[ii], d)/(np.linalg.norm(diff[ii])*d_norm), 2))
             d_mean = np.mean(d_mean)  # average of perpendicular distances
-            xx[i] = x[p] + self._std_pcx_1*self.rng_optimization.standard_normal()*d
-            orth = self._std_pcx_2*d_mean*self.rng_optimization.standard_normal()
-            orth = orth - (np.dot(orth, d)*d)/np.power(np.linalg.norm(d), 2)
-            xx[i] += orth
+            orth = self._std_pcx_2*d_mean*self.rng_optimization.standard_normal((self.ndim_problem,))
+            orth = orth - (np.dot(orth, d)*d)/np.power(d_norm, 2)
+            xx[i] = x[p] + self._std_pcx_1*self.rng_optimization.standard_normal()*d + orth
             yy[i] = self._evaluate_fitness(xx[i], args)
             if self.saving_fitness:
                 fitness.append(yy[i])
