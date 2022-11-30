@@ -4,31 +4,29 @@
     https://github.com/Evolutionary-Intelligence/pypop/wiki/Correctness-Validation-of-Optimizers.md
 """
 import unittest
-
 import time
+
 import numpy as np
 
-from pypop7.benchmarks.base_functions import ellipsoid, rastrigin, schwefel12, ackley
+from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
 from pypop7.optimizers.ga.g3pcx import G3PCX as Solver
 
 
 class TestG3PCX(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
-        ndim_problem = 100
-        for f in [rastrigin]:
+        ndim_problem = 1000
+        for f in [ellipsoid, rosenbrock, rastrigin]:
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
                        'ndim_problem': ndim_problem,
                        'lower_boundary': -5 * np.ones((ndim_problem,)),
                        'upper_boundary': 5 * np.ones((ndim_problem,))}
-            options = {'max_function_evaluations': 1e6,
+            options = {'max_function_evaluations': 2e6,
                        'fitness_threshold': 1e-10,
                        'max_runtime': 3600,  # 1 hours
-                       'n_individuals': 100,
-                       'n_parents': 3,
-                       'seed_rng': 2022,
-                       'verbose': 10000,
+                       'seed_rng': 0,
+                       'verbose': 20000,
                        'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
