@@ -18,6 +18,8 @@ PSO
 ---
 
 * Camacho-Villalón, C. L., Dorigo, M., & Stützle, T. (2021). PSO-X: A component-based framework for the automatic design of particle swarm optimization algorithms. IEEE Transactions on Evolutionary Computation, 26(3), 402-416.
+* Bonyadi, M. R., & Michalewicz, Z. (2015). Analysis of stability, local convergence, and transformation sensitivity of a variant of the particle swarm optimization algorithm. IEEE Transactions on Evolutionary Computation, 20(3), 370-385.
+* Su, S., Zhang, Z., Liu, A. X., Cheng, X., Wang, Y., & Zhao, X. (2014). Energy-aware virtual network embedding. IEEE/ACM Transactions on Networking, 22(5), 1607-1620.
 * De Oca, M. A. M., Stutzle, T., Birattari, M., & Dorigo, M. (2009). Frankenstein's PSO: A composite particle swarm optimization algorithm. IEEE Transactions on Evolutionary Computation, 13(5), 1120-1132.
 * Mendes, R., Kennedy, J., & Neves, J. (2004). The fully informed particle swarm: simpler, maybe better. IEEE Transactions on Evolutionary Computation, 8(3), 204-210.
 * Clerc, M., & Kennedy, J. (2002). The particle swarm-explosion, stability, and convergence in a multidimensional complex space. IEEE Transactions on Evolutionary Computation, 6(1), 58-73.
