@@ -22,7 +22,7 @@ class G3PCX(GA):
               and with the following particular settings (`keys`):
                 * 'n_individuals' - population size (`int`, default: `100`),
                 * 'n_parents'     - parent size (`int`, default: `3`),
-                * 'n_offsprings'  - offspring size (`int`, default: `2`),
+                * 'n_offsprings'  - offspring size (`int`, default: `2`).
 
     Examples
     --------
