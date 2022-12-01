@@ -68,7 +68,7 @@ class GENITOR(GA):
     Whitley, D., Dominic, S., Das, R. and Anderson, C.W., 1993.
     Genetic reinforcement learning for neurocontrol problems.
     Machine Learning, 13, pp.259-284.
-    https://link.springer.com/article/10.1023/A:1022602019183
+    https://link.springer.com/article/10.1023/A:1022674030396
 
     Whitley, D., 1989, December.
     The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best.
