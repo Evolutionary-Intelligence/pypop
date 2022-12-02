@@ -27,30 +27,35 @@ class PSO(Optimizer):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `20`),
+                * 'n_individuals' - swarm (population) size, aka number of particles (`int`, default: `20`),
                 * 'cognition'     - cognitive learning rate (`float`, default: `2.0`),
                 * 'society'       - social learning rate (`float`, default: `2.0`),
                 * 'max_ratio_v'   - maximal ratio of velocities w.r.t. search range (`float`, default: `0.2`).
 
     Attributes
     ----------
-    n_individuals : `int`
-                    swarm (population) size, number of particles.
     cognition     : `float`
-                    cognitive learning rate, acceleration coefficient.
-    society       : `float`
-                    social learning rate, acceleration coefficient.
+                    cognitive learning rate, aka acceleration coefficient.
     max_ratio_v   : `float`
                     maximal ratio of velocities w.r.t. search range.
+    n_individuals : `int`
+                    swarm (population) size, aka number of particles.
+    society       : `float`
+                    social learning rate, aka acceleration coefficient.
 
     Methods
     -------
 
     References
     ----------
+    Blackwell, T. and Kennedy, J., 2018.
+    Impact of communication topology in particle swarm optimization.
+    IEEE Transactions on Evolutionary Computation, 23(4), pp.689-702.
+    https://ieeexplore.ieee.org/abstract/document/8531770
+
     Bonyadi, M.R. and Michalewicz, Z., 2017.
     Particle swarm optimization for single objective continuous space problems: A review.
     Evolutionary Computation, 25(1), pp.1-54.
@@ -98,7 +103,7 @@ class PSO(Optimizer):
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        if self.n_individuals is None:  # swarm (population) size, number of particles
+        if self.n_individuals is None:  # swarm (population) size, aka number of particles
             self.n_individuals = 20
         self.cognition = options.get('cognition', 2.0)  # cognitive learning rate
         self.society = options.get('society', 2.0)  # social learning rate
@@ -108,8 +113,10 @@ class PSO(Optimizer):
         self._topology = None  # neighbors topology of social learning
         self._n_generations = 0  # number of generations
         # set linearly decreasing inertia weights introduced in [Shi&Eberhart, 1998, WCCI]
-        self._max_generations = np.ceil(self.max_function_evaluations/self.n_individuals)
-        self._w = 0.9 - 0.5*(np.arange(self._max_generations) + 1.0)/self._max_generations  # from 0.9 to 0.4
+        self._max_generations = np.ceil(self.max_function_evaluations / self.n_individuals)
+        if self._max_generations == np.Inf:
+            self._max_generations = 1e2 * self.ndim_problem
+        self._w = 0.9 - 0.5 * (np.arange(self._max_generations) + 1.0) / self._max_generations  # from 0.9 to 0.4
         self._swarm_shape = (self.n_individuals, self.ndim_problem)
 
     def initialize(self, args=None):
