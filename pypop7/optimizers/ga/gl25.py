@@ -6,8 +6,8 @@ from pypop7.optimizers.ga.ga import GA
 class GL25(GA):
     """Global and Local genetic algorithm (GL25).
 
-    .. note:: `25` means that 25 percentage of function evaluations (or runtime) are first used for global search
-       while the remaining 75 percentage are then used for local search.
+    .. note:: `25` means that 25 percentage of function evaluations (or runtime) are first used for *global* search
+       while the remaining 75 percentage are then used for *local* search.
 
     Parameters
     ----------
@@ -24,11 +24,11 @@ class GL25(GA):
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'alpha'           - global step-size for crossover (`float`, default: `0.8`),
-                * 'p_global'        - part to run global RCGA (`float`, default: `0.25`),
                 * 'n_female_global' - number of female at global search stage (`int`, default: `200`),
                 * 'n_male_global'   - number of male at global search stage (`int`, default: `400`),
-                * 'n_female_local'  - number of female at local search stage (`int`, default: `5`)
-                * 'n_male_local'    - number of male at local search stage (`int`, default: `100`).
+                * 'n_female_local'  - number of female at local search stage (`int`, default: `5`),
+                * 'n_male_local'    - number of male at local search stage (`int`, default: `100`),
+                * 'p_global'        - percentage of global search stage (`float`, default: `0.25`),.
 
     Examples
     --------
@@ -51,6 +51,10 @@ class GL25(GA):
        >>> results = gl25.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"GL25: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       GL25: 5000, 1.0505276479694516e-05
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/ytzffmbc>`_ for more details.
 
     Attributes
     ----------
@@ -73,7 +77,7 @@ class GL25(GA):
     ----------
     García-Martínez, C., Lozano, M., Herrera, F., Molina, D. and Sánchez, A.M., 2008.
     Global and local real-coded genetic algorithms based on parent-centric crossover operators.
-    European journal of operational research, 185(3), pp.1088-1113.
+    European Journal of Operational Research, 185(3), pp.1088-1113.
     https://www.sciencedirect.com/science/article/abs/pii/S0377221706006308
     """
     def __init__(self, problem, options):
@@ -112,15 +116,15 @@ class GL25(GA):
         female = x_female[female]
         # use negative assortative mating (NAM) as male selection mechanism
         distances = np.empty((self._assortative_mating,))
-        male = np.random.choice(n_male, size=self._assortative_mating, replace=False)
+        male = self.rng_optimization.choice(n_male, size=self._assortative_mating, replace=False)
         for i, m in enumerate(male):
             distances[i] = np.linalg.norm(female - x_male[m])
         male = x_male[male[np.argmax(distances)]]
         # use the parent-centric BLX crossover operator
         interval = np.abs(female - male)
         l, u = female - interval*self.alpha, female + interval*self.alpha
-        xx = self.rng_initialization.uniform(np.clip(l, self.lower_boundary, self.upper_boundary),
-                                             np.clip(u, self.lower_boundary, self.upper_boundary))
+        xx = self.rng_optimization.uniform(np.clip(l, self.lower_boundary, self.upper_boundary),
+                                           np.clip(u, self.lower_boundary, self.upper_boundary))
         yy = self._evaluate_fitness(xx, args)
         if self.saving_fitness:
             fitness.append(yy)
@@ -130,15 +134,18 @@ class GL25(GA):
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
-        fitness = GA.optimize(self, fitness_function)
+        fitness, is_switch = GA.optimize(self, fitness_function), True
         x, y = self.initialize(args)
         if self.saving_fitness:
             fitness.extend(y)
         while True:
-            if self.n_function_evaluations < self._max_fe_global or self.runtime < self._max_runtime_global:
-                x, y = self.iterate(x, y, self.n_female_global, self.n_male_global, fitness, args)
-            else:
+            if self.n_function_evaluations >= self._max_fe_global or self.runtime >= self._max_runtime_global:
+                if is_switch:  # local search
+                    init, is_switch = range(np.maximum(self.n_female_local, self.n_male_local)), False
+                    x, y, self._n_selected = x[init], y[init], self._n_selected[init]
                 x, y = self.iterate(x, y, self.n_female_local, self.n_male_local, fitness, args)
+            else:  # global search
+                x, y = self.iterate(x, y, self.n_female_global, self.n_male_global, fitness, args)
             if self._check_terminations():
                 break
             self._print_verbose_info(y)
