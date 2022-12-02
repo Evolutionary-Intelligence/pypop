@@ -6,9 +6,10 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class RS(Optimizer):
     """Random (stochastic) Search (optimization) (RS).
 
-    This is the **base** (abstract) class for all RS classes (also including individual-based **local search**,
-    particularly its *randomized* versions). Recently near all of its state-of-the-art versions adopt the
-    **population-based** random sampling strategy for better exploration in the complex search space.
+    This is the **base** (abstract) class for all `RS` classes (also including individual-based **local search**,
+    particularly its *randomized* versions). Please use any of its instantiated subclasses to optimize the
+    black-box problem at hand. Recently near all of its state-of-the-art versions adopt the **population-based**
+    random sampling strategy for better exploration in the complex search space.
 
     .. note:: `"The topic of local search was reinvigorated in the early 1990s by surprisingly good results
        for large ... problems ... and by the incorporation of randomness, multiple simultaneous searches,
