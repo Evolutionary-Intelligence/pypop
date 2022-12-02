@@ -17,17 +17,17 @@ class SPSOL(PSO):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `20`),
+                * 'n_individuals' - swarm (population) size, aka number of particles (`int`, default: `20`),
                 * 'cognition'     - cognitive learning rate (`float`, default: `2.0`),
                 * 'society'       - social learning rate (`float`, default: `2.0`),
                 * 'max_ratio_v'   - maximal ratio of velocities w.r.t. search range (`float`, default: `0.2`).
 
     Examples
     --------
-    Use the PSO optimizer `SPSOL` to minimize the well-known test function
+    Use the optimizer `SPSOL` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -48,19 +48,27 @@ class SPSOL(PSO):
        >>> print(f"SPSOL: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SPSOL: 5000, 3.470837498146212e-08
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/mucj6b6y>`_ for more details.
+
     Attributes
     ----------
-    n_individuals : `int`
-                    swarm (population) size, number of particles.
     cognition     : `float`
-                    cognitive learning rate.
-    society       : `float`
-                    social learning rate.
+                    cognitive learning rate, aka acceleration coefficient.
     max_ratio_v   : `float`
                     maximal ratio of velocities w.r.t. search range.
+    n_individuals : `int`
+                    swarm (population) size, aka number of particles.
+    society       : `float`
+                    social learning rate, aka acceleration coefficient.
 
     References
     ----------
+    Blackwell, T. and Kennedy, J., 2018.
+    Impact of communication topology in particle swarm optimization.
+    IEEE Transactions on Evolutionary Computation, 23(4), pp.689-702.
+    https://ieeexplore.ieee.org/abstract/document/8531770
+
     Floreano, D. and Mattiussi, C., 2008.
     Bio-inspired artificial intelligence: Theories, methods, and technologies.
     MIT Press.
