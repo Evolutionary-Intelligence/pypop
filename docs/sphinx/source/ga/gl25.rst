@@ -1,0 +1,4 @@
+Global and Local genetic algorithm (GL25)
+=========================================
+
+.. autoclass:: pypop7.optimizers.ga.gl25.GL25

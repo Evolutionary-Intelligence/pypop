@@ -10,5 +10,6 @@ Genetic Algorithms (GA)
    :caption: GAs:
 
    asga
+   gl25
    g3pcx
    genitor
