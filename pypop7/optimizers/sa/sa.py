@@ -4,7 +4,7 @@ from pypop7.optimizers.rs import RS
 class SA(RS):
     """Simulated Annealing (SA).
 
-    This is the **base** (abstract) class for all SA classes. Please use any of its instantiated subclasses to
+    This is the **base** (abstract) class for all `SA` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
     .. note:: `"Typical advantages of SA algorithms are their very mild memory requirements and the small
