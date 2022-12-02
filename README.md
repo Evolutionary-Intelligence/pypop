@@ -179,6 +179,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 * Evolutionary Computation (EC)
   * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482. [ [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/) ]
   * Miikkulainen, R. and Forrest, S., 2021. [A biological perspective on evolutionary computation](https://www.nature.com/articles/s42256-020-00278-8). Nature Machine Intelligence, 3(1), pp.9-15.
+  * De Jong, K.A., 2006. [Evolutionary computation: A unified approach](https://mitpress.mit.edu/9780262041942/evolutionary-computation/). MIT Press.
   * Beyer, H.G. and Deb, K., 2001. [On self-adaptive features in real-parameter evolutionary algorithms](https://ieeexplore.ieee.org/abstract/document/930314). IEEE Transactions on Evolutionary Computation, 5(3), pp.250-270.
   * Salomon, R., 1998. [Evolutionary algorithms and gradient search: Similarities and differences](https://ieeexplore.ieee.org/abstract/document/728207). IEEE Transactions on Evolutionary Computation, 2(2), pp.45-55.
   * Fogel, D.B., 1998. [Evolutionary computation: The fossil record](https://ieeexplore.ieee.org/book/5263042). IEEE Press.
@@ -266,7 +267,6 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
 * Differential Evolution (DE)
   * Applications: e.g., [Mehta et al., 2021, JCAP](https://iopscience.iop.org/article/10.1088/1475-7516/2021/07/033); [Su et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8601309); [Laganowsky et al., 2014, Nature](https://www.nature.com/articles/nature13419); [An et al., 2020, PNAS](https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117).
-
 * Particle Swarm Optimizer (PSO)
   * Weiel, M., Götz, M., Klein, A., Coquelin, D., Floca, R. and Schug, A., 2021. [Dynamic particle swarm optimization of biomolecular simulation parameters with flexible objective functions](https://www.nature.com/articles/s42256-021-00366-3). Nature Machine Intelligence, 3(8), pp.727-734.
   * Bonyadi, M.R. and Michalewicz, Z., 2017. [Particle swarm optimization for single objective continuous space problems: A review](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective). Evolutionary Computation, 25(1), pp.1-54.
@@ -279,10 +279,8 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Eberhart, R.C., Shi, Y. and Kennedy, J., 2001. [Swarm intelligence](https://www.elsevier.com/books/swarm-intelligence/eberhart/978-1-55860-595-4). Elsevier.
   * Shi, Y. and Eberhart, R., 1998, May. [A modified particle swarm optimizer](https://ieeexplore.ieee.org/abstract/document/699146). In IEEE World Congress on Computational Intelligence (pp. 69-73). IEEE.
   * Kennedy, J. and Eberhart, R., 1995, November. [Particle swarm optimization](https://ieeexplore.ieee.org/document/488968). In Proceedings of International Conference on Neural Networks (pp. 1942-1948). IEEE.
-  * Applications: e.g., [Pontani&Conway, 2010, JGCD](https://arc.aiaa.org/doi/abs/10.2514/1.48475); [Hassan et al., 2005, AIAA](https://arc.aiaa.org/doi/abs/10.2514/6.2005-1897).
-
+  * Applications: e.g., [Tang et al., 2019, TPAMI](https://ieeexplore.ieee.org/abstract/document/8386667); [Pontani&Conway, 2010, JGCD](https://arc.aiaa.org/doi/abs/10.2514/1.48475); [Hassan et al., 2005, AIAA](https://arc.aiaa.org/doi/abs/10.2514/6.2005-1897).
 * Simultaneous Perturbation Stochastic Approximation (SPSA) [ [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/) ]
-
 * Simulated Annealing (SA)
   * Bouttier, C. and Gavra, I., 2019. [Convergence rate of a simulated annealing algorithm with noisy observations](https://www.jmlr.org/papers/v20/16-588.html). Journal of Machine Learning Research, 20(1), pp.127-171.
   * Gerber, M. and Bornn, L., 2017. [Improving simulated annealing through derandomization](https://link.springer.com/article/10.1007/s10898-016-0461-1). Journal of Global Optimization, 68(1), pp.189-217.
@@ -293,14 +291,15 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Hastings, W.K., 1970. [Monte Carlo sampling methods using Markov chains and their applications](https://academic.oup.com/biomet/article/57/1/97/284580). Biometrika, 57(1), pp.97-109.
   * Metropolis, N., Rosenbluth, A.W., Rosenbluth, M.N., Teller, A.H. and Teller, E., 1953. [Equation of state calculations by fast computing machines](https://aip.scitation.org/doi/abs/10.1063/1.1699114). Journal of Chemical Physics, 21(6), pp.1087-1092.
   * Applications: e.g., [Kolesov et al., 2016, IEEE-TPAMI](https://ieeexplore.ieee.org/document/7130637)
-
 * Genetic Algorithm (GA)
   * Whitley, D., 2019. [Next generation genetic algorithms: A user’s guide and tutorial](https://link.springer.com/chapter/10.1007/978-3-319-91086-4_8). In Handbook of Metaheuristics (pp. 245-274). Springer, Cham.
   * Levine, D., 1997. [Commentary—Genetic algorithms: A practitioner's view](https://pubsonline.informs.org/doi/abs/10.1287/ijoc.9.3.256). INFORMS Journal on Computing, 9(3), pp.256-259.
+  * Goldberg, D.E., 1994. [Genetic and evolutionary algorithms come of age](https://dl.acm.org/doi/10.1145/175247.175259). Communications of the ACM, 37(3), pp.113-120.
   * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
   * De Jong, K.A., 1993. [Are genetic algorithms function optimizer?](https://www.sciencedirect.com/science/article/pii/B9780080948324500064). Foundations of Genetic Algorithms, pp.5-17.
   * Mitchell, M., Holland, J. and Forrest, S., 1993. [When will a genetic algorithm outperform hill climbing](https://proceedings.neurips.cc/paper/1993/hash/ab88b15733f543179858600245108dd8-Abstract.html). Advances in Neural Information Processing Systems (pp. 51-58).
   * Holland, J.H., 1992. [Adaptation in natural and artificial systems: An introductory analysis with applications to biology, control, and artificial intelligence](https://direct.mit.edu/books/book/2574/Adaptation-in-Natural-and-Artificial-SystemsAn). MIT Press.
+  * Holland, J.H., 1992. [Genetic algorithms](https://www.scientificamerican.com/article/genetic-algorithms/). Scientific American, 267(1), pp.66-73.
   * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). In Proceedings of International Conference on Genetic Algorithms (pp. 116-121).
   * Goldberg, D.E. and Holland, J.H., 1988. [Genetic algorithms and machine learning](https://link.springer.com/article/10.1023/A:1022602019183). Machine Learning, 3(2), pp.95-99.
   * Holland, J.H., 1973. [Genetic algorithms and the optimal allocation of trials](https://epubs.siam.org/doi/10.1137/0202009). SIAM Journal on Computing, 2(2), pp.88-105.
