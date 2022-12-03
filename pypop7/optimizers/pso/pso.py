@@ -113,10 +113,10 @@ class PSO(Optimizer):
         self._topology = None  # neighbors topology of social learning
         self._n_generations = 0  # number of generations
         # set linearly decreasing inertia weights introduced in [Shi&Eberhart, 1998, WCCI]
-        self._max_generations = np.ceil(self.max_function_evaluations / self.n_individuals)
+        self._max_generations = np.ceil(self.max_function_evaluations/self.n_individuals)
         if self._max_generations == np.Inf:
-            self._max_generations = 1e2 * self.ndim_problem
-        self._w = 0.9 - 0.5 * (np.arange(self._max_generations) + 1.0) / self._max_generations  # from 0.9 to 0.4
+            self._max_generations = 1e2*self.ndim_problem
+        self._w = 0.9 - 0.5*(np.arange(self._max_generations) + 1.0)/self._max_generations  # from 0.9 to 0.4
         self._swarm_shape = (self.n_individuals, self.ndim_problem)
 
     def initialize(self, args=None):
