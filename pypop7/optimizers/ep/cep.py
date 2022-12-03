@@ -21,11 +21,11 @@ class CEP(EP):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'          - initial global step-size, mutation strength (`float`),
-                * 'n_individuals'  - number of offspring, offspring population size (`int`, default: `100`),
+                * 'sigma'          - initial global step-size, aka mutation strength (`float`),
+                * 'n_individuals'  - number of offspring, aka offspring population size (`int`, default: `100`),
                 * 'q'              - number of opponents for pairwise comparisons (`int`, default: `10`),
                 * 'tau'            - learning rate of individual step-sizes self-adaptation (`float`, default:
                   `1.0/np.sqrt(2.0*np.sqrt(self.ndim_problem))`),
@@ -34,7 +34,7 @@ class CEP(EP):
 
     Examples
     --------
-    Use the EP optimizer `CEP` to minimize the well-known test function
+    Use the Evolutionary Programming optimizer `CEP` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -62,11 +62,11 @@ class CEP(EP):
     Attributes
     ----------
     n_individuals  : `int`
-                     number of offspring, population size.
-    sigma          : `float`
-                     initial global step-size, mutation strength.
+                     number of offspring, aka offspring population size.
     q              : `int`
-                     number of opponents for pairwise comparisons。
+                     number of opponents for pairwise comparisons.
+    sigma          : `float`
+                     initial global step-size, aka mutation strength.
     tau            : `float`
                      learning rate of individual step-sizes self-adaptation.
     tau_apostrophe : `float`
@@ -94,14 +94,14 @@ class CEP(EP):
     def initialize(self, args=None):
         x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
                                             size=(self.n_individuals, self.ndim_problem))
-        sigmas = self.sigma*np.ones((self.n_individuals, self.ndim_problem))  # eta (η)
+        sigmas = self.sigma*np.ones((self.n_individuals, self.ndim_problem))  # eta
         y = np.empty((self.n_individuals,))
         for i in range(self.n_individuals):
             if self._check_terminations():
                 break
             y[i] = self._evaluate_fitness(x[i], args)
         xx = np.empty((self.n_individuals, self.ndim_problem))
-        ss = np.empty((self.n_individuals, self.ndim_problem))  # eta (η)
+        ss = np.empty((self.n_individuals, self.ndim_problem))  # eta
         yy = np.empty((self.n_individuals,))
         return x, sigmas, y, xx, ss, yy
 
