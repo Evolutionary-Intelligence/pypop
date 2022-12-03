@@ -10,10 +10,10 @@
     https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for
 
     Note that we first update individual step-sizes and then update offspring for each generation as the
-    same as the second paper (different from the first paper), in order to obtain fast local convergence.
+    same as the second paper (but different from the first paper), in order to obtain fast local convergence.
 
-    Luckily very close performance can be obtained on five benchmark functions by our source code. Therefore,
-    we argue that the **repeatability** of `CEP` can be well-documented (*at least partly*).
+    Luckily our code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that the repeatability of `CEP` could be **well-documented** (*at least partly*).
 """
 import numpy as np
 
