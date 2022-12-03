@@ -6,13 +6,13 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class EP(Optimizer):
     """Evolutionary Programming (EP).
 
-    This is the **base** (abstract) class for all `EP` classes. Please use any of its instantiated subclasses
-    to optimize the black-box problem at hand.
+    This is the **base** (abstract) class for all `EP` classes. Please use any of its instantiated subclasses to
+    optimize the black-box problem at hand.
 
     .. note:: `EP` is one of three classical families of evolutionary algorithms (EAs), proposed originally by Lawrence
-    J. Fogel, recipient of both `Evolutionary Computation Pioneer Award 1998 <https://tinyurl.com/456as566>`_ and
-    `IEEE Frank Rosenblatt Award 2006 <https://tinyurl.com/yj28zxfa>`_. When used for continuous optimization, most
-    of modern `EP` share much similarities (e.g. self-adaptation) with `ES`, another representative EA.
+       J. Fogel, one recipient of both `Evolutionary Computation Pioneer Award 1998 <https://tinyurl.com/456as566>`_ and
+       `IEEE Frank Rosenblatt Award 2006 <https://tinyurl.com/yj28zxfa>`_. When used for continuous optimization, most
+       of modern `EP` share much similarities (e.g. self-adaptation) with `ES`, another representative EA.
 
     Parameters
     ----------
@@ -25,18 +25,18 @@ class EP(Optimizer):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'         - initial global step-size, mutation strength (`float`),
-                * 'n_individuals' - number of offspring, offspring population size (`int`, default: `100`).
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `100`).
 
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring, offspring population size.
+                    number of offspring, aka offspring population size.
     sigma         : `float`
-                    initial global step-size, mutation strength.
+                    initial global step-size, aka mutation strength.
 
     Methods
     -------
@@ -47,12 +47,22 @@ class EP(Optimizer):
     Evolutionary programming made faster.
     IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
     https://ieeexplore.ieee.org/abstract/document/771163
+
+    Fogel, D.B., 1994.
+    Evolutionary programming: An introduction and some current directions.
+    Statistics and Computing, 4(2), pp.113-129.
+    https://link.springer.com/article/10.1007/BF00175356
+
+    Bäck, T. and Schwefel, H.P., 1993.
+    An overview of evolutionary algorithms for parameter optimization.
+    Evolutionary Computation, 1(1), pp.1-23.
+    https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
         if self.n_individuals is None:
-            self.n_individuals = 100  # number of offspring, offspring population size
-        self.sigma = options.get('sigma')  # initial global step-size, mutation strength
+            self.n_individuals = 100  # number of offspring, aka offspring population size
+        self.sigma = options.get('sigma')  # initial global step-size, aka mutation strength
         self._n_generations = 0  # number of generations
 
     def initialize(self):
