@@ -1,5 +1,4 @@
 import numpy as np
-from scipy.stats import cauchy
 
 from pypop7.optimizers.ep.cep import CEP
 
@@ -94,12 +93,9 @@ class FEP(CEP):
             if self._check_terminations():
                 return x, sigmas, y, xx, ss, yy
             base_normal = self.rng_optimization.standard_normal()
-            for j in range(self.ndim_problem):
-                ss[i][j] = sigmas[i][j]*np.exp(
-                    self.tau_apostrophe*base_normal +
-                    self.tau*self.rng_optimization.standard_normal())
-                xx[i][j] = x[i][j] + ss[i][j]*cauchy.rvs(
-                    loc=0.0, scale=1.0, random_state=self.rng_optimization)
+            ss[i] = sigmas[i]*np.exp(self.tau_apostrophe*base_normal + self.tau *
+                                     self.rng_optimization.standard_normal(size=(self.ndim_problem,)))
+            xx[i] = x[i] + ss[i]*self.rng_optimization.standard_cauchy(size=(self.ndim_problem,))
             yy[i] = self._evaluate_fitness(xx[i], args)
         new_x = np.vstack((xx, x))
         new_sigmas = np.vstack((ss, sigmas))
