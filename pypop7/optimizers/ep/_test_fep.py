@@ -27,9 +27,8 @@ class TestFEP(unittest.TestCase):
                        'max_runtime': 3600,  # 1 hours
                        'seed_rng': 0,
                        'sigma': 0.1,
-                       'verbose_frequency': 20,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 200000}
+                       'verbose': 2000,
+                       'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
