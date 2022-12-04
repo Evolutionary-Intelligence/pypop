@@ -10,9 +10,9 @@ class CCPSO2(PSO):
 
     .. note:: `CCPSO2` employs the popular `cooperative coevolution <https://tinyurl.com/57wzdrhm>`_ framework to
        extend PSO for large-scale black-box optimization (LSBBO) with *random grouping/partitioning*. However, it
-       may suffer from **performance degradation** on *non-separable* functions (particularly ill-conditioned), since
-       its axis-parallel decomposition strategy (see the classical **coordinate descent** from the mathematical
-       programming community for detailed mathematical explanation).
+       may suffer from **performance degradation** on *non-separable* functions (particularly ill-conditioned),
+       owing to its axis-parallel decomposition strategy (see the classical **coordinate descent** from the
+       mathematical programming community for detailed mathematical explanation).
 
     Parameters
     ----------
