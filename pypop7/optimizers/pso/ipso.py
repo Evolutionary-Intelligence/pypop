@@ -103,9 +103,7 @@ class IPSO(PSO):
             society_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
             v[i] = self.constriction*(v[i] + self.cognition*cognition_rand*(p_x[i] - x[i]) +
                                       self.society*society_rand*(p_x[np.argmin(p_y)] - x[i]))  # velocity update
-            min_v, max_v = v[i] < self._min_v, v[i] > self._max_v
-            v[i, min_v], v[i, max_v] = self._min_v[min_v], self._max_v[max_v]
-            x[i] += v[i]  # position update
+            x[i] += np.clip(v[i], self._min_v, self._max_v)  # position update
             x[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary)
             y[i] = self._evaluate_fitness(x[i], args)
             if self.saving_fitness:

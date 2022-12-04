@@ -108,9 +108,7 @@ class CLPSO(PSO):
             self._learn_topology(p_x, p_y, i, n_x)
             v[i] = (self._w[self._n_generations]*v[i] + self.c*self.rng_optimization.uniform(
                 size=(self.ndim_problem,))*(n_x[i] - x[i]))  # velocity update
-            min_v, max_v = v[i] < self._min_v, v[i] > self._max_v  # velocity limitations
-            v[i, min_v], v[i, max_v] = self._min_v[min_v], self._max_v[max_v]
-            x[i] += v[i]  # position update
+            x[i] += np.clip(v[i], self._min_v, self._max_v)  # position update
             y[i] = self._evaluate_fitness(x[i], args)
             if y[i] < p_y[i]:  # personally-best position update
                 p_x[i], p_y[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary), y[i]
