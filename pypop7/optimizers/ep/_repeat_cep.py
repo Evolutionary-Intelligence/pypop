@@ -24,67 +24,67 @@ from pypop7.optimizers.ep.cep import CEP
 if __name__ == '__main__':
     ndim_problem = 30
 
-    problem = {'fitness_function': rastrigin,
-               'ndim_problem': ndim_problem,
-               'lower_boundary': -5.12*np.ones((ndim_problem,)),
-               'upper_boundary': 5.12*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 5000*100,
-               'seed_rng': 0,  # undefined in the original paper
-               'sigma': 3.0}
-    cep = CEP(problem, options)
-    results = cep.optimize()
-    print(results['best_so_far_y'])
-    # 43.778146043621575
-    # vs 89 (from the original paper)
-
     problem = {'fitness_function': ackley,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -32*np.ones((ndim_problem,)),
-               'upper_boundary': 32*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500*100,
+               'lower_boundary': -32 * np.ones((ndim_problem,)),
+               'upper_boundary': 32 * np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500 * 100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     cep = CEP(problem, options)
     results = cep.optimize()
     print(results['best_so_far_y'])
-    # 1.157071658638206
+    # 0.016251885324419124
     # vs 9.2 (from the original paper)
 
     problem = {'fitness_function': sphere,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -100*np.ones((ndim_problem,)),
-               'upper_boundary': 100*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500*100,
+               'lower_boundary': -100 * np.ones((ndim_problem,)),
+               'upper_boundary': 100 * np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500 * 100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     cep = CEP(problem, options)
     results = cep.optimize()
     print(results['best_so_far_y'])
-    # 0.0035835937017922037
+    # 0.015666051371471236
     # vs 2.2e-4 (from the original paper)
 
     problem = {'fitness_function': step,
                'ndim_problem': ndim_problem,
                'lower_boundary': -100 * np.ones((ndim_problem,)),
                'upper_boundary': 100 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500*100,
+    options = {'max_function_evaluations': 1500 * 100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     cep = CEP(problem, options)
     results = cep.optimize()
     print(results['best_so_far_y'])
-    # 4.0
+    # 490.0
     # vs mean 577.76 std 1125.76 (from the original paper)
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -30*np.ones((ndim_problem,)),
-               'upper_boundary': 30*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 20000*100,
-               'seed_rng': 1,  # undefined in the original paper
+               'lower_boundary': -30 * np.ones((ndim_problem,)),
+               'upper_boundary': 30 * np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 20000 * 100,
+               'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     cep = CEP(problem, options)
     results = cep.optimize()
     print(results['best_so_far_y'])
-    # 17.835249690659563
+    # 66.8308199296804
     # vs mean 6.17 std 13.61 (from the original paper)
+
+    problem = {'fitness_function': rastrigin,
+               'ndim_problem': ndim_problem,
+               'lower_boundary': -5.12 * np.ones((ndim_problem,)),
+               'upper_boundary': 5.12 * np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 5000 * 100,
+               'seed_rng': 0,  # undefined in the original paper
+               'sigma': 3.0}
+    cep = CEP(problem, options)
+    results = cep.optimize()
+    print(results['best_so_far_y'])
+    # 44.77307702119103
+    # vs 89 (from the original paper)

@@ -54,7 +54,7 @@ class CEP(EP):
        >>> results = cep.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CEP: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CEP: 5000, 0.003340601191185245
+       CEP: 5000, 0.0010931227420588278
 
     For its correctness checking, refer to `this code-based repeatability report
     <https://tinyurl.com/b9vpmfdv>`_ for more details.
@@ -109,11 +109,10 @@ class CEP(EP):
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return x, sigmas, y, xx, ss, yy
-            for j in range(self.ndim_problem):
-                ss[i][j] = sigmas[i][j]*np.exp(
-                    self.tau_apostrophe*self.rng_optimization.standard_normal() +
-                    self.tau*self.rng_optimization.standard_normal())
-                xx[i][j] = x[i][j] + ss[i][j]*self.rng_optimization.standard_normal()
+            ss[i] = sigmas[i]*np.exp(self.tau_apostrophe*self.rng_optimization.standard_normal(
+                size=(self.ndim_problem,)) + self.tau*self.rng_optimization.standard_normal(
+                size=(self.ndim_problem,)))
+            xx[i] = x[i] + ss[i]*self.rng_optimization.standard_normal(size=(self.ndim_problem,))
             yy[i] = self._evaluate_fitness(xx[i], args)
         new_x = np.vstack((xx, x))
         new_sigmas = np.vstack((ss, sigmas))
@@ -123,11 +122,10 @@ class CEP(EP):
             for j in self.rng_optimization.choice(2*self.n_individuals, size=self.q, replace=False):
                 if new_y[i] <= new_y[j]:
                     n_win[i] += 1
-        order = np.argsort(-n_win)
-        for i in range(self.n_individuals):
-            x[i] = new_x[order[i]]
-            sigmas[i] = new_sigmas[order[i]]
-            y[i] = new_y[order[i]]
+        order = np.argsort(-n_win)[:self.n_individuals]
+        x[:self.n_individuals] = new_x[order]
+        sigmas[:self.n_individuals] = new_sigmas[order]
+        y[:self.n_individuals] = new_y[order]
         self._n_generations += 1
         return x, sigmas, y, xx, ss, yy
 
