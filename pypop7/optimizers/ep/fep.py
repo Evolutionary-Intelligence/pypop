@@ -55,7 +55,7 @@ class FEP(CEP):
        >>> results = fep.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"FEP: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       FEP: 5000, 0.028959531330603295
+       FEP: 5000, 0.20127155821817022
 
     For its correctness checking, refer to `this code-based repeatability report
     <https://tinyurl.com/bdh7epah>`_ for more details.
@@ -92,6 +92,9 @@ class FEP(CEP):
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return x, sigmas, y, xx, ss, yy
+            # base = self.rng_optimization.standard_normal()
+            # ss[i] = sigmas[i]*np.exp(self.tau_apostrophe*base + self.tau*self.rng_optimization.standard_normal(
+            #     size=(self.ndim_problem,)))
             ss[i] = sigmas[i]*np.exp(self.tau_apostrophe*self.rng_optimization.standard_normal(
                 size=(self.ndim_problem,)) + self.tau*self.rng_optimization.standard_normal(
                 size=(self.ndim_problem,)))
@@ -102,8 +105,9 @@ class FEP(CEP):
         new_y = np.hstack((yy, y))
         n_win = np.zeros((2*self.n_individuals,))  # number of win
         for i in range(2*self.n_individuals):
-            for j in self.rng_optimization.choice(2*self.n_individuals, size=self.q, replace=False):
-                if new_y[i] <= new_y[j]:
+            for j in self.rng_optimization.choice(np.setdiff1d(range(2*self.n_individuals), i),
+                                                  size=self.q, replace=False):
+                if new_y[i] < new_y[j]:
                     n_win[i] += 1
         order = np.argsort(-n_win)[:self.n_individuals]
         x[:self.n_individuals] = new_x[order]

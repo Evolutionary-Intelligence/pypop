@@ -1,4 +1,9 @@
 """Repeat the following two papers for `LEP`:
+    Lee, C.Y. and Yao, X., 2004.
+    Evolutionary programming using mutations based on the Lévy probability distribution.
+    IEEE Transactions on Evolutionary Computation, 8(1), pp.1-13.
+    https://ieeexplore.ieee.org/document/1266370
+
     Luckily our code could repeat the data reported in the original paper *well*.
     Therefore, we argue that the repeatability of `LEP` could be **well-documented** (*at least partly*).
 """

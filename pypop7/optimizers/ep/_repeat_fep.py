@@ -31,7 +31,7 @@ if __name__ == '__main__':
     fep = FEP(problem, options)
     results = fep.optimize()
     print(results['best_so_far_y'])
-    # 10.210496983416414 vs 1.8e-2 (from the original paper)
+    # 3.2075361247903627 vs 1.8e-2 (from the original paper)
 
     problem = {'fitness_function': sphere,
                'ndim_problem': ndim_problem,
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     fep = FEP(problem, options)
     results = fep.optimize()
     print(results['best_so_far_y'])
-    # 1.158846545299445 vs 5.7e-4 (from the original paper)
+    # 0.20684583227726805 vs 5.7e-4 (from the original paper)
 
     problem = {'fitness_function': step,
                'ndim_problem': ndim_problem,
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     fep = FEP(problem, options)
     results = fep.optimize()
     print(results['best_so_far_y'])
-    # 5.0 vs 0 (from the original paper)
+    # 0.0 vs 0 (from the original paper)
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     fep = FEP(problem, options)
     results = fep.optimize()
     print(results['best_so_far_y'])
-    # 17.98769848732211 vs 5.06 (from the original paper)
+    # 100.13847984981406 vs 5.06 (from the original paper)
 
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,
