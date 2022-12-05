@@ -43,15 +43,30 @@ class EP(Optimizer):
 
     References
     ----------
+    Lee, C.Y. and Yao, X., 2004.
+    Evolutionary programming using mutations based on the Lévy probability distribution.
+    IEEE Transactions on Evolutionary Computation, 8(1), pp.1-13.
+    https://ieeexplore.ieee.org/document/1266370
+
     Yao, X., Liu, Y. and Lin, G., 1999.
     Evolutionary programming made faster.
     IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
     https://ieeexplore.ieee.org/abstract/document/771163
 
+    Fogel, D.B., 1999.
+    An overview of evolutionary programming.
+    In Evolutionary Algorithms (pp. 89-109). Springer, New York, NY.
+    https://link.springer.com/chapter/10.1007/978-1-4612-1542-4_5
+
     Fogel, D.B., 1994.
     Evolutionary programming: An introduction and some current directions.
     Statistics and Computing, 4(2), pp.113-129.
     https://link.springer.com/article/10.1007/BF00175356
+
+    Fogel, D.B. and Fogel, L.J., 1995, September.
+    An introduction to evolutionary programming.
+    In European Conference on Artificial Evolution (pp. 21-33). Springer, Berlin, Heidelberg.
+    https://link.springer.com/chapter/10.1007/3-540-61108-8_28
 
     Bäck, T. and Schwefel, H.P., 1993.
     An overview of evolutionary algorithms for parameter optimization.
