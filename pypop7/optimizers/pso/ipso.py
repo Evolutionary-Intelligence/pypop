@@ -48,7 +48,7 @@ class IPSO(PSO):
        >>> results = ipso.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"IPSO: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       IPSO: 5000, 2.29225104244031e-07
+       IPSO: 5000, 3.2885867204925283e-06
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/4pk3ssrf>`_ for more details.
