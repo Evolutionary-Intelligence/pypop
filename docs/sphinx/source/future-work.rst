@@ -6,6 +6,7 @@ Mathematical Optimization
 
 * Cartis, C., Massart, E., & Otemissov, A. (2022). Bound-constrained global optimization of functions with low effective dimensionality using multiple random embeddings. Mathematical Programming, 1-62.
 * Cartis, C., Massart, E., & Otemissov, A. (2022). Global optimization using random embeddings. Mathematical Programming, 1-49.
+* Rios, L. M., & Sahinidis, N. V. (2013). Derivative-free optimization: A review of algorithms and comparison of software implementations. Journal of Global Optimization, 56(3), 1247-1293.
 
 ES
 --
