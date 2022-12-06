@@ -46,7 +46,7 @@ class CLPSO(PSO):
        >>> results = clpso.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CLPSO: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CLPSO: 5000, 7.184727085112434e-05
+       CLPSO: 5000, 0.021666839988749936
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/f3pp4nfh>`_ for more details.
