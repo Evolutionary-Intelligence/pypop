@@ -6,8 +6,8 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class DE(Optimizer):
     """Differential Evolution (DE).
 
-    This is the **base** (abstract) class for all `DE` classes. Please use any of its instantiated subclasses
-    to optimize the black-box problem at hand.
+    This is the **base** (abstract) class for all `DE` classes. Please use any of its instantiated subclasses to
+    optimize the black-box problem at hand.
 
     .. note:: Originally `DE` was proposed to solve some challenging real-world black-box problems by Kenneth Price and
        Rainer Storn, `recipients of Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_.
@@ -18,7 +18,7 @@ class DE(Optimizer):
        open-source Python implementation for `DE`.
 
        `"DE borrows the idea from Nelder&Mead of employing information from within the vector population to alter
-       the search space." ---[Storn&Price, 1997, JGO] <https://doi.org/10.1023/A:1008202821328>`_
+       the search space."---[Storn&Price, 1997, JGO] <https://doi.org/10.1023/A:1008202821328>`_
 
     Parameters
     ----------
@@ -31,17 +31,17 @@ class DE(Optimizer):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular setting (`key`):
-                * 'n_individuals' - number of offspring, offspring population size (`int`, default: `100`).
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `100`).
 
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring, offspring population size. For `DE`, typically a *large* (often >=100)
+                    number of offspring, aka offspring population size. For `DE`, typically a *large* (often >=100)
                     population size is used to better explore for multimodal functions. Obviously the *optimal*
-                    population size is problem-dependent, relying on fine-tuning.
+                    population size is problem-dependent, which can be fine-tuned in practice.
 
     Methods
     -------

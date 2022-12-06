@@ -4,13 +4,15 @@
     Journal of Global Optimization, 27(1), pp.105-129.
     https://link.springer.com/article/10.1023/A:1024653025686
 
-    Luckily our code can generate two figures from the original paper *very closely*, though our result
-    is slightly better than the original paper on the first figure (owing to our better computing devices).
-    Therefore, we argue that the repeatability of `TDE` can be well-documented (*at least partly*).
+    All generated figures can be accessed via the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/tde
+
+    Luckily our code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that the repeatability of `TDE` could be **well-documented**.
 """
 import numpy as np
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 from pypop7.benchmarks.base_functions import ackley, rastrigin
 from pypop7.optimizers.de.tde import TDE as Solver

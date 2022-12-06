@@ -17,17 +17,17 @@ class TDE(DE):
     options : `dict`
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - population size (`int`, default: `30`),
+                * 'n_individuals' - number of offspring, offspring population size (`int`, default: `30`),
                 * 'f'             - mutation factor (`float`, default: `0.99`),
                 * 'cr'            - crossover probability (`float`, default: `0.85`),
                 * 'mt'            - trigonometric mutation probability (`float`, default: `0.05`).
 
     Examples
     --------
-    Use the ES optimizer `TDE` to minimize the well-known test function
+    Use the Differential Evolution optimizer `TDE` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -53,14 +53,14 @@ class TDE(DE):
 
     Attributes
     ----------
-    n_individuals : `int`
-                    number of offspring, offspring population size.
-    f             : `float`
-                    mutation factor.
     cr            : `float`
                     crossover probability.
+    f             : `float`
+                    mutation factor.
     mt            : 'float
-                    trigonometric mutation probability
+                    trigonometric mutation probability.
+    n_individuals : `int`
+                    number of offspring, offspring population size.
 
     References
     ----------

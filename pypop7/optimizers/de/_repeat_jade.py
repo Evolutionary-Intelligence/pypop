@@ -2,10 +2,10 @@
     Zhang, J., and Sanderson, A. C. 2009.
     JADE: Adaptive differential evolution with optional external archive.
     IEEE Transactions on Evolutionary Computation, 13(5), 945–958.
-    https://doi.org/10.1109/TEVC.2009.2014613
+    https://ieeexplore.ieee.org/document/5208221/
 
-    Very close performance can be obtained by our code. Therefore, we argue that
-    the repeatability of `JADE` can be well-documented (*at least partly*).
+    Luckily our code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that the repeatability of `JADE` could be **well-documented**.
 """
 import numpy as np
 
@@ -28,9 +28,7 @@ if __name__ == '__main__':
     results = jade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # generation 1500
-    #            9.4e-66
-    # vs         1.3e-54 (from the original paper)
+    # 9.363502685733142e-66 vs 1.3e-54 (from the original paper)
 
     problem = {'fitness_function': step,
                'ndim_problem': ndim_problem,
@@ -44,9 +42,7 @@ if __name__ == '__main__':
     results = jade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # generation 1500
-    #            0
-    # vs         0 (from the original paper)
+    # 0.0 vs 0 (from the original paper)
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
@@ -60,9 +56,7 @@ if __name__ == '__main__':
     results = jade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # generation 3000
-    #            0.0
-    # vs         3.2e-01 (from the original paper)
+    # 0.0 vs 3.2e-01 (from the original paper)
 
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,
@@ -76,9 +70,7 @@ if __name__ == '__main__':
     results = jade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # generation 5000
-    #            0
-    # vs         0 (from the original paper)
+    # 0.0 vs 0 (from the original paper)
 
     problem = {'fitness_function': ackley,
                'ndim_problem': ndim_problem,
@@ -92,6 +84,4 @@ if __name__ == '__main__':
     results = jade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # generation 2000
-    #            4.0e-15
-    # vs         4.4e-15 (from the original paper)
+    # 3.9968028886505635e-15 vs 4.4e-15 (from the original paper)

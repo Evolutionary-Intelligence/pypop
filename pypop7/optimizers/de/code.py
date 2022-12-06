@@ -18,14 +18,14 @@ class CODE(CDE):
     options : `dict`
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular setting (`key`):
                 * 'n_individuals' - population size (`int`, default: `100`).
 
     Examples
     --------
-    Use the ES optimizer `CODE` to minimize the well-known test function
+    Use the Differential Evolution optimizer `CODE` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -49,7 +49,7 @@ class CODE(CDE):
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring, offspring population size.
+                    number of offspring, aka offspring population size.
 
     References
     ----------
@@ -84,14 +84,11 @@ class CODE(CDE):
         f_p = self.rng_optimization.choice(self._pool, (self.n_individuals, 3))
         for k in range(self.n_individuals):
             base_k = np.setdiff1d(base, k)
-
             r = self.rng_optimization.choice(base_k, (3,), False)
             x1[k] = x[r[0]] + f_p[k, 0, 0]*(x[r[1]] - x[r[2]])  # rand/1/bin
-
             r = self.rng_optimization.choice(base_k, (5,), False)
             x2[k] = (x[r[0]] + self.rng_optimization.random()*(x[r[1]] - x[r[2]]) +
                      f_p[k, 1, 0]*(x[r[3]] - x[r[4]]))  # rand/2/bin
-
             r = self.rng_optimization.choice(base_k, (3,), False)
             x3[k] = (x[k] + self.rng_optimization.random()*(x[r[0]] - x[k]) +
                      f_p[k, 2, 0]*(x[r[1]] - x[r[2]]))  # current-to-rand/1

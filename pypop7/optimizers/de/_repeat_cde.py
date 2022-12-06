@@ -4,8 +4,8 @@
     Journal of Global Optimization, 11(4), pp.341–359.
     https://link.springer.com/article/10.1023/A:1008202821328
 
-    Very close performance can be obtained by our code. Therefore, we argue that
-    the repeatability of `CDE` can be well-documented (*at least partly*).
+    Luckily our code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that the repeatability of `CDE` could be **well-documented**.
 """
 import numpy as np
 

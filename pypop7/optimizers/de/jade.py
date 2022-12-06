@@ -18,10 +18,10 @@ class JADE(DE):
     options : `dict`
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - population size (`int`, default: `100`),
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `100`),
                 * 'mu'            - mean of normal distribution for adaptation of crossover probability (`float`,
                   default: `0.5`),
                 * 'median'        - median of Cauchy distribution for adaptation of mutation factor (`float`,
@@ -31,7 +31,7 @@ class JADE(DE):
 
     Examples
     --------
-    Use the ES optimizer `JADE` to minimize the well-known test function
+    Use the Differential Evolution optimizer `JADE` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -57,23 +57,23 @@ class JADE(DE):
 
     Attributes
     ----------
-    n_individuals : `int`
-                    number of offspring, offspring population size.
-    mu            : `float`
-                    mean of normal distribution for adaptation of crossover probability.
-    median        : `float`
-                    median of Cauchy distribution for adaptation of mutation factor.
-    p             : `float`
-                    level of greediness of mutation strategy.
     c             : `float`
                     life span.
+    median        : `float`
+                    median of Cauchy distribution for adaptation of mutation factor.
+    mu            : `float`
+                    mean of normal distribution for adaptation of crossover probability.
+    n_individuals : `int`
+                    number of offspring, offspring population size.
+    p             : `float`
+                    level of greediness of mutation strategy.
 
     References
     ----------
     Zhang, J., and Sanderson, A. C. 2009.
     JADE: Adaptive differential evolution with optional external archive.
     IEEE Transactions on Evolutionary Computation, 13(5), pp.945–958.
-    https://doi.org/10.1109/TEVC.2009.2014613
+    https://ieeexplore.ieee.org/document/5208221/
     """
     def __init__(self, problem, options):
         DE.__init__(self, problem, options)
@@ -91,7 +91,7 @@ class JADE(DE):
             if self._check_terminations():
                 break
             y[i] = self._evaluate_fitness(x[i], args)
-        a = np.empty((0, self.ndim_problem))  # the set of archived inferior solutions
+        a = np.empty((0, self.ndim_problem))  # set of archived inferior solutions
         return x, y, a
 
     def bound(self, x=None, xx=None):
@@ -109,7 +109,7 @@ class JADE(DE):
     def mutate(self, x=None, y=None, a=None):
         x_mu = np.empty((self.n_individuals,  self.ndim_problem))  # mutated population
         f_mu = np.empty((self.n_individuals,))  # mutated mutation factors
-        order = np.argsort(y)[:int(np.ceil(self.p*self.n_individuals))]  # index of the 100p% best individuals
+        order = np.argsort(y)[:int(np.ceil(self.p*self.n_individuals))]  # index of the [100*p]% best individuals
         x_p = x[self.rng_optimization.choice(order, (self.n_individuals,))]
         x_un = np.vstack((np.copy(x), a))  # archive
         for k in range(self.n_individuals):
@@ -136,8 +136,8 @@ class JADE(DE):
         return x_cr, p_cr
 
     def select(self, args=None, x=None, y=None, x_cr=None, a=None, f_mu=None, p_cr=None):
-        f = np.empty((0,))  # the set of all successful mutation factors
-        p = np.empty((0,))  # the set of all successful crossover probabilities
+        f = np.empty((0,))  # set of all successful mutation factors
+        p = np.empty((0,))  # set of all successful crossover probabilities
         for k in range(self.n_individuals):
             if self._check_terminations():
                 break
