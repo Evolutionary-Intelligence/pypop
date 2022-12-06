@@ -48,7 +48,7 @@ class IPSO(PSO):
        >>> results = ipso.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"IPSO: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       IPSO: 5000, 3.2885867204925283e-06
+       IPSO: 5000, 2.29225104244031e-07
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/4pk3ssrf>`_ for more details.
@@ -103,7 +103,8 @@ class IPSO(PSO):
             society_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
             v[i] = self.constriction*(v[i] + self.cognition*cognition_rand*(p_x[i] - x[i]) +
                                       self.society*society_rand*(p_x[np.argmin(p_y)] - x[i]))  # velocity update
-            x[i] += np.clip(v[i], self._min_v, self._max_v)  # position update
+            v[i] = np.clip(v[i], self._min_v, self._max_v)
+            x[i] += v[i]  # position update
             x[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary)
             y[i] = self._evaluate_fitness(x[i], args)
             if self.saving_fitness:

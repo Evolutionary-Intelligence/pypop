@@ -118,7 +118,8 @@ class SPSOL(PSO):
             v[i] = (self._w[self._n_generations]*v[i] +
                     self.cognition*cognition_rand*(p_x[i] - x[i]) +
                     self.society*society_rand*(n_x[i] - x[i]))  # velocity update
-            x[i] += np.clip(v[i], self._min_v, self._max_v)  # position update
+            v[i] = np.clip(v[i], self._min_v, self._max_v)
+            x[i] += v[i]  # position update
             y[i] = self._evaluate_fitness(x[i], args)  # fitness evaluation
             if y[i] < p_y[i]:  # online update
                 p_x[i], p_y[i] = x[i], y[i]

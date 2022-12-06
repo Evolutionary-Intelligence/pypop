@@ -46,7 +46,7 @@ class CLPSO(PSO):
        >>> results = clpso.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CLPSO: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CLPSO: 5000, 0.021666839988749936
+       CLPSO: 5000, 7.184727085112434e-05
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/f3pp4nfh>`_ for more details.
@@ -108,7 +108,8 @@ class CLPSO(PSO):
             self._learn_topology(p_x, p_y, i, n_x)
             v[i] = (self._w[self._n_generations]*v[i] + self.c*self.rng_optimization.uniform(
                 size=(self.ndim_problem,))*(n_x[i] - x[i]))  # velocity update
-            x[i] += np.clip(v[i], self._min_v, self._max_v)  # position update
+            v[i] = np.clip(v[i], self._min_v, self._max_v)
+            x[i] += v[i]  # position update
             y[i] = self._evaluate_fitness(x[i], args)
             if y[i] < p_y[i]:  # personally-best position update
                 p_x[i], p_y[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary), y[i]
