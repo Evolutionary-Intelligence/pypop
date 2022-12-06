@@ -6,7 +6,8 @@ from pypop7.optimizers.cem.cem import CEM
 class SCEM(CEM):
     """Standard Cross-Entropy Method (SCEM).
 
-    .. note:: `SCEM` uses the fixed smoothing strategy to update the mean and std of Gaussian search distribution.
+    .. note:: `SCEM` uses the *fixed* smoothing strategy to update the mean and std of Gaussian search
+       (mutation/sampling) distribution in an online fashion.
 
     Parameters
     ----------
@@ -22,8 +23,8 @@ class SCEM(CEM):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'         - initial global step-size (`float`),
-                * 'mean'          - initial mean of Gaussian search distribution (`array_like`),
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'mean'          - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
@@ -34,7 +35,7 @@ class SCEM(CEM):
 
     Examples
     --------
-    Use the `CEM` optimizer `SCEM` to minimize the well-known test function
+    Use the optimizer `SCEM` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -64,13 +65,13 @@ class SCEM(CEM):
     alpha         : `float`
                     smoothing factor.
     mean          : `array_like`
-                    initial mean of Gaussian search distribution.
+                    initial (starting) point, aka mean of Gaussian search distribution.
     n_individuals : `int`
                     number of offspring, aka offspring population size.
     n_parents     : `int`
                     number of parents, aka parental population size.
     sigma         : `float`
-                    final global step-size, aka mutation strength.
+                    initial global step-size, aka mutation strength.
 
     References
     ----------
