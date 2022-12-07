@@ -67,13 +67,13 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem,
                'lower_boundary': -5 * np.ones((ndim_problem,)),
                'upper_boundary': 5 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1000*1000,
-               'mean': 2.0*np.ones((ndim_problem,)),
+    options = {'max_function_evaluations': 1000 * 1000,
+               'mean': 2.0 * np.ones((ndim_problem,)),
                'seed_rng': 0,
                'sigma': 10.0,
                'verbose': 200,
                'saving_fitness': 50000}
     dscem = DSCEM(problem, options)
     results = dscem.optimize()
-    print(results)  # 1.79453493e+08 vs 234513028.88791963 (from the Matlab code)
+    print(results)  # 179453493.00800067 vs 234513028.88791963 (from the Matlab code)
     print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
