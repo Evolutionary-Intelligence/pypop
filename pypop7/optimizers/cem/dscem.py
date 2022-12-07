@@ -6,7 +6,8 @@ from pypop7.optimizers.cem.cem import CEM
 class DSCEM(CEM):
     """Dynamic Smoothing Cross-Entropy Method (DSCEM).
 
-    .. note:: `DSCEM` uses the dynamic smoothing strategy to update the mean and std of Gaussian search distribution.
+    .. note:: `DSCEM` uses the *dynamic* smoothing strategy to update the mean and std of Gaussian search
+       (mutation/sampling) distribution in an online fashion.
 
     Parameters
     ----------
@@ -22,21 +23,21 @@ class DSCEM(CEM):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'         - initial global step-size (`float`),
-                * 'mean'          - initial mean of Gaussian search distribution (`array_like`),
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'mean'          - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_individuals' - offspring population size (`int`, default: `1000`),
                 * 'n_parents'     - parent population size (`int`, default: `200`),
-                * 'alpha'         - smoothing factor of mean (`float`, default: `0.8`),
+                * 'alpha'         - smoothing factor of mean of Gaussian search distribution (`float`, default: `0.8`),
                 * 'beta'          - smoothing factor of individual step-sizes (`float`, default: `0.7`),
                 * 'q'             - decay factor of smoothing individual step-sizes (`float`, default: `5.0`).
 
     Examples
     --------
-    Use the `CEM` optimizer `DSCEM` to minimize the well-known test function
+    Use the optimizer `DSCEM` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -64,11 +65,11 @@ class DSCEM(CEM):
     Attributes
     ----------
     alpha         : `float`
-                    smoothing factor of mean.
+                    smoothing factor of mean of Gaussian search distribution.
     beta          : `float`
                     smoothing factor of individual step-sizes.
     mean          : `array_like`
-                    initial mean of Gaussian search distribution.
+                    initial (starting) point, aka mean of Gaussian search distribution.
     n_individuals : `int`
                     number of offspring, aka offspring population size.
     n_parents     : `int`
@@ -76,7 +77,7 @@ class DSCEM(CEM):
     q             : `float`
                     decay factor of smoothing individual step-sizes.
     sigma         : `float`
-                    final global step-size, aka mutation strength.
+                    initial global step-size, aka mutation strength.
 
     References
     ----------
@@ -93,7 +94,7 @@ class DSCEM(CEM):
     """
     def __init__(self, problem, options):
         CEM.__init__(self, problem, options)
-        self.alpha = options.get('alpha', 0.8)  # smoothing factor of mean
+        self.alpha = options.get('alpha', 0.8)  # smoothing factor of mean of Gaussian search distribution
         self.beta = options.get('beta', 0.7)  # smoothing factor of individual step-sizes
         self.q = options.get('q', 5.0)  # decay factor of smoothing individual step-sizes
 
