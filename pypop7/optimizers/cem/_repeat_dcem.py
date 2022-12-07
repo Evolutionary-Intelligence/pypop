@@ -55,5 +55,5 @@ if __name__ == '__main__':
                'saving_fitness': 2000}
     solver = Solver(problem, options)
     results = solver.optimize()
-    print(ellipsoid(results['mean']))  # 3.568760205550662e-08 vs 3.6024e-08 (from the original paper)
+    print(ellipsoid(results['mean']))  # 3.568666713353976e-08 vs 3.6024e-08 (from the original paper)
     print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
