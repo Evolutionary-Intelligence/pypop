@@ -10,5 +10,6 @@ Cross-Entropy Method (CEM)
    :caption: CEMs:
 
    dcem
+   mras
    dscem
    scem
