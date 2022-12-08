@@ -263,7 +263,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Rubinstein, R.Y. and Kroese, D.P., 2016. [Simulation and the Monte Carlo method (Third Edition)](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980). John Wiley & Sons.
   * De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005. [A tutorial on the cross-entropy method](https://link.springer.com/article/10.1007/s10479-005-5724-z). Annals of Operations Research, 134(1), pp.19-67.
   * Rubinstein, R.Y. and Kroese, D.P., 2004. [The cross-entropy method: A unified approach to combinatorial optimization, Monte-Carlo simulation, and machine learning](https://link.springer.com/book/10.1007/978-1-4757-4321-0). New York: Springer.
-  * Applications: e.g., [Simmons-Edler et al., 2019, ICML-RL4RealLife](https://openreview.net/forum?id=SyeHbtgSiN).
+  * Applications: e.g., [Simmons-Edler et al., 2019, ICML-RL4RealLife](https://openreview.net/forum?id=SyeHbtgSiN); [Kobilarov, 2012, IJRR](https://journals.sagepub.com/doi/10.1177/0278364912444543).
 * Differential Evolution (DE)
   * Applications: e.g., [Mehta et al., 2021, JCAP](https://iopscience.iop.org/article/10.1088/1475-7516/2021/07/033); [Su et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8601309); [Laganowsky et al., 2014, Nature](https://www.nature.com/articles/nature13419); [An et al., 2020, PNAS](https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117).
 * Particle Swarm Optimizer (PSO) [ [swarm intelligence](https://www.cs.cmu.edu/~arielpro/15381f16/c_slides/781f16-26.pdf) | [scholarpedia](http://www.scholarpedia.org/article/Particle_swarm_optimization) ]
