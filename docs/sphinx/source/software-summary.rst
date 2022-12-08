@@ -46,6 +46,7 @@ Python
 * https://esa.github.io/pygmo2/
 * https://github.com/CMA-ES/pycma
 * https://github.com/fmfn/BayesianOptimization
+* https://github.com/hardmaru/estool
 * https://pymoo.org/
 
 R
