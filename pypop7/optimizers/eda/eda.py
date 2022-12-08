@@ -6,7 +6,7 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class EDA(Optimizer):
     """Estimation of Distribution Algorithms (EDA).
 
-    This is the **base** (abstract) class for all EDA classes. Please use any of its instantiated subclasses to
+    This is the **base** (abstract) class for all `EDA` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
     .. note:: *`EDA` are a modern branch of evolutionary algorithms with some unique advantages in
@@ -26,11 +26,11 @@ class EDA(Optimizer):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring, offspring population size (`int`, default: `200`),
-                * 'n_parents'     - number of parents, parental population size (`int`, default:
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `200`),
+                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
                   `int(self.n_individuals/2)`).
 
     Attributes
@@ -76,9 +76,9 @@ class EDA(Optimizer):
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        if self.n_individuals is None:  # number of offspring, offspring population size
+        if self.n_individuals is None:  # number of offspring, aka offspring population size
             self.n_individuals = 200
-        if self.n_parents is None:  # number of parents, parental population size
+        if self.n_parents is None:  # number of parents, aka parental population size
             self.n_parents = int(self.n_individuals/2)
         self._n_generations = 0
         self._n_restart = 0
