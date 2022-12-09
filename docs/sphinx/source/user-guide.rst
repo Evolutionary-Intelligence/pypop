@@ -39,3 +39,28 @@ Below is a simple example to define the well-known test function `Rosenbrock
        ...            'ndim_problem': ndim_problem,  # dimension
        ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # search boundary
        ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}
+
+When the fitness function itself involves other *input arguments* except the sampling point `x`, there are two simple
+ways to support this scenario:
+
+* to create a `class <https://docs.python.org/3/reference/compound_stmts.html#class-definitions>`_ wrapper, e.g.:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy as np
+       >>> def rosenbrock(x, arg):  # define the fitness (cost/objective) function
+       ...     return arg*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
+       >>> class Rosenbrock(object):  # build a class wrapper
+       ...     def __init__(self, arg):  # arg is an extra input argument
+       ...         self.arg = arg
+       ...     def __call__(self, x):  # for fitness evaluation
+       ...         return rosenbrock(x, self.arg)
+       >>> rosen = Rosenbrock(100.0)
+       >>> ndim_problem = 1000  # define its settings
+       >>> problem = {'fitness_function': rosen,  # cost function
+       ...            'ndim_problem': ndim_problem,  # dimension
+       ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # search boundary
+       ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}
+
+* to utilize the easy-to-use unified interface provided for all optimizers in this library:
