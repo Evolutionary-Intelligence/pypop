@@ -131,3 +131,51 @@ hyper-parameters):
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SCEM: 1000000, 10.328016143160333
+
+Result Analyses
+---------------
+
+After the optimization stage, all optimizers return at least the following common results (collected into a `dict`):
+  * `best_so_far_x`: the best-so-far solution found during optimization,
+  * `best_so_far_y`: the best-so-far fitness (aka objective value) found during optimization,
+  * `n_function_evaluations`: the total number of function evaluations used during optimization,
+  * `runtime`: the total runtime used during the entire optimization stage,
+  * `termination_signal`: the termination signal (`MAX_FUNCTION_EVALUATIONS` or `MAX_RUNTIME` or `FITNESS_THRESHOLD`),
+  * `time_function_evaluations`: the total runtime spent in function evaluations,
+  * `fitness`: a list of fitness generated during the entire optimization stage.
+
+When the optimizer option `saving_fitness` is set to `False`, `fitness` will be `None`. When the optimizer option
+`saving_fitness` is set to an integer `n` (e.g., 1000), `fitness` will be a list of fitness generated every `n`
+(e.g. 1000) function evaluations. Note that both the *first* and *last* fitness are always saved in this case.
+
+Below is a simple example to visualize the *convergence* procedure of Evolution Strategy (ES) on the classical
+`sphere` function:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy as np  # https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
+       >>> import seaborn as sns
+       >>> import matplotlib.pyplot as plt
+       >>> from pypop7.benchmarks.base_functions import sphere
+       >>> from pypop7.optimizers.es.res import RES
+       >>> sns.set_theme(style='darkgrid')
+       >>> plt.figure()
+       >>> for i in range(3):
+       >>>     problem = {'fitness_function': sphere,
+       ...                'ndim_problem': 10}
+       ...     options = {'max_function_evaluations': 1500,
+       ...                'seed_rng': i,
+       ...                'saving_fitness': 1,
+       ...                'x': np.ones((10,)),
+       ...                'sigma': 1e-9,
+       ...                'lr_sigma': 1.0/(1.0 + 10.0/3.0),
+       ...                'is_restart': False}
+       ...     res = RES(problem, options)
+       ...     fitness = res.optimize()['fitness']
+       ...     plt.plot(fitness[:, 0], np.sqrt(fitness[:, 1]), 'b')  # sqrt for distance
+       ...     plt.xticks([0, 500, 1000, 1500])
+       ...     plt.xlim([0, 1500])
+       ...     plt.yticks([1e-9, 1e-6, 1e-3, 1e0])
+       ...     plt.yscale('log')
+       >>> plt.show()
