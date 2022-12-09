@@ -2,7 +2,7 @@ User Guide
 ==========
 
 Before applying `pypop7` to real-world black-box optimization problems, the following user guidelines should
-be read carefully: *problem definition*, *optimizer setting*, *result analyses*, and *algorithm selection*.
+be read carefully: *problem definition*, *optimizer setting*, *result analysis*, and *algorithm selection*.
 
 Problem Definition
 ------------------
@@ -132,7 +132,7 @@ hyper-parameters):
        >>> print(f"SCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SCEM: 1000000, 10.328016143160333
 
-Result Analyses
+Result Analysis
 ---------------
 
 After the optimization stage, all optimizers return at least the following common results (collected into a `dict`):
@@ -179,3 +179,6 @@ Below is a simple example to visualize the *convergence* procedure of Evolution 
        ...     plt.yticks([1e-9, 1e-6, 1e-3, 1e0])
        ...     plt.yscale('log')
        >>> plt.show()
+
+Algorithm Selection
+-------------------
