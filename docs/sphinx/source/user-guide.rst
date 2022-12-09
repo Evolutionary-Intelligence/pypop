@@ -64,3 +64,25 @@ ways to support this scenario:
        ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}
 
 * to utilize the easy-to-use unified interface provided for all optimizers in this library:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy as np
+       >>> def rosenbrock(x, args):
+       ...     return args*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
+       >>> ndim_problem = 10
+       >>> problem = {'fitness_function': rosenbrock,
+       ...            'ndim_problem': ndim_problem,
+       ...            'lower_boundary': -5*np.ones((ndim_problem,)),
+       ...            'upper_boundary': 5*np.ones((ndim_problem,))}
+       >>> from pypop7.optimizers.es.maes import MAES  # which can be replaced by any other optimizer in this library
+       >>> options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than 1e-10
+       ...            'max_function_evaluations': ndim_problem*10000,  # maximum of function evaluations
+       ...            'seed_rng': 0,  # seed of random number generation (which must be set for repeatability)
+       ...            'sigma': 3.0,  # initial global step-size of Gaussian search distribution
+       ...            'verbose': 500}  # to print verbose information every 500 generations
+       >>> maes = MAES(problem, options)  # initialize the optimizer
+       >>> results = maes.optimize(args=100.0)  # args as input arguments of fitness function except sampling point
+       >>> print(results['best_so_far_y'], results['n_function_evaluations'])
+       3.98657911234714 100000  # this is a well-recognized *local* attractor rather than the global optimum
