@@ -1,30 +1,54 @@
 import numpy as np
 
-from scipy.optimize import minimize
+from pypop7.optimizers.core.optimizer import Optimizer
 from pypop7.optimizers.pso.pso import PSO
+from scipy.optimize import minimize
 
 
 class IPSOLS(PSO):
-    """Incremental particle swarm optimizer (IPSO).
+    """Incremental particle swarm optimizer with local search(IPSOLS).
 
     Parameters
     ----------
     problem : dict
-              problem arguments with the following common settings (`keys`):
+            problem arguments with the following common settings (`keys`):
                 * 'fitness_function' - objective function to be **minimized** (`func`),
                 * 'ndim_problem'     - number of dimensionality (`int`),
                 * 'upper_boundary'   - upper boundary of search range (`array_like`),
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : dict
-              optimizer options with the following common settings (`keys`):
+            optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
-              and with the following particular settings (`keys`):
+               and with the following particular settings (`keys`):
                 * 'n_individuals' - swarm (population) size, number of particles (`int`, default: `20`),
                 * 'cognition'     - cognitive learning rate (`float`, default: `2.0`),
                 * 'society'       - social learning rate (`float`, default: `2.0`),
                 * 'max_ratio_v'   - maximal ratio of velocities w.r.t. search range (`float`, default: `0.2`).
+
+    Examples
+    --------
+    Use the optimizer `IPSOLS` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.pso.ipsols import IPSOLS
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5 * numpy.ones((2,)),
+       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022}
+       >>> ipsols = IPSOLS(problem, options)  # initialize the optimizer class
+       >>> results = ipsols.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"IPSOLS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       IPSOLS: 877, 6.11439290981708e-11
 
     Attributes
     ----------
@@ -44,17 +68,15 @@ class IPSOLS(PSO):
     IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics), 41(2), pp.368-384.
     https://ieeexplore.ieee.org/document/5582312
     """
-
     def __init__(self, problem, options):
         PSO.__init__(self, problem, options)
-        self.n_individuals = 1
-        # max swarm (population) size, number of particles
-        self.max_n_individuals = options.get('max_n_individuals', 1000)
+        self.n_individuals = 1  # minimum of swarm size
+        self.max_n_individuals = options.get('max_n_individuals', 1000)  # maximum of swarm size
         self.cognition = options.get('cognition', 2.05)  # cognitive learning rate
         self.society = options.get('society', 2.05)  # social learning rate
         self.constriction = options.get('constriction', 0.729)  # constriction factor
-        # for local search
-        self.e = np.ones((self.n_individuals,))  # Whether a local search should be invoked for particles or not
+        self.max_ratio_v = options.get('max_ratio_v', 0.5)  # maximal ratio of velocity
+        self.e = np.ones((self.max_n_individuals,))  # Whether a local search should be invoked for particles or not
         self.powell_tolerance = 0.01  # Powell's method tolerance
         self.powell_max_iterations = 10  # Powell's method maximum number of iterations
         self.powell_step_size = 0.2  # Powell's method step size: 20% of the length of the search range
@@ -65,23 +87,18 @@ class IPSOLS(PSO):
                                             size=self._swarm_shape)  # positions
         y = np.empty((self.n_individuals,))  # fitness
         p_x, p_y = np.copy(x), np.copy(y)  # personally previous-best positions and fitness
-        n_x = np.copy(x)  # neighborly previous-best positions
         for i in range(self.n_individuals):
             if self._check_terminations():
-                return v, x, y, p_x, p_y, n_x
-            res = minimize(self.fitness_function, x[i], method="Powell",
-                           tol=self.powell_tolerance, options={"maxiter": self.powell_max_iterations})
-            self.n_function_evaluations += (res.nfev - 1)
-            x[i] = res.x
+                return v, x, y, p_x, p_y
             y[i] = self._evaluate_fitness(x[i], args)
         p_y = np.copy(y)
-        return v, x, y, p_x, p_y, n_x
+        return v, x, y, p_x, p_y
 
-    def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None):
-        for i in range(self.n_individuals):
+    def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, args=None, fitness=None):
+        for i in range(self.n_individuals):  # horizontal social learning
             if self.e[i]:
                 if self._check_terminations():
-                    return v, x, y, p_x, p_y, n_x
+                    return v, x, y, p_x, p_y
                 res = minimize(self.fitness_function, x[i], method="Powell",
                                tol=self.powell_tolerance, options={"maxiter": self.powell_max_iterations})
                 self.n_function_evaluations += (res.nfev - 1)
@@ -94,33 +111,49 @@ class IPSOLS(PSO):
 
         # Horizontal social learning
         for i in range(self.n_individuals):
-            if self._check_terminations():
-                return v, x, y, p_x, p_y, n_x
-            n_x[i] = p_x[np.argmin(p_y)]  # online update within global topology
             cognition_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
             society_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
-            v[i] = self.constriction * (v[i] + self.cognition * cognition_rand * (p_x[i] - x[i]) +
-                                        self.society * society_rand * (n_x[i] - x[i]))  # velocity update
-            min_v, max_v = v[i] < self._min_v, v[i] > self._max_v
-            v[i, min_v], v[i, max_v] = self._min_v[min_v], self._max_v[max_v]
+            v[i] = self.constriction*(v[i] + self.cognition*cognition_rand*(p_x[i] - x[i]) +
+                                      self.society*society_rand*(p_x[np.argmin(p_y)] - x[i]))  # velocity update
+            v[i] = np.clip(v[i], self._min_v, self._max_v)
             x[i] += v[i]  # position update
-            y[i] = self._evaluate_fitness(x[i], args)  # fitness evaluation
+            x[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary)
+            y[i] = self._evaluate_fitness(x[i], args)
+            if self.saving_fitness:
+                fitness.append(y[i])
             if y[i] < p_y[i]:  # online update
                 p_x[i], p_y[i] = x[i], y[i]
-                self.e[i] = 1  # not converged to a local optimum
-
-        # Population growth and vertical social learning
-        if self.n_individuals < self.max_n_individuals:
+                self.e[i] = 1
+        if self.n_individuals < self.max_n_individuals:  # population growth (vertical social learning)
             if self._check_terminations():
-                return v, x, y, p_x, p_y, n_x
-            xx = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
-            xx = xx + self.rng_initialization.uniform(size=(self.ndim_problem,)) * (n_x[-1] - xx)
-            yy = self._evaluate_fitness(xx, args)  # fitness evaluation
+                return v, x, y, p_x, p_y
+            xx = self.rng_optimization.uniform(self.lower_boundary, self.upper_boundary)
+            model = p_x[np.argmin(p_y)]  # the best particle is used as model
+            # use different random numbers of different dimensions for diversity (important),
+            # which is *slightly different* from the original paper but often with better performance
+            # xx += self.rng_optimization.uniform()*(model - xx)  # from the original paper
+            xx += self.rng_optimization.uniform(size=(self.ndim_problem,))*(model - xx)
+            xx = np.clip(xx, self.lower_boundary, self.upper_boundary)
+            yy = self._evaluate_fitness(xx, args)
+            if self.saving_fitness:
+                fitness.append(yy)
             v = np.vstack((v, np.zeros((self.ndim_problem,))))
             x, y = np.vstack((x, xx)), np.hstack((y, yy))
             p_x, p_y = np.vstack((p_x, xx)), np.hstack((p_y, yy))
-            n_x = np.vstack((n_x, p_x[np.argmin(p_y)]))
-            self.e = np.hstack((self.e, 1))
             self.n_individuals += 1
         self._n_generations += 1
-        return v, x, y, p_x, p_y, n_x
+        return v, x, y, p_x, p_y
+
+    def optimize(self, fitness_function=None, args=None):
+        fitness = Optimizer.optimize(self, fitness_function)
+        v, x, y, p_x, p_y = self.initialize(args)
+        if self.saving_fitness:
+            fitness.extend(y)
+        self._print_verbose_info(y)
+        while True:
+            v, x, y, p_x, p_y = self.iterate(v, x, y, p_x, p_y, args, fitness)
+            if self._check_terminations():
+                break
+            self._print_verbose_info(y)
+        return self._collect_results(fitness)
+    
