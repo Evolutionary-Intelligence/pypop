@@ -1,6 +1,9 @@
 User Guide
 ==========
 
+Before applying `pypop7` to real-world black-box optimization problems, the following user guidelines should
+be read carefully: *problem definition*, *optimizer setting*, and *algorithm selection*.
+
 Problem Definition
 ------------------
 
@@ -40,8 +43,8 @@ Below is a simple example to define the well-known test function `Rosenbrock
        ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # search boundary
        ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}
 
-When the fitness function itself involves other *input arguments* except the sampling point `x`, there are two simple
-ways to support this scenario:
+When the fitness function itself involves other *input arguments* except the sampling point `x`, there are
+two simple ways to support this scenario:
 
 * to create a `class <https://docs.python.org/3/reference/compound_stmts.html#class-definitions>`_ wrapper, e.g.:
 
@@ -86,3 +89,21 @@ ways to support this scenario:
        >>> results = maes.optimize(args=100.0)  # args as input arguments of fitness function except sampling point
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
        3.98657911234714 100000  # this is a well-recognized *local* attractor rather than the global optimum
+
+Optimizer Setting
+-----------------
+
+This library provides a *unified* API for hyper-parameter settings of all black-box optimizers. The following
+algorithm options (all stored into a `dict`) are common for all optimizers:
+  * `max_function_evaluations`: maximum of function evaluations (`int`, default: `np.Inf`),
+  * `max_runtime` : maximal runtime to be allowed (`float`, default: `np.Inf`),
+  * `seed_rng` : seed for random number generation needed to be *explicitly* set (`int`).
+
+At least one of two options (`max_function_evaluations` and `max_runtime`) should be set, according to
+the available computing resources or acceptable runtime.
+
+For **repeatability**, `seed_rng` should be *explicitly* set for random number generation (`RNG
+<https://numpy.org/doc/stable/reference/random/>`_).
+
+Note that for any optimizer, its *specific* options/settings (see its API documentation for details) can be
+naturally added into the `dict` data structure.
