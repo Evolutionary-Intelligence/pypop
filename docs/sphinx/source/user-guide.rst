@@ -2,7 +2,7 @@ User Guide
 ==========
 
 Before applying `pypop7` to real-world black-box optimization problems, the following user guidelines should
-be read carefully: *problem definition*, *optimizer setting*, and *algorithm selection*.
+be read carefully: *problem definition*, *optimizer setting*, *result analyses*, and *algorithm selection*.
 
 Problem Definition
 ------------------
@@ -96,8 +96,8 @@ Optimizer Setting
 This library provides a *unified* API for hyper-parameter settings of all black-box optimizers. The following
 algorithm options (all stored into a `dict`) are common for all optimizers:
   * `max_function_evaluations`: maximum of function evaluations (`int`, default: `np.Inf`),
-  * `max_runtime` : maximal runtime to be allowed (`float`, default: `np.Inf`),
-  * `seed_rng` : seed for random number generation needed to be *explicitly* set (`int`).
+  * `max_runtime`: maximal runtime to be allowed (`float`, default: `np.Inf`),
+  * `seed_rng`: seed for random number generation needed to be *explicitly* set (`int`).
 
 At least one of two options (`max_function_evaluations` and `max_runtime`) should be set, according to
 the available computing resources or acceptable runtime.
@@ -106,4 +106,28 @@ For **repeatability**, `seed_rng` should be *explicitly* set for random number g
 <https://numpy.org/doc/stable/reference/random/>`_).
 
 Note that for any optimizer, its *specific* options/settings (see its API documentation for details) can be
-naturally added into the `dict` data structure.
+naturally added into the `dict` data structure. Take the well-known `Cross-Entropy Method (CEM)
+<https://link.springer.com/article/10.1007/s11009-006-9753-0>`_ as an illustrative example. The settings of
+*mean* and *std* of its Gaussian sampling distribution usually have a significant impact on the convergence
+rate (see its `API <https://pypop.readthedocs.io/en/latest/cem/scem.html>`_ for more details about its
+hyper-parameters):
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy as np
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.cem.scem import SCEM
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 10,
+       ...            'lower_boundary': -5*np.ones((10,)),
+       ...            'upper_boundary': 5*np.ones((10,))}
+       >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'mean': 4*np.ones((10,)),  # initial mean of Gaussian search distribution
+       ...            'sigma': 3.0}  # initial std (aka global step-size) of Gaussian search distribution
+       >>> scem = SCEM(problem, options)  # initialize the optimizer class
+       >>> results = scem.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"SCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       SCEM: 1000000, 10.328016143160333
