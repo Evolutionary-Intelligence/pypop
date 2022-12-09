@@ -1,3 +1,8 @@
+"""This code only tests whether the corresponding optimizer could run or not.
+  In other words, it *cannot* validate the correctness regarding its working procedure.
+  For the correctness validation of programming, refer to the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/wiki/Correctness-Validation-of-Optimizers.md
+"""
 import unittest
 import time
 import numpy as np
@@ -18,9 +23,8 @@ class TestHJDSM(unittest.TestCase):
             options = {'max_function_evaluations': 2e4,
                        'fitness_threshold': 1e-8,
                        'seed_rng': 0,
-                       'verbose_frequency': 1,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 1}
+                       'verbose': 1,
+                       'saving_fitness': True}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
