@@ -37,7 +37,7 @@ class ARHC(RHC):
 
     Examples
     --------
-    Use the Random Search optimizer `ARHC` to minimize the well-known test function
+    Use the optimizer `ARHC` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python

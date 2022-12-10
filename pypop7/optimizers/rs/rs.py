@@ -112,21 +112,30 @@ class RS(Optimizer):
     def iterate(self):  # for each iteration (generation)
         raise NotImplementedError
 
-    def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose):
+    def _print_verbose_info(self, fitness, y):
+        if self.saving_fitness:
+            if not np.isscalar(y):
+                fitness.extend(y)
+            else:
+                fitness.append(y)
+        if self.verbose and ((not self._n_generations % self.verbose) or (self.termination_signal > 0)):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
+    def _collect_results(self, fitness, y=None):
+        if y is not None:
+            self._print_verbose_info(fitness, y)
+        results = Optimizer._collect_results(self, fitness)
+        results['_n_generations'] = self._n_generations
+        return results
+
     def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
-        fitness, is_initialization = Optimizer.optimize(self, fitness_function), True
+        fitness = Optimizer.optimize(self, fitness_function)
+        x = self.initialize()
+        y = self._evaluate_fitness(x, args)
         while not self._check_terminations():
-            if is_initialization:
-                x, is_initialization = self.initialize(), False
-            else:
-                x = self.iterate()
+            self._print_verbose_info(fitness, y)
+            x = self.iterate()
             y = self._evaluate_fitness(x, args)
-            if self.saving_fitness:
-                fitness.append(y)
-            self._print_verbose_info(y)
             self._n_generations += 1
-        return self._collect_results(fitness)
+        return self._collect_results(fitness, y)

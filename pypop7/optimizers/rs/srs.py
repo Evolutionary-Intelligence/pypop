@@ -37,7 +37,7 @@ class SRS(PRS):
 
     Examples
     --------
-    Use the Random Search optimizer `SRS` to minimize the well-known test function
+    Use the optimizer `SRS` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -74,7 +74,7 @@ class SRS(PRS):
     min_sigma                   :  `float`
                                   minimum of global step-size.
     sigma                       : `float`
-                                  global step-size.
+                                  final global step-size.
     x                           : `array_like`
                                   initial (starting) point.
 
@@ -94,13 +94,13 @@ class SRS(PRS):
         # only support normally-distributed random sampling during optimization
         options['sampling_distribution'] = 0
         PRS.__init__(self, problem, options)
-        self.alpha = options.get('alpha', 0.3)  # factor of (global) step-size
+        self.alpha = options.get('alpha', 0.3)  # factor of global step-size
         assert self.alpha > 0.0, f'`self.alpha` == {self.alpha}, but should > 0.0.'
         self.beta = options.get('beta', 0.0)  # adjustment probability for exploration-exploitation trade-off
         assert 0.0 <= self.beta <= 1.0, f'`self.beta` == {self.beta}, but should >= 0.0 and <= 1.0.'
         self.gamma = options.get('gamma', 0.99)  # factor of search decay
         assert 0.0 <= self.gamma <= 1.0, f'`self.gamma` == {self.gamma}, but should >= 0.0 and <= 1.0.'
-        self.min_sigma = options.get('min_sigma', 0.01)  # minimum of (global) step-size
+        self.min_sigma = options.get('min_sigma', 0.01)  # minimum of global step-size
         assert self.min_sigma > 0.0, f'`self.min_sigma` == {self.min_sigma}, but should > 0.0.'
 
     def initialize(self, args=None):
@@ -124,15 +124,8 @@ class SRS(PRS):
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.append(y)
-        self._print_verbose_info(y)
-        while True:
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, y)
             x, y = self.iterate(x, args)
-            if self.saving_fitness:
-                fitness.append(y)
-            self._print_verbose_info(y)
-            if self._check_terminations():
-                break
             self.sigma = np.maximum(self.gamma*self.sigma, self.min_sigma)
-        return self._collect_results(fitness)
+        return self._collect_results(fitness, y)

@@ -30,7 +30,7 @@ class BES(RS):
 
     Examples
     --------
-    Use the Random Search optimizer `BES` to minimize the well-known test function
+    Use the optimizer `BES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -76,7 +76,7 @@ class BES(RS):
     """
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
-        self.n_individuals = options.get('n_individuals', 100)  # number of individuals (samples)
+        self.n_individuals = options.get('n_individuals', 100)  # number of individuals/samples
         self.lr = options.get('lr', 0.001)  # learning rate
         self.c = options.get('c', 0.1)  # factor of finite-difference gradient estimate
         self.verbose = options.get('verbose', 10)
@@ -86,34 +86,30 @@ class BES(RS):
             x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         else:
             x = np.copy(self.x)
-        return x
+        y = np.empty((self.n_individuals + 1,))  # no evaluations
+        # the fist element of `y` will be used as the base for finite-difference gradient estimate
+        return x, y
 
-    def iterate(self, args=None, x=None, fitness=None):  # for each iteration (generation)
+    def iterate(self, x=None, y=None, args=None):  # for each iteration (generation)
         gradient = np.zeros((self.ndim_problem,))  # estimated gradient
-        y_base = self._evaluate_fitness(x, args)  # for finite-difference gradient estimate
-        if self.saving_fitness:
-            fitness.append(y_base)
-        self._print_verbose_info(y_base)
-        y = np.empty((self.n_individuals,))
-        for i in range(self.n_individuals):
+        y[0] = self._evaluate_fitness(x, args)  # for finite-difference gradient estimate
+        for i in range(1, self.n_individuals + 1):
             if self._check_terminations():
-                return x
+                return x, y
             # set directional gradient based on Bernoulli distribution
             dg = self.rng_optimization.binomial(n=1, p=0.5, size=(self.ndim_problem,))
             dg = (dg - 0.5)/0.5
             y[i] = self._evaluate_fitness(x + self.c*dg, args)
-            gradient += (y[i] - y_base)*dg
-            if self.saving_fitness:
-                fitness.append(y[i])
+            gradient += (y[i] - y[0])*dg
         gradient /= (self.c*self.n_individuals)
         x -= self.lr*gradient  # stochastic gradient descent (SGD)
-        self._n_generations += 1
-        self._print_verbose_info(y)
-        return x
+        return x, y
 
     def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
         fitness = Optimizer.optimize(self, fitness_function)
-        x = self.initialize()
-        while not self._check_terminations():
-            x = self.iterate(args, x, fitness)
+        x, y = self.initialize()
+        while not self.termination_signal:
+            x, y = self.iterate(x, y, args)
+            self._print_verbose_info(fitness, y)
+            self._n_generations += 1
         return self._collect_results(fitness)
