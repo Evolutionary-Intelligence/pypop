@@ -132,6 +132,10 @@ hyper-parameters):
        >>> print(f"SCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SCEM: 1000000, 10.328016143160333
 
+.. image:: images/convergence.png
+   :width: 321px
+   :align: center
+
 Result Analysis
 ---------------
 
