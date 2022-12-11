@@ -132,10 +132,6 @@ hyper-parameters):
        >>> print(f"SCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SCEM: 1000000, 10.328016143160333
 
-.. image:: images/convergence.png
-   :width: 321px
-   :align: center
-
 Result Analysis
 ---------------
 
@@ -184,6 +180,10 @@ Below is a simple example to visualize the *convergence* procedure of Evolution 
        ...     plt.yscale('log')
        >>> plt.show()
 
+.. image:: images/convergence.png
+   :width: 321px
+   :align: center
+
 Algorithm Selection
 -------------------
 
@@ -191,9 +191,9 @@ For real-world black-box optimization, there is few *a prior* knowledge to serve
 Perhaps the simplest way to algorithm selection is **trial-and-error**. However, here we still hope to provide a
 *rule of thumb* to guide algorithm selection according to algorithm classification. Refer to `its GitHub homepage
 <https://github.com/Evolutionary-Intelligence/pypop>`_ for details about three different classification families
-(only based on the dimensionality). It is worthwhile noting that this classification is *just a very rough estimation*.
-In practice, the algorithm selection should depend mainly on the final performance criteria (e.g. convergence rate /
-solution quality / runtime).
+(only based on the dimensionality). It is worthwhile noting that this classification is *just a very rough estimation*
+for algorithm selection. In practice, the algorithm selection should depend mainly on the final performance criteria (
+e.g. convergence rate / solution quality / runtime).
 
 In the future, we expect to add the recent **Automated Algorithm Selection** techniques in this library, as shown below:
   * Kerschke, P., Hoos, H.H., Neumann, F. and Trautmann, H., 2019. Automated algorithm selection: Survey and
