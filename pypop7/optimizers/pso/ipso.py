@@ -107,8 +107,6 @@ class IPSO(PSO):
             x[i] += v[i]  # position update
             x[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary)
             y[i] = self._evaluate_fitness(x[i], args)
-            if self.saving_fitness:
-                fitness.append(y[i])
             if y[i] < p_y[i]:  # online update
                 p_x[i], p_y[i] = x[i], y[i]
         if self.n_individuals < self.max_n_individuals:  # population growth (vertical social learning)
@@ -122,8 +120,6 @@ class IPSO(PSO):
             xx += self.rng_optimization.uniform(size=(self.ndim_problem,))*(model - xx)
             xx = np.clip(xx, self.lower_boundary, self.upper_boundary)
             yy = self._evaluate_fitness(xx, args)
-            if self.saving_fitness:
-                fitness.append(yy)
             v = np.vstack((v, np.zeros((self.ndim_problem,))))
             x, y = np.vstack((x, xx)), np.hstack((y, yy))
             p_x, p_y = np.vstack((p_x, xx)), np.hstack((p_y, yy))
@@ -134,12 +130,7 @@ class IPSO(PSO):
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
         v, x, y, p_x, p_y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
-        while True:
-            v, x, y, p_x, p_y = self.iterate(v, x, y, p_x, p_y, args, fitness)
-            if self._check_terminations():
-                break
-            self._print_verbose_info(y)
-        return self._collect_results(fitness)
+        while not self.termination_signal:
+            self._print_verbose_info(fitness, y)
+            v, x, y, p_x, p_y = self.iterate(v, x, y, p_x, p_y, args)
+        return self._collect_results(fitness, y)

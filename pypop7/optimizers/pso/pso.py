@@ -111,7 +111,7 @@ class PSO(Optimizer):
         self._max_v = self.max_ratio_v*(self.upper_boundary - self.lower_boundary)  # maximal velocity
         self._min_v = -self._max_v  # minimal velocity
         self._topology = None  # neighbors topology of social learning
-        self._n_generations = 0  # number of generations
+        self._n_generations = 0  # initial number of generations
         # set linearly decreasing inertia weights introduced in [Shi&Eberhart, 1998, WCCI]
         self._max_generations = np.ceil(self.max_function_evaluations/self.n_individuals)
         if self._max_generations == np.Inf:
@@ -135,24 +135,29 @@ class PSO(Optimizer):
 
     def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None):
         self._n_generations += 1
-        raise NotImplementedError
+        return v, x, y, p_x, p_y, n_x
 
-    def _print_verbose_info(self, y=None):
-        if self.verbose and (not self._n_generations % self.verbose):
+    def _print_verbose_info(self, fitness, y):
+        if self.saving_fitness:
+            if not np.isscalar(y):
+                fitness.extend(y)
+            else:
+                fitness.append(y)
+        if self.verbose and ((not self._n_generations % self.verbose) or (self.termination_signal > 0)):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+
+    def _collect_results(self, fitness, y=None):
+        if y is not None:
+            self._print_verbose_info(fitness, y)
+        results = Optimizer._collect_results(self, fitness)
+        results['_n_generations'] = self._n_generations
+        return results
 
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
         v, x, y, p_x, p_y, n_x = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
-        while True:
+        while not self.termination_signal:
+            self._print_verbose_info(fitness, y)
             v, x, y, p_x, p_y, n_x = self.iterate(v, x, y, p_x, p_y, n_x, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
-            self._print_verbose_info(y)
-        return self._collect_results(fitness)
+        return self._collect_results(fitness, y)

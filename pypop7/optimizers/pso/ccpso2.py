@@ -168,14 +168,8 @@ class CCPSO2(PSO):
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
         x, y, p_x, p_y, n_x = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y[0])
-        self._print_verbose_info(y)
-        while True:
+        self._print_verbose_info(fitness, y[0])
+        while not self.termination_signal:
             x, y, p_x, p_y, n_x = self.iterate(x, y, p_x, p_y, n_x, args, fitness)
-            if self.saving_fitness:
-                fitness.extend(y.flatten())
-            if self._check_terminations():
-                break
-            self._print_verbose_info(y)
+            self._print_verbose_info(fitness, y.flatten())
         return self._collect_results(fitness)
