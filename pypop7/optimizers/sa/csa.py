@@ -1,6 +1,6 @@
 import numpy as np
 
-from pypop7.optimizers.rs.rs import RS
+from pypop7.optimizers.core.optimizer import Optimizer
 from pypop7.optimizers.sa.sa import SA
 
 
@@ -34,7 +34,7 @@ class CSA(SA):
 
     Examples
     --------
-    Use the Simulated Annealing optimizer `CSA` to minimize the well-known test function
+    Use the optimizer `CSA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -81,6 +81,7 @@ class CSA(SA):
         self.n_sv = options.get('n_sv', 20)  # frequency of step variation (N_S)
         c = options.get('c', 2.0)  # factor of step variation
         self.f_sv = c*np.ones(self.ndim_problem,)
+        self.verbose = options.get('verbose', 10)
         # set frequency of temperature reduction (N_T)
         self.n_tr = options.get('n_tr', np.maximum(100, 5*self.ndim_problem))
         self.f_tr = options.get('r_T', 0.85)  # factor of temperature reduction (r_T)
@@ -107,8 +108,6 @@ class CSA(SA):
             y = self._evaluate_fitness(x, args)
             if self.saving_fitness:
                 fitness.append(y)
-            self._n_generations += 1
-            self._print_verbose_info(y)
             diff = self.parent_y - y
             if (diff >= 0) or (self.rng_optimization.random() < np.exp(diff/self.temperature)):
                 self.parent_x, self.parent_y = np.copy(x), np.copy(y)
@@ -124,9 +123,9 @@ class CSA(SA):
         self._sv = np.zeros((self.ndim_problem,))
 
     def optimize(self, fitness_function=None, args=None):
-        super(RS, self).optimize(fitness_function)
-        fitness = [self.initialize(args)]  # to store all fitness generated during search
-        self._print_verbose_info(fitness[0])
+        fitness = Optimizer.optimize(self, fitness_function)
+        y = self.initialize(args)
+        self._print_verbose_info(fitness, y)
         while not self._check_terminations():
             for m in range(self.n_tr):
                 if self._check_terminations():
@@ -135,8 +134,8 @@ class CSA(SA):
                     if self._check_terminations():
                         break
                     y = self.iterate(args)
-                    if self.saving_fitness:
-                        fitness.extend(y)
+                    self._n_generations += 1
+                    self._print_verbose_info(fitness, y)
                 self._adjust_step_vector()
             self.temperature *= self.f_tr  # temperature reducing
             self.parent_x, self.parent_y = np.copy(self.best_so_far_x), np.copy(self.best_so_far_y)

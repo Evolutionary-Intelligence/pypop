@@ -1,6 +1,6 @@
 import numpy as np
 
-from pypop7.optimizers.rs.rs import RS
+from pypop7.optimizers.core.optimizer import Optimizer
 from pypop7.optimizers.sa.sa import SA
 
 
@@ -30,7 +30,7 @@ class ESA(SA):
 
     Examples
     --------
-    Use the Simulated Annealing optimizer `ESA` to minimize the well-known test function
+    Use the optimizer `ESA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -67,6 +67,7 @@ class ESA(SA):
         self.n1 = options.get('n1', 12)  # factor to control temperature stage w.r.t. accepted moves
         self.n2 = options.get('n2', 100)  # factor to control temperature stage w.r.t. attempted moves
         self.p = options.get('p', int(np.ceil(self.ndim_problem/3)))  # number of subspaces
+        self.verbose = options.get('verbose', 10)
         # set parameters at current temperature stage
         self._elowst = None
         self._avgyst = 0
@@ -85,22 +86,22 @@ class ESA(SA):
         y = self._evaluate_fitness(x, args)
         self.parent_x, self.parent_y = np.copy(x), np.copy(y)
         fitness = [y]
-        self._print_verbose_info(y)
         if self.temperature is None:
             for _ in range(49):
+                if self._check_terminations():
+                    break
                 xx = self.rng_initialization.uniform(self.lower_boundary, self.upper_boundary)
                 yy = self._evaluate_fitness(xx, args)
                 if self.saving_fitness:
                     fitness.append(yy)
-                self._n_generations += 1
-                self._print_verbose_info(y)
             self.temperature = -np.mean(fitness)/np.log(0.5)
-        return y, fitness
+        return fitness
 
-    def iterate(self, p=None, args=None, fitness=None):
+    def iterate(self, p=None, args=None):
+        fitness = []
         for k in p:  # without overselecting
             if self._check_terminations():
-                break
+                return fitness
             x, sign = np.copy(self.parent_x), self.rng_optimization.choice([-1, 1])
             xx = x[k] + sign*self._v[k]
             if (xx < self.lower_boundary[k]) or (xx > self.upper_boundary[k]):
@@ -109,8 +110,6 @@ class ESA(SA):
             y = self._evaluate_fitness(x, args)
             if self.saving_fitness:
                 fitness.append(y)
-            self._n_generations += 1
-            self._print_verbose_info(y)
             self._avgyst += y
             self._mtotst[k] += 1
             self._nmvst += 1
@@ -121,6 +120,7 @@ class ESA(SA):
                 self._mvokst += 1
             if (diff >= 0) and (y < self._elowst):
                 self._elowst = y
+        return fitness
 
     def _adjust_step_vector(self):
         for k in range(self.ndim_problem):
@@ -141,17 +141,21 @@ class ESA(SA):
         self._avgyst = 0
 
     def optimize(self, fitness_function=None, args=None):
-        super(RS, self).optimize(fitness_function)
-        y, fitness = self.initialize(args)
-        self._elowst = y
+        fitness = Optimizer.optimize(self, fitness_function)
+        y = self.initialize(args)
+        self._elowst = y[0]
+        self._print_verbose_info(fitness, y)
         while not self._check_terminations():
             p, n_p = self.rng_optimization.permutation(self.ndim_problem), 0
             while (self._mvokst < self.n1*self.ndim_problem) and (self._nmvst < self.n2*self.ndim_problem):
                 if self._check_terminations():
                     break
                 n_p += 1
-                self.iterate(p[(self.p*(n_p - 1)):(self.p*n_p)], args, fitness)
-                if n_p >= self.p:  # to re-partition
+                new_fitness = self.iterate(p[(self.p*(n_p - 1)):(self.p*n_p)], args)
+                self._n_generations += 1
+                if len(new_fitness) > 0:
+                    self._print_verbose_info(fitness, new_fitness)
+                if self.p*n_p >= self.ndim_problem:  # to re-partition
                     p, n_p = self.rng_optimization.permutation(self.ndim_problem), 0
             self._avgyst /= self._nmvst
             self.temperature *= np.maximum(np.minimum(self._elowst/self._avgyst, 0.9), 0.1)

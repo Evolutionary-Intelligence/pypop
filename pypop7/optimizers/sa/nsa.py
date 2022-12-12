@@ -1,6 +1,6 @@
 import numpy as np
 
-from pypop7.optimizers.sa.sa import RS
+from pypop7.optimizers.core.optimizer import Optimizer
 from pypop7.optimizers.sa.sa import SA
 
 
@@ -34,7 +34,7 @@ class NSA(SA):
 
     Examples
     --------
-    Use the Simulated Annealing optimizer `NSA` to minimize the well-known test function
+    Use the optimizer `NSA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -122,15 +122,11 @@ class NSA(SA):
             if self._check_terminations():
                 break
             y.append(self._evaluate_fitness(x, args))
-            self._n_generations += 1
-            self._print_verbose_info(y)
         if self.is_noisy:  # for noisy optimization
             for _ in range(n_samples):
                 if self._check_terminations():
                     break
                 parent_y.append(self._evaluate_fitness(self.parent_x, args))
-                self._n_generations += 1
-                self._print_verbose_info(parent_y)
         else:  # for static optimization
             parent_y = self.parent_y
         diff = np.mean(parent_y) - np.mean(y)
@@ -138,16 +134,17 @@ class NSA(SA):
             self.parent_x, self.parent_y = np.copy(x), np.copy(y)
         if not self.is_noisy:  # for static optimization
             parent_y = []
-        return y, parent_y
+        if len(parent_y) > 0:
+            y.extend(parent_y)
+        return y
 
     def optimize(self, fitness_function=None, args=None):
-        super(RS, self).optimize(fitness_function)
-        fitness = [self.initialize(args)]  # to store all fitness generated during search
-        self._print_verbose_info(fitness[0])
+        fitness = Optimizer.optimize(self, fitness_function)
+        y = self.initialize(args)
+        self._print_verbose_info(fitness, y)
         while not self._check_terminations():
-            y, parent_y = self.iterate(args)
-            if self.saving_fitness:
-                fitness.extend(y)
-                fitness.extend(parent_y)
+            y = self.iterate(args)
+            self._n_generations += 1
+            self._print_verbose_info(fitness, y)
             self.temperature = np.maximum(self.temperature*self.rt, self.temperature_threshold)
         return self._collect_results(fitness)
