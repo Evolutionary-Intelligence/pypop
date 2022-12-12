@@ -76,7 +76,7 @@ class Optimizer(object):
         if self._is_maximization:
             self.best_so_far_y *= -1
         self.best_so_far_x = None
-        self.termination_signal = None
+        self.termination_signal = 0  # NO_TERMINATION
         self.fitness = None
         self.is_restart = options.get('is_restart', True)
 
