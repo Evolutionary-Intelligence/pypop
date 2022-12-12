@@ -1,22 +1,112 @@
 ******* ellipsoid *******
   * Generation 0: best_so_far_y 1.16498e+09, min(y) 1.16498e+09 & Evaluations 1
+  * Generation 20000: best_so_far_y 2.52990e+07, min(y) 2.60083e+07 & Evaluations 20001
+  * Generation 40000: best_so_far_y 2.08218e+07, min(y) 2.11291e+07 & Evaluations 40001
+  * Generation 60000: best_so_far_y 1.88504e+07, min(y) 1.95151e+07 & Evaluations 60001
+  * Generation 80000: best_so_far_y 1.78521e+07, min(y) 1.82803e+07 & Evaluations 80001
+  * Generation 100000: best_so_far_y 1.67805e+07, min(y) 1.71734e+07 & Evaluations 100001
+  * Generation 120000: best_so_far_y 1.59272e+07, min(y) 1.69396e+07 & Evaluations 120001
+  * Generation 140000: best_so_far_y 1.50168e+07, min(y) 1.59277e+07 & Evaluations 140001
+  * Generation 160000: best_so_far_y 1.46275e+07, min(y) 1.52586e+07 & Evaluations 160001
+  * Generation 180000: best_so_far_y 1.35154e+07, min(y) 1.43613e+07 & Evaluations 180001
   * Generation 200000: best_so_far_y 1.35154e+07, min(y) 1.42459e+07 & Evaluations 200001
+  * Generation 220000: best_so_far_y 1.34878e+07, min(y) 1.41120e+07 & Evaluations 220001
+  * Generation 240000: best_so_far_y 1.32993e+07, min(y) 1.38232e+07 & Evaluations 240001
+  * Generation 260000: best_so_far_y 1.32993e+07, min(y) 1.39415e+07 & Evaluations 260001
+  * Generation 280000: best_so_far_y 1.32993e+07, min(y) 1.39803e+07 & Evaluations 280001
+  * Generation 300000: best_so_far_y 1.32928e+07, min(y) 1.39510e+07 & Evaluations 300001
+  * Generation 320000: best_so_far_y 1.32928e+07, min(y) 1.42615e+07 & Evaluations 320001
+  * Generation 340000: best_so_far_y 1.32544e+07, min(y) 1.37743e+07 & Evaluations 340001
+  * Generation 360000: best_so_far_y 1.32227e+07, min(y) 1.43975e+07 & Evaluations 360001
+  * Generation 380000: best_so_far_y 1.31952e+07, min(y) 1.40183e+07 & Evaluations 380001
   * Generation 400000: best_so_far_y 1.31370e+07, min(y) 1.35860e+07 & Evaluations 400001
+  * Generation 420000: best_so_far_y 1.29813e+07, min(y) 1.36361e+07 & Evaluations 420001
+  * Generation 440000: best_so_far_y 1.29447e+07, min(y) 1.35270e+07 & Evaluations 440001
+  * Generation 460000: best_so_far_y 1.29384e+07, min(y) 1.35811e+07 & Evaluations 460001
+  * Generation 480000: best_so_far_y 1.29384e+07, min(y) 1.34977e+07 & Evaluations 480001
+  * Generation 500000: best_so_far_y 1.29384e+07, min(y) 1.38821e+07 & Evaluations 500001
+  * Generation 520000: best_so_far_y 1.29087e+07, min(y) 1.36651e+07 & Evaluations 520001
+  * Generation 540000: best_so_far_y 1.26534e+07, min(y) 1.32920e+07 & Evaluations 540001
+  * Generation 560000: best_so_far_y 1.26419e+07, min(y) 1.35766e+07 & Evaluations 560001
+  * Generation 580000: best_so_far_y 1.25719e+07, min(y) 1.38153e+07 & Evaluations 580001
   * Generation 600000: best_so_far_y 1.24162e+07, min(y) 1.27555e+07 & Evaluations 600001
+  * Generation 620000: best_so_far_y 1.23724e+07, min(y) 1.32229e+07 & Evaluations 620001
+  * Generation 640000: best_so_far_y 1.22838e+07, min(y) 1.30667e+07 & Evaluations 640001
+  * Generation 660000: best_so_far_y 1.22007e+07, min(y) 1.31184e+07 & Evaluations 660001
+  * Generation 680000: best_so_far_y 1.21664e+07, min(y) 1.28443e+07 & Evaluations 680001
+  * Generation 700000: best_so_far_y 1.21376e+07, min(y) 1.32178e+07 & Evaluations 700001
+  * Generation 720000: best_so_far_y 1.21072e+07, min(y) 1.28657e+07 & Evaluations 720001
+  * Generation 740000: best_so_far_y 1.20431e+07, min(y) 1.25737e+07 & Evaluations 740001
+  * Generation 760000: best_so_far_y 1.20431e+07, min(y) 1.28659e+07 & Evaluations 760001
+  * Generation 780000: best_so_far_y 1.19974e+07, min(y) 1.27639e+07 & Evaluations 780001
   * Generation 800000: best_so_far_y 1.19974e+07, min(y) 1.27649e+07 & Evaluations 800001
+  * Generation 820000: best_so_far_y 1.19493e+07, min(y) 1.29830e+07 & Evaluations 820001
+  * Generation 840000: best_so_far_y 1.18150e+07, min(y) 1.23353e+07 & Evaluations 840001
+  * Generation 860000: best_so_far_y 1.17137e+07, min(y) 1.24829e+07 & Evaluations 860001
+  * Generation 880000: best_so_far_y 1.15937e+07, min(y) 1.22751e+07 & Evaluations 880001
+  * Generation 900000: best_so_far_y 1.15213e+07, min(y) 1.21421e+07 & Evaluations 900001
+  * Generation 920000: best_so_far_y 1.15213e+07, min(y) 1.23794e+07 & Evaluations 920001
+  * Generation 940000: best_so_far_y 1.15213e+07, min(y) 1.18113e+07 & Evaluations 940001
+  * Generation 960000: best_so_far_y 1.15213e+07, min(y) 1.27638e+07 & Evaluations 960001
+  * Generation 980000: best_so_far_y 1.15213e+07, min(y) 1.23041e+07 & Evaluations 980001
   * Generation 1000000: best_so_far_y 1.15213e+07, min(y) 1.18349e+07 & Evaluations 1000001
+  * Generation 1020000: best_so_far_y 1.15213e+07, min(y) 1.23897e+07 & Evaluations 1020001
+  * Generation 1040000: best_so_far_y 1.15213e+07, min(y) 1.23782e+07 & Evaluations 1040001
+  * Generation 1060000: best_so_far_y 1.15213e+07, min(y) 1.21668e+07 & Evaluations 1060001
+  * Generation 1080000: best_so_far_y 1.14932e+07, min(y) 1.20069e+07 & Evaluations 1080001
+  * Generation 1100000: best_so_far_y 1.14932e+07, min(y) 1.23680e+07 & Evaluations 1100001
+  * Generation 1120000: best_so_far_y 1.14932e+07, min(y) 1.19219e+07 & Evaluations 1120001
+  * Generation 1140000: best_so_far_y 1.14575e+07, min(y) 1.20365e+07 & Evaluations 1140001
+  * Generation 1160000: best_so_far_y 1.14575e+07, min(y) 1.22621e+07 & Evaluations 1160001
+  * Generation 1180000: best_so_far_y 1.14575e+07, min(y) 1.20317e+07 & Evaluations 1180001
   * Generation 1200000: best_so_far_y 1.14575e+07, min(y) 1.21525e+07 & Evaluations 1200001
+  * Generation 1220000: best_so_far_y 1.14575e+07, min(y) 1.19918e+07 & Evaluations 1220001
+  * Generation 1240000: best_so_far_y 1.13999e+07, min(y) 1.22027e+07 & Evaluations 1240001
+  * Generation 1260000: best_so_far_y 1.13926e+07, min(y) 1.22483e+07 & Evaluations 1260001
+  * Generation 1280000: best_so_far_y 1.13924e+07, min(y) 1.23040e+07 & Evaluations 1280001
+  * Generation 1300000: best_so_far_y 1.13818e+07, min(y) 1.17014e+07 & Evaluations 1300001
+  * Generation 1320000: best_so_far_y 1.13604e+07, min(y) 1.22169e+07 & Evaluations 1320001
+  * Generation 1340000: best_so_far_y 1.13223e+07, min(y) 1.22040e+07 & Evaluations 1340001
+  * Generation 1360000: best_so_far_y 1.13223e+07, min(y) 1.19188e+07 & Evaluations 1360001
+  * Generation 1380000: best_so_far_y 1.12333e+07, min(y) 1.19212e+07 & Evaluations 1380001
   * Generation 1400000: best_so_far_y 1.12321e+07, min(y) 1.19030e+07 & Evaluations 1400001
+  * Generation 1420000: best_so_far_y 1.12321e+07, min(y) 1.21816e+07 & Evaluations 1420001
+  * Generation 1440000: best_so_far_y 1.12321e+07, min(y) 1.20494e+07 & Evaluations 1440001
+  * Generation 1460000: best_so_far_y 1.11701e+07, min(y) 1.15555e+07 & Evaluations 1460001
+  * Generation 1480000: best_so_far_y 1.11701e+07, min(y) 1.19230e+07 & Evaluations 1480001
+  * Generation 1500000: best_so_far_y 1.11701e+07, min(y) 1.21662e+07 & Evaluations 1500001
+  * Generation 1520000: best_so_far_y 1.11701e+07, min(y) 1.16235e+07 & Evaluations 1520001
+  * Generation 1540000: best_so_far_y 1.11635e+07, min(y) 1.19735e+07 & Evaluations 1540001
+  * Generation 1560000: best_so_far_y 1.11635e+07, min(y) 1.17062e+07 & Evaluations 1560001
+  * Generation 1580000: best_so_far_y 1.11635e+07, min(y) 1.22513e+07 & Evaluations 1580001
   * Generation 1600000: best_so_far_y 1.11369e+07, min(y) 1.15384e+07 & Evaluations 1600001
+  * Generation 1620000: best_so_far_y 1.10818e+07, min(y) 1.19929e+07 & Evaluations 1620001
+  * Generation 1640000: best_so_far_y 1.09800e+07, min(y) 1.18710e+07 & Evaluations 1640001
+  * Generation 1660000: best_so_far_y 1.09153e+07, min(y) 1.16489e+07 & Evaluations 1660001
+  * Generation 1680000: best_so_far_y 1.07795e+07, min(y) 1.16938e+07 & Evaluations 1680001
+  * Generation 1700000: best_so_far_y 1.07274e+07, min(y) 1.16315e+07 & Evaluations 1700001
+  * Generation 1720000: best_so_far_y 1.07274e+07, min(y) 1.14945e+07 & Evaluations 1720001
+  * Generation 1740000: best_so_far_y 1.07274e+07, min(y) 1.13024e+07 & Evaluations 1740001
+  * Generation 1760000: best_so_far_y 1.07274e+07, min(y) 1.15060e+07 & Evaluations 1760001
+  * Generation 1780000: best_so_far_y 1.07274e+07, min(y) 1.10521e+07 & Evaluations 1780001
   * Generation 1800000: best_so_far_y 1.07274e+07, min(y) 1.16489e+07 & Evaluations 1800001
+  * Generation 1820000: best_so_far_y 1.07274e+07, min(y) 1.17594e+07 & Evaluations 1820001
+  * Generation 1840000: best_so_far_y 1.07148e+07, min(y) 1.14303e+07 & Evaluations 1840001
+  * Generation 1860000: best_so_far_y 1.06580e+07, min(y) 1.12640e+07 & Evaluations 1860001
+  * Generation 1880000: best_so_far_y 1.06580e+07, min(y) 1.14052e+07 & Evaluations 1880001
+  * Generation 1900000: best_so_far_y 1.06140e+07, min(y) 1.14944e+07 & Evaluations 1900001
+  * Generation 1920000: best_so_far_y 1.05952e+07, min(y) 1.11521e+07 & Evaluations 1920001
+  * Generation 1940000: best_so_far_y 1.05952e+07, min(y) 1.14674e+07 & Evaluations 1940001
+  * Generation 1960000: best_so_far_y 1.05952e+07, min(y) 1.12858e+07 & Evaluations 1960001
+  * Generation 1980000: best_so_far_y 1.05952e+07, min(y) 1.14767e+07 & Evaluations 1980001
 {'best_so_far_x': array([ 2.72864883e+00,  4.50121946e+00, -3.41888284e+00,  3.11278795e-01,
         ...,
         1.23571657e-01, -1.44471015e-01, -8.32646184e-03, -1.11383570e-01]),
  'best_so_far_y': 10595165.340174055,
  'n_function_evaluations': 2000000,
- 'runtime': 399.17692732810974,
+ 'runtime': 405.8899395465851,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 266.061318397522,
+ 'time_function_evaluations': 267.0176827907562,
  'fitness': array([[1.00000000e+00, 1.16497779e+09],
        [2.00000000e+05, 1.35153677e+07],
        [4.00000000e+05, 1.31370096e+07],
@@ -27,27 +117,118 @@
        [1.40000000e+06, 1.12321170e+07],
        [1.60000000e+06, 1.11369096e+07],
        [1.80000000e+06, 1.07274306e+07],
-       [2.00000000e+06, 1.05951653e+07]])}
-*** Runtime: 3.99237e+02
+       [2.00000000e+06, 1.05951653e+07]]),
+ '_n_generations': 1999999}
+*** Runtime: 4.05936e+02
 ******* rosenbrock *******
   * Generation 0: best_so_far_y 1.43946e+07, min(y) 1.43946e+07 & Evaluations 1
+  * Generation 20000: best_so_far_y 2.41846e+05, min(y) 2.48552e+05 & Evaluations 20001
+  * Generation 40000: best_so_far_y 1.21773e+05, min(y) 1.28194e+05 & Evaluations 40001
+  * Generation 60000: best_so_far_y 8.50696e+04, min(y) 9.18079e+04 & Evaluations 60001
+  * Generation 80000: best_so_far_y 7.21709e+04, min(y) 7.75919e+04 & Evaluations 80001
+  * Generation 100000: best_so_far_y 6.69724e+04, min(y) 7.25628e+04 & Evaluations 100001
+  * Generation 120000: best_so_far_y 6.12533e+04, min(y) 6.43690e+04 & Evaluations 120001
+  * Generation 140000: best_so_far_y 5.92786e+04, min(y) 6.09418e+04 & Evaluations 140001
+  * Generation 160000: best_so_far_y 5.55390e+04, min(y) 5.97953e+04 & Evaluations 160001
+  * Generation 180000: best_so_far_y 5.45788e+04, min(y) 5.92900e+04 & Evaluations 180001
   * Generation 200000: best_so_far_y 5.33068e+04, min(y) 5.78814e+04 & Evaluations 200001
+  * Generation 220000: best_so_far_y 5.08415e+04, min(y) 5.41844e+04 & Evaluations 220001
+  * Generation 240000: best_so_far_y 5.01471e+04, min(y) 5.46228e+04 & Evaluations 240001
+  * Generation 260000: best_so_far_y 4.89732e+04, min(y) 5.29244e+04 & Evaluations 260001
+  * Generation 280000: best_so_far_y 4.78408e+04, min(y) 5.05865e+04 & Evaluations 280001
+  * Generation 300000: best_so_far_y 4.69120e+04, min(y) 4.95233e+04 & Evaluations 300001
+  * Generation 320000: best_so_far_y 4.66569e+04, min(y) 4.78549e+04 & Evaluations 320001
+  * Generation 340000: best_so_far_y 4.62373e+04, min(y) 4.84655e+04 & Evaluations 340001
+  * Generation 360000: best_so_far_y 4.46575e+04, min(y) 4.74738e+04 & Evaluations 360001
+  * Generation 380000: best_so_far_y 4.39394e+04, min(y) 4.73569e+04 & Evaluations 380001
   * Generation 400000: best_so_far_y 4.21180e+04, min(y) 4.45574e+04 & Evaluations 400001
+  * Generation 420000: best_so_far_y 4.05484e+04, min(y) 4.28734e+04 & Evaluations 420001
+  * Generation 440000: best_so_far_y 4.04204e+04, min(y) 4.43300e+04 & Evaluations 440001
+  * Generation 460000: best_so_far_y 3.94956e+04, min(y) 4.03883e+04 & Evaluations 460001
+  * Generation 480000: best_so_far_y 3.91506e+04, min(y) 4.36407e+04 & Evaluations 480001
+  * Generation 500000: best_so_far_y 3.84202e+04, min(y) 4.18756e+04 & Evaluations 500001
+  * Generation 520000: best_so_far_y 3.76236e+04, min(y) 4.07319e+04 & Evaluations 520001
+  * Generation 540000: best_so_far_y 3.65235e+04, min(y) 3.86708e+04 & Evaluations 540001
+  * Generation 560000: best_so_far_y 3.58543e+04, min(y) 3.90469e+04 & Evaluations 560001
+  * Generation 580000: best_so_far_y 3.54059e+04, min(y) 3.88167e+04 & Evaluations 580001
   * Generation 600000: best_so_far_y 3.50955e+04, min(y) 3.80611e+04 & Evaluations 600001
+  * Generation 620000: best_so_far_y 3.50714e+04, min(y) 3.85078e+04 & Evaluations 620001
+  * Generation 640000: best_so_far_y 3.49986e+04, min(y) 3.74694e+04 & Evaluations 640001
+  * Generation 660000: best_so_far_y 3.45390e+04, min(y) 3.71426e+04 & Evaluations 660001
+  * Generation 680000: best_so_far_y 3.45390e+04, min(y) 3.70470e+04 & Evaluations 680001
+  * Generation 700000: best_so_far_y 3.45213e+04, min(y) 3.73389e+04 & Evaluations 700001
+  * Generation 720000: best_so_far_y 3.45213e+04, min(y) 3.63756e+04 & Evaluations 720001
+  * Generation 740000: best_so_far_y 3.44850e+04, min(y) 3.80121e+04 & Evaluations 740001
+  * Generation 760000: best_so_far_y 3.43533e+04, min(y) 3.74278e+04 & Evaluations 760001
+  * Generation 780000: best_so_far_y 3.42751e+04, min(y) 3.70089e+04 & Evaluations 780001
   * Generation 800000: best_so_far_y 3.42751e+04, min(y) 3.68918e+04 & Evaluations 800001
+  * Generation 820000: best_so_far_y 3.42751e+04, min(y) 3.64796e+04 & Evaluations 820001
+  * Generation 840000: best_so_far_y 3.41943e+04, min(y) 3.54677e+04 & Evaluations 840001
+  * Generation 860000: best_so_far_y 3.41715e+04, min(y) 3.64627e+04 & Evaluations 860001
+  * Generation 880000: best_so_far_y 3.38392e+04, min(y) 3.63494e+04 & Evaluations 880001
+  * Generation 900000: best_so_far_y 3.38392e+04, min(y) 3.69074e+04 & Evaluations 900001
+  * Generation 920000: best_so_far_y 3.34892e+04, min(y) 3.58396e+04 & Evaluations 920001
+  * Generation 940000: best_so_far_y 3.34801e+04, min(y) 3.77491e+04 & Evaluations 940001
+  * Generation 960000: best_so_far_y 3.33720e+04, min(y) 3.66070e+04 & Evaluations 960001
+  * Generation 980000: best_so_far_y 3.33720e+04, min(y) 3.72949e+04 & Evaluations 980001
   * Generation 1000000: best_so_far_y 3.32864e+04, min(y) 3.51839e+04 & Evaluations 1000001
+  * Generation 1020000: best_so_far_y 3.32684e+04, min(y) 3.63344e+04 & Evaluations 1020001
+  * Generation 1040000: best_so_far_y 3.31199e+04, min(y) 3.60147e+04 & Evaluations 1040001
+  * Generation 1060000: best_so_far_y 3.29862e+04, min(y) 3.64265e+04 & Evaluations 1060001
+  * Generation 1080000: best_so_far_y 3.29862e+04, min(y) 3.58243e+04 & Evaluations 1080001
+  * Generation 1100000: best_so_far_y 3.23628e+04, min(y) 3.64478e+04 & Evaluations 1100001
+  * Generation 1120000: best_so_far_y 3.20983e+04, min(y) 3.49462e+04 & Evaluations 1120001
+  * Generation 1140000: best_so_far_y 3.16372e+04, min(y) 3.49341e+04 & Evaluations 1140001
+  * Generation 1160000: best_so_far_y 3.15345e+04, min(y) 3.43774e+04 & Evaluations 1160001
+  * Generation 1180000: best_so_far_y 3.15268e+04, min(y) 3.38242e+04 & Evaluations 1180001
   * Generation 1200000: best_so_far_y 3.15268e+04, min(y) 3.42909e+04 & Evaluations 1200001
+  * Generation 1220000: best_so_far_y 3.15268e+04, min(y) 3.54830e+04 & Evaluations 1220001
+  * Generation 1240000: best_so_far_y 3.15268e+04, min(y) 3.48737e+04 & Evaluations 1240001
+  * Generation 1260000: best_so_far_y 3.15268e+04, min(y) 3.32765e+04 & Evaluations 1260001
+  * Generation 1280000: best_so_far_y 3.13684e+04, min(y) 3.39143e+04 & Evaluations 1280001
+  * Generation 1300000: best_so_far_y 3.13470e+04, min(y) 3.44440e+04 & Evaluations 1300001
+  * Generation 1320000: best_so_far_y 3.12995e+04, min(y) 3.50738e+04 & Evaluations 1320001
+  * Generation 1340000: best_so_far_y 3.12995e+04, min(y) 3.57249e+04 & Evaluations 1340001
+  * Generation 1360000: best_so_far_y 3.12995e+04, min(y) 3.34826e+04 & Evaluations 1360001
+  * Generation 1380000: best_so_far_y 3.12480e+04, min(y) 3.31351e+04 & Evaluations 1380001
   * Generation 1400000: best_so_far_y 3.12480e+04, min(y) 3.42170e+04 & Evaluations 1400001
+  * Generation 1420000: best_so_far_y 3.11322e+04, min(y) 3.41734e+04 & Evaluations 1420001
+  * Generation 1440000: best_so_far_y 3.10938e+04, min(y) 3.25634e+04 & Evaluations 1440001
+  * Generation 1460000: best_so_far_y 3.09842e+04, min(y) 3.52179e+04 & Evaluations 1460001
+  * Generation 1480000: best_so_far_y 3.07288e+04, min(y) 3.26425e+04 & Evaluations 1480001
+  * Generation 1500000: best_so_far_y 3.07167e+04, min(y) 3.33321e+04 & Evaluations 1500001
+  * Generation 1520000: best_so_far_y 3.07167e+04, min(y) 3.41678e+04 & Evaluations 1520001
+  * Generation 1540000: best_so_far_y 3.07167e+04, min(y) 3.24915e+04 & Evaluations 1540001
+  * Generation 1560000: best_so_far_y 3.07167e+04, min(y) 3.29768e+04 & Evaluations 1560001
+  * Generation 1580000: best_so_far_y 3.03086e+04, min(y) 3.36028e+04 & Evaluations 1580001
   * Generation 1600000: best_so_far_y 2.96742e+04, min(y) 3.26456e+04 & Evaluations 1600001
+  * Generation 1620000: best_so_far_y 2.96742e+04, min(y) 3.31168e+04 & Evaluations 1620001
+  * Generation 1640000: best_so_far_y 2.96661e+04, min(y) 3.27656e+04 & Evaluations 1640001
+  * Generation 1660000: best_so_far_y 2.93924e+04, min(y) 3.26919e+04 & Evaluations 1660001
+  * Generation 1680000: best_so_far_y 2.93038e+04, min(y) 3.23739e+04 & Evaluations 1680001
+  * Generation 1700000: best_so_far_y 2.93038e+04, min(y) 3.13588e+04 & Evaluations 1700001
+  * Generation 1720000: best_so_far_y 2.93038e+04, min(y) 3.15597e+04 & Evaluations 1720001
+  * Generation 1740000: best_so_far_y 2.93038e+04, min(y) 3.21514e+04 & Evaluations 1740001
+  * Generation 1760000: best_so_far_y 2.90550e+04, min(y) 3.13961e+04 & Evaluations 1760001
+  * Generation 1780000: best_so_far_y 2.90550e+04, min(y) 3.23337e+04 & Evaluations 1780001
   * Generation 1800000: best_so_far_y 2.90550e+04, min(y) 3.11171e+04 & Evaluations 1800001
+  * Generation 1820000: best_so_far_y 2.90550e+04, min(y) 3.23873e+04 & Evaluations 1820001
+  * Generation 1840000: best_so_far_y 2.90550e+04, min(y) 3.11672e+04 & Evaluations 1840001
+  * Generation 1860000: best_so_far_y 2.89632e+04, min(y) 3.07494e+04 & Evaluations 1860001
+  * Generation 1880000: best_so_far_y 2.89632e+04, min(y) 3.19027e+04 & Evaluations 1880001
+  * Generation 1900000: best_so_far_y 2.89037e+04, min(y) 3.14859e+04 & Evaluations 1900001
+  * Generation 1920000: best_so_far_y 2.89037e+04, min(y) 3.11377e+04 & Evaluations 1920001
+  * Generation 1940000: best_so_far_y 2.87976e+04, min(y) 3.11581e+04 & Evaluations 1940001
+  * Generation 1960000: best_so_far_y 2.87976e+04, min(y) 3.17830e+04 & Evaluations 1960001
+  * Generation 1980000: best_so_far_y 2.87976e+04, min(y) 3.13188e+04 & Evaluations 1980001
 {'best_so_far_x': array([ 5.82509593e-01,  6.70652909e-01, -5.28582997e-01,  1.19913154e+00,
         ...,
         8.83500945e-01,  1.14373384e+00,  1.80692457e+00,  3.56287972e+00]),
  'best_so_far_y': 28483.889084920374,
  'n_function_evaluations': 2000000,
- 'runtime': 426.350768327713,
+ 'runtime': 442.32859086990356,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 300.752548456192,
+ 'time_function_evaluations': 310.613267660141,
  'fitness': array([[1.00000000e+00, 1.43945910e+07],
        [2.00000000e+05, 5.33068056e+04],
        [4.00000000e+05, 4.21180199e+04],
@@ -58,27 +239,118 @@
        [1.40000000e+06, 3.12479649e+04],
        [1.60000000e+06, 2.96742416e+04],
        [1.80000000e+06, 2.90549879e+04],
-       [2.00000000e+06, 2.84838891e+04]])}
-*** Runtime: 8.25638e+02
+       [2.00000000e+06, 2.84838891e+04]]),
+ '_n_generations': 1999999}
+*** Runtime: 8.48306e+02
 ******* rastrigin *******
   * Generation 0: best_so_far_y 1.60000e+04, min(y) 1.60000e+04 & Evaluations 1
+  * Generation 20000: best_so_far_y 1.60000e+04, min(y) 1.78297e+04 & Evaluations 20001
+  * Generation 40000: best_so_far_y 1.60000e+04, min(y) 1.77759e+04 & Evaluations 40001
+  * Generation 60000: best_so_far_y 1.60000e+04, min(y) 1.77893e+04 & Evaluations 60001
+  * Generation 80000: best_so_far_y 1.60000e+04, min(y) 1.79039e+04 & Evaluations 80001
+  * Generation 100000: best_so_far_y 1.60000e+04, min(y) 1.78509e+04 & Evaluations 100001
+  * Generation 120000: best_so_far_y 1.60000e+04, min(y) 1.78485e+04 & Evaluations 120001
+  * Generation 140000: best_so_far_y 1.60000e+04, min(y) 1.77870e+04 & Evaluations 140001
+  * Generation 160000: best_so_far_y 1.60000e+04, min(y) 1.78255e+04 & Evaluations 160001
+  * Generation 180000: best_so_far_y 1.60000e+04, min(y) 1.78384e+04 & Evaluations 180001
   * Generation 200000: best_so_far_y 1.60000e+04, min(y) 1.78374e+04 & Evaluations 200001
+  * Generation 220000: best_so_far_y 1.60000e+04, min(y) 1.78024e+04 & Evaluations 220001
+  * Generation 240000: best_so_far_y 1.60000e+04, min(y) 1.77021e+04 & Evaluations 240001
+  * Generation 260000: best_so_far_y 1.60000e+04, min(y) 1.78205e+04 & Evaluations 260001
+  * Generation 280000: best_so_far_y 1.60000e+04, min(y) 1.78046e+04 & Evaluations 280001
+  * Generation 300000: best_so_far_y 1.60000e+04, min(y) 1.77775e+04 & Evaluations 300001
+  * Generation 320000: best_so_far_y 1.60000e+04, min(y) 1.78104e+04 & Evaluations 320001
+  * Generation 340000: best_so_far_y 1.60000e+04, min(y) 1.78456e+04 & Evaluations 340001
+  * Generation 360000: best_so_far_y 1.60000e+04, min(y) 1.77480e+04 & Evaluations 360001
+  * Generation 380000: best_so_far_y 1.60000e+04, min(y) 1.77401e+04 & Evaluations 380001
   * Generation 400000: best_so_far_y 1.60000e+04, min(y) 1.77803e+04 & Evaluations 400001
+  * Generation 420000: best_so_far_y 1.60000e+04, min(y) 1.78060e+04 & Evaluations 420001
+  * Generation 440000: best_so_far_y 1.60000e+04, min(y) 1.78815e+04 & Evaluations 440001
+  * Generation 460000: best_so_far_y 1.60000e+04, min(y) 1.79101e+04 & Evaluations 460001
+  * Generation 480000: best_so_far_y 1.60000e+04, min(y) 1.77127e+04 & Evaluations 480001
+  * Generation 500000: best_so_far_y 1.60000e+04, min(y) 1.77579e+04 & Evaluations 500001
+  * Generation 520000: best_so_far_y 1.60000e+04, min(y) 1.78942e+04 & Evaluations 520001
+  * Generation 540000: best_so_far_y 1.60000e+04, min(y) 1.76898e+04 & Evaluations 540001
+  * Generation 560000: best_so_far_y 1.60000e+04, min(y) 1.77929e+04 & Evaluations 560001
+  * Generation 580000: best_so_far_y 1.60000e+04, min(y) 1.78574e+04 & Evaluations 580001
   * Generation 600000: best_so_far_y 1.60000e+04, min(y) 1.78086e+04 & Evaluations 600001
+  * Generation 620000: best_so_far_y 1.60000e+04, min(y) 1.78933e+04 & Evaluations 620001
+  * Generation 640000: best_so_far_y 1.60000e+04, min(y) 1.78775e+04 & Evaluations 640001
+  * Generation 660000: best_so_far_y 1.60000e+04, min(y) 1.76128e+04 & Evaluations 660001
+  * Generation 680000: best_so_far_y 1.60000e+04, min(y) 1.78392e+04 & Evaluations 680001
+  * Generation 700000: best_so_far_y 1.60000e+04, min(y) 1.77620e+04 & Evaluations 700001
+  * Generation 720000: best_so_far_y 1.60000e+04, min(y) 1.78440e+04 & Evaluations 720001
+  * Generation 740000: best_so_far_y 1.60000e+04, min(y) 1.79015e+04 & Evaluations 740001
+  * Generation 760000: best_so_far_y 1.60000e+04, min(y) 1.78627e+04 & Evaluations 760001
+  * Generation 780000: best_so_far_y 1.60000e+04, min(y) 1.78590e+04 & Evaluations 780001
   * Generation 800000: best_so_far_y 1.60000e+04, min(y) 1.78205e+04 & Evaluations 800001
+  * Generation 820000: best_so_far_y 1.60000e+04, min(y) 1.78847e+04 & Evaluations 820001
+  * Generation 840000: best_so_far_y 1.60000e+04, min(y) 1.78899e+04 & Evaluations 840001
+  * Generation 860000: best_so_far_y 1.60000e+04, min(y) 1.78034e+04 & Evaluations 860001
+  * Generation 880000: best_so_far_y 1.60000e+04, min(y) 1.78492e+04 & Evaluations 880001
+  * Generation 900000: best_so_far_y 1.60000e+04, min(y) 1.76930e+04 & Evaluations 900001
+  * Generation 920000: best_so_far_y 1.60000e+04, min(y) 1.78174e+04 & Evaluations 920001
+  * Generation 940000: best_so_far_y 1.60000e+04, min(y) 1.78140e+04 & Evaluations 940001
+  * Generation 960000: best_so_far_y 1.60000e+04, min(y) 1.77892e+04 & Evaluations 960001
+  * Generation 980000: best_so_far_y 1.60000e+04, min(y) 1.77980e+04 & Evaluations 980001
   * Generation 1000000: best_so_far_y 1.60000e+04, min(y) 1.78040e+04 & Evaluations 1000001
+  * Generation 1020000: best_so_far_y 1.60000e+04, min(y) 1.78864e+04 & Evaluations 1020001
+  * Generation 1040000: best_so_far_y 1.60000e+04, min(y) 1.78763e+04 & Evaluations 1040001
+  * Generation 1060000: best_so_far_y 1.60000e+04, min(y) 1.77706e+04 & Evaluations 1060001
+  * Generation 1080000: best_so_far_y 1.60000e+04, min(y) 1.77626e+04 & Evaluations 1080001
+  * Generation 1100000: best_so_far_y 1.60000e+04, min(y) 1.77982e+04 & Evaluations 1100001
+  * Generation 1120000: best_so_far_y 1.60000e+04, min(y) 1.78048e+04 & Evaluations 1120001
+  * Generation 1140000: best_so_far_y 1.60000e+04, min(y) 1.78201e+04 & Evaluations 1140001
+  * Generation 1160000: best_so_far_y 1.60000e+04, min(y) 1.77350e+04 & Evaluations 1160001
+  * Generation 1180000: best_so_far_y 1.60000e+04, min(y) 1.77514e+04 & Evaluations 1180001
   * Generation 1200000: best_so_far_y 1.60000e+04, min(y) 1.76600e+04 & Evaluations 1200001
+  * Generation 1220000: best_so_far_y 1.60000e+04, min(y) 1.76806e+04 & Evaluations 1220001
+  * Generation 1240000: best_so_far_y 1.60000e+04, min(y) 1.78237e+04 & Evaluations 1240001
+  * Generation 1260000: best_so_far_y 1.60000e+04, min(y) 1.77252e+04 & Evaluations 1260001
+  * Generation 1280000: best_so_far_y 1.60000e+04, min(y) 1.77212e+04 & Evaluations 1280001
+  * Generation 1300000: best_so_far_y 1.60000e+04, min(y) 1.78670e+04 & Evaluations 1300001
+  * Generation 1320000: best_so_far_y 1.60000e+04, min(y) 1.76855e+04 & Evaluations 1320001
+  * Generation 1340000: best_so_far_y 1.60000e+04, min(y) 1.77846e+04 & Evaluations 1340001
+  * Generation 1360000: best_so_far_y 1.60000e+04, min(y) 1.80207e+04 & Evaluations 1360001
+  * Generation 1380000: best_so_far_y 1.60000e+04, min(y) 1.78087e+04 & Evaluations 1380001
   * Generation 1400000: best_so_far_y 1.60000e+04, min(y) 1.78056e+04 & Evaluations 1400001
+  * Generation 1420000: best_so_far_y 1.60000e+04, min(y) 1.77347e+04 & Evaluations 1420001
+  * Generation 1440000: best_so_far_y 1.60000e+04, min(y) 1.77236e+04 & Evaluations 1440001
+  * Generation 1460000: best_so_far_y 1.60000e+04, min(y) 1.77692e+04 & Evaluations 1460001
+  * Generation 1480000: best_so_far_y 1.60000e+04, min(y) 1.78243e+04 & Evaluations 1480001
+  * Generation 1500000: best_so_far_y 1.60000e+04, min(y) 1.77733e+04 & Evaluations 1500001
+  * Generation 1520000: best_so_far_y 1.60000e+04, min(y) 1.77109e+04 & Evaluations 1520001
+  * Generation 1540000: best_so_far_y 1.60000e+04, min(y) 1.77257e+04 & Evaluations 1540001
+  * Generation 1560000: best_so_far_y 1.60000e+04, min(y) 1.76220e+04 & Evaluations 1560001
+  * Generation 1580000: best_so_far_y 1.60000e+04, min(y) 1.77506e+04 & Evaluations 1580001
   * Generation 1600000: best_so_far_y 1.60000e+04, min(y) 1.77522e+04 & Evaluations 1600001
+  * Generation 1620000: best_so_far_y 1.60000e+04, min(y) 1.77757e+04 & Evaluations 1620001
+  * Generation 1640000: best_so_far_y 1.60000e+04, min(y) 1.76630e+04 & Evaluations 1640001
+  * Generation 1660000: best_so_far_y 1.60000e+04, min(y) 1.77305e+04 & Evaluations 1660001
+  * Generation 1680000: best_so_far_y 1.60000e+04, min(y) 1.78831e+04 & Evaluations 1680001
+  * Generation 1700000: best_so_far_y 1.60000e+04, min(y) 1.78207e+04 & Evaluations 1700001
+  * Generation 1720000: best_so_far_y 1.60000e+04, min(y) 1.78612e+04 & Evaluations 1720001
+  * Generation 1740000: best_so_far_y 1.60000e+04, min(y) 1.77652e+04 & Evaluations 1740001
+  * Generation 1760000: best_so_far_y 1.60000e+04, min(y) 1.79367e+04 & Evaluations 1760001
+  * Generation 1780000: best_so_far_y 1.60000e+04, min(y) 1.77441e+04 & Evaluations 1780001
   * Generation 1800000: best_so_far_y 1.60000e+04, min(y) 1.78335e+04 & Evaluations 1800001
+  * Generation 1820000: best_so_far_y 1.60000e+04, min(y) 1.79126e+04 & Evaluations 1820001
+  * Generation 1840000: best_so_far_y 1.60000e+04, min(y) 1.78284e+04 & Evaluations 1840001
+  * Generation 1860000: best_so_far_y 1.60000e+04, min(y) 1.78066e+04 & Evaluations 1860001
+  * Generation 1880000: best_so_far_y 1.60000e+04, min(y) 1.77952e+04 & Evaluations 1880001
+  * Generation 1900000: best_so_far_y 1.60000e+04, min(y) 1.78522e+04 & Evaluations 1900001
+  * Generation 1920000: best_so_far_y 1.60000e+04, min(y) 1.77130e+04 & Evaluations 1920001
+  * Generation 1940000: best_so_far_y 1.60000e+04, min(y) 1.78178e+04 & Evaluations 1940001
+  * Generation 1960000: best_so_far_y 1.60000e+04, min(y) 1.78261e+04 & Evaluations 1960001
+  * Generation 1980000: best_so_far_y 1.60000e+04, min(y) 1.79227e+04 & Evaluations 1980001
 {'best_so_far_x': array([4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.,
        ...,
        4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.]),
  'best_so_far_y': 16000.0,
  'n_function_evaluations': 2000000,
- 'runtime': 265.700040102005,
+ 'runtime': 269.11904096603394,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 143.51000022888184,
+ 'time_function_evaluations': 143.41128301620483,
  'fitness': array([[1.0e+00, 1.6e+04],
        [2.0e+05, 1.6e+04],
        [4.0e+05, 1.6e+04],
@@ -89,5 +361,6 @@
        [1.4e+06, 1.6e+04],
        [1.6e+06, 1.6e+04],
        [1.8e+06, 1.6e+04],
-       [2.0e+06, 1.6e+04]])}
-*** Runtime: 1.09138e+03
+       [2.0e+06, 1.6e+04]]),
+ '_n_generations': 1999999}
+*** Runtime: 1.11746e+03
