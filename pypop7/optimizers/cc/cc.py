@@ -4,97 +4,83 @@ from pypop7.optimizers.core.optimizer import Optimizer
 
 
 class CC(Optimizer):
-    """Cooperative Coevolution(CC)
+    """Cooperative Coevolution (CC).
 
-    This is the **base** (abstract) class for all CC classes.
+    This is the **base** (abstract) class for all `CC` classes. Please use any of its instantiated subclasses to
+    optimize the black-box problem at hand.
 
-    Parameters
+    References
     ----------
-    problem : dict
-              problem arguments with the following common settings (`keys`):
-                * 'fitness_function' - objective function to be **minimized** (`func`),
-                * 'ndim_problem'     - number of dimensionality (`int`),
-                * 'upper_boundary'   - upper boundary of search range (`array_like`),
-                * 'lower_boundary'   - lower boundary of search range (`array_like`).
-    options : dict
-              optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
-              and with the following particular setting (`key`):
-                * 'x' - initial (starting) point (`array_like`).
+    Gomez, F., Schmidhuber, J. and Miikkulainen, R., 2008.
+    Accelerated neural evolution through cooperatively coevolved synapses.
+    Journal of Machine Learning Research, 9(31), pp.937-965.
+    https://www.jmlr.org/papers/v9/gomez08a.html
 
-    Attributes
-    ----------
-    x     : `array_like`
-            initial (starting) point.
-    Methods
-    -------
+    Panait, L., Tuyls, K. and Luke, S., 2008.
+    Theoretical advantages of lenient learners: An evolutionary game theoretic perspective.
+    Journal of Machine Learning Research, 9, pp.423-457.
+    https://jmlr.org/papers/volume9/panait08a/panait08a.pdf
 
-    Reference
-    ---------
-    F. Gomez, J. Schmidhuber, R. Miikkulainen
-    Accelerated Neural Evolution through Cooperatively Coevolved Synapses
-    https://jmlr.org/papers/v9/gomez08a.html
+    Schmidhuber, J., Wierstra, D., Gagliolo, M. and Gomez, F., 2007.
+    Training recurrent networks by evolino.
+    Neural Computation, 19(3), pp.757-779.
+    https://direct.mit.edu/neco/article-abstract/19/3/757/7156/Training-Recurrent-Networks-by-Evolino
+
+    Gomez, F.J. and Schmidhuber, J., 2005, June.
+    Co-evolving recurrent neurons learn deep memory POMDPs.
+    In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 491-498).
+    https://dl.acm.org/doi/10.1145/1068009.1068092
+
+    Fan, J., Lau, R. and Miikkulainen, R., 2003.
+    Utilizing domain knowledge in neuroevolution.
+    In International Conference on Machine Learning (pp. 170-177).
+    https://www.aaai.org/Library/ICML/2003/icml03-025.php
+
+    Potter, M.A. and De Jong, K.A., 2000.
+    Cooperative coevolution: An architecture for evolving coadapted subcomponents.
+    Evolutionary Computation, 8(1), pp.1-29.
+    https://direct.mit.edu/evco/article/8/1/1/859/Cooperative-Coevolution-An-Architecture-for
+
+    Gomez, F.J. and Miikkulainen, R., 1999, July.
+    Solving non-Markovian control tasks with neuroevolution.
+    In Proceedings of International Joint Conference on Artificial Intelligence (pp. 1356-1361).
+    https://www.ijcai.org/Proceedings/99-2/Papers/097.pdf
+
+    Moriarty, D.E. and Mikkulainen, R., 1996.
+    Efficient reinforcement learning through symbiotic evolution.
+    Machine Learning, 22(1), pp.11-32.
+    https://link.springer.com/article/10.1023/A:1018004120707
+
+    Moriarty, D.E. and Miikkulainen, R., 1995.
+    Efficient learning from delayed rewards through symbiotic evolution.
+    In International Conference on Machine Learning (pp. 396-404). Morgan Kaufmann.
+    https://www.sciencedirect.com/science/article/pii/B9781558603776500566
+
+    Potter, M.A. and De Jong, K.A., 1994, October.
+    A cooperative coevolutionary approach to function optimization.
+    In International Conference on Parallel Problem Solving from Nature (pp. 249-257).
+    Springer, Berlin, Heidelberg.
+    https://link.springer.com/chapter/10.1007/3-540-58484-6_269
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        if self.n_individuals is None:  # number of offspring, offspring population size (λ: lambda)
-            self.n_individuals = 4 + int(3 * np.log(self.ndim_problem))  # for small population setting
-        if self.n_parents is None:  # number of parents, parental population size (μ: mu)
-            self.n_parents = int(self.n_individuals / 2)
-        self._n_generations = 0
-        self.x = options.get('x')
+        self._n_generations = 0  # initial number of generations
 
-    def initialize(self, is_restart=False):
+    def initialize(self):
         raise NotImplementedError
 
-    def iterate(self, mean, x, y):
+    def iterate(self):
         raise NotImplementedError
 
-    def crossover(self, x, y, cross_type):
-        s1 = x.copy()
-        s2 = y.copy()
-        if cross_type == 'one_point':
-            place = np.random.randint(0, self.ndim_problem)
-            for i in range(place):
-                s1[i] = y[i]
-                s2[i] = x[i]
-        elif cross_type == 'two_point':
-            place1 = np.random.randint(0, self.ndim_problem)
-            place2 = np.random.randint(place1, self.ndim_problem)
-            for i in range(place1, place2):
-                s1[i] = y[i]
-                s2[i] = x[i]
-        elif cross_type == 'uniform':
-            for i in range(self.ndim_problem):
-                rand = np.random.random()
-                if rand < 0.5:
-                    s1[i] = y[i]
-                    s2[i] = x[i]
-        return [s1, s2]
+    def _print_verbose_info(self, fitness, y):
+        if self.saving_fitness:
+            fitness.extend(y)
+        if self.verbose and ((not self._n_generations % self.verbose) or (self.termination_signal > 0)):
+            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
+            print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
-    def mutate(self, x):
-        for i in range(self.ndim_problem):
-            rand = np.random.random()
-            if rand < self.prob_mutate:
-                x[i] = self.lower_boundary[i] + np.random.random() *\
-                       (self.upper_boundary[i] - self.lower_boundary[i])
-        return x
-
-    def _initialize_x(self, is_restart=False):
-        if is_restart or (self.x is None):
-            x = self.rng_initialization.uniform(self.initial_lower_boundary,
-                                                self.initial_upper_boundary)
-        else:
-            x = np.copy(self.x)
-        return x
-
-    def _collect_results(self, fitness, mean=None):
+    def _collect_results(self, fitness, y=None):
+        self._print_verbose_info(fitness, y)
         results = Optimizer._collect_results(self, fitness)
         results['_n_generations'] = self._n_generations
         return results
-
-    def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose):
-            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
-            print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
