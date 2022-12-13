@@ -33,11 +33,11 @@ if __name__ == '__main__':
                'lower_boundary': -5 * np.ones((50,))}
     options = {'max_function_evaluations': 78224,
                'seed_rng': 1,  # undefined in the original paper
-               'p': 10,  # tuned
+               'p': 1,
                'saving_fitness': 1000,
                'verbose': 10000}
     esa = ESA(problem, options)
     results = esa.optimize()
     # FOBJ initial-value average: 6472239 (from 50 samples) vs 5e5 (from the original paper)
     # our implementation starts from a worse starting point than the original paper.
-    print(results)  # 1.31007965e+01 vs 8.8 (from the original paper)
+    print(results)  # 49.13408124446869 vs 8.8 (from the original paper)
