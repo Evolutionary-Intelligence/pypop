@@ -26,7 +26,7 @@ class TestGL25(unittest.TestCase):
                        'fitness_threshold': 1e-10,
                        'max_runtime': 3600,  # 1 hours
                        'seed_rng': 0,
-                       'verbose': 5000,
+                       'verbose': 50000,
                        'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
