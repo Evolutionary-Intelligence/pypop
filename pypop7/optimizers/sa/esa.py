@@ -50,7 +50,7 @@ class ESA(SA):
        >>> results = esa.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"ESA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       ESA: 5000, 0.13433165863739305
+       ESA: 5000, 6.481109148014023
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/3e2k39z2>`_ for more details.
