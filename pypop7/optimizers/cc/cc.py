@@ -9,6 +9,22 @@ class CC(Optimizer):
     This is the **base** (abstract) class for all `CC` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular setting (`key`):
+                * 'n_individuals' - number of individuals/samples, aka population size (`int`, default: `100`).
+
     References
     ----------
     Gomez, F., Schmidhuber, J. and Miikkulainen, R., 2008.
@@ -64,6 +80,7 @@ class CC(Optimizer):
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
+        self.n_individuals = options.get('n_individuals', 100)  # number of individuals/samples, aka population size
         self._n_generations = 0  # initial number of generations
 
     def initialize(self):
