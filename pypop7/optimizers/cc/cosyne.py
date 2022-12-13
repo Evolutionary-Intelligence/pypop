@@ -4,11 +4,11 @@ from pypop7.optimizers.cc.cc import CC
 
 
 class COSYNE(CC):
-    """Cooperative Synapse Neuroevolution(CoSyNE)
+    """CoOperative SYnapse NEuroevolution (COSYNE).
 
     Parameters
     ----------
-     problem : dict
+    problem : dict
               problem arguments with the following common settings (`keys`):
                 * 'fitness_function' - objective function to be **minimized** (`func`),
                 * 'ndim_problem'     - number of dimensionality (`int`),
@@ -18,120 +18,121 @@ class COSYNE(CC):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals'            - number of individuals/samples (`int`),
-                * 'n_combine'                - number of combine (`int`, default: `2`),
-                * 'crossover_type'           - type of crossover operation (`string`, default: `one_point`),
-                * 'prob_mutate'              - probability to mutate (`float`, default: `0.3`).
+                * 'sigma'          - global step-size for Gaussian search (mutation/sampling) distribution (`float`),
+                * 'n_individuals'  - number of individuals/samples, aka population size (`int`, default: `100`),
+                * 'n_tournaments'  - number of tournaments for one-point crossover (`int`, default: `10`),
+                * 'ratio_elitists' - ratio of elitists (`float`, default: `0.3`).
 
     Examples
     --------
-    Use the Cooperative Evolution optimizer `COSYNE` to minimize the well-known test function
+    Use the optimizer `COSYNE` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
     .. code-block:: python
        :linenos:
+
        >>> import numpy
-       >>> from pypop7.benchmarks.base_functions import ellipsoid # function to be minimized
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.cc.cosyne import COSYNE
-       >>> problem = {'fitness_function': ellipsoid,  # define problem arguments
-       ...            'ndim_problem': 10,
-       ...            'lower_boundary': -5 * numpy.ones((10,)),
-       ...            'upper_boundary': 5 * numpy.ones((10,))}
-       >>> options = {'max_function_evaluations': 3e5,  # set optimizer options
-       ...            'n_individuals': 20,
-       ...            'n_combine': 2,
-       ...            'prob_mutate': 0.3,
-       ...            'crossover_type': "one_point"}
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5 * numpy.ones((2,)),
+       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'sigma': 0.3,
+       ...            'x': 3 * numpy.ones((2,))}
        >>> cosyne = COSYNE(problem, options)  # initialize the optimizer class
        >>> results = cosyne.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"COSYNE: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       COSYNE: 300061, 0.561405461371189(1.0746113061904907 in EvoTorch)
+       COSYNE: 5000, 0.001365285041808522
 
     Attributes
     ----------
-    prob_mutate      : `float`
-                        probability to mutate.
-    crossover_type   : `string`
-                        type of crossover.
-    n_combine        : `int`
-                        number of combine individuals.
-    n_individuals    : `int`
-                        number of individuals/samples.
+    n_individuals  : `int`
+                     number of individuals/samples, aka population size.
+    n_tournaments  : `int`
+                     number of tournaments for one-point crossover.
+    ratio_elitists : `float`
+                     ratio of elitists.
+    sigma          : `float`
+                     global step-size for Gaussian search (mutation/sampling) distribution.
 
-    Reference
-    ---------
-    F. Gomez, J. Schmidhuber, R. Miikkulainen
-    Accelerated Neural Evolution through Cooperatively Coevolved Synapses
+    References
+    ----------
+    Gomez, F., Schmidhuber, J. and Miikkulainen, R., 2008.
+    Accelerated neural evolution through cooperatively coevolved synapses.
+    Journal of Machine Learning Research, 9(31), pp.937-965.
     https://jmlr.org/papers/v9/gomez08a.html
     """
     def __init__(self, problem, options):
         CC.__init__(self, problem, options)
-        self.n_combine = options.get('n_combine', 2)
-        self.crossover_type = options.get('crossover_type', "one_point")
-        self.prob_mutate = options.get('prob_mutate', 0.3)
+        self.sigma = options.get('sigma')  # global step-size for Gaussian search distribution
+        self.n_tournaments = options.get('n_tournament', 10)  # number of tournaments for one-point crossover
+        self.ratio_elitists = options.get('ratio_elitists', 0.3)  # ratio of elitists
+        self._n_elitists = int(self.ratio_elitists*self.n_individuals)  # number of elitists
+        self._n_parents = int(self.n_individuals/4)  # parents for crossover and mutation
 
-    def initialize(self, is_restart=False):
-        x = np.empty((self.n_individuals, self.ndim_problem))
-        y = np.empty((self.n_individuals,))
-        for i in range(self.n_individuals):
-            x[i] = self._initialize_x()
-        return x, y
-
-    def mutate(self, x):
-        for i in range(2):
-            for j in range(self.ndim_problem):
-                rand = np.random.random()
-                if rand < self.prob_mutate:
-                    x[i][j] = x[i][j] + 0.3 * self.rng_optimization.standard_cauchy(1)
-            x[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary)
-        return x
-
-    def permute(self, log):
-        temp = []
-        length = len(log)
-        for k in range(length):
-            index = np.random.randint(0, len(log)) % len(log)
-            temp.append(log[index])
-            log.pop(index)
-        return temp
-
-    def iterate(self, x, y):
+    def initialize(self, args=None, is_restart=False):
+        x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
+                                            size=(self.n_individuals, self.ndim_problem))  # population
+        y = np.empty((self.n_individuals,))  # fitness
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return x, y
-            y[i] = self._evaluate_fitness(x[i])
-        order = np.argsort(y)
-        o = self.crossover(x[order[0]], x[order[1]], self.crossover_type)
-        o = self.mutate(o)
-        for i in range(self.ndim_problem):
-            order_1 = np.argsort(y)
-            for k in range(2):
-                x[order_1[self.n_individuals - k - 1]][i] = o[k][i]
-            mark_weight, log = [], []
-            for j in range(self.n_individuals):
-                temp = (y[j] - y[order[0]])/(y[order[-1]] - y[order[0]])
-                prob = 1 - np.power(temp, 1.0 / self.ndim_problem)
-                rand = np.random.random()
-                if rand < prob:
-                    mark_weight.append(x[j][i])
-                    log.append(j)
-            log = self.permute(log)
-            for j in range(len(log)):
-                x[log[j]][i] = mark_weight[j]
-                y[log[j]] = self._evaluate_fitness(x[log[j]])
+            y[i] = self._evaluate_fitness(x[i], args)
         return x, y
 
-    def optimize(self, fitness_function=None):
-        fitness = CC.optimize(self, fitness_function)
-        x, y = self.initialize()
-        while True:
-            x, y = self.iterate(x, y)
-            if self.saving_fitness:
-                fitness.extend(y)
+    def _crossover(self, x, y):  # one-point crossover
+        xx = np.empty((2*len(y), self.ndim_problem))
+        for i in range(len(y)):
+            left = self.rng_optimization.choice(len(y), size=(self.n_tournaments,), replace=False)
+            left = x[np.argmin(y[left])]
+            right = self.rng_optimization.choice(len(y), size=(self.n_tournaments,), replace=False)
+            right = x[np.argmin(y[right])]
+            p = self.rng_optimization.choice(self.ndim_problem)
+            xx[2*i], xx[2*i + 1] = np.append(left[:p], right[p:]), np.append(right[:p], left[p:])
+        return xx
+
+    def _mutate(self, x):  # mutation for all dimensions
+        x += self.sigma*self.rng_optimization.standard_normal(size=(x.shape[0], self.ndim_problem))
+        x = np.clip(x, self.lower_boundary, self.upper_boundary)
+        return x
+
+    def _permute(self, x):  # different from the original paper for simplicity
+        xx = np.copy(x)
+        for d in range(self.ndim_problem):
+            p = self.rng_optimization.choice(self.ndim_problem)
+            xx[:, d] = np.append(xx[p:, d], xx[:p, d])
+        return xx
+
+    def iterate(self, x=None, y=None, args=None):
+        rank, yy, yyy = np.argsort(y), np.empty((2*self._n_parents)), np.empty((self.n_individuals,))
+        # when `self._n_parents = int(self.n_individuals/4)`, it will generate half of population size
+        xx = self._mutate(self._crossover(x[rank[:self.n_parents]], y[rank[:self.n_parents]]))
+        for i in range(2*self._n_parents):
             if self._check_terminations():
-                break
-            self._n_generations += 1
-            self._print_verbose_info(y)
-        results = self._collect_results(fitness)
-        return results
+                return x, y, np.append(yy, yyy)
+            yy[i] = self._evaluate_fitness(xx[i], args)
+        xxx = self._permute(x)
+        for i in range(self.n_individuals):
+            if self._check_terminations():
+                return x, y, np.append(yy, yyy)
+            yyy[i] = self._evaluate_fitness(xxx[i], args)
+        x = np.vstack((np.vstack((x[rank[:self._n_elitists]], xx)), xxx))
+        y = np.hstack((np.hstack((y[rank[:self._n_elitists]], yy)), yyy))
+        rank = np.argsort(y)[:self.n_individuals]  # to keep population size fixed
+        self._n_generations += 1
+        return x[rank], y[rank], np.append(yy, yyy)
+
+    def optimize(self, fitness_function=None, args=None):
+        fitness = CC.optimize(self, fitness_function)
+        x, y = self.initialize(args)
+        yy = y  # only for printing
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, yy)
+            x, y, yy = self.iterate(x, y, args)
+        return self._collect_results(fitness, yy)
