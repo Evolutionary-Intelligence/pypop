@@ -1,4 +1,4 @@
-# pypop7 (Pure-PYthon library of POPulation-based black-box OPtimization)
+# PyPop7 (Pure-PYthon library of POPulation-based black-box OPtimization)
 
 [![GNU General Public License v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE) [![gitter for pypop](https://img.shields.io/badge/gitter-pypop--go-brightgreen.svg)](https://gitter.im/pypop-go/community) [![PyPI for pypop7](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/) [![Documentation Status](https://readthedocs.org/projects/pypop/badge/?version=latest)](https://pypop.readthedocs.io/en/latest/?badge=latest) [![Downloads](https://pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7) [![Python](https://img.shields.io/badge/Python-3.5%20%7C%203.6%20%7C%203.7%20%7C%203.8%20%7C%203.9%20%7C%203.10-yellow.svg)](https://www.python.org/)
 
@@ -8,7 +8,7 @@
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/PyPop-Logo-Small-0.png" alt="drawing" width="321"/>
 </p>
 
-More specifically, for alleviating the notorious **curse of dimensionality** of BBO (almost based on *iterative sampling*), the primary focus of ```PyPop7``` is to cover their **State-Of-The-Art (SOTA) implementations for Large-Scale Optimization (LSO)**, though many of their other versions and variants are also included here (for benchmarking/mixing purpose, and sometimes even for practical purpose).
+More specifically, for alleviating their notorious **curse of dimensionality** (from *iterative sampling*), the primary focus of ```PyPop7``` is to cover their **State-Of-The-Art (SOTA) implementations for Large-Scale Optimization (LSO)**, though many of their other versions and variants are also included here (for benchmarking/mixing purpose, and sometimes even for practical purpose).
 
 ## How to Use PyPop7
 
@@ -112,8 +112,8 @@ print(results)
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Comprehensive Learning Particle Swarm Optimizer (**[CLPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/clpso.py)**) [see [Liang et al., 2006, TEVC](https://ieeexplore.ieee.org/abstract/document/1637688)]
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Particle Swarm Optimizer with a Local (ring) topology (**[SPSOL](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spsol.py)**) [see e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146)]
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Particle Swarm Optimizer with a global topology (**[SPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spso.py)**) [see e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146)]
-* **CoOperative co-Evolutionary Algorithms (COEA)** [See e.g. [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html); [Panait et al., 2008, JMLR](https://www.jmlr.org/papers/v9/panait08a.html)]
-  * CoOperative SYnapse NeuroEvolution (**COSYNE**, CoSyNE) [See [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html)]
+* **Cooperative Co-evolution ([CC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/cc.py))** [See e.g. [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html); [Panait et al., 2008, JMLR](https://www.jmlr.org/papers/v9/panait08a.html); [Moriarty&Miikkulainen, 1995, ICML](https://www.sciencedirect.com/science/article/pii/B9781558603776500566); [Potter&De Jong, 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_269)]
+  * CoOperative SYnapse NeuroEvolution (**[COSYNE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/cosyne.py)**) [See [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html)]
 * **Simulated Annealing ([SA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/sa.py))** [see e.g. [Bertsimas&Tsitsiklis, 1993, Statistical Science](https://tinyurl.com/yknunnpt); [Kirkpatrick et al., 1983, Science](https://www.science.org/doi/10.1126/science.220.4598.671); [Hastings, 1970, Biometrika](https://academic.oup.com/biomet/article/57/1/97/284580); [Metropolis et al., 1953, JCP](https://aip.scitation.org/doi/abs/10.1063/1.1699114)]
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Enhanced Simulated Annealing (**[ESA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/esa.py)**) [see [Siarry et al., 1997, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/264029.264043)]
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Corana et al.' Simulated Annealing (**[CSA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/csa.py)**) [see [Corana et al., 1987, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
