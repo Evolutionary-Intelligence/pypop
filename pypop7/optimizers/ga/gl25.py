@@ -105,7 +105,7 @@ class GL25(GA):
             y[i] = self._evaluate_fitness(x[i], args)
         return x, y
 
-    def iterate(self, x=None, y=None, n_female=None, n_male=None, fitness=None, args=None):
+    def iterate(self, x=None, y=None, n_female=None, n_male=None, args=None):
         order = np.argsort(y)
         x_male, female = x[order[range(n_male)]], order[range(n_female)]
         x_female, _n_selected = x[female], self._n_selected[female]
@@ -126,28 +126,23 @@ class GL25(GA):
         xx = self.rng_optimization.uniform(np.clip(l, self.lower_boundary, self.upper_boundary),
                                            np.clip(u, self.lower_boundary, self.upper_boundary))
         yy = self._evaluate_fitness(xx, args)
-        if self.saving_fitness:
-            fitness.append(yy)
         # use the replace worst (RW) strategy
         if yy < y[order[-1]]:
             x[order[-1]], y[order[-1]], self._n_selected[order[-1]] = xx, yy, 0
-        return x, y
+        self._n_generations += 1
+        return x, yy
 
     def optimize(self, fitness_function=None, args=None):
         fitness, is_switch = GA.optimize(self, fitness_function), True
         x, y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        while True:
+        yy = y  # only for printing
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, yy)
             if self.n_function_evaluations >= self._max_fe_global or self.runtime >= self._max_runtime_global:
                 if is_switch:  # local search
                     init, is_switch = range(np.maximum(self.n_female_local, self.n_male_local)), False
                     x, y, self._n_selected = x[init], y[init], self._n_selected[init]
-                x, y = self.iterate(x, y, self.n_female_local, self.n_male_local, fitness, args)
+                x, yy = self.iterate(x, y, self.n_female_local, self.n_male_local, args)
             else:  # global search
-                x, y = self.iterate(x, y, self.n_female_global, self.n_male_global, fitness, args)
-            if self._check_terminations():
-                break
-            self._print_verbose_info(y)
-            self._n_generations += 1
-        return self._collect_results(fitness)
+                x, yy = self.iterate(x, y, self.n_female_global, self.n_male_global, args)
+        return self._collect_results(fitness, yy)

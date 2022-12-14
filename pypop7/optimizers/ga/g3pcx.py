@@ -26,7 +26,7 @@ class G3PCX(GA):
 
     Examples
     --------
-    Use the Genetic Algorithm optimizer `G3PCX` to minimize the well-known test function
+    Use the optimizer `G3PCX` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -65,7 +65,7 @@ class G3PCX(GA):
     (See the original C source code.)
 
     https://pymoo.org/algorithms/soo/g3pcx.html
-    
+
     Deb, K., Anand, A. and Joshi, D., 2002.
     A computationally efficient evolutionary algorithm for real-parameter optimization.
     Evolutionary Computation, 10(4), pp.371-395.
@@ -89,8 +89,8 @@ class G3PCX(GA):
             y[i] = self._evaluate_fitness(x[i], args)
         return x, y
 
-    def iterate(self, x=None, y=None, args=None, fitness=None):
-        self._elitist = np.argmin(y)
+    def iterate(self, x=None, y=None, args=None):
+        self._elitist, fitness = np.argmin(y), []
         # (Step 1:) from the population, select the best and 'self.n_parents - 1' other parents randomly
         parents = self.rng_optimization.choice(self.n_individuals, size=self.n_parents, replace=False)
         if self._elitist not in parents:  # to ensure that elitist is always included
@@ -124,18 +124,14 @@ class G3PCX(GA):
         # the best two solutions and replace the chosen two parents (in Step 3) with these solutions
         xx, yy = np.vstack((xx, x[offsprings])), np.hstack((yy, y[offsprings]))
         x[offsprings], y[offsprings] = xx[np.argsort(yy)[:2]], yy[np.argsort(yy)[:2]]
-        return x, y
+        self._n_generations += 1
+        return fitness
 
     def optimize(self, fitness_function=None, args=None):
         fitness = GA.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
-        while True:
-            x, y = self.iterate(x, y, args, fitness)
-            if self._check_terminations():
-                break
-            self._n_generations += 1
-            self._print_verbose_info(y)
-        return self._collect_results(fitness)
+        yy = y  # only for printing
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, yy)
+            yy = self.iterate(x, y, args)
+        return self._collect_results(fitness, yy)

@@ -30,7 +30,7 @@ class GENITOR(GA):
 
     Examples
     --------
-    Use the Genetic Algorithm optimizer `GENITOR` to minimize the well-known test function
+    Use the optimizer `GENITOR` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -118,14 +118,8 @@ class GENITOR(GA):
     def optimize(self, fitness_function=None, args=None):
         fitness = GA.optimize(self, fitness_function)
         x, y, crossover_probs = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
-        while True:
+        yy = y  # only for printing
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, yy)
             x, yy, crossover_probs = self.iterate(x, y, crossover_probs, args)
-            if self.saving_fitness:
-                fitness.append(yy)
-            if self._check_terminations():
-                break
-            self._print_verbose_info(yy)
-        return self._collect_results(fitness)
+        return self._collect_results(fitness, yy)

@@ -30,7 +30,7 @@ class ASGA(GA):
 
     Examples
     --------
-    Use the Genetic Algorithm optimizer `ASGA` to minimize the well-known test function
+    Use the optimizer `ASGA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -97,6 +97,7 @@ class ASGA(GA):
                 break
             y[i] = self._evaluate_fitness(x[i], args)
         x_as, y_as = np.copy(x), np.copy(y)
+        self._n_generations = 0
         return x, y, x_as, y_as
 
     def _build_active_space(self, x_as=None, y_as=None):
@@ -141,28 +142,13 @@ class ASGA(GA):
     def optimize(self, fitness_function=None, args=None):
         fitness = GA.optimize(self, fitness_function)
         x, y, x_as, y_as = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
         while not self._check_terminations():
+            self._print_verbose_info(fitness, y)
             try:
                 x, y, x_as, y_as = self.iterate(x, y, x_as, y_as, args)
-                if self.saving_fitness:
-                    fitness.extend(y)
-                if self._check_terminations():
-                    break
                 self._n_generations += 1
-                self._print_verbose_info(y)
             except np.linalg.LinAlgError:
                 x, y, x_as, y_as = self.initialize(args)
-                if self.saving_fitness:
-                    fitness.extend(y)
-                self._n_generations = 0
-                self._print_verbose_info(y)
             except ValueError:
                 x, y, x_as, y_as = self.initialize(args)
-                if self.saving_fitness:
-                    fitness.extend(y)
-                self._n_generations = 0
-                self._print_verbose_info(y)
-        return self._collect_results(fitness)
+        return self._collect_results(fitness, y)
