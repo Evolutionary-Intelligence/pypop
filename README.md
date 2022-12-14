@@ -58,6 +58,10 @@ print(results)
 
 ## A (*Still Growing*) List of Publicly Available Black-Box Optimizers (BBO)
 
+<p align="center">
+<img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/Summary-BBO.png" alt="drawing"/>
+</p>
+
 ******* *** *******
 * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific version for LSO (e.g., dimension >= 1000).
 * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) version for *relatively low-dimensional* problems (though it may also work well under certain LSO circumstances).
