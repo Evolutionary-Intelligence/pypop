@@ -2,7 +2,7 @@ User Guide
 ==========
 
 Before applying `pypop7` to real-world black-box optimization problems, the following user guidelines should
-be read carefully: *problem definition*, *optimizer setting*, *result analysis*, and *algorithm selection*.
+be read: *problem definition*, *optimizer setting*, *result analysis*, and *algorithm selection*.
 
 Problem Definition
 ------------------
@@ -21,10 +21,10 @@ way to store all settings related to the optimization problem at hand, such as:
 Note that without loss of generality, only the **minimization** process is considered in this library, since
 *maximization* can be easily transferred to *minimization* by negating it.
 
-Both `initial_upper_boundary` and `initial_lower_boundary` are set to `upper_boundary` and `lower_boundary`,
-respectively, if *not* given. When `initial_upper_boundary` and `initial_lower_boundary` are explicitly given,
+if *not* given, both `initial_upper_boundary` and `initial_lower_boundary` are set to `upper_boundary` and
+`lower_boundary`, respectively. When `initial_upper_boundary` and `initial_lower_boundary` are explicitly given,
 the initialization of population/individual will be sampled from [`initial_lower_boundary`, `initial_upper_boundary`]
-rather than [`lower_boundary`, `upper_boundary`]. This is *mainly* used for optimizers benchmarking purpose (in
+rather than [`lower_boundary`, `upper_boundary`]. This is *mainly* used for *benchmarking-of-optimizers* purpose (in
 order to avoid utilizing `symmetry and origin <https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_
 to possibly bias the search).
 
@@ -43,8 +43,8 @@ Below is a simple example to define the well-known test function `Rosenbrock
        ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # search boundary
        ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}
 
-When the fitness function itself involves other *input arguments* except the sampling point `x`, there are
-two simple ways to support this scenario:
+When the fitness function itself involves other *input arguments* except the sampling point `x` (here we distinguish
+*input arguments* and above *problem settings*), there are two simple ways to support this scenario:
 
 * to create a `class <https://docs.python.org/3/reference/compound_stmts.html#class-definitions>`_ wrapper, e.g.:
 
@@ -66,7 +66,7 @@ two simple ways to support this scenario:
        ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # search boundary
        ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}
 
-* to utilize the easy-to-use unified interface provided for all optimizers in this library:
+* to utilize the easy-to-use unified interface provided for all optimizers in this library, e.g.:
 
     .. code-block:: python
        :linenos:
