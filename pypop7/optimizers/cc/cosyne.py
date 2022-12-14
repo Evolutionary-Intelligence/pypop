@@ -50,6 +50,9 @@ class COSYNE(CC):
        >>> print(f"COSYNE: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        COSYNE: 5000, 0.001365285041808522
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/yff8c6xu>`_ for more details.
+
     Attributes
     ----------
     n_individuals  : `int`
