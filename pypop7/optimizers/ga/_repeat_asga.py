@@ -15,6 +15,7 @@ from pypop7.optimizers.ga.asga import ASGA
 
 
 if __name__ == '__main__':
+    np.random.seed(2022)
     ndim_problem = 15
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
@@ -28,7 +29,7 @@ if __name__ == '__main__':
     asga = ASGA(problem, options)
     results = asga.optimize()
     print(results)
-    print(results['best_so_far_y'])  # 14.03062287458637
+    print(results['best_so_far_y'])  # 13.979905769561228
 
     problem = {'fitness_function': ackley,
                'ndim_problem': ndim_problem,
@@ -42,4 +43,4 @@ if __name__ == '__main__':
     asga = ASGA(problem, options)
     results = asga.optimize()
     print(results)
-    print(results['best_so_far_y'])  # 0.012111557779814763
+    print(results['best_so_far_y'])  # 0.005475735035056051
