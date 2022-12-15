@@ -10,3 +10,4 @@ Cooperative Coevolution (CC)
    :caption: CC:
 
    cosyne
+   coea
