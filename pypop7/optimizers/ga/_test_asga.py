@@ -14,6 +14,7 @@ from pypop7.optimizers.ga.asga import ASGA as Solver
 
 class TestASGA(unittest.TestCase):
     def test_optimize(self):
+        np.random.seed(2022)
         start_run = time.time()
         ndim_problem = 50
         for f in [ellipsoid, rosenbrock, rastrigin]:
