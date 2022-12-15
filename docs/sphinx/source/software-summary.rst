@@ -48,6 +48,7 @@ Python
 * https://github.com/fmfn/BayesianOptimization
 * https://github.com/hardmaru/estool
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
+* https://github.com/pybrain/pybrain
 * https://pymoo.org/
 
 R
