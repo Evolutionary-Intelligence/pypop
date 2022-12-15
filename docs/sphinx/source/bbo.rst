@@ -15,6 +15,8 @@ as shown in e.g. the classical book **<<Introduction to Derivative-Free Optimiza
 
 Some common problem characteristics of BBO are presented below:
 
+* unavailability of gradient information in the black-box setting (even if the gradient information actually exists),
+* without a precise model (e.g., owing to complex simulation),
 * non-differentiability,
 * non-linearity,
 * multi-modality,
@@ -23,6 +25,10 @@ Some common problem characteristics of BBO are presented below:
 
 No Free Lunch Theorems (NFL)
 ----------------------------
+
+.. note:: `"In practice it has proven to be crucial to find the right domain-specific trade-off on issues such as
+   convergence speed, expected quality of the solutions found and sensitivity to local suboptima on the fitness
+   landscape."---[Wierstra et al., 2008] <https://ieeexplore.ieee.org/document/4631255>`_
 
 As mathematically proved in `[Wolpert&Macready, 1997, TEVC] <https://ieeexplore.ieee.org/document/585893>`_, **"for any
 algorithm, any elevated performance over one class of problems is offset by performance over another class."**
