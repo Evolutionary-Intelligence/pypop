@@ -91,7 +91,10 @@ class CC(Optimizer):
 
     def _print_verbose_info(self, fitness, y):
         if self.saving_fitness:
-            fitness.extend(y)
+            if not np.isscalar(y):
+                fitness.extend(y)
+            else:
+                fitness.append(y)
         if self.verbose and ((not self._n_generations % self.verbose) or (self.termination_signal > 0)):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
