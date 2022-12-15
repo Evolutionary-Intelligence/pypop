@@ -56,7 +56,7 @@ results = lmmaes.optimize()  # run its (time-consuming) search process
 print(results)
 ```
 
-## A (*Still Growing*) List of Publicly Available Black-Box Optimizers (BBO)
+## A (*still growing*) List of Publicly Available Black-Box Optimizers (BBO)
 
 <p align="center">
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/Summary-BBO.png" alt="drawing"/>
@@ -117,7 +117,8 @@ print(results)
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Particle Swarm Optimizer with a Local (ring) topology (**[SPSOL](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spsol.py)**) [see e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146)]
   * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Standard Particle Swarm Optimizer with a global topology (**[SPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spso.py)**) [see e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146)]
 * **Cooperative Co-evolution ([CC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/cc.py))** [See e.g. [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html); [Panait et al., 2008, JMLR](https://www.jmlr.org/papers/v9/panait08a.html); [Moriarty&Miikkulainen, 1995, ICML](https://www.sciencedirect.com/science/article/pii/B9781558603776500566); [Potter&De Jong, 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_269)]
-  * CoOperative SYnapse NeuroEvolution (**[COSYNE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/cosyne.py)**) [See [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) CoOperative SYnapse NeuroEvolution (**[COSYNE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/cosyne.py)**) [see [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) CoOperative co-Evolutionary Algorithm (**[COEA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/coea.py)**) [see e.g. [Panait et al., 2008, JMLR](https://www.jmlr.org/papers/v9/panait08a.html); [Potter&De Jong, 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_269)]
 * **Simulated Annealing ([SA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/sa.py))** [see e.g. [Bertsimas&Tsitsiklis, 1993, Statistical Science](https://tinyurl.com/yknunnpt); [Kirkpatrick et al., 1983, Science](https://www.science.org/doi/10.1126/science.220.4598.671); [Hastings, 1970, Biometrika](https://academic.oup.com/biomet/article/57/1/97/284580); [Metropolis et al., 1953, JCP](https://aip.scitation.org/doi/abs/10.1063/1.1699114)]
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Enhanced Simulated Annealing (**[ESA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/esa.py)**) [see [Siarry et al., 1997, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/264029.264043)]
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Corana et al.' Simulated Annealing (**[CSA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/csa.py)**) [see [Corana et al., 1987, ACM-TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
