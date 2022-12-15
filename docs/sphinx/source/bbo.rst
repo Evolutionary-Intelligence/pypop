@@ -23,6 +23,9 @@ Some common problem characteristics of BBO are presented below:
 * ill-condition,
 * noisiness.
 
+For BBO, the only information accessible to the algorithm is function evaluations, which can be freely selected by
+the algorithm, leading to Zeroth-Order Optimization (ZOO).
+
 No Free Lunch Theorems (NFL)
 ----------------------------
 
