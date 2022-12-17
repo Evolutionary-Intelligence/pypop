@@ -6,13 +6,14 @@ from pypop7.optimizers.rs.rs import RS
 class PRS(RS):
     """Pure Random Search (PRS).
 
-    .. note:: `PRS` is one of the *simplest* and *earliest* black-box optimizers. Although recently it
+    .. note:: `PRS` is one of the *simplest* and *earliest* black-box optimizers, dating back to at least
+       `1950s <https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244>`_. Although recently it
         has been successfully applied in several *relatively low-dimensional* problems (particularly
         `hyper-parameter optimization <https://www.jmlr.org/papers/v13/bergstra12a.html>`_), it generally
         suffers from the famous **curse of dimensionality** for large-scale black-box optimization (LSBBO),
-        owing to its lack of *adaptation*, a highly desirable property for sophisticated search algorithms.
-        Therefore, it is **highly recommended** to first attempt other more advanced (e.g. population-based)
-        methods for LSBBO.
+        owing to the lack of *adaptation*, a highly desirable property for most sophisticated search
+        algorithms. Therefore, it is **highly recommended** to first attempt more advanced (e.g.
+        population-based) methods for LSBBO.
 
         Here we include it mainly for *benchmarking* purpose. As pointed out in `Probabilistic Machine Learning
         <https://probml.github.io/pml-book/book2.html>`_, *"this should always be tried as a baseline"*.
