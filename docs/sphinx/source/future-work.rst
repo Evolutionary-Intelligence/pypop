@@ -50,4 +50,5 @@ RS
 BBO
 ---
 
+* Gao, F., & Han, L. (2012). Implementing the Nelder-Mead simplex algorithm with adaptive parameters. Computational Optimization and Applications, 51(1), 259-277.
 * Flaxman, A. D., Kalai, A. T., & McMahan, H. B. (2005, January). Online convex optimization in the bandit setting: gradient descent without a gradient. In Proceedings of Annual ACM-SIAM symposium on Discrete Algorithms (pp. 385-394).
