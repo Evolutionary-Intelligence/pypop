@@ -7,12 +7,13 @@ from pypop7.optimizers.rs.prs import PRS
 class SRS(PRS):
     """Simple Random Search (SRS).
 
-    .. note:: `SRS` is an *adaptive* random search method, originally designed by Rosenstein and `Barto
+    .. note:: `SRS` is an **adaptive** random search method, originally designed by Rosenstein and `Barto
        <https://people.cs.umass.edu/~barto/>`_ for **direct policy search** in reinforcement learning.
-       Since it uses the simple *individual-based* random sampling strategy, it easily suffers from a
-       *limited* exploration ability for large-scale black-box optimization (LSBBO). Therefore, it is
-       **highly recommended** to first attempt other more advanced (e.g. population-based) methods for
-       LSBBO. Here we include it only for *benchmarking* purpose.
+       Since it uses a very simple *individual-based* random sampling strategy, it easily suffers from a
+       **relatively limited** exploration ability for large-scale black-box optimization (LSBBO). Therefore,
+       it is **highly recommended** to first attempt more advanced (e.g. population-based) methods for LSBBO.
+
+       Here we include it mainly for *benchmarking* purpose.
 
     Parameters
     ----------
@@ -28,8 +29,12 @@ class SRS(PRS):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'x'         - initial (starting) point (`array_like`),
                 * 'sigma'     - initial global step-size (`float`),
+                * 'x'         - initial (starting) point (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
                 * 'alpha'     - factor of global step-size (`float`, default: `0.3`),
                 * 'beta'      - adjustment probability for exploration-exploitation trade-off (`float`, default: `0`),
                 * 'gamma'     - factor of search decay (`float`, default: `0.99`),
@@ -60,7 +65,7 @@ class SRS(PRS):
        >>> print(f"SRS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SRS: 5000, 0.0017821578376762473
 
-    For its correctness checking of coding, the code-based repeatability report cannot be provided owing to
+    For its correctness checking of coding, the *code-based repeatability report* cannot be provided owing to
     the lack of its simulation envrionment.
 
     Attributes
@@ -74,7 +79,7 @@ class SRS(PRS):
     min_sigma                   :  `float`
                                   minimum of global step-size.
     sigma                       : `float`
-                                  final global step-size.
+                                  final global step-size (updated during optimization).
     x                           : `array_like`
                                   initial (starting) point.
 
