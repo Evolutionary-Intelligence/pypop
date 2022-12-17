@@ -3,18 +3,6 @@ Software Summary and Comparisons
 
 .. note:: This page is actively updated now, since many open-source software are missed here.
 
-`pygmo <https://esa.github.io/pygmo2/>`_ is *a scientific Python library for massively parallel optimization*.
-  * https://esa.github.io/pygmo2/algorithms.html#pygmo.de
-  * https://esa.github.io/pygmo2/algorithms.html#pygmo.sade
-  * https://esa.github.io/pygmo2/algorithms.html#pygmo.de1220
-  * https://esa.github.io/pygmo2/algorithms.html#pygmo.pso
-  * https://esa.github.io/pygmo2/algorithms.html#pygmo.pso_gen
-  * https://esa.github.io/pygmo2/algorithms.html#pygmo.sea
-  * https://esa.github.io/pygmo2/algorithms.html#pygmo.sga
-  * https://esa.github.io/pygmo2/algorithms.html#pygmo.simulated_annealing
-  * https://esa.github.io/pygmo2/algorithms.html#pygmo.cmaes
-  * https://esa.github.io/pygmo2/algorithms.html#pygmo.xnes
-
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for Iterative Optimization Heuristics (IOHs)*.
 
 `https://github.com/CMA-ES <https://github.com/CMA-ES>`_ is *a collection of various implementations of the powerful CMA-ES algorithm*.
@@ -44,11 +32,26 @@ Python
 ------
 
 * https://esa.github.io/pygmo2/
+
+`pygmo <https://esa.github.io/pygmo2/>`_ is *a scientific Python library for massively parallel optimization*.
+  * https://esa.github.io/pygmo2/algorithms.html#pygmo.de
+  * https://esa.github.io/pygmo2/algorithms.html#pygmo.sade
+  * https://esa.github.io/pygmo2/algorithms.html#pygmo.de1220
+  * https://esa.github.io/pygmo2/algorithms.html#pygmo.pso
+  * https://esa.github.io/pygmo2/algorithms.html#pygmo.pso_gen
+  * https://esa.github.io/pygmo2/algorithms.html#pygmo.sea
+  * https://esa.github.io/pygmo2/algorithms.html#pygmo.sga
+  * https://esa.github.io/pygmo2/algorithms.html#pygmo.simulated_annealing
+  * https://esa.github.io/pygmo2/algorithms.html#pygmo.cmaes
+  * https://esa.github.io/pygmo2/algorithms.html#pygmo.xnes
+
 * https://github.com/CMA-ES/pycma
 * https://github.com/fmfn/BayesianOptimization
 * https://github.com/hardmaru/estool
+* https://github.com/mradaideh/neorl
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
 * https://github.com/pybrain/pybrain
+  * https://github.com/chanshing/xnes
 * https://pymoo.org/
 
 R
