@@ -6,16 +6,17 @@ class RHC(PRS):
 
     .. note:: Currently `RHC` only supports *normally*-distributed random sampling during optimization.
        It often suffers from **slow convergence** for large-scale black-box optimization (LSBBO), owing to
-       its limited exploration ability originating from its individual-based local sampling strategy.
-       Therefore, it is **highly recommended** to first attempt other more advanced (e.g. population-based)
+       its *relatively limited* exploration ability originating from its **individual-based** local sampling
+       strategy. Therefore, it is **highly recommended** to first attempt more advanced (e.g. population-based)
        methods for LSBBO.
 
-       "They have two key advantages: (1) they use very little memory; and (2) they can often find reasonable solutions
-       in large or infinite state spaces for which systematic algorithms are unsuitable."---`[Russell&Norvig, 2021]
+       `"The hill-climbing search algorithm is the most basic local search technique. They have two key advantages:
+       (1) they use very little memory; and (2) they can often find reasonable solutions in large or infinite state
+       spaces for which systematic algorithms are unsuitable."---[Russell&Norvig, 2021]
        <http://aima.cs.berkeley.edu/>`_
 
-       **"The hill-climbing search algorithm is the most basic local search technique."**---`[Russell&Norvig, 2021]
-       <http://aima.cs.berkeley.edu/>`_
+       AKA `"stochastic local search (steepest ascent or greedy search)"---[Murphy., 2022]
+       <https://probml.github.io/pml-book/book2.html>`_.
 
     Parameters
     ----------
@@ -31,12 +32,16 @@ class RHC(PRS):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'x'                           - initial (starting) point (`array_like`),
                 * 'sigma'                       - initial global step-size (`float`),
-                * 'initialization_distribution' - random sampling distribution for starting point initialization (`int`,
+                * 'x'                           - initial (starting) point (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'initialization_distribution' - random sampling distribution for starting-point initialization (`int`,
                   default: `1`). Only when `x` is not set *explicitly*, it will be used.
 
-                  * `1`: *uniform* distribution is used for random sampling,
+                  * `1`: *uniform* distribution is used for random sampling only for starting-point initialization,
                   * `0`: *standard normal* distribution is used for random sampling with mean `0` and std `1` for
                     each dimension.
 
@@ -71,14 +76,16 @@ class RHC(PRS):
     Attributes
     ----------
     initialization_distribution : `int`
-                                  random sampling distribution for initialization of starting point.
+                                  random sampling distribution for starting-point initialization.
     sigma                       : `float`
-                                  initial global step-size.
+                                  global step-size (fixed during optimization).
     x                           : `array_like`
                                   initial (starting) point.
 
     References
     ----------
+    https://probml.github.io/pml-book/book2.html
+
     Russell, S. and Norvig P., 2021.
     Artificial intelligence: A modern approach (Global Edition).
     Pearson Education.
@@ -96,7 +103,7 @@ class RHC(PRS):
             info = 'For {:s}, only support uniformly or normally distributed random initialization.'
             raise ValueError(info.format(self.__class__.__name__))
 
-    def _sample(self, rng):  # only for `initialize(self)`
+    def _sample(self, rng):  # only for function `initialize(self)`
         if self.initialization_distribution == 0:  # normally distributed
             x = rng.standard_normal(size=(self.ndim_problem,))
         else:  # uniformly distributed
