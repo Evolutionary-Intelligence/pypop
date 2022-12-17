@@ -8,7 +8,7 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/repeatability/prs/_repeat_prs.png
 
-    Luckily our code could repeat the data reported in the original paper *well*.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
     Therefore, we argue that the repeatability of `PRS` could be **well-documented**.
 """
 import numpy as np
