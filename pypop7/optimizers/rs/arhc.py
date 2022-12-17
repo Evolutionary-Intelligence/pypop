@@ -7,9 +7,11 @@ class ARHC(RHC):
     """Annealed Random Hill Climber (ARHC).
 
     .. note:: The search performance of `ARHC` depends **heavily** on the *temperature* setting of the annealing
-       process. However, its setting is a **non-trival** task, since it may vary among different problems and even
-       among different optimization stages for the problem at hand. Therefore, it is **highly recommended** to
-       first attempt other more advanced (e.g. population-based) methods for large-scale black-box optimization.
+       process. However, its proper setting is a **non-trival** task, since it may vary among different problems
+       and even among different optimization stages for the problem at hand. Therefore, it is **highly recommended**
+       to first attempt more advanced (e.g. population-based) methods for large-scale black-box optimization.
+
+       Here we include it mainly for *benchmarking* purpose.
 
     Parameters
     ----------
@@ -25,9 +27,13 @@ class ARHC(RHC):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'x'                           - initial (starting) point (`array_like`),
                 * 'sigma'                       - initial global step-size (`float`),
                 * 'temperature'                 - annealing temperature (`float`),
+                * 'x'                           - initial (starting) point (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
                 * 'initialization_distribution' - random sampling distribution for starting point initialization (`int`,
                   default: `1`). Only when `x` is not set *explicitly*, it will be used.
 
@@ -67,9 +73,9 @@ class ARHC(RHC):
     Attributes
     ----------
     initialization_distribution : `int`
-                                  random sampling distribution for initialization of starting point.
+                                  random sampling distribution for starting-point initialization.
     sigma                       : `float`
-                                  initial global step-size.
+                                  global step-size (fixed during optimization).
     temperature                 : `float`
                                   annealing temperature.
     x                           : `array_like`
@@ -77,6 +83,8 @@ class ARHC(RHC):
 
     References
     ----------
+    https://probml.github.io/pml-book/book2.html
+
     Russell, S. and Norvig P., 2021.
     Artificial intelligence: A modern approach (Global Edition).
     Pearson Education.
