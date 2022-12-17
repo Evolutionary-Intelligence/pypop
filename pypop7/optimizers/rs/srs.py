@@ -116,7 +116,7 @@ class SRS(PRS):
         y = self._evaluate_fitness(x, args)
         return x, y
 
-    def iterate(self, x=None, args=None):
+    def iterate(self, x=None, args=None):  # for each iteration (generation)
         delta_x = self.sigma*self.rng_optimization.standard_normal(size=(self.ndim_problem,))
         y = self._evaluate_fitness(x + delta_x, args)  # random perturbation
         if self.rng_optimization.uniform() < self.beta:
@@ -126,7 +126,7 @@ class SRS(PRS):
         self._n_generations += 1
         return x, y
 
-    def optimize(self, fitness_function=None, args=None):
+    def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
         fitness = Optimizer.optimize(self, fitness_function)
         x, y = self.initialize(args)
         while not self._check_terminations():
