@@ -4,15 +4,15 @@
     Journal of Machine Learning Research, 11(24), pp.743-746.
     https://jmlr.org/papers/v11/schaul10a.html
 
-    Luckily our code could repeat the data reported in the other code *well*.
+    Luckily our Python code could repeat the data reported in the other reference Python code *well*.
     Therefore, we argue that the repeatability of `ARHC` could be **well-documented**.
 
-    The baseline Python code is shown below:
-    ----------------------------------------
+    The reference Python code (https://github.com/pybrain/pybrain) is shown below:
+    ------------------------------------------------------------------------------
     import time
 
     import numpy as np
-    # use Python 2.7 to avoid possible unsuccessful installation, since pybrain is not maintained now
+    # use Python 2.7 to avoid possible unsuccessful installation, since PyBrain was not maintained (after 2017)
     from pybrain.optimization.hillclimber import StochasticHillClimber as ARHC
 
 
@@ -26,7 +26,7 @@
     solver.temperature = 100
     start_time = time.time()
     solver.learn()
-    # Step: 1999998 best: 10972437.61259182 (different runs result in slightly different results)
+    # Step: 1999998 best: 10972437.61259182 (note that different runs result in slightly different results)
     print("Runtime: {:7.5e}".format(time.time() - start_time))
 """
 import time
