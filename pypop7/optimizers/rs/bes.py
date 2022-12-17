@@ -7,8 +7,8 @@ from pypop7.optimizers.rs.rs import RS
 class BES(RS):
     """BErnoulli Smoothing (BES).
 
-    .. note:: This is a **highly simplified** version of the original BES algorithm without noisy fitness evaluations.
-       We leave the *noisy fitness evaluations* case for the future work.
+    .. note:: This is a **simplified** version of the recently (2022) proposed BES algorithm **without noisy fitness
+       evaluations**. We leave the *noisy fitness evaluations* case for the future work.
 
     Parameters
     ----------
@@ -26,7 +26,11 @@ class BES(RS):
               and with the following particular settings (`keys`):
                 * 'n_individuals' - number of individuals/samples (`int`, default: `100`),
                 * 'lr'            - learning rate (`float`, default: `0.001`),
-                * 'c'             - factor of finite-difference gradient estimate (`float`, default: `0.1`).
+                * 'c'             - factor of finite-difference gradient estimate (`float`, default: `0.1`),
+                * 'x'                           - initial (starting) point (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
     Examples
     --------
@@ -62,9 +66,11 @@ class BES(RS):
     c             : `float`
                     factor of finite-difference gradient estimate.
     lr            : `float`
-                    learning rate.
+                    learning rate of (estimated) gradient update.
     n_individuals : `int`
                     number of individuals/samples.
+    x             : `array_like`
+                    initial (starting) point.
 
     References
     ----------
@@ -77,7 +83,7 @@ class BES(RS):
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
         self.n_individuals = options.get('n_individuals', 100)  # number of individuals/samples
-        self.lr = options.get('lr', 0.001)  # learning rate
+        self.lr = options.get('lr', 0.001)  # learning rate of (estimated) gradient update
         self.c = options.get('c', 0.1)  # factor of finite-difference gradient estimate
         self.verbose = options.get('verbose', 10)
 
