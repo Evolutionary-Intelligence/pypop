@@ -8,6 +8,12 @@ Mathematical Optimization
 * Cartis, C., Massart, E., & Otemissov, A. (2022). Global optimization using random embeddings. Mathematical Programming, 1-49.
 * Rios, L. M., & Sahinidis, N. V. (2013). Derivative-free optimization: A review of algorithms and comparison of software implementations. Journal of Global Optimization, 56(3), 1247-1293.
 
+SPSA
+----
+
+* Spall, J. C., Hill, S. D., & Stark, D. R. (2006). Theoretical framework for comparing several stochastic optimization approaches. Probabilistic and Randomized Methods for Design under Uncertainty, 99-117.
+* Spall, J. C. (1999, December). Stochastic optimization and the simultaneous perturbation method. In Proceedings of Conference on Winter Simulation (pp. 101-109).
+
 ES
 --
 
@@ -29,6 +35,7 @@ MA
 --
 
 * Lozano, M., Herrera, F., Krasnogor, N., & Molina, D. (2004). Real-coded memetic algorithms with crossover hill-climbing. Evolutionary Computation, 12(3), 273-302.
+* Renders, J. M., & Flasse, S. P. (1996). Hybrid methods using genetic algorithms for global optimization. IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics), 26(2), 243-258.
 
 GA
 --
