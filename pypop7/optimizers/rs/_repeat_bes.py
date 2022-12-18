@@ -8,12 +8,12 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/bes
 
-    Since the current implementation is just a **highly simplified** version of the original BES algorithm
+    Since the current implementation is a *simplified* version of the original BES algorithm
     without noisy evaluations, its repeatability **cannot** be guaranteed.
 
     However, we found that the current implementation could show *very similar* performance on the same
     benchmark functions (after removing its noise part). The resulting much less (>100x) number of function
-    evaluations to be needed may be well explained by the much easier fitness landscape (i.e., without noisiness).
+    evaluations needed may be well explained by the much easier fitness landscape (i.e., without noisiness).
 """
 import numpy as np
 import seaborn as sns
