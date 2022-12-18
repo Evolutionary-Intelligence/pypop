@@ -29,7 +29,9 @@ class NSA(SA):
                 * 'sigma'     - initial global step-size (`float`),
                 * 'is_noisy'  - whether to minimize a **noisy** cost function (`bool`, default: `True`),
                 * 'schedule'  - schedule for sampling intensity (`str`, default: `linear`),
+
                   * currently only two (*linear* or *quadratic*) schedules are supported for sampling intensity,
+
                 * 'n_samples' - number of samples for each iteration (`int`),
                 * 'rt'        - reducing factor of annealing temperature (`float`, default: `0.99`).
 
