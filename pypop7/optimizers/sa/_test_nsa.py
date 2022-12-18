@@ -29,7 +29,6 @@ class TestNSA(unittest.TestCase):
                        'sigma': 0.1,
                        'temperature': 100,
                        'is_noisy': False,
-                       'n_samples': 1,  # for static optimization
                        'verbose': 20000,
                        'saving_fitness': 200000}
             solver = Solver(problem, options)
