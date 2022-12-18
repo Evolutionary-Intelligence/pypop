@@ -5,8 +5,10 @@
     https://dl.acm.org/doi/abs/10.1145/29380.29864
     https://dl.acm.org/doi/10.1145/66888.356281
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `CSA` could be **well-documented**.
+    Luckily our code could repeat the data reported in the original paper *well* on at least the following
+    test functions, although the settings of some hyper-parameters are not given clearly in the original
+    paper. Therefore, we argue that the repeatability of `CSA` could be **well-documented** on at least
+    these chosen test functions.
 """
 import numpy as np
 
@@ -24,6 +26,7 @@ if __name__ == '__main__':
                'sigma': 3.0,  # undefined in the original paper
                'temperature': 50000,
                'x': np.array([1, 1443]),
+               'verbose': 1000,
                'saving_fitness': 1000}
     csa = CSA(problem, options)
     results = csa.optimize()
@@ -38,6 +41,7 @@ if __name__ == '__main__':
                'sigma': 3.0,  # undefined in the original paper
                'temperature': 50000,
                'x': np.array([1.2, 1]),
+               'verbose': 1000,
                'saving_fitness': 1000}
     csa = CSA(problem, options)
     results = csa.optimize()
@@ -52,6 +56,7 @@ if __name__ == '__main__':
                'sigma': 2.0,  # undefined in the original paper
                'temperature': 1e7,
                'x': 101 * np.ones((4,)),
+               'verbose': 1000,
                'saving_fitness': 1000}
     csa = CSA(problem, options)
     results = csa.optimize()
@@ -63,10 +68,11 @@ if __name__ == '__main__':
                'lower_boundary': -200 * np.ones((4,))}
     options = {'max_function_evaluations': 1296001,
                'seed_rng': 0,  # undefined in the original paper
-               'sigma': 2.0,  # undefined in the original paper
+               'sigma': 1.5,  # undefined in the original paper
                'temperature': 1e7,
                'x': -99 * np.ones((4,)),
+               'verbose': 1000,
                'saving_fitness': 1000}
     csa = CSA(problem, options)
     results = csa.optimize()
-    print(results)  # 2.16408968e-07 vs 7.4e-8 (from the original paper)
+    print(results)  # 1.30552141e-07 vs 7.4e-8 (from the original paper)
