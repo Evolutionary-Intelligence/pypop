@@ -12,7 +12,7 @@ from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
 from pypop7.optimizers.pso.ipsols import IPSOLS as Solver
 
 
-class TestCLPSO(unittest.TestCase):
+class TestIPSOLS(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
         ndim_problem = 1000
@@ -27,7 +27,7 @@ class TestCLPSO(unittest.TestCase):
                        'max_runtime': 3600,  # 1 hours
                        'seed_rng': 0,
                        'saving_fitness': 200000,
-                       'verbose': 10000}
+                       'verbose': 500}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)
