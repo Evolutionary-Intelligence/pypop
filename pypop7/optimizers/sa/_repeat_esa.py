@@ -4,11 +4,12 @@
     ACM Transactions on Mathematical Software, 23(2), pp.209-228.
     https://dl.acm.org/doi/abs/10.1145/264029.264043
 
-    Since several details were not very clear in the original paper, it is hard to
+    Since several implementation details were not very clear in the original paper, it is hard to
       repeat the original experiments *perfectly*, according to our experiences.
-    Our current implementation could generate the *relatively close but not perfect* result,
-      depending on your level of acceptance.
-    We still expect to improve it to match the original paper in the future (if possible).
+    Our current implementation could generate the *relatively close but not perfect* result on the following
+      test function, depending on your level of acceptance.
+    We still expect to improve it, in order to match the original paper as close as possible in the future
+      (if possible).
 
     The fuzzy details are presented below, which can cause different implementations with different performances:
     1. Initial FOBJ variation average, DGYINI, obtained from (typically) 50 uphill moves performed
@@ -16,7 +17,7 @@
     2. Step 2: Space Partitioning.
     3. Those elementary operations on only p coordinates move the point XSTART to the point XTRY
       satisfying all hyperrectangular box constraints.
-    4. MSOTST = 0 (this is a typo error in the original paper).
+    4. MSOTST = 0 (this is a typo in the original paper).
     5. Other systematic experiments are still in progress in order to obtain, if possible, a rule for
       the p-optimal choice, adapted to FOBJ-specific characteristics.
 """
