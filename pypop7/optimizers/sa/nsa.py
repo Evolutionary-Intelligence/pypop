@@ -7,8 +7,9 @@ from pypop7.optimizers.sa.sa import SA
 class NSA(SA):
     """Noisy Simulated Annealing (NSA).
 
-    .. note:: This is a *slightly modified* version of `NSA` for continuous (rather discrete) optimization
-       **with noisy observations**.
+    .. note:: This is a *slightly modified* version of discrete `NSA` for continuous optimization
+       **with noisy observations**. For *static* optimization, its two hyper-parameters, `is_noisy`
+       and `n_samples`, should be set to `False` and `1`, respectively.
 
     Parameters
     ----------
@@ -26,7 +27,7 @@ class NSA(SA):
               and with the following particular settings (`keys`):
                 * 'x'         - initial (starting) point (`array_like`),
                 * 'sigma'     - initial global step-size (`float`),
-                * 'is_noisy'  - whether to minimize the noisy cost function (`bool`, default: `True`),
+                * 'is_noisy'  - whether to minimize a **noisy** cost function (`bool`, default: `True`),
                 * 'schedule'  - schedule for sampling intensity (`str`, default: `linear`),
                   * currently only two (*linear* or *quadratic*) schedules are supported for sampling intensity,
                 * 'n_samples' - number of samples for each iteration (`int`),
@@ -60,7 +61,7 @@ class NSA(SA):
        >>> print(f"NSA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        NSA: 5000, 0.006086567926462302
 
-    For its correctness checking of coding, the code-based repeatability report cannot be provided owing to
+    For its correctness checking of coding, the *code-based repeatability report* cannot be provided owing to
     the lack of details of its experiments on the `Ackley` test function.
 
     Attributes
@@ -74,7 +75,7 @@ class NSA(SA):
     schedule  : `str`
                 schedule for sampling intensity.
     sigma     : `float`
-                initial global step-size.
+                global step-size (fixed during optimization).
     x         : `array_like`
                 initial (starting) point.
 
@@ -93,6 +94,8 @@ class NSA(SA):
         assert self.schedule in ['linear', 'quadratic'],\
             'Currently only two (*linear* or *quadratic*) schedules are supported for sampling intensity.'
         self.n_samples = options.get('n_samples')
+        if not self.is_noisy:
+            self.n_samples = 1  # to override
         self.rt = options.get('cr', 0.99)  # reducing factor of temperature
         self.temperature_threshold = options.get('temperature_threshold', 1e-200)
         self._tk = 0
@@ -130,7 +133,7 @@ class NSA(SA):
         else:  # for static optimization
             parent_y = self.parent_y
         diff = np.mean(parent_y) - np.mean(y)
-        if (diff >= 0) or (self.rng_optimization.random() < np.exp(diff / self.temperature)):
+        if (diff >= 0) or (self.rng_optimization.random() < np.exp(diff/self.temperature)):
             self.parent_x, self.parent_y = np.copy(x), np.copy(y)
         if not self.is_noisy:  # for static optimization
             parent_y = []
@@ -141,10 +144,9 @@ class NSA(SA):
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
         y = self.initialize(args)
-        self._print_verbose_info(fitness, y)
         while not self._check_terminations():
+            self._print_verbose_info(fitness, y)
             y = self.iterate(args)
             self._n_generations += 1
-            self._print_verbose_info(fitness, y)
             self.temperature = np.maximum(self.temperature*self.rt, self.temperature_threshold)
-        return self._collect_results(fitness)
+        return self._collect_results(fitness, y)

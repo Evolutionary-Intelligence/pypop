@@ -7,8 +7,10 @@ from pypop7.optimizers.sa.sa import SA
 class ESA(SA):
     """Enhanced Simulated Annealing (ESA).
 
-    .. note:: `ESA` adopts the well-known **decomposition** strategy to alleviate the *curse of dimensionality*
-       for large-scale black-box optimization.
+    .. note:: `ESA` adopts the **random decomposition** strategy to alleviate the *curse of dimensionality*
+       for large-scale black-box optimization. Therefore, it shares some similaries (i.e., axis-parallel
+       decomposition) to the *Cooperative Coevolution* framework, which uses the population-based sampling
+       (rather than individual-based sampling of `ESA`) for each subproblem (corresponding to search subspace).
 
     Parameters
     ----------
@@ -22,7 +24,7 @@ class ESA(SA):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'p'  - subspace dimension (`int`, default: `int(np.ceil(self.ndim_problem/3))`),
                 * 'n1' - factor to control temperature stage w.r.t. accepted moves (`int`, default: `12`),
@@ -140,7 +142,7 @@ class ESA(SA):
         self._elowst = self.parent_y
         self._avgyst = 0
 
-    def optimize(self, fitness_function=None, args=None):
+    def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
         fitness = Optimizer.optimize(self, fitness_function)
         y = self.initialize(args)
         self._elowst = y[0]

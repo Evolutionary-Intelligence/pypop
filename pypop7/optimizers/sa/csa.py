@@ -7,8 +7,8 @@ from pypop7.optimizers.sa.sa import SA
 class CSA(SA):
     """Corana et al.' Simulated Annealing (CSA).
 
-    .. note:: "The algorithm is essentially an iterative random search procedure with adaptive moves along
-       the coordinate directions."---`[Corana et al., 1986, ACM-TOMS] <https://dl.acm.org/doi/abs/10.1145/29380.29864>`_
+    .. note:: `"The algorithm is essentially an iterative random search procedure with adaptive moves along
+       the coordinate directions."---[Corana et al., 1986, ACM-TOMS] <https://dl.acm.org/doi/abs/10.1145/29380.29864>`_
 
     Parameters
     ----------
@@ -22,7 +22,7 @@ class CSA(SA):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'sigma'       - initial global step-size (`float`),
                 * 'temperature' - annealing temperature (`float`),
@@ -122,7 +122,7 @@ class CSA(SA):
                 self.v[u] /= 1.0 + self.f_sv[u]*(0.4 - self._sv[u]/self.n_sv)/0.4
         self._sv = np.zeros((self.ndim_problem,))
 
-    def optimize(self, fitness_function=None, args=None):
+    def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
         fitness = Optimizer.optimize(self, fitness_function)
         y = self.initialize(args)
         self._print_verbose_info(fitness, y)
