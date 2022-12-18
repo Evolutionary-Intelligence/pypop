@@ -106,8 +106,7 @@ class CSA(SA):
                             np.minimum(self.parent_x[h] + self.v[h], self.upper_boundary[h]))
             x[h] = self.rng_optimization.uniform(search_range[0], search_range[1])
             y = self._evaluate_fitness(x, args)
-            if self.saving_fitness:
-                fitness.append(y)
+            fitness.append(y)
             diff = self.parent_y - y
             if (diff >= 0) or (self.rng_optimization.random() < np.exp(diff/self.temperature)):
                 self.parent_x, self.parent_y = np.copy(x), np.copy(y)
