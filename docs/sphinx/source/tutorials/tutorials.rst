@@ -22,7 +22,8 @@ Lens Shape Optimization
    :align: center
 
 This figure shows the (interesting) evolution process of lens shape, optimized by `MAES
-<https://pypop.readthedocs.io/en/latest/es/maes.html>`_.
+<https://pypop.readthedocs.io/en/latest/es/maes.html>`_, a *simplified* modern version of
+the well-established `CMA-ES` nearly without significant performance loss.
 
 The objective of Lens Shape Optimization is to find the optimal shape of glass body such that parallel incident light
 rays are concentrated in a given point on a plane while using a minimum of glass material possible.
