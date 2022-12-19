@@ -34,6 +34,7 @@ Lennard-Jones Cluster Optimization
 ----------------------------------
 
 .. image:: images/Lennard-Jones-cluster-optimization.gif
+   :width: 321px
    :align: center
 
 Note that the above figure (i.e., three clusters of atoms) is directly from
