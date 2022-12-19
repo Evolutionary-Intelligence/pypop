@@ -3,25 +3,6 @@ Software Summary and Comparisons
 
 .. note:: This page is actively updated now, since many open-source software are missed here.
 
-`IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for Iterative Optimization Heuristics (IOHs)*.
-
-`https://github.com/CMA-ES <https://github.com/CMA-ES>`_ is *a collection of various implementations of the powerful CMA-ES algorithm*.
-  * https://github.com/CMA-ES/c-cmaes (C)
-  * https://github.com/CMA-ES/libcmaes (C++)
-  * https://github.com/CMA-ES/pycma (Python)
-
-`pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.
-  * https://pymoo.org/algorithms/soo/cmaes.html
-  * https://pymoo.org/algorithms/soo/de.html
-  * https://pymoo.org/algorithms/soo/es.html
-  * https://pymoo.org/algorithms/soo/ga.html
-  * https://pymoo.org/algorithms/soo/g3pcx.html
-  * https://pymoo.org/algorithms/soo/isres.html
-  * https://pymoo.org/algorithms/soo/nelder.html
-  * https://pymoo.org/algorithms/soo/pattern.html
-  * https://pymoo.org/algorithms/soo/pso.html
-  * https://pymoo.org/algorithms/soo/sres.html
-
 https://nlopt.readthedocs.io/en/latest/
 
 https://coin-or.github.io/Ipopt/
@@ -45,14 +26,29 @@ Python
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.cmaes
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.xnes
 
-* https://github.com/CMA-ES/pycma
+* https://github.com/CMA-ES/pycma (CMA-ES)
+
 * https://github.com/fmfn/BayesianOptimization
 * https://github.com/hardmaru/estool
 * https://github.com/mradaideh/neorl
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
 * https://github.com/pybrain/pybrain
+  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
   * https://github.com/chanshing/xnes
+
 * https://pymoo.org/
+
+`pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.
+  * https://pymoo.org/algorithms/soo/cmaes.html
+  * https://pymoo.org/algorithms/soo/de.html
+  * https://pymoo.org/algorithms/soo/es.html
+  * https://pymoo.org/algorithms/soo/ga.html
+  * https://pymoo.org/algorithms/soo/g3pcx.html
+  * https://pymoo.org/algorithms/soo/isres.html
+  * https://pymoo.org/algorithms/soo/nelder.html
+  * https://pymoo.org/algorithms/soo/pattern.html
+  * https://pymoo.org/algorithms/soo/pso.html
+  * https://pymoo.org/algorithms/soo/sres.html
 
 R
 -
@@ -62,8 +58,10 @@ https://cran.r-project.org/web/views/Optimization.html
 * https://cran.r-project.org/web/packages/CEoptim/index.html
 * https://cran.r-project.org/web/packages/cmaes/index.html
 * https://cran.r-project.org/web/packages/DEoptimR/index.html
-
   * Currently, it only provides an implementation of the `jDE` algorithm by Brest et al. (2006).
+
+`IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for
+Iterative Optimization Heuristics (IOHs)*.
 
 Matlab
 ------
@@ -73,4 +71,18 @@ Matlab
 C
 -
 
+* https://github.com/CMA-ES/c-cmaes (CMA-ES)
 * https://www.egr.msu.edu/~kdeb/codes/g3pcx/g3pcx.tar (G3PCX)
+
+C++
+---
+
+* https://github.com/CMA-ES/libcmaes (CMA-ES)
+
+Others
+------
+
+`https://github.com/CMA-ES <https://github.com/CMA-ES>`_ is *a collection of various implementations of the powerful CMA-ES algorithm*.
+  * https://github.com/CMA-ES/c-cmaes (C)
+  * https://github.com/CMA-ES/libcmaes (C++)
+  * https://github.com/CMA-ES/pycma (Python)
