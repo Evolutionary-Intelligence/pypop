@@ -183,7 +183,6 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Nesterov, Y., 2018. [Lectures on convex optimization](https://link.springer.com/book/10.1007/978-3-319-91578-4). Berlin: Springer International Publishing.
   * Nesterov, Y. and Spokoiny, V., 2017. [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2). Foundations of Computational Mathematics, 17(2), pp.527-566.
   * Conn, A.R., Scheinberg, K. and Vicente, L.N., 2009. [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768). Society for Industrial and Applied Mathematics.
-
 * Evolutionary Computation (EC)
   * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482. [ [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/) ]
   * Miikkulainen, R. and Forrest, S., 2021. [A biological perspective on evolutionary computation](https://www.nature.com/articles/s42256-020-00278-8). Nature Machine Intelligence, 3(1), pp.9-15.
@@ -195,7 +194,6 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Bäck, T. and Schwefel, H.P., 1993. [An overview of evolutionary algorithms for parameter optimization](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for). Evolutionary Computation, 1(1), pp.1-23.
   * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
   * [Taxonomy](https://link.springer.com/article/10.1007/s11047-020-09820-4)
-
 * Benchmarking [ [benchmarking-network](https://sites.google.com/view/benchmarking-network) ]
   * Meunier, L., Rakotoarison, H., Wong, P.K., Roziere, B., Rapin, J., Teytaud, O., Moreau, A. and Doerr, C., 2022. [Black-box optimization revisited: Improving algorithm selection wizards through massive benchmarking](https://ieeexplore.ieee.org/abstract/document/9524335). IEEE Transactions on Evolutionary Computation, 26(3), pp.490-500.
   * Hansen, N., Auger, A., Ros, R., Mersmann, O., Tušar, T. and Brockhoff, D., 2021. [COCO: A platform for comparing continuous optimizers in a black-box setting](https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977). Optimization Methods and Software, 36(1), pp.114-144.
@@ -254,6 +252,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 * Natural Evolution Strategies (NES)
   * Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014. [Natural evolution strategies](https://jmlr.org/papers/v15/wierstra14a.html). Journal of Machine Learning Research, 15(1), pp.949-980.
   * Schaul, T., 2011. [Studies in continuous black-box optimization](https://people.idsia.ch/~schaul/publications/thesis.pdf). Doctoral Dissertation, Technische Universität München.
+  * Yi, S., Wierstra, D., Schaul, T. and Schmidhuber, J., 2009, June. [Stochastic search using the natural gradient](https://dl.acm.org/doi/10.1145/1553374.1553522). In Proceedings of International Conference on Machine Learning (pp. 1161-1168).
 * Estimation of Distribution Algorithm (EDA)
   * Brookes, D., Busia, A., Fannjiang, C., Murphy, K. and Listgarten, J., 2020, July. [A view of estimation of distribution algorithms through the lens of expectation-maximization](https://dl.acm.org/doi/abs/10.1145/3377929.3389938). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 189-190). ACM.
   * Kabán, A., Bootkrajang, J. and Durrant, R.J., 2016. [Toward large-scale continuous EDA: A random matrix theory perspective](https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix). Evolutionary Computation, 24(2), pp.255-291.
