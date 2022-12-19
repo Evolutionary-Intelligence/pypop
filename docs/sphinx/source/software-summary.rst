@@ -1,13 +1,8 @@
 Software Summary and Comparisons
 =================================
 
-.. note:: This page is actively updated now, since many open-source software are missed here.
-
-https://nlopt.readthedocs.io/en/latest/
-
-https://coin-or.github.io/Ipopt/
-
-https://scipy.org/
+.. note:: This page is **actively** updated now, since many open-source software and code for black-box optimization
+   are still missed here. We will happy to add it if you find some *important* work omitted here.
 
 Python
 ------
@@ -50,6 +45,8 @@ Python
   * https://pymoo.org/algorithms/soo/pso.html
   * https://pymoo.org/algorithms/soo/sres.html
 
+* https://scipy.org/
+
 R
 -
 
@@ -82,7 +79,12 @@ C++
 Others
 ------
 
-`https://github.com/CMA-ES <https://github.com/CMA-ES>`_ is *a collection of various implementations of the powerful CMA-ES algorithm*.
+`https://github.com/CMA-ES <https://github.com/CMA-ES>`_ is *a collection of various implementations of
+the powerful CMA-ES algorithm*.
   * https://github.com/CMA-ES/c-cmaes (C)
   * https://github.com/CMA-ES/libcmaes (C++)
   * https://github.com/CMA-ES/pycma (Python)
+
+https://nlopt.readthedocs.io/en/latest/
+
+https://coin-or.github.io/Ipopt/
