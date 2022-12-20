@@ -91,7 +91,9 @@ the following *well-written* Review papers or *wonderful* books (just to name a 
 * De Jong, K.A., Fogel, D.B. and Schwefel, H.P., 1997. A history of evolutionary computation. Handbook of Evolutionary Computation. Oxford University Press.
 * Forrest, S., 1993. Genetic algorithms: Principles of natural selection applied to computation. Science, 261(5123), pp.872-878.
 
-For each algorithm family, we also provide their *wide-recognized* references on their own API documentations.
+For each algorithm family, we also provide their *wide-recognized* references on their own API documentations. See `this GitHub website
+<https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_ for a (still growing) paper list of Evolutionary Computation (EC)
+published in many *top-tier* journals and conferences.
 
 Limitations of BBO
 ------------------
