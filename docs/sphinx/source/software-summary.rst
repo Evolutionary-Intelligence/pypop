@@ -27,7 +27,9 @@ Python
 * https://github.com/hardmaru/estool
 * https://github.com/mradaideh/neorl
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
-* https://github.com/pybrain/pybrain
+
+* https://github.com/pybrain/pybrain (Now it is not actively maintained.)
+
   * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
   * https://github.com/chanshing/xnes
 
@@ -74,6 +76,7 @@ C
 C++
 ---
 
+* https://github.com/chgagne/beagle (Now it is not actively maintained.)
 * https://github.com/CMA-ES/libcmaes (CMA-ES)
 
 Others
@@ -88,3 +91,5 @@ the powerful CMA-ES algorithm*.
 https://nlopt.readthedocs.io/en/latest/
 
 https://coin-or.github.io/Ipopt/
+
+http://zhar.net/howto/html/
