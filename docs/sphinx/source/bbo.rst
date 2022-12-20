@@ -45,16 +45,25 @@ General-Purpose Optimization Algorithms
 .. note:: *"Given the abundance of black-box optimization algorithms and of optimization problems, how can best match
    algorithms to problems."* ---`[Wolpert&Macready, 1997, TEVC] <https://ieeexplore.ieee.org/document/585893>`_
 
-Some of the following criteria/principles may be highly expected to satisfy for general-purpose optimization algorithms:
+`"Clearly, evaluating and comparing algorithms on a single problem is not sufficient to determine their quality, as much
+of their benefit lies in their performance generalizing to large classes of problems. One of the goals of research in
+optimization is, arguably, to provide practitioners with reliable, powerful and general-purpose algorithms."
+<https://people.idsia.ch/~schaul/publications/thesis.pdf>`_
 
-* beauty (arguably from theoretical depth),
+The following common criteria/principles may be highly expected to satisfy for general-purpose optimization algorithms:
+
 * effectiveness,
 * efficiency,
-* elegance,
+* elegance (beauty),
+* flexibility,
+* robustness (reliability),
 * scalability,
 * simplicity,
-* versatility,
-* width of applications.
+* versatility.
+
+Arguably, the *beauty* of general-purpose black-box optimizers should come from **theoretical depth** and/or **practical
+breadth**, though the aesthetic judgment is somewhat subjective. We believe that well-designed optimizers could pass
+**Test-of-Time**.
 
 POPulation-based OPtimization/Search (POP)
 ------------------------------------------
