@@ -6,16 +6,17 @@ from pypop7.optimizers.es.es import ES
 class RES(ES):
     """Rechenberg's (1+1)-Evolution Strategy with 1/5th success rule (RES).
 
-    .. note:: `RES` is the first ES with self-adaptation of the **global** step-size, designed by Rechenberg. As
-       theoretically investigated in his seminal PhD dissertation, the existence of the narrow **evolution
-       window** eplains the necessarity of step-size adaptation to maximize (local) convergence progress.
+    .. note:: `RES` is the *first* ES with self-adaptation of the *global* step-size, designed by Rechenberg, one
+       recipient of `IEEE Evolutionary Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_. As
+       **theoretically** investigated in Rechenberg's seminal PhD dissertation, the existence of the narrow **evolution
+       window** eplains the necessarity of step-size adaptation to maximize local convergence progress.
 
        Since there is only one parent and only one offspring for each generation, `RES` generally shows very
        limited *exploration* ability for large-scale black-box optimization (LSBBO). Therefore, it is **highly
-       recommended** to first attempt other more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for LSBBO.
-       Here we include it only for *benchmarking* and *theoretical* purpose.
+       recommended** to first attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for LSBBO. Here we
+       include it mainly for *benchmarking* and *theoretical* purpose.
 
-       AKA two-membered evolution strategy (which can also be seen as gradient climbing).
+       AKA two-membered ES (which can also be seen as gradient climbing).
 
     Parameters
     ----------
@@ -37,12 +38,12 @@ class RES(ES):
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
-                * 'lr_sigma' - learning rate of global step-size adaptation (`float`, default:
+                * 'lr_sigma' - learning rate of global step-size self-adaptation (`float`, default:
                   `1.0/np.sqrt(self.ndim_problem + 1.0)`).
 
     Examples
     --------
-    Use the `ES` optimizer `RES` to minimize the well-known test function
+    Use the optimizer `RES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -71,9 +72,9 @@ class RES(ES):
     Attributes
     ----------
     lr_sigma : `float`
-               learning rate of global step-size adaptation.
+               learning rate of global step-size self-adaptation.
     mean     : `array_like`
-               initial mean of Gaussian search distribution.
+               initial (starting) point, aka mean of Gaussian search distribution.
     sigma    : `float`
                final global step-size, aka mutation strength.
 
@@ -103,7 +104,7 @@ class RES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        if self.lr_sigma is None:  # for Line 5
+        if self.lr_sigma is None:
             self.lr_sigma = 1.0/np.sqrt(self.ndim_problem + 1.0)
         assert self.lr_sigma > 0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.'
 
@@ -114,7 +115,7 @@ class RES(ES):
         return mean, y, best_so_far_y
 
     def iterate(self, args=None, mean=None):
-        # sample and evaluate only one offspring (Line 4 and 5)
+        # sample and evaluate only one offspring
         x = mean + self.sigma*self.rng_optimization.standard_normal((self.ndim_problem,))
         y = self._evaluate_fitness(x, args)
         return x, y
