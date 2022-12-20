@@ -133,7 +133,7 @@ against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and `sepa
         def generate_sv_and_rm(functions=None, ndims=None, seed=None):
             if functions is None:
                 functions = ['sphere', 'cigar', 'discus', 'cigar_discus', 'ellipsoid',
-                    'different_powers', 'schwefel221', 'step', 'rosenbrock', 'schwefel12']
+                             'different_powers', 'schwefel221', 'step', 'rosenbrock', 'schwefel12']
             if ndims is None:
                 ndims = [2, 10, 100, 200, 1000, 2000]
             if seed is None:
@@ -158,7 +158,6 @@ against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and `sepa
 
         if __name__ == '__main__':
             generate_sv_and_rm()
-
 
 Then, invoke different optimizers on these (rotated and shifted) test functions:
 
@@ -196,7 +195,11 @@ Then, invoke different optimizers on these (rotated and shifted) test functions:
                            'seed_rng': self.seed,
                            'saving_fitness': 2000,
                            'verbose': 0}
-                if optimizer.__name__ in ['SRS', 'RHC', 'ARHC', 'CSA',
+                if optimizer.__name__ in ['PRS', 'RHC', 'ARHC', 'SRS', 'BES',
+                    'CS', 'HJ', 'NM', 'GPS',
+                    'CEP', 'FEP', 'LEP',
+                    'GENITOR', 'G3PCX', 'GL25', 'ASGA',
+                    'NSA', 'CSA', 'ESA',
                     'RES', 'DSAES', 'CSAES',
                     'OPOC2006', 'OPOC2009', 'SEPCMAES', 'OPOA2010', 'OPOA2015',
                     'CCMAES2009', 'MAES', 'LMCMA', 'LMMAES', 'MMES',
@@ -253,12 +256,19 @@ Then, invoke different optimizers on these (rotated and shifted) test functions:
                 from pypop7.optimizers.es.lmmaes import LMMAES as Optimizer
             elif params['optimizer'] == 'MMES':  # 2021
                 from pypop7.optimizers.es.mmes import MMES as Optimizer
-            elif params['optimizer'] == 'BES':  # 2022
+            elif params['optimizer'] == 'BES':
                 from pypop7.optimizers.rs.bes import BES as Optimizer
+            elif params['optimizer'] == 'SRS':
+                from pypop7.optimizers.rs.srs import SRS as Optimizer
+            elif params['optimizer'] == 'ARHC':
+                from pypop7.optimizers.rs.arhc import ARHC as Optimizer
+            elif params['optimizer'] == 'RHC':
+                from pypop7.optimizers.rs.rhc import RHC as Optimizer
+            elif params['optimizer'] == 'PRS':
+                from pypop7.optimizers.rs.prs import PRS as Optimizer
             experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
             experiments.run(Optimizer)
             print('*** Total runtime: {:7.5e} ***.'.format(time.time() - start_runtime))
-
 
 Please run the above code (named as `run_experiments.py`) in the background, since it needs very long runtime for LSBBO:
 
