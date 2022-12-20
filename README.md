@@ -350,6 +350,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Applications: e.g., [NM: [Matrajt et al., 2021, Science Advances](https://www.science.org/doi/10.1126/sciadv.abf1374); [Sparrow et al., 2018, Nature](https://www.nature.com/articles/s41586-018-0152-9); [Gillon et al., Nature, 2017](https://www.nature.com/articles/nature21360); [Lau&Rubinstein, Nature, 2012](https://www.nature.com/articles/nature10699) ]; [HJ: [Khaledian et al., 2018, IEEE-TMTT](https://ieeexplore.ieee.org/abstract/document/8335770); [Luhar et al., 2015, JFM](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/framework-for-studying-the-effect-of-compliant-surfaces-on-wall-turbulence/47B8C79442109015690B6B16F891DF09); [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Schneider&Excoffier, 1999, Genetics](https://academic.oup.com/genetics/article/152/3/1079/6034947); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902)].
 * Random Search (RS)
   * Cvijović, D. and Klinowski, J., 1995. [Taboo search: An approach to the multiple minima problem](https://www.science.org/doi/abs/10.1126/science.267.5198.664). Science, 267(5198), pp.664-666.
+  * Applications: e.g., [White et al., 2012, PNAS](https://www.pnas.org/doi/10.1073/pnas.1114215109).
 * Bayesian Optimization (BO)
   * [https://bayesoptbook.com/](https://bayesoptbook.com/)
   * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
