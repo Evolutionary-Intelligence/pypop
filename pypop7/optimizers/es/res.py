@@ -127,6 +127,7 @@ class RES(ES):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
+            self._print_verbose_info(fitness, y, True)
             self._n_restart += 1
             self._n_generations = 0
             self.sigma = np.copy(self._sigma_bak)
@@ -136,29 +137,21 @@ class RES(ES):
             self._fitness_list = [best_so_far_y]
             if self.verbose:
                 print(' ....... restart .......')
-            self._print_verbose_info(y)
+            self._print_verbose_info(fitness, y)
             self._n_generations = 1
         return mean, y, best_so_far_y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, y, best_so_far_y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.append(y)
-        self._print_verbose_info(y)
-        self._n_generations = 1
-        while True:
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, y)
             x, y = self.iterate(args, mean)
-            if self.saving_fitness:
-                fitness.append(y)
-            self._print_verbose_info(y)
             self._n_generations += 1
-            if self._check_terminations():
-                break
-            self.sigma *= np.power(np.exp(float(y < best_so_far_y) - 1.0/5.0), self.lr_sigma)
+            self.sigma *= np.power(np.exp(float(y < best_so_far_y) - 0.2), self.lr_sigma)
             if y < best_so_far_y:
                 mean, best_so_far_y = x, y
             if self.is_restart:
                 mean, y, best_so_far_y = self.restart_reinitialize(
                     args, mean, y, best_so_far_y, fitness)
-        return self._collect_results(fitness, mean)
+        return self._collect_results(fitness, mean, y)
