@@ -63,7 +63,9 @@ The following common criteria/principles may be highly expected to satisfy for g
 
 Arguably, the *beauty* of general-purpose black-box optimizers should come from **theoretical depth** and/or **practical
 breadth**, though the aesthetic judgment is somewhat subjective. We believe that well-designed optimizers could pass
-**Test-of-Time**.
+**Test-of-Time**. For recent critical discussions, refer to e.g. `Metaphor-based metaheuristics, a call for action: the
+elephant in the room <https://link.springer.com/article/10.1007/s11721-021-00202-9>`_ and `A critical problem in
+benchmarking and analysis of evolutionary computation methods <https://www.nature.com/articles/s42256-022-00579-0>`_.
 
 POPulation-based OPtimization/Search (POP)
 ------------------------------------------
