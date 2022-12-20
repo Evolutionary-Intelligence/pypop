@@ -6,9 +6,9 @@
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
 
     All generated figures can be accessed via the following link:
-    https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/res
+    https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/repeatability/prs/_repeat_res.png
 
-    Luckily our code could repeat the data reported in the original paper *well*.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
     Therefore, we argue that the repeatability of `RES` could be **well-documented**.
 """
 import numpy as np
