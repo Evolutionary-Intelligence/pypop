@@ -74,13 +74,24 @@ POPulation-based OPtimization/Search (POP)
    in a population, and to introduce a notion of fitness on the basis of solution quality."* ---`[Eiben&Smith, 2015,
    Nature] <https://www.nature.com/articles/nature14544>`_
 
-Population-based (particularly evolutionary) optimizers (POP) usually have the following advantages, when compared to individual-based counterparts:
+Population-based (particularly evolutionary) optimizers (POP) usually have the following advantages, when particularly
+compared to individual-based counterparts:
 
 * few assumptions (even assumptions-free),
 * flexible framework (easy integration with problem-specific knowledge),
 * robust performance (e.g. w.r.t. noisy perturbation or hyper-parameters),
 * diverse solutions (e.g. for multi-modal/multi-objective/dynamic optimization),
 * novelty (e.g. beyond intuitions for design problems).
+
+For details (models, algorithms, theories, and applications) about population-based methods, please refer to e.g.
+the following *well-written* Review papers or *wonderful* books (just to name a few):
+
+* Miikkulainen, R. and Forrest, S., 2021. A biological perspective on evolutionary computation. Nature Machine Intelligence, 3(1), pp.9-15.
+* Eiben, A.E. and Smith, J., 2015. From evolutionary computation to the evolution of things. Nature, 521(7553), pp.476-482.
+* De Jong, K.A., Fogel, D.B. and Schwefel, H.P., 1997. A history of evolutionary computation. Handbook of Evolutionary Computation. Oxford University Press.
+* Forrest, S., 1993. Genetic algorithms: Principles of natural selection applied to computation. Science, 261(5123), pp.872-878.
+
+For each algorithm family, we also provide their *wide-recognized* references on their own API documentations.
 
 Limitations of BBO
 ------------------
