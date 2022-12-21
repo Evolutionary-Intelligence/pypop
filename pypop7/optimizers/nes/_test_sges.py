@@ -15,7 +15,7 @@ from pypop7.optimizers.nes.sges import SGES as Solver
 class TestSGES(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
-        ndim_problem = 10
+        ndim_problem = 2
         for f in [ellipsoid, rosenbrock, rastrigin]:
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
@@ -26,7 +26,7 @@ class TestSGES(unittest.TestCase):
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),  # mean
-                       'verbose': 50000,
+                       'verbose': 1,
                        'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()

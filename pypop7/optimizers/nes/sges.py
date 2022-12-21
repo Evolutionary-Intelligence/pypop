@@ -6,6 +6,22 @@ from pypop7.optimizers.es import ES
 class SGES(ES):
     """Search Gradient based Evolution Strategy (SGES).
 
+    .. note:: Here we include it **only** for *theoretical* purpose.
+
+    References
+    ----------
+    Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
+    Natural evolution strategies.
+    Journal of Machine Learning Research, 15(1), pp.949-980.
+    https://jmlr.org/papers/v15/wierstra14a.html
+
+    Schaul, T., 2011.
+    Studies in continuous black-box optimization.
+    Doctoral Dissertation, Technische Universität München.
+    https://people.idsia.ch/~schaul/publications/thesis.pdf
+
+    See the official Python source code from PyBrain:
+    https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
     """
     def __init__(self, problem, options):
         options['n_individuals'] = options.get('n_individuals', 100)
@@ -37,8 +53,7 @@ class SGES(ES):
             y[k] = self._evaluate_fitness(x[k], args)
             diff = x[k] - mean
             grad_mean += y[k]*np.dot(inv_cv, diff)
-            diff_matrix = np.dot(diff[:, np.newaxis], diff[np.newaxis, :])
-            grad = 0.5*(np.dot(np.dot(inv_cv, diff_matrix), inv_cv) - inv_cv)
+            grad = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
             _d_cv += y[k]*np.dot(self._d_cv, grad + np.transpose(grad))
         mean -= self.lr_mean*grad_mean/self.n_individuals
         self._d_cv -= self.lr_sigma*_d_cv/self.n_individuals
