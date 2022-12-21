@@ -6,9 +6,9 @@ from pypop7.optimizers.es.es import ES
 class DSAES(ES):
     """Derandomized Self-Adaptation Evolution Strategy (DSAES).
 
-    .. note:: `DSAES` adapts all the *individual* step-sizes on-the-fly with *relatively small* populations.
-       To obtain satisfactory performance for large-scale black-box optimization, the number of offspring may
-       need to be carefully tuned.
+    .. note:: `DSAES` adapts all the *individual* step-sizes on-the-fly with a *relatively small* population.
+       The default setting (i.e., using a `small` population) may result in *relatively fast* (local) convergence,
+       but with the risk of getting trapped in suboptima on multi-modal fitness landscape.
 
     Parameters
     ----------
@@ -31,11 +31,11 @@ class DSAES(ES):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `10`),
-                * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default: `1.0/3.0`).
+                * 'lr_sigma'      - learning rate of global step-size self-adaptation (`float`, default: `1.0/3.0`).
 
     Examples
     --------
-    Use the `ES` optimizer `DSAES` to minimize the well-known test function
+    Use the optimizer `DSAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -61,9 +61,9 @@ class DSAES(ES):
     Attributes
     ----------
     lr_sigma      : `float`
-                    learning rate of global step-size adaptation.
+                    learning rate of global step-size self-adaptation.
     mean          : `array_like`
-                    initial mean of Gaussian search distribution.
+                    initial (starting) point, aka mean of Gaussian search distribution.
     n_individuals : `int`
                     number of offspring, aka offspring population size.
     sigma         : `float`
@@ -88,6 +88,7 @@ class DSAES(ES):
         ES.__init__(self, problem, options)
         if self.lr_sigma is None:  # learning rate of global step-size adaptation
             self.lr_sigma = 1.0/3.0
+        assert self.lr_sigma > 0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.'
         self._axis_sigmas = None
         self._e_hnd = np.sqrt(2.0/np.pi)  # E[|N(0,1)|]: expectation of half-normal distribution
 
@@ -101,14 +102,13 @@ class DSAES(ES):
         return x, mean, sigmas, y
 
     def iterate(self, x=None, mean=None, sigmas=None, y=None, args=None):
-        # sample offspring population (Line 4)
-        for k in range(self.n_individuals):
+        for k in range(self.n_individuals):  # sample offspring population
             if self._check_terminations():
                 return x, sigmas, y
-            sigma = self.lr_sigma*self.rng_optimization.standard_normal()  # Line 5
-            z = self.rng_optimization.standard_normal((self.ndim_problem,))  # Line 6
-            x[k] = mean + np.exp(sigma)*self._axis_sigmas*z  # Line 7
-            # mimick the effect of intermediate recombination (Line 8)
+            sigma = self.lr_sigma*self.rng_optimization.standard_normal()
+            z = self.rng_optimization.standard_normal((self.ndim_problem,))
+            x[k] = mean + np.exp(sigma)*self._axis_sigmas*z
+            # mimick the effect of intermediate recombination
             sigmas_1 = np.power(np.exp(np.abs(z)/self._e_hnd - 1.0), 1.0/self.ndim_problem)
             sigmas_2 = np.power(np.exp(sigma), 1.0/np.sqrt(self.ndim_problem))
             sigmas[k] = self._axis_sigmas*sigmas_1*sigmas_2
@@ -116,38 +116,36 @@ class DSAES(ES):
         return x, sigmas, y
 
     def restart_reinitialize(self, x=None, mean=None, sigmas=None, y=None):
-        self._fitness_list.append(self.best_so_far_y)
+        self._fitness_list.extend(y)
         is_restart_1, is_restart_2 = np.all(self._axis_sigmas < self.sigma_threshold), False
         if len(self._fitness_list) >= self.stagnation:
-            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
+            is_restart_2 = (np.max(self._fitness_list[-self.stagnation:]) -
+                            np.min(self._fitness_list[-self.stagnation:])) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
+            self._print_verbose_info([], y, True)
             self._n_restart += 1
             self.n_individuals *= 2
             self._n_generations = 0
             self._fitness_list = [np.Inf]
+            x, mean, sigmas, y = self.initialize(True)
             if self.verbose:
                 print(' ....... restart .......')
-            x, mean, sigmas, y = self.initialize(True)
         return x, mean, sigmas, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         x, mean, sigmas, y = self.initialize()
-        while True:
+        while not self._check_terminations():
             # sample and evaluate offspring population
             x, sigmas, y = self.iterate(x, mean, sigmas, y, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
-            order = np.argsort(y)[0]  # Line 9
-            self._axis_sigmas = np.copy(sigmas[order])  # Line 10
-            mean = np.copy(x[order])  # Line 11
-            self._print_verbose_info(y)
+            order = np.argsort(y)[0]
+            self._axis_sigmas = np.copy(sigmas[order])
+            mean = np.copy(x[order])
+            self._print_verbose_info(fitness, y)
             self._n_generations += 1
             if self.is_restart:
                 x, mean, sigmas, y = self.restart_reinitialize(x, mean, sigmas, y)
-        results = self._collect_results(fitness, mean)
+        results = self._collect_results(fitness, mean, y)
         results['_axis_sigmas'] = self._axis_sigmas
         return results
