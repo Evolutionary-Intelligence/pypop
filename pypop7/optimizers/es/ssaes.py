@@ -6,11 +6,12 @@ from pypop7.optimizers.es.es import ES
 class SSAES(ES):
     """Schwefel's Self-Adaptation Evolution Strategy (SSAES).
 
-    .. note:: `SSAES` adapts all the *individual* step-sizes on-the-fly, proposed by Schwefel. Since it needs the
-       *relatively large* populations (e.g. larger than number of dimensionality) for reliable self-adaptation,
+    .. note:: `SSAES` adapts all the *individual* step-sizes on-the-fly, proposed by Schwefel, one
+       recipient of `IEEE Evolutionary Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_. Since it needs
+       a *relatively large* population (e.g. larger than number of dimensionality) for **reliable self-adaptation**,
        `SSAES` easily suffers from *very slow* convergence for large-scale black-box optimization (LSBBO). Therefore,
-       it is **highly recommended** to first attempt other more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for
-       LSBBO. Here we include it only for *benchmarking* and *theoretical* purpose.
+       it is **highly recommended** to first attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for
+       LSBBO. Here we include it mainly for *benchmarking* and *theoretical* purpose.
 
     Parameters
     ----------
@@ -36,14 +37,14 @@ class SSAES(ES):
                   `5*problem.get('ndim_problem')`),
                 * 'n_parents'      - number of parents, aka parental population size (`int`, default:
                   `int(options['n_individuals']/4)`),
-                * 'lr_sigma'       - learning rate of global step-size adaptation (`float`, default:
+                * 'lr_sigma'       - learning rate of global step-size self-adaptation (`float`, default:
                   `1.0/np.sqrt(self.ndim_problem)`),
-                * 'lr_axis_sigmas' - learning rate of individual step-sizes adaptation (`float`, default:
+                * 'lr_axis_sigmas' - learning rate of individual step-sizes self-adaptation (`float`, default:
                   `1.0/np.power(self.ndim_problem, 1.0/4.0)`).
 
     Examples
     --------
-    Use the `ES` optimizer `SSAES` to minimize the well-known test function
+    Use the optimizer `SSAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -69,11 +70,11 @@ class SSAES(ES):
     Attributes
     ----------
     lr_axis_sigmas : `float`
-                     learning rate of individual step-sizes adaptation.
+                     learning rate of individual step-sizes self-adaptation.
     lr_sigma       : `float`
-                     learning rate of global step-size adaptation.
+                     learning rate of global step-size self-adaptation.
     mean           : `array_like`
-                     initial mean of Gaussian search distribution.
+                     initial (starting) point, aka mean of Gaussian search distribution.
     n_individuals  : `int`
                      number of offspring, aka offspring population size.
     n_parents      : `int`
@@ -87,6 +88,22 @@ class SSAES(ES):
     Evolution strategies.
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
+
+    Beyer, H.G. and Schwefel, H.P., 2002.
+    Evolution strategies–A comprehensive introduction.
+    Natural Computing, 1(1), pp.3-52.
+    https://link.springer.com/article/10.1023/A:1015059928466
+
+    Schwefel, H.P., 1988.
+    Collective intelligence in evolving systems.
+    In Ecodynamics (pp. 95-100). Springer, Berlin, Heidelberg.
+    https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8
+
+    Schwefel, H.P., 1984.
+    Evolution strategies: A family of non-linear optimization techniques based on imitating
+    some principles of organic evolution.
+    Annals of Operations Research, 1(2), pp.165-167.
+    https://link.springer.com/article/10.1007/BF01876146
     """
     def __init__(self, problem, options):
         if options.get('n_individuals') is None:
@@ -95,10 +112,11 @@ class SSAES(ES):
             options['n_parents'] = int(options['n_individuals']/4)
         ES.__init__(self, problem, options)
         if self.lr_sigma is None:
-            self.lr_sigma = 1.0/np.sqrt(self.ndim_problem)  # learning rate of global step-size adaptation
+            self.lr_sigma = 1.0/np.sqrt(self.ndim_problem)  # learning rate of global step-size self-adaptation
         assert self.lr_sigma > 0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.'
-        # set learning rate of individual step-sizes adaptation
+        # set learning rate of individual step-sizes self-adaptation
         self.lr_axis_sigmas = options.get('lr_axis_sigmas', 1.0/np.power(self.ndim_problem, 1.0/4.0))
+        assert self.lr_axis_sigmas > 0, f'`self.lr_axis_sigmas` = {self.lr_axis_sigmas}, but should > 0.'
         self._axis_sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
 
     def initialize(self):
@@ -109,8 +127,7 @@ class SSAES(ES):
         return x, mean, sigmas, y
 
     def iterate(self, x=None, mean=None, sigmas=None, y=None, args=None):
-        # sample offspring population
-        for k in range(self.n_individuals):
+        for k in range(self.n_individuals):  # sample offspring population
             if self._check_terminations():
                 return x, sigmas, y
             sigma = self.lr_sigma*self.rng_optimization.standard_normal()
@@ -123,18 +140,14 @@ class SSAES(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         x, mean, sigmas, y = self.initialize()
-        while True:
+        while not self._check_terminations():
             # sample and evaluate offspring population
             x, sigmas, y = self.iterate(x, mean, sigmas, y, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
             order = np.argsort(y)[:self.n_parents]
             self._axis_sigmas = np.mean(sigmas[order], axis=0)
             mean = np.mean(x[order], axis=0)
-            self._print_verbose_info(y)
+            self._print_verbose_info(fitness, y)
             self._n_generations += 1
-        results = self._collect_results(fitness, mean)
+        results = self._collect_results(fitness, mean, y)
         results['_axis_sigmas'] = self._axis_sigmas
         return results
