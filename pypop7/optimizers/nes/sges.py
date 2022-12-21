@@ -29,7 +29,6 @@ class SGES(ES):
     def iterate(self, x=None, y=None, mean=None, cv=None, args=None):
         inv_cv = np.linalg.inv(cv)  # inverse of covariance matrix
         grad_mean = np.zeros((self.ndim_problem,))  # gradients of mean
-        grad_cv = np.zeros((self.ndim_problem, self.ndim_problem))  # gradients of covariance matrix
         _d_cv = np.zeros((self.ndim_problem, self.ndim_problem))
         for k in range(self.n_individuals):
             if self._check_terminations():
@@ -40,7 +39,6 @@ class SGES(ES):
             grad_mean += y[k]*np.dot(inv_cv, diff)
             diff_matrix = np.dot(diff[:, np.newaxis], diff[np.newaxis, :])
             grad = 0.5*(np.dot(np.dot(inv_cv, diff_matrix), inv_cv) - inv_cv)
-            grad_cv += y[k]*grad
             _d_cv += y[k]*np.dot(self._d_cv, grad + np.transpose(grad))
         mean -= self.lr_mean*grad_mean/self.n_individuals
         self._d_cv -= self.lr_sigma*_d_cv/self.n_individuals
