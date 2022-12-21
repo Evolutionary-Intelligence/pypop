@@ -64,7 +64,7 @@ class RES(ES):
        >>> results = res.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"RES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       RES: 5001, 0.0012946027847009392
+       RES: 5000, 0.06701744137207027
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/5n6ndrn7>`_ for more details.
@@ -121,10 +121,11 @@ class RES(ES):
         return x, y
 
     def restart_reinitialize(self, args=None, mean=None, y=None, best_so_far_y=None, fitness=None):
-        self._fitness_list.append(self.best_so_far_y)
+        self._fitness_list.append(y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
         if len(self._fitness_list) >= self.stagnation:
-            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
+            is_restart_2 = (np.max(self._fitness_list[-self.stagnation:]) -
+                            np.min(self._fitness_list[-self.stagnation:])) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
             self._print_verbose_info(fitness, y, True)
