@@ -28,11 +28,6 @@ Python
 * https://github.com/mradaideh/neorl
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
 
-* https://github.com/pybrain/pybrain (Now it is not actively maintained.)
-
-  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
-  * https://github.com/chanshing/xnes
-
 * https://pymoo.org/
 
 `pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.
@@ -48,6 +43,15 @@ Python
   * https://pymoo.org/algorithms/soo/sres.html
 
 * https://scipy.org/
+
+  * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-neldermead.html
+
+* https://github.com/pybrain/pybrain (Now it is not actively maintained.)
+
+  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
+  * https://github.com/chanshing/xnes
+
+* https://github.com/blaa/PyGene (Now it is not actively maintained.)
 
 R
 -
