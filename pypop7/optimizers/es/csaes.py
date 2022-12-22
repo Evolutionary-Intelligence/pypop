@@ -5,13 +5,15 @@ from pypop7.optimizers.es.dsaes import DSAES
 
 
 class CSAES(DSAES):
-    """Cumulative Step-size Adaptation Evolution Strategy (CSAES).
+    """Cumulative Step-size self-Adaptation Evolution Strategy (CSAES).
 
-    .. note:: `CSAES` adapts all the *individual* step-sizes on-the-fly with *relatively small* populations, according
-       to the well-known `Cumulative Step-size Adaptation <http://link.springer.com/chapter/10.1007/3-540-58484-6_263>`_
-       rule from the evolutionary computation community.
+    .. note:: `CSAES` adapts all the *individual* step-sizes on-the-fly with a *relatively small* population,
+       according to the well-known `CSA <http://link.springer.com/chapter/10.1007/3-540-58484-6_263>`_ rule
+       from the Evolutionary Computation community. The default setting (i.e., using a `small` population)
+       may result in *relatively fast* (local) convergence, but with the risk of getting trapped in suboptima
+       on multi-modal fitness landscape (which can be alleviated via *restart*).
 
-       AKA cumulative path length control.
+       AKA cumulative (evolution) path-length control.
 
     Parameters
     ----------
@@ -42,7 +44,7 @@ class CSAES(DSAES):
 
     Examples
     --------
-    Use the `ES` optimizer `CSAES` to minimize the well-known test function
+    Use the optimizer `CSAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -63,20 +65,20 @@ class CSAES(DSAES):
        >>> results = csaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CSAES: 5000, 0.010658832794896005
+       CSAES: 5000, 0.00024154553107833587
 
     Attributes
     ----------
     lr_sigma      : `float`
                     learning rate of global step-size adaptation.
     mean          : `array_like`
-                    initial mean of Gaussian search distribution.
+                    initial (starting) point, aka mean of Gaussian search distribution.
     n_individuals : `int`
                     number of offspring, aka offspring population size.
     n_parents     : `int`
                     number of parents, aka parental population size.
     sigma         : `float`
-                    final global step-size, aka mutation strength.
+                    initial global step-size, aka mutation strength.
 
     References
     ----------
@@ -101,8 +103,8 @@ class CSAES(DSAES):
             options['lr_sigma'] = np.sqrt(options['n_parents']/(
                     problem['ndim_problem'] + options['n_parents']))
         DSAES.__init__(self, problem, options)
-        self._s_1 = None  # for Line 8
-        self._s_2 = None  # for Line 8
+        self._s_1 = None
+        self._s_2 = None
         # set E[||N(0,I)||]: expectation of chi distribution
         self._e_chi = np.sqrt(self.ndim_problem)*(
                 1.0 - 1.0/(4.0*self.ndim_problem) + 1.0/(21.0*np.power(self.ndim_problem, 2)))
@@ -119,32 +121,33 @@ class CSAES(DSAES):
         return z, x, mean, s, y
 
     def iterate(self, z=None, x=None, mean=None, y=None, args=None):
-        # sample offspring population (Line 4)
-        for k in range(self.n_individuals):
+        for k in range(self.n_individuals):  # to sample offspring population
             if self._check_terminations():
                 return z, x, y
-            z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))  # Line 5
-            x[k] = mean + self._axis_sigmas*z[k]  # Line 6
+            z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))
+            x[k] = mean + self._axis_sigmas*z[k]
             y[k] = self._evaluate_fitness(x[k], args)
         return z, x, y
 
     def _update_distribution(self, z=None, x=None, s=None, y=None):
-        order = np.argsort(y)[:self.n_parents]  # Line 7
-        s = self._s_1*s + self._s_2*np.mean(z[order], axis=0)  # Line 8
+        order = np.argsort(y)[:self.n_parents]
+        s = self._s_1*s + self._s_2*np.mean(z[order], axis=0)
         sigmas_1 = np.power(np.exp(np.abs(s)/self._e_hnd - 1.0), 1.0/(3.0*self.ndim_problem))
         sigmas_2 = np.power(np.exp(np.linalg.norm(s)/self._e_chi - 1.0),
                             self.lr_sigma/(1.0 + np.sqrt(self.n_parents/self.ndim_problem)))
-        self._axis_sigmas *= (sigmas_1*sigmas_2)  # Line 9
-        mean = np.mean(x[order], axis=0)  # Line 11
+        self._axis_sigmas *= (sigmas_1*sigmas_2)
+        mean = np.mean(x[order], axis=0)
         return s, mean
 
     def restart_reinitialize(self, z=None, x=None, mean=None, s=None, y=None):
-        self._fitness_list.append(self.best_so_far_y)
+        self._fitness_list.extend(y)
         is_restart_1, is_restart_2 = np.all(self._axis_sigmas < self.sigma_threshold), False
         if len(self._fitness_list) >= self.stagnation:
-            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
+            is_restart_2 = (np.max(self._fitness_list[-self.stagnation:]) -
+                            np.min(self._fitness_list[-self.stagnation:])) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
+            self._print_verbose_info([], y, True)
             self._n_restart += 1
             self.n_individuals *= 2
             self.n_parents = int(self.n_individuals/4)
@@ -159,19 +162,15 @@ class CSAES(DSAES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         z, x, mean, s, y = self.initialize()
-        while True:
+        while not self._check_terminations():
             # sample and evaluate offspring population
             z, x, y = self.iterate(z, x, mean, y, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
             s, mean = self._update_distribution(z, x, s, y)
-            self._print_verbose_info(y)
+            self._print_verbose_info(fitness, y)
             self._n_generations += 1
             if self.is_restart:
                 z, x, mean, s, y = self.restart_reinitialize(z, x, mean, s, y)
-        results = self._collect_results(fitness, mean)
+        results = self._collect_results(fitness, mean, y)
         results['s'] = s
         results['_axis_sigmas'] = self._axis_sigmas
         return results
