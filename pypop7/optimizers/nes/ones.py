@@ -28,7 +28,7 @@ class ONES(NES):
     """
     def __init__(self, problem, options):
         options['n_individuals'] = options.get('n_individuals', 100)
-        options['sigma'] = np.Inf  # not used for `SGES`
+        options['sigma'] = np.Inf  # not used for `ONES`
         NES.__init__(self, problem, options)
         if self.lr_mean is None:
             self.lr_mean = 1.0
@@ -49,10 +49,10 @@ class ONES(NES):
         inv_cv = np.linalg.inv(cv)  # inverse of covariance matrix
         for k in range(self.n_individuals):
             if self._check_terminations():
-                return x, y, mean, cv, inv_cv
+                return x, y, mean, inv_cv
             x[k] = mean + np.dot(np.transpose(self._d_cv), self.rng_optimization.standard_normal((self.ndim_problem,)))
             y[k] = self._evaluate_fitness(x[k], args)
-        return x, y, mean, cv, inv_cv
+        return x, y, mean, inv_cv
 
     def _update_distribution(self, x=None, y=None, mean=None, inv_cv=None):
         grad_mean = np.zeros((self.n_individuals, self.ndim_problem))  # gradients of mean
@@ -74,7 +74,7 @@ class ONES(NES):
         x, y, mean, cv = self.initialize()
         while not self._check_terminations():
             # sample and evaluate offspring population
-            x, y, mean, cv, inv_cv = self.iterate(x, y, mean, cv, args)
+            x, y, mean, inv_cv = self.iterate(x, y, mean, cv, args)
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
             x, y, mean, cv = self._update_distribution(x, y, mean, inv_cv)
