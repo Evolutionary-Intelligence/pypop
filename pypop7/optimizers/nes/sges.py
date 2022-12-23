@@ -1,9 +1,9 @@
 import numpy as np
 
-from pypop7.optimizers.es import ES
+from pypop7.optimizers.nes.nes import NES
 
 
-class SGES(ES):
+class SGES(NES):
     """Search Gradient based Evolution Strategy (SGES).
 
     .. note:: Here we include it **only** for *theoretical* purpose.
@@ -26,7 +26,7 @@ class SGES(ES):
     def __init__(self, problem, options):
         options['n_individuals'] = options.get('n_individuals', 100)
         options['sigma'] = np.Inf  # not used for `SGES`
-        ES.__init__(self, problem, options)
+        NES.__init__(self, problem, options)
         if self.lr_mean is None:
             self.lr_mean = 0.01
         assert self.lr_mean > 0, f'`self.lr_mean` = {self.lr_mean}, but should > 0.'
@@ -45,7 +45,7 @@ class SGES(ES):
     def iterate(self, x=None, y=None, mean=None, cv=None, args=None):
         inv_cv = np.linalg.inv(cv)  # inverse of covariance matrix
         grad_mean = np.zeros((self.ndim_problem,))  # gradients of mean
-        _d_cv = np.zeros((self.ndim_problem, self.ndim_problem))
+        grad_cv = np.zeros((self.ndim_problem, self.ndim_problem))  # gradient of covariance matrix
         for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, y, mean, cv
@@ -53,15 +53,15 @@ class SGES(ES):
             y[k] = self._evaluate_fitness(x[k], args)
             diff = x[k] - mean
             grad_mean += y[k]*np.dot(inv_cv, diff)
-            grad = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
-            _d_cv += y[k]*np.dot(self._d_cv, grad + np.transpose(grad))
+            _grad_cv = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
+            grad_cv += y[k]*np.dot(self._d_cv, _grad_cv + np.transpose(_grad_cv))
         mean -= self.lr_mean*grad_mean/self.n_individuals
-        self._d_cv -= self.lr_sigma*_d_cv/self.n_individuals
+        self._d_cv -= self.lr_sigma*grad_cv/self.n_individuals
         cv = np.dot(np.transpose(self._d_cv), self._d_cv)
         return x, y, mean, cv
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        fitness = ES.optimize(self, fitness_function)
+        fitness = NES.optimize(self, fitness_function)
         x, y, mean, cv = self.initialize()
         while not self._check_terminations():
             # sample and evaluate offspring population
