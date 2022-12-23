@@ -86,6 +86,11 @@ C++
 * https://github.com/CMA-ES/libcmaes (CMA-ES)
 * https://github.com/Shark-ML/Shark (Now it is not actively maintained.)
 
+Java
+----
+
+* https://github.com/GMUEClab/ecj (https://cs.gmu.edu/~eclab/projects/ecj/)
+
 Others
 ------
 
