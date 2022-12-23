@@ -44,18 +44,18 @@ class ONES(NES):
         cv = np.eye(self.ndim_problem)  # covariance matrix of Gaussian search distribution
         return x, y, mean, cv
 
-    def iterate(self, x=None, y=None, mean=None, cv=None, args=None):
-        inv_cv = np.linalg.inv(cv)  # inverse of covariance matrix
+    def iterate(self, x=None, y=None, mean=None, args=None):
         for k in range(self.n_individuals):
             if self._check_terminations():
-                return x, y, mean, inv_cv
+                return x, y, mean
             x[k] = mean + np.dot(np.transpose(self._d_cv), self.rng_optimization.standard_normal((self.ndim_problem,)))
             y[k] = self._evaluate_fitness(x[k], args)
-        return x, y, mean, inv_cv
+        return x, y, mean
 
-    def _update_distribution(self, x=None, y=None, mean=None, inv_cv=None):
+    def _update_distribution(self, x=None, y=None, mean=None, cv=None):
+        inv_cv = np.linalg.inv(cv)  # inverse of covariance matrix
         grad_mean = np.zeros((self.n_individuals, self.ndim_problem))  # gradients of mean
-        grad_cv = np.zeros((self.n_individuals, self.ndim_problem * self.ndim_problem))
+        grad_cv = np.zeros((self.n_individuals, self.ndim_problem*self.ndim_problem))
         for k in range(self.n_individuals):
             diff = x[k] - mean
             grad_mean[k] = np.dot(inv_cv, diff)
@@ -73,8 +73,8 @@ class ONES(NES):
         x, y, mean, cv = self.initialize()
         while not self._check_terminations():
             # sample and evaluate offspring population
-            x, y, mean, inv_cv = self.iterate(x, y, mean, cv, args)
+            x, y, mean = self.iterate(x, y, mean, args)
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
-            x, y, mean, cv = self._update_distribution(x, y, mean, inv_cv)
+            x, y, mean, cv = self._update_distribution(x, y, mean, cv)
         return self._collect_results(fitness, mean, y)
