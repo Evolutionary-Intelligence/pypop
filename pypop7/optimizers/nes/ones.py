@@ -1,5 +1,4 @@
 import numpy as np
-from numpy.linalg import pinv
 
 from pypop7.optimizers.nes.nes import NES
 
@@ -63,7 +62,7 @@ class ONES(NES):
             _grad_cv = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
             grad_cv[k] = np.ravel(np.dot(self._d_cv, _grad_cv + np.transpose(_grad_cv)))
         _grad = np.hstack((np.hstack((grad_mean, grad_cv)), np.ones((self.n_individuals, 1))))
-        grad = np.dot(pinv(_grad), self._u[np.argsort(y)])[:-1]
+        grad = np.dot(np.linalg.pinv(_grad), self._u[np.argsort(y)])[:-1]
         mean -= self.lr_mean*grad[:self.ndim_problem]
         self._d_cv -= self.lr_sigma*(grad[self.ndim_problem:]).reshape((self.ndim_problem, self.ndim_problem))
         cv = np.dot(np.transpose(self._d_cv), self._d_cv)
