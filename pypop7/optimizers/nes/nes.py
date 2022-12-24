@@ -17,6 +17,16 @@ class NES(ES):
     Studies in continuous black-box optimization.
     Doctoral Dissertation, Technische Universität München.
     https://people.idsia.ch/~schaul/publications/thesis.pdf
+
+    Yi, S., Wierstra, D., Schaul, T. and Schmidhuber, J., 2009, June.
+    Stochastic search using the natural gradient.
+    In Proceedings of International Conference on Machine Learning (pp. 1161-1168).
+    https://dl.acm.org/doi/10.1145/1553374.1553522
+
+    Wierstra, D., Schaul, T., Peters, J. and Schmidhuber, J., 2008, June.
+    Natural evolution strategies.
+    In IEEE Congress on Evolutionary Computation (pp. 3381-3387). IEEE.
+    https://ieeexplore.ieee.org/abstract/document/4631255
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
