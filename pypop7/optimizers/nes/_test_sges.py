@@ -26,7 +26,7 @@ class TestSGES(unittest.TestCase):
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),  # mean
-                       'verbose': 1,
+                       'verbose': 5000,
                        'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
