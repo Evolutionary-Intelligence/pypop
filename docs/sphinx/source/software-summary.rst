@@ -23,6 +23,8 @@ Python
 
 * https://github.com/CMA-ES/pycma (CMA-ES)
 
+  * https://github.com/CyberAgentAILab/cmaes (CMA-ES)
+
 * https://github.com/fmfn/BayesianOptimization
 * https://github.com/hardmaru/estool
 * https://github.com/mradaideh/neorl
