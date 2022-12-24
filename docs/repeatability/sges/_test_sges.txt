@@ -1,0 +1,84 @@
+******* ellipsoid *******
+  * Generation 0: best_so_far_y 1.17305e+06, min(y) 1.17305e+06 & Evaluations 100
+  * Generation 5000: best_so_far_y 3.43287e+01, min(y) 4.03350e+06 & Evaluations 500100
+  * Generation 10000: best_so_far_y 3.43287e+01, min(y) 2.83875e+05 & Evaluations 1000100
+  * Generation 15000: best_so_far_y 2.95969e+01, min(y) 3.33571e+06 & Evaluations 1500100
+  * Generation 20000: best_so_far_y 1.39240e+01, min(y) 3.34718e+06 & Evaluations 2000000
+{'best_so_far_x': array([3.58325986e+00, 1.04126985e-03]),
+ 'best_so_far_y': 13.923994129628708,
+ 'n_function_evaluations': 2000000,
+ 'runtime': 175.03799319267273,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 90.35444784164429,
+ 'fitness': array([[1.00000000e+00, 2.89531195e+07],
+       [2.00000000e+05, 3.43286763e+01],
+       [4.00000000e+05, 3.43286763e+01],
+       [6.00000000e+05, 3.43286763e+01],
+       [8.00000000e+05, 3.43286763e+01],
+       [1.00000000e+06, 3.43286763e+01],
+       [1.20000000e+06, 2.95969471e+01],
+       [1.40000000e+06, 2.95969471e+01],
+       [1.60000000e+06, 2.95969471e+01],
+       [1.80000000e+06, 1.39239941e+01],
+       [2.00000000e+06, 1.39239941e+01]]),
+ 'mean': array([3.99948849, 3.96935792]),
+ 'sigma': inf,
+ '_n_restart': 0,
+ '_n_generations': 20000}
+*** Runtime: 1.75078e+02
+******* rosenbrock *******
+  * Generation 0: best_so_far_y 3.05550e-01, min(y) 3.05550e-01 & Evaluations 100
+  * Generation 5000: best_so_far_y 6.96534e-02, min(y) 2.42287e+01 & Evaluations 500100
+  * Generation 10000: best_so_far_y 6.96534e-02, min(y) 1.14004e+00 & Evaluations 1000100
+  * Generation 15000: best_so_far_y 6.96534e-02, min(y) 1.91349e+01 & Evaluations 1500100
+  * Generation 20000: best_so_far_y 6.96534e-02, min(y) 9.29495e+00 & Evaluations 2000000
+{'best_so_far_x': array([1.13225615, 1.30484294]),
+ 'best_so_far_y': 0.06965342029276564,
+ 'n_function_evaluations': 2000000,
+ 'runtime': 127.04368853569031,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 48.15351605415344,
+ 'fitness': array([[1.00000000e+00, 2.44169894e+03],
+       [2.00000000e+05, 6.96534203e-02],
+       [4.00000000e+05, 6.96534203e-02],
+       [6.00000000e+05, 6.96534203e-02],
+       [8.00000000e+05, 6.96534203e-02],
+       [1.00000000e+06, 6.96534203e-02],
+       [1.20000000e+06, 6.96534203e-02],
+       [1.40000000e+06, 6.96534203e-02],
+       [1.60000000e+06, 6.96534203e-02],
+       [1.80000000e+06, 6.96534203e-02],
+       [2.00000000e+06, 6.96534203e-02]]),
+ 'mean': array([3.97418227, 4.00347241]),
+ 'sigma': inf,
+ '_n_restart': 0,
+ '_n_generations': 20000}
+*** Runtime: 3.02152e+02
+******* rastrigin *******
+  * Generation 0: best_so_far_y 1.87201e+01, min(y) 1.87201e+01 & Evaluations 100
+  * Generation 5000: best_so_far_y 5.01285e+00, min(y) 2.54594e+01 & Evaluations 500100
+  * Generation 10000: best_so_far_y 5.01285e+00, min(y) 1.14419e+01 & Evaluations 1000100
+  * Generation 15000: best_so_far_y 4.61710e+00, min(y) 1.75230e+01 & Evaluations 1500100
+  * Generation 20000: best_so_far_y 4.61710e+00, min(y) 2.51188e+01 & Evaluations 2000000
+{'best_so_far_x': array([0.94823968, 0.88724029]),
+ 'best_so_far_y': 4.617096595617873,
+ 'n_function_evaluations': 2000000,
+ 'runtime': 122.78532290458679,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 36.33061647415161,
+ 'fitness': array([[1.00000000e+00, 6.42322668e+01],
+       [2.00000000e+05, 5.14474227e+00],
+       [4.00000000e+05, 5.01284808e+00],
+       [6.00000000e+05, 5.01284808e+00],
+       [8.00000000e+05, 5.01284808e+00],
+       [1.00000000e+06, 5.01284808e+00],
+       [1.20000000e+06, 5.01284808e+00],
+       [1.40000000e+06, 4.61709660e+00],
+       [1.60000000e+06, 4.61709660e+00],
+       [1.80000000e+06, 4.61709660e+00],
+       [2.00000000e+06, 4.61709660e+00]]),
+ 'mean': array([3.98659054, 3.98832769]),
+ 'sigma': inf,
+ '_n_restart': 0,
+ '_n_generations': 20000}
+*** Runtime: 4.24967e+02
