@@ -20,8 +20,8 @@ class NES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self._u = np.maximum(0.0, np.log(self.n_individuals/2 + 1) - np.log(np.arange(1, self.n_individuals + 1)))
-        self._u = self._u/np.sum(self._u) - 1/self.n_individuals
+        _u = np.maximum(0.0, np.log(self.n_individuals/2 + 1) - np.log(np.arange(self.n_individuals) + 1))
+        self._u = _u/np.sum(_u) - 1/self.n_individuals
 
     def initialize(self):
         raise NotImplementedError
