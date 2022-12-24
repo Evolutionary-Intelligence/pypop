@@ -43,20 +43,26 @@ class SGES(NES):
         return x, y, mean, cv
 
     def iterate(self, x=None, y=None, mean=None, cv=None, args=None):
-        inv_cv = np.linalg.inv(cv)  # inverse of covariance matrix
-        grad_mean = np.zeros((self.ndim_problem,))  # gradients of mean
-        grad_cv = np.zeros((self.ndim_problem, self.ndim_problem))  # gradient of covariance matrix
         for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, y, mean, cv
             x[k] = mean + np.dot(np.transpose(self._d_cv), self.rng_optimization.standard_normal((self.ndim_problem,)))
             y[k] = self._evaluate_fitness(x[k], args)
+        return x, y, mean, cv
+
+    def _update_distribution(self, x=None, y=None, mean=None, cv=None):
+        order = np.argsort(y)
+        inv_cv = np.linalg.inv(cv)  # inverse of covariance matrix
+        grad_mean = np.zeros((self.ndim_problem,))  # gradients of mean
+        grad_cv = np.zeros((self.ndim_problem, self.ndim_problem))  # gradient of covariance matrix
+        for k in range(self.n_individuals):
             diff = x[k] - mean
-            grad_mean += y[k]*np.dot(inv_cv, diff)
+            yy = self._u[order[k]]
+            grad_mean += yy*np.dot(inv_cv, diff)
             _grad_cv = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
-            grad_cv += y[k]*np.dot(self._d_cv, _grad_cv + np.transpose(_grad_cv))
-        mean -= self.lr_mean*grad_mean/self.n_individuals
-        self._d_cv -= self.lr_sigma*grad_cv/self.n_individuals
+            grad_cv += yy*np.dot(self._d_cv, _grad_cv + np.transpose(_grad_cv))
+        mean += self.lr_mean*grad_mean/self.n_individuals
+        self._d_cv += self.lr_sigma*grad_cv/self.n_individuals
         cv = np.dot(np.transpose(self._d_cv), self._d_cv)
         return x, y, mean, cv
 
@@ -68,4 +74,5 @@ class SGES(NES):
             x, y, mean, cv = self.iterate(x, y, mean, cv, args)
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
+            x, y, mean, cv = self._update_distribution(x, y, mean, cv)
         return self._collect_results(fitness, mean, y)
