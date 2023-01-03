@@ -8,15 +8,15 @@ class RES(ES):
 
     .. note:: `RES` is the *first* ES with self-adaptation of the *global* step-size, designed by Rechenberg, one
        recipient of `IEEE Evolutionary Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_. As
-       **theoretically** investigated in Rechenberg's seminal PhD dissertation, the existence of the narrow **evolution
-       window** eplains the necessarity of step-size adaptation to maximize local convergence progress.
+       **theoretically** investigated in Rechenberg's seminal PhD dissertation, the existence of narrow **evolution
+       window** eplains the necessarity of step-size **adaptation** to maximize local convergence progress, if possible.
 
        Since there is only one parent and only one offspring for each generation, `RES` generally shows very
        limited *exploration* ability for large-scale black-box optimization (LSBBO). Therefore, it is **highly
        recommended** to first attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for LSBBO. Here we
        include it mainly for *benchmarking* and *theoretical* purpose.
 
-       AKA two-membered ES (which can also be seen as gradient climbing).
+       AKA two-membered ES.
 
     Parameters
     ----------
@@ -103,6 +103,8 @@ class RES(ES):
     https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13
     """
     def __init__(self, problem, options):
+        options['n_parents'] = 1  # mandatory setting
+        options['n_individuals'] = 1  # mandatory setting
         ES.__init__(self, problem, options)
         if self.lr_sigma is None:
             self.lr_sigma = 1.0/np.sqrt(self.ndim_problem + 1.0)
@@ -112,6 +114,7 @@ class RES(ES):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         y = self._evaluate_fitness(mean, args)  # fitness
         best_so_far_y = np.copy(y)
+        self._list_initial_mean.append(np.copy(mean))
         return mean, y, best_so_far_y
 
     def iterate(self, args=None, mean=None):
@@ -121,25 +124,21 @@ class RES(ES):
         return x, y
 
     def restart_reinitialize(self, args=None, mean=None, y=None, best_so_far_y=None, fitness=None):
-        self._fitness_list.append(y)
+        self._list_fitness.append(best_so_far_y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
-        if len(self._fitness_list) >= self.stagnation:
-            is_restart_2 = (np.max(self._fitness_list[-self.stagnation:]) -
-                            np.min(self._fitness_list[-self.stagnation:])) < self.fitness_diff
+        if len(self._list_fitness) >= self.stagnation:
+            is_restart_2 = (self._list_fitness[-self.stagnation] - self._list_fitness[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
             self._print_verbose_info(fitness, y, True)
+            if self.verbose:
+                print(' ....... *** restart *** .......')
             self._n_restart += 1
+            self._list_generations.append(self._n_generations)  # for each restart
             self._n_generations = 0
             self.sigma = np.copy(self._sigma_bak)
             mean, y, best_so_far_y = self.initialize(args, True)
-            if self.saving_fitness:
-                fitness.append(y)
-            self._fitness_list = [best_so_far_y]
-            if self.verbose:
-                print(' ....... restart .......')
-            self._print_verbose_info(fitness, y)
-            self._n_generations = 1
+            self._list_fitness = [best_so_far_y]
         return mean, y, best_so_far_y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
@@ -153,6 +152,5 @@ class RES(ES):
             if y < best_so_far_y:
                 mean, best_so_far_y = x, y
             if self.is_restart:
-                mean, y, best_so_far_y = self.restart_reinitialize(
-                    args, mean, y, best_so_far_y, fitness)
-        return self._collect_results(fitness, mean, y)
+                mean, y, best_so_far_y = self.restart_reinitialize(args, mean, y, best_so_far_y, fitness)
+        return self._collect(fitness, y, mean)
