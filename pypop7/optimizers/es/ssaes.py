@@ -67,6 +67,9 @@ class SSAES(ES):
        >>> print(f"SSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SSAES: 5000, 0.13131869620062903
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/zsmsyh2x>`_ for more details.
+
     Attributes
     ----------
     lr_axis_sigmas : `float`
@@ -80,7 +83,9 @@ class SSAES(ES):
     n_parents      : `int`
                      number of parents, aka parental population size.
     sigma          : `float`
-                     final global step-size, aka mutation strength.
+                     initial global step-size, aka mutation strength.
+    _axis_sigmas   : `array_like`
+                    final individuals step-sizes.
 
     References
     ----------
