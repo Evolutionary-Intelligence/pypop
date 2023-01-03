@@ -4,21 +4,22 @@ from enum import IntEnum
 import numpy as np
 
 
-# helper class used by all optimizer classes
 class Terminations(IntEnum):
+    """Helper class used by all optimizer classes."""
     NO_TERMINATION = 0
     MAX_FUNCTION_EVALUATIONS = 1  # maximum of function evaluations
-    MAX_RUNTIME = 2  # maximal runtime
-    FITNESS_THRESHOLD = 3  # stopping threshold of fitness
+    MAX_RUNTIME = 2  # maximal runtime to be allowed
+    FITNESS_THRESHOLD = 3  # threshold of fitness (when the best-so-far fitness is below it, the optimizer will stop)
 
 
 class Optimizer(object):
-    """Base (abstract) class of all optimizers for continuous black-box minimization.
+    """Base (abstract) class of all optimizers for continuous black-box **minimization**.
 
     References
     ----------
     Kochenderfer, M.J. and Wheeler, T.A., 2019.
-    Algorithms for optimization. MIT Press.
+    Algorithms for optimization.
+    MIT Press.
     https://algorithmsbook.com/optimization/
     (See Chapter 7: Direct Methods for details.)
 
@@ -27,7 +28,13 @@ class Optimizer(object):
     Berlin: Springer International Publishing.
     https://link.springer.com/book/10.1007/978-3-319-91578-4
 
-    Audet, C. and Hare, W., 2017. Derivative-free and blackbox optimization.
+    Nesterov, Y. and Spokoiny, V., 2017.
+    Random gradient-free minimization of convex functions.
+    Foundations of Computational Mathematics, 17(2), pp.527-566.
+    https://link.springer.com/article/10.1007/s10208-015-9296-2
+
+    Audet, C. and Hare, W., 2017.
+    Derivative-free and blackbox optimization.
     Berlin: Springer International Publishing.
     https://link.springer.com/book/10.1007/978-3-319-68913-5
     """
@@ -42,20 +49,16 @@ class Optimizer(object):
         self.problem_name = problem.get('problem_name')
         if (self.problem_name is None) and hasattr(self.fitness_function, '__name__'):
             self.problem_name = self.fitness_function.__name__
-        # for function maximization, which should NOT be used by end-users (but only by developers)
-        self._is_maximization = problem.get('_is_maximization', False)
 
         # optimizer-related options
         self.max_function_evaluations = options.get('max_function_evaluations', np.Inf)
         self.max_runtime = options.get('max_runtime', np.Inf)
         self.fitness_threshold = options.get('fitness_threshold', -np.Inf)
-        if self._is_maximization:
-            self.fitness_threshold *= -1.0
         self.n_individuals = options.get('n_individuals')  # offspring population size
         self.n_parents = options.get('n_parents')  # parent population size
         self.seed_rng = options.get('seed_rng')
         if self.seed_rng is None:  # it is highly recommended to explicitly set *seed_rng*
-            self.rng = np.random.default_rng()  # NOT use it as much as possible
+            self.rng = np.random.default_rng()  # NOT use it, if possible
         else:
             self.rng = np.random.default_rng(self.seed_rng)
         self.seed_initialization = options.get('seed_initialization', self.rng.integers(np.iinfo(np.int64).max))
@@ -73,8 +76,6 @@ class Optimizer(object):
         self.runtime = options.get('runtime', 0)
         self.start_time = None
         self.best_so_far_y = options.get('best_so_far_y', np.Inf)
-        if self._is_maximization:
-            self.best_so_far_y *= -1
         self.best_so_far_x = None
         self.termination_signal = 0  # NO_TERMINATION
         self.fitness = None
@@ -88,11 +89,9 @@ class Optimizer(object):
             y = self.fitness_function(x, args=args)
         self.time_function_evaluations += time.time() - self.start_function_evaluations
         self.n_function_evaluations += 1
-        # update best-so-far solution and fitness
-        if (not self._is_maximization) and (y < self.best_so_far_y):
+        # update best-so-far solution (x) and fitness (y)
+        if y < self.best_so_far_y:
             self.best_so_far_x, self.best_so_far_y = np.copy(x), y
-        if self._is_maximization and (-y > self.best_so_far_y):
-            self.best_so_far_x, self.best_so_far_y = np.copy(x), -y
         return float(y)
 
     def _check_terminations(self):
@@ -101,9 +100,7 @@ class Optimizer(object):
             termination_signal = True, Terminations.MAX_FUNCTION_EVALUATIONS
         elif self.runtime >= self.max_runtime:
             termination_signal = True, Terminations.MAX_RUNTIME
-        elif not self._is_maximization and (self.best_so_far_y <= self.fitness_threshold):
-            termination_signal = True, Terminations.FITNESS_THRESHOLD
-        elif self._is_maximization and (self.best_so_far_y >= self.fitness_threshold):
+        elif self.best_so_far_y <= self.fitness_threshold:
             termination_signal = True, Terminations.FITNESS_THRESHOLD
         else:
             termination_signal = False, Terminations.NO_TERMINATION
@@ -127,9 +124,7 @@ class Optimizer(object):
             # recover 1-based index
             self.fitness[0, 0], self.fitness[-1, 0] = 1, len(fitness)
 
-    def _collect_results(self, fitness):
-        if self._is_maximization:
-            self.best_so_far_y *= -1
+    def _collect(self, fitness):
         if self.saving_fitness:
             self._compress_fitness(fitness[:self.n_function_evaluations])
         return {'best_so_far_x': self.best_so_far_x,
@@ -150,5 +145,5 @@ class Optimizer(object):
         self.start_time = time.time()
         if fitness_function is not None:
             self.fitness_function = fitness_function
-        fitness = []  # store all fitness generated during evolution
+        fitness = []  # to store all fitness generated during evolution/optimization
         return fitness
