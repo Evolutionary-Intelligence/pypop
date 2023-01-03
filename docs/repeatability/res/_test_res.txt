@@ -15,9 +15,9 @@
         3.70289540e-04, -7.39450599e-04,  7.19922068e-05,  1.61608765e-04]),
  'best_so_far_y': 94420.98390625381,
  'n_function_evaluations': 2000000,
- 'runtime': 733.5159215927124,
+ 'runtime': 328.18631076812744,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 291.53666472435,
+ 'time_function_evaluations': 262.27357149124146,
  'fitness': array([[1.00000000e+00, 1.16497779e+09],
        [2.00000000e+05, 1.00516762e+06],
        [4.00000000e+05, 4.87070889e+05],
@@ -32,10 +32,17 @@
  'mean': array([ 8.40130743e+00,  1.10060040e+01,  1.25687669e+01, -2.87644792e+00,
         ...,
         3.70289540e-04, -7.39450599e-04,  7.19922068e-05,  1.61608765e-04]),
+ 'initial_mean': array([4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.,
+       ...,
+       4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.]),
+ '_list_initial_mean': [array([4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.,
+       ...,
+       4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.])],
  'sigma': 5.983598589999397e-05,
  '_n_restart': 0,
- '_n_generations': 1999999}
-*** Runtime: 7.33566e+02
+ '_n_generations': 1999999,
+ '_list_generations': []}
+*** Runtime: 3.28346e+02
 ******* rosenbrock *******
   * Generation 0: best_so_far_y 1.43946e+07, min(y) 1.43946e+07 & Evaluations 1
   * Generation 200000: best_so_far_y 1.56396e+03, min(y) 1.56400e+03 & Evaluations 200001
@@ -53,9 +60,9 @@
        1.05096302, 1.10467107, 1.22037808, 1.49087332, 2.22508272]),
  'best_so_far_y': 356.9351423935297,
  'n_function_evaluations': 2000000,
- 'runtime': 752.0049021244049,
+ 'runtime': 359.7791929244995,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 319.05481481552124,
+ 'time_function_evaluations': 296.687655210495,
  'fitness': array([[1.00000000e+00, 1.43945910e+07],
        [2.00000000e+05, 1.56396302e+03],
        [4.00000000e+05, 1.41734853e+03],
@@ -70,93 +77,100 @@
  'mean': array([1.00038948, 0.99975364, 0.99930581, 0.99966255, 0.99984981,
        ...,
        1.05096302, 1.10467107, 1.22037808, 1.49087332, 2.22508272]),
+ 'initial_mean': array([4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.,
+       ...,
+       4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.]),
+ '_list_initial_mean': [array([4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.,
+       ...,
+       4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.])],
  'sigma': 2.042929766807541e-05,
  '_n_restart': 0,
- '_n_generations': 1999999}
-*** Runtime: 1.48579e+03
+ '_n_generations': 1999999,
+ '_list_generations': []}
+*** Runtime: 6.88245e+02
 ******* rastrigin *******
   * Generation 0: best_so_far_y 1.60000e+04, min(y) 1.60000e+04 & Evaluations 1
   * Generation 68057: best_so_far_y 1.59192e+04, min(y) 1.59192e+04 & Evaluations 68058
- ....... restart .......
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 1.59192e+04, min(y) 1.87185e+04 & Evaluations 68059
-  * Generation 85398: best_so_far_y 8.47103e+03, min(y) 8.47103e+03 & Evaluations 153456
- ....... restart .......
+  * Generation 85397: best_so_far_y 8.47103e+03, min(y) 8.47103e+03 & Evaluations 153456
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 8.47103e+03, min(y) 1.86935e+04 & Evaluations 153457
-  * Generation 82028: best_so_far_y 8.47103e+03, min(y) 8.67599e+03 & Evaluations 235484
- ....... restart .......
+  * Generation 82027: best_so_far_y 8.47103e+03, min(y) 8.67599e+03 & Evaluations 235484
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 8.47103e+03, min(y) 1.79467e+04 & Evaluations 235485
-  * Generation 84978: best_so_far_y 8.25612e+03, min(y) 8.25612e+03 & Evaluations 320462
- ....... restart .......
+  * Generation 84977: best_so_far_y 8.25612e+03, min(y) 8.25612e+03 & Evaluations 320462
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 8.25612e+03, min(y) 1.82171e+04 & Evaluations 320463
-  * Generation 84413: best_so_far_y 8.25612e+03, min(y) 8.55759e+03 & Evaluations 404875
- ....... restart .......
+  * Generation 84412: best_so_far_y 8.25612e+03, min(y) 8.55759e+03 & Evaluations 404875
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 8.25612e+03, min(y) 1.82916e+04 & Evaluations 404876
-  * Generation 82778: best_so_far_y 8.25612e+03, min(y) 8.26408e+03 & Evaluations 487653
- ....... restart .......
+  * Generation 82777: best_so_far_y 8.25612e+03, min(y) 8.26408e+03 & Evaluations 487653
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 8.25612e+03, min(y) 1.78025e+04 & Evaluations 487654
-  * Generation 85498: best_so_far_y 7.79446e+03, min(y) 7.79446e+03 & Evaluations 573151
- ....... restart .......
+  * Generation 85497: best_so_far_y 7.79446e+03, min(y) 7.79446e+03 & Evaluations 573151
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.83428e+04 & Evaluations 573152
-  * Generation 83908: best_so_far_y 7.79446e+03, min(y) 8.44217e+03 & Evaluations 657059
- ....... restart .......
+  * Generation 83907: best_so_far_y 7.79446e+03, min(y) 8.44217e+03 & Evaluations 657059
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.83021e+04 & Evaluations 657060
-  * Generation 83133: best_so_far_y 7.79446e+03, min(y) 8.48297e+03 & Evaluations 740192
- ....... restart .......
+  * Generation 83132: best_so_far_y 7.79446e+03, min(y) 8.48297e+03 & Evaluations 740192
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.81759e+04 & Evaluations 740193
-  * Generation 82723: best_so_far_y 7.79446e+03, min(y) 8.29691e+03 & Evaluations 822915
- ....... restart .......
+  * Generation 82722: best_so_far_y 7.79446e+03, min(y) 8.29691e+03 & Evaluations 822915
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.76006e+04 & Evaluations 822916
-  * Generation 84038: best_so_far_y 7.79446e+03, min(y) 8.18747e+03 & Evaluations 906953
- ....... restart .......
+  * Generation 84037: best_so_far_y 7.79446e+03, min(y) 8.18747e+03 & Evaluations 906953
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.83745e+04 & Evaluations 906954
-  * Generation 84788: best_so_far_y 7.79446e+03, min(y) 8.65012e+03 & Evaluations 991741
- ....... restart .......
+  * Generation 84787: best_so_far_y 7.79446e+03, min(y) 8.65012e+03 & Evaluations 991741
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.83549e+04 & Evaluations 991742
-  * Generation 82388: best_so_far_y 7.79446e+03, min(y) 8.57550e+03 & Evaluations 1074129
- ....... restart .......
+  * Generation 82387: best_so_far_y 7.79446e+03, min(y) 8.57550e+03 & Evaluations 1074129
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.81925e+04 & Evaluations 1074130
-  * Generation 84788: best_so_far_y 7.79446e+03, min(y) 8.06907e+03 & Evaluations 1158917
- ....... restart .......
+  * Generation 84787: best_so_far_y 7.79446e+03, min(y) 8.06907e+03 & Evaluations 1158917
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.83578e+04 & Evaluations 1158918
-  * Generation 83688: best_so_far_y 7.79446e+03, min(y) 8.33074e+03 & Evaluations 1242605
- ....... restart .......
+  * Generation 83687: best_so_far_y 7.79446e+03, min(y) 8.33074e+03 & Evaluations 1242605
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.80848e+04 & Evaluations 1242606
-  * Generation 82608: best_so_far_y 7.79446e+03, min(y) 8.40437e+03 & Evaluations 1325213
- ....... restart .......
+  * Generation 82607: best_so_far_y 7.79446e+03, min(y) 8.40437e+03 & Evaluations 1325213
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.83912e+04 & Evaluations 1325214
-  * Generation 84478: best_so_far_y 7.79446e+03, min(y) 8.49192e+03 & Evaluations 1409691
- ....... restart .......
+  * Generation 84477: best_so_far_y 7.79446e+03, min(y) 8.49192e+03 & Evaluations 1409691
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.83585e+04 & Evaluations 1409692
-  * Generation 82948: best_so_far_y 7.79446e+03, min(y) 8.56555e+03 & Evaluations 1492639
- ....... restart .......
+  * Generation 82947: best_so_far_y 7.79446e+03, min(y) 8.56555e+03 & Evaluations 1492639
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.88559e+04 & Evaluations 1492640
-  * Generation 84408: best_so_far_y 7.79446e+03, min(y) 8.78543e+03 & Evaluations 1577047
- ....... restart .......
+  * Generation 84407: best_so_far_y 7.79446e+03, min(y) 8.78543e+03 & Evaluations 1577047
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.79248e+04 & Evaluations 1577048
-  * Generation 84293: best_so_far_y 7.79446e+03, min(y) 7.97057e+03 & Evaluations 1661340
- ....... restart .......
+  * Generation 84292: best_so_far_y 7.79446e+03, min(y) 7.97057e+03 & Evaluations 1661340
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.89524e+04 & Evaluations 1661341
-  * Generation 84118: best_so_far_y 7.79446e+03, min(y) 8.63121e+03 & Evaluations 1745458
- ....... restart .......
+  * Generation 84117: best_so_far_y 7.79446e+03, min(y) 8.63121e+03 & Evaluations 1745458
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.84095e+04 & Evaluations 1745459
-  * Generation 85453: best_so_far_y 7.79446e+03, min(y) 8.43819e+03 & Evaluations 1830911
- ....... restart .......
+  * Generation 85452: best_so_far_y 7.79446e+03, min(y) 8.43819e+03 & Evaluations 1830911
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.83121e+04 & Evaluations 1830912
-  * Generation 83823: best_so_far_y 7.79446e+03, min(y) 8.41233e+03 & Evaluations 1914734
- ....... restart .......
+  * Generation 83822: best_so_far_y 7.79446e+03, min(y) 8.41233e+03 & Evaluations 1914734
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.80883e+04 & Evaluations 1914735
-  * Generation 82973: best_so_far_y 7.79446e+03, min(y) 8.30686e+03 & Evaluations 1997707
- ....... restart .......
+  * Generation 82972: best_so_far_y 7.79446e+03, min(y) 8.30686e+03 & Evaluations 1997707
+ ....... *** restart *** .......
   * Generation 0: best_so_far_y 7.79446e+03, min(y) 1.89005e+04 & Evaluations 1997708
-  * Generation 2293: best_so_far_y 7.79446e+03, min(y) 1.28767e+04 & Evaluations 2000000
+  * Generation 2292: best_so_far_y 7.79446e+03, min(y) 1.28767e+04 & Evaluations 2000000
 {'best_so_far_x': array([ 3.97978390e+00,  1.98991226e+00,  1.98991227e+00,  9.94958687e-01,
         ...,
         3.97978383e+00, -2.98485577e+00,  1.98991233e+00, -9.94958662e-01]),
  'best_so_far_y': 7794.461388608408,
  'n_function_evaluations': 2000000,
- 'runtime': 579.8577768802643,
+ 'runtime': 206.33278465270996,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 152.0902955532074,
+ 'time_function_evaluations': 139.8403832912445,
  'fitness': array([[1.00000000e+00, 1.60000000e+04],
        [2.00000000e+05, 8.47102633e+03],
        [4.00000000e+05, 8.25611840e+03],
@@ -171,7 +185,16 @@
  'mean': array([-4.85433916e+00,  1.02156937e+00,  9.04849695e-01, -2.95559626e+00,
        ...,
        -9.80787057e-01, -5.07456678e+00,  4.04618810e+00, -9.29978664e-01]),
+ 'initial_mean': array([-3.39070599e+00,  7.59647602e-01,  2.19226613e+00, -3.82408731e+00,
+       ...,
+       -1.23044487e+00, -4.98236875e+00,  3.89802632e+00, -7.12182995e-01]),
+ '_list_initial_mean': [array([4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4., 4.,
+       ...,
+       -1.23044487e+00, -4.98236875e+00,  3.89802632e+00, -7.12182995e-01])],
  'sigma': array(0.01014342),
  '_n_restart': 24,
- '_n_generations': 2293}
-*** Runtime: 2.06575e+03
+ '_n_generations': 2292,
+ '_list_generations': [68057, 85397, 82027, 84977, 84412, 82777, 85497, 83907, 83132, 82722,
+     84037, 84787, 82387, 84787, 83687, 82607, 84477, 82947, 84407, 84292,
+     84117, 85452, 83822, 82972]}
+*** Runtime: 8.94918e+02
