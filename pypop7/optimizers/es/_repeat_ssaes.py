@@ -1,4 +1,4 @@
-"""Repeat the following paper for `DSAES`:
+"""Repeat the following paper for `SSAES`:
     Ostermeier, A., Gawelczyk, A. and Hansen, N., 1994.
     A derandomized approach to self-adaptation of evolution strategies.
     Evolutionary Computation, 2(4), pp.369-380.
