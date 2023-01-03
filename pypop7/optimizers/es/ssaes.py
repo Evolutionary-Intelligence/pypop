@@ -148,6 +148,6 @@ class SSAES(ES):
             mean = np.mean(x[order], axis=0)
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
-        results = self._collect_results(fitness, mean, y)
+        results = self._collect(fitness, y, mean)
         results['_axis_sigmas'] = self._axis_sigmas
         return results
