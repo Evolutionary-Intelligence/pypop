@@ -8,8 +8,8 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/repeatability/prs/_repeat_res.png
 
-    Luckily our Python code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `RES` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 import seaborn as sns
