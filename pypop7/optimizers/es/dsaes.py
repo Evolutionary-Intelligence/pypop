@@ -58,6 +58,9 @@ class DSAES(ES):
        >>> print(f"DSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        DSAES: 5000, 0.04805047881994932
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/2c8e89kj>`_ for more details.
+
     Attributes
     ----------
     lr_sigma      : `float`
@@ -67,7 +70,9 @@ class DSAES(ES):
     n_individuals : `int`
                     number of offspring, aka offspring population size.
     sigma         : `float`
-                    final global step-size, aka mutation strength.
+                    initial global step-size, aka mutation strength.
+    _axis_sigmas  : `array_like`
+                    final individuals step-sizes from the elitist.
 
     References
     ----------
@@ -99,6 +104,7 @@ class DSAES(ES):
         # set individual step-sizes for all offspring
         sigmas = np.ones((self.n_individuals, self.ndim_problem))
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
+        self._list_initial_mean.append(np.copy(mean))
         return x, mean, sigmas, y
 
     def iterate(self, x=None, mean=None, sigmas=None, y=None, args=None):
@@ -116,21 +122,25 @@ class DSAES(ES):
         return x, sigmas, y
 
     def restart_reinitialize(self, x=None, mean=None, sigmas=None, y=None):
-        self._fitness_list.extend(y)
+        min_y = np.min(y)
+        if min_y < self._list_fitness[-1]:
+            self._list_fitness.append(min_y)
+        else:
+            self._list_fitness.append(self._list_fitness[-1])
         is_restart_1, is_restart_2 = np.all(self._axis_sigmas < self.sigma_threshold), False
-        if len(self._fitness_list) >= self.stagnation:
-            is_restart_2 = (np.max(self._fitness_list[-self.stagnation:]) -
-                            np.min(self._fitness_list[-self.stagnation:])) < self.fitness_diff
+        if len(self._list_fitness) >= self.stagnation:
+            is_restart_2 = (self._list_fitness[-self.stagnation] - self._list_fitness[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
             self._print_verbose_info([], y, True)
-            self._n_restart += 1
-            self.n_individuals *= 2
-            self._n_generations = 0
-            self._fitness_list = [np.Inf]
-            x, mean, sigmas, y = self.initialize(True)
             if self.verbose:
-                print(' ....... restart .......')
+                print(' ....... *** restart *** .......')
+            self._n_restart += 1
+            self._list_generations.append(self._n_generations)  # for each restart
+            self._n_generations = 0
+            self.n_individuals *= 2
+            x, mean, sigmas, y = self.initialize(True)
+            self._list_fitness = [np.Inf]
         return x, mean, sigmas, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
@@ -146,6 +156,6 @@ class DSAES(ES):
             self._n_generations += 1
             if self.is_restart:
                 x, mean, sigmas, y = self.restart_reinitialize(x, mean, sigmas, y)
-        results = self._collect_results(fitness, mean, y)
+        results = self._collect(fitness, y, mean)
         results['_axis_sigmas'] = self._axis_sigmas
         return results
