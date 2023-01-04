@@ -13,6 +13,8 @@ class SSAES(ES):
        it is **highly recommended** to first attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for
        LSBBO. Here we include it mainly for *benchmarking* and *theoretical* purpose.
 
+       Note that the `restart` process is not implemented owing to typically slow convergence of `SSAES`.
+
     Parameters
     ----------
     problem : dict
@@ -34,13 +36,13 @@ class SSAES(ES):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_individuals'  - number of offspring, aka offspring population size (`int`, default:
-                  `5*problem.get('ndim_problem')`),
+                  `5*problem['ndim_problem']`),
                 * 'n_parents'      - number of parents, aka parental population size (`int`, default:
                   `int(options['n_individuals']/4)`),
                 * 'lr_sigma'       - learning rate of global step-size self-adaptation (`float`, default:
-                  `1.0/np.sqrt(self.ndim_problem)`),
+                  `1.0/np.sqrt(problem['ndim_problem'])`),
                 * 'lr_axis_sigmas' - learning rate of individual step-sizes self-adaptation (`float`, default:
-                  `1.0/np.power(self.ndim_problem, 1.0/4.0)`).
+                  `1.0/np.power(problem['ndim_problem'], 1.0/4.0)`).
 
     Examples
     --------
