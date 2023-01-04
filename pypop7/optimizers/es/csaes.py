@@ -65,7 +65,10 @@ class CSAES(DSAES):
        >>> results = csaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CSAES: 5000, 0.00024154553107833587
+       CSAES: 5000, 0.010143683086819875
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/2s4ctvdw>`_ for more details.
 
     Attributes
     ----------
@@ -118,6 +121,7 @@ class CSAES(DSAES):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         s = np.zeros((self.ndim_problem,))  # evolution path
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
+        self._list_initial_mean.append(np.copy(mean))
         return z, x, mean, s, y
 
     def iterate(self, z=None, x=None, mean=None, y=None, args=None):
@@ -140,23 +144,27 @@ class CSAES(DSAES):
         return s, mean
 
     def restart_reinitialize(self, z=None, x=None, mean=None, s=None, y=None):
-        self._fitness_list.extend(y)
+        min_y = np.min(y)
+        if min_y < self._list_fitness[-1]:
+            self._list_fitness.append(min_y)
+        else:
+            self._list_fitness.append(self._list_fitness[-1])
         is_restart_1, is_restart_2 = np.all(self._axis_sigmas < self.sigma_threshold), False
-        if len(self._fitness_list) >= self.stagnation:
-            is_restart_2 = (np.max(self._fitness_list[-self.stagnation:]) -
-                            np.min(self._fitness_list[-self.stagnation:])) < self.fitness_diff
+        if len(self._list_fitness) >= self.stagnation:
+            is_restart_2 = (self._list_fitness[-self.stagnation] - self._list_fitness[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
             self._print_verbose_info([], y, True)
+            if self.verbose:
+                print(' ....... *** restart *** .......')
             self._n_restart += 1
+            self._list_generations.append(self._n_generations)  # for each restart
+            self._n_generations = 0
             self.n_individuals *= 2
             self.n_parents = int(self.n_individuals/4)
             self.lr_sigma = np.sqrt(self.n_parents/(self.ndim_problem + self.n_parents))
-            self._n_generations = 0
-            self._fitness_list = [np.Inf]
-            if self.verbose:
-                print(' ....... restart .......')
             z, x, mean, s, y = self.initialize(True)
+            self._list_fitness = [np.Inf]
         return z, x, mean, s, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
@@ -170,7 +178,7 @@ class CSAES(DSAES):
             self._n_generations += 1
             if self.is_restart:
                 z, x, mean, s, y = self.restart_reinitialize(z, x, mean, s, y)
-        results = self._collect_results(fitness, mean, y)
+        results = self._collect(fitness, y, mean)
         results['s'] = s
         results['_axis_sigmas'] = self._axis_sigmas
         return results
