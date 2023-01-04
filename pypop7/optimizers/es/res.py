@@ -9,7 +9,7 @@ class RES(ES):
     .. note:: `RES` is the *first* ES with self-adaptation of the *global* step-size, designed by Rechenberg, one
        recipient of `IEEE Evolutionary Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_. As
        **theoretically** investigated in Rechenberg's seminal PhD dissertation, the existence of narrow **evolution
-       window** eplains the necessarity of step-size **adaptation** to maximize local convergence progress, if possible.
+       window** explains the necessarity of step-size *adaptation* to maximize local convergence progress, if possible.
 
        Since there is only one parent and only one offspring for each generation, `RES` generally shows very
        limited *exploration* ability for large-scale black-box optimization (LSBBO). Therefore, it is **highly
@@ -39,7 +39,7 @@ class RES(ES):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'lr_sigma' - learning rate of global step-size self-adaptation (`float`, default:
-                  `1.0/np.sqrt(self.ndim_problem + 1.0)`).
+                  `1.0/np.sqrt(problem['ndim_problem'] + 1.0)`).
 
     Examples
     --------
