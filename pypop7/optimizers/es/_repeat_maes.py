@@ -8,8 +8,8 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/maes
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `MAES` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import pickle
 
@@ -25,7 +25,6 @@ from pypop7.optimizers.es.maes import MAES
 def plot(function, ndim):
     plt.figure()
     result = pickle.load(open(function + '_' + str(ndim) + '.pickle', 'rb'))
-    print(result)
     plt.yscale('log')
     plt.plot(np.arange(len(results['f'])), results['f'], 'r-')
     plt.plot(np.arange(len(results['stepsize'])), results['stepsize'], 'm-')
@@ -73,24 +72,25 @@ def plot(function, ndim):
 
 class Fig4(MAES):
     def optimize(self, fitness_function=None, args=None):
-        fit = ES.optimize(self, fitness_function)
+        fitness = ES.optimize(self, fitness_function)
         z, d, mean, s, tm, y = self.initialize()
         best_f, stepsize = [], []  # for plotting data
-        while True:
+        while not self._check_terminations():
+            # sample and evaluate offspring population
             z, d, y = self.iterate(z, d, mean, tm, y, args)
-            if self.saving_fitness:
-                fit.extend(y)
+            mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
+            self._print_verbose_info(fitness, y)
+            self._n_generations += 1
             best_f.append(np.min(y))
             stepsize.append(self.sigma)
-            if self._check_terminations():
-                break
-            mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
-            self._n_generations += 1
-            self._print_verbose_info(y)
-        res = self._collect_results(fit, mean)
+            if self.is_restart:
+                z, d, mean, s, tm, y = self.restart_reinitialize(z, d, mean, s, tm, y)
+        res = self._collect(fitness, y, mean)
         res['s'] = s
         res['f'] = best_f
         res['stepsize'] = stepsize
+        # by default, do NOT save transformation matrix of search distribution in order to save memory,
+        # owing to its *quadratic* space complexity
         return res
 
 
@@ -104,7 +104,8 @@ if __name__ == '__main__':
                        'seed_rng': 2022,  # not given in the original paper
                        'x': np.ones((dim,)),
                        'sigma': 1.0,
-                       'saving_fitness': 1}
+                       'saving_fitness': 1,
+                       'is_restart': False}
             solver = Fig4(problem, options)
             results = solver.optimize()
             pickle.dump(results, open(f.__name__ + '_' + str(dim) + '.pickle', 'wb'))
