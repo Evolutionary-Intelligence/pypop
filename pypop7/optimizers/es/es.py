@@ -191,6 +191,7 @@ class ES(Optimizer):
             is_restart_2 = (self._list_fitness[-self.stagnation] - self._list_fitness[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
+            self._print_verbose_info([], y, True)
             if self.verbose:
                 print(' ....... *** restart *** .......')
             self._n_restart += 1
