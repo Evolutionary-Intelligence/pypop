@@ -63,7 +63,7 @@ class MAES(ES):
        >>> results = maes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"MAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       MAES: 5000, 4.840520170399301e-17
+       MAES: 5000, 2.129367016460251e-19
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/3zvve79b>`_ for more details.
@@ -111,7 +111,7 @@ class MAES(ES):
         self._s_2 = None
         self._fast_version = options.get('_fast_version', False)
         if not self._fast_version:
-            self._diag_one = np.diag(np.ones((self.ndim_problem,)))
+            self._diag_one = np.eye(self.ndim_problem)
 
     def _set_c_w(self):
         return np.minimum(1.0 - self.c_1, self._alpha_cov*(self._mu_eff + 1.0/self._mu_eff - 2.0) /
@@ -131,7 +131,7 @@ class MAES(ES):
         d = np.empty((self.n_individuals, self.ndim_problem))  # search directions
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         s = np.zeros((self.ndim_problem,))  # evolution path
-        tm = np.diag(np.ones((self.ndim_problem,)))  # transformation matrix M
+        tm = np.eye(self.ndim_problem)  # transformation matrix
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         self._list_initial_mean.append(np.copy(mean))
         return z, d, mean, s, tm, y
