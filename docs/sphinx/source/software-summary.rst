@@ -24,11 +24,17 @@ Python
 * https://github.com/CMA-ES/pycma (CMA-ES)
 
   * https://github.com/CyberAgentAILab/cmaes (CMA-ES)
+  * https://github.com/optuna/optuna (CMA-ES)
+  * https://github.com/EvoConJP/CMA-ES_with_Margin (CMA-ES)
+
+* https://github.com/google/evojax
 
 * https://github.com/fmfn/BayesianOptimization
 * https://github.com/hardmaru/estool
 * https://github.com/mradaideh/neorl
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
+
+* https://github.com/RobertTLange/evosax
 
 * https://pymoo.org/
 
