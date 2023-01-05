@@ -6,7 +6,7 @@
     https://homepages.fhv.at/hgb/downloads/ForDistributionFastMAES.tar
 
     All generated figures can be accessed via the following link:
-    https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/maes
+    https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/fmaes
 
     Luckily our Python code could repeat the data reported in the original paper *well*.
     Therefore, we argue that its repeatability could be **well-documented**.
