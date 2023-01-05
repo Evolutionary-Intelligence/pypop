@@ -7,11 +7,9 @@ class FMAES(MAES):
     .. note:: `FMAES` is a *more efficient* implementation of `MAES` with *quadractic* time complexity w.r.t. each
        sampling, which replaces the computationally expensive matrix-matrix multiplication (*cubic time complexity*)
        with the combination of matrix-matrix addition and matrix-vector multiplication (*quadractic time complexity*)
-       for covariance matrix adaptation (CMA).
-
-       It is **highly recommended** to first attempt other more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for
-       large-scale black-box optimization, since `FMAES` still has a computationally-intensive *quadratic* time
-       complexity w.r.t. each sampling.
+       for transformation matrix adaptation. It is **highly recommended** to first attempt more advanced ES variants
+       (e.g., `LMCMA`, `LMMAES`) for large-scale black-box optimization, since `FMAES` still has a computationally
+       intensive *quadratic* time complexity (w.r.t. each sampling).
 
     Parameters
     ----------
@@ -34,13 +32,13 @@ class FMAES(MAES):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
-                  `4 + int(3*np.log(self.ndim_problem))`),
+                  `4 + int(3*np.log(problem['ndim_problem']))`),
                 * 'n_parents'     - number of parents, aka parental population size (`int`, default:
-                  `int(self.n_individuals/2)`)..
+                  `int(options['n_individuals']/2)`).
 
     Examples
     --------
-    Use the `ES` optimizer `FMAES` to minimize the well-known test function
+    Use the optimizer `FMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -61,7 +59,7 @@ class FMAES(MAES):
        >>> results = fmaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"FMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       FMAES: 5000, 4.840560965418994e-17
+       FMAES: 5000, 2.1296244414852865e-19
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/37ews6h4>`_ for more details.
@@ -69,13 +67,13 @@ class FMAES(MAES):
     Attributes
     ----------
     mean          : `array_like`
-                    initial mean of Gaussian search distribution.
+                    initial (starting) point, aka mean of Gaussian search distribution.
     n_individuals : `int`
                     number of offspring, aka offspring population size.
     n_parents     : `int`
                     number of parents, aka parental population size.
     sigma         : `float`
-                    final mutation strength.
+                    final global step-size, aka mutation strength.
 
     References
     ----------
@@ -93,7 +91,10 @@ class FMAES(MAES):
     Simplify your covariance matrix adaptation evolution strategy.
     IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
     https://ieeexplore.ieee.org/document/7875115
+
+    See the official Matlab version from Prof. Beyer:
+    https://homepages.fhv.at/hgb/downloads/ForDistributionFastMAES.tar
     """
     def __init__(self, problem, options):
-        options['_fast_version'] = True  # mandatory setting for FMAES
+        options['_fast_version'] = True  # mandatory setting
         MAES.__init__(self, problem, options)
