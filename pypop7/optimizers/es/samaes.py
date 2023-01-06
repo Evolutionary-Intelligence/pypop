@@ -72,7 +72,7 @@ class SAMAES(SAES):
         z = np.empty((self.n_individuals, self.ndim_problem))
         for k in range(self.n_individuals):  # to sample offspring population
             if self._check_terminations():
-                return x, sigmas, y
+                return x, sigmas, y, m, z
             sigmas[k] = self.sigma*np.exp(self.lr_sigma*self.rng_optimization.standard_normal())
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))
             x[k] = mean + sigmas[k]*np.matmul(m, z[k])
@@ -101,8 +101,11 @@ class SAMAES(SAES):
             # use intermediate multi-recombination
             mean = np.mean(x[order], axis=0)
             self.sigma = np.mean(sigmas[order])
-            zz = np.mean([np.dot(np.hstack((i[:, None], i[:, None])), np.vstack((i, i))) for i in z[order]])
-            m *= (np.eye(self.ndim_problem) + self.lr_matrix*(zz - np.eye(self.ndim_problem)))
+            zz = [np.tile(i[:,None], (1, self.ndim_problem))*np.tile(i, (self.ndim_problem, 1)) for i in z[order]]
+            zz_sum = 0
+            for j in zz:
+                zz_sum += j
+            m *= (np.eye(self.ndim_problem) + self.lr_matrix * (zz_sum / self.n_parents - np.eye(self.ndim_problem)))
             if self.is_restart:
                 x, mean, sigmas, y, m = self.restart_initialize(x, mean, sigmas, y)
         return self._collect(fitness, y, mean)
