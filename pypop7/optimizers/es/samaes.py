@@ -101,7 +101,7 @@ class SAMAES(SAES):
             # use intermediate multi-recombination
             mean = np.mean(x[order], axis=0)
             self.sigma = np.mean(sigmas[order])
-            zz = 0
+            zz = np.zeros((self.ndim_problem, self.ndim_problem))
             for i in z[order]:
                 zz += np.tile(i[:,None], (1, self.ndim_problem))*np.tile(i, (self.ndim_problem, 1))
             m *= (np.eye(self.ndim_problem) + self.lr_matrix * (zz/self.n_parents - np.eye(self.ndim_problem)))
