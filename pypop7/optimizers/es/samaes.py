@@ -101,11 +101,10 @@ class SAMAES(SAES):
             # use intermediate multi-recombination
             mean = np.mean(x[order], axis=0)
             self.sigma = np.mean(sigmas[order])
-            zz = [np.tile(i[:,None], (1, self.ndim_problem))*np.tile(i, (self.ndim_problem, 1)) for i in z[order]]
-            zz_sum = 0
-            for j in zz:
-                zz_sum += j
-            m *= (np.eye(self.ndim_problem) + self.lr_matrix * (zz_sum / self.n_parents - np.eye(self.ndim_problem)))
+            zz = 0
+            for i in z[order]:
+                zz += np.tile(i[:,None], (1, self.ndim_problem))*np.tile(i, (self.ndim_problem, 1))
+            m *= (np.eye(self.ndim_problem) + self.lr_matrix * (zz/self.n_parents - np.eye(self.ndim_problem)))
             if self.is_restart:
                 x, mean, sigmas, y, m = self.restart_initialize(x, mean, sigmas, y)
         return self._collect(fitness, y, mean)
