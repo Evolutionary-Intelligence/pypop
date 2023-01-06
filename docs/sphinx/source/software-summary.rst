@@ -10,6 +10,7 @@ Python
 * https://esa.github.io/pygmo2/
 
 `pygmo <https://esa.github.io/pygmo2/>`_ is *a scientific Python library for massively parallel optimization*.
+
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.de
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.sade
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.de1220
@@ -24,8 +25,11 @@ Python
 * https://github.com/CMA-ES/pycma (CMA-ES)
 
   * https://github.com/CyberAgentAILab/cmaes (CMA-ES)
+
+    * https://github.com/c-bata/benchmark-warm-starting-cmaes (CMA-ES)
+    * https://github.com/EvoConJP/CMA-ES_with_Margin (CMA-ES)
+
   * https://github.com/optuna/optuna (CMA-ES)
-  * https://github.com/EvoConJP/CMA-ES_with_Margin (CMA-ES)
 
 * https://github.com/google/evojax
 
