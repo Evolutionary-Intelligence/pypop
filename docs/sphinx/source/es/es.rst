@@ -23,6 +23,7 @@ Evolution Strategies (ES)
    opoc2009
    sepcmaes
    opoc2006
+   cmaes
    saes
    csaes
    dsaes
