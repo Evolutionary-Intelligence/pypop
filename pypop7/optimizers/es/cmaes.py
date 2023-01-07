@@ -6,8 +6,72 @@ from pypop7.optimizers.es.es import ES
 class CMAES(ES):
     """Covariance Matrix Adaptation Evolution Strategy (CMAES).
 
-    .. note:: `CMAES` is widely recognized as one of the **state of the art (SOTA)** for black-box optimization,
-       according to the latest `Nature <>`_ review of evolutionary computation.
+    .. note:: `CMAES` is widely recognized as one of the **State Of The Art (SOTA)** for black-box optimization,
+       according to the latest `Nature <https://www.nature.com/articles/nature14544>`_ review of Evolutionary
+       Computation.
+
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'mean'          - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
+                  `4 + int(3*np.log(problem['ndim_problem']))`),
+                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
+                  `int(options['n_individuals']/2)`).
+
+    Examples
+    --------
+    Use the optimizer `CMAES` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.es.cmaes import CMAES
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       >>> cmaes = CMAES(problem, options)  # initialize the optimizer class
+       >>> results = cmaes.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"CMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/4mysrjwe>`_ for more details.
+
+    Attributes
+    ----------
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search distribution.
+    n_individuals : `int`
+                    number of offspring, aka offspring population size.
+    n_parents     : `int`
+                    number of parents, aka parental population size.
+    sigma         : `float`
+                    final global step-size, aka mutation strength.
 
     References
     ----------
@@ -16,6 +80,7 @@ class CMAES(ES):
     arXiv preprint arXiv:1604.00772.
     https://arxiv.org/abs/1604.00772
 
+    See the lightweight implementation of CMA-ES:
     https://github.com/CyberAgentAILab/cmaes
     """
     def __init__(self, problem, options):
