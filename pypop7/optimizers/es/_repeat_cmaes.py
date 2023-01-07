@@ -5,6 +5,11 @@
     https://arxiv.org/abs/1604.00772
     https://github.com/CyberAgentAILab/cmaes
 
+    Luckily our Python code could repeat the data reported in the following Python code *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
+
+    The following Python code is based on https://github.com/CyberAgentAILab/cmaes:
+    -------------------------------------------------------------------------------
     import numpy as np
     from cmaes import CMA
 
@@ -54,12 +59,31 @@
 
     3000     0.00051
     6000     0.00000
+
+
+    def rosenbrock(x):
+        return 100 * np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
+
+
+     3000   325.04031
+     6000    47.97352
+     9000    32.97643
+    12000    30.34539
+    15000    27.74735
+    18000    25.45727
+    21000    23.47825
+    24000    21.35947
+    27000    19.31040
+    30000    16.95758
+    33000    14.92188
+    36000    12.75626
+    39000    10.15624
 """
 import time
 
 import numpy as np
 
-from pypop7.benchmarks.base_functions import ellipsoid, sphere
+from pypop7.benchmarks.base_functions import ellipsoid, sphere, rosenbrock
 from pypop7.optimizers.es.cmaes import CMAES as Solver
 
 
@@ -78,23 +102,23 @@ if __name__ == '__main__':
     print(results)
     print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
     # 'fitness': array([[1.00000000e+00, 5.14940030e+07],
-    #                   [3.00000000e+03, 2.29627056e+05],
-    #                   [6.00000000e+03, 3.98863980e+04],
-    #                   [9.00000000e+03, 5.81068731e+03],
-    #                   [1.20000000e+04, 2.78377777e+03],
-    #                   [1.50000000e+04, 1.46719576e+03],
-    #                   [1.80000000e+04, 5.58938266e+02],
-    #                   [2.10000000e+04, 1.50634692e+02],
-    #                   [2.40000000e+04, 8.28571949e+01],
-    #                   [2.70000000e+04, 5.27908745e+01],
-    #                   [3.00000000e+04, 1.78872473e+01],
-    #                   [3.30000000e+04, 5.11224718e+00],
-    #                   [3.60000000e+04, 6.67062161e-01],
-    #                   [3.90000000e+04, 2.00268740e-02],
-    #                   [4.20000000e+04, 2.48809390e-04],
-    #                   [4.50000000e+04, 3.93840831e-06],
-    #                   [4.80000000e+04, 8.50976589e-08],
-    #                   [5.10000000e+04, 5.23197175e-13]])
+    #                   [3.00000000e+03, 9.35191308e+04],
+    #                   [6.00000000e+03, 1.37736660e+04],
+    #                   [9.00000000e+03, 2.64808281e+03],
+    #                   [1.20000000e+04, 1.17517466e+03],
+    #                   [1.50000000e+04, 5.16757676e+02],
+    #                   [1.80000000e+04, 2.53007274e+02],
+    #                   [2.10000000e+04, 1.93887396e+02],
+    #                   [2.40000000e+04, 1.45301836e+02],
+    #                   [2.70000000e+04, 8.23838566e+01],
+    #                   [3.00000000e+04, 3.17710025e+01],
+    #                   [3.30000000e+04, 1.31033420e+01],
+    #                   [3.60000000e+04, 1.89760833e+00],
+    #                   [3.90000000e+04, 2.92947011e-01],
+    #                   [4.20000000e+04, 1.41835727e-02],
+    #                   [4.50000000e+04, 7.43703406e-04],
+    #                   [4.80000000e+04, 5.51932987e-07],
+    #                   [5.10000000e+04, 1.29779238e-12]]
     start_run = time.time()
     ndim_problem = 40
     problem = {'fitness_function': sphere,
@@ -109,5 +133,33 @@ if __name__ == '__main__':
     print(results)
     print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
     # 'fitness': array([[1.00000000e+00, 7.65494377e+02],
-    #                   [3.00000000e+03, 2.81648743e-04],
-    #                   [6.00000000e+03, 3.77063006e-10]])
+    #                   [3.00000000e+03, 3.28897696e-04],
+    #                   [6.00000000e+03, 2.23674889e-10]]
+    start_run = time.time()
+    ndim_problem = 40
+    problem = {'fitness_function': rosenbrock,
+               'ndim_problem': ndim_problem}
+    options = {'max_function_evaluations': 40000,
+               'seed_rng': 0,
+               'x': 3 * np.ones((ndim_problem,)),  # mean
+               'sigma': 2.0,
+               'saving_fitness': 3000}
+    solver = Solver(problem, options)
+    results = solver.optimize()
+    print(results)
+    print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
+    # 'fitness': array([[1.00000000e+00, 3.06775056e+06],
+    #                   [3.00000000e+03, 3.61427682e+01],
+    #                   [6.00000000e+03, 3.33879641e+01],
+    #                   [9.00000000e+03, 3.06937858e+01],
+    #                   [1.20000000e+04, 2.84362740e+01],
+    #                   [1.50000000e+04, 2.62406327e+01],
+    #                   [1.80000000e+04, 2.40524849e+01],
+    #                   [2.10000000e+04, 2.17632326e+01],
+    #                   [2.40000000e+04, 1.96613124e+01],
+    #                   [2.70000000e+04, 1.74759791e+01],
+    #                   [3.00000000e+04, 1.54036750e+01],
+    #                   [3.30000000e+04, 1.32985333e+01],
+    #                   [3.60000000e+04, 1.11372868e+01],
+    #                   [3.90000000e+04, 9.49352016e+00],
+    #                   [4.00000000e+04, 8.81329780e+00]]
