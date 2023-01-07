@@ -52,12 +52,14 @@ class CMAES(ES):
        ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
+       ...            'is_restart': False,
        ...            'mean': 3*numpy.ones((2,)),
        ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> cmaes = CMAES(problem, options)  # initialize the optimizer class
        >>> results = cmaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       CMAES: 5000, 9.11305771685916e-09
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/4mysrjwe>`_ for more details.
@@ -176,7 +178,8 @@ class CMAES(ES):
         # do eigen decomposition (SVD)
         cm = (cm + np.transpose(cm))/2.0
         eig_va, eig_ve = np.linalg.eigh(cm)
-        eig_va = np.sqrt(eig_va)
+        eig_va = np.sqrt(np.where(eig_va < 0, 1e-8, eig_va))
+        cm = np.dot(np.dot(eig_ve, np.diag(np.power(eig_va, 2))), np.transpose(eig_ve))
         return mean, p_s, p_c, cm, eig_ve, eig_va
 
     def restart_reinitialize(self, x=None, mean=None, p_s=None, p_c=None,
