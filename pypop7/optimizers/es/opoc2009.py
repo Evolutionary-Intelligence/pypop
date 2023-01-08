@@ -20,10 +20,16 @@ class OPOC2009(OPOC2006):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`).
+              and with the following particular settings (`keys`):
+                * 'sigma' - initial global step-size, aka mutation strength (`float`),
+                * 'mean'  - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
     Examples
     --------
-    Use the `ES` optimizer `OPOC2009` to minimize the well-known test function
+    Use the optimizer `OPOC2009` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -44,7 +50,7 @@ class OPOC2009(OPOC2006):
        >>> results = opoc2009.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"OPOC2009: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       OPOC2009: 5000, 1.272623066137026e-16
+       OPOC2009: 5000, 2.7686802211556655e-17
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/3ba4ctny>`_ for more details.
@@ -66,7 +72,7 @@ class OPOC2009(OPOC2006):
         a_i = np.diag(np.ones((self.ndim_problem,)))  # inverse of Cholesky factors
         return mean, y, a, a_i, best_so_far_y, p_s, p_c
 
-    def iterate(self, args=None, mean=None, a=None, a_i=None, best_so_far_y=None, p_s=None, p_c=None):
+    def iterate(self, mean=None, a=None, a_i=None, best_so_far_y=None, p_s=None, p_c=None, args=None):
         # sample and evaluate only one offspring
         z = self.rng_optimization.standard_normal((self.ndim_problem,))
         x = mean + self.sigma*np.dot(a, z)
@@ -92,42 +98,34 @@ class OPOC2009(OPOC2006):
                 w[:, np.newaxis], np.dot(w[np.newaxis, :], a_i))
         return mean, y, a, a_i, best_so_far_y, p_s, p_c
 
-    def restart_reinitialize(self, args=None, mean=None, y=None, a=None, a_i=None,
-                             best_so_far_y=None, p_s=None, p_c=None, fitness=None):
-        self._fitness_list.append(self.best_so_far_y)
+    def restart_reinitialize(self, mean=None, y=None, a=None, a_i=None, best_so_far_y=None,
+                             p_s=None, p_c=None, fitness=None, args=None):
+        self._list_fitness.append(best_so_far_y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
-        if len(self._fitness_list) >= self.stagnation:
-            is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
+        if len(self._list_fitness) >= self.stagnation:
+            is_restart_2 = (self._list_fitness[-self.stagnation] - self._list_fitness[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
+            self._print_verbose_info(fitness, y, True)
+            if self.verbose:
+                print(' ....... *** restart *** .......')
             self._n_restart += 1
+            self._list_generations.append(self._n_generations)  # for each restart
+            self._n_generations = 0
             self.sigma = np.copy(self._sigma_bak)
             mean, y, a, a_i, best_so_far_y, p_s, p_c = self.initialize(args, True)
-            if self.saving_fitness:
-                fitness.append(y)
-            self._fitness_list = [best_so_far_y]
-            self._n_generations = 0
-            if self.verbose:
-                print(' ....... restart .......')
-            self._print_verbose_info(y)
+            self._list_fitness = [best_so_far_y]
         return mean, y, a, a_i, best_so_far_y, p_s, p_c
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, y, a, a_i, best_so_far_y, p_s, p_c = self.initialize(args)
-        if self.saving_fitness:
-            fitness.append(y)
-        self._print_verbose_info(y)
-        while True:
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, y)
             mean, y, a, a_i, best_so_far_y, p_s, p_c = self.iterate(
-                args, mean, a, a_i, best_so_far_y, p_s, p_c)
-            if self.saving_fitness:
-                fitness.append(y)
-            if self._check_terminations():
-                break
+                mean, a, a_i, best_so_far_y, p_s, p_c, args)
             self._n_generations += 1
-            self._print_verbose_info(y)
             if self.is_restart:
                 mean, y, a, a_i, best_so_far_y, p_s, p_c = self.restart_reinitialize(
-                    args, mean, y, a, a_i, best_so_far_y, p_s, p_c, fitness)
-        return self._collect_results(fitness, mean)
+                    mean, y, a, a_i, best_so_far_y, p_s, p_c, fitness, args)
+        return self._collect(fitness, y, mean)
