@@ -20,8 +20,8 @@ class OPOC2006(ES):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'    - initial global step-size, aka mutation strength (`float`),
-                * 'mean'     - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
+                * 'sigma' - initial global step-size, aka mutation strength (`float`),
+                * 'mean'  - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
