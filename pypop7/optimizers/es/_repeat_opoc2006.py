@@ -7,8 +7,8 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/opoc2006
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `OPOC2006` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import pickle
 
@@ -94,6 +94,5 @@ if __name__ == '__main__':
                 elif d == 20:
                     options['max_function_evaluations'] = 1000
             solver = Solver(problem, options)
-            results = solver.optimize()
-            pickle.dump(results, open(f.__name__ + '_' + str(d) + '.pickle', 'wb'))
+            pickle.dump(solver.optimize(), open(f.__name__ + '_' + str(d) + '.pickle', 'wb'))
             plot(f.__name__, d)
