@@ -94,8 +94,8 @@ class OPOC2006(ES):
             mean, best_so_far_y = x, y
             if p_s < self.p_t:
                 z_norm, c_a = np.power(np.linalg.norm(z), 2), np.power(self.c_a, 2)
-                a = self.c_a*a + self.c_a/z_norm*(np.sqrt(1.0 + (
-                        (1.0 - c_a)*z_norm)/c_a) - 1.0)*np.dot(a, np.outer(z, z))
+                a = self.c_a*a + self.c_a/z_norm*(np.sqrt(1.0 + ((1.0 - c_a)*z_norm)/c_a) - 1.0)*np.dot(
+                    np.dot(a, z[:, np.newaxis]), z[np.newaxis, :])
         return mean, y, a, best_so_far_y, p_s
 
     def restart_reinitialize(self, mean=None, y=None, a=None, best_so_far_y=None,
