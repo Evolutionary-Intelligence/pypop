@@ -49,7 +49,7 @@ class OPOC2006(ES):
        >>> results = opoc2006.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"OPOC2006: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       OPOC2006: 5000, 2.232289087159005e-17
+       OPOC2006: 5000, 2.2322932872757695e-17
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/w5xmyvd5>`_ for more details.
