@@ -78,12 +78,28 @@
     33000    14.92188
     36000    12.75626
     39000    10.15624
+
+
+    def step(x):
+        return np.sum(np.power(np.floor(x + 0.5), 2))
+
+
+      300   167.00000
+      600    45.00000
+      900     9.00000
+     1200     4.00000
+     1500     0.00000
+     1800     2.00000
+     2100     1.00000
+     2400     0.00000
+     2700     0.00000
+     3000     0.00000
 """
 import time
 
 import numpy as np
 
-from pypop7.benchmarks.base_functions import ellipsoid, sphere, rosenbrock
+from pypop7.benchmarks.base_functions import ellipsoid, sphere, rosenbrock, step
 from pypop7.optimizers.es.cmaes import CMAES as Solver
 
 
@@ -163,3 +179,28 @@ if __name__ == '__main__':
     #                   [3.60000000e+04, 1.11372868e+01],
     #                   [3.90000000e+04, 9.49352016e+00],
     #                   [4.00000000e+04, 8.81329780e+00]]
+    start_run = time.time()
+    ndim_problem = 40
+    problem = {'fitness_function': step,
+               'ndim_problem': ndim_problem}
+    options = {'max_function_evaluations': 3000,
+               'seed_rng': 0,
+               'x': 3 * np.ones((ndim_problem,)),  # mean
+               'sigma': 2.0,
+               'saving_fitness': 300,
+               'is_restart': False}
+    solver = Solver(problem, options)
+    results = solver.optimize()
+    print(results)
+    print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
+    # 'fitness': array([[1.0e+00, 7.7e+02],
+    #                   [3.0e+02, 9.4e+01],
+    #                   [6.0e+02, 3.1e+01],
+    #                   [9.0e+02, 1.3e+01],
+    #                   [1.2e+03, 2.0e+00],
+    #                   [1.5e+03, 0.0e+00],
+    #                   [1.8e+03, 0.0e+00],
+    #                   [2.1e+03, 0.0e+00],
+    #                   [2.4e+03, 0.0e+00],
+    #                   [2.7e+03, 0.0e+00],
+    #                   [3.0e+03, 0.0e+00]])
