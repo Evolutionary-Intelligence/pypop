@@ -1,12 +1,12 @@
-"""Repeat Table 2 and 3 from the following paper:
+"""Repeat the following paper for `SEPCMAES`:
     Ros, R. and Hansen, N., 2008, September.
     A simple modification in CMA-ES achieving linear time and space complexity.
     In International Conference on Parallel Problem Solving from Nature (pp. 296-305).
     Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30
 
-    Since our code obtains very similar performance as the original paper, we argue that
-    the repeatability of `SEPCMAES` can be well-documented (*at least partly*).
+    Luckily our Python code could repeat the data reported in the paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 
@@ -57,9 +57,9 @@ if __name__ == '__main__':
         print(f.__name__, 'dim =', problem['ndim_problem'],
               'fitness threshold =', options['fitness_threshold'],
               'functions evaluations =', results['n_function_evaluations'])
-    # _hyper_ellipsoid dim = 30 fitness threshold = 1e-10 functions evaluations = 6261
-    # _different_powers dim = 30 fitness threshold = 1e-20 functions evaluations = 10238
-    # rosenbrock dim = 30 fitness threshold = 1e-06 functions evaluations = 102590
+    # _hyper_ellipsoid dim = 30 fitness threshold = 1e-10 functions evaluations = 6261 (5.9e3 from the original paper)
+    # _different_powers dim = 30 fitness threshold = 1e-20 functions evaluations = 10238 (9.6e3 from the original paper)
+    # rosenbrock dim = 30 fitness threshold = 1e-06 functions evaluations = 102590 (1.06e5 from the original paper)
 
     # Table 3
     ndim_problem = 20
@@ -85,5 +85,5 @@ if __name__ == '__main__':
         print(f.__name__, 'dim =', problem['ndim_problem'],
               'fitness threshold =', options['fitness_threshold'],
               'function evaluations =', results['n_function_evaluations'])
-    # ellipsoid dim = 20 fitness threshold = 1e-09 function evaluations = 5861
-    # rosenbrock dim = 20 fitness threshold = 1e-09 function evaluations = 110151
+    # ellipsoid dim = 20 fitness threshold = 1e-09 function evaluations = 5861 (5.4e3 from the original paper)
+    # rosenbrock dim = 20 fitness threshold = 1e-09 function evaluations = 110151 (1.16e5 from the original paper)
