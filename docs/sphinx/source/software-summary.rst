@@ -33,6 +33,8 @@ Python
     * https://github.com/c-bata/benchmark-warm-starting-cmaes (CMA-ES)
     * https://github.com/EvoConJP/CMA-ES_with_Margin (CMA-ES)
 
+  * https://github.com/NiMlr/High-Dim-ES-RL (CMA-ES)
+
   * https://github.com/optuna/optuna (CMA-ES)
 
 * https://github.com/google/evojax
