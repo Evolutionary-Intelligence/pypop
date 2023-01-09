@@ -26,6 +26,8 @@ Python
 
   * https://github.com/akimotolab/multi-fidelity (DD-CMA-ES)
 
+    * https://gist.github.com/youheiakimoto/1180b67b5a0b1265c204cba991fa8518 (DD-CMA-ES)
+
   * https://github.com/CyberAgentAILab/cmaes (CMA-ES)
 
     * https://github.com/c-bata/benchmark-warm-starting-cmaes (CMA-ES)
