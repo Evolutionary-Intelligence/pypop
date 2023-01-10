@@ -6,6 +6,72 @@ from pypop7.optimizers.es.es import ES
 class DDCMA(ES):
     """Diagonal Decoding Covariance Matrix Adaptation (DDCMA).
 
+    .. note:: `DDCMA` is a *state-of-the-art* improvement version of the well-designed `CMA-ES` algorithm, which enjoys
+       both two worlds of `SEP-CMA-ES` (faster adaptation on nearly separable problems) and `CMA-ES` (more robust
+       adaptation on ill-conditioned non-separable problems) via **adaptive diagonal decoding**. It is **highly
+       recommended** to first attempt other ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale black-box
+       optimization, since `DDCMA` has a *quadratic* time complexity (w.r.t. each sampling).
+
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'mean'          - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
+                  `4 + int(3*np.log(problem['ndim_problem']))`).
+
+    Examples
+    --------
+    Use the optimizer `DDCMA` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.es.ddcma import DDCMA
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'is_restart': False,
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       >>> ddcma = DDCMA(problem, options)  # initialize the optimizer class
+       >>> results = ddcma.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"CMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <>`_ for more details.
+
+    Attributes
+    ----------
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search distribution.
+    n_individuals : `int`
+                    number of offspring, aka offspring population size.
+    sigma         : `float`
+                    final global step-size, aka mutation strength.
+
     References
     ----------
     Akimoto, Y. and Hansen, N., 2020.
