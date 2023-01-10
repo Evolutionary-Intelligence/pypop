@@ -84,6 +84,29 @@ class DDCMA(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
+        self._mu_eff = None
+        self._mu_eff_negative = None
+        self.c_s = None
+        self.d_s = None
+        self._gamma_s = 0.0
+        self._gamma_c = 0.0
+        self._gamma_d = 0.0
+        self.c_1 = None
+        self.c_w = None
+        self.c_c = None
+        self._w = None
+        self.c_1_d = None
+        self.c_w_d = None
+        self.c_c_d = None
+        self._w_d = None
+        self._beta_eig = None
+        self._t_eig = None
+        self._n_generations = 0
+
+    def _set_c_1_and_c_1_d(self, m):
+        return 1.0/(2.0*(m/self.ndim_problem + 1.0)*np.power((self.ndim_problem + 1.0), 0.75) + self._mu_eff/2.0)
+
+    def initialize(self, is_restart=False):
         w_apostrophe = np.log((self.n_individuals + 1.0)/2.0) - np.log(np.arange(self.n_individuals) + 1.0)
         positive_w, negative_w = w_apostrophe > 0, w_apostrophe < 0
         w_apostrophe[positive_w] /= np.sum(np.abs(w_apostrophe[positive_w]))
@@ -101,8 +124,7 @@ class DDCMA(ES):
         self.c_w = np.minimum(mu_apostrophe*self.c_1, 1.0 - self.c_1)
         self.c_c = np.sqrt(self._mu_eff*self.c_1)/2.0
         self._w = np.copy(w_apostrophe)
-        self._w[negative_w] *= np.minimum(1.0 + self.c_1/self.c_w,
-                                          1.0 + 2.0*self._mu_eff_negative/(self._mu_eff + 2.0))
+        self._w[negative_w] *= np.minimum(1.0 + self.c_1/self.c_w, 1.0 + 2.0*self._mu_eff_negative/(self._mu_eff + 2.0))
         m = self.ndim_problem
         self.c_1_d = self._set_c_1_and_c_1_d(m)
         self.c_w_d = np.minimum(mu_apostrophe*self.c_1_d, 1.0 - self.c_1_d)
@@ -112,12 +134,6 @@ class DDCMA(ES):
                                             1.0 + 2.0*self._mu_eff_negative/(self._mu_eff + 2.0))
         self._beta_eig = 10*self.ndim_problem
         self._t_eig = np.maximum(1.0, np.floor(1.0/(self._beta_eig*(self.c_1 + self.c_w))))
-        self._n_generations = 0
-
-    def _set_c_1_and_c_1_d(self, m):
-        return 1.0/(2.0*(m/self.ndim_problem + 1.0)*np.power((self.ndim_problem + 1.0), 0.75) + self._mu_eff/2.0)
-
-    def initialize(self, is_restart=False):
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         d = self.sigma*np.ones((self.ndim_problem,))  # diagonal decoding matrix
         self.sigma = 1.0
@@ -132,6 +148,8 @@ class DDCMA(ES):
         p_c_d = np.zeros((self.ndim_problem,))
         cm = np.eye(self.ndim_problem)
         sqrt_eig_va = np.ones((self.ndim_problem,))
+        self._list_initial_mean.append(np.copy(mean))
+        self._n_generations = 0
         return mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va
 
     def iterate(self, mean=None, d=None, sqrt_c=None, z=None, cz=None, x=None, y=None, args=None):
@@ -189,6 +207,12 @@ class DDCMA(ES):
             cm[:, :] = 0.0
         return mean, d, sqrt_c, inv_sqrt_c, cz, p_s, p_c, p_c_d, cm, sqrt_eig_va
 
+    def restart_reinitialize(self, mean=None, d=None, sqrt_c=None, inv_sqrt_c=None, z=None, cz=None,
+                             x=None, y=None, p_s=None, p_c=None, p_c_d=None, cm=None, sqrt_eig_va=None):
+        if ES.restart_reinitialize(self, y):
+            mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va = self.initialize(True)
+        return mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va
+
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va = self.initialize()
@@ -198,6 +222,9 @@ class DDCMA(ES):
             mean, d, sqrt_c, inv_sqrt_c, cz, p_s, p_c, p_c_d, cm, sqrt_eig_va = self._update_distribution(
                 mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va)
             self._print_verbose_info(fitness, y)
+            if self.is_restart:
+                mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va = self.restart_reinitialize(
+                    mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va)
         results = self._collect(fitness, y, mean)
         # by default, do NOT save covariance matrix of search distribution in order to save memory,
         # owing to its *quadratic* space complexity
