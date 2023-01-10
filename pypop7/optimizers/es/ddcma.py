@@ -58,10 +58,11 @@ class DDCMA(ES):
        >>> ddcma = DDCMA(problem, options)  # initialize the optimizer class
        >>> results = ddcma.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"CMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       >>> print(f"DDCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       DDCMA: 5000, 0.0
 
     For its correctness checking of coding, refer to `this code-based repeatability report
-    <>`_ for more details.
+    <https://tinyurl.com/mc34kkmn>`_ for more details.
 
     Attributes
     ----------
