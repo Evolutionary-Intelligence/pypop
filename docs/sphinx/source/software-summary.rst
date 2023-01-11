@@ -39,6 +39,8 @@ Python
 
 * https://github.com/google/evojax
 
+* https://github.com/google/vizier
+
 * https://github.com/fmfn/BayesianOptimization
 * https://github.com/hardmaru/estool
 * https://github.com/mradaideh/neorl
