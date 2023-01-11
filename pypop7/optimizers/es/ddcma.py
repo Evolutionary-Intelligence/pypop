@@ -210,7 +210,7 @@ class DDCMA(ES):
 
     def restart_reinitialize(self, mean=None, d=None, sqrt_c=None, inv_sqrt_c=None, z=None, cz=None,
                              x=None, y=None, p_s=None, p_c=None, p_c_d=None, cm=None, sqrt_eig_va=None):
-        if ES.restart_reinitialize(self, y):
+        if self.is_restart and ES.restart_reinitialize(self, y):
             mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va = self.initialize(True)
         return mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va
 
@@ -223,9 +223,8 @@ class DDCMA(ES):
             mean, d, sqrt_c, inv_sqrt_c, cz, p_s, p_c, p_c_d, cm, sqrt_eig_va = self._update_distribution(
                 mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va)
             self._print_verbose_info(fitness, y)
-            if self.is_restart:
-                mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va = self.restart_reinitialize(
-                    mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va)
+            mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va = self.restart_reinitialize(
+                mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va)
         results = self._collect(fitness, y, mean)
         # by default, do NOT save covariance matrix of search distribution in order to save memory,
         # owing to its *quadratic* space complexity
