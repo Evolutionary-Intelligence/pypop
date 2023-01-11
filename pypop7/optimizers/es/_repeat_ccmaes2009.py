@@ -1,14 +1,14 @@
 """Repeat the following paper for `CCMAES2009`:
-    Krause, O. and Igel, C., 2015, January.
-    A more efficient rank-one covariance matrix update for evolution strategies.
-    In Proceedings of ACM Conference on Foundations of Genetic Algorithms (pp. 129-136).
-    https://dl.acm.org/doi/abs/10.1145/2725494.2725496
+    Suttorp, T., Hansen, N. and Igel, C., 2009.
+    Efficient covariance matrix update for variable metric evolution strategies.
+    Machine Learning, 75(2), pp.167-197.
+    https://link.springer.com/article/10.1007/s10994-009-5102-1
 
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/ccmaes2009
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `CCMAES2009` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import pickle
 
@@ -35,8 +35,8 @@ def plot(function, ndim):
         plt.xlim([0, 3e4])
         plt.xticks([0, 5e3, 1e4, 1.5e4, 2e4, 2.5e4, 3e4])
     plt.plot(res['fitness'][:, 0], res['fitness'][:, 1], color='r')
-    plt.xlabel("objective function evaluations")
-    plt.ylabel("objective function value")
+    plt.xlabel('objective function evaluations')
+    plt.ylabel('objective function value')
     plt.title(function.capitalize())
     plt.show()
 
