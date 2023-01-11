@@ -7,8 +7,8 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/opoa2010
 
-    Luckily our code could repeat the data reported in the original paper *nearly well*.
-    Therefore, we argue that the repeatability of `OPOA2010` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import pickle
 
@@ -22,27 +22,20 @@ from pypop7.optimizers.es.opoa2010 import OPOA2010
 
 
 class Fig1(OPOA2010):
-    def optimize(self, fitness_function=None, args=None):
+    def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
-        sigmas = [self.sigma]  # for plotting
         mean, y, a, a_i, best_so_far_y, p_s, p_c = self.initialize(args)
-        if self.saving_fitness:
-            fitness.append(y)
-        self._print_verbose_info(y)
-        while True:
+        sigmas = [self.sigma]  # for plotting
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, y)
             mean, y, a, a_i, best_so_far_y, p_s, p_c = self.iterate(
-                args, mean, a, a_i, best_so_far_y, p_s, p_c)
+                mean, a, a_i, best_so_far_y, p_s, p_c, args)
             sigmas.append(self.sigma)  # for plotting
-            if self.saving_fitness:
-                fitness.append(y)
-            if self._check_terminations():
-                break
             self._n_generations += 1
-            self._print_verbose_info(y)
             if self.is_restart:
                 mean, y, a, a_i, best_so_far_y, p_s, p_c = self.restart_reinitialize(
-                    args, mean, y, a, a_i, best_so_far_y, p_s, p_c, fitness)
-        res = self._collect_results(fitness, mean)
+                    mean, y, a, a_i, best_so_far_y, p_s, p_c, fitness, args)
+        res = self._collect(fitness, y, mean)
         res['sigmas'] = sigmas  # for plotting
         return res
 
