@@ -196,6 +196,7 @@ Since this library is built on the wonderful numerical computing library NumPy, 
   * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
   * [Taxonomy](https://link.springer.com/article/10.1007/s11047-020-09820-4)
 * Benchmarking [ [benchmarking-network](https://sites.google.com/view/benchmarking-network) ]
+  * Kudela, J., 2022. [A critical problem in benchmarking and analysis of evolutionary computation methods](https://www.nature.com/articles/s42256-022-00579-0). Nature Machine Intelligence, 4(12), pp.1238-1245.
   * Meunier, L., Rakotoarison, H., Wong, P.K., Roziere, B., Rapin, J., Teytaud, O., Moreau, A. and Doerr, C., 2022. [Black-box optimization revisited: Improving algorithm selection wizards through massive benchmarking](https://ieeexplore.ieee.org/abstract/document/9524335). IEEE Transactions on Evolutionary Computation, 26(3), pp.490-500.
   * Hansen, N., Auger, A., Ros, R., Mersmann, O., Tušar, T. and Brockhoff, D., 2021. [COCO: A platform for comparing continuous optimizers in a black-box setting](https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977). Optimization Methods and Software, 36(1), pp.114-144.
   * Auger, A. and Hansen, N., 2021, July. [Benchmarking: State-of-the-art and beyond](https://dl.acm.org/doi/abs/10.1145/3449726.3461424). In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 339-340). ACM.
