@@ -171,14 +171,15 @@ class ES(Optimizer):
                     fitness.extend(y)
                 else:
                     fitness.append(y)
-        is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
-        is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
-        is_verbose_2 = self.termination_signal > 0 and is_verbose
-        is_verbose_3 = is_print and is_verbose
-        if self.verbose and (is_verbose_1 or is_verbose_2 or is_verbose_3):
-            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
-            print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
-            self._printed_evaluations = self.n_function_evaluations
+        if self.verbose:
+            is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
+            is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
+            is_verbose_2 = self.termination_signal > 0 and is_verbose
+            is_verbose_3 = is_print and is_verbose
+            if is_verbose_1 or is_verbose_2 or is_verbose_3:
+                info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
+                print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+                self._printed_evaluations = self.n_function_evaluations
 
     def restart_reinitialize(self, y):
         min_y = np.min(y)
