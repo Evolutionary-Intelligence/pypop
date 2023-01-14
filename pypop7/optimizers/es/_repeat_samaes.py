@@ -4,6 +4,9 @@
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation Companion (pp. 682-700). ACM.
     https://dl.acm.org/doi/abs/10.1145/3377929.3389870
 
+    All generated figures can be accessed via the following link:
+    https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/repeatability/samaes/_repeat_samaes.png
+
     Luckily our Python code could repeat the data reported in the paper *well*.
     Therefore, we argue that its repeatability could be **well-documented**.
 """
@@ -35,9 +38,7 @@ if __name__ == '__main__':
     sns.set_theme(style='darkgrid')
     ndim_problem = 15  # dimension of objective function
     problem = {'fitness_function': f_lens,  # objective function
-               'ndim_problem': ndim_problem,  # number of dimensionality of objective function
-               'lower_boundary': -5*np.ones((ndim_problem,)),  # lower boundary of search range
-               'upper_boundary': 5*np.ones((ndim_problem,))}  # upper boundary of search range
+               'ndim_problem': ndim_problem}  # number of dimensionality of objective function
     options = {'max_function_evaluations': 1000*20,  # maximum of function evaluations
                'seed_rng': 1,  # seed of random number generation (for repeatability)
                'n_individuals': 20,
