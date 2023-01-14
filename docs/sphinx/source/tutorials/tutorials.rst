@@ -11,8 +11,10 @@ Here we provide several *interesting* tutorials to help better use this library 
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
   recently by FacebookResearch)
 
-For all optimizers from this library, we also provide a *toy* example on their corresponding
-`API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_ documentations.
+For all black-box optimizers (BBO) from this open-source library, we also provide a *toy* example on their corresponding
+`API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_ documentations and two *testing* code (if possible) on
+their corresponding `source code <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_
+folders.
 
 Lens Shape Optimization
 -----------------------
