@@ -62,6 +62,7 @@ class SAMAES(SAES):
        >>> results = samaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SAMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       SAMAES: 5000, 5.674972930091687e-17
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/56k42a2n>`_ for more details.
@@ -105,7 +106,7 @@ class SAMAES(SAES):
         d = np.empty((self.n_individuals, self.ndim_problem))
         for k in range(self.n_individuals):  # to sample offspring population
             if self._check_terminations():
-                return x, sigmas, y, m, z
+                return x, sigmas, y, m, z, d
             sigmas[k] = self.sigma*np.exp(self.lr_sigma*self.rng_optimization.standard_normal())
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))
             d[k] = np.matmul(m, z[k])
