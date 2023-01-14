@@ -39,6 +39,33 @@ class SAMAES(SAES):
                 * 'lr_matrix'     - learning rate of matrix adaptation (`float`, default:
                   `1.0/(2.0 + ((problem['ndim_problem'] + 1.0)*problem['ndim_problem'])/options['n_parents'])`).
 
+    Examples
+    --------
+    Use the optimizer `SAMAES` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.es.samaes import SAMAES
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       >>> samaes = SAMAES(problem, options)  # initialize the optimizer class
+       >>> results = samaes.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"SAMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/56k42a2n>`_ for more details.
+
     Attributes
     ----------
     lr_sigma      : `float`
@@ -75,14 +102,16 @@ class SAMAES(SAES):
 
     def iterate(self, x=None, mean=None, sigmas=None, y=None, m=None, args=None):
         z = np.empty((self.n_individuals, self.ndim_problem))
+        d = np.empty((self.n_individuals, self.ndim_problem))
         for k in range(self.n_individuals):  # to sample offspring population
             if self._check_terminations():
                 return x, sigmas, y, m, z
             sigmas[k] = self.sigma*np.exp(self.lr_sigma*self.rng_optimization.standard_normal())
             z[k] = self.rng_optimization.standard_normal((self.ndim_problem,))
-            x[k] = mean + sigmas[k]*np.matmul(m, z[k])
+            d[k] = np.matmul(m, z[k])
+            x[k] = mean + sigmas[k]*d[k]
             y[k] = self._evaluate_fitness(x[k], args)
-        return x, sigmas, y, m, z
+        return x, sigmas, y, m, z, d
 
     def restart_initialize(self, x=None, mean=None, sigmas=None, y=None, m=None):
         if self.is_restart and self._restart_initialize(y):
@@ -94,15 +123,16 @@ class SAMAES(SAES):
         x, mean, sigmas, y, m = self.initialize()
         while not self._check_terminations():
             # sample and evaluate offspring population
-            x, sigmas, y, m, z = self.iterate(x, mean, sigmas, y, m, args)
+            x, sigmas, y, m, z, d = self.iterate(x, mean, sigmas, y, m, args)
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
             order = np.argsort(y)[:self.n_parents]
             mean = np.mean(x[order], axis=0)  # intermediate multi-recombination
             self.sigma = np.mean(sigmas[order])  # intermediate multi-recombination
-            zz = np.zeros((self.ndim_problem, self.ndim_problem))  # for matrix adaptation
-            for i in z[order]:
-                zz += np.outer(i, i)
-            m *= (self._eye + self.lr_matrix*(zz/self.n_parents - self._eye))
+            # use the following code (fast version) owing to its quadratic time complexity
+            dz = np.zeros((self.ndim_problem, self.ndim_problem))  # for matrix adaptation
+            for i in range(self.n_parents):
+                dz += np.outer(d[order[i]], z[order[i]])
+            m = (1.0 - self.lr_matrix)*m + self.lr_matrix*(dz/self.n_parents)
             x, mean, sigmas, y, m = self.restart_initialize(x, mean, sigmas, y, m)
         return self._collect(fitness, y, mean)
