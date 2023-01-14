@@ -1,7 +1,4 @@
-"""This is a simple demo that optimizes the lens shape.
-
-    Reference
-    ---------
+"""This is a simple demo that optimizes the lens shape, modeled in the following paper:
     Beyer, H.G., 2020, July.
     Design principles for matrix adaptation evolution strategies.
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation Companion (pp. 682-700). ACM.
@@ -27,7 +24,7 @@ d_init = 3  # initialization
 
 
 # define objective function to be minimized
-def f_lens(x):
+def f_lens(x):  # refer to [Beyer, 2020, ACM-GECCO] for the mathematical details
     n = len(x)
     focus = r - ((h*np.arange(1, n) - 0.5) + b/h*(eps - 1)*np.transpose(np.abs(x[1:]) - np.abs(x[:(n-1)])))
     mass = h*(np.sum(np.abs(x[1:(n-1)])) + 0.5*(np.abs(x[0]) + np.abs(x[n-1])))
@@ -56,7 +53,7 @@ def get_path(x):
 def plot(xs):
     file_names, frames = [], []
     for i in range(len(xs)):
-        sub_figure = "_" + str(i) + ".png"
+        sub_figure = '_' + str(i) + '.png'
         fig = plt.figure()
         ax = fig.add_subplot(111)
         plt.rcParams['font.family'] = 'Times New Roman'
@@ -70,45 +67,41 @@ def plot(xs):
         file_names.append(sub_figure)
     for image in file_names:
         frames.append(imageio.imread(image))
-    imageio.mimsave("./lens_optimization.gif", frames, 'GIF', duration=0.3)
+    imageio.mimsave('./lens_optimization.gif', frames, 'GIF', duration=0.3)
 
 
-class MAES1(MAES):
+class MAES1(MAES):  # to overwrite the original MAES algorithm for plotting
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         z, d, mean, s, tm, y = self.initialize()
-        xs = [mean.copy()]
-        while True:
+        xs = [mean.copy()]  # for plotting
+        while not self._check_terminations():
             # sample and evaluate offspring population
             z, d, y = self.iterate(z, d, mean, tm, y, args)
             if self.saving_fitness and (not self._n_generations % self.saving_fitness):
-                xs.append(self.best_so_far_x)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
+                xs.append(self.best_so_far_x)  # for plotting
             mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
-            self._print_verbose_info(y)
+            self._print_verbose_info(fitness, y)
             self._n_generations += 1
             if self.is_restart:
                 z, d, mean, s, tm, y = self.restart_reinitialize(z, d, mean, s, tm, y)
-        res = self._collect_results(fitness, mean)
+        res = self._collect(fitness, y, mean)
         res['s'] = s
-        res['xs'] = xs
+        res['xs'] = xs  # for plotting
         return res
 
 
 if __name__ == '__main__':
-    dim = 15  # dimension of objective function
-    problem = {'fitness_function': f_lens,
-               'ndim_problem': dim,
-               'lower_boundary': -5*np.ones((dim,)),
-               'upper_boundary': 5*np.ones((dim,))}
-    options = {'max_function_evaluations': 7e3,
-               'seed_rng': 2022,
-               'x': d_init*np.ones((dim,)),
-               'sigma': 0.3,
-               'saving_fitness': 50,
-               'is_restart': False}
+    ndim_problem = 15  # dimension of objective function
+    problem = {'fitness_function': f_lens,  # objective function
+               'ndim_problem': ndim_problem,  # number of dimensionality of objective function
+               'lower_boundary': -5*np.ones((ndim_problem,)),  # lower boundary of search range
+               'upper_boundary': 5*np.ones((ndim_problem,))}  # upper boundary of search range
+    options = {'max_function_evaluations': 7e3,  # maximum of function evaluations
+               'seed_rng': 2022,  # seed of random number generation (for repeatability)
+               'x': d_init*np.ones((ndim_problem,)),  # initial mean of Gaussian search distribution
+               'sigma': 0.3,  # global step-size of Gaussian search distribution (not necessarily an optimal value)
+               'saving_fitness': 50,  # to record best-so-far fitness every 50 function evaluations
+               'is_restart': False}  # whether or not to run the (default) restart process
     results = MAES1(problem, options).optimize()
     plot(results['xs'])
