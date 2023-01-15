@@ -372,4 +372,8 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
 This open-source Python library for black-box optimization is now supported by **Shenzhen Fundamental Research Program** under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to **Prof. Yuhui Shi** (CSE, SUSTech @ Shenzhen, China), and actively developed by three of his group members (e.g., *Qiqi Duan*, *Chang Shao*, *Guochen Zhou*).
 
-Now [Zhuowei Wang](https://scholar.google.com/citations?user=JJb16CAAAAAJ) from University of Technology Sydney (UTS) takes part in this library as one core developer (for testing). Mingyang Feng from University of Birmingham helps to search papers involved in this library.
+Now [Zhuowei Wang](https://scholar.google.com/citations?user=JJb16CAAAAAJ) from University of Technology Sydney (UTS) takes part in this library as one core developer (for testing). Mingyang Feng from University of Birmingham (UoB) helps to search papers involved in this library and also test code on MacOSX.
+
+## Citation for PyPop7
+
+If you use this library in your paper or project, it is highly welcomed to cite the following paper: .
