@@ -376,4 +376,4 @@ Now [Zhuowei Wang](https://scholar.google.com/citations?user=JJb16CAAAAAJ) from 
 
 ## Citation for PyPop7
 
-If you use this library in your paper or project, it is highly welcomed to cite the following paper: .
+If you use this library in your paper or project, it is highly welcomed to cite the following paper: Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y., Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.
