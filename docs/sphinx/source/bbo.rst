@@ -69,6 +69,7 @@ breadth**, though the aesthetic judgment is somewhat *subjective*. We believe th
 of evolutionary computation methods" <https://www.nature.com/articles/s42256-022-00579-0>`_.
 
 For **benchmarking** of continuous optimizers, refer to e.g.
+`[Hillstrom, 1977, ACM-TOMS] <https://dl.acm.org/doi/10.1145/355759.355760>`_,
 `[More et al., 1981, ACM-TOMS] <https://dl.acm.org/doi/10.1145/355934.355936>`_,
 `[Hansen et al., 2021, OMS] <https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_,
 `[Meunier et al., 2022, TEVC] <https://ieeexplore.ieee.org/abstract/document/9524335>`_.
