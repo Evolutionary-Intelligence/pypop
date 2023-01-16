@@ -150,7 +150,7 @@ class PSO(Optimizer):
     def _collect_results(self, fitness, y=None):
         if y is not None:
             self._print_verbose_info(fitness, y)
-        results = Optimizer._collect_results(self, fitness)
+        results = Optimizer._collect(self, fitness)
         results['_n_generations'] = self._n_generations
         return results
 
