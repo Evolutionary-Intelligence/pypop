@@ -43,29 +43,35 @@ General-Purpose Optimization Algorithms
 ---------------------------------------
 
 .. note:: *"Given the abundance of black-box optimization algorithms and of optimization problems, how can best match
-   algorithms to problems."* ---`[Wolpert&Macready, 1997, TEVC] <https://ieeexplore.ieee.org/document/585893>`_
+   algorithms to problems."*---`[Wolpert&Macready, 1997, TEVC] <https://ieeexplore.ieee.org/document/585893>`_
 
 `"Clearly, evaluating and comparing algorithms on a single problem is not sufficient to determine their quality, as much
 of their benefit lies in their performance generalizing to large classes of problems. One of the goals of research in
 optimization is, arguably, to provide practitioners with reliable, powerful and general-purpose algorithms."
-<https://people.idsia.ch/~schaul/publications/thesis.pdf>`_
+<https://people.idsia.ch/~schaul/publications/thesis.pdf>`_ As a library for BBO, a natural choice is to first prefer
+and cover general-purpose optimization algorithms (when compared with highly-customized versions), since for most
+real-world black-box optimization problems the (possibly useful) problem structure is typically unknown in advance.
 
 The following common criteria/principles may be highly expected to satisfy for general-purpose optimization algorithms:
 
-* effectiveness,
-* efficiency,
+* effectiveness and efficiency,
 * elegance (beauty),
-* flexibility,
+* flexibility (versatility),
 * robustness (reliability),
 * scalability,
-* simplicity,
-* versatility.
+* simplicity.
 
 Arguably, the *beauty* of general-purpose black-box optimizers should come from **theoretical depth** and/or **practical
-breadth**, though the aesthetic judgment is somewhat subjective. We believe that well-designed optimizers could pass
-**Test-of-Time**. For recent critical discussions, refer to e.g. `Metaphor-based metaheuristics, a call for action: the
-elephant in the room <https://link.springer.com/article/10.1007/s11721-021-00202-9>`_ and `A critical problem in
-benchmarking and analysis of evolutionary computation methods <https://www.nature.com/articles/s42256-022-00579-0>`_.
+breadth**, though the aesthetic judgment is somewhat *subjective*. We believe that well-designed optimizers could pass
+**Test-of-Time** in the history of black-box optimization. For recent critical discussions, refer to e.g.
+`"metaphor-based metaheuristics, a call for action: the elephant in the room"
+<https://link.springer.com/article/10.1007/s11721-021-00202-9>`_ and `"A critical problem in benchmarking and analysis
+of evolutionary computation methods" <https://www.nature.com/articles/s42256-022-00579-0>`_.
+
+For **benchmarking** of continuous optimizers, refer to e.g.
+`[More et al., 1981, ACM-TOMS] <https://dl.acm.org/doi/10.1145/355934.355936>`_,
+`[Hansen et al., 2021, OMS] <https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_,
+`[Meunier et al., 2022, TEVC] <https://ieeexplore.ieee.org/abstract/document/9524335>`_.
 
 POPulation-based OPtimization/Search (POP)
 ------------------------------------------
