@@ -7,8 +7,8 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/rmes
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `RMES` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import pickle
 
@@ -46,7 +46,7 @@ def plot(function, ndim):
 if __name__ == '__main__':
     sns.set_theme(style='darkgrid')
     ndim_problem = 1000
-    for f in [ellipsoid, discus, rosenbrock]:
+    for f in [rosenbrock, ellipsoid, discus]:
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem,
                    'lower_boundary': -10 * np.ones((ndim_problem,)),
@@ -54,8 +54,8 @@ if __name__ == '__main__':
         options = {'fitness_threshold': 1e-8,
                    'max_function_evaluations': 1e8,
                    'seed_rng': 2022,  # not given in the original paper
-                   'sigma': 20 / 3,
-                   'verbose': 20000,
+                   'sigma': 20.0 / 3.0,
+                   'is_restart': False,
                    'saving_fitness': 1}
         rmes = RMES(problem, options)
         results = rmes.optimize()
