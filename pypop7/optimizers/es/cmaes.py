@@ -167,7 +167,6 @@ class CMAES(ES):
             z = self.rng_optimization.standard_normal((self.ndim_problem,))  # Gaussian noise for mutation
             x[k] = mean + self.sigma*np.dot(np.dot(eig_ve, np.diag(eig_va)), z)  # offspring individual
             y[k] = self._evaluate_fitness(x[k], args)  # fitness
-        self._n_generations += 1
         return x, y
 
     def _update_distribution(self, x=None, mean=None, p_s=None, p_c=None, cm=None, eig_ve=None, eig_va=None, y=None):
@@ -209,8 +208,9 @@ class CMAES(ES):
         while not self._check_terminations():
             # sample and evaluate offspring population
             x, y = self.iterate(x, mean, eig_ve, eig_va, y, args)
-            mean, p_s, p_c, cm, eig_ve, eig_va = self._update_distribution(x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
             self._print_verbose_info(fitness, y)
+            self._n_generations += 1
+            mean, p_s, p_c, cm, eig_ve, eig_va = self._update_distribution(x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
             if self.is_restart:
                 x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.restart_reinitialize(
                     x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
