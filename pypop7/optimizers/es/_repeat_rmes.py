@@ -53,7 +53,7 @@ if __name__ == '__main__':
                    'upper_boundary': 10 * np.ones((ndim_problem,))}
         options = {'fitness_threshold': 1e-8,
                    'max_function_evaluations': 1e8,
-                   'seed_rng': 2022,  # not given in the original paper
+                   'seed_rng': 0,  # not given in the original paper
                    'sigma': 20.0 / 3.0,
                    'is_restart': False,
                    'saving_fitness': 1}
