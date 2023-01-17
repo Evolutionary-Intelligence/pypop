@@ -72,7 +72,9 @@ For **benchmarking** of continuous optimizers, refer to e.g.
 `[Hillstrom, 1977, ACM-TOMS] <https://dl.acm.org/doi/10.1145/355759.355760>`_,
 `[More et al., 1981, ACM-TOMS] <https://dl.acm.org/doi/10.1145/355934.355936>`_,
 `[Hansen et al., 2021, OMS] <https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_,
-`[Meunier et al., 2022, TEVC] <https://ieeexplore.ieee.org/abstract/document/9524335>`_.
+`[Meunier et al., 2022, TEVC] <https://ieeexplore.ieee.org/abstract/document/9524335>`_. As stated in
+`[More et al., 1981, ACM-TOMS]`, "not testing the algorithm on a large number of functions can easily lead to the
+cynical observer to conclude that the algorithm was tuned to particular functions".
 
 POPulation-based OPtimization/Search (POP)
 ------------------------------------------
@@ -106,9 +108,9 @@ Limitations of BBO
 ------------------
 
 .. note:: *"If you can obtain clean derivatives (even if it requires considerable effort) and the functions defining
-   your problem are smooth and free of noise you should not use derivative-free methods.."* ---[Conn et al., 2009:
-   INTRODUCTION TO DERIVATIVE-FREE OPTIMIZATION]
+   your problem are smooth and free of noise you should not use derivative-free methods.."*---`[Conn et al., 2009,
+   Introduction to Derivative-Free Optimization] <https://epubs.siam.org/doi/book/10.1137/1.9780898718768>`_
 
-Importantly, **not all** optimization problems fit in black-box optimizers. In fact, its arbitrary abuse in science and
-engineering can lead to wide criticism. Although not always, black-box optimizers often be seen as *"the last choice of
-search methods"*.
+Very importantly, **not all** optimization problems can fit well in black-box optimizers. In fact, its *arbitrary abuse*
+in science and engineering has resulted in wide criticism. Although not always, black-box optimizers are often seen as
+**"the last choice of search methods"**.
