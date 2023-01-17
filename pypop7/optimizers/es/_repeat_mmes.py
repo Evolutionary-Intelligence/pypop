@@ -7,8 +7,8 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/mmes
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `MMES` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import pickle
 
@@ -64,7 +64,6 @@ if __name__ == '__main__':
                    'max_function_evaluations': 1e8,
                    'seed_rng': 2022,  # not given in the original paper
                    'sigma': 3,
-                   'verbose': 20000,
                    'saving_fitness': 1,
                    'is_restart': False}
         solver = Solver(problem, options)
