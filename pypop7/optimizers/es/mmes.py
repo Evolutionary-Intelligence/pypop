@@ -28,22 +28,22 @@ class MMES(ES):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'm'             - number of candidate direction vectors (`int`, default:
-                  `2*int(np.ceil(np.sqrt(self.ndim_problem)))`),
+                  `2*int(np.ceil(np.sqrt(problem['ndim_problem'])))`),
                 * 'c_c'           - learning rate of evolution path update (`float`, default:
-                  `0.4/np.sqrt(self.ndim_problem)`),
+                  `0.4/np.sqrt(problem['ndim_problem'])`),
                 * 'ms'            - mixing strength (`int`, default: `4`),
                 * 'c_s'           - learning rate of global step-size adaptation (`float`, default: `0.3`),
                 * 'a_z'           - target significance level (`float`, default: `0.05`),
                 * 'distance'      - minimal distance of updating evolution paths (`int`, default:
-                  `int(np.ceil(1.0/self.c_c))`),
+                  `int(np.ceil(1.0/options['c_c']))`),
                 * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
-                  `4 + int(3*np.log(self.ndim_problem))`),
+                  `4 + int(3*np.log(problem['ndim_problem']))`),
                 * 'n_parents'     - number of parents, aka parental population size (`int`, default:
-                  `int(self.n_individuals/2)`).
+                  `int(options['n_individuals']/2)`).
 
     Examples
     --------
-    Use the `ES` optimizer `MMES` to minimize the well-known test function
+    Use the optimizer `MMES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -64,7 +64,7 @@ class MMES(ES):
        >>> results = mmes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"MMES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       MMES: 500000, 7.350414979806526
+       MMES: 500000, 7.350414979801825
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/3ym72w5m>`_ for more details.
@@ -82,15 +82,15 @@ class MMES(ES):
     m             : `int`
                     number of candidate direction vectors.
     mean          : `array_like`
-                    initial mean of Gaussian search distribution.
+                    initial (starting) point, aka mean of Gaussian search distribution.
     ms            : `int`
                     mixing strength.
     n_individuals : `int`
-                    number of offspring (λ: lambda), aka offspring population size.
+                    number of offspring, aka offspring population size.
     n_parents     : `int`
-                    number of parents (μ: mu), aka parental population size.
+                    number of parents, aka parental population size.
     sigma         : `float`
-                    final mutation strength.
+                    final global step-size, aka mutation strength.
 
     References
     ----------
@@ -129,11 +129,11 @@ class MMES(ES):
         self._n_mirror_sampling = int(np.ceil(self.n_individuals/2))
         x = np.zeros((self.n_individuals, self.ndim_problem))  # offspring population
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
-        p = np.zeros((self.ndim_problem,))  # evolution path (Line 2 in Algorithm 1)
-        w = 0.0  # Line 3
-        q = np.zeros((self.m, self.ndim_problem))  # candidate direction vectors (Line 4)
-        t = np.zeros((self.m,))  # Line 5 (generations recorded)
-        v = np.arange(self.m)  # Line 6 (indexes to evolution paths)
+        p = np.zeros((self.ndim_problem,))  # evolution path
+        w = 0.0
+        q = np.zeros((self.m, self.ndim_problem))  # candidate direction vectors
+        t = np.zeros((self.m,))  # recorded generations
+        v = np.arange(self.m)  # indexes to evolution paths
         y = np.tile(self._evaluate_fitness(mean, args), (self.n_individuals,))  # fitness
         return x, mean, p, w, q, t, v, y
 
@@ -144,8 +144,8 @@ class MMES(ES):
                 j_k = v[(self.m - self.rng_optimization.geometric(self.c_a) % self.m) - 1]
                 zq += self.rng_optimization.standard_normal()*q[j_k]
             z = self._z_1*self.rng_optimization.standard_normal((self.ndim_problem,))
-            z += self._z_2*zq  # Line 13
-            x[k] = mean + self.sigma*z  # Line 14
+            z += self._z_2*zq
+            x[k] = mean + self.sigma*z
             if (self._n_mirror_sampling + k) < self.n_individuals:
                 x[self._n_mirror_sampling + k] = mean - self.sigma*z
         for k in range(self.n_individuals):
@@ -154,61 +154,49 @@ class MMES(ES):
             y[k] = self._evaluate_fitness(x[k], args)
         return x, y
 
-    def _update_distribution(self, x=None, mean=None, p=None, w=None,
-                             q=None, t=None, v=None, y=None, y_bak=None):
-        order = np.argsort(y)
-        y.sort()  # Line 16
-        mean_w = np.zeros((self.ndim_problem,))
-        for k in range(self.n_parents):  # Line 17
-            mean_w += self._w[k]*x[order[k]]
-        p = self._p_1*p + self._p_2*np.sqrt(self._mu_eff)*(mean_w - mean)/self.sigma  # Line 18
-        mean = mean_w  # for Line 17
+    def _update_distribution(self, x=None, mean=None, p=None, w=None, q=None,
+                             t=None, v=None, y=None, y_bak=None):
+        order = np.argsort(y)[:self.n_parents]
+        y.sort()
+        mean_w = np.dot(self._w[:self.n_parents], x[order])
+        p = self._p_1*p + self._p_2*np.sqrt(self._mu_eff)*(mean_w - mean)/self.sigma
+        mean = mean_w
         if self._n_generations < self.m:
             q[self._n_generations] = p
         else:
-            k_star = np.argmin(t[v[1:]] - t[v[:(self.m - 1)]])  # Line 19
+            k_star = np.argmin(t[v[1:]] - t[v[:(self.m - 1)]])
             k_star += 1
-            if t[v[k_star]] - t[v[k_star - 1]] > self.distance:  # Line 20
-                k_star = 0  # Line 21
+            if t[v[k_star]] - t[v[k_star - 1]] > self.distance:
+                k_star = 0
             v = np.append(np.append(v[:k_star], v[(k_star + 1):]), v[k_star])
-            t[v[-1]], q[v[-1]] = self._n_generations, p  # Line 25, 26
-        # set for success-based adaptation of mutation strength
-        l_w = np.dot(self._w, y_bak[:self.n_parents] > y[:self.n_parents])  # Line 27
-        w = self._w_1*w + self._w_2*np.sqrt(self._mu_eff)*(2*l_w - 1)  # Line 28
-        self.sigma *= np.exp(norm.cdf(w) - 1.0 + self.a_z)  # Line 29
+            t[v[-1]], q[v[-1]] = self._n_generations, p
+        # conduct success-based mutation strength adaptation
+        l_w = np.dot(self._w, y_bak[:self.n_parents] > y[:self.n_parents])
+        w = self._w_1*w + self._w_2*np.sqrt(self._mu_eff)*(2*l_w - 1)
+        self.sigma *= np.exp(norm.cdf(w) - 1.0 + self.a_z)
         return mean, p, w, q, t, v
 
     def restart_reinitialize(self, args=None, x=None, mean=None, p=None, w=None, q=None,
                              t=None, v=None, y=None, fitness=None):
-        is_restart = ES.restart_reinitialize(self)
-        if is_restart:
-            x, mean, p, w, q, t, v, y = self.initialize(args, is_restart)
-            if self.saving_fitness:
-                fitness.append(y[0])
-            self._print_verbose_info(y)
+        if self.is_restart and ES.restart_reinitialize(self, y):
+            x, mean, p, w, q, t, v, y = self.initialize(args, True)
+            self._print_verbose_info(fitness, y[0])
         return x, mean, p, w, q, t, v, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         x, mean, p, w, q, t, v, y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.append(y[0])
-        self._print_verbose_info(y)
-        while True:
+        self._print_verbose_info(fitness, y[0])
+        while not self._check_terminations():
             y_bak = np.copy(y)
             # sample and evaluate offspring population
             x, y = self.iterate(x, mean, q, v, y, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
             mean, p, w, q, t, v = self._update_distribution(x, mean, p, w, q, t, v, y, y_bak)
             self._n_generations += 1
-            self._print_verbose_info(y)
-            if self.is_restart:
-                x, mean, p, w, q, t, v, y = self.restart_reinitialize(
-                    args, x, mean, p, w, q, t, v, y, fitness)
-        results = self._collect_results(fitness, mean)
+            self._print_verbose_info(fitness, y)
+            x, mean, p, w, q, t, v, y = self.restart_reinitialize(
+                args, x, mean, p, w, q, t, v, y, fitness)
+        results = self._collect(fitness, y, mean)
         results['p'] = p
         results['w'] = w
         return results
