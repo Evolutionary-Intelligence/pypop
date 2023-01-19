@@ -7,8 +7,8 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmmaes
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `LMMAES` could be **well-documented** (*at least partly*).
+    Luckily our Python code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import pickle
 
