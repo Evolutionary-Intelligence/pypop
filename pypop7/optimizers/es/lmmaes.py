@@ -21,23 +21,24 @@ class LMMAES(ES):
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'sigma'             - initial global step-size, aka mutation strength (`float`),
-                * 'mean'              - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
+                * 'mean'              - initial (starting) point, aka mean of Gaussian search distribution
+                  (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`).
 
                 * 'n_evolution_paths' - number of evolution paths (`int`, default:
-                  `4 + int(3*np.log(self.ndim_problem))`),
+                  `4 + int(3*np.log(problem['ndim_problem']))`),
                 * 'n_individuals'     - number of offspring, aka offspring population size (`int`, default:
-                  `4 + int(3*np.log(self.ndim_problem))`),
+                  `4 + int(3*np.log(problem['ndim_problem']))`),
                 * 'n_parents'         - number of parents, aka parental population size (`int`, default:
-                  `int(self.n_individuals/2)`),
-                * 'c_s'               - learning rate of evolution path (`float`, default:
-                  `2.0*self.n_individuals/self.ndim_problem`).
+                  `int(options['n_individuals']/2)`),
+                * 'c_s'               - learning rate of evolution path update (`float`, default:
+                  `2.0*options['n_individuals']/problem['ndim_problem']`).
 
     Examples
     --------
-    Use the `ES` optimizer `LMMAES` to minimize the well-known test function
+    Use the optimizer `LMMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -59,7 +60,7 @@ class LMMAES(ES):
        >>> results = lmmaes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"LMMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       LMMAES: 500000, 1.074585436353596e-06
+       LMMAES: 500000, 1.0745854362945823e-06
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/4pttkpmc>`_ for more details.
@@ -67,9 +68,9 @@ class LMMAES(ES):
     Attributes
     ----------
     c_s               : `float`
-                        learning rate of evolution path.
+                        learning rate of evolution path update.
     mean              : `array_like`
-                        initial point, aka mean of Gaussian search distribution.
+                        initial (starting) point, aka mean of Gaussian search distribution.
     n_evolution_paths : `int`
                         number of evolution paths.
     n_individuals     : `int`
@@ -86,17 +87,17 @@ class LMMAES(ES):
     IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
     https://ieeexplore.ieee.org/abstract/document/8410043
 
-    See the official Python version from Glasmachers:
+    See the official Python version from Prof. Glasmachers:
     https://www.ini.rub.de/upload/editor/file/1604950981_dc3a4459a4160b48d51e/lmmaes.py
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
         self.options = options
         n_evolution_paths = 4 + int(3*np.log(self.ndim_problem))
-        self.n_evolution_paths = options.get('n_evolution_paths', n_evolution_paths)  # m in Algorithm 1
-        self.c_s = None  # c_sigma in Algorithm 1
-        self._s_1 = None  # for Line 13 in Algorithm 1
-        self._s_2 = None  # for Line 13 in Algorithm 1
+        self.n_evolution_paths = options.get('n_evolution_paths', n_evolution_paths)
+        self.c_s = None
+        self._s_1 = None
+        self._s_2 = None
         self._c_d = 1.0/(self.ndim_problem*np.power(1.5, np.arange(self.n_evolution_paths)))
         self._c_c = None
 
@@ -114,9 +115,10 @@ class LMMAES(ES):
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
         d = np.empty((self.n_individuals, self.ndim_problem))  # search directions
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
-        s = np.zeros((self.ndim_problem,))  # evolution path (p in Algorithm 1)
+        s = np.zeros((self.ndim_problem,))  # evolution path
         tm = np.zeros((self.n_evolution_paths, self.ndim_problem))  # transformation matrix M
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
+        self._list_initial_mean.append(np.copy(mean))
         return z, d, mean, s, tm, y
 
     def iterate(self, z=None, d=None, mean=None, tm=None, y=None, args=None):
@@ -131,11 +133,9 @@ class LMMAES(ES):
         return z, d, y
 
     def _update_distribution(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
-        order = np.argsort(y)
-        d_w, z_w = np.zeros((self.ndim_problem,)), np.zeros((self.ndim_problem,))
-        for k in range(self.n_parents):
-            d_w += self._w[k]*d[order[k]]
-            z_w += self._w[k]*z[order[k]]
+        order = np.argsort(y)[:self.n_parents]
+        d_w = np.dot(self._w[:self.n_parents], d[order])
+        z_w = np.dot(self._w[:self.n_parents], z[order])
         # update distribution mean
         mean += self.sigma*d_w
         # update evolution path (p_c, s) and low-rank transformation matrix (tm)
@@ -153,26 +153,21 @@ class LMMAES(ES):
         return mean, s, tm
 
     def restart_reinitialize(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
-        if ES.restart_reinitialize(self):
+        if self.is_restart and ES.restart_reinitialize(self, y):
             z, d, mean, s, tm, y = self.initialize(True)
         return z, d, mean, s, tm, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         z, d, mean, s, tm, y = self.initialize()
-        while True:
+        while not self._check_terminations():
             # sample and evaluate offspring population
             z, d, y = self.iterate(z, d, mean, tm, y, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
-            mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
-            self._print_verbose_info(y)
+            self._print_verbose_info(fitness, y)
             self._n_generations += 1
-            if self.is_restart:
-                z, d, mean, s, tm, y = self.restart_reinitialize(z, d, mean, s, tm, y)
-        results = self._collect_results(fitness, mean)
+            mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
+            z, d, mean, s, tm, y = self.restart_reinitialize(z, d, mean, s, tm, y)
+        results = self._collect(fitness, y, mean)
         results['s'] = s
         results['tm'] = tm
         return results
