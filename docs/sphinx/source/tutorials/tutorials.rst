@@ -33,6 +33,11 @@ Refer to `Beyer, 2020, GECCO <https://dl.acm.org/doi/abs/10.1145/3377929.3389870
 about the 15-dimensional objective function used here. To repeat this above figure, please run the following code:
 https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/lens_optimization.py.
 
+As written by Darwin, `"If it could be demonstrated that any complex organ existed, which could not possibly have been
+formed by numerous, successive, slight modifications, my theory would absolutely break down."
+<https://www.sciencedirect.com/science/article/pii/S0045782599003813>`_ Luckily, the evolution of an eye-lens could
+indeed proceed through many small steps from only the *optimization* (rather biological) view of point.
+
 Lennard-Jones Cluster Optimization
 ----------------------------------
 
