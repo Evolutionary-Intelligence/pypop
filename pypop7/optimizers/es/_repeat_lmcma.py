@@ -7,8 +7,8 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmcma
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `LMCMA` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import pickle
 
@@ -75,7 +75,6 @@ if __name__ == '__main__':
             options = {'fitness_threshold': 1e-10,
                        'seed_rng': 1,  # undefined in the original paper
                        'sigma': 3.0,
-                       'verbose': 2e4,
                        'saving_fitness': 1,
                        'is_restart': False}
             if f in [rotated_ellipsoid, rotated_rosenbrock, rotated_discus,
