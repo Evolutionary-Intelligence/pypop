@@ -97,6 +97,7 @@ Matlab
   * The Octave source code (proprietary implementations) can be downloaded for non-commercial use only.
 
 * https://github.com/blockchain-group/DIRECTGO
+* https://github.com/ProbabilisticNumerics/entropy-search (ESEGO)
 
 C
 -
