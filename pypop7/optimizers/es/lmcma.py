@@ -6,7 +6,7 @@ from pypop7.optimizers.es.es import ES
 class LMCMA(ES):
     """Limited-Memory Covariance Matrix Adaptation (LMCMA).
 
-    .. note:: Currently `LMCMA` is a **State-Of-The-Art** variant of `CMA-ES` designed especially for large-scale
+    .. note:: Currently `LMCMA` is a **State-Of-The-Art (SOTA)** variant of `CMA-ES` designed especially for large-scale
        black-box optimization. Inspired by `L-BFGS` (a well-established *second-order* gradient-based optimizer),
        it stores only *m* direction vectors to reconstruct the covariance matirx on-the-fly, resulting in **O(mn)**
        time complexity w.r.t. each sampling, where *m=O(log(n))* and *n* is the dimensionality of objective function.
@@ -32,25 +32,27 @@ class LMCMA(ES):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'm'             - number of direction vectors (`int`, default:
-                  `4 + int(3*np.log(self.ndim_problem))`),
+                  `4 + int(3*np.log(problem['ndim_problem']))`),
                 * 'base_m'        - base number of direction vectors (`int`, default: `4`),
-                * 'period'        - update period (`int`, default: `int(np.maximum(1, np.log(self.ndim_problem)))`),
-                * 'n_steps'       - target number of generations between vectors (`int`, default: `self.ndim_problem`),
+                * 'period'        - update period (`int`, default:
+                  `int(np.maximum(1, np.log(problem['ndim_problem'])))`),
+                * 'n_steps'       - target number of generations between vectors (`int`, default:
+                  `problem['ndim_problem']`),
                 * 'c_c'           - learning rate for evolution path update (`float`, default:
-                  `0.5/np.sqrt(self.ndim_problem)`),
+                  `0.5/np.sqrt(problem['ndim_problem'])`),
                 * 'c_1'           - learning rate for covariance matrix adaptation (`float`, default:
-                  `1.0/(10.0*np.log(self.ndim_problem + 1.0))`),
+                  `1.0/(10.0*np.log(problem['ndim_problem'] + 1.0))`),
                 * 'c_s'           - learning rate for population success rule (`float`, default: `0.3`),
                 * 'd_s'           - changing rate for population success rule (`float`, default: `1.0`),
                 * 'z_star'        - target success rate for population success rule (`float`, default: `0.3`),
                 * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
-                  `4 + int(3*np.log(self.ndim_problem))`),
+                  `4 + int(3*np.log(problem['ndim_problem']))`),
                 * 'n_parents'     - number of parents, aka parental population size (`int`, default:
-                  `int(self.n_individuals/2)`).
+                  `int(options['n_individuals']/2)`).
 
     Examples
     --------
-    Use the `ES` optimizer `LMCMA` to minimize the well-known test function
+    Use the optimizer `LMCMA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -71,7 +73,7 @@ class LMCMA(ES):
        >>> results = lmcma.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"LMCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       LMCMA: 5000, 7.54648196471487e-07
+       LMCMA: 5000, 7.729604455095068e-08
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/24jnfhbs>`_ for more details.
@@ -91,17 +93,17 @@ class LMCMA(ES):
     m             : `int`
                     number of direction vectors.
     mean          : `array_like`
-                    initial mean of Gaussian search distribution.
+                    initial (starting) point, aka mean of Gaussian search distribution.
     n_individuals : `int`
-                    number of offspring (λ: lambda), offspring population size.
+                    number of offspring, aka offspring population size.
     n_parents     : `int`
-                    number of parents (μ: mu), parental population size.
+                    number of parents, aka parental population size.
     n_steps       : `int`
                     target number of generations between vectors.
     period        : `int`
                     update period.
     sigma         : `float`
-                    final mutation strength.
+                    final global step-size, aka mutation strength.
     z_star        : `float`
                     target success rate for population success rule.
 
@@ -120,12 +122,10 @@ class LMCMA(ES):
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
         self.m = options.get('m', 4 + int(3*np.log(self.ndim_problem)))  # number of direction vectors
-        assert 0 < self.m <= self.ndim_problem
         self.base_m = options.get('base_m', 4)  # base number of direction vectors
         self.period = options.get('period', int(np.maximum(1, np.log(self.ndim_problem))))  # update period
         self.n_steps = options.get('n_steps', self.ndim_problem)  # target number of generations between vectors
         self.c_c = options.get('c_c', 0.5/np.sqrt(self.ndim_problem))  # learning rate for evolution path
-        # set learning rate for covariance matrix adaptation (CMA)
         self.c_1 = options.get('c_1', 1.0/(10.0*np.log(self.ndim_problem + 1.0)))
         self.c_s = options.get('c_s', 0.3)  # learning rate for population success rule (PSR)
         self.d_s = options.get('d_s', 1.0)  # changing rate for PSR
@@ -165,7 +165,7 @@ class LMCMA(ES):
         return np.double(random)
 
     def _a_z(self, z=None, pm=None, vm=None, b=None, start=None, it=None):
-        """Algorithm 3 Az(): Cholesky factor-vector update."""
+        """Az(): Cholesky factor-vector update."""
         x = np.copy(z)
         for t in range(start, it):
             x = self._a*x + b[self._j[t]]*np.dot(vm[self._j[t]], z)*pm[self._j[t]]
@@ -176,7 +176,7 @@ class LMCMA(ES):
         for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, y
-            if sign == 1:  # Algorithm 6 SelectSubst(): direction vectors selection
+            if sign == 1:  # SelectSubst(): direction vectors selection
                 base_m = (10.0*self.base_m if k == 0 else self.base_m)*np.abs(
                     self.rng_optimization.standard_normal())
                 base_m = float(self._it if base_m > self._it else base_m)
@@ -188,22 +188,22 @@ class LMCMA(ES):
         return x, y
 
     def _a_inv_z(self, v=None, vm=None, d=None, i=None):
-        """Algorithm 4 Ainvz(): inverse Cholesky factor-vector update."""
+        """Ainvz(): inverse Cholesky factor-vector update."""
         x = np.copy(v)
         for t in range(0, i):
             x = self._c*x - d[self._j[t]]*np.dot(vm[self._j[t]], x)*vm[self._j[t]]
         return x
 
-    def _update_distribution(self, mean=None, x=None, p_c=None, s=None, vm=None, pm=None,
-                             b=None, d=None, y=None, y_bak=None):
+    def _update_distribution(self, mean=None, x=None, p_c=None, s=None, vm=None,
+                             pm=None, b=None, d=None, y=None, y_bak=None):
         mean_bak = np.dot(self._w, x[np.argsort(y)[:self.n_parents]])
         p_c = self._p_c_1*p_c + self._p_c_2*(mean_bak - mean)/self.sigma
         # select and store direction vectors - to preserve a certain temporal distance in terms of
-        #   number of generations between the stored direction vectors (Algorithm 5)
+        #   number of generations between the stored direction vectors
         if self._n_generations % self.period == 0:  # temporal distance
             _n_generations = int(self._n_generations/self.period)  # temporal distance
             i_min = 1  # index of the first vector that will be replaced by the new one
-            # the higher the index of `self._j`, the more recent is the corresponding direction vector
+            # the higher is the index of `self._j`, the more recent is the corresponding direction vector
             if _n_generations < self.m:
                 self._j[_n_generations] = _n_generations
             else:
@@ -233,35 +233,30 @@ class LMCMA(ES):
             r = np.argsort(np.hstack((y, y_bak)))
             z_psr = np.sum(self._rr[r < self.n_individuals] - self._rr[r >= self.n_individuals])
             z_psr = z_psr/np.power(self.n_individuals, 2) - self.z_star
-            s = (1 - self.c_s)*s + self.c_s*z_psr
+            s = (1.0 - self.c_s)*s + self.c_s*z_psr
             self.sigma *= np.exp(s/self.d_s)
         return mean_bak, p_c, s, vm, pm, b, d
 
     def restart_reinitialize(self, mean=None, x=None, p_c=None, s=None, vm=None,
                              pm=None, b=None, d=None, y=None):
-        if ES.restart_reinitialize(self):
+        if self.is_restart and ES.restart_reinitialize(self, y):
             mean, x, p_c, s, vm, pm, b, d, y = self.initialize(True)
         return mean, x, p_c, s, vm, pm, b, d, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, x, p_c, s, vm, pm, b, d, y = self.initialize()
-        while True:
+        while not self._check_terminations():
             y_bak = np.copy(y)
             # sample and evaluate offspring population
             x, y = self.iterate(mean, x, pm, vm, y, b, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
             mean, p_c, s, vm, pm, b, d = self._update_distribution(
                 mean, x, p_c, s, vm, pm, b, d, y, y_bak)
-            self._print_verbose_info(y)
+            self._print_verbose_info(fitness, y)
             self._n_generations += 1
-            if self.is_restart:
-                mean, x, p_c, s, vm, pm, b, d, y = self.restart_reinitialize(
-                    mean, x, p_c, s, vm, pm, b, d, y)
-        results = self._collect_results(fitness, mean)
+            mean, x, p_c, s, vm, pm, b, d, y = self.restart_reinitialize(
+                mean, x, p_c, s, vm, pm, b, d, y)
+        results = self._collect(fitness, y, mean)
         results['p_c'] = p_c
         results['s'] = s
         return results
