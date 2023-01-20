@@ -86,6 +86,11 @@ class ES(Optimizer):
     Natural Computing, 1(1), pp.3-52.
     https://link.springer.com/article/10.1023/A:1015059928466
 
+    Rechenberg, I., 2000.
+    Case studies in evolutionary experimentation and computation.
+    Computer Methods in Applied Mechanics and Engineering, 186(2-4), pp.125-140.
+    https://www.sciencedirect.com/science/article/abs/pii/S0045782599003813
+
     Rechenberg, I., 1989.
     Evolution strategy: Nature’s way of optimization.
     In Optimization: Methods and Applications, Possibilities and Limitations (pp. 106-126).
