@@ -102,7 +102,6 @@ class LMCMAES(ES):
     A computationally efficient limited memory CMA-ES for large scale optimization.
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 397-404). ACM.
     https://dl.acm.org/doi/abs/10.1145/2576768.2598294
-    (See Algorithm 6 for details.)
 
     See the official C++ version from Loshchilov:
     https://sites.google.com/site/lmcmaeses/
@@ -115,14 +114,13 @@ class LMCMAES(ES):
         self.c_1 = options.get('c_1', 1.0/(10.0*np.log(self.ndim_problem + 1.0)))
         self.c_s = options.get('c_s', 0.3)  # learning rate for population success rule (PSR)
         self.d_s = options.get('d_s', 1.0)  # damping parameter for PSR
-        # set learning rate for covariance matrix adaptation (CMA)
         self.z_star = options.get('z_star', 0.25)  # target success rate for PSR
-        self._a = np.sqrt(1.0 - self.c_1)  # for Algorithm 3
-        self._c = 1.0/np.sqrt(1.0 - self.c_1)  # for Algorithm 4
-        self._bd_1 = np.sqrt(1.0 - self.c_1)  # for Line 13 and 14
-        self._bd_2 = self.c_1/(1.0 - self.c_1)  # for Line 13 and 14
-        self._p_c_1 = 1.0 - self.c_c  # for Line 9
-        self._p_c_2 = None  # for Line 9
+        self._a = np.sqrt(1.0 - self.c_1)
+        self._c = 1.0/np.sqrt(1.0 - self.c_1)
+        self._bd_1 = np.sqrt(1.0 - self.c_1)
+        self._bd_2 = self.c_1/(1.0 - self.c_1)
+        self._p_c_1 = 1.0 - self.c_c
+        self._p_c_2 = None
         self._j = None
         self._l = None
         self._it = None
@@ -153,14 +151,14 @@ class LMCMAES(ES):
 
     def iterate(self, mean=None, x=None, pm=None, vm=None, y=None, b=None, args=None):
         sign, a_z = 1, np.empty((self.ndim_problem,))  # for mirrored sampling
-        for k in range(self.n_individuals):  # Line 4
+        for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, y
             if sign == 1:
-                z = self.rng_optimization.standard_normal((self.ndim_problem,))  # Line 5
+                z = self.rng_optimization.standard_normal((self.ndim_problem,))
                 a_z = self._a_z(z, pm, vm, b)
-            x[k] = mean + sign*self.sigma*a_z  # Line 6
-            y[k] = self._evaluate_fitness(x[k], args)  # Line 7
+            x[k] = mean + sign*self.sigma*a_z
+            y[k] = self._evaluate_fitness(x[k], args)
             sign *= -1  # sampling in the opposite direction for mirrored sampling
         return x, y
 
@@ -170,10 +168,10 @@ class LMCMAES(ES):
             x = self._c*x - d[self._j[t]]*np.dot(vm[self._j[t]], x)*vm[self._j[t]]
         return x
 
-    def _update_distribution(self, mean=None, x=None, p_c=None, s=None, vm=None, pm=None,
-                             b=None, d=None, y=None, y_bak=None):
-        mean_bak = np.dot(self._w, x[np.argsort(y)[:self.n_parents]])  # Line 8
-        p_c = self._p_c_1*p_c + self._p_c_2*(mean_bak - mean)/self.sigma  # Line 9
+    def _update_distribution(self, mean=None, x=None, p_c=None, s=None, vm=None,
+                             pm=None, b=None, d=None, y=None, y_bak=None):
+        mean_bak = np.dot(self._w, x[np.argsort(y)[:self.n_parents]])
+        p_c = self._p_c_1*p_c + self._p_c_2*(mean_bak - mean)/self.sigma
         i_min = 1
         if self._n_generations < self.m:
             self._j[self._n_generations] = self._n_generations
@@ -201,40 +199,34 @@ class LMCMAES(ES):
             b[self._j[i]] = self._bd_1/v_n*(bd_3 - 1.0)
             d[self._j[i]] = 1.0/(self._bd_1*v_n)*(1.0 - 1.0/bd_3)
         if self._n_generations > 0:  # for population success rule (PSR)
-            r = np.argsort(np.hstack((y, y_bak)))  # for Line 15
-            z_psr = np.sum(self._rr[r < self.n_individuals] - self._rr[r >= self.n_individuals])  # Line 15
-            z_psr = z_psr/np.power(self.n_individuals, 2) - self.z_star  # Line 15
-            s = (1.0 - self.c_s)*s + self.c_s*z_psr  # Line 17
-            self.sigma *= np.exp(s/self.d_s)  # Line 18
+            r = np.argsort(np.hstack((y, y_bak)))
+            z_psr = np.sum(self._rr[r < self.n_individuals] - self._rr[r >= self.n_individuals])
+            z_psr = z_psr/np.power(self.n_individuals, 2) - self.z_star
+            s = (1.0 - self.c_s)*s + self.c_s*z_psr
+            self.sigma *= np.exp(s/self.d_s)
         return mean_bak, p_c, s, vm, pm, b, d
 
-    def restart_reinitialize(self, args=None, mean=None, x=None, p_c=None, s=None,
+    def restart_reinitialize(self, mean=None, x=None, p_c=None, s=None,
                              vm=None, pm=None, b=None, d=None, y=None):
-        is_restart = ES.restart_reinitialize(self)
-        if is_restart:
+        if self.is_restart and ES.restart_reinitialize(self, y):
             mean, x, p_c, s, vm, pm, b, d, y = self.initialize(True)
             self.d_s *= 2.0
         return mean, x, p_c, s, vm, pm, b, d, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
-        mean, x, p_c, s, vm, pm, b, d, y = self.initialize(args)
-        while True:
+        mean, x, p_c, s, vm, pm, b, d, y = self.initialize()
+        while not self._check_terminations():
             y_bak = np.copy(y)
             # sample and evaluate offspring population
             x, y = self.iterate(mean, x, pm, vm, y, b, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
             mean, p_c, s, vm, pm, b, d = self._update_distribution(
                 mean, x, p_c, s, vm, pm, b, d, y, y_bak)
-            self._print_verbose_info(y)
+            self._print_verbose_info(fitness, y)
             self._n_generations += 1
-            if self.is_restart:
-                mean, x, p_c, s, vm, pm, b, d, y = self.restart_reinitialize(
-                    args, mean, x, p_c, s, vm, pm, b, d, y)
-        results = self._collect_results(fitness, mean)
+            mean, x, p_c, s, vm, pm, b, d, y = self.restart_reinitialize(
+                mean, x, p_c, s, vm, pm, b, d, y)
+        results = self._collect(fitness, y, mean)
         results['p_c'] = p_c
         results['s'] = s
         return results
