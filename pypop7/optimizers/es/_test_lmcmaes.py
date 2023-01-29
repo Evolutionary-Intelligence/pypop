@@ -28,7 +28,7 @@ class TestLMCMAES(unittest.TestCase):
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),  # mean
                        'sigma': 0.1,
-                       'verbose': 2000,
+                       'verbose': 5000,
                        'saving_fitness': 200000}
             solver = Solver(problem, options)
             results = solver.optimize()
