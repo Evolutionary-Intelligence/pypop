@@ -17,7 +17,7 @@ from pypop7.optimizers.es.maes import MAES  # Matrix Adaptation Evolution Strate
 from pypop7.optimizers.es.fmaes import FMAES  # Fast Matrix Adaptation Evolution Strategy
 from pypop7.optimizers.es.r1es import R1ES  # Rank-One Evolution Strategy
 from pypop7.optimizers.es.rmes import RMES  # Rank-M Evolution Strategy
-from pypop7.optimizers.es.lmcmaes import LMCMAES
+from pypop7.optimizers.es.lmcmaes import LMCMAES  # Limited-Memory Covariance Matrix Adaptation Evolution Strategy
 from pypop7.optimizers.es.lmcma import LMCMA  # Limited-Memory Covariance Matrix Adaptation
 from pypop7.optimizers.es.lmmaes import LMMAES  # Limited-Memory Matrix Adaptation Evolution Strategy
 from pypop7.optimizers.es.ddcma import DDCMA  # Diagonal Decoding Covariance Matrix Adaptation
