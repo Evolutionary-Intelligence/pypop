@@ -6,8 +6,8 @@ from pypop7.optimizers.es.es import ES
 class LMCMAES(ES):
     """Limited-Memory Covariance Matrix Adaptation Evolution Strategy (LMCMAES).
 
-    .. note:: For better performance, please use its lateset version `LMCMA <https://tinyurl.com/mry5dw36>`_.
-       Here we include it mainly for *benchmarking* purpose.
+    .. note:: For perhaps better performance, please use its lateset version called `LMCMA
+       <https://tinyurl.com/mry5dw36>`_. Here we include it mainly for *benchmarking* purpose.
 
     Parameters
     ----------
@@ -30,22 +30,22 @@ class LMCMAES(ES):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'm'             - number of direction vectors (`int`, default:
-                  `4 + int(3*np.log(self.ndim_problem))`),
-                * 'n_steps'       - target number of generations between vectors (`int`, default: `self.m`),
-                * 'c_c'           - learning rate for evolution path update (`float`, default: `1.0/self.m`).
+                  `4 + int(3*np.log(problem['ndim_problem']))`),
+                * 'n_steps'       - target number of generations between vectors (`int`, default: `options['m']`),
+                * 'c_c'           - learning rate for evolution path update (`float`, default: `1.0/options['m']`).
                 * 'c_1'           - learning rate for covariance matrix adaptation (`float`, default:
-                  `1.0/(10.0*np.log(self.ndim_problem + 1.0))`),
+                  `1.0/(10.0*np.log(problem['ndim_problem'] + 1.0))`),
                 * 'c_s'           - learning rate for population success rule (`float`, default: `0.3`),
                 * 'd_s'           - delay rate for population success rule (`float`, default: `1.0`),
                 * 'z_star'        - target success rate for population success rule (`float`, default: `0.25`),
                 * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
-                  `4 + int(3*np.log(self.ndim_problem))`),
+                  `4 + int(3*np.log(problem['ndim_problem']))`),
                 * 'n_parents'     - number of parents, aka parental population size (`int`, default:
-                  `int(self.n_individuals/2)`).
+                  `int(options['n_individuals']/2)`).
 
     Examples
     --------
-    Use the `ES` optimizer `LMCMAES` to minimize the well-known test function
+    Use the optimizer `LMCMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
