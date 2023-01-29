@@ -1,8 +1,8 @@
 User Guide
 ==========
 
-Before applying `pypop7` to real-world black-box optimization problems, the following user guidelines should
-be read: *problem definition*, *optimizer setting*, *result analysis*, and *algorithm selection*.
+Before applying `pypop7` to real-world black-box optimization (BBO) problems, the following user guidelines should
+be read: *problem definition*, *optimizer setting*, *result analysis*, and *algorithm selection and configuration*.
 
 Problem Definition
 ------------------
@@ -187,10 +187,10 @@ Below is a simple example to visualize the *convergence* procedure of Evolution 
    :width: 321px
    :align: center
 
-Algorithm Selection
--------------------
+Algorithm Selection and Configuration
+-------------------------------------
 
-For real-world black-box optimization, there is few *a prior* knowledge to serve as the base of algorithm selection.
+For most real-world BBO, typically there is few *a prior* knowledge to serve as the base of algorithm selection.
 Perhaps the simplest way to algorithm selection is **trial-and-error**. However, here we still hope to provide a
 *rule of thumb* to guide algorithm selection according to algorithm classification. Refer to `its GitHub homepage
 <https://github.com/Evolutionary-Intelligence/pypop>`_ for details about three different classification families
