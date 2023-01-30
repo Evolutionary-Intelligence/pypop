@@ -123,7 +123,7 @@ class ES(Optimizer):
             if self.n_parents > 1:
                 self._w, self._mu_eff = self._compute_weights()
                 self._e_chi = np.sqrt(self.ndim_problem)*(  # E[||N(0,I)||]: expectation of chi distribution
-                    1.0 - 1.0/(4.0*self.ndim_problem) + 1.0/(21.0*np.power(self.ndim_problem, 2)))
+                    1.0 - 1.0/(4.0*self.ndim_problem) + 1.0/(21.0*np.square(self.ndim_problem)))
         assert self.n_parents > 0, f'`self.n_parents` = {self.n_parents}, but should > 0.'
         self.mean = options.get('mean')  # mean of Gaussian search/sampling/mutation distribution
         if self.mean is None:  # `mean` overwrites `x` if both are set
@@ -151,8 +151,8 @@ class ES(Optimizer):
     def _compute_weights(self):
         # unify these settings in the base class for consistency and simplicity
         w_base, w = np.log((self.n_individuals + 1.0)/2.0), np.log(np.arange(self.n_parents) + 1.0)
-        w = (w_base - w)/(self.n_parents * w_base - np.sum(w))
-        mu_eff = 1.0/np.sum(np.power(w, 2))  # μ_eff (μ_w)
+        w = (w_base - w)/(self.n_parents*w_base - np.sum(w))
+        mu_eff = 1.0/np.sum(np.square(w))  # μ_eff (μ_w)
         return w, mu_eff
 
     def initialize(self):
