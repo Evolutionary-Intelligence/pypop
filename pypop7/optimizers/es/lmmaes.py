@@ -109,7 +109,7 @@ class LMMAES(ES):
         self._s_1 = _s_1
         _s_2 = self._mu_eff*self.c_s*(2.0 - self.c_s)
         if _s_2 < 0.0:  # undefined in the original paper
-            _s_2 = np.power(0.5, 2)
+            _s_2 = np.square(0.5)
         self._s_2 = np.sqrt(_s_2)
         self._c_c = self.n_individuals/(self.ndim_problem*np.power(4.0, np.arange(self.n_evolution_paths)))
         z = np.empty((self.n_individuals, self.ndim_problem))  # Gaussian noise for mutation
@@ -146,10 +146,10 @@ class LMMAES(ES):
                 _tm_1 = 0.5
             _tm_2 = self._mu_eff*self._c_c[k]*(2.0 - self._c_c[k])
             if _tm_2 < 0.0:  # undefined in the original paper
-                _tm_2 = np.power(0.5, 2)
+                _tm_2 = np.square(0.5)
             tm[k] = _tm_1*tm[k] + np.sqrt(_tm_2)*z_w
         # update global step-size
-        self.sigma *= np.exp(self.c_s/2.0*(np.sum(np.power(s, 2))/self.ndim_problem - 1.0))
+        self.sigma *= np.exp(self.c_s/2.0*(np.sum(np.square(s))/self.ndim_problem - 1.0))
         return mean, s, tm
 
     def restart_reinitialize(self, z=None, d=None, mean=None, s=None, tm=None, y=None):
