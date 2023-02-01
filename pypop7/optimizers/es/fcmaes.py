@@ -4,13 +4,12 @@ from pypop7.optimizers.es.es import ES
 
 
 class FCMAES(ES):
-    """Fast Covariance Matrix Adaptation Evolution Strategies(FCMAES, (μ/μ_w,λ)-Fast CMA-ES)
-        Reference
-        ---------------
-        Z. Li, Q. Zhang, X. Lin, H. zhen
-        Fast Covariance Matrix Adaptation for Large-Scale Black-Box Optimization
-        IEEE Transaction on Cybernetics vol.50 No.5 May 2020
-        https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8533604
+    """Fast Covariance Matrix Adaptation Evolution Strategies (FCMAES).
+
+        Li, Z., Zhang, Q., Lin, X. and Zhen, H.L., 2018.
+        Fast covariance matrix adaptation for large-scale black-box optimization.
+        IEEE transactions on cybernetics, 50(5), pp.2073-2083.
+        https://ieeexplore.ieee.org/abstract/document/8533604
     """
     def __init__(self, prolblem, options):
         ES.__init__(self, prolblem, options)
