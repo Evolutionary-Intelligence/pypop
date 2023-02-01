@@ -89,8 +89,8 @@ class SAES(ES):
 
     http://www.scholarpedia.org/article/Evolution_strategies
 
+    See its official Matlab/Octave version from Prof. Beyer:
     https://homepages.fhv.at/hgb/downloads/mu_mu_I_lambda-ES.oct
-    (See its official Matlab/Octave version from Prof. Beyer.)
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
