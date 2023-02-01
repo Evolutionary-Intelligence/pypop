@@ -80,6 +80,11 @@ class RES(ES):
 
     References
     ----------
+    Auger, A., Hansen, N., López-Ibáñez, M. and Rudolph, G., 2022.
+    Tributes to Ingo Rechenberg (1934--2021).
+    ACM SIGEVOlution, 14(4), pp.1-4.
+    https://dl.acm.org/doi/10.1145/3511282.3511283
+
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
     Evolution strategies.
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
@@ -89,6 +94,11 @@ class RES(ES):
     Evolution strategies–A comprehensive introduction.
     Natural Computing, 1(1), pp.3-52.
     https://link.springer.com/article/10.1023/A:1015059928466
+
+    Rechenberg, I., 2000.
+    Case studies in evolutionary experimentation and computation.
+    Computer Methods in Applied Mechanics and Engineering, 186(2-4), pp.125-140.
+    https://www.sciencedirect.com/science/article/pii/S0045782599003813
 
     Rechenberg, I., 1989.
     Evolution strategy: Nature’s way of optimization.
