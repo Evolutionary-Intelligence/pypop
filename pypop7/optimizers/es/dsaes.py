@@ -80,7 +80,6 @@ class DSAES(ES):
     Evolution strategies.
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
-    (See Algorithm 44.5 for details.)
 
     Ostermeier, A., Gawelczyk, A. and Hansen, N., 1994.
     A derandomized approach to self-adaptation of evolution strategies.
