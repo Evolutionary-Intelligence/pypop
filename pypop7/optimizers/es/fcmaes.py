@@ -8,10 +8,16 @@ class FCMAES(ES):
 
     References
     ----------
-    Li, Z., Zhang, Q., Lin, X. and Zhen, H.L., 2018.
+    Li, Z., Zhang, Q., Lin, X. and Zhen, H.L., 2020.
     Fast covariance matrix adaptation for large-scale black-box optimization.
     IEEE Transactions on Cybernetics, 50(5), pp.2073-2083.
     https://ieeexplore.ieee.org/abstract/document/8533604
+
+    Li, Z. and Zhang, Q., 2016.
+    What does the evolution path learn in CMA-ES?.
+    In Parallel Problem Solving from Nature (pp. 751-760).
+    Springer International Publishing.
+    https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
