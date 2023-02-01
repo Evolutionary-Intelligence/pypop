@@ -84,7 +84,6 @@ class RES(ES):
     Evolution strategies.
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
-    (See Algorithm 44.3 for details.)
 
     Beyer, H.G. and Schwefel, H.P., 2002.
     Evolution strategies–A comprehensive introduction.
