@@ -135,15 +135,14 @@ class R1ES(ES):
     def _update_distribution(self, x=None, mean=None, p=None, s=None, y=None, y_bak=None):
         order = np.argsort(y)[:self.n_parents]
         y.sort()
-        mean_w = np.dot(self._w[:self.n_parents], x[order])
-        p = self._p_1*p + self._p_2*(mean_w - mean)/self.sigma
-        mean = mean_w
+        mean_bak = np.dot(self._w[:self.n_parents], x[order])
+        p = self._p_1*p + self._p_2*(mean_bak - mean)/self.sigma
         r = np.argsort(np.hstack((y_bak[:self.n_parents], y[:self.n_parents])))
         rr = self._rr[r < self.n_parents] - self._rr[r >= self.n_parents]
         q = np.dot(self._w, rr)/self.n_parents
         s = (1.0 - self.c_s)*s + self.c_s*(q - self.q_star)
         self.sigma *= np.exp(s/self.d_sigma)
-        return mean, p, s
+        return mean_bak, p, s
 
     def restart_reinitialize(self, args=None, x=None, mean=None, p=None, s=None, y=None, fitness=None):
         if self.is_restart and ES.restart_reinitialize(self, y):
