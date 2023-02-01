@@ -84,6 +84,11 @@ class RES(ES):
     Tributes to Ingo Rechenberg (1934--2021).
     ACM SIGEVOlution, 14(4), pp.1-4.
     https://dl.acm.org/doi/10.1145/3511282.3511283
+    
+    Agapie, A., Solomon, O. and Giuclea, M., 2021.
+    Theory of (1+1) ES on the RIDGE.
+    IEEE Transactions on Evolutionary Computation, 26(3), pp.501-511.
+    https://ieeexplore.ieee.org/abstract/document/9531957
 
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
     Evolution strategies.
