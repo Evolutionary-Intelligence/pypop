@@ -40,8 +40,9 @@ def plot(function, ndim):
         plt.xlim([0e6, 10e6])
         plt.xticks([0e6, 2e6, 4e6, 6e6, 8e6, 10e6])
     elif function == 'rosenbrock':
-        plt.xlim([0e5, 5e5])
-        plt.xticks([0e5, 1e5, 2e5, 3e5, 4e5, 5e5])
+        plt.xscale('log')
+        plt.xlim([1e2, 1e8])
+        plt.xticks([1e2, 1e4, 1e6, 1e8])
     plt.xlabel("evaluations")
     plt.ylabel("objective value")
     plt.title(function.capitalize())
@@ -50,14 +51,14 @@ def plot(function, ndim):
 
 if __name__ == '__main__':
     sns.set_theme(style='darkgrid')
-    ndim_problem = 512
-    for f in [cigar, ellipsoid, discus, different_powers, rosenbrock]:
+    ndim_problem = 1024
+    for f in [rosenbrock, cigar, ellipsoid, discus, different_powers]:
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem,
                    'lower_boundary': -10 * np.ones((ndim_problem,)),
                    'upper_boundary': 10 * np.ones((ndim_problem,))}
         options = {'fitness_threshold': 1e-8,
-                   'seed_rng': 0,  # not given in the original paper
+                   'seed_rng': 1,  # not given in the original paper
                    'sigma': 20.0 / 3.0,
                    'is_restart': False,
                    'saving_fitness': 1}
