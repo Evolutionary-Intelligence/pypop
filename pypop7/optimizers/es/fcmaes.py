@@ -6,6 +6,70 @@ from pypop7.optimizers.es.es import ES
 class FCMAES(ES):
     """Fast Covariance Matrix Adaptation Evolution Strategy (FCMAES).
 
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'mean'          - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default:
+                  `4 + int(3*np.log(problem['ndim_problem']))`),
+                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
+                  `int(options['n_individuals']/2)`).
+
+    Examples
+    --------
+    Use the optimizer `FCMAES` to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.es.fcmaes import FCMAES
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       >>> fcmaes = FCMAES(problem, options)  # initialize the optimizer class
+       >>> results = fcmaes.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"FCMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       FCMAES: 5000, 0.016679956606138215
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/3hmkaymn>`_ for more details.
+
+    Attributes
+    ----------
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search distribution.
+    n_individuals : `int`
+                    number of offspring, aka offspring population size.
+    n_parents     : `int`
+                    number of parents, aka parental population size.
+    sigma         : `float`
+                    final global step-size, aka mutation strength.
+
     References
     ----------
     Li, Z., Zhang, Q., Lin, X. and Zhen, H.L., 2020.
@@ -48,6 +112,8 @@ class FCMAES(ES):
 
     def iterate(self, mean=None, x=None, y=None, p=None, p_hat=None, args=None):
         for i in range(self.n_individuals):
+            if self._check_terminations():
+                return x, y
             z = self.rng_optimization.standard_normal((self.ndim_problem,))
             if self._n_generations < self.m:  # unbiased sampling when starting
                 x[i] = mean + self.sigma*z
