@@ -76,33 +76,36 @@ For **benchmarking** of continuous optimizers, refer to e.g.
 `[More et al., 1981, ACM-TOMS]`, "not testing the algorithm on a large number of functions can easily lead to the
 cynical observer to conclude that the algorithm was tuned to particular functions".
 
-POPulation-based OPtimization/Search (POP)
-------------------------------------------
+POPulation-based OPtimization (POP)
+-----------------------------------
 
 .. note:: *"The essence of an evolutionary approach to solve a problem is to equate possible solutions to individuals
-   in a population, and to introduce a notion of fitness on the basis of solution quality."* ---`[Eiben&Smith, 2015,
+   in a population, and to introduce a notion of fitness on the basis of solution quality."*---`[Eiben&Smith, 2015,
    Nature] <https://www.nature.com/articles/nature14544>`_
 
-Population-based (particularly evolutionary) optimizers (POP) usually have the following advantages, when particularly
-compared to individual-based counterparts:
+Population-based (particularly evolutionary) optimizers (POP) usually have the following advantages for black-box problems,
+when particularly compared to individual-based counterparts:
 
 * few assumptions (even assumptions-free),
-* flexible framework (easy integration with problem-specific knowledge),
+* flexible framework (easy integration with problem-specific knowledge via e.g. memetic algorithms),
 * robust performance (e.g. w.r.t. noisy perturbation or hyper-parameters),
 * diverse solutions (e.g. for multi-modal/multi-objective/dynamic optimization),
 * novelty (e.g. beyond intuitions for design problems).
 
-For details (models, algorithms, theories, and applications) about population-based methods, please refer to e.g.
-the following *well-written* Review papers or *wonderful* books (just to name a few):
+For details (models, algorithms, theories, and applications) about POP, please refer to e.g. the following *well-written*
+reviews or books (just to name a few):
 
 * Miikkulainen, R. and Forrest, S., 2021. A biological perspective on evolutionary computation. Nature Machine Intelligence, 3(1), pp.9-15.
 * Eiben, A.E. and Smith, J., 2015. From evolutionary computation to the evolution of things. Nature, 521(7553), pp.476-482.
 * De Jong, K.A., Fogel, D.B. and Schwefel, H.P., 1997. A history of evolutionary computation. Handbook of Evolutionary Computation. Oxford University Press.
 * Forrest, S., 1993. Genetic algorithms: Principles of natural selection applied to computation. Science, 261(5123), pp.872-878.
 
-For each algorithm family, we also provide their *wide-recognized* references on their own API documentations. See `this GitHub website
+For **principled design of continuous stochastic search**, refer to e.g.
+`[Nikolaus&Auger, 2014] <https://link.springer.com/chapter/10.1007/978-3-642-33206-7_8>`_.
+
+For each algorithm family, we also provide some of *wide-recognized* references on its own API documentations. You can also see `this GitHub website
 <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_ for a (still growing) paper list of Evolutionary Computation (EC)
-published in many *top-tier* journals and conferences.
+published in many *top-tier* and also EC-focused journals and conferences.
 
 Limitations of BBO
 ------------------
