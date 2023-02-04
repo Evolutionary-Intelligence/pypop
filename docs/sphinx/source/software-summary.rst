@@ -26,6 +26,7 @@ Python
 
   * https://github.com/akimotolab/multi-fidelity (DD-CMA-ES)
 
+    * https://gist.github.com/youheiakimoto/08b95b52dfbf8832afc71dfff3aed6c8 (VD-CMA)
     * https://gist.github.com/youheiakimoto/1180b67b5a0b1265c204cba991fa8518 (DD-CMA-ES)
     * https://github.com/akimotolab/CMAES_Tutorial (CMA-ES)
 
