@@ -11,6 +11,7 @@ from pypop7.optimizers.es.sepcmaes import SEPCMAES  # Separable Covariance Matri
 from pypop7.optimizers.es.opoc2009 import OPOC2009  # (1+1)-Cholesky-CMA-ES (2009)
 from pypop7.optimizers.es.ccmaes2009 import CCMAES2009  # Cholesky-CMA-ES (2009)
 from pypop7.optimizers.es.opoa2010 import OPOA2010  # (1+1)-Active-CMA-ES (2010)
+from pypop7.optimizers.es.vdcma import VDCMA  # Linear Covariance Matrix Adaptation (2014)
 from pypop7.optimizers.es.lmcmaes import LMCMAES  # Limited-Memory CMA-ES (2014)
 from pypop7.optimizers.es.opoa2015 import OPOA2015  # (1+1)-Active-CMA-ES (2015)
 from pypop7.optimizers.es.ccmaes2016 import CCMAES2016
@@ -29,4 +30,4 @@ __all__ = [ES,  # base (abstract) class
            RES, SSAES, DSAES, CSAES, SAES, SAMAES,  # representative ES versions during early development
            CMAES,  # state-of-the-art ES version
            OPOC2006, OPOC2009, CCMAES2009, OPOA2010, OPOA2015, CCMAES2016, MAES, FMAES, DDCMA,  # modern ES versions
-           SEPCMAES, R1ES, RMES, LMCMAES, LMCMA, LMMAES, FCMAES, MMES]  # especially for large-scale BBO
+           SEPCMAES, VDCMA, LMCMAES, LMCMA, R1ES, RMES, LMMAES, FCMAES, MMES]  # especially for large-scale BBO
