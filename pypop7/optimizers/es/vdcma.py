@@ -54,10 +54,10 @@ class VDCMA(ES):
        >>> results = vdcma.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"VDCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       VDCMA: 5000, 0.016679956606138215
+       VDCMA: 5000, 7.116226375179302e-18
 
     For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/3hmkaymn>`_ for more details.
+    <https://tinyurl.com/3e838zd5>`_ for more details.
 
     Attributes
     ----------
