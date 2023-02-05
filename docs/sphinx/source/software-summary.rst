@@ -95,6 +95,9 @@ Matlab
 ------
 
 * https://cse-lab.seas.harvard.edu/cse-lab-software (CMA-ES)
+
+  * https://gitlab.ethz.ch/mavt-cse/cma-es
+
 * https://divis-gmbh.de/es-software/ (ES)
 
   * The Octave source code (proprietary implementations) can be downloaded only for non-commercial use.
