@@ -6,6 +6,9 @@
 
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/ccmaes2016
+
+    Luckily our Python code could repeat the data reported in the paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 import seaborn as sns
@@ -32,9 +35,9 @@ if __name__ == '__main__':
     dims = [4, 8, 16, 32, 64, 128, 256]
     for f in [sphere, cigar, discus]:
         plt.figure()
-        plt.ylim([1e2, 1e4])
+        plt.ylim([1e2, 1e5])
         plt.xscale('log')
-        plt.yticks([1e2, 1e3, 1e4])
+        plt.yticks([1e2, 1e3, 1e4, 1e5])
         plt.ylabel('iterations')
         plt.yscale('log')
         n_iterations = []
