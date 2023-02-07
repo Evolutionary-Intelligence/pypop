@@ -118,6 +118,8 @@ C++
 * https://github.com/CMA-ES/libcmaes (CMA-ES)
 * https://github.com/Shark-ML/Shark (Now it is not actively maintained.)
 
+  * https://github.com/Shark-ML/Shark/blob/master/include/shark/Algorithms/DirectSearch/VDCMA.h (VD-CMA)
+
 Java
 ----
 
