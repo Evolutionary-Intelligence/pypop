@@ -14,7 +14,7 @@ from pypop7.optimizers.es.opoa2010 import OPOA2010  # (1+1)-Active-CMA-ES (2010)
 from pypop7.optimizers.es.vdcma import VDCMA  # Linear Covariance Matrix Adaptation (2014)
 from pypop7.optimizers.es.lmcmaes import LMCMAES  # Limited-Memory CMA-ES (2014)
 from pypop7.optimizers.es.opoa2015 import OPOA2015  # (1+1)-Active-CMA-ES (2015)
-from pypop7.optimizers.es.ccmaes2016 import CCMAES2016
+from pypop7.optimizers.es.ccmaes2016 import CCMAES2016  # Cholesky-CMA-ES (2016)
 from pypop7.optimizers.es.vkdcma import VKDCMA  # Restricted Covariance Matrix Adaptation (2016)
 from pypop7.optimizers.es.lmcma import LMCMA  # Limited-Memory Covariance Matrix Adaptation (2017)
 from pypop7.optimizers.es.maes import MAES  # Matrix Adaptation Evolution Strategy (2017)
