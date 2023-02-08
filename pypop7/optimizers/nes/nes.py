@@ -27,11 +27,13 @@ class NES(ES):
     Natural evolution strategies.
     In IEEE Congress on Evolutionary Computation (pp. 3381-3387). IEEE.
     https://ieeexplore.ieee.org/abstract/document/4631255
+
+    https://github.com/pybrain/pybrain
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        _u = np.maximum(0.0, np.log(self.n_individuals/2 + 1) - np.log(np.arange(self.n_individuals) + 1))
-        self._u = _u/np.sum(_u) - 1/self.n_individuals
+        _u = np.maximum(0.0, np.log(self.n_individuals/2.0 + 1.0) - np.log(np.arange(self.n_individuals) + 1.0))
+        self._u = _u/np.sum(_u) - 1.0/self.n_individuals  # for fitness shaping
 
     def initialize(self):
         raise NotImplementedError
