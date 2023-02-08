@@ -15,7 +15,7 @@ from pypop7.optimizers.nes.ones import ONES as Solver
 class TestONES(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
-        ndim_problem = 2
+        ndim_problem = 10
         for f in [ellipsoid, rosenbrock, rastrigin]:
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
