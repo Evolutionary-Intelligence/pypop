@@ -32,11 +32,11 @@ class NES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        _u = np.maximum(0.0, np.log(self.n_individuals/2.0 + 1.0) - np.log(np.arange(self.n_individuals) + 1.0))
-        self._u = _u/np.sum(_u) - 1.0/self.n_individuals  # for fitness shaping
+        self._u = None  # for fitness shaping
 
     def initialize(self):
-        raise NotImplementedError
+        _u = np.maximum(0.0, np.log(self.n_individuals/2.0 + 1.0) - np.log(np.arange(self.n_individuals) + 1.0))
+        self._u = _u/np.sum(_u) - 1.0/self.n_individuals  # for fitness shaping
 
     def iterate(self):
         raise NotImplementedError
