@@ -147,9 +147,10 @@ class SSAES(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         x, mean, sigmas, y = self.initialize()
-        while not self._check_terminations():
-            # sample and evaluate offspring population
+        while True:
             x, sigmas, y = self.iterate(x, mean, sigmas, y, args)
+            if self._check_terminations():
+                break
             order = np.argsort(y)[:self.n_parents]
             self._axis_sigmas = np.mean(sigmas[order], axis=0)
             mean = np.mean(x[order], axis=0)
