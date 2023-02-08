@@ -1,12 +1,13 @@
 import numpy as np
 
 from pypop7.optimizers.nes.nes import NES
+from pypop7.optimizers.nes.sges import SGES
 
 
-class ONES(NES):
+class ONES(SGES):
     """Original Natural Evolution Strategy (ONES).
 
-    .. note:: `NES` constitutes a well-principled approach to real-valued black box function optimization with
+    .. note:: `NES` constitutes a **well-principled** approach to real-valued black box function optimization with
        a relatively clean derivation **from first principles**. Here we include `ONES` **mainly** for *benchmarking*
        and *theoretical* purpose.
 
@@ -26,31 +27,7 @@ class ONES(NES):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/nes.py
     """
     def __init__(self, problem, options):
-        options['n_individuals'] = options.get('n_individuals', 100)
-        options['sigma'] = np.Inf  # not used for `ONES`
-        NES.__init__(self, problem, options)
-        if self.lr_mean is None:
-            self.lr_mean = 1.0
-        assert self.lr_mean > 0, f'`self.lr_mean` = {self.lr_mean}, but should > 0.'
-        if self.lr_sigma is None:
-            self.lr_sigma = 0.01
-        assert self.lr_sigma > 0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.'
-        self._d_cv = np.eye(self.ndim_problem)
-
-    def initialize(self, is_restart=False):
-        x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
-        y = np.empty((self.n_individuals,))  # fitness (no evaluation)
-        mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
-        cv = np.eye(self.ndim_problem)  # covariance matrix of Gaussian search distribution
-        return x, y, mean, cv
-
-    def iterate(self, x=None, y=None, mean=None, args=None):
-        for k in range(self.n_individuals):
-            if self._check_terminations():
-                return x, y, mean
-            x[k] = mean + np.dot(np.transpose(self._d_cv), self.rng_optimization.standard_normal((self.ndim_problem,)))
-            y[k] = self._evaluate_fitness(x[k], args)
-        return x, y, mean
+        SGES.__init__(self, problem, options)
 
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
         inv_cv = np.linalg.inv(cv)  # inverse of covariance matrix
@@ -60,21 +37,24 @@ class ONES(NES):
             diff = x[k] - mean
             grad_mean[k] = np.dot(inv_cv, diff)
             _grad_cv = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
-            grad_cv[k] = np.ravel(np.dot(self._d_cv, _grad_cv + np.transpose(_grad_cv)))
+            grad_cv[k] = np.ravel(np.dot(self._d_cv, _grad_cv + _grad_cv.T))
         _grad = np.hstack((np.hstack((grad_mean, grad_cv)), np.ones((self.n_individuals, 1))))
         grad = np.dot(np.linalg.pinv(_grad), self._u[np.argsort(y)])[:-1]
         mean += self.lr_mean*grad[:self.ndim_problem]
         self._d_cv += self.lr_sigma*(grad[self.ndim_problem:].reshape((self.ndim_problem, self.ndim_problem)))
-        cv = np.dot(np.transpose(self._d_cv), self._d_cv)
+        cv = np.dot(self._d_cv.T, self._d_cv)
         return x, y, mean, cv
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = NES.optimize(self, fitness_function)
         x, y, mean, cv = self.initialize()
-        while not self._check_terminations():
+        while True:
             # sample and evaluate offspring population
             x, y, mean = self.iterate(x, y, mean, args)
+            if self._check_terminations():
+                break
             self._print_verbose_info(fitness, y)
-            self._n_generations += 1
             x, y, mean, cv = self._update_distribution(x, y, mean, cv)
-        return self._collect_results(fitness, mean, y)
+            self._n_generations += 1
+            x, y, mean, cv = self.restart_reinitialize(x, y, mean, cv)
+        return self._collect(fitness, y, mean)
