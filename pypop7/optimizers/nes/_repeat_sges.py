@@ -39,7 +39,7 @@ if __name__ == '__main__':
         print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem}
-        options = {'fitness_threshold': 1e-6,
+        options = {'max_function_evaluations': 100000 * ndim_problem,
                    'seed_rng': 0,
                    'x': 4 * np.ones((ndim_problem,)),
                    'n_individuals': 50,
@@ -49,5 +49,5 @@ if __name__ == '__main__':
         solver = Solver(problem, options)
         results = solver.optimize()
         print(results)
-        print(results['n_function_evaluations'])
+        print(results['best_so_far_y'])  # 51.532660164536765
         print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
