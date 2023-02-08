@@ -44,13 +44,13 @@ class SGES(NES):
         self._d_cv = np.eye(self.ndim_problem)
         return x, y, mean, cv
 
-    def iterate(self, x=None, y=None, mean=None, cv=None, args=None):
+    def iterate(self, x=None, y=None, mean=None, args=None):
         for k in range(self.n_individuals):
             if self._check_terminations():
-                return x, y, mean, cv
+                return x, y, mean
             x[k] = mean + np.dot(self._d_cv.T, self.rng_optimization.standard_normal((self.ndim_problem,)))
             y[k] = self._evaluate_fitness(x[k], args)
-        return x, y, mean, cv
+        return x, y, mean
 
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
         order = np.argsort(y)
@@ -76,7 +76,7 @@ class SGES(NES):
         fitness = NES.optimize(self, fitness_function)
         x, y, mean, cv = self.initialize()
         while True:
-            x, y, mean, cv = self.iterate(x, y, mean, cv, args)
+            x, y, mean = self.iterate(x, y, mean, args)
             if self._check_terminations():
                 break
             self._print_verbose_info(fitness, y)
