@@ -9,3 +9,4 @@ Natural Evolution Strategies (NES)
    :maxdepth: 1
    :caption: NES:
 
+   sges
