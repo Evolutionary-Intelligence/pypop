@@ -104,6 +104,7 @@ Matlab
 
 * https://github.com/blockchain-group/DIRECTGO
 * https://github.com/ProbabilisticNumerics/entropy-search (ESEGO)
+* https://people.idsia.ch/~sun/enes.rar (ENES)
 
 C
 -
