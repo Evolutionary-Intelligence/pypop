@@ -15,9 +15,9 @@
         3.70289540e-04, -7.39450599e-04,  7.19922068e-05,  1.61608765e-04]),
  'best_so_far_y': 94420.98390625381,
  'n_function_evaluations': 2000000,
- 'runtime': 328.18631076812744,
+ 'runtime': 339.3995440006256,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 262.27357149124146,
+ 'time_function_evaluations': 271.44065117836,
  'fitness': array([[1.00000000e+00, 1.16497779e+09],
        [2.00000000e+05, 1.00516762e+06],
        [4.00000000e+05, 4.87070889e+05],
@@ -42,7 +42,7 @@
  '_n_restart': 0,
  '_n_generations': 1999999,
  '_list_generations': []}
-*** Runtime: 3.28346e+02
+*** Runtime: 3.39579e+02
 ******* rosenbrock *******
   * Generation 0: best_so_far_y 1.43946e+07, min(y) 1.43946e+07 & Evaluations 1
   * Generation 200000: best_so_far_y 1.56396e+03, min(y) 1.56400e+03 & Evaluations 200001
@@ -60,9 +60,9 @@
        1.05096302, 1.10467107, 1.22037808, 1.49087332, 2.22508272]),
  'best_so_far_y': 356.9351423935297,
  'n_function_evaluations': 2000000,
- 'runtime': 359.7791929244995,
+ 'runtime': 366.79642033576965,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 296.687655210495,
+ 'time_function_evaluations': 301.81844902038574,
  'fitness': array([[1.00000000e+00, 1.43945910e+07],
        [2.00000000e+05, 1.56396302e+03],
        [4.00000000e+05, 1.41734853e+03],
@@ -87,7 +87,7 @@
  '_n_restart': 0,
  '_n_generations': 1999999,
  '_list_generations': []}
-*** Runtime: 6.88245e+02
+*** Runtime: 7.06472e+02
 ******* rastrigin *******
   * Generation 0: best_so_far_y 1.60000e+04, min(y) 1.60000e+04 & Evaluations 1
   * Generation 68057: best_so_far_y 1.59192e+04, min(y) 1.59192e+04 & Evaluations 68058
@@ -168,9 +168,9 @@
         3.97978383e+00, -2.98485577e+00,  1.98991233e+00, -9.94958662e-01]),
  'best_so_far_y': 7794.461388608408,
  'n_function_evaluations': 2000000,
- 'runtime': 206.33278465270996,
+ 'runtime': 215.13831090927124,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 139.8403832912445,
+ 'time_function_evaluations': 146.5189425945282,
  'fitness': array([[1.00000000e+00, 1.60000000e+04],
        [2.00000000e+05, 8.47102633e+03],
        [4.00000000e+05, 8.25611840e+03],
@@ -197,4 +197,4 @@
  '_list_generations': [68057, 85397, 82027, 84977, 84412, 82777, 85497, 83907, 83132, 82722,
      84037, 84787, 82387, 84787, 83687, 82607, 84477, 82947, 84407, 84292,
      84117, 85452, 83822, 82972]}
-*** Runtime: 8.94918e+02
+*** Runtime: 9.22003e+02
