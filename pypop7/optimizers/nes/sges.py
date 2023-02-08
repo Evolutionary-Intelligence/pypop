@@ -28,7 +28,7 @@ class SGES(NES):
         options['sigma'] = np.Inf  # not used for `SGES`
         NES.__init__(self, problem, options)
         if self.lr_mean is None:
-            self.lr_mean = 0.01
+            self.lr_mean = 1.0
         assert self.lr_mean > 0.0, f'`self.lr_mean` = {self.lr_mean}, but should > 0.0.'
         if self.lr_sigma is None:
             self.lr_sigma = 0.01
