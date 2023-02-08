@@ -70,6 +70,7 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
    user-guide
    tutorials/tutorials
    es/es
+   nes/nes
    eda/eda
    cem/cem
    de/de
