@@ -49,5 +49,5 @@ if __name__ == '__main__':
         solver = Solver(problem, options)
         results = solver.optimize()
         print(results)
-        print(results['best_so_far_y'])  # 57.15411369732013
+        print(results['best_so_far_y'])  # 2.04121087e+00
         print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
