@@ -131,13 +131,14 @@ class RES(ES):
         self._list_initial_mean.append(np.copy(mean))
         return mean, y, best_so_far_y
 
-    def iterate(self, args=None, mean=None):
-        # sample and evaluate only one offspring
+    def iterate(self, args=None, mean=None):  # to sample and evaluate only one offspring
         x = mean + self.sigma*self.rng_optimization.standard_normal((self.ndim_problem,))
         y = self._evaluate_fitness(x, args)
         return x, y
 
     def restart_reinitialize(self, args=None, mean=None, y=None, best_so_far_y=None, fitness=None):
+        if not self.is_restart:
+            return mean, y, best_so_far_y
         self._list_fitness.append(best_so_far_y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
         if len(self._list_fitness) >= self.stagnation:
@@ -165,6 +166,5 @@ class RES(ES):
             self.sigma *= np.power(np.exp(float(y < best_so_far_y) - 0.2), self.lr_sigma)
             if y < best_so_far_y:
                 mean, best_so_far_y = x, y
-            if self.is_restart:
-                mean, y, best_so_far_y = self.restart_reinitialize(args, mean, y, best_so_far_y, fitness)
+            mean, y, best_so_far_y = self.restart_reinitialize(args, mean, y, best_so_far_y, fitness)
         return self._collect(fitness, y, mean)
