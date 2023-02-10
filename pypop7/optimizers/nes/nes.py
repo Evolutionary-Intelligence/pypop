@@ -35,8 +35,11 @@ class NES(ES):
         self._u = None  # for fitness shaping
 
     def initialize(self):
-        _u = np.maximum(0.0, np.log(self.n_individuals/2.0 + 1.0) - np.log(np.arange(self.n_individuals) + 1.0))
-        self._u = _u/np.sum(_u) - 1.0/self.n_individuals  # for fitness shaping
+        r, _u = np.arange(self.n_individuals), np.zeros((self.n_individuals,))
+        for i in range(self.n_individuals):
+            if r[i] >= self.n_individuals*0.5:
+                _u[i] = r[i] - self.n_individuals*0.5
+        self._u = _u/np.max(_u)
 
     def iterate(self):
         raise NotImplementedError
