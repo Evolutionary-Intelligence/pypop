@@ -121,6 +121,8 @@ class DSAES(ES):
         return x, sigmas, y
 
     def restart_reinitialize(self, x=None, mean=None, sigmas=None, y=None):
+        if not self.is_restart:
+            return x, mean, sigmas, y
         min_y = np.min(y)
         if min_y < self._list_fitness[-1]:
             self._list_fitness.append(min_y)
@@ -145,16 +147,16 @@ class DSAES(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         x, mean, sigmas, y = self.initialize()
-        while not self._check_terminations():
-            # sample and evaluate offspring population
+        while True:
             x, sigmas, y = self.iterate(x, mean, sigmas, y, args)
+            if self._check_terminations():
+                break
             order = np.argsort(y)[0]
             self._axis_sigmas = np.copy(sigmas[order])
             mean = np.copy(x[order])
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
-            if self.is_restart:
-                x, mean, sigmas, y = self.restart_reinitialize(x, mean, sigmas, y)
+            x, mean, sigmas, y = self.restart_reinitialize(x, mean, sigmas, y)
         results = self._collect(fitness, y, mean)
         results['_axis_sigmas'] = self._axis_sigmas
         return results
