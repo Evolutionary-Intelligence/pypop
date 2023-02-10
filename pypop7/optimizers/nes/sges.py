@@ -28,11 +28,12 @@ class SGES(NES):
         options['sigma'] = np.Inf  # not used for `SGES`
         NES.__init__(self, problem, options)
         if self.lr_mean is None:
-            self.lr_mean = 1.0
+            self.lr_mean = 0.01
         assert self.lr_mean > 0.0, f'`self.lr_mean` = {self.lr_mean}, but should > 0.0.'
         if self.lr_sigma is None:
             self.lr_sigma = 0.01
         assert self.lr_sigma > 0.0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.0.'
+        self._n_distribution = int(self.ndim_problem + self.ndim_problem*(self.ndim_problem+1)/2)
         self._d_cv = None
 
     def initialize(self, is_restart=False):
@@ -52,18 +53,43 @@ class SGES(NES):
             y[k] = self._evaluate_fitness(x[k], args)
         return x, y, mean
 
+    def _triu2flat(self, cv):
+        g = np.zeros((int(self.ndim_problem*(self.ndim_problem+1)/2),))
+        s, e = 0, self.ndim_problem
+        for r in range(self.ndim_problem):
+            g[s:e] = cv[r, r:]
+            s = e
+            e += (self.ndim_problem - (r + 1))
+        return g
+
+    def _flat2triu(self, g):
+        cv = np.zeros((self.ndim_problem, self.ndim_problem))
+        s, e = 0, self.ndim_problem
+        for r in range(self.ndim_problem):
+            cv[r, r:] = g[s:e]
+            s = e
+            e += (self.ndim_problem - (r + 1))
+        return cv
+
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
-        order = np.argsort(y)
-        inv_cv = np.linalg.inv(cv)  # inverse of covariance matrix
-        grad_mean = np.zeros((self.ndim_problem,))  # gradients of mean
-        grad_cv = np.zeros((self.ndim_problem, self.ndim_problem))  # gradient of covariance matrix
+        order = np.argsort(-y)
+        u = np.empty((self.n_individuals,))
+        for i, o in enumerate(order):
+            u[o] = self._u[i]
+        inv_cv = np.linalg.inv(cv)
+        phi = np.zeros((self.n_individuals, self._n_distribution))
+        phi[:, :self.ndim_problem] = np.dot(inv_cv, (x - mean).T).T
+        grad_cv = np.empty((self.n_individuals, int(self.ndim_problem*(self.ndim_problem + 1)/2)))
         for k in range(self.n_individuals):
             diff = x[k] - mean
-            grad_mean += self._u[order[k]]*np.dot(inv_cv, diff)
             _grad_cv = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
-            grad_cv += self._u[order[k]]*np.dot(self._d_cv, _grad_cv + _grad_cv.T)
-        mean += self.lr_mean*grad_mean/self.n_individuals
-        self._d_cv += self.lr_sigma*grad_cv/self.n_individuals
+            grad_cv[k] = self._triu2flat(np.dot(self._d_cv, (_grad_cv + _grad_cv.T)))
+        phi[:, self.ndim_problem:] = grad_cv
+        phi_square = phi*phi
+        grad = np.sum(phi*(np.outer(u, np.ones((self._n_distribution,))) - np.dot(
+            u, phi_square)/np.dot(np.ones((self.n_individuals,)), phi_square)), 0)
+        mean += self.lr_mean*grad[:self.ndim_problem]
+        self._d_cv += self.lr_sigma*self._flat2triu(grad[self.ndim_problem:])
         cv = np.dot(self._d_cv.T, self._d_cv)
         return x, y, mean, cv
 
