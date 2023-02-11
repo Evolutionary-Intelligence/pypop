@@ -1,0 +1,110 @@
+******* ellipsoid *******
+  * Generation 0: best_so_far_y 1.06104e+07, min(y) 1.06104e+07 & Evaluations 10
+  * Generation 476: best_so_far_y 5.77641e-03, min(y) 1.44124e-02 & Evaluations 4760
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 5.77641e-03, min(y) 3.86193e+06 & Evaluations 4780
+  * Generation 812: best_so_far_y 6.41324e-11, min(y) 6.41324e-11 & Evaluations 21001
+{'best_so_far_x': array([-4.51896833e-06, -4.58856674e-07,  5.68963981e-07, -5.94551939e-08, -1.27986613e-07,
+    -3.42133453e-08, -4.53260475e-08,  2.79449663e-09, 1.27789080e-09,  2.00558896e-09]),
+ 'best_so_far_y': 6.413244007112003e-11,
+ 'n_function_evaluations': 21001,
+ 'runtime': 3.1140565872192383,
+ 'termination_signal': <Terminations.FITNESS_THRESHOLD: 3>,
+ 'time_function_evaluations': 1.2797963619232178,
+ 'fitness': array([[1.00000000e+00, 1.06104318e+07],
+       [2.10010000e+04, 6.41324401e-11]]),
+ 'mean': array([ 2.06372147e-06, -7.39850856e-07,  2.27557863e-07, -4.13428841e-08, -1.22162084e-07,
+    2.20537353e-08,  3.32839866e-09, -2.43482317e-09, 2.43106689e-09, -5.89540210e-10]),
+ 'initial_mean': array([-1.00471311, -1.55389571,  0.06830006, -0.58288816,  3.60083307,
+    2.9305425 ,  3.8028456 ,  1.08209381, -4.54711439,  1.33860601]),
+ '_list_initial_mean': [],
+ 'sigma': array(inf),
+ '_n_restart': 1,
+ '_n_generations': 812,
+ '_list_generations': [476]}
+*** Runtime: 3.11703e+00
+******* rosenbrock *******
+  * Generation 0: best_so_far_y 1.18556e+05, min(y) 1.18556e+05 & Evaluations 10
+  * Generation 1052: best_so_far_y 7.28002e-11, min(y) 7.28002e-11 & Evaluations 10524
+{'best_so_far_x': array([1.00000008, 1.00000004, 1.00000002, 0.99999974, 0.9999999 ,
+    0.99999944, 0.9999991 , 0.9999983 , 0.99999667, 0.99999299]),
+ 'best_so_far_y': 7.280019709635446e-11,
+ 'n_function_evaluations': 10524,
+ 'runtime': 1.5619792938232422,
+ 'termination_signal': <Terminations.FITNESS_THRESHOLD: 3>,
+ 'time_function_evaluations': 0.2964749336242676,
+ 'fitness': array([[1.00000000e+00, 6.83449592e+05],
+       [1.05240000e+04, 7.28001971e-11]]),
+ 'mean': array([0.99999993, 0.99999987, 0.99999971, 0.99999979, 0.99999975,
+    0.99999925, 0.99999885, 0.99999761, 0.99999541, 0.99999073]),
+ 'initial_mean': array([4., 4., 4., 4., 4., 4., 4., 4., 4., 4.]),
+ '_list_initial_mean': [],
+ 'sigma': inf,
+ '_n_restart': 0,
+ '_n_generations': 1052,
+ '_list_generations': []}
+*** Runtime: 4.68001e+00
+******* rastrigin *******
+  * Generation 0: best_so_far_y 1.95444e+02, min(y) 1.95444e+02 & Evaluations 10
+  * Generation 63: best_so_far_y 4.69103e+01, min(y) 9.01560e+01 & Evaluations 630
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 4.69103e+01, min(y) 1.22078e+02 & Evaluations 650
+  * Generation 66: best_so_far_y 3.29556e+01, min(y) 5.74812e+01 & Evaluations 1950
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 3.29556e+01, min(y) 1.00162e+02 & Evaluations 1990
+  * Generation 61: best_so_far_y 3.29556e+01, min(y) 8.01928e+01 & Evaluations 4390
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 3.29556e+01, min(y) 1.43956e+02 & Evaluations 4470
+  * Generation 107: best_so_far_y 3.29556e+01, min(y) 6.48140e+01 & Evaluations 12950
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 3.29556e+01, min(y) 9.28475e+01 & Evaluations 13110
+  * Generation 105: best_so_far_y 1.30678e+01, min(y) 4.09118e+01 & Evaluations 29750
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 1.30678e+01, min(y) 1.31872e+02 & Evaluations 30070
+  * Generation 66: best_so_far_y 1.30678e+01, min(y) 4.80871e+01 & Evaluations 50870
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 1.30678e+01, min(y) 8.40646e+01 & Evaluations 51510
+  * Generation 79: best_so_far_y 1.30678e+01, min(y) 2.37034e+01 & Evaluations 101430
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 1.30678e+01, min(y) 1.07621e+02 & Evaluations 102710
+  * Generation 59: best_so_far_y 1.30678e+01, min(y) 3.80373e+01 & Evaluations 176950
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 1.30678e+01, min(y) 1.19398e+02 & Evaluations 179510
+  * Generation 62: best_so_far_y 1.30678e+01, min(y) 3.37314e+01 & Evaluations 335670
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 1.30678e+01, min(y) 1.00373e+02 & Evaluations 340790
+  * Generation 79: best_so_far_y 1.30678e+01, min(y) 3.52598e+01 & Evaluations 740150
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 1.30678e+01, min(y) 8.96079e+01 & Evaluations 750390
+  * Generation 74: best_so_far_y 1.30678e+01, min(y) 3.21659e+01 & Evaluations 1497910
+ ....... *** restart *** .......
+  * Generation 0: best_so_far_y 1.30678e+01, min(y) 1.03626e+02 & Evaluations 1518390
+  * Generation 24: best_so_far_y 1.30678e+01, min(y) 2.65490e+01 & Evaluations 2000000
+{'best_so_far_x': array([-0.03717697, -0.02323572, -0.11814564, -1.01641843, -0.14546726,
+    -1.01529043,  1.0486984 ,  0.09086384,  0.06224283,  0.01539881]),
+ 'best_so_far_y': 13.067758206888072,
+ 'n_function_evaluations': 2000000,
+ 'runtime': 78.11709451675415,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 35.151179790496826,
+ 'fitness': array([[1.00000000e+00, 3.12899247e+02],
+       [2.00000000e+05, 1.30677582e+01],
+       [4.00000000e+05, 1.30677582e+01],
+       [6.00000000e+05, 1.30677582e+01],
+       [8.00000000e+05, 1.30677582e+01],
+       [1.00000000e+06, 1.30677582e+01],
+       [1.20000000e+06, 1.30677582e+01],
+       [1.40000000e+06, 1.30677582e+01],
+       [1.60000000e+06, 1.30677582e+01],
+       [1.80000000e+06, 1.30677582e+01],
+       [2.00000000e+06, 1.30677582e+01]]),
+ 'mean': array([ 0.19463612, -0.19686979,  0.17468554, -0.1253991 , -0.01478353,
+    0.13781507, -0.02751654,  0.06378267,  0.16459857,  0.11985388]),
+ 'initial_mean': array([ 3.28329976, -3.70548443,  4.9835153 , -2.64110583,  0.44241467,
+    3.17600307, -2.0593636 ,  0.84511439,  4.7440986 ,  2.25435376]),
+ '_list_initial_mean': [],
+ 'sigma': array(inf),
+ '_n_restart': 11,
+ '_n_generations': 24,
+ '_list_generations': [63, 66, 61, 107, 105, 66, 79, 59, 62, 79, 74]}
+*** Runtime: 8.28201e+01
