@@ -32,6 +32,11 @@ class ENES(ONES):
     Doctoral Dissertation, Technische Universität München.
     https://people.idsia.ch/~schaul/publications/thesis.pdf
 
+    Yi, S., Wierstra, D., Schaul, T. and Schmidhuber, J., 2009, June.
+    Stochastic search using the natural gradient.
+    In International Conference on Machine Learning (pp. 1161-1168). ACM.
+    https://dl.acm.org/doi/abs/10.1145/1553374.1553522
+
     See the official Python source code from PyBrain:
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/nes.py
     """
