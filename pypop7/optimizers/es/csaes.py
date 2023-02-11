@@ -143,6 +143,8 @@ class CSAES(DSAES):
         return s, mean
 
     def restart_reinitialize(self, z=None, x=None, mean=None, s=None, y=None):
+        if not self.is_restart:
+            return z, x, mean, s, y
         min_y = np.min(y)
         if min_y < self._list_fitness[-1]:
             self._list_fitness.append(min_y)
@@ -169,14 +171,15 @@ class CSAES(DSAES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         z, x, mean, s, y = self.initialize()
-        while not self._check_terminations():
+        while True:
             # sample and evaluate offspring population
             z, x, y = self.iterate(z, x, mean, y, args)
-            s, mean = self._update_distribution(z, x, s, y)
+            if self._check_terminations():
+                break
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
-            if self.is_restart:
-                z, x, mean, s, y = self.restart_reinitialize(z, x, mean, s, y)
+            s, mean = self._update_distribution(z, x, s, y)
+            z, x, mean, s, y = self.restart_reinitialize(z, x, mean, s, y)
         results = self._collect(fitness, y, mean)
         results['s'] = s
         results['_axis_sigmas'] = self._axis_sigmas
