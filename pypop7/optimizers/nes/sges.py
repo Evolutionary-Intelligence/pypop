@@ -48,10 +48,10 @@ class SGES(NES):
     def iterate(self, x=None, y=None, mean=None, args=None):
         for k in range(self.n_individuals):
             if self._check_terminations():
-                return x, y, mean
+                return x, y
             x[k] = mean + np.dot(self._d_cv.T, self.rng_optimization.standard_normal((self.ndim_problem,)))
             y[k] = self._evaluate_fitness(x[k], args)
-        return x, y, mean
+        return x, y
 
     def _triu2flat(self, cv):
         g = np.zeros((int(self.ndim_problem*(self.ndim_problem+1)/2),))
@@ -91,7 +91,7 @@ class SGES(NES):
         mean += self.lr_mean*grad[:self.ndim_problem]
         self._d_cv += self.lr_sigma*self._flat2triu(grad[self.ndim_problem:])
         cv = np.dot(self._d_cv.T, self._d_cv)
-        return x, y, mean, cv
+        return mean, cv
 
     def restart_reinitialize(self, x=None, y=None, mean=None, cv=None):
         if self.is_restart and NES.restart_reinitialize(self, y):
@@ -102,11 +102,11 @@ class SGES(NES):
         fitness = NES.optimize(self, fitness_function)
         x, y, mean, cv = self.initialize()
         while True:
-            x, y, mean = self.iterate(x, y, mean, args)
+            x, y = self.iterate(x, y, mean, args)
             if self._check_terminations():
                 break
             self._print_verbose_info(fitness, y)
-            x, y, mean, cv = self._update_distribution(x, y, mean, cv)
+            mean, cv = self._update_distribution(x, y, mean, cv)
             self._n_generations += 1
             x, y, mean, cv = self.restart_reinitialize(x, y, mean, cv)
         return self._collect(fitness, y, mean)
