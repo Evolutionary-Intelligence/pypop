@@ -1,5 +1,5 @@
-Installation PyPop7
-===================
+Installation of PyPop7
+======================
 
 In order to install *pypop7*, it is **highly recommended** to use the Python3-based virtual environment via
 `venv <https://docs.python.org/3/library/venv.html>`_ or
