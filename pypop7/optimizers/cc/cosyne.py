@@ -38,17 +38,17 @@ class COSYNE(CC):
        >>> from pypop7.optimizers.cc.cosyne import COSYNE
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
        ...            'sigma': 0.3,
-       ...            'x': 3 * numpy.ones((2,))}
+       ...            'x': 3*numpy.ones((2,))}
        >>> cosyne = COSYNE(problem, options)  # initialize the optimizer class
        >>> results = cosyne.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"COSYNE: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       COSYNE: 5000, 0.001365285041808522
+       COSYNE: 5000, 0.005023488269997175
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/yff8c6xu>`_ for more details.
@@ -108,14 +108,13 @@ class COSYNE(CC):
     def _permute(self, x):  # different from the original paper for simplicity
         xx = np.copy(x)
         for d in range(self.ndim_problem):
-            p = self.rng_optimization.choice(self.ndim_problem)
+            p = self.rng_optimization.choice(self.n_individuals)
             xx[:, d] = np.append(xx[p:, d], xx[:p, d])
         return xx
 
     def iterate(self, x=None, y=None, args=None):
-        rank, yy, yyy = np.argsort(y), np.empty((2*self._n_parents)), np.empty((self.n_individuals,))
-        # when `self._n_parents = int(self.n_individuals/4)`, it will generate half of population size
-        xx = self._mutate(self._crossover(x[rank[:self.n_parents]], y[rank[:self.n_parents]]))
+        order, yy, yyy = np.argsort(y), np.empty((2*self._n_parents,)), np.empty((self.n_individuals,))
+        xx = self._mutate(self._crossover(x[order[:self.n_parents]], y[order[:self.n_parents]]))
         for i in range(2*self._n_parents):
             if self._check_terminations():
                 return x, y, np.append(yy, yyy)
@@ -125,11 +124,11 @@ class COSYNE(CC):
             if self._check_terminations():
                 return x, y, np.append(yy, yyy)
             yyy[i] = self._evaluate_fitness(xxx[i], args)
-        x = np.vstack((np.vstack((x[rank[:self._n_elitists]], xx)), xxx))
-        y = np.hstack((np.hstack((y[rank[:self._n_elitists]], yy)), yyy))
-        rank = np.argsort(y)[:self.n_individuals]  # to keep population size fixed
+        x = np.vstack((np.vstack((x[order[:self._n_elitists]], xx)), xxx))
+        y = np.hstack((np.hstack((y[order[:self._n_elitists]], yy)), yyy))
+        order = np.argsort(y)[:self.n_individuals]  # to keep population size fixed
         self._n_generations += 1
-        return x[rank], y[rank], np.append(yy, yyy)
+        return x[order], y[order], np.append(yy, yyy)
 
     def optimize(self, fitness_function=None, args=None):
         fitness = CC.optimize(self, fitness_function)
@@ -138,4 +137,4 @@ class COSYNE(CC):
         while not self._check_terminations():
             self._print_verbose_info(fitness, yy)
             x, y, yy = self.iterate(x, y, args)
-        return self._collect_results(fitness, yy)
+        return self._collect(fitness, yy)
