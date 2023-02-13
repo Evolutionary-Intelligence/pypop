@@ -12,7 +12,7 @@
     Our implementation uses the real-valued representation, with a different sub-optimizer.
 
     Luckily our code could still repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `COEA` could be **well-documented**.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 import seaborn as sns
