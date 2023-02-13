@@ -44,7 +44,7 @@ class CC(Optimizer):
 
     Gomez, F.J. and Schmidhuber, J., 2005, June.
     Co-evolving recurrent neurons learn deep memory POMDPs.
-    In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 491-498).
+    In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 491-498). ACM.
     https://dl.acm.org/doi/10.1145/1068009.1068092
 
     Fan, J., Lau, R. and Miikkulainen, R., 2003.
@@ -81,7 +81,8 @@ class CC(Optimizer):
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
         self.n_individuals = options.get('n_individuals', 100)  # number of individuals/samples, aka population size
-        self._n_generations = 0  # initial number of generations
+        self._n_generations = 0  # initial number of generations (cycles)
+        self._printed_evaluations = self.n_function_evaluations  # for printing
 
     def initialize(self):
         raise NotImplementedError
@@ -89,18 +90,25 @@ class CC(Optimizer):
     def iterate(self):
         raise NotImplementedError
 
-    def _print_verbose_info(self, fitness, y):
-        if self.saving_fitness:
-            if not np.isscalar(y):
-                fitness.extend(y)
-            else:
-                fitness.append(y)
-        if self.verbose and ((not self._n_generations % self.verbose) or (self.termination_signal > 0)):
-            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
-            print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+    def _print_verbose_info(self, fitness, y, is_print=False):
+        if y is not None:
+            if self.saving_fitness:
+                if not np.isscalar(y):
+                    fitness.extend(y)
+                else:
+                    fitness.append(y)
+        if self.verbose:
+            is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
+            is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
+            is_verbose_2 = self.termination_signal > 0 and is_verbose
+            is_verbose_3 = is_print and is_verbose
+            if is_verbose_1 or is_verbose_2 or is_verbose_3:
+                info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
+                print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+                self._printed_evaluations = self.n_function_evaluations
 
-    def _collect_results(self, fitness, y=None):
+    def _collect(self, fitness, y=None):
         self._print_verbose_info(fitness, y)
-        results = Optimizer._collect_results(self, fitness)
+        results = Optimizer._collect(self, fitness)
         results['_n_generations'] = self._n_generations
         return results
