@@ -47,7 +47,7 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
        >>> def rosenbrock(x):  # the notorious test function in the optimization community
        ...     return 100 * np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
        >>> ndim_problem = 1000  # define the fitness (cost) function and also its settings
-       >>> problem = {'fitness_function': rosenbrock,  # cost function
+       >>> problem = {'fitness_function': rosenbrock,  # cost function to be minimized
        ...            'ndim_problem': ndim_problem,  # dimension
        ...            'lower_boundary': -5 * np.ones((ndim_problem,)),  # search boundary
        ...            'upper_boundary': 5 * np.ones((ndim_problem,))}
@@ -60,7 +60,7 @@ last run one or more black-box optimizers from `pypop7` on the given optimizatio
        ...            'verbose': 500}
        >>> lmmaes = LMMAES(problem, options)  # initialize the optimizer
        >>> results = lmmaes.optimize()  # run its (time-consuming) search process
-       >>> # print the best-so-far fitness and used function evaluations returned by the black-box optimizer
+       >>> # print the best-so-far fitness and used function evaluations returned by the used black-box optimizer
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
        9.8774e-11 3928055
 
