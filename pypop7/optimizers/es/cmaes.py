@@ -169,7 +169,7 @@ class CMAES(ES):
             y[k] = self._evaluate_fitness(x[k], args)  # fitness
         return x, y
 
-    def _update_distribution(self, x=None, mean=None, p_s=None, p_c=None, cm=None, eig_ve=None, eig_va=None, y=None):
+    def update_distribution(self, x=None, mean=None, p_s=None, p_c=None, cm=None, eig_ve=None, eig_va=None, y=None):
         order = np.argsort(y)
         d = (x - mean)/self.sigma
         wd = np.dot(self._w[:self.n_parents], d[order[:self.n_parents]])
@@ -210,7 +210,7 @@ class CMAES(ES):
             x, y = self.iterate(x, mean, eig_ve, eig_va, y, args)
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
-            mean, p_s, p_c, cm, eig_ve, eig_va = self._update_distribution(x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
+            mean, p_s, p_c, cm, eig_ve, eig_va = self.update_distribution(x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
             if self.is_restart:
                 x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.restart_reinitialize(
                     x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
