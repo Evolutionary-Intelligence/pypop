@@ -145,9 +145,11 @@ class SAES(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         x, mean, sigmas, y = self.initialize()
-        while not self._check_terminations():
+        while True:
             # sample and evaluate offspring population
             x, sigmas, y = self.iterate(x, mean, sigmas, y, args)
+            if self._check_terminations():
+                break
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
             order = np.argsort(y)[:self.n_parents]
