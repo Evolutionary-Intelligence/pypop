@@ -19,14 +19,19 @@ class XNES(NES):
     Doctoral Dissertation, Technische Universität München.
     https://people.idsia.ch/~schaul/publications/thesis.pdf
 
+    Glasmachers, T., Schaul, T., Yi, S., Wierstra, D. and Schmidhuber, J., 2010, July.
+    Exponential natural evolution strategies.
+    In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 393-400).
+    https://dl.acm.org/doi/abs/10.1145/1830483.1830557
+
     See the official Python source code from PyBrain:
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/xnes.py
     """
     def __init__(self, problem, options):
         options['sigma'] = np.Inf  # not used for `SGES`
         NES.__init__(self, problem, options)
-        self.lr_cv = 0.6 * (3.0 + np.log(self.ndim_problem)) / self.ndim_problem / np.sqrt(self.ndim_problem)
-        self.lr_sigma = 0.6 * (3.0 + np.log(self.ndim_problem)) / self.ndim_problem / np.sqrt(self.ndim_problem)
+        self.lr_cv = 0.6*(3.0 + np.log(self.ndim_problem))/self.ndim_problem/np.sqrt(self.ndim_problem)
+        self.lr_sigma = 0.6*(3.0 + np.log(self.ndim_problem))/self.ndim_problem/np.sqrt(self.ndim_problem)
         self._eye = np.eye(self.ndim_problem)
 
     def initialize(self, is_restart=False):
