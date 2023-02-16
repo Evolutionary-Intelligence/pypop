@@ -205,9 +205,11 @@ class CMAES(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.initialize()
-        while not self._check_terminations():
+        while True:
             # sample and evaluate offspring population
             x, y = self.iterate(x, mean, eig_ve, eig_va, y, args)
+            if self._check_terminations():
+                break
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
             mean, p_s, p_c, cm, eig_ve, eig_va = self.update_distribution(x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
