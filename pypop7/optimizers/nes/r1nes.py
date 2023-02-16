@@ -24,7 +24,7 @@ class R1NES(NES):
     https://dl.acm.org/doi/abs/10.1145/2001576.2001692
 
     See the official Python source code from PyBrain:
-    https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/snes.py
+    https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/rank1.py
     """
     def __init__(self, problem, options):
         options['sigma'] = np.Inf  # not used for `R1NES`
