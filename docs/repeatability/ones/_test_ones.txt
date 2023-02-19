@@ -5,9 +5,9 @@
     -5.29618116e-08,  1.85166225e-08, -9.44816533e-09, 1.10606791e-08, -4.98901999e-09]),
  'best_so_far_y': 8.370864365325687e-11,
  'n_function_evaluations': 23580,
- 'runtime': 3.6088619232177734,
+ 'runtime': 4.677544832229614,
  'termination_signal': <Terminations.FITNESS_THRESHOLD: 3>,
- 'time_function_evaluations': 1.0480728149414062,
+ 'time_function_evaluations': 1.718966007232666,
  'fitness': array([[1.00000000e+00, 1.06104318e+07],
        [2.35800000e+04, 8.37086437e-11]]),
  'mean': array([-1.42949922e-06,  6.25840309e-07, -3.09012652e-07, -1.40814586e-08, -3.69919862e-08,
@@ -18,7 +18,7 @@
  '_n_restart': 0,
  '_n_generations': 235,
  '_list_generations': []}
-*** Runtime: 3.60886e+00
+*** Runtime: 4.68753e+00
 ******* rosenbrock *******
   * Generation 0: best_so_far_y 7.61151e+04, min(y) 7.61151e+04 & Evaluations 100
   * Generation 734: best_so_far_y 9.90864e-11, min(y) 9.90864e-11 & Evaluations 73420
@@ -26,9 +26,10 @@
     1.00000011, 0.99999999, 1.00000062, 1.00000086, 1.00000191]),
  'best_so_far_y': 9.908640182804362e-11,
  'n_function_evaluations': 73420,
- 'runtime': 9.869900465011597,
+ 'runtime': 10.064590454101562,
  'termination_signal': <Terminations.FITNESS_THRESHOLD: 3>,
- 'time_function_evaluations': 1.987123966217041, 'fitness': array([[1.00000000e+00, 6.83449592e+05],
+ 'time_function_evaluations': 2.2076659202575684,
+ 'fitness': array([[1.00000000e+00, 6.83449592e+05],
        [7.34200000e+04, 9.90864018e-11]]),
  'mean': array([1.        , 1.00000002, 0.99999993, 0.99999994, 1.00000005,
     1.00000003, 1.00000008, 1.00000023, 1.00000044, 1.00000081]),
@@ -38,7 +39,7 @@
  '_n_restart': 0,
  '_n_generations': 734,
  '_list_generations': []}
-*** Runtime: 1.34788e+01
+*** Runtime: 1.47521e+01
 ******* rastrigin *******
   * Generation 0: best_so_far_y 1.44734e+02, min(y) 1.44734e+02 & Evaluations 100
   * Generation 47: best_so_far_y 4.38376e+01, min(y) 6.43321e+01 & Evaluations 4700
@@ -70,9 +71,9 @@
     0.95751253, -0.03703313, -0.95688533,  0.05591962, -0.00896402]),
  'best_so_far_y': 16.231522651272627,
  'n_function_evaluations': 2000000,
- 'runtime': 146.45132184028625,
+ 'runtime': 138.4352924823761,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 37.143672704696655,
+ 'time_function_evaluations': 34.95536780357361,
  'fitness': array([[1.00000000e+00, 3.12899247e+02],
        [2.00000000e+05, 1.62315227e+01],
        [4.00000000e+05, 1.62315227e+01],
@@ -93,4 +94,4 @@
  '_n_restart': 8,
  '_n_generations': 34,
  '_list_generations': [47, 36, 82, 49, 52, 58, 42, 39]}
-*** Runtime: 1.59962e+02
+*** Runtime: 1.53217e+02
