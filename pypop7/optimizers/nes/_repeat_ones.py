@@ -45,11 +45,5 @@ if __name__ == '__main__':
         solver = Solver(problem, options)
         results = solver.optimize()
         print(results)
-        print(results['best_so_far_y'])
-        # seed_rng | best_so_far_y
-        # 0          1.21231855e-19
-        # 1          9.55072179e-20
-        # 2          2.02843481e-19
-        # 3          1.38791180e-19
-        # 4          5.10282137e-20
+        print(results['best_so_far_y'])  # 5.102821368789961e-20
         print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
