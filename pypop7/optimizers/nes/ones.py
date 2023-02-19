@@ -1,5 +1,6 @@
 import numpy as np
 
+from pypop7.optimizers.nes.nes import NES
 from pypop7.optimizers.nes.sges import SGES
 
 
@@ -49,3 +50,16 @@ class ONES(SGES):
         self._d_cv += self.lr_sigma*self._flat2triu(grad[self.ndim_problem:])
         cv = np.dot(self._d_cv.T, self._d_cv)
         return x, y, mean, cv
+
+    def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
+        fitness = NES.optimize(self, fitness_function)
+        x, y, mean, cv = self.initialize()
+        while True:
+            x, y = self.iterate(x, y, mean, args)
+            if self._check_terminations():
+                break
+            self._print_verbose_info(fitness, y)
+            x, y, mean, cv = self._update_distribution(x, y, mean, cv)
+            self._n_generations += 1
+            x, y, mean, cv = self.restart_reinitialize(x, y, mean, cv)
+        return self._collect(fitness, y, mean)
