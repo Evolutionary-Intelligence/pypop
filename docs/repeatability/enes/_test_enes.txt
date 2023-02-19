@@ -5,9 +5,9 @@
     -6.41985166e-08,  6.42039212e-08, -1.02630736e-08, 2.89873963e-09,  3.58133444e-10]),
  'best_so_far_y': 8.882071173285127e-11,
  'n_function_evaluations': 35034,
- 'runtime': 4.137585878372192,
+ 'runtime': 3.65804386138916,
  'termination_signal': <Terminations.FITNESS_THRESHOLD: 3>,
- 'time_function_evaluations': 1.8800809383392334,
+ 'time_function_evaluations': 1.9890506267547607,
  'fitness': array([[1.00000000e+00, 1.06104318e+07],
        [3.50340000e+04, 8.88207117e-11]]),
  'mean': array([ 2.98040421e-07, -1.81206697e-07, -1.05494452e-07,  3.50077979e-08, 2.52321879e-08,
@@ -18,7 +18,7 @@
  '_n_restart': 0,
  '_n_generations': 350,
  '_list_generations': []}
-*** Runtime: 4.14762e+00
+*** Runtime: 3.65804e+00
 ******* rosenbrock *******
   * Generation 0: best_so_far_y 7.61151e+04, min(y) 7.61151e+04 & Evaluations 100
   * Generation 860: best_so_far_y 8.19995e-11, min(y) 8.19995e-11 & Evaluations 86043
@@ -26,9 +26,9 @@
     1.00000028, 1.00000029, 1.00000122, 1.00000252, 1.00000482]),
  'best_so_far_y': 8.199953112712567e-11,
  'n_function_evaluations': 86043,
- 'runtime': 9.446507692337036,
+ 'runtime': 6.556498765945435,
  'termination_signal': <Terminations.FITNESS_THRESHOLD: 3>,
- 'time_function_evaluations': 2.9338953495025635,
+ 'time_function_evaluations': 2.1087486743927,
  'fitness': array([[1.00000000e+00, 6.83449592e+05],
        [8.60430000e+04, 8.19995311e-11]]),
  'mean': array([0.99999996, 1.00000002, 1.00000001, 1.00000004, 1.00000002,
@@ -39,7 +39,7 @@
  '_n_restart': 0,
  '_n_generations': 860,
  '_list_generations': []}
-*** Runtime: 1.35941e+01
+*** Runtime: 1.02145e+01
 ******* rastrigin *******
   * Generation 0: best_so_far_y 1.44734e+02, min(y) 1.44734e+02 & Evaluations 100
   * Generation 45: best_so_far_y 4.17916e+01, min(y) 5.51247e+01 & Evaluations 4500
@@ -71,9 +71,9 @@
     -0.97290202, -0.95086705, -0.04718909, -0.09897588,  0.12734437]),
  'best_so_far_y': 18.930025930513494,
  'n_function_evaluations': 2000000,
- 'runtime': 111.03673052787781,
+ 'runtime': 108.11228251457214,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 35.046432971954346,
+ 'time_function_evaluations': 34.102060079574585,
  'fitness': array([[1.00000000e+00, 3.12899247e+02],
        [2.00000000e+05, 2.94572650e+01],
        [4.00000000e+05, 2.70421180e+01],
@@ -94,4 +94,4 @@
  '_n_restart': 8,
  '_n_generations': 35,
  '_list_generations': [45, 30, 28, 44, 28, 34, 61, 39]}
-*** Runtime: 1.24656e+02
+*** Runtime: 1.18357e+02
