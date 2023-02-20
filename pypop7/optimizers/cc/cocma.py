@@ -72,7 +72,7 @@ class COCMA(CC):
         self.best_so_far_y = self._evaluate_fitness(self.best_so_far_x, arg)
         sub_optimizers = []
         for i in range(int(np.ceil(self.ndim_problem/self.ndim_subproblem))):
-            ii = range(i*self.ndim_subproblem, np.minimum((i+1)*self.ndim_subproblem, self.ndim_problem))
+            ii = range(i*self.ndim_subproblem, np.minimum((i + 1)*self.ndim_subproblem, self.ndim_problem))
             problem = {'ndim_problem': len(ii),  # cyclic decomposition
                        'lower_boundary': self.lower_boundary[ii],
                        'upper_boundary': self.upper_boundary[ii]}
