@@ -83,12 +83,17 @@ class ARHC(RHC):
 
     References
     ----------
-    https://probml.github.io/pml-book/book2.html
+    https://probml.github.io/pml-book/book2.html    (See CHAPTER 6.7 Derivative-free optimization)
 
     Russell, S. and Norvig P., 2021.
     Artificial intelligence: A modern approach (Global Edition).
     Pearson Education.
     http://aima.cs.berkeley.edu/    (See CHAPTER 4: SEARCH IN COMPLEX ENVIRONMENTS)
+
+    Hoos, H.H. and Stützle, T., 2004.
+    Stochastic local search: Foundations and applications.
+    Elsevier.
+    https://www.elsevier.com/books/stochastic-local-search/hoos/978-1-55860-872-6
 
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/hillclimber.py
     """
