@@ -6,13 +6,13 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class RS(Optimizer):
     """Random (stochastic) Search (optimization) (RS).
 
-    This is the **base** (abstract) class for all `RS` classes. Please use any of its instantiated subclasses to
-    optimize the black-box problem at hand. Recently, near all of its state-of-the-art versions adopt the
+    This is the **abstract** class for all `RS` classes. Please use any of its instantiated subclasses to
+    optimize the black-box problem at hand. Recently, all of its state-of-the-art versions adopt the
     **population-based** random sampling strategy for better exploration in the complex search space.
 
-    .. note:: `"The topic of local search was reinvigorated in the early 1990s by surprisingly good results
-       for large (combinatorial) problems ... and by the incorporation of randomness, multiple simultaneous searches,
-       and other improvements."---[Russell&Norvig, 2022] <http://aima.cs.berkeley.edu/global-index.html>`_
+    .. note:: `"The topic of local search was reinvigorated in the early 1990s by surprisingly good results for large
+       (combinatorial) problems ... and by the incorporation of randomness, multiple simultaneous searches, and other
+       improvements."---[Russell&Norvig, 2022] <http://aima.cs.berkeley.edu/global-index.html>`_
 
     Parameters
     ----------
@@ -84,8 +84,8 @@ class RS(Optimizer):
     Random optimization.
     Automation and Remote control, 26(2), pp.246-253.
     https://tinyurl.com/25339c4x
-    (*Since it was written originally in Russian, we cannot read it well. However, owing to its historical
-    position, we still choose to include it here, which causes a nonstandard citation.*)
+    (*Since it was written originally in Russian, we cannot read it. However, owing to its historical position,
+    we still choose to include it here, which causes a nonstandard citation.*)
 
     Rastrigin, L.A., 1963.
     The convergence of the random search method in the extremal control of a many parameter system.
@@ -121,20 +121,20 @@ class RS(Optimizer):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
-    def _collect_results(self, fitness, y=None):
+    def _collect(self, fitness, y=None):
         if y is not None:
             self._print_verbose_info(fitness, y)
-        results = Optimizer._collect_results(self, fitness)
+        results = Optimizer._collect(self, fitness)
         results['_n_generations'] = self._n_generations
         return results
 
     def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
         fitness = Optimizer.optimize(self, fitness_function)
-        x = self.initialize()
-        y = self._evaluate_fitness(x, args)
+        x = self.initialize()  # starting point
+        y = self._evaluate_fitness(x, args)  # fitness of starting point
         while not self._check_terminations():
             self._print_verbose_info(fitness, y)
-            x = self.iterate()
-            y = self._evaluate_fitness(x, args)
+            x = self.iterate()  # to sample a new point
+            y = self._evaluate_fitness(x, args)  # to evaluate the new point
             self._n_generations += 1
-        return self._collect_results(fitness, y)
+        return self._collect(fitness, y)
