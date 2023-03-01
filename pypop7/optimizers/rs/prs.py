@@ -34,7 +34,7 @@ class PRS(RS):
 
     Examples
     --------
-    Use the optimizer `PRS` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -45,14 +45,13 @@ class PRS(RS):
        >>> from pypop7.optimizers.rs.prs import PRS
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
-       ...            'seed_rng': 2022,
-       ...            'x': 3 * numpy.ones((2,))}
+       ...            'seed_rng': 2022}
        >>> prs = PRS(problem, options)  # initialize the optimizer class
        >>> results = prs.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       >>> # return the number of used function evaluations and found best-so-far fitness
        >>> print(f"PRS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        PRS: 5000, 0.11497678820610932
 
@@ -79,17 +78,16 @@ class PRS(RS):
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
         # set default: 1 -> uniformly distributed random sampling
-        self.sampling_distribution = options.get('sampling_distribution', 1)
-        if self.sampling_distribution not in [0, 1]:  # 0 -> normally distributed random sampling
-            info = 'For {:s}, only support uniformly or normally distributed random sampling.'
+        self._sampling_type = options.get('_sampling_type', 1)
+        if self._sampling_type not in [0, 1]:  # 0 -> normally distributed random sampling
+            info = 'For currently {:s}, only support uniformly or normally distributed random sampling.'
             raise ValueError(info.format(self.__class__.__name__))
-        if self.sampling_distribution == 0:
-            self.sigma = options.get('sigma')  # initial (global) step-size
-            if self.sigma is None:
-                raise ValueError('`sigma` should be set.')
+        elif self._sampling_type == 0:
+            self.sigma = options.get('sigma')  # initial global step-size (fixed during optimization)
+            assert self.sigma is not None
 
     def _sample(self, rng):
-        if self.sampling_distribution == 0:
+        if self._sampling_type == 0:
             x = self.x + self.sigma*rng.standard_normal(size=(self.ndim_problem,))
         else:
             x = rng.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
@@ -100,6 +98,7 @@ class PRS(RS):
             x = self._sample(self.rng_initialization)
         else:
             x = np.copy(self.x)
+        assert len(x) == self.ndim_problem
         return x
 
     def iterate(self):  # individual-based sampling
