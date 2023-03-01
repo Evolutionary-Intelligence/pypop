@@ -9,8 +9,8 @@ class SRS(PRS):
 
     .. note:: `SRS` is an **adaptive** random search method, originally designed by Rosenstein and `Barto
        <https://people.cs.umass.edu/~barto/>`_ for **direct policy search** in reinforcement learning.
-       Since it uses a very simple *individual-based* random sampling strategy, it easily suffers from a
-       **relatively limited** exploration ability for large-scale black-box optimization (LSBBO). Therefore,
+       Since it uses a simple *individual-based* random sampling strategy, it easily suffers from a
+       *limited* exploration ability for large-scale black-box optimization (LSBBO). Therefore,
        it is **highly recommended** to first attempt more advanced (e.g. population-based) methods for LSBBO.
 
        Here we include it mainly for *benchmarking* purpose.
@@ -36,13 +36,13 @@ class SRS(PRS):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'alpha'     - factor of global step-size (`float`, default: `0.3`),
-                * 'beta'      - adjustment probability for exploration-exploitation trade-off (`float`, default: `0`),
+                * 'beta'      - adjustment probability for exploration-exploitation trade-off (`float`, default: `0.0`),
                 * 'gamma'     - factor of search decay (`float`, default: `0.99`),
                 * 'min_sigma' - minimum of global step-size (`float`, default: `0.01`).
 
     Examples
     --------
-    Use the optimizer `SRS` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -53,35 +53,36 @@ class SRS(PRS):
        >>> from pypop7.optimizers.rs.srs import SRS
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'x': 3 * numpy.ones((2,)),
+       ...            'x': 3*numpy.ones((2,)),
        ...            'sigma': 0.1}
        >>> srs = SRS(problem, options)  # initialize the optimizer class
        >>> results = srs.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       >>> # return the number of used function evaluations and found best-so-far fitness
        >>> print(f"SRS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SRS: 5000, 0.0017821578376762473
 
     For its correctness checking of coding, the *code-based repeatability report* cannot be provided owing to
-    the lack of its simulation envrionment.
+    the lack of its simulation envrionment in the original paper. Instead, we used the comparison-based strategy
+    to validate its correctness as much as possible (though there still has a risk to be wrong).
 
     Attributes
     ----------
-    alpha                       : `float`
-                                  factor of global step-size.
-    beta                        : `float`
-                                  adjustment probability for exploration-exploitation trade-off.
-    gamma                       : `float`
-                                  factor of search decay.
-    min_sigma                   :  `float`
-                                  minimum of global step-size.
-    sigma                       : `float`
-                                  final global step-size (updated during optimization).
-    x                           : `array_like`
-                                  initial (starting) point.
+    alpha     : `float`
+                factor of global step-size.
+    beta      : `float`
+                adjustment probability for exploration-exploitation trade-off.
+    gamma     : `float`
+                factor of search decay.
+    min_sigma : `float`
+                minimum of global step-size.
+    sigma     : `float`
+                final global step-size (updated during optimization).
+    x         : `array_like`
+                initial (starting) point.
 
     References
     ----------
@@ -97,16 +98,16 @@ class SRS(PRS):
     """
     def __init__(self, problem, options):
         # only support normally-distributed random sampling during optimization
-        options['sampling_distribution'] = 0
+        options['_sampling_type'] = 0  # (a mandatory setting)
         PRS.__init__(self, problem, options)
         self.alpha = options.get('alpha', 0.3)  # factor of global step-size
-        assert self.alpha > 0.0, f'`self.alpha` == {self.alpha}, but should > 0.0.'
+        assert self.alpha > 0.0
         self.beta = options.get('beta', 0.0)  # adjustment probability for exploration-exploitation trade-off
-        assert 0.0 <= self.beta <= 1.0, f'`self.beta` == {self.beta}, but should >= 0.0 and <= 1.0.'
+        assert 0.0 <= self.beta <= 1.0
         self.gamma = options.get('gamma', 0.99)  # factor of search decay
-        assert 0.0 <= self.gamma <= 1.0, f'`self.gamma` == {self.gamma}, but should >= 0.0 and <= 1.0.'
+        assert 0.0 <= self.gamma <= 1.0
         self.min_sigma = options.get('min_sigma', 0.01)  # minimum of global step-size
-        assert self.min_sigma > 0.0, f'`self.min_sigma` == {self.min_sigma}, but should > 0.0.'
+        assert self.min_sigma > 0.0
 
     def initialize(self, args=None):
         if self.x is None:
@@ -133,4 +134,4 @@ class SRS(PRS):
             self._print_verbose_info(fitness, y)
             x, y = self.iterate(x, args)
             self.sigma = np.maximum(self.gamma*self.sigma, self.min_sigma)
-        return self._collect_results(fitness, y)
+        return self._collect(fitness, y)
