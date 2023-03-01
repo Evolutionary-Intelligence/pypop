@@ -7,8 +7,8 @@ from pypop7.optimizers.rs.rs import RS
 class BES(RS):
     """BErnoulli Smoothing (BES).
 
-    .. note:: This is a **simplified** version of the recently (2022) proposed BES algorithm **without noisy fitness
-       evaluations**. We leave the *noisy fitness evaluations* case for the future work.
+    .. note:: This is a *simplified* version of the recently proposed BES algorithm in ICML **without noisy function
+       (fitness) evaluations**. We leave the *noisy function (fitness) evaluations* case for the future work.
 
     Parameters
     ----------
@@ -27,14 +27,14 @@ class BES(RS):
                 * 'n_individuals' - number of individuals/samples (`int`, default: `100`),
                 * 'lr'            - learning rate (`float`, default: `0.001`),
                 * 'c'             - factor of finite-difference gradient estimate (`float`, default: `0.1`),
-                * 'x'                           - initial (starting) point (`array_like`),
+                * 'x'             - initial (starting) point (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
     Examples
     --------
-    Use the optimizer `BES` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -45,8 +45,8 @@ class BES(RS):
        >>> from pypop7.optimizers.rs.bes import BES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 100,
-       ...            'lower_boundary': -2 * numpy.ones((100,)),
-       ...            'upper_boundary': 2 * numpy.ones((100,))}
+       ...            'lower_boundary': -2*numpy.ones((100,)),
+       ...            'upper_boundary': 2*numpy.ones((100,))}
        >>> options = {'max_function_evaluations': 10000*101,  # set optimizer options
        ...            'seed_rng': 2022,
        ...            'n_individuals': 10,
@@ -54,7 +54,7 @@ class BES(RS):
        ...            'lr': 0.000001}
        >>> bes = BES(problem, options)  # initialize the optimizer class
        >>> results = bes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       >>> # return the number of used function evaluations and found best-so-far fitness
        >>> print(f"BES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        BES: 1010000, 133.79696876596637
 
@@ -118,4 +118,4 @@ class BES(RS):
             x, y = self.iterate(x, y, args)
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
-        return self._collect_results(fitness)
+        return self._collect(fitness)
