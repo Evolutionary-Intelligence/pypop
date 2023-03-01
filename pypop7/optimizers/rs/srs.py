@@ -66,7 +66,7 @@ class SRS(PRS):
        SRS: 5000, 0.0017821578376762473
 
     For its correctness checking of coding, the *code-based repeatability report* cannot be provided owing to
-    the lack of its simulation envrionment in the original paper. Instead, we used the comparison-based strategy
+    the lack of its simulation environment in the original paper. Instead, we used the comparison-based strategy
     to validate its correctness as much as possible (though there still has a risk to be wrong).
 
     Attributes
