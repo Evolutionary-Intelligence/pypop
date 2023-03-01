@@ -26,8 +26,8 @@ if __name__ == '__main__':
     for i in range(3):
         problem = {'fitness_function': sphere,
                    'ndim_problem': ndim,
-                   'upper_boundary': 1 * np.ones((ndim,)),
-                   'lower_boundary': -0.2 * np.ones((ndim,))}
+                   'upper_boundary': 1.0*np.ones((ndim,)),
+                   'lower_boundary': -0.2*np.ones((ndim,))}
         options = {'max_function_evaluations': 1500,
                    'seed_rng': i,  # undefined in the original paper
                    'saving_fitness': 1}
