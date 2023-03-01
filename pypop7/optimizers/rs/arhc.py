@@ -8,7 +8,7 @@ class ARHC(RHC):
 
     .. note:: The search performance of `ARHC` depends **heavily** on the *temperature* setting of the annealing
        process. However, its proper setting is a **non-trival** task, since it may vary among different problems
-       and even among different optimization stages for the problem at hand. Therefore, it is **highly recommended**
+       and even between different optimization stages for the problem at hand. Therefore, it is **highly recommended**
        to first attempt more advanced (e.g. population-based) methods for large-scale black-box optimization.
 
        Here we include it mainly for *benchmarking* purpose.
@@ -27,23 +27,23 @@ class ARHC(RHC):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'                       - initial global step-size (`float`),
-                * 'temperature'                 - annealing temperature (`float`),
-                * 'x'                           - initial (starting) point (`array_like`),
+                * 'sigma'             - initial global step-size (`float`),
+                * 'temperature'       - annealing temperature (`float`),
+                * 'x'                 - initial (starting) point (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
-                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`, when `init_distribution`
+                    is `1`. Otherwise, *standard normal* distributed random sampling is used.
 
-                * 'initialization_distribution' - random sampling distribution for starting point initialization (`int`,
+                * 'init_distribution' - random sampling distribution for starting-point initialization (`int`,
                   default: `1`). Only when `x` is not set *explicitly*, it will be used.
 
-                  * `1`: *uniform* distribution is used for random sampling,
-                  * `0`: *standard normal* distribution is used for random sampling with mean `0` and std `1` for
-                    each dimension.
+                  * `1`: *uniform* distributed random sampling only for starting-point initialization,
+                  * `0`: *standard normal* distributed random sampling only for starting-point initialization.
 
     Examples
     --------
-    Use the optimizer `ARHC` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -54,16 +54,16 @@ class ARHC(RHC):
        >>> from pypop7.optimizers.rs.arhc import ARHC
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'x': 3 * numpy.ones((2,)),
+       ...            'x': 3*numpy.ones((2,)),
        ...            'sigma': 0.1,
        ...            'temperature': 1.5}
        >>> arhc = ARHC(problem, options)  # initialize the optimizer class
        >>> results = arhc.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       >>> # return the number of used function evaluations and found best-so-far fitness
        >>> print(f"ARHC: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        ARHC: 5000, 0.0002641143073543329
 
@@ -72,14 +72,14 @@ class ARHC(RHC):
 
     Attributes
     ----------
-    initialization_distribution : `int`
-                                  random sampling distribution for starting-point initialization.
-    sigma                       : `float`
-                                  global step-size (fixed during optimization).
-    temperature                 : `float`
-                                  annealing temperature.
-    x                           : `array_like`
-                                  initial (starting) point.
+    init_distribution : `int`
+                        random sampling distribution for starting-point initialization.
+    sigma             : `float`
+                        global step-size (fixed during optimization).
+    temperature       : `float`
+                        annealing temperature.
+    x                 : `array_like`
+                        initial (starting) point.
 
     References
     ----------
@@ -100,19 +100,17 @@ class ARHC(RHC):
     def __init__(self, problem, options):
         RHC.__init__(self, problem, options)
         self.temperature = options.get('temperature')  # annealing temperature
-        if self.temperature is None:
-            raise ValueError('`temperature` should be set.')
-        self._parent_x = np.copy(self.best_so_far_x)
-        self._parent_y = np.copy(self.best_so_far_y)
+        assert self.temperature is not None
+        self._parent_x, self._parent_y = np.copy(self.best_so_far_x), np.copy(self.best_so_far_y)
 
     def iterate(self):  # sampling via mutating the parent individual
         noise = self.rng_optimization.standard_normal(size=(self.ndim_problem,))
-        return self._parent_x + self.sigma*noise
+        return self._parent_x + self.sigma*noise  # mutation based on Gaussian-noise perturbation
 
     def _evaluate_fitness(self, x, args=None):
         y = RHC._evaluate_fitness(self, x, args)
         # update parent solution and fitness
         diff = y - self._parent_y
-        if (diff < 0) or (self.rng_optimization.random() < np.exp(-diff/self.temperature)):
+        if (diff < 0) or (self.rng_optimization.random() < np.exp(-diff/self.temperature)):  # annealing
             self._parent_x, self._parent_y = np.copy(x), y
         return y
