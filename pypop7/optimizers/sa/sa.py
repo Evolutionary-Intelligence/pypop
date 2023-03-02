@@ -4,7 +4,7 @@ from pypop7.optimizers.rs import RS
 class SA(RS):
     """Simulated Annealing (SA).
 
-    This is the **base** (abstract) class for all `SA` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `SA` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
     .. note:: `"Typical advantages of SA algorithms are their very mild memory requirements and the small
@@ -29,13 +29,16 @@ class SA(RS):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
-              and with the following particular setting (`key`):
-                * 'x' - initial (starting) point (`array_like`).
+              and with the following particular settings (`keys`):
+                * 'temperature' - annealing temperature (`float`),
+                * 'x'           - initial (starting) point (`array_like`).
 
     Attributes
     ----------
-    x     : `array_like`
-            initial (starting) point.
+    temperature : `float`
+                  annealing temperature.
+    x           : `array_like`
+                  initial (starting) point.
 
     Methods
     -------
@@ -81,8 +84,7 @@ class SA(RS):
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
         self.temperature = options.get('temperature')  # annealing temperature
-        self.parent_x = None
-        self.parent_y = None
+        self.parent_x, self.parent_y = None, None
 
     def initialize(self):
         raise NotImplementedError
