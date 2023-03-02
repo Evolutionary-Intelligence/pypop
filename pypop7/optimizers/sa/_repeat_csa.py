@@ -7,8 +7,8 @@
 
     Luckily our code could repeat the data reported in the original paper *well* on at least the following
     test functions, although the settings of some hyper-parameters are not given clearly in the original
-    paper. Therefore, we argue that the repeatability of `CSA` could be **well-documented** on at least
-    these chosen test functions.
+    paper. Therefore, we argue that its repeatability could be **well-documented** on at least these chosen
+    test functions.
 """
 import numpy as np
 
@@ -19,8 +19,8 @@ from pypop7.optimizers.sa.csa import CSA
 if __name__ == '__main__':
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': 2,
-               'upper_boundary': 2000 * np.ones((2,)),
-               'lower_boundary': -2000 * np.ones((2,))}
+               'upper_boundary': 2000*np.ones((2,)),
+               'lower_boundary': -2000*np.ones((2,))}
     options = {'max_function_evaluations': 512001,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0,  # undefined in the original paper
@@ -34,8 +34,8 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': 2,
-               'upper_boundary': 2000 * np.ones((2,)),
-               'lower_boundary': -2000 * np.ones((2,))}
+               'upper_boundary': 2000*np.ones((2,)),
+               'lower_boundary': -2000*np.ones((2,))}
     options = {'max_function_evaluations': 488001,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0,  # undefined in the original paper
@@ -49,13 +49,13 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': 4,
-               'upper_boundary': 200 * np.ones((4,)),
-               'lower_boundary': -200 * np.ones((4,))}
+               'upper_boundary': 200*np.ones((4,)),
+               'lower_boundary': -200*np.ones((4,))}
     options = {'max_function_evaluations': 1288001,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 2.0,  # undefined in the original paper
                'temperature': 1e7,
-               'x': 101 * np.ones((4,)),
+               'x': 101*np.ones((4,)),
                'verbose': 1000,
                'saving_fitness': 1000}
     csa = CSA(problem, options)
@@ -64,13 +64,13 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': 4,
-               'upper_boundary': 200 * np.ones((4,)),
-               'lower_boundary': -200 * np.ones((4,))}
+               'upper_boundary': 200*np.ones((4,)),
+               'lower_boundary': -200*np.ones((4,))}
     options = {'max_function_evaluations': 1296001,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 1.5,  # undefined in the original paper
                'temperature': 1e7,
-               'x': -99 * np.ones((4,)),
+               'x': -99*np.ones((4,)),
                'verbose': 1000,
                'saving_fitness': 1000}
     csa = CSA(problem, options)
