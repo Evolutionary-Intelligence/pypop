@@ -5,7 +5,9 @@
     https://jmlr.org/papers/v11/schaul10a.html
 
     Luckily our Python code could repeat the data reported in the other reference Python code *well*.
-    Therefore, we argue that the repeatability of `ARHC` could be **well-documented**.
+    Therefore, we argue that its repeatability could be **well-documented**.
+
+
 
     The reference Python code (https://github.com/pybrain/pybrain) is shown below:
     ------------------------------------------------------------------------------
@@ -17,16 +19,14 @@
 
 
     def ellipsoid(x):
-        x = np.power(x, 2)
-        y = np.dot(np.power(10, 6 * np.linspace(0, 1, x.size)), x)
-        return y
+        return np.dot(np.power(10, 6*np.linspace(0, 1, x.size)), np.power(x, 2))
 
 
-    solver = ARHC(ellipsoid, 4 * np.ones((1000,)), minimize=True, maxEvaluations=2e6, verbose=True)
-    solver.temperature = 100
+    np.random.seed(0)
+    solver = ARHC(ellipsoid, 4*np.ones((1000,)), minimize=True, maxEvaluations=2e6, verbose=True, temperature=100)
     start_time = time.time()
     solver.learn()
-    # Step: 1999998 best: 10972437.61259182 (note that different runs result in slightly different results)
+    # ('Step:', 1999998, 'best:', 11215098.066122532)
     print("Runtime: {:7.5e}".format(time.time() - start_time))
 """
 import time
@@ -42,16 +42,14 @@ if __name__ == '__main__':
     ndim_problem = 1000
     problem = {'fitness_function': ellipsoid,
                'ndim_problem': ndim_problem,
-               'upper_boundary': 5.0 * np.ones((ndim_problem,)),
-               'lower_boundary': -5.0 * np.ones((ndim_problem,))}
+               'upper_boundary': 5.0*np.ones((ndim_problem,)),
+               'lower_boundary': -5.0*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 2e6,
                'seed_rng': 0,
-               'x': 4 * np.ones((ndim_problem,)),
+               'x': 4*np.ones((ndim_problem,)),
                'sigma': 0.1,
                'temperature': 100,
                'verbose': 200000,
                'saving_fitness': 200000}
-    arhc = ARHC(problem, options)
-    results = arhc.optimize()
-    print(results)  # 1.03891664e+07
+    print(ARHC(problem, options).optimize())  # 1.03891664e+07
     print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
