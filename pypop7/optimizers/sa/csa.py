@@ -8,7 +8,7 @@ class CSA(SA):
     """Corana et al.' Simulated Annealing (CSA).
 
     .. note:: `"The algorithm is essentially an iterative random search procedure with adaptive moves along
-       the coordinate directions."---[Corana et al., 1986, ACM-TOMS] <https://dl.acm.org/doi/abs/10.1145/29380.29864>`_
+       the coordinate directions."---[Corana et al., 1987, ACM-TOMS] <https://dl.acm.org/doi/abs/10.1145/29380.29864>`_
 
     Parameters
     ----------
@@ -29,12 +29,12 @@ class CSA(SA):
                 * 'n_sv'        - frequency of step variation (`int`, default: `20`),
                 * 'c'           - factor of step variation (`float`, default: `2.0`),
                 * 'n_tr'        - frequency of temperature reduction (`int`, default:
-                                  `np.maximum(100, 5*self.ndim_problem)`),
+                                  `np.maximum(100, 5*problem['ndim_problem'])`),
                 * 'f_tr'        - factor of temperature reduction (`int`, default: `0.85`).
 
     Examples
     --------
-    Use the optimizer `CSA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -45,11 +45,11 @@ class CSA(SA):
        >>> from pypop7.optimizers.sa.csa import CSA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'x': 3 * numpy.ones((2,)),
+       ...            'x': 3*numpy.ones((2,)),
        ...            'sigma': 1.0,
        ...            'temperature': 100}
        >>> csa = CSA(problem, options)  # initialize the optimizer class
@@ -77,21 +77,27 @@ class CSA(SA):
     def __init__(self, problem, options):
         SA.__init__(self, problem, options)
         self.sigma = options.get('sigma')
+        assert self.sigma > 0.0
         self.v = self.sigma*np.ones((self.ndim_problem,))  # step vector
         self.n_sv = options.get('n_sv', 20)  # frequency of step variation (N_S)
+        assert self.n_sv > 0
         c = options.get('c', 2.0)  # factor of step variation
+        assert c > 0.0
         self.f_sv = c*np.ones(self.ndim_problem,)
-        self.verbose = options.get('verbose', 10)
         # set frequency of temperature reduction (N_T)
         self.n_tr = options.get('n_tr', np.maximum(100, 5*self.ndim_problem))
+        assert self.n_tr > 0
         self.f_tr = options.get('r_T', 0.85)  # factor of temperature reduction (r_T)
+        assert self.f_tr > 0.0
         self._sv = np.zeros((self.ndim_problem,))  # for step variation
+        self.verbose = options.get('verbose', 10)
 
     def initialize(self, args=None):
         if self.x is None:  # starting point
             x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         else:
             x = np.copy(self.x)
+        assert len(x) == self.ndim_problem
         y = self._evaluate_fitness(x, args)
         self.parent_x, self.parent_y = np.copy(x), np.copy(y)
         return y
@@ -138,6 +144,6 @@ class CSA(SA):
                 self._adjust_step_vector()
             self.temperature *= self.f_tr  # temperature reducing
             self.parent_x, self.parent_y = np.copy(self.best_so_far_x), np.copy(self.best_so_far_y)
-        results = self._collect_results(fitness)
+        results = self._collect(fitness)
         results['v'] = np.copy(self.v)
         return results
