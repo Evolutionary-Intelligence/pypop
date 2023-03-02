@@ -11,14 +11,13 @@
     We still expect to improve it, in order to match the original paper as close as possible in the future
       (if possible).
 
-    The fuzzy details are presented below, which can cause different implementations with different performances:
+    The fuzzy details from the original paper are presented below, which can cause different implementations
+      with different performances:
     1. Initial FOBJ variation average, DGYINI, obtained from (typically) 50 uphill moves performed
       before beginning SA minimization itself.
     2. Step 2: Space Partitioning.
-    3. Those elementary operations on only p coordinates move the point XSTART to the point XTRY
-      satisfying all hyperrectangular box constraints.
-    4. MSOTST = 0 (this is a typo in the original paper).
-    5. Other systematic experiments are still in progress in order to obtain, if possible, a rule for
+    3. MSOTST = 0 (this should be a typo in the original paper).
+    4. Other systematic experiments are still in progress in order to obtain, if possible, a rule for
       the p-optimal choice, adapted to FOBJ-specific characteristics.
 """
 import numpy as np
@@ -30,8 +29,8 @@ from pypop7.optimizers.sa.esa import ESA
 if __name__ == '__main__':
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': 50,
-               'upper_boundary': 10 * np.ones((50,)),
-               'lower_boundary': -5 * np.ones((50,))}
+               'upper_boundary': 10*np.ones((50,)),
+               'lower_boundary': -5*np.ones((50,))}
     options = {'max_function_evaluations': 78224,
                'seed_rng': 1,  # undefined in the original paper
                'p': 1,
