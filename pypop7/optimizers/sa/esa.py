@@ -7,10 +7,10 @@ from pypop7.optimizers.sa.sa import SA
 class ESA(SA):
     """Enhanced Simulated Annealing (ESA).
 
-    .. note:: `ESA` adopts the **random decomposition** strategy to alleviate the *curse of dimensionality*
-       for large-scale black-box optimization. Therefore, it shares some similaries (i.e., axis-parallel
-       decomposition) to the *Cooperative Coevolution* framework, which uses the population-based sampling
-       (rather than individual-based sampling of `ESA`) for each subproblem (corresponding to search subspace).
+    .. note:: `ESA` adopts a **random decomposition** strategy to alleviate the *curse of dimensionality* for
+       large-scale black-box optimization. Note that it shares some similaries (i.e., axis-parallel decomposition)
+       to the *Cooperative Coevolution* framework, which uses population-based sampling (rather than individual-based
+       sampling of `ESA`) for each subproblem (corresponding to a search subspace).
 
     Parameters
     ----------
@@ -26,13 +26,13 @@ class ESA(SA):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'p'  - subspace dimension (`int`, default: `int(np.ceil(self.ndim_problem/3))`),
+                * 'p'  - subspace dimension (`int`, default: `int(np.ceil(problem['ndim_problem']/3))`),
                 * 'n1' - factor to control temperature stage w.r.t. accepted moves (`int`, default: `12`),
                 * 'n2' - factor to control temperature stage w.r.t. attempted moves (`int`, default: `100`).
 
     Examples
     --------
-    Use the optimizer `ESA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -43,11 +43,11 @@ class ESA(SA):
        >>> from pypop7.optimizers.sa.esa import ESA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'x': 3 * numpy.ones((2,))}
+       ...            'x': 3*numpy.ones((2,))}
        >>> esa = ESA(problem, options)  # initialize the optimizer class
        >>> results = esa.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -67,8 +67,11 @@ class ESA(SA):
     def __init__(self, problem, options):
         SA.__init__(self, problem, options)
         self.n1 = options.get('n1', 12)  # factor to control temperature stage w.r.t. accepted moves
+        assert self.n1 > 0
         self.n2 = options.get('n2', 100)  # factor to control temperature stage w.r.t. attempted moves
+        assert self.n2 > 0
         self.p = options.get('p', int(np.ceil(self.ndim_problem/3)))  # number of subspaces
+        assert self.p > 0
         self.verbose = options.get('verbose', 10)
         # set parameters at current temperature stage
         self._elowst = None
@@ -85,6 +88,7 @@ class ESA(SA):
             x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         else:
             x = np.copy(self.x)
+        assert len(x) == self.ndim_problem
         y = self._evaluate_fitness(x, args)
         self.parent_x, self.parent_y = np.copy(x), np.copy(y)
         fitness = [y]
@@ -101,7 +105,7 @@ class ESA(SA):
 
     def iterate(self, p=None, args=None):
         fitness = []
-        for k in p:  # without overselecting
+        for k in p:  # without over-selecting
             if self._check_terminations():
                 return fitness
             x, sign = np.copy(self.parent_x), self.rng_optimization.choice([-1, 1])
@@ -163,4 +167,4 @@ class ESA(SA):
             self.temperature *= np.maximum(np.minimum(self._elowst/self._avgyst, 0.9), 0.1)
             self._adjust_step_vector()
             self._reset_parameters()
-        return self._collect_results(fitness)
+        return self._collect(fitness)
