@@ -7,9 +7,7 @@ from pypop7.optimizers.sa.sa import SA
 class NSA(SA):
     """Noisy Simulated Annealing (NSA).
 
-    .. note:: This is a *slightly modified* version of discrete `NSA` for continuous optimization
-       **with noisy observations**. For *static* optimization, its two hyper-parameters, `is_noisy`
-       and `n_samples`, should be set to `False` and `1`, respectively.
+    .. note:: This is a *slightly modified* version of discrete `NSA` for continuous optimization.
 
     Parameters
     ----------
@@ -27,17 +25,17 @@ class NSA(SA):
               and with the following particular settings (`keys`):
                 * 'x'         - initial (starting) point (`array_like`),
                 * 'sigma'     - initial global step-size (`float`),
-                * 'is_noisy'  - whether to minimize a **noisy** cost function (`bool`, default: `True`),
+                * 'is_noisy'  - whether or not to minimize a **noisy** cost function (`bool`, default: `False`),
                 * 'schedule'  - schedule for sampling intensity (`str`, default: `linear`),
 
                   * currently only two (*linear* or *quadratic*) schedules are supported for sampling intensity,
 
-                * 'n_samples' - number of samples for each iteration (`int`),
+                * 'n_samples' - number of samples (`int`),
                 * 'rt'        - reducing factor of annealing temperature (`float`, default: `0.99`).
 
     Examples
     --------
-    Use the optimizer `NSA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -48,15 +46,13 @@ class NSA(SA):
        >>> from pypop7.optimizers.sa.nsa import NSA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'x': 3 * numpy.ones((2,)),
+       ...            'x': 3*numpy.ones((2,)),
        ...            'sigma': 1.0,
-       ...            'is_noisy': False,
-       ...            'n_samples': 1,
-       ...            'temperature': 100}
+       ...            'temperature': 100.0}
        >>> nsa = NSA(problem, options)  # initialize the optimizer class
        >>> results = nsa.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -64,12 +60,12 @@ class NSA(SA):
        NSA: 5000, 0.006086567926462302
 
     For its correctness checking of coding, the *code-based repeatability report* cannot be provided owing to
-    the lack of details of its experiments on the `Ackley` test function.
+    the lack of some details of its experiments in the original paper.
 
     Attributes
     ----------
     is_noisy  : `bool`
-                whether to minimize a noisy cost function.
+                whether or not to minimize a noisy cost function.
     n_samples : `int`
                 number of samples for each iteration.
     rt        : `float`
@@ -91,15 +87,18 @@ class NSA(SA):
     def __init__(self, problem, options):
         SA.__init__(self, problem, options)
         self.sigma = options.get('sigma')
-        self.is_noisy = options.get('is_noisy', True)
+        assert self.sigma > 0.0
+        self.is_noisy = options.get('is_noisy', False)
+        assert self.is_noisy in [True, False]
         self.schedule = options.get('schedule', 'linear')  # schedule for sampling intensity
         assert self.schedule in ['linear', 'quadratic'],\
             'Currently only two (*linear* or *quadratic*) schedules are supported for sampling intensity.'
-        self.n_samples = options.get('n_samples')
-        if not self.is_noisy:
-            self.n_samples = 1  # to override
+        if self.is_noisy:
+            self.n_samples = options.get('n_samples')
+        else:
+            self.n_samples = 1  # a mandatory setting
+        assert self.n_samples > 0
         self.rt = options.get('cr', 0.99)  # reducing factor of temperature
-        self.temperature_threshold = options.get('temperature_threshold', 1e-200)
         self._tk = 0
 
     def initialize(self, args=None):
@@ -107,6 +106,7 @@ class NSA(SA):
             x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         else:
             x = np.copy(self.x)
+        assert len(x) == self.ndim_problem
         y = self._evaluate_fitness(x, args)
         self.parent_x, self.parent_y = np.copy(x), np.copy(y)
         return y
@@ -117,7 +117,7 @@ class NSA(SA):
         if self.schedule == 'linear':
             n_tk = self._tk
         else:  # quadratic
-            n_tk = np.power(self._tk, 2)
+            n_tk = np.square(self._tk)
         if self.n_samples is None:
             n_samples = self.rng_optimization.poisson(n_tk) + 1
         else:
@@ -150,5 +150,5 @@ class NSA(SA):
             self._print_verbose_info(fitness, y)
             y = self.iterate(args)
             self._n_generations += 1
-            self.temperature = np.maximum(self.temperature*self.rt, self.temperature_threshold)
-        return self._collect_results(fitness, y)
+            self.temperature = np.maximum(self.temperature*self.rt, 1e-200)
+        return self._collect(fitness, y)
