@@ -10,6 +10,7 @@ Random Search (RS)
    :caption: RSs:
 
    bes
+   gs
    srs
    arhc
    rhc
