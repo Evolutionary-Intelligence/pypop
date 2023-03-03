@@ -45,6 +45,11 @@ class RS(Optimizer):
     In International Conference on Machine Learning (pp. 7077-7101). PMLR.
     https://proceedings.mlr.press/v162/gao22f.html
 
+    Nesterov, Y. and Spokoiny, V., 2017.
+    Random gradient-free minimization of convex functions.
+    Foundations of Computational Mathematics, 17(2), pp.527-566.
+    https://link.springer.com/article/10.1007/s10208-015-9296-2
+
     Bergstra, J. and Bengio, Y., 2012.
     Random search for hyper-parameter optimization.
     Journal of Machine Learning Research, 13(2).
