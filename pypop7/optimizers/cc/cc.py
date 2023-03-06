@@ -9,10 +9,10 @@ class CC(Optimizer):
     This is the **abstract** class for all `CC` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
-    .. note:: `CC` uses the decomposition-based strategy to alleviate curse-of-dimensionality for large-scale black-box
+    .. note:: `CC` uses the **decomposition** strategy to alleviate curse-of-dimensionality for large-scale black-box
        optimization. Refer to `[Panait et al., 2008, JMLR] <https://jmlr.org/papers/volume9/panait08a/panait08a.pdf>`_
-       for convergence analyses and their state-of-the-art *neuroevolution* applications from Schmidhuber and/or
-       Miikkulainen's lab (e.g., `[Gomez et al.,, 2008, JMLR] <https://www.jmlr.org/papers/v9/gomez08a.html>`_).
+       for convergence analyses and e.g. `[Gomez et al.,, 2008, JMLR] <https://www.jmlr.org/papers/v9/gomez08a.html>`_
+       for state-of-the-art *neuroevolution* applications from Schmidhuber and/or Miikkulainen's lab.
 
     Parameters
     ----------
