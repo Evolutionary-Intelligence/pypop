@@ -7,7 +7,7 @@ class ARHC(RHC):
     """Annealed Random Hill Climber (ARHC).
 
     .. note:: The search performance of `ARHC` depends **heavily** on the *temperature* setting of the annealing
-       process. However, its proper setting is a **non-trival** task, since it may vary among different problems
+       process. However, its proper setting is a **non-trivial** task, since it may vary among different problems
        and even between different optimization stages for the problem at hand. Therefore, it is **highly recommended**
        to first attempt more advanced (e.g. population-based) methods for large-scale black-box optimization.
 
