@@ -6,8 +6,13 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class CC(Optimizer):
     """Cooperative Coevolution (CC).
 
-    This is the **base** (abstract) class for all `CC` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `CC` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
+
+    .. note:: `CC` uses the decomposition-based strategy to alleviate curse-of-dimensionality for large-scale black-box
+       optimization. Refer to `[Panait et al., 2008, JMLR] <https://jmlr.org/papers/volume9/panait08a/panait08a.pdf>`_
+       for convergence analyses and their state-of-the-art *neuroevolution* applications from Schmidhuber and/or
+       Miikkulainen's lab (e.g., `[Gomez et al.,, 2008, JMLR] <https://www.jmlr.org/papers/v9/gomez08a.html>`_).
 
     Parameters
     ----------
@@ -81,6 +86,7 @@ class CC(Optimizer):
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
         self.n_individuals = options.get('n_individuals', 100)  # number of individuals/samples, aka population size
+        assert self.n_individuals > 0
         self._n_generations = 0  # initial number of generations (cycles)
         self._printed_evaluations = self.n_function_evaluations  # for printing
 
@@ -88,7 +94,7 @@ class CC(Optimizer):
         raise NotImplementedError
 
     def iterate(self):
-        raise NotImplementedError
+        pass
 
     def _print_verbose_info(self, fitness, y, is_print=False):
         if y is not None:
