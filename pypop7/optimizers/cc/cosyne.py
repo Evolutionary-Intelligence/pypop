@@ -6,6 +6,10 @@ from pypop7.optimizers.cc.cc import CC
 class COSYNE(CC):
     """CoOperative SYnapse NEuroevolution (COSYNE).
 
+    .. note:: This is a wrapper of `COSYNE`, which has been implemented in the Python library `EvoTorch
+       <https://docs.evotorch.ai/v0.3.0/reference/evotorch/algorithms/ga/#evotorch.algorithms.ga.Cosyne>`_,
+       with slight modifications.
+
     Parameters
     ----------
     problem : dict
@@ -20,14 +24,14 @@ class COSYNE(CC):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma'          - global step-size for Gaussian search (mutation/sampling) distribution (`float`),
+                * 'sigma'          - initial global step-size for Gaussian search distribution (`float`),
                 * 'n_individuals'  - number of individuals/samples, aka population size (`int`, default: `100`),
                 * 'n_tournaments'  - number of tournaments for one-point crossover (`int`, default: `10`),
                 * 'ratio_elitists' - ratio of elitists (`float`, default: `0.3`).
 
     Examples
     --------
-    Use the optimizer `COSYNE` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -62,7 +66,7 @@ class COSYNE(CC):
     ratio_elitists : `float`
                      ratio of elitists.
     sigma          : `float`
-                     global step-size for Gaussian search (mutation/sampling) distribution.
+                     initial global step-size for Gaussian search (mutation/sampling) distribution.
 
     References
     ----------
@@ -70,6 +74,9 @@ class COSYNE(CC):
     Accelerated neural evolution through cooperatively coevolved synapses.
     Journal of Machine Learning Research, 9(31), pp.937-965.
     https://jmlr.org/papers/v9/gomez08a.html
+
+    https://docs.evotorch.ai/v0.3.0/reference/evotorch/algorithms/ga/#evotorch.algorithms.ga.Cosyne
+    https://github.com/nnaisense/evotorch/blob/master/src/evotorch/algorithms/ga.py
     """
     def __init__(self, problem, options):
         CC.__init__(self, problem, options)
