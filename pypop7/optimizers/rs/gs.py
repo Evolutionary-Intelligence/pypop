@@ -7,7 +7,7 @@ from pypop7.optimizers.rs.rs import RS
 class GS(RS):
     """Gaussian Smoothing (GS).
 
-    .. note:: In 2017, Nesterov published stat-of-the-art theoretical results on convergence rate of `GS` for
+    .. note:: In 2017, Nesterov published state-of-the-art theoretical results on convergence rate of `GS` for
        a class of convex functions in the gradient-free context (see Foundations of Computational Mathematics).
 
     Parameters
