@@ -1,7 +1,7 @@
 """This code only tests whether the corresponding optimizer could run or not.
   In other words, it *cannot* validate the correctness regarding its working procedure.
   For the correctness validation of programming, refer to the following link:
-    https://github.com/Evolutionary-Intelligence/pypop/wiki/Correctness-Validation-of-Optimizers.md
+    https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/_repeat_esa.py
 """
 import unittest
 import time
@@ -20,13 +20,13 @@ class TestESA(unittest.TestCase):
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
                        'ndim_problem': ndim_problem,
-                       'lower_boundary': -5 * np.ones((ndim_problem,)),
-                       'upper_boundary': 5 * np.ones((ndim_problem,))}
+                       'lower_boundary': -5*np.ones((ndim_problem,)),
+                       'upper_boundary': 5*np.ones((ndim_problem,))}
             options = {'max_function_evaluations': 2e6,
                        'fitness_threshold': 1e-10,
                        'seed_rng': 0,
                        'temperature': 100,
-                       'x': 4 * np.ones((ndim_problem,)),
+                       'x': 4*np.ones((ndim_problem,)),
                        'verbose': 200,
                        'saving_fitness': 200000}
             solver = Solver(problem, options)
