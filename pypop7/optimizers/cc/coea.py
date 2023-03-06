@@ -9,6 +9,10 @@ from pypop7.optimizers.cc import CC
 class COEA(CC):
     """CoOperative co-Evolutionary Algorithm (COEA).
 
+    .. note:: This is a *slightly modified* version of `COEA`, where the more common real-valued representation is used
+       for continuous optimization rather than binary-coding used in the original paper. For the suboptimizer, the
+       `GENITOR <https://pypop.readthedocs.io/en/latest/ga/genitor.html>`_ is used, owing to its simplicity.
+
     Parameters
     ----------
     problem : dict
@@ -27,7 +31,7 @@ class COEA(CC):
 
     Examples
     --------
-    Use the optimizer `COEA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -59,6 +63,11 @@ class COEA(CC):
 
     References
     ----------
+    Potter, M.A. and De Jong, K.A., 2000.
+    Cooperative coevolution: An architecture for evolving coadapted subcomponents.
+    Evolutionary Computation, 8(1), pp.1-29.
+    https://direct.mit.edu/evco/article/8/1/1/859/Cooperative-Coevolution-An-Architecture-for
+
     Potter, M.A. and De Jong, K.A., 1994, October.
     A cooperative coevolutionary approach to function optimization.
     In International Conference on Parallel Problem Solving from Nature (pp. 249-257).
@@ -73,7 +82,7 @@ class COEA(CC):
         self.best_so_far_y = self._evaluate_fitness(self.best_so_far_x, arg)
         sub_optimizers = []
         for i in range(self.ndim_problem):
-            problem = {'ndim_problem': 1,  # cyclic decomposition
+            problem = {'ndim_problem': 1,  # cyclic decomposition for each dimension
                        'lower_boundary': self.lower_boundary[i],
                        'upper_boundary': self.upper_boundary[i]}
             options = {'seed_rng': self.rng_initialization.integers(np.iinfo(np.int64).max),
@@ -84,9 +93,6 @@ class COEA(CC):
             genitor.start_time = time.time()
             sub_optimizers.append(genitor)
         return sub_optimizers, self.best_so_far_y
-
-    def iterate(self):
-        pass
 
     def optimize(self, fitness_function=None, args=None):
         fitness, is_initialization = CC.optimize(self, fitness_function), True
@@ -123,5 +129,5 @@ class COEA(CC):
                     opt.fitness_function = sub_function
                     _, yy, _ = opt.iterate(x_s[i], yy_s[i], cp_s[i])
                     y.append(yy)
-            self._n_generations += 1
+                self._n_generations += 1
         return self._collect(fitness, y)
