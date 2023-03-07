@@ -28,8 +28,8 @@ if __name__ == '__main__':
     ndim_problem = 10
     problem = {'fitness_function': griewank,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -600 * np.ones((ndim_problem,)),
-               'upper_boundary': 600 * np.ones((ndim_problem,))}
+               'lower_boundary': -600*np.ones((ndim_problem,)),
+               'upper_boundary': 600*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 100000,
                'seed_rng': 0,
                'saving_fitness': 1}
@@ -49,8 +49,8 @@ if __name__ == '__main__':
     ndim_problem = 20
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -5 * np.ones((ndim_problem,)),
-               'upper_boundary': 5 * np.ones((ndim_problem,))}
+               'lower_boundary': -5*np.ones((ndim_problem,)),
+               'upper_boundary': 5*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 100000,
                'seed_rng': 0,
                'saving_fitness': 1}
@@ -70,8 +70,8 @@ if __name__ == '__main__':
     ndim_problem = 30
     problem = {'fitness_function': ackley,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -600 * np.ones((ndim_problem,)),
-               'upper_boundary': 600 * np.ones((ndim_problem,))}
+               'lower_boundary': -600*np.ones((ndim_problem,)),
+               'upper_boundary': 600*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 100000,
                'seed_rng': 0,
                'saving_fitness': 1}
