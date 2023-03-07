@@ -187,6 +187,8 @@ Since this library is built on the wonderful numerical computing library NumPy, 
 
 ## References
 
+Note that for each algorithm family, we also provide some *representative* application instances, most of which were published on top-tier journals and conferences (such as, Nature, Science, PNAS, PRL, PIEEE, etc.).
+
 * Derivative-Free Optimization (DFO)
   * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). Foundations of Computational Mathematics, 22(2), pp.507-560.
   * Porcelli, M. and Toint, P.L., 2022. [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054). ACM Transactions on Mathematical Software, 48(1), pp.1-25.
