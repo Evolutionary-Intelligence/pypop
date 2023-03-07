@@ -51,7 +51,11 @@ class HCC(CC):
        >>> results = hcc.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"HCC: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       HCC: 5001, 0.0026675385361584567
+       HCC: 5000, 5.610179991025547e-09
+
+    For its correctness checking of coding, we cannot provide the code-based repeatability report, since this
+    implementation combines two different papers. To our knowledge, few well-designed open-source code of `CC` is
+    available for non-separable black-box optimization.
 
     Attributes
     ----------
@@ -119,29 +123,25 @@ class HCC(CC):
 
     def optimize(self, fitness_function=None, args=None):
         fitness, is_initialization = CC.optimize(self, fitness_function), True
-        used_fe = self.n_function_evaluations
         sub_optimizers, y, lmcma = self.initialize(args)
-        # run for upper-level LM-CMA
+        # run upper-level LM-CMA
         lm_mean, lm_x, lm_p_c, lm_s, lm_vm, lm_pm, lm_b, lm_d, lm_y = lmcma.initialize()  # for upper-level LM-CMA
         lmcma.start_time = time.time()
         lmcma.fitness_function = self.fitness_function
-        # run for lower-level CMA-ES
+        # run lower-level CMA-ES
         x_s, mean_s, ps_s, pc_s, cm_s, ee_s, ea_s, y_s = [], [], [], [], [], [], [], []  # for lower-level CMA-ES
         while not self._check_terminations():
             self._print_verbose_info(fitness, y)
             y = []
-            # run for upper-level LM-CMA
+            # run upper-level LM-CMA
             lm_y_bak = np.copy(lm_y)
-            lmcma.max_function_evaluations = self.max_function_evaluations - used_fe
+            lmcma.max_function_evaluations = (lmcma.n_function_evaluations +
+                                              self.max_function_evaluations - self.n_function_evaluations)
             lm_x, lm_y = lmcma.iterate(lm_mean, lm_x, lm_pm, lm_vm, lm_y, lm_b, args)
-            used_fe += lmcma.n_individuals
-            self.n_function_evaluations += lmcma.n_individuals
             lm_mean, lm_p_c, lm_s, lm_vm, lm_pm, lm_b, lm_d = lmcma.update_distribution(
                 lm_mean, lm_x, lm_p_c, lm_s, lm_vm, lm_pm, lm_b, lm_d, lm_y, lm_y_bak)
             y.extend(lm_y)
-            if self.best_so_far_y > lmcma.best_so_far_y:
-                self.best_so_far_x, self.best_so_far_y = lmcma.best_so_far_x, lmcma.best_so_far_y
-            # run for lower-level CMA-ES
+            # run lower-level CMA-ES
             if is_initialization:
                 is_initialization = False
                 for i, opt in enumerate(sub_optimizers):
@@ -158,24 +158,25 @@ class HCC(CC):
                     ea_s.append(eig_va)
                     y_s.append(yy)
             else:
+                y = []
                 for i, opt in enumerate(sub_optimizers):
                     ii = range(i*self.ndim_subproblem, np.minimum((i + 1)*self.ndim_subproblem, self.ndim_problem))
-                    if self._check_terminations():
-                        break
 
                     def sub_function(sub_x):  # to define sub-function for each sub-optimizer
                         best_so_far_x = np.copy(self.best_so_far_x)
                         best_so_far_x[ii] = sub_x
                         return self._evaluate_fitness(best_so_far_x, args)
                     opt.fitness_function = sub_function
-                    opt.max_function_evaluations = self.max_function_evaluations - used_fe
+                    opt.max_function_evaluations = (opt.n_function_evaluations +
+                                                    self.max_function_evaluations - self.n_function_evaluations)
                     x_s[i], y_s[i] = opt.iterate(x_s[i], mean_s[i], ee_s[i], ea_s[i], y_s[i], args)
+                    y.extend(y_s[i])
+                    if self._check_terminations():
+                        break
                     opt.n_generations += 1
-                    used_fe += opt.n_individuals
                     mean_s[i], ps_s[i], pc_s[i], cm_s[i], ee_s[i], ea_s[i] = opt.update_distribution(
                         x_s[i], mean_s[i], ps_s[i], pc_s[i], cm_s[i], ee_s[i], ea_s[i], y_s[i])
-                    y.extend(y_s[i])
-                if self.best_so_far_y < lmcma.best_so_far_y:
+                if self.best_so_far_y < lmcma.best_so_far_y:  # to communicate between upper and lower levels
                     lm_mean = np.copy(self.best_so_far_x)
             self._n_generations += 1
         return self._collect(fitness, y)

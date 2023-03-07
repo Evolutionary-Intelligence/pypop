@@ -9,6 +9,7 @@ Cooperative Coevolution (CC)
    :maxdepth: 2
    :caption: CC:
 
+   hcc
    cocma
    cosyne
    coea

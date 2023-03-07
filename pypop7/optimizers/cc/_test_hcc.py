@@ -1,7 +1,5 @@
 """This code only tests whether the corresponding optimizer could run or not.
   In other words, it *cannot* validate the correctness regarding its working procedure.
-  For the correctness validation of programming, refer to the following link:
-    https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/_repeat_coea.py
 """
 import unittest
 import time
@@ -9,10 +7,10 @@ import time
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from pypop7.optimizers.cc.coea import COEA as Solver
+from pypop7.optimizers.cc.hcc import HCC as Solver
 
 
-class TestCOEA(unittest.TestCase):
+class TestHCC(unittest.TestCase):
     def test_optimize(self):
         start_run = time.time()
         ndim_problem = 1000
