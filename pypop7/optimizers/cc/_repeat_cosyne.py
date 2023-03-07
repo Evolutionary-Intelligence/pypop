@@ -17,6 +17,7 @@
 
 
     The reference Python code based on EvoTorch is given below:
+    -----------------------------------------------------------
 
     import torch
     from evotorch import Problem
@@ -48,9 +49,9 @@ if __name__ == '__main__':
         print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem,
-                   'lower_boundary': -5 * np.ones((ndim_problem,)),
-                   'upper_boundary': 5 * np.ones((ndim_problem,))}
-        options = {'max_function_evaluations': 150 * 3000 + 100,
+                   'lower_boundary': -5*np.ones((ndim_problem,)),
+                   'upper_boundary': 5*np.ones((ndim_problem,))}
+        options = {'max_function_evaluations': 150*3000 + 100,
                    'sigma': 1.0,
                    'seed_rng': 0}
         solver = Solver(problem, options)
