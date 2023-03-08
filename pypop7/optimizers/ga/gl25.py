@@ -32,7 +32,7 @@ class GL25(GA):
 
     Examples
     --------
-    Use the Genetic Algorithm optimizer `GL25` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -43,8 +43,8 @@ class GL25(GA):
        >>> from pypop7.optimizers.ga.gl25 import GL25
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> gl25 = GL25(problem, options)  # initialize the optimizer class
@@ -83,11 +83,17 @@ class GL25(GA):
     def __init__(self, problem, options):
         GA.__init__(self, problem, options)
         self.alpha = options.get('alpha', 0.8)
+        assert self.alpha > 0.0
         self.p_global = options.get('p_global', 0.25)  # percentage of global search stage
+        assert 0.0 <= self.p_global <= 1.0
         self.n_female_global = options.get('n_female_global', 200)  # number of female at global search stage
+        assert self.n_female_global > 0
         self.n_male_global = options.get('n_male_global', 400)  # number of male at global search stage
+        assert self.n_male_global > 0
         self.n_female_local = options.get('n_female_local', 5)  # number of female at local search stage
+        assert self.n_female_local > 0
         self.n_male_local = options.get('n_male_local', 100)  # number of male at local search stage
+        assert self.n_male_local > 0
         self.n_individuals = int(np.maximum(self.n_male_global, self.n_male_local))
         self._assortative_mating = 5
         self._n_selected = np.zeros((self.n_individuals,))  # number of individuals selected as female
@@ -145,4 +151,4 @@ class GL25(GA):
                 x, yy = self.iterate(x, y, self.n_female_local, self.n_male_local, args)
             else:  # global search
                 x, yy = self.iterate(x, y, self.n_female_global, self.n_male_global, args)
-        return self._collect_results(fitness, yy)
+        return self._collect(fitness, yy)
