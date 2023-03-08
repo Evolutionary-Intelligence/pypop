@@ -1,5 +1,6 @@
 import numpy as np
 
+from pypop7.optimizers.core.optimizer import Optimizer
 from pypop7.optimizers.ga.ga import GA
 
 
@@ -26,7 +27,7 @@ class G3PCX(GA):
 
     Examples
     --------
-    Use the optimizer `G3PCX` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -37,8 +38,8 @@ class G3PCX(GA):
        >>> from pypop7.optimizers.ga.g3pcx import G3PCX
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> g3pcx = G3PCX(problem, options)  # initialize the optimizer class
@@ -61,8 +62,7 @@ class G3PCX(GA):
 
     References
     ----------
-    https://www.egr.msu.edu/~kdeb/codes/g3pcx/g3pcx.tar
-    (See the original C source code.)
+    https://www.egr.msu.edu/~kdeb/codes/g3pcx/g3pcx.tar    (See the original C source code.)
 
     https://pymoo.org/algorithms/soo/g3pcx.html
 
@@ -74,7 +74,9 @@ class G3PCX(GA):
     def __init__(self, problem, options):
         GA.__init__(self, problem, options)
         self.n_offsprings = options.get('n_offsprings', 2)
+        assert self.n_offsprings > 0
         self.n_parents = options.get('n_parents', 3)
+        assert self.n_parents > 0
         self._std_pcx_1 = options.get('_std_pcx_1', 0.1)
         self._std_pcx_2 = options.get('_std_pcx_2', 0.1)
         self._elitist = None  # index of elitist
@@ -91,7 +93,7 @@ class G3PCX(GA):
 
     def iterate(self, x=None, y=None, args=None):
         self._elitist, fitness = np.argmin(y), []
-        # (Step 1:) from the population, select the best and 'self.n_parents - 1' other parents randomly
+        # (Step 1:) select the best and `self.n_parents - 1` other parents randomly from the population
         parents = self.rng_optimization.choice(self.n_individuals, size=self.n_parents, replace=False)
         if self._elitist not in parents:  # to ensure that elitist is always included
             parents[0] = self._elitist
@@ -116,16 +118,24 @@ class G3PCX(GA):
             orth = orth - (np.dot(orth, d)*d)/np.power(d_norm, 2)
             xx[i] = x[p] + self._std_pcx_1*self.rng_optimization.standard_normal()*d + orth
             yy[i] = self._evaluate_fitness(xx[i], args)
-            if self.saving_fitness:
-                fitness.append(yy[i])
+            fitness.append(yy[i])
         # (Step 3:) choose two parents at random from the population
         offsprings = self.rng_optimization.choice(self.n_individuals, size=2, replace=False)
         # (Step 4:) from a combined subpopulation of two chosen parents and created offspring, choose
-        # the best two solutions and replace the chosen two parents (in Step 3) with these solutions
+        #   the best two solutions and replace the chosen two parents (in Step 3) with these solutions
         xx, yy = np.vstack((xx, x[offsprings])), np.hstack((yy, y[offsprings]))
         x[offsprings], y[offsprings] = xx[np.argsort(yy)[:2]], yy[np.argsort(yy)[:2]]
         self._n_generations += 1
         return fitness
+
+    def _collect(self, fitness, y=None):
+        self._print_verbose_info(fitness, y)
+        for i in range(1, len(fitness)):  # to avoid `np.nan`
+            if np.isnan(fitness[i]):
+                fitness[i] = fitness[i - 1]
+        results = Optimizer._collect(self, fitness)
+        results['_n_generations'] = self._n_generations
+        return results
 
     def optimize(self, fitness_function=None, args=None):
         fitness = GA.optimize(self, fitness_function)
@@ -134,4 +144,4 @@ class G3PCX(GA):
         while not self._check_terminations():
             self._print_verbose_info(fitness, yy)
             yy = self.iterate(x, y, args)
-        return self._collect_results(fitness, yy)
+        return self._collect(fitness, yy)
