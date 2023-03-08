@@ -71,6 +71,11 @@ class GA(Optimizer):
     https://proceedings.neurips.cc/paper/1993/hash/ab88b15733f543179858600245108dd8-Abstract.html
 
     Holland, J.H., 1992.
+    Adaptation in natural and artificial systems: An introductory analysis with applications to biology, control, and artificial intelligence.
+    MIT press.
+    https://direct.mit.edu/books/book/2574/Adaptation-in-Natural-and-Artificial-SystemsAn
+    
+    Holland, J.H., 1992.
     Genetic algorithms.
     Scientific American, 267(1), pp.66-73.
     https://www.scientificamerican.com/article/genetic-algorithms/
