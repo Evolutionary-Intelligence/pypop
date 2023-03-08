@@ -5,7 +5,7 @@
     https://www.sciencedirect.com/science/article/abs/pii/S0377221706006308
 
     Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `GL25` could be **well-documented**.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 
@@ -18,10 +18,10 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': sphere,
                'ndim_problem': ndim_problem,
-               'initial_lower_boundary': 4 * np.ones((ndim_problem,)),
-               'initial_upper_boundary': 5 * np.ones((ndim_problem,)),
-               'lower_boundary': -5.12 * np.ones((ndim_problem,)),
-               'upper_boundary': 5.12 * np.ones((ndim_problem,))}
+               'initial_lower_boundary': 4*np.ones((ndim_problem,)),
+               'initial_upper_boundary': 5*np.ones((ndim_problem,)),
+               'lower_boundary': -5.12*np.ones((ndim_problem,)),
+               'upper_boundary': 5.12*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 100000,
                'seed_rng': 0,
                'saving_fitness': 1}
@@ -33,10 +33,10 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': schwefel222,
                'ndim_problem': ndim_problem,
-               'initial_lower_boundary': 8 * np.ones((ndim_problem,)),
-               'initial_upper_boundary': 10 * np.ones((ndim_problem,)),
-               'lower_boundary': -10 * np.ones((ndim_problem,)),
-               'upper_boundary': 10 * np.ones((ndim_problem,))}
+               'initial_lower_boundary': 8*np.ones((ndim_problem,)),
+               'initial_upper_boundary': 10*np.ones((ndim_problem,)),
+               'lower_boundary': -10*np.ones((ndim_problem,)),
+               'upper_boundary': 10*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 100000,
                'seed_rng': 0,
                'saving_fitness': 1}
