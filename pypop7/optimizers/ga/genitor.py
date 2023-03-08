@@ -26,11 +26,11 @@ class GENITOR(GA):
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular setting (`key`):
                 * 'n_individuals'  - population size (`int`, default: `100`),
-                * 'crossover_prob' - crossover probability (`float`, default: `0.5`).
+                * 'cv_prob'        - crossover probability (`float`, default: `0.5`).
 
     Examples
     --------
-    Use the optimizer `GENITOR` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -40,26 +40,26 @@ class GENITOR(GA):
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.ga.genitor import GENITOR
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
-       ...            'ndim_problem': 100,
-       ...            'lower_boundary': -5 * numpy.ones((100,)),
-       ...            'upper_boundary': 5 * numpy.ones((100,))}
-       >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> genitor = GENITOR(problem, options)  # initialize the optimizer class
        >>> results = genitor.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"GENITOR: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       GENITOR: 1000000, 1340.6238831110309
+       GENITOR: 5000, 0.004382445279905116
 
     For its correctness checking of coding, the code-based repeatability report cannot be provided owing to
     the lack of its simulation environment.
 
     Attributes
     ----------
-    crossover_prob : `float`
-                     crossover probability.
-    n_individuals  : `int`
-                     population size.
+    cv_prob       : `float`
+                    crossover probability.
+    n_individuals : `int`
+                    population size.
 
     References
     ----------
@@ -77,35 +77,37 @@ class GENITOR(GA):
     """
     def __init__(self, problem, options):
         GA.__init__(self, problem, options)
-        self.crossover_prob = options.get('crossover_prob', 0.5)  # crossover probability
-        self._rank_prob = np.arange(self.n_individuals, 0, -1) - 1.0
+        self.cv_prob = options.get('cv_prob', 0.5)  # crossover probability
+        assert 0.0 <= self.cv_prob <= 1.0
+        _rank_prob = np.arange(self.n_individuals, 0, -1) - 1.0
+        self.rank_prob = _rank_prob/np.sum(_rank_prob)
 
     def initialize(self, args=None):
         x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
                                             size=(self.n_individuals, self.ndim_problem))  # population
         y = np.empty((self.n_individuals,))  # fitness
-        crossover_probs = self.crossover_prob*np.ones((self.n_individuals,))
+        cv_probs = self.cv_prob*np.ones((self.n_individuals,))
         for i in range(self.n_individuals):
             if self._check_terminations():
                 break
             y[i] = self._evaluate_fitness(x[i], args)
-        return x, y, crossover_probs
+        return x, y, cv_probs
 
-    def iterate(self, x=None, y=None, crossover_probs=None, args=None):
+    def iterate(self, x=None, y=None, cv_probs=None, args=None):
         order, xx, yy = np.argsort(y), None, None
         # use rank-based selection for two parents
-        rank_prob = self._rank_prob/np.sum(self._rank_prob)
-        offspring = self.rng_optimization.choice(order, size=2, replace=False, p=rank_prob)
-        if self.rng_optimization.random() < crossover_probs[offspring[0]]:  # crossover
+
+        offspring = self.rng_optimization.choice(order, size=2, replace=False, p=self.rank_prob)
+        if self.rng_optimization.random() < cv_probs[offspring[0]]:  # crossover
             # use intermediate crossover (not one-point crossover proposed in the original paper)
             xx = (x[offspring[0]] + x[offspring[1]])/2.0
             yy = self._evaluate_fitness(xx, args)
             if yy < y[order[-1]]:  # to replace the worst individual
                 x[order[-1]], y[order[-1]] = xx, yy
-                crossover_probs[offspring[0]] += 0.1
+                cv_probs[offspring[0]] += 0.1
             else:
-                crossover_probs[offspring[0]] -= 0.1
-            crossover_probs[offspring[0]] = np.maximum(0.05, np.minimum(0.95, crossover_probs[offspring[0]]))
+                cv_probs[offspring[0]] -= 0.1
+            cv_probs[offspring[0]] = np.maximum(0.05, np.minimum(0.95, cv_probs[offspring[0]]))
         else:  # mutation
             xx = np.copy(x[offspring[0]])  # offspring
             xx += self.rng_optimization.uniform(self.lower_boundary, self.upper_boundary)/10.0
@@ -113,13 +115,13 @@ class GENITOR(GA):
             if yy < y[order[-1]]:  # to replace the worst individual
                 x[order[-1]], y[order[-1]] = xx, yy
         self._n_generations += 1
-        return x, yy, crossover_probs
+        return x, yy, cv_probs
 
     def optimize(self, fitness_function=None, args=None):
         fitness = GA.optimize(self, fitness_function)
-        x, y, crossover_probs = self.initialize(args)
+        x, y, cv_probs = self.initialize(args)
         yy = y  # only for printing
         while not self._check_terminations():
             self._print_verbose_info(fitness, yy)
-            x, yy, crossover_probs = self.iterate(x, y, crossover_probs, args)
-        return self._collect_results(fitness, yy)
+            x, yy, cv_probs = self.iterate(x, y, cv_probs, args)
+        return self._collect(fitness, yy)
