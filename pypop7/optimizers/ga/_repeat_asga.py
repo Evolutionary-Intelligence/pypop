@@ -5,8 +5,8 @@
     SIAM Journal on Scientific Computing, 43(3), pp.B831-B853.
     https://epubs.siam.org/doi/10.1137/20M1345219
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `ASGA` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 
@@ -19,9 +19,9 @@ if __name__ == '__main__':
     ndim_problem = 15
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -5 * np.ones((ndim_problem,)),
-               'upper_boundary': 100 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 2000 + 200 * 30,
+               'lower_boundary': -5*np.ones((ndim_problem,)),
+               'upper_boundary': 100*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 2000 + 200*30,
                'n_initial_individuals': 2000,
                'n_individuals': 200,
                'seed_rng': 0,
@@ -33,9 +33,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': ackley,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -15 * np.ones((ndim_problem,)),
-               'upper_boundary': 30 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 2000 + 200 * 30,
+               'lower_boundary': -15*np.ones((ndim_problem,)),
+               'upper_boundary': 30*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 2000 + 200*30,
                'n_initial_individuals': 2000,
                'n_individuals': 200,
                'seed_rng': 0,
