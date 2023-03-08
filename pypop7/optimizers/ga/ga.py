@@ -6,7 +6,7 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class GA(Optimizer):
     """Genetic Algorithm (GA).
 
-    This is the **base** (abstract) class for all `GA` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `GA` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
     Parameters
@@ -94,6 +94,7 @@ class GA(Optimizer):
         Optimizer.__init__(self, problem, options)
         if self.n_individuals is None:  # population size
             self.n_individuals = 100
+        assert self.n_individuals > 0
         self._n_generations = 0
 
     def initialize(self):
@@ -112,8 +113,8 @@ class GA(Optimizer):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
-    def _collect_results(self, fitness, y=None):
+    def _collect(self, fitness, y=None):
         self._print_verbose_info(fitness, y)
-        results = Optimizer._collect_results(self, fitness)
+        results = Optimizer._collect(self, fitness)
         results['_n_generations'] = self._n_generations
         return results
