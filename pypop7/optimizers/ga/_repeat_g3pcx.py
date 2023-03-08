@@ -9,7 +9,7 @@
     https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/repeatability/g3pcx/_repeat_g3pcx.png
 
     Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `G3PCX` could be **well-documented**.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 import seaborn as sns
@@ -24,8 +24,8 @@ if __name__ == '__main__':
     for f in [schwefel12]:
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem,
-                   'initial_lower_boundary': -10 * np.ones((ndim_problem,)),
-                   'initial_upper_boundary': -5 * np.ones((ndim_problem,))}
+                   'initial_lower_boundary': -10*np.ones((ndim_problem,)),
+                   'initial_upper_boundary': -5*np.ones((ndim_problem,))}
         options = {'max_function_evaluations': 50000,
                    'fitness_threshold': 1e-20,
                    'seed_rng': 0,
