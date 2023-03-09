@@ -27,7 +27,7 @@ class SPSOL(PSO):
 
     Examples
     --------
-    Use the optimizer `SPSOL` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -38,8 +38,8 @@ class SPSOL(PSO):
        >>> from pypop7.optimizers.pso.spsol import SPSOL
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> spsol = SPSOL(problem, options)  # initialize the optimizer class
