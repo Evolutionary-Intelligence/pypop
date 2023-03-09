@@ -5,7 +5,7 @@
     https://ieeexplore.ieee.org/document/5582312
 
     Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `IPSO` could be **well-documented**.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import time
 
@@ -21,8 +21,8 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': sphere,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -100 * np.ones((ndim_problem,)),
-               'upper_boundary': 100 * np.ones((ndim_problem,))}
+               'lower_boundary': -100*np.ones((ndim_problem,)),
+               'upper_boundary': 100*np.ones((ndim_problem,))}
     options = {'seed_rng': 0,  # not given in the original paper
                'max_function_evaluations': 1e6}
     solver = Solver(problem, options)
@@ -32,8 +32,8 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': griewank,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -600 * np.ones((ndim_problem,)),
-               'upper_boundary': 600 * np.ones((ndim_problem,))}
+               'lower_boundary': -600*np.ones((ndim_problem,)),
+               'upper_boundary': 600*np.ones((ndim_problem,))}
     options = {'seed_rng': 0,  # not given in the original paper
                'max_function_evaluations': 1e6}
     solver = Solver(problem, options)
@@ -43,8 +43,8 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -5.12 * np.ones((ndim_problem,)),
-               'upper_boundary': 5.12 * np.ones((ndim_problem,))}
+               'lower_boundary': -5.12*np.ones((ndim_problem,)),
+               'upper_boundary': 5.12*np.ones((ndim_problem,))}
     options = {'seed_rng': 0,  # not given in the original paper
                'max_function_evaluations': 1e6}
     solver = Solver(problem, options)
