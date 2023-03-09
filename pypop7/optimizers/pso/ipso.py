@@ -29,7 +29,7 @@ class IPSO(PSO):
 
     Examples
     --------
-    Use the optimizer `IPSO` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -40,8 +40,8 @@ class IPSO(PSO):
        >>> from pypop7.optimizers.pso.ipso import IPSO
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> ipso = IPSO(problem, options)  # initialize the optimizer class
@@ -77,10 +77,15 @@ class IPSO(PSO):
         PSO.__init__(self, problem, options)
         self.n_individuals = 1  # minimum of swarm size
         self.max_n_individuals = options.get('max_n_individuals', 1000)  # maximum of swarm size
+        assert self.max_n_individuals > 0
         self.cognition = options.get('cognition', 2.05)  # cognitive learning rate
+        assert self.cognition > 0.0
         self.society = options.get('society', 2.05)  # social learning rate
+        assert self.society > 0.0
         self.constriction = options.get('constriction', 0.729)  # constriction factor
+        assert self.constriction > 0.0
         self.max_ratio_v = options.get('max_ratio_v', 0.5)  # maximal ratio of velocity
+        assert 0.0 <= self.max_ratio_v <= 1.0
 
     def initialize(self, args=None):
         v = np.zeros((self.n_individuals, self.ndim_problem))  # velocities
@@ -133,4 +138,4 @@ class IPSO(PSO):
         while not self.termination_signal:
             self._print_verbose_info(fitness, y)
             v, x, y, p_x, p_y = self.iterate(v, x, y, p_x, p_y, args)
-        return self._collect_results(fitness, y)
+        return self._collect(fitness, y)
