@@ -6,9 +6,8 @@ from pypop7.optimizers.pso.pso import PSO
 class SPSO(PSO):
     """Standard Particle Swarm Optimizer with a global topology (SPSO).
 
-    .. note:: *"In the case of multidimensional functions and of functions that are defined over discrete or
-       non-Euclidean spaces, one must find the most appropriate ways of computing directions and updating
-       velocities so that particles converge toward the optimum of the function."*
+    .. note:: *"In the case of multidimensional functions, one must find the most appropriate ways of computing
+       directions and updating velocities so that particles converge toward the optimum of the function."*
        ---[Floreano&Mattiussi, 2008]
 
     Parameters
@@ -32,7 +31,7 @@ class SPSO(PSO):
 
     Examples
     --------
-    Use the optimizer `SPSO` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -43,8 +42,8 @@ class SPSO(PSO):
        >>> from pypop7.optimizers.pso.spso import SPSO
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> spso = SPSO(problem, options)  # initialize the optimizer class
