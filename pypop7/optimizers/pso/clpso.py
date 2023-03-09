@@ -27,7 +27,7 @@ class CLPSO(PSO):
 
     Examples
     --------
-    Use the optimizer `CLPSO` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -38,8 +38,8 @@ class CLPSO(PSO):
        >>> from pypop7.optimizers.pso.clpso import CLPSO
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> clpso = CLPSO(problem, options)  # initialize the optimizer class
@@ -69,13 +69,15 @@ class CLPSO(PSO):
     IEEE Transactions on Evolutionary Computation, 10(3), pp.281-295.
     https://ieeexplore.ieee.org/abstract/document/1637688
 
-    See the original MATLAB source code from Suganthan:
+    See the original MATLAB source code from Prof. Suganthan:
     https://github.com/P-N-Suganthan/CODES/blob/master/2006-IEEE-TEC-CLPSO.zip
     """
     def __init__(self, problem, options):
         PSO.__init__(self, problem, options)
         self.c = options.get('c', 1.49445)  # comprehensive learning rate
+        assert self.c > 0.0
         self.m = options.get('m', 7)  # refreshing gap
+        assert self.m > 0
         pc = 5.0*np.linspace(0, 1, self.n_individuals)
         self._pc = 0.5*(np.exp(pc) - np.exp(pc[0]))/(np.exp(pc[-1]) - np.exp(pc[0]))
         # set number of successive generations each particle has not improved its best fitness
