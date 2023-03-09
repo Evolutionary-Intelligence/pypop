@@ -35,7 +35,7 @@ class CCPSO2(PSO):
 
     Examples
     --------
-    Use the optimizer `CCPSO2` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rastrigin_function>`_:
 
     .. code-block:: python
@@ -46,8 +46,8 @@ class CCPSO2(PSO):
        >>> from pypop7.optimizers.pso.ccpso2 import CCPSO2
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 500,
-       ...            'lower_boundary': -5 * numpy.ones((500,)),
-       ...            'upper_boundary': 5 * numpy.ones((500,))}
+       ...            'lower_boundary': -5*numpy.ones((500,)),
+       ...            'upper_boundary': 5*numpy.ones((500,))}
        >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> ccpso2 = CCPSO2(problem, options)  # initialize the optimizer class
@@ -83,13 +83,16 @@ class CCPSO2(PSO):
     """
     def __init__(self, problem, options):
         PSO.__init__(self, problem, options)
-        self.n_individuals = options.get('n_individuals', 30)  # swarm (population) size, number of particles
+        self.n_individuals = options.get('n_individuals', 30)  # swarm (population) size, aka number of particles
+        assert self.n_individuals > 0
         self.p = options.get('p', 0.5)  # probability of using Cauchy sampling distribution
+        assert 0.0 <= self.p <= 1.0
         self.group_sizes = options.get('group_sizes', [2, 5, 10, 50, 100, 250])
         assert np.alltrue(np.array(self.group_sizes) <= self.ndim_problem)
         self._indices = np.arange(self.ndim_problem)  # indices of all dimensions
         self._s = self.rng_optimization.choice(self.group_sizes)  # dimension to be optimized by each swarm
         self._k = int(np.ceil(self.ndim_problem/self._s))  # number of swarms
+        assert self._k > 0
         self._improved = True
         self._best_so_far_y = self.best_so_far_y
 
@@ -149,7 +152,7 @@ class CCPSO2(PSO):
                     p_x[i, indices], p_y[j, i] = cv[indices], y[j, i]
                 if y[j, i] < self._best_so_far_y:
                     self._improved, self._best_so_far_y = True, y[j, i]
-            for i in range(self.n_individuals):  # for each individual
+            for i in range(self.n_individuals):
                 indices = self._indices[np.arange(j*self._s, (j + 1)*self._s)]
                 n_x[i, indices] = self._ring_topology(p_x, p_y, j, i, indices)
         for j in range(self._k):  # for each swarm
@@ -172,4 +175,4 @@ class CCPSO2(PSO):
         while not self.termination_signal:
             x, y, p_x, p_y, n_x = self.iterate(x, y, p_x, p_y, n_x, args, fitness)
             self._print_verbose_info(fitness, y.flatten())
-        return self._collect_results(fitness)
+        return self._collect(fitness)
