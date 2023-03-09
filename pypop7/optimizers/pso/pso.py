@@ -6,15 +6,15 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class PSO(Optimizer):
     """Particle Swarm Optimizer (PSO).
 
-    This is the **base** (abstract) class for all `PSO` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `PSO` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
-    .. note:: `PSO` is a very popular family of *swarm*-based search algorithms, proposed together by an electrical
-       engineer (Russell C. Eberhart) and a psychologist (James Kennedy), recipients of `Evolutionary Computation
+    .. note:: `PSO` is a very popular family of **swarm**-based search algorithms, proposed by an electrical engineer
+       (Russell C. Eberhart) and a psychologist (James Kennedy), two recipients of `IEEE Evolutionary Computation
        Pioneer Award 2012 <https://tinyurl.com/456as566>`_. Its underlying motivation comes from very interesting
        collective behaviors (e.g. `flocking <https://dl.acm.org/doi/10.1145/37402.37406>`_) observed from social
-       animals (such as `birds <https://dl.acm.org/doi/10.1145/2629613>`_), which are regarded as one particular form
-       of *intelligence* or *emergence* or *self-organization* by many scientists and engineers.
+       animals (such as `birds <https://dl.acm.org/doi/10.1145/2629613>`_), which are often regarded as a particular
+       form of *emergence* or *self-organization*.
 
     Parameters
     ----------
@@ -106,13 +106,16 @@ class PSO(Optimizer):
         if self.n_individuals is None:  # swarm (population) size, aka number of particles
             self.n_individuals = 20
         self.cognition = options.get('cognition', 2.0)  # cognitive learning rate
+        assert self.cognition >= 0.0
         self.society = options.get('society', 2.0)  # social learning rate
+        assert self.society >= 0.0
         self.max_ratio_v = options.get('max_ratio_v', 0.2)  # maximal ratio of velocity
+        assert 0.0 < self.max_ratio_v <= 1.0
         self._max_v = self.max_ratio_v*(self.upper_boundary - self.lower_boundary)  # maximal velocity
         self._min_v = -self._max_v  # minimal velocity
         self._topology = None  # neighbors topology of social learning
         self._n_generations = 0  # initial number of generations
-        # set linearly decreasing inertia weights introduced in [Shi&Eberhart, 1998, WCCI]
+        # set linearly decreasing inertia weights introduced in [Shi&Eberhart, 1998, IEEE-WCCI/CEC]
         self._max_generations = np.ceil(self.max_function_evaluations/self.n_individuals)
         if self._max_generations == np.Inf:
             self._max_generations = 1e2*self.ndim_problem
@@ -147,7 +150,7 @@ class PSO(Optimizer):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
-    def _collect_results(self, fitness, y=None):
+    def _collect(self, fitness, y=None):
         if y is not None:
             self._print_verbose_info(fitness, y)
         results = Optimizer._collect(self, fitness)
@@ -160,4 +163,4 @@ class PSO(Optimizer):
         while not self.termination_signal:
             self._print_verbose_info(fitness, y)
             v, x, y, p_x, p_y, n_x = self.iterate(v, x, y, p_x, p_y, n_x, args)
-        return self._collect_results(fitness, y)
+        return self._collect(fitness, y)
