@@ -6,10 +6,11 @@ Particle Swarm Optimizer (PSO)
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: PSOs:
 
    ccpso2
+   ipsols
    ipso
    clpso
    spsol
