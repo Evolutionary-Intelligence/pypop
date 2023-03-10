@@ -50,7 +50,7 @@ class CPSO(PSO):
        CPSO: 5000, 0.26418536724626607
 
     For its correctness checking of coding, refer to `this code-based repeatability report
-    <>`_ for more details.
+    <https://tinyurl.com/27nx42rm>`_ for more details.
 
     Attributes
     ----------
