@@ -38,7 +38,7 @@ if __name__ == '__main__':
                'max_function_evaluations': 1e6}
     solver = Solver(problem, options)
     results = solver.optimize()
-    print(results)  # 1.1102230246251565e-16 vs 0.0e0 (from original paper)
+    print(results)  # 0.0 vs 0.0e0 (from original paper)
     print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
 
     problem = {'fitness_function': rastrigin,
