@@ -1,0 +1,45 @@
+******* ellipsoid *******
+  * Generation 0: best_so_far_y 5.06566e+08, min(y) 5.06566e+08 & Evaluations 20
+  * Generation 99: best_so_far_y 1.99328e+02, min(y) 4.31369e+03 & Evaluations 2000000
+{'best_so_far_x': array([ 5.37526954e-03, -3.19605576e-03,  5.15830917e-04,  3.81673388e-04,
+       ...,
+       -2.25899334e-03, -8.01599859e-04, -3.86712560e-04, -6.57013241e-04]),
+ 'best_so_far_y': 199.32800647602795,
+ 'n_function_evaluations': 2000000,
+ 'runtime': 361.8127658367157,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 267.8634760379791,
+ 'fitness': array([[1.00000000e+00, 7.11683676e+08],
+       [2.02000000e+03, 2.73046916e+02]]),
+ '_n_generations': 99}
+*** Runtime: 3.61843e+02
+******* rosenbrock *******
+  * Generation 0: best_so_far_y 1.24389e+07, min(y) 1.24389e+07 & Evaluations 20
+  * Generation 99: best_so_far_y 1.60447e+03, min(y) 1.60701e+03 & Evaluations 2000000
+{'best_so_far_x': array([1.00200623, 1.00452614, 0.99907787, 1.00225423, 1.00380556,
+       ...,
+       1.05500524, 1.12324207, 1.28617547, 1.67202145, 2.79836448]),
+ 'best_so_far_y': 1604.4723514320012,
+ 'n_function_evaluations': 2000000,
+ 'runtime': 386.83709692955017,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 295.60869669914246,
+ 'fitness': array([[1.00000000e+00, 1.39456422e+07],
+       [2.02000000e+03, 1.60482038e+03]]),
+ '_n_generations': 99}
+*** Runtime: 7.48711e+02
+******* rastrigin *******
+  * Generation 0: best_so_far_y 1.79724e+04, min(y) 1.79724e+04 & Evaluations 20
+  * Generation 99: best_so_far_y 4.99616e-01, min(y) 9.68150e-01 & Evaluations 2000000
+{'best_so_far_x': array([-1.65729018e-04, -7.75215580e-05, -2.46315919e-03, -6.70728304e-03,
+        ...,
+        6.96882440e-04, -1.20164111e-03, -3.70621525e-04,  2.29852186e-03]),
+ 'best_so_far_y': 0.4996156631896156,
+ 'n_function_evaluations': 2000000,
+ 'runtime': 219.89368510246277,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 131.63191676139832,
+ 'fitness': array([[1.00000000e+00, 1.84095266e+04],
+       [2.02000000e+03, 5.93502428e-01]]),
+ '_n_generations': 99}
+*** Runtime: 9.68625e+02
