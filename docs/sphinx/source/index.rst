@@ -72,7 +72,7 @@ In practice, three simple steps are enough to utilize the optimization power of 
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
 
    installation

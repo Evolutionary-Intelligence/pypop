@@ -13,5 +13,6 @@ Particle Swarm Optimizer (PSO)
    ipsols
    ipso
    clpso
+   cpso
    spsol
    spso
