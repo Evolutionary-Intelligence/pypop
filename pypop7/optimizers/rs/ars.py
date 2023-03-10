@@ -5,8 +5,7 @@ from pypop7.optimizers.rs.rs import RS
 
 
 class ARS(RS):
-    """
-    Accelerated random search(ARS).
+    """Accelerated random search(ARS).
 
     Parameters
     ----------
