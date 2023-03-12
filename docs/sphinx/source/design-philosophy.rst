@@ -23,7 +23,12 @@ acceptable criteria to select from them, as presented below in details:
   `superficial <https://onlinelibrary.wiley.com/doi/full/10.1111/itor.13176>`_
   `imitation <https://dl.acm.org/doi/10.1145/3402220.3402221>`_ to well-established optimizers
   (i.e. `Old Wine in a New Bottle <https://link.springer.com/article/10.1007/s11721-021-00202-9>`_) will be
-  **NOT** considered here.
+  **NOT** considered here. Sometimes, several **very complex** optimizers could obtain the top rank on some
+  competitions consisting of only *artificially-constructed* benchmark functions. However, these optimizers may become
+  **over-skilled** on these artifacts. In our opinions, a good optimizer should be elegant (at least understandable)
+  and generalizable. If there is no real-world application reported for the top-ranked optimizer, we will not consider
+  these **very complex** optimizers in this library, in order to aovid the possible *repeatability* and *overfitting*
+  issue.
 
 .. note::
 
