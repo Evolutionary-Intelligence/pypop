@@ -61,6 +61,21 @@ class CSA(SA):
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/bdd62drw>`_ for more details.
 
+    Attributes
+    ----------
+    c           : `float`
+                  factor of step variation.
+    f_tr        : `int`
+                  factor of temperature reduction.
+    n_sv        : `int`
+                  frequency of step variation
+    n_tr        : `int`
+                  frequency of temperature reduction
+    sigma       : `float`
+                  initial global step-size.
+    temperature : `float`
+                  annealing temperature.
+
     References
     ----------
     Corana, A., Marchesi, M., Martini, C. and Ridella, S., 1987.
@@ -81,9 +96,9 @@ class CSA(SA):
         self.v = self.sigma*np.ones((self.ndim_problem,))  # step vector
         self.n_sv = options.get('n_sv', 20)  # frequency of step variation (N_S)
         assert self.n_sv > 0
-        c = options.get('c', 2.0)  # factor of step variation
-        assert c > 0.0
-        self.f_sv = c*np.ones(self.ndim_problem,)
+        self.c = options.get('c', 2.0)  # factor of step variation
+        assert self.c > 0.0
+        self.f_sv = self.c*np.ones(self.ndim_problem,)
         # set frequency of temperature reduction (N_T)
         self.n_tr = options.get('n_tr', np.maximum(100, 5*self.ndim_problem))
         assert self.n_tr > 0
