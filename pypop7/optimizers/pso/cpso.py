@@ -76,7 +76,7 @@ class CPSO(PSO):
         assert self.cognition >= 0.0
         self.society = options.get('society', 1.49)  # social learning rate
         assert self.society >= 0.0
-        self._max_generations = np.ceil(self.max_function_evaluations/self.n_individuals)
+        self._max_generations = np.ceil(self.max_function_evaluations/(self.n_individuals*self.ndim_problem))
         self._w = 1.0 - (np.arange(self._max_generations) + 1.0)/self._max_generations  # from 1.0 to 0.0
 
     def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None):

@@ -11,7 +11,7 @@ import time
 
 import numpy as np
 
-from pypop7.benchmarks.base_functions import ackley
+from pypop7.benchmarks.base_functions import rosenbrock, griewank
 from pypop7.optimizers.pso.cpso import CPSO as Solver
 
 
@@ -19,14 +19,26 @@ if __name__ == '__main__':
     start_run = time.time()
     ndim_problem = 30
 
-    problem = {'fitness_function': ackley,
+    problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -30*np.ones((ndim_problem,)),
-               'upper_boundary': 30*np.ones((ndim_problem,))}
+               'lower_boundary': -2.048 * np.ones((ndim_problem,)),
+               'upper_boundary': 2.048 * np.ones((ndim_problem,))}
     options = {'seed_rng': 0,  # not given in the original paper
                'max_function_evaluations': 2e5,
-               'fitness_threshold': 5.0}
+               'fitness_threshold': 0.0}
     solver = Solver(problem, options)
     results = solver.optimize()
-    print(results)
+    print(results)  # 2.11884e-1 vs 9.06e-1 (from original paper)
+    print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
+
+    problem = {'fitness_function': griewank,
+               'ndim_problem': ndim_problem,
+               'lower_boundary': -600 * np.ones((ndim_problem,)),
+               'upper_boundary':600 * np.ones((ndim_problem,))}
+    options = {'seed_rng': 0,  # not given in the original paper
+               'max_function_evaluations': 2e5,
+               'fitness_threshold': 0.0}
+    solver = Solver(problem, options)
+    results = solver.optimize()
+    print(results)  # 1.23742e-2 vs 2.25e-2 (from original paper)
     print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
