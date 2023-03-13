@@ -4,8 +4,8 @@
     Journal of Global Optimization, 11(4), pp.341–359.
     https://link.springer.com/article/10.1023/A:1008202821328
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `CDE` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 
@@ -16,8 +16,8 @@ from pypop7.optimizers.de.cde import CDE
 if __name__ == '__main__':
     problem = {'fitness_function': sphere,
                'ndim_problem': 3,
-               'lower_boundary': -5.12 * np.ones((3,)),
-               'upper_boundary': 5.12 * np.ones((3,))}
+               'lower_boundary': -5.12*np.ones((3,)),
+               'upper_boundary': 5.12*np.ones((3,))}
     options = {'fitness_threshold': 1e-6,
                'seed_rng': 0,
                'n_individuals': 5,
@@ -30,8 +30,8 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': 2,
-               'lower_boundary': -2.048 * np.ones((2,)),
-               'upper_boundary': 2.048 * np.ones((2,))}
+               'lower_boundary': -2.048*np.ones((2,)),
+               'upper_boundary': 2.048*np.ones((2,))}
     options = {'fitness_threshold': 1e-6,
                'seed_rng': 0,
                'n_individuals': 10,
@@ -44,8 +44,8 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': griewank,
                'ndim_problem': 10,
-               'lower_boundary': -400 * np.ones((10,)),
-               'upper_boundary': 400 * np.ones((10,))}
+               'lower_boundary': -400*np.ones((10,)),
+               'upper_boundary': 400*np.ones((10,))}
     options = {'fitness_threshold': 1e-6,
                'seed_rng': 0,
                'n_individuals': 25,
