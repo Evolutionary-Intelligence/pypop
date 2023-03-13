@@ -7,8 +7,8 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/tde
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `TDE` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 import seaborn as sns
@@ -28,8 +28,8 @@ if __name__ == '__main__':
             ndim_problem = 30
             problem = {'fitness_function': f,
                        'ndim_problem': ndim_problem,
-                       'lower_boundary': -20 * np.ones((ndim_problem,)),
-                       'upper_boundary': 30 * np.ones((ndim_problem,))}
+                       'lower_boundary': -20*np.ones((ndim_problem,)),
+                       'upper_boundary': 30*np.ones((ndim_problem,))}
             options = {'max_runtime': 45,
                        'seed_rng': 0,  # undefined in the original paper
                        'saving_fitness': 1,
@@ -38,8 +38,8 @@ if __name__ == '__main__':
             ndim_problem = 20
             problem = {'fitness_function': f,
                        'ndim_problem': ndim_problem,
-                       'lower_boundary': -5.12 * np.ones((ndim_problem,)),
-                       'upper_boundary': 5.12 * np.ones((ndim_problem,))}
+                       'lower_boundary': -5.12*np.ones((ndim_problem,)),
+                       'upper_boundary': 5.12*np.ones((ndim_problem,))}
             options = {'max_runtime': 30,
                        'seed_rng': 0,  # undefined in the original paper
                        'saving_fitness': 1,

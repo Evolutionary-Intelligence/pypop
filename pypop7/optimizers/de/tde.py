@@ -20,14 +20,14 @@ class TDE(DE):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring, offspring population size (`int`, default: `30`),
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `30`),
                 * 'f'             - mutation factor (`float`, default: `0.99`),
                 * 'cr'            - crossover probability (`float`, default: `0.85`),
-                * 'mt'            - trigonometric mutation probability (`float`, default: `0.05`).
+                * 'tm'            - trigonometric mutation probability (`float`, default: `0.05`).
 
     Examples
     --------
-    Use the Differential Evolution optimizer `TDE` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -38,8 +38,8 @@ class TDE(DE):
        >>> from pypop7.optimizers.de.tde import TDE
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 0}
        >>> tde = TDE(problem, options)  # initialize the optimizer class
@@ -57,10 +57,10 @@ class TDE(DE):
                     crossover probability.
     f             : `float`
                     mutation factor.
-    mt            : 'float
+    tm            : 'float
                     trigonometric mutation probability.
     n_individuals : `int`
-                    number of offspring, offspring population size.
+                    number of offspring, aka offspring population size.
 
     References
     ----------
@@ -73,7 +73,7 @@ class TDE(DE):
         DE.__init__(self, problem, options)
         self.n_individuals = options.get('n_individuals', 30)  # population size
         self.f = options.get('f', 0.99)  # mutation factor
-        self.mt = options.get('mt', 0.05)  # trigonometric mutation probability
+        self.tm = options.get('tm', 0.05)  # trigonometric mutation probability
         self.cr = options.get('cr', 0.85)  # crossover probability
 
     def initialize(self, args=None):
@@ -89,7 +89,7 @@ class TDE(DE):
     def mutate(self, x=None, y=None):
         v, base = np.empty((self.n_individuals, self.ndim_problem)), np.arange(self.n_individuals)
         for i in range(self.n_individuals):
-            if self.rng_optimization.random() < self.mt:  # trigonometric mutation
+            if self.rng_optimization.random() < self.tm:  # trigonometric mutation
                 r0 = self.rng_optimization.choice(np.setdiff1d(base, i))
                 r1 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0]))
                 r2 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0, r1]))
@@ -97,7 +97,7 @@ class TDE(DE):
                 p1, p2, p3 = np.abs(y[r0])/p, np.abs(y[r1])/p, np.abs(y[r2])/p
                 v[i] = ((x[r0] + x[r1] + x[r2])/3.0 + (p2 - p1)*(x[r0] - x[r1]) +
                         (p3 - p2)*(x[r1] - x[r2]) + (p1 - p3)*(x[r2] - x[r0]))
-            else:  # same as the original ES version (`DE/rand/1/bin`)
+            else:  # same as the original DE version (`DE/rand/1/bin`)
                 r0 = self.rng_optimization.choice(np.setdiff1d(base, i))
                 r1 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0]))
                 r2 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0, r1]))
@@ -123,21 +123,14 @@ class TDE(DE):
                 x[i], y[i] = v[i], yy
         return x, y
 
-    def iterate(self, args=None, x=None, y=None):
+    def iterate(self, x=None, y=None, args=None):
         return self.select(self.crossover(self.mutate(x, y), x), x, y, args)
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
-        while True:
-            x, y = self.iterate(args, x, y)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, y)
+            x, y = self.iterate(x, y, args)
             self._n_generations += 1
-            self._print_verbose_info(y)
-        return self._collect_results(fitness)
+        return self._collect(fitness, y)
