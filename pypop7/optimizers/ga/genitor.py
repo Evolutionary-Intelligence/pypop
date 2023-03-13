@@ -9,7 +9,9 @@ class GENITOR(GA):
     .. note:: `"Selective pressure and population diversity should be controlled as directly as possible."---[Whitley,
        1989] <https://dl.acm.org/doi/10.5555/93126.93169>`_
 
-       This is a *slightly modified* version of `GENITOR` for continuous optimization.
+       This is a *slightly modified* version of `GENITOR` for continuous optimization. Originally `GENITOR` was proposed
+       to solve challenging `neuroevolution <https://www.nature.com/articles/s42256-018-0006-z>`_ problems by Whitley,
+       `recipient of IEEE Evolutionary Computation Pioneer Award 2022 <https://tinyurl.com/456as566>`_.
 
     Parameters
     ----------
