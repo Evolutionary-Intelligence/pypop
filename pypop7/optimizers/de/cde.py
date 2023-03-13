@@ -6,7 +6,7 @@ from pypop7.optimizers.de.de import DE
 class CDE(DE):
     """Classic Differential Evolution (CDE).
 
-    .. note:: `DE/rand/1/bin` is typically seen as the **classic/basic** version of `DE`.
+    .. note:: Typically, `DE/rand/1/bin` is seen as the **classic/basic** version of `DE`.
 
     Parameters
     ----------
@@ -28,7 +28,7 @@ class CDE(DE):
 
     Examples
     --------
-    Use the Differential Evolution optimizer `CDE` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -39,8 +39,8 @@ class CDE(DE):
        >>> from pypop7.optimizers.de.cde import CDE
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 0}
        >>> cde = CDE(problem, options)  # initialize the optimizer class
@@ -105,9 +105,9 @@ class CDE(DE):
     def crossover(self, v=None, x=None):
         """Binomial crossover (uniform discrete crossover)."""
         for i in range(self.n_individuals):
-            j_rand = self.rng_optimization.integers(self.ndim_problem)
+            j_r = self.rng_optimization.integers(self.ndim_problem)
             for j in range(self.ndim_problem):
-                if j == j_rand or self.rng_optimization.random() <= self.cr:
+                if j == j_r or self.rng_optimization.random() <= self.cr:
                     pass
                 else:
                     v[i, j] = x[i, j]
@@ -122,7 +122,7 @@ class CDE(DE):
                 x[i], y[i] = v[i], yy
         return x, y
 
-    def iterate(self, args=None, x=None, y=None):
+    def iterate(self, x=None, y=None, args=None):
         v = self.mutate(x)
         v = self.crossover(v, x)
         x, y = self.select(v, x, y, args)
@@ -132,14 +132,7 @@ class CDE(DE):
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
-        while True:
-            x, y = self.iterate(args, x, y)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
-            self._print_verbose_info(y)
-        return self._collect_results(fitness)
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, y)
+            x, y = self.iterate(x, y, args)
+        return self._collect(fitness, y)
