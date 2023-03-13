@@ -30,6 +30,15 @@ class ESA(SA):
                 * 'n1' - factor to control temperature stage w.r.t. accepted moves (`int`, default: `12`),
                 * 'n2' - factor to control temperature stage w.r.t. attempted moves (`int`, default: `100`).
 
+    Attributes
+    ----------
+    n1 : `int`
+         factor to control temperature stage w.r.t. accepted moves.
+    n2 : `int`
+         factor to control temperature stage w.r.t. attempted moves.
+    p  : `int`
+         subspace dimension.
+
     Examples
     --------
     Use the optimizer to minimize the well-known test function
