@@ -4,8 +4,8 @@
     IEEE Transactions on Evolutionary Computation, 13(5), 945–958.
     https://ieeexplore.ieee.org/document/5208221/
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `JADE` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 
@@ -20,7 +20,7 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem,
                'lower_boundary': -100*np.ones((ndim_problem,)),
                'upper_boundary': 100*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500 * 100,
+    options = {'max_function_evaluations': 1500*100,
                'n_individuals': 100,
                'seed_rng': 0,  # undefined in the original paper
                }
@@ -34,7 +34,7 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem,
                'lower_boundary': -100*np.ones((ndim_problem,)),
                'upper_boundary': 100*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500 * 100,
+    options = {'max_function_evaluations': 1500*100,
                'n_individuals': 100,
                'seed_rng': 0,  # undefined in the original paper
                }
@@ -48,7 +48,7 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem,
                'lower_boundary': -30*np.ones((ndim_problem,)),
                'upper_boundary': 30*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 3000 * 100,
+    options = {'max_function_evaluations': 3000*100,
                'n_individuals': 100,
                'seed_rng': 0,  # undefined in the original paper
                }
@@ -62,7 +62,7 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem,
                'lower_boundary': -5.12*np.ones((ndim_problem,)),
                'upper_boundary': 5.12*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 5000 * 100,
+    options = {'max_function_evaluations': 5000*100,
                'n_individuals': 100,
                'seed_rng': 0,  # undefined in the original paper
                }
@@ -76,7 +76,7 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem,
                'lower_boundary': -32*np.ones((ndim_problem,)),
                'upper_boundary': 32*np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 2000 * 100,
+    options = {'max_function_evaluations': 2000*100,
                'n_individuals': 100,
                'seed_rng': 0,  # undefined in the original paper
                }
