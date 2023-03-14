@@ -47,7 +47,7 @@ class CPSO(PSO):
        >>> results = cpso.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CPSO: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CPSO: 5000, 0.26418536724626607
+       CPSO: 5000, 0.3085868239334274
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/27nx42rm>`_ for more details.
@@ -81,6 +81,8 @@ class CPSO(PSO):
 
     def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None):
         for j in range(self.ndim_problem):
+            if self._check_terminations():
+                return v, x, y, p_x, p_y, n_x
             cognition_rand = self.rng_optimization.uniform(size=(self.n_individuals, self.ndim_problem))
             society_rand = self.rng_optimization.uniform(size=(self.n_individuals, self.ndim_problem))
             for i in range(self.n_individuals):
