@@ -25,7 +25,7 @@ class CODE(CDE):
 
     Examples
     --------
-    Use the Differential Evolution optimizer `CODE` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -36,8 +36,8 @@ class CODE(CDE):
        >>> from pypop7.optimizers.de.code import CODE
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 0}
        >>> code = CODE(problem, options)  # initialize the optimizer class
@@ -97,13 +97,13 @@ class CODE(CDE):
     def crossover(self, x_mu=None, x=None, p_cr=None):
         x_cr = np.copy(x)
         for k in range(self.n_individuals):
-            j_rand = self.rng_optimization.integers(self.ndim_problem)
+            j_r = self.rng_optimization.integers(self.ndim_problem)
             for i in range(self.ndim_problem):
-                if (i == j_rand) or (self.rng_optimization.random() < p_cr[k]):
+                if (i == j_r) or (self.rng_optimization.random() < p_cr[k]):
                     x_cr[k, i] = x_mu[k, i]
         return x_cr
 
-    def select(self, args=None, x=None, y=None, x_cr=None):
+    def select(self, x=None, y=None, x_cr=None, args=None):
         for k in range(self.n_individuals):
             if self._check_terminations():
                 break
@@ -112,28 +112,21 @@ class CODE(CDE):
                 x[k], y[k] = x_cr[k], yy
         return x, y
 
-    def iterate(self, args=None, x=None, y=None):
+    def iterate(self, x=None, y=None, args=None):
         x1, x2, x3, f_p = self.mutate(x)
         x1 = self.bound(self.crossover(x1, x, f_p[:, 0, 1]))
         x2 = self.bound(self.crossover(x2, x, f_p[:, 1, 1]))
         x3 = self.bound(x3)
-        x, y = self.select(args, x, y, x1)
-        x, y = self.select(args, x, y, x2)
-        x, y = self.select(args, x, y, x3)
+        x, y = self.select(x, y, x1, args)
+        x, y = self.select(x, y, x2, args)
+        x, y = self.select(x, y, x3, args)
         self._n_generations += 1
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
-        while True:
-            x, y = self.iterate(args, x, y)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
-            self._print_verbose_info(y)
-        return self._collect_results(fitness)
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, y)
+            x, y = self.iterate(x, y, args)
+        return self._collect(fitness, y)
