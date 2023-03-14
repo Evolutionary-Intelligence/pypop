@@ -31,7 +31,7 @@ class JADE(DE):
 
     Examples
     --------
-    Use the Differential Evolution optimizer `JADE` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -42,8 +42,8 @@ class JADE(DE):
        >>> from pypop7.optimizers.de.jade import JADE
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 0}
        >>> jade = JADE(problem, options)  # initialize the optimizer class
@@ -80,7 +80,9 @@ class JADE(DE):
         self.mu = options.get('mu', 0.5)  # mean of normal distribution for adaptation of crossover probabilities
         self.median = options.get('median', 0.5)  # location of Cauchy distribution for adaptation of mutation factor
         self.p = options.get('p', 0.05)  # level of greediness of the mutation strategy
+        assert 0.0 <= self.p <= 1.0
         self.c = options.get('c', 0.1)  # life span
+        assert 0.0 <= self.c <= 1.0
         self.boundary = options.get('boundary', False)
 
     def initialize(self, args=None):
@@ -154,7 +156,7 @@ class JADE(DE):
             self.median = (1.0 - self.c)*self.median + self.c*np.sum(np.power(f, 2))/np.sum(f)
         return x, y, a
 
-    def iterate(self, args=None, x=None, y=None, a=None):
+    def iterate(self, x=None, y=None, a=None, args=None):
         x_mu, f_mu = self.mutate(x, y, a)
         x_cr, p_cr = self.crossover(x_mu, x)
         x_cr = self.bound(x_cr, x)
@@ -168,14 +170,7 @@ class JADE(DE):
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
         x, y, a = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
-        while True:
-            x, y, a = self.iterate(args, x, y, a)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
-            self._print_verbose_info(y)
-        return self._collect_results(fitness)
+        while not self._check_terminations():
+            self._print_verbose_info(fitness, y)
+            x, y, a = self.iterate(x, y, a, args)
+        return self._collect(fitness, y)
