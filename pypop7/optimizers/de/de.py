@@ -6,12 +6,12 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class DE(Optimizer):
     """Differential Evolution (DE).
 
-    This is the **base** (abstract) class for all `DE` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `DE` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
     .. note:: Originally `DE` was proposed to solve some challenging real-world black-box problems by Kenneth Price and
-       Rainer Storn, `recipients of Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_.
-       Although there are *few* significant theoretical advances till now (to our knowledge), it is **still widely used
+       Rainer Storn, `recipients of IEEE Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_.
+       Although there is *few* significant theoretical advance till now (to our knowledge), it is **still widely used
        in practice**, owing to its often attractive search performance on many multimodal black-box functions.
 
        The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ library has provided an
@@ -65,9 +65,11 @@ class DE(Optimizer):
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        if self.n_individuals is None:  # number of offspring, offspring population size
+        if self.n_individuals is None:  # number of offspring, aka offspring population size
             self.n_individuals = 100
+        assert self.n_individuals > 0
         self._n_generations = 0  # number of generations
+        self._printed_evaluations = self.n_function_evaluations
 
     def initialize(self):
         raise NotImplementedError
@@ -84,12 +86,25 @@ class DE(Optimizer):
     def iterate(self):
         raise NotImplementedError
 
-    def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose):
-            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
-            print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+    def _print_verbose_info(self, fitness, y, is_print=False):
+        if y is not None:
+            if self.saving_fitness:
+                if not np.isscalar(y):
+                    fitness.extend(y)
+                else:
+                    fitness.append(y)
+        if self.verbose:
+            is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
+            is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
+            is_verbose_2 = self.termination_signal > 0 and is_verbose
+            is_verbose_3 = is_print and is_verbose
+            if is_verbose_1 or is_verbose_2 or is_verbose_3:
+                info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
+                print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+                self._printed_evaluations = self.n_function_evaluations
 
-    def _collect_results(self, fitness=None):
-        results = Optimizer._collect_results(self, fitness)
+    def _collect(self, fitness=None, y=None):
+        self._print_verbose_info(fitness, y)
+        results = Optimizer._collect(self, fitness)
         results['_n_generations'] = self._n_generations
         return results
