@@ -4,8 +4,8 @@
     IEEE Transactions on Evolutionary Computation, 15(1), pp.55–66.
     https://ieeexplore.ieee.org/document/5688232/
 
-    Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `CODE` could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
 
@@ -18,9 +18,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': sphere,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -100 * np.ones((ndim_problem,)),
-               'upper_boundary': 100 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 10000 * ndim_problem,  # 300000
+               'lower_boundary': -100*np.ones((ndim_problem,)),
+               'upper_boundary': 100*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 10000*ndim_problem,  # 300000
                'n_individuals': 30,
                'seed_rng': 0}
     code = CODE(problem, options)
@@ -31,9 +31,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -5 * np.ones((ndim_problem,)),
-               'upper_boundary': 5 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 10000 * ndim_problem,  # 300000
+               'lower_boundary': -5*np.ones((ndim_problem,)),
+               'upper_boundary': 5*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 10000*ndim_problem,  # 300000
                'n_individuals': 30,
                'seed_rng': 0}
     code = CODE(problem, options)
