@@ -39,7 +39,16 @@ acceptable criteria to select from them, as presented below in details:
 
 * Respect for **Diversity**
 
-  Given the universality of **black-box optimization (BBO)** in science and engineering, different research communities have designed different optimizers/methods. The type and number of optimizers are continuing to increase as the more powerful optimizers are always desirable for new and more challenging applications. On the one hand, some of these methods may share *more or less* similarities. On the other hand, they may also show *significant* differences (w.r.t. motivations / objectives / implementations / communities / practitioners). Therefore, we hope to cover such a diversity from different research communities such as artificial intelligence (particularly machine learning (evolutionary computation and zeroth-order optimization)), mathematical optimization/programming (particularly global optimization), operations research / management science, automatic control, open-source software, and perhaps others.
+  Given the universality of **black-box optimization (BBO)** in science and engineering, different research communities
+  have designed different optimizers/methods. The type and number of optimizers are continuing to increase as the more
+  powerful optimizers are always desirable for new and more challenging applications. On the one hand, some of these
+  methods may share *more or less* similarities. On the other hand, they may also show *significant* differences (w.r.t.
+  motivations / objectives / implementations / communities / practitioners). Therefore, we hope to cover such a
+  diversity from different research communities such as artificial intelligence (particularly machine learning
+  (`evolutionary computation <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_ and
+  zeroth-order optimization)), mathematical optimization/programming (particularly global optimization), operations
+  research / management science, automatic control, electronic engineering, open-source software, physics, chemistry,
+  and others.
 
 * Respect for **Originality**
 
