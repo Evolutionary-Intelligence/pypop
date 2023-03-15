@@ -67,6 +67,11 @@ class CEM(Optimizer):
     John Wiley & Sons.
     https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980
 
+    Hu, J., Fu, M.C. and Marcus, S.I., 2007.
+    A model reference adaptive search method for global optimization.
+    Operations Research, 55(3), pp.549-568.
+    https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367
+
     Kroese, D.P., Porotsky, S. and Rubinstein, R.Y., 2006.
     The cross-entropy method for continuous multi-extremal optimization.
     Methodology and Computing in Applied Probability, 8(3), pp.383-407.
