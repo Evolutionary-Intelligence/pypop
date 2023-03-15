@@ -6,7 +6,7 @@ from pypop7.optimizers.cem.cem import CEM
 class SCEM(CEM):
     """Standard Cross-Entropy Method (SCEM).
 
-    .. note:: `SCEM` uses the *fixed* smoothing strategy to update the mean and std of Gaussian search
+    .. note:: `SCEM` uses the *fixed* smoothing strategy to update the *mean* and *std* of Gaussian search
        (mutation/sampling) distribution in an online fashion.
 
     Parameters
@@ -35,7 +35,7 @@ class SCEM(CEM):
 
     Examples
     --------
-    Use the optimizer `SCEM` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -89,6 +89,7 @@ class SCEM(CEM):
     def __init__(self, problem, options):
         CEM.__init__(self, problem, options)
         self.alpha = options.get('alpha', 0.8)  # smoothing factor
+        assert 0.0 <= self.alpha <= 1.0
 
     def initialize(self, is_restart=False):
         mean = self._initialize_mean(is_restart)
@@ -115,11 +116,9 @@ class SCEM(CEM):
         mean, x, y = self.initialize()
         while True:
             x, y = self.iterate(mean, x, y, args)
-            if self.saving_fitness:
-                fitness.extend(y)
+            self._print_verbose_info(fitness, y)
             if self._check_terminations():
                 break
-            self._print_verbose_info(y)
-            self._n_generations += 1
             mean = self._update_parameters(mean, x, y)
-        return self._collect_results(fitness, mean)
+            self._n_generations += 1
+        return self._collect_results(fitness, y, mean)
