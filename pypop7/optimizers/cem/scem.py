@@ -121,4 +121,4 @@ class SCEM(CEM):
                 break
             mean = self._update_parameters(mean, x, y)
             self._n_generations += 1
-        return self._collect_results(fitness, y, mean)
+        return self._collect(fitness, y, mean)
