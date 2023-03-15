@@ -119,6 +119,6 @@ class SCEM(CEM):
             self._print_verbose_info(fitness, y)
             if self._check_terminations():
                 break
-            mean = self._update_parameters(mean, x, y)
             self._n_generations += 1
+            mean = self._update_parameters(mean, x, y)
         return self._collect(fitness, y, mean)
