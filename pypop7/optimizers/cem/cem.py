@@ -6,11 +6,11 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class CEM(Optimizer):
     """Cross-Entropy Method (CEM).
 
-    This is the **base** (abstract) class for all `CEM` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `CEM` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
-    .. note:: `CEM` is a class of **principled** population-based optimizers, proposed originally by Rubinstein,
-        whose core idea is based on **Kullback–Leibler (or cross-entropy) minimization**.
+    .. note:: `CEM` is a class of **principled** population-based optimizers, proposed originally by *Rubinstein*,
+        whose core idea is based on **Kullback–Leibler (or Cross-Entropy) minimization**.
 
        `"CEM is not only based on fundamental principles (cross-entropy distance, maximum likelihood, etc.), but is
        also very easy to program (with far fewer parameters than many other global optimization heuristics), and
@@ -57,6 +57,11 @@ class CEM(Optimizer):
 
     References
     ----------
+    Amos, B. and Yarats, D., 2020, November.
+    The differentiable cross-entropy method.
+    In International Conference on Machine Learning (pp. 291-302). PMLR.
+    http://proceedings.mlr.press/v119/amos20a.html
+
     Rubinstein, R.Y. and Kroese, D.P., 2016.
     Simulation and the Monte Carlo method (Third Edition).
     John Wiley & Sons.
@@ -80,17 +85,20 @@ class CEM(Optimizer):
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        if self.n_individuals is None:  # number of individuals (samples)
+        if self.n_individuals is None:  # number of individuals/samples
             self.n_individuals = 1000
+        assert self.n_individuals > 0
         if self.n_parents is None:  # number of elitists
             self.n_parents = 200
+        assert self.n_parents > 0
         self.mean = options.get('mean')  # mean of Gaussian search (sampling/mutation) distribution
         if self.mean is None:
             self.mean = options.get('x')
         self.sigma = options.get('sigma')  # global (overall) step-size
-        assert self.sigma is not None
+        assert self.sigma is not None and self.sigma > 0.0
         self._sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
         self._n_generations = 0
+        self._printed_evaluations = self.n_function_evaluations
 
     def initialize(self):
         raise NotImplementedError
@@ -105,13 +113,26 @@ class CEM(Optimizer):
             mean = np.copy(self.mean)
         return mean
 
-    def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose):
-            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
-            print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+    def _print_verbose_info(self, fitness, y, is_print=False):
+        if y is not None:
+            if self.saving_fitness:
+                if not np.isscalar(y):
+                    fitness.extend(y)
+                else:
+                    fitness.append(y)
+        if self.verbose:
+            is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
+            is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
+            is_verbose_2 = self.termination_signal > 0 and is_verbose
+            is_verbose_3 = is_print and is_verbose
+            if is_verbose_1 or is_verbose_2 or is_verbose_3:
+                info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
+                print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+                self._printed_evaluations = self.n_function_evaluations
 
-    def _collect_results(self, fitness, mean=None):
-        results = Optimizer._collect_results(self, fitness)
+    def _collect_results(self, fitness, y, mean=None):
+        self._print_verbose_info(fitness, y)
+        results = Optimizer._collect(self, fitness)
         results['mean'] = mean
         results['_sigmas'] = self._sigmas
         results['_n_generations'] = self._n_generations
