@@ -2,14 +2,14 @@ import numpy as np
 import torch
 
 from lml import LML
-from pypop7.optimizers.cem.cem import CEM
+from pypop7.optimizers.cem.scem import SCEM
 
 
-class DCEM(CEM):
+class DCEM(SCEM):
     """Differentiable Cross-Entropy Method (DCEM).
 
-    .. note:: Since the `lml` library may be not successfully installed via `pip`, please run the following
-       two commands before invoking this optimizer (**a necessary manual step**):
+    .. note:: Since the underlying `lml` library may be not successfully installed via `pip`, please run the following
+       two commands before invoking this optimizer (**this is a necessary step!**):
 
        $ `git clone https://github.com/locuslab/lml.git`
 
@@ -27,7 +27,7 @@ class DCEM(CEM):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'sigma'         - initial global step-size (`float`),
                 * 'mean'          - initial mean of Gaussian search distribution (`array_like`),
@@ -42,7 +42,7 @@ class DCEM(CEM):
 
     Examples
     --------
-    Use the `CEM` optimizer `DCEM` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -78,7 +78,7 @@ class DCEM(CEM):
     n_parents     : `int`
                     number of parents, aka parental population size.
     sigma         : `float`
-                    final global step-size, aka mutation strength.
+                    final global step-size, aka mutation strength (updated during optimization).
     temperature   : `float`
                     temperature for lml.
 
@@ -93,7 +93,7 @@ class DCEM(CEM):
     https://github.com/facebookresearch/dcem
     """
     def __init__(self, problem, options):
-        CEM.__init__(self, problem, options)
+        SCEM.__init__(self, problem, options)
         self.temperature = options.get('temperature', 1.0)
         self.lml_eps = options.get('lml_eps', 1e-3)
 
@@ -111,7 +111,7 @@ class DCEM(CEM):
             y[i] = self._evaluate_fitness(x[i], args)
         return x, y
 
-    def update_distribution(self, x, y):
+    def _update_parameters(self, mean=None, x=None, y=None):
         mean_y, std_y = np.mean(y), np.std(y)
         y = torch.from_numpy((y - mean_y)/(std_y + 1e-6))
         i = LML(N=self.n_parents, eps=self.lml_eps, verbose=0)(-y*self.temperature)
@@ -120,17 +120,3 @@ class DCEM(CEM):
         mean = np.sum(i_x, axis=0)/self.n_parents
         self._sigmas = np.sqrt(np.sum(i*np.power(x - mean, 2), axis=0)/self.n_parents)
         return mean
-
-    def optimize(self, fitness_function=None, args=None):
-        fitness = CEM.optimize(self, fitness_function)
-        mean, x, y = self.initialize()
-        while True:
-            x, y = self.iterate(mean, x, y, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
-            self._print_verbose_info(y)
-            self._n_generations += 1
-            mean = self.update_distribution(x, y)
-        return self._collect_results(fitness, mean)
