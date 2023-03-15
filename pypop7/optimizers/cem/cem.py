@@ -130,7 +130,7 @@ class CEM(Optimizer):
                 print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
                 self._printed_evaluations = self.n_function_evaluations
 
-    def _collect_results(self, fitness, y, mean=None):
+    def _collect(self, fitness, y=None, mean=None):
         self._print_verbose_info(fitness, y)
         results = Optimizer._collect(self, fitness)
         results['mean'] = mean
