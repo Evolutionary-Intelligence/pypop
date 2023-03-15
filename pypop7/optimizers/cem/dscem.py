@@ -1,12 +1,12 @@
 import numpy as np
 
-from pypop7.optimizers.cem.cem import CEM
+from pypop7.optimizers.cem.scem import SCEM
 
 
-class DSCEM(CEM):
+class DSCEM(SCEM):
     """Dynamic Smoothing Cross-Entropy Method (DSCEM).
 
-    .. note:: `DSCEM` uses the *dynamic* smoothing strategy to update the mean and std of Gaussian search
+    .. note:: `DSCEM` uses the *dynamic* smoothing strategy to update the *mean* and *std* of Gaussian search
        (mutation/sampling) distribution in an online fashion.
 
     Parameters
@@ -37,7 +37,7 @@ class DSCEM(CEM):
 
     Examples
     --------
-    Use the optimizer `DSCEM` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -93,10 +93,11 @@ class DSCEM(CEM):
     https://link.springer.com/article/10.1007/s10479-005-5724-z
     """
     def __init__(self, problem, options):
-        CEM.__init__(self, problem, options)
-        self.alpha = options.get('alpha', 0.8)  # smoothing factor of mean of Gaussian search distribution
+        SCEM.__init__(self, problem, options)
         self.beta = options.get('beta', 0.7)  # smoothing factor of individual step-sizes
+        assert 0.0 <= self.beta <= 1.0
         self.q = options.get('q', 5.0)  # decay factor of smoothing individual step-sizes
+        assert self.q >= 0.0
 
     def initialize(self, is_restart=False):
         mean = self._initialize_mean(is_restart)
@@ -118,17 +119,3 @@ class DSCEM(CEM):
         b_mod = self.beta - self.beta*np.power(1.0 - 1.0/self._n_generations, self.q)
         self._sigmas = b_mod*np.std(xx, axis=0) + (1.0 - b_mod)*self._sigmas
         return mean
-
-    def optimize(self, fitness_function=None, args=None):
-        fitness = CEM.optimize(self, fitness_function)
-        mean, x, y = self.initialize()
-        while True:
-            x, y = self.iterate(mean, x, y, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            if self._check_terminations():
-                break
-            self._print_verbose_info(y)
-            self._n_generations += 1
-            mean = self._update_parameters(mean, x, y)
-        return self._collect_results(fitness, mean)
