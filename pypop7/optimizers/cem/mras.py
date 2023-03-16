@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.stats import multivariate_normal
+from scipy.stats import multivariate_normal as mn
 
 from pypop7.optimizers.cem import CEM
 
@@ -28,13 +28,13 @@ class MRAS(CEM):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `1000`),
-                * 'p'             - control percentage of samples as parents (`int`, default: `0.1`),
+                * 'p'             - percentage of samples as parents (`int`, default: `0.1`),
                 * 'alpha'         - increasing factor of samples/individuals (`float`, default: `1.1`),
                 * 'v'             - smoothing factor for search distribution update (`float`, default: `0.2`).
 
     Examples
     --------
-    Use the optimizer `MRAS` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -54,7 +54,7 @@ class MRAS(CEM):
        >>> results = mras.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"MRAS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       MRAS: 5000, 0.9579579806857474
+       MRAS: 5000, 0.18363570418709932
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/yv44nbwu>`_ for more details.
@@ -68,7 +68,7 @@ class MRAS(CEM):
     n_individuals : `int`
                     number of offspring, aka offspring population size.
     p             : `float`
-                    control percentage of samples as parents.
+                    percentage of samples as parents.
     sigma         : `float`
                     initial global step-size, aka mutation strength,
     v             : `float`
@@ -83,7 +83,7 @@ class MRAS(CEM):
     """
     def __init__(self, problem, options):
         CEM.__init__(self, problem, options)
-        self.p = options.get('p', 0.1)  # control percentage of samples as parents
+        self.p = options.get('p', 0.1)  # percentage of samples as parents
         assert 0.0 < self.p <= 1.0
         self.alpha = options.get('alpha', 1.1)  # increasing factor of samples/individuals
         assert self.alpha > 1.0
@@ -104,12 +104,12 @@ class MRAS(CEM):
         return mean, cov, x, y
 
     def iterate(self, mean=None, cov=None, x=None, y=None, args=None):
-        std = np.sqrt(np.maximum(cov, 1e-128))  # to avoid np.nan (1e-128 is a not a key setting, others are possible)
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return mean, cov, x, y
-            if self.rng_optimization.uniform() <= 1.0 - self._lambda:  # a very simple way to generate a mixed pdf
-                x[i] = mean + np.dot(std, self.rng_optimization.standard_normal())[:, -1]
+            # use a very simple way to generate a mixed pdf
+            if self.rng_optimization.uniform() <= 1.0 - self._lambda:
+                x[i] = self.rng_optimization.multivariate_normal(mean=mean, cov=cov)
             else:
                 x[i] = self.rng_optimization.multivariate_normal(
                     mean=self._initial_pdf[0], cov=self._initial_pdf[1])
@@ -120,7 +120,8 @@ class MRAS(CEM):
             self._gamma = gamma
         else:  # Step 3(b)
             yy, _p = np.Inf, np.Inf
-            for i in np.linspace(self.p, 0, 10)[1:]:  # not given in the original paper (not a key setting)
+            # this is not detailed in the original paper (but may not be a key setting)
+            for i in np.linspace(self.p, 0, 100)[1:]:
                 yy = y[order[int(np.ceil(i*self.n_individuals))]]
                 if yy <= self._gamma + self.epsilon/2:
                     _p = i
@@ -135,17 +136,17 @@ class MRAS(CEM):
             for i in range(len(y)):
                 if y[i] <= self._gamma:
                     _n += 1
-                    pdfs[i] = ((1 - self._lambda)*multivariate_normal.pdf(x[i], mean=mean, cov=cov) + self._lambda *
-                               multivariate_normal.pdf(x[i], mean=self._initial_pdf[0], cov=self._initial_pdf[1]))
+                    pdfs[i] = ((1.0 - self._lambda)*mn.pdf(x[i], mean=mean, cov=cov) + self._lambda *
+                               mn.pdf(x[i], mean=self._initial_pdf[0], cov=self._initial_pdf[1]))
                     weights[i] = np.power(np.exp(-self.r*y[i]), self._n_generations)/pdfs[i]
                     _mean += weights[i]*x[i]
             if _n > 0:
-                _mean = (_mean/_n)/(np.maximum(np.sum(weights)/_n, 1e-6))  # to avoid divide-by-zero
+                _mean = (_mean/_n)/(np.sum(weights)/_n)
                 for i in range(len(y)):
                     if y[i] <= self._gamma:
                         xm = x[i] - _mean
                         _cov += weights[i]*np.dot(xm[:, np.newaxis], xm[np.newaxis, :])
-                _cov = (_cov/_n)/(np.maximum(np.sum(weights)/_n, 1e-6))  # to avoid divide-by-zero
+                _cov = (_cov/_n)/(np.sum(weights)/_n)
                 mean = self.v*_mean + (1.0 - self.v)*mean
                 cov = self.v*_cov + (1.0 - self.v)*cov
         return mean, cov, x, y
@@ -155,13 +156,11 @@ class MRAS(CEM):
         mean, cov, x, y = self.initialize()
         while True:
             mean, cov, x, y = self.iterate(mean, cov, x, y, args)
-            if self.saving_fitness:
-                fitness.extend(y)
+            self._print_verbose_info(fitness, y)
             if self._check_terminations():
                 break
-            self._print_verbose_info(y)
             self._n_generations += 1
             if self.n_individuals > len(y):
                 x = np.empty((self.n_individuals, self.ndim_problem))  # samples (population)
                 y = np.empty((self.n_individuals,))  # fitness (no evaluation)
-        return self._collect_results(fitness, mean)
+        return self._collect(fitness, y, mean)
