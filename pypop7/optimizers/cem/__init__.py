@@ -5,5 +5,9 @@ from pypop7.optimizers.cem.mras import MRAS
 # from pypop7.optimizers.cem.dcem import DCEM
 
 
-__all__ = [CEM,  # base (abstract) class
-           SCEM, DSCEM, MRAS]
+__all__ = [CEM,  # Cross-Entropy Method (CEM)
+           SCEM,  # Standard Cross-Entropy Method (SCEM)
+           DSCEM,  # Dynamic Smoothing Cross-Entropy Method (DSCEM)
+           MRAS,  # Model Reference Adaptive Search (MRAS)
+           # DCEM  # Differentiable Cross-Entropy Method (DCEM)
+           ]
