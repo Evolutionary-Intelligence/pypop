@@ -284,6 +284,7 @@ Note that for each algorithm family, we also provide some *representative* appli
   * De Bonet, J., Isbell, C. and Viola, P., 1996. [MIMIC: Finding optima by estimating probability densities](https://proceedings.neurips.cc/paper/1996/hash/4c22bd444899d3b6047a10b20a2f26db-Abstract.html). Advances in Neural Information Processing Systems (pp. 424-430).
   * Mühlenbein, H., 1997. [The equation for response to selection and its use for prediction](https://tinyurl.com/yt78c786).  Evolutionary Computation, 5(3), pp.303-346.
 * Cross-Entropy Method (CEM)
+  * Pinneri, C., Sawant, S., Blaes, S., Achterhold, J., Stueckler, J., Rolinek, M. and Martius, G., 2021, October. [Sample-efficient cross-entropy method for real-time planning](https://proceedings.mlr.press/v155/pinneri21a.html). In Conference on Robot Learning (pp. 1049-1065). PMLR.
   * Amos, B. and Yarats, D., 2020, November. [The differentiable cross-entropy method](https://proceedings.mlr.press/v119/amos20a.html). In International Conference on Machine Learning (pp. 291-302). PMLR.
   * Rubinstein, R.Y. and Kroese, D.P., 2016. [Simulation and the Monte Carlo method (Third Edition)](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980). John Wiley & Sons.
   * Hu, J., Fu, M.C. and Marcus, S.I., 2007. [A model reference adaptive search method for global optimization](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367). Operations Research, 55(3), pp.549-568.
