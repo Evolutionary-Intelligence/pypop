@@ -173,4 +173,5 @@ class POWELL(DS):
             self._n_generations += 1
             self._print_verbose_info(y)
         results = self._collect(fitness)
+        results["success"] = True
         return results
