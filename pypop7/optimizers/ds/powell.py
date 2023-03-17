@@ -1,10 +1,17 @@
 import numpy as np
+import time
 
 from pypop7.optimizers.ds.ds import DS
+from scipy.optimize.optimize import Brent
+import scipy.optimize.optimize as Optimize
 
 
 class POWELL(DS):
     """Powell's Method(POWELL).
+
+     .. note:: `"The algorithm is adapted from the powell algorithm created by scipy.
+       https://docs.scipy.org/doc/scipy/reference/optimize.minimize-powell.html
+
     Parameters
     ----------
     problem : dict
@@ -21,9 +28,7 @@ class POWELL(DS):
               and with the following particular settings (`keys`):
                 * 'x'             - initial (starting) point (`array_like`),
                 * 'sigma'         - initial (global) step-size (`float`),
-                * 'eps'           - factor for linear search (`float`, default: `1e-6`).
-                * 'initial_step'  - factor for generate brackets (`float`, default: `1e-6`).
-                * 'grow_limit'    - factor for generate brackets (`float`, default: `100.0`).
+                * 'xtol'          - factor for linear search (`float`, default: `1e-4`).
 
     Examples
     --------
@@ -49,7 +54,7 @@ class POWELL(DS):
        >>> results = powell.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"POWELL: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       POWELL: 248, 5.406485438404457e-14
+       POWELL: 5000, 0e0
 
     Attributes
     ----------
@@ -57,12 +62,8 @@ class POWELL(DS):
                       starting search point.
     sigma          : `float`
                       final (global) step-size.
-    eps            : `float`
-                      factor for linear search
-    initial_step   : `float`
-                      factor for generate brackets
-    grow_limit     : `float`
-                      factor for generate brackets
+    xtol           : `float`
+                      Relative error in solution `xopt` acceptable for convergence.
 
     Reference
     ---------
@@ -79,11 +80,10 @@ class POWELL(DS):
     https://academic.oup.com/comjnl/article-abstract/7/2/155/335330?redirectedFrom=fulltext&login=false
 
     """
-    def __init__(self, problem, options):
+    def __init__(self, problem, options, args=None):
         DS.__init__(self, problem, options)
-        self.eps = options.get("eps", 1e-6)
-        self.initial_step = options.get("initial_step", 1e-6)
-        self.grow_limit = options.get("grow_limit", 100.0)
+        self.xtol = options.get("xtol", 1e-4)
+        fcalls, self.func = Optimize._wrap_function(self.fitness_function, args=())
 
     def initialize(self, args=None, is_restart=False):
         x = self._initialize_x(is_restart)  # initial point
@@ -91,85 +91,55 @@ class POWELL(DS):
         u = np.identity(self.ndim_problem)
         return x, y, u
 
-    def initialize_brackets(self, x0, y, d):
-        gold = (np.sqrt(5) + 1) / 2
-        t = 1e-20
-        ax, bx = np.zeros((self.ndim_problem,)), self.initial_step * np.ones((self.ndim_problem,))
-        fa, fb = y, self._evaluate_fitness(x0 + bx * d)
-        if fb > fa:
-            ax, bx = bx, ax
-            fa, fb = fb, fa
-        cx = bx + gold * (bx - ax)
-        fc = self._evaluate_fitness(x0 + cx * d)
-        while fb > fc:
-            r = (bx - ax) * (fb - fc)
-            q = (bx - cx) * (fb - fa)
-            if min(abs(q - r)) < t:
-                s = np.sign(q - r) * t
-            else:
-                s = q - r
-            u = bx - ((bx - cx) * q - (bx - ax) * r) / (2 * s)
-            ulim = bx + self.grow_limit * (cx - bx)
-            if np.dot((bx - u), (u - cx)) > 0.0:
-                fu = self._evaluate_fitness(x0 + u * d)
-                if fu < fc:
-                    ax = bx
-                    bx = u
-                    fa = fb
-                    fb = fu
-                    break
-                elif fu > fb:
-                    cx = u
-                    fc = fu
-                    break
-                u = cx + gold * (cx - bx)
-                fu = self._evaluate_fitness(x0 + u * d)
-            elif np.dot((cx - u), (u - ulim)) > 0.0:
-                fu = self._evaluate_fitness(x0 + u * d)
-                if fu < fc:
-                    bx, cx, u = cx, u, u + gold * (u - cx)
-                    fb, fc, fu = fc, fu, self._evaluate_fitness(x0 + u * d)
-            elif np.dot((u - ulim), (ulim - cx)) >= 0.0:
-                u = ulim
-                fu = self._evaluate_fitness(x0 + u * d)
-            else:
-                u = cx + gold * (cx - bx)
-                fu = self._evaluate_fitness(x0 + u * d)
-            ax, bx, cx = bx, cx, u
-            fa, fb, fc = fb, fc, fu
-        return sorted([(fa, ax), (fb, bx), (fc, cx)], key=lambda x: x[0])
+    def line_search(self, x0=None, d=None, tol=1e-3, lower_bound=None, upper_bound=None, y=None, args=None):
+        def myfunc(alpha):
+            return self.func(np.array(x0 + np.multiply(alpha, d)))
 
-    def line_search(self, x0=None, y=None, d=None, args=None):
-        u, fu = np.inf, np.inf
-        (fa, a), (fb, b), (fc, c) = self.initialize_brackets(x0, y, d)
-        num = (b - a) ** 2 * (fb - fc) - (b - c) ** 2 * (fb - fa)
-        den = 2 * ((b - a) * (fb - fc) - (b - c) * (fb - fa))
-        while max(abs(u - (b - num/den))) > self.eps:
-            u = b - num / den
-            fu = self._evaluate_fitness(x0 + u * d, args)
-            points = sorted([(fa, a), (fb, b), (fc, c), (fu, u)], key=lambda x: x[0])[:-1]
-            (fa, a), (fb, b), (fc, c) = sorted(points, key=lambda x: x[0])
-            num = (b - a) ** 2 * (fb - fc) - (b - c) ** 2 * (fb - fa)
-            den = 2 * ((b - a) * (fb - fc) - (b - c) * (fb - fa))
-        return sorted([(fa, a), (fb, b), (fc, c), (fu, u)], key=lambda x: x[0])[0][::-1]
+        if lower_bound is None and upper_bound is None:
+            alpha_min, fret, _, _ = Brent(myfunc, full_output=1, tol=tol)
+            d = alpha_min * x0
+            return np.squeeze(fret), x0+d, d
+        else:
+            bound = Optimize._line_for_search(x0, d, lower_bound, upper_bound)
+            if np.isneginf(bound[0]) and np.isposinf(bound[1]):
+                return self.line_search(x0, d, y=y, tol=tol)
+            elif not np.isneginf(bound[0]) and not np.isposinf(bound[1]):
+                res = Optimize._minimize_scalar_bounded(myfunc, bound, xatol=tol/100)
+                d = res.x * d
+                return np.squeeze(res.fun), x0 + d, d
+            else:
+                bound = np.arctan(bound[0]), np.arctan(bound[1])
+                res = Optimize._minimize_scalar_bounded(lambda x: myfunc(np.tan(x)),
+                                                        bound,
+                                                        xatol=tol/100)
+                d = np.tan(res.x) * d
+                return np.squeeze(res.fun), x0 + d, d
 
-    def iterate(self, args=None, x=None, y=None, u=None):
+    def iterate(self, x=None, y=None, u=None, args=None):
         xx, yy = np.copy(x), np.copy(y)
         ind, delta_k = 0, 0
+        ys = []
         for i in range(self.ndim_problem):
             if self._check_terminations():
-                return x, y, u
+                return x, y, u, ys
             d = u[i]
             diff = y
-            alpha, y = self.line_search(x, y, d)
-            x += alpha * d
+            y, x, d = self.line_search(x, d, tol=self.xtol*100,
+                                       lower_bound=self.lower_boundary,
+                                       upper_bound=self.upper_boundary,
+                                       y=y)
+            ys.append(y)
+            if y < self.best_so_far_y:
+                self.best_so_far_x, self.best_so_far_y = np.copy(x), np.copy(y)
+            self.time_function_evaluations += time.time() - self.start_function_evaluations
+            self.n_function_evaluations += 1
             diff -= y
             if diff > delta_k:
                 delta_k = diff
                 ind = i
         d = x - xx
         x1 = 2 * x - xx
-        fx1 = self._evaluate_fitness(x1)
+        fx1 = self.fitness_function(x1)
         if yy > fx1:
             t = 2.0 * (yy + fx1 - 2.0 * y)
             temp = (yy - y - delta_k)
@@ -177,23 +147,31 @@ class POWELL(DS):
             temp = yy - fx1
             t -= delta_k * temp ** 2
             if t < 0.0:
-                alpha, y = self.line_search(x, y, d)
-                x += alpha * d
-                u[ind] = u[-1]
-                u[-1] = d
-        return x, y, u
+                y, x, d = self.line_search(x, d, tol=self.xtol * 100,
+                                           lower_bound=self.lower_boundary,
+                                           upper_bound=self.upper_boundary,
+                                           y=y)
+                ys.append(y)
+                if y < self.best_so_far_y:
+                    self.best_so_far_x, self.best_so_far_y = np.copy(x), np.copy(y)
+                self.time_function_evaluations += time.time() - self.start_function_evaluations
+                self.n_function_evaluations += 1
+                if np.any(d):
+                    u[ind] = u[-1]
+                    u[-1] = d
+        return x, y, u, ys
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DS.optimize(self, fitness_function)
         x, y, u = self.initialize(args)
-        fitness.append(y)
         while True:
-            x, y, u = self.iterate(args, x, y, u)
+            x, y, u, ys = self.iterate(x, y, u, args)
             if self.saving_fitness:
-                fitness.append(y)
+                fitness.extend(ys)
             if self._check_terminations():
                 break
             self._n_generations += 1
             self._print_verbose_info(y)
-        results = self._collect_results(fitness)
+        results = self._collect(fitness)
+        results["success"] = True
         return results
