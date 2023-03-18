@@ -3,6 +3,7 @@ from scipy.optimize import minimize
 
 from pypop7.optimizers.core.optimizer import Optimizer
 from pypop7.optimizers.pso.pso import PSO
+from pypop7.optimizers.ds.powell import POWELL
 
 
 class IPSOLS(PSO):
@@ -104,19 +105,31 @@ class IPSOLS(PSO):
             if self.e[i]:
                 if self._check_terminations():
                     return v, x, y, p_x, p_y, fitness
-                maxiter = {'maxiter': np.minimum(self.powell_max_iterations,
-                                                 self.max_function_evaluations - self.n_function_evaluations - 1)}
-                res = minimize(self.fitness_function, x[i], method='Powell', tol=self.powell_tolerance, options=maxiter)
-                self.n_function_evaluations += res.nfev
-                x[i] = res.x
-                if res.fun < p_y[i]:
-                    p_x[i], p_y[i] = x[i], res.fun
-                if res.fun < self.best_so_far_y:
-                    self.best_so_far_x, self.best_so_far_y = res.x, res.fun
-                if res.success:
+                maxeval = np.minimum(self.powell_max_iterations * (self.ndim_problem + 5),
+                                     self.max_function_evaluations - self.n_function_evaluations - 1)
+                problem = {'fitness_function': self.fitness_function,
+                           'ndim_problem': self.ndim_problem,
+                           'lower_boundary': -5 * np.ones((self.ndim_problem,)),
+                           'upper_boundary': 5 * np.ones((self.ndim_problem,))}
+                options = {'max_function_evaluations': maxeval,
+                           'x': x[i],
+                           'xtol': self.powell_tolerance,
+                           'seed_rng': 0,
+                           'verbose': 1000,
+                           'saving_fitness': self.saving_fitness}
+                powell = POWELL(problem, options)
+                result = powell.optimize()
+                self.n_function_evaluations += result['n_function_evaluations']
+                x[i] = result['best_so_far_x']
+                if result['best_so_far_y'] < p_y[i]:
+                    p_x[i], p_y[i] = x[i], result['best_so_far_y']
+                if result['best_so_far_y'] < self.best_so_far_y:
+                    self.best_so_far_x, self.best_so_far_y = result['best_so_far_x'], result['best_so_far_y']
+                if result['success']:
                     self.e[i] = False
                 # for simplicity, all fitness during local search are replaced by the last fitness
-                fitness.extend([res.fun]*res.nfev)
+                if self.saving_fitness:
+                    fitness.extend(result['fitness'])
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return v, x, y, p_x, p_y, fitness
@@ -155,4 +168,4 @@ class IPSOLS(PSO):
             self._print_verbose_info(fitness, yy)
             v, x, y, p_x, p_y, f = self.iterate(v, x, y, p_x, p_y, None, args)
             yy = np.hstack((f, y))
-        return self._collect(fitness, yy)
+        return self._collect(fitness)
