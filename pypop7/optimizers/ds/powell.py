@@ -161,17 +161,22 @@ class POWELL(DS):
                     u[-1] = d
         return x, y, u, ys
 
+    def _check_success(self):
+        if self.upper_boundary and (np.any(self.lower_boundary > self.best_so_far_x)
+                                    or np.any(self.best_so_far_x > self.upper_boundary)):
+            return False
+        elif np.isnan(self.best_so_far_y) or np.isnan(self.best_so_far_x).any():
+            return False
+        return True
+
     def optimize(self, fitness_function=None, args=None):
         fitness = DS.optimize(self, fitness_function)
         x, y, u = self.initialize(args)
-        while True:
+        ys = y
+        while not self.termination_signal:
+            self._print_verbose_info(fitness, ys)
             x, y, u, ys = self.iterate(x, y, u, args)
-            if self.saving_fitness:
-                fitness.extend(ys)
-            if self._check_terminations():
-                break
             self._n_generations += 1
-            self._print_verbose_info(y)
-        results = self._collect(fitness)
-        results["success"] = True
+        results = self._collect(fitness, y)
+        results["success"] = self.check_success()
         return results
