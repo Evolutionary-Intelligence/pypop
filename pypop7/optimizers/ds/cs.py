@@ -6,7 +6,7 @@ from pypop7.optimizers.ds.ds import DS
 class CS(DS):
     """Coordinate Search (CS).
 
-    .. note:: `CS` is one of the *earliest* Direct (Pattern) Search methods, at least dating back to Fermi (`The Nobel
+    .. note:: `CS` is the *earliest* Direct (Pattern) Search method, at least dating back to Fermi (`The Nobel
        Prize in Physics 1938 <https://www.nobelprize.org/prizes/physics/1938/summary/>`_) and Metropolis (`IEEE Computer
        Society Computer Pioneer Award 1984 <https://en.wikipedia.org/wiki/Computer_Pioneer_Award>`_). Given that now
        it is *rarely* used to optimize black-box problems, it is **highly recommended** to first attempt other more
@@ -14,8 +14,8 @@ class CS(DS):
 
        Its original version needs `3**n - 1` samples for each iteration in the worst case, where `n` is the
        dimensionality of the problem. Such a worst-case complexity limits its applicability for LSBBO severely.
-       Instead, here we use the **opportunistic** strategy for simplicity.
-       See Algorithm 3 from `Torczon, 1997, SIAM-JO <https://epubs.siam.org/doi/abs/10.1137/S1052623493250780>`_.
+       Instead, here we use the **opportunistic** strategy for simplicity. See Algorithm 3 from `Torczon, 1997, SIOPT
+       <https://epubs.siam.org/doi/abs/10.1137/S1052623493250780>`_ for more details.
 
        AKA alternating directions, alternating variable search, axial relaxation, local variation, compass search.
 
@@ -33,13 +33,17 @@ class CS(DS):
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
+                * 'sigma' - initial global step-size (`float`, default: `1.0`),
                 * 'x'     - initial (starting) point (`array_like`),
-                * 'sigma' - initial (global) step-size (`float`),
-                * 'gamma' - decreasing factor of step-size (`float`, default: `0.5`).
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'gamma' - decreasing factor of global step-size (`float`, default: `0.5`).
 
     Examples
     --------
-    Use the Pattern Search optimizer `CS` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -50,11 +54,11 @@ class CS(DS):
        >>> from pypop7.optimizers.ds.cs import CS
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'x': 3 * numpy.ones((2,)),
+       ...            'x': 3*numpy.ones((2,)),
        ...            'sigma': 1.0,
        ...            'verbose_frequency': 500}
        >>> cs = CS(problem, options)  # initialize the optimizer class
@@ -65,12 +69,12 @@ class CS(DS):
 
     Attributes
     ----------
+    gamma : `float`
+            decreasing factor of global step-size.
+    sigma : `float`
+            final global step-size (changed during optimization).
     x     : `array_like`
             initial (starting) point.
-    sigma : `float`
-            (global) step-size.
-    gamma : `float`
-            decreasing factor of step-size.
 
     References
     ----------
@@ -97,32 +101,31 @@ class CS(DS):
     """
     def __init__(self, problem, options):
         DS.__init__(self, problem, options)
-        self.gamma = options.get('gamma', 0.5)  # decreasing factor of step-size
-        assert self.gamma > 0.0, f'`self.gamma` == {self.gamma}, but should > 0.0.'
+        self.gamma = options.get('gamma', 0.5)  # decreasing factor of global step-size
+        assert self.gamma > 0.0
 
     def initialize(self, args=None, is_restart=False):
         x = self._initialize_x(is_restart)  # initial point
         y = self._evaluate_fitness(x, args)  # fitness
         return x, y
 
-    def iterate(self, args=None, x=None, fitness=None):
-        improved = False
+    def iterate(self, x=None, args=None):
+        improved, fitness = False, []
         for i in range(self.ndim_problem):  # to search along each coordinate
             for sgn in [-1, 1]:  # for two opponent directions
                 if self._check_terminations():
-                    return x
+                    return x, fitness
                 xx = np.copy(x)
-                xx[i] += sgn * self.sigma
+                xx[i] += sgn*self.sigma
                 y = self._evaluate_fitness(xx, args)
-                if self.saving_fitness:
-                    fitness.append(y)
+                fitness.append(y)
                 if y < self.best_so_far_y:
                     x = xx  # greedy / opportunistic
                     improved = True
                     break
         if not improved:  # to decrease step-size if no improvement
             self.sigma *= self.gamma
-        return x
+        return x, fitness
 
     def restart_reinitialize(self, args=None, x=None, y=None, fitness=None):
         self._fitness_list.append(self.best_so_far_y)
@@ -131,30 +134,25 @@ class CS(DS):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
+            self._print_verbose_info(fitness, y)
             self.sigma = np.copy(self._sigma_bak)
             x, y = self.initialize(args, is_restart)
-            if self.saving_fitness:
-                fitness.append(y)
             self._fitness_list = [self.best_so_far_y]
             self._n_generations = 0
             self._n_restart += 1
             if self.verbose:
-                print(' ....... restart .......')
-            self._print_verbose_info(y)
+                print(' ....... *** restart *** .......')
         return x, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DS.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.append(y)
-        self._print_verbose_info(y)
         while True:
-            x = self.iterate(args, x, fitness)
+            self._print_verbose_info(fitness, y)
+            x, y = self.iterate(x, args)
             if self._check_terminations():
                 break
             self._n_generations += 1
-            self._print_verbose_info(y)
             if self.is_restart:
                 x, y = self.restart_reinitialize(args, x, y, fitness)
-        return self._collect_results(fitness)
+        return self._collect(fitness, y)
