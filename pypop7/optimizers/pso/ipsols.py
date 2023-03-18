@@ -109,13 +109,13 @@ class IPSOLS(PSO):
                                      self.max_function_evaluations - self.n_function_evaluations - 1)
                 problem = {'fitness_function': self.fitness_function,
                            'ndim_problem': self.ndim_problem,
-                           'lower_boundary': -5 * np.ones((self.ndim_problem,)),
-                           'upper_boundary': 5 * np.ones((self.ndim_problem,))}
+                           'lower_boundary': self.lower_boundary,
+                           'upper_boundary': self.upper_boundary}
                 options = {'max_function_evaluations': maxeval,
                            'x': x[i],
                            'xtol': self.powell_tolerance,
                            'seed_rng': 0,
-                           'verbose': 1000,
+                           'verbose': 0,
                            'saving_fitness': self.saving_fitness}
                 powell = POWELL(problem, options)
                 result = powell.optimize()
@@ -126,7 +126,7 @@ class IPSOLS(PSO):
                 if result['best_so_far_y'] < self.best_so_far_y:
                     self.best_so_far_x, self.best_so_far_y = result['best_so_far_x'], result['best_so_far_y']
                 if result['success']:
-                    self.e[i] = False
+                    self.e[i] = True
                 # for simplicity, all fitness during local search are replaced by the last fitness
                 if self.saving_fitness:
                     fitness.extend(result['fitness'])
