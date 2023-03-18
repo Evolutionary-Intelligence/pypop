@@ -46,6 +46,11 @@ class DS(Optimizer):
     https://algorithmsbook.com/optimization/
     (See Chapter 7: Direct Methods for details.)
 
+    Larson, J., Menickelly, M. and Wild, S.M., 2019.
+    Derivative-free optimization methods.
+    Acta Numerica, 28, pp.287-404.
+    https://tinyurl.com/4sr2t63j
+
     Audet, C. and Hare, W., 2017.
     Derivative-free and blackbox optimization.
     Berlin: Springer International Publishing.
