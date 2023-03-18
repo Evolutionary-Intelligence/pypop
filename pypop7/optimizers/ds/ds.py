@@ -6,10 +6,10 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class DS(Optimizer):
     """Direct Search (DS).
 
-    This is the **base** (abstract) class for all `DS` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `DS` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
-    .. note:: Most of modern `DS` adopt the population-based sampling strategy, no matter **deterministic** or
+    .. note:: Most of modern `DS` adopt the **population-based** sampling strategy, no matter **deterministic** or
        **stochastic**.
 
     Parameters
@@ -32,7 +32,7 @@ class DS(Optimizer):
     Attributes
     ----------
     sigma : `float`
-            final global step-size.
+            final global step-size (changed during optimization).
     x     : `array_like`
             initial (starting) point.
 
@@ -80,15 +80,19 @@ class DS(Optimizer):
         Optimizer.__init__(self, problem, options)
         self.x = options.get('x')  # initial (starting) point
         self.sigma = options.get('sigma', 1.0)  # initial global step-size
-        assert self.sigma > 0.0, f'`self.sigma` == {self.sigma}, but should > 0.0.'
+        assert self.sigma > 0.0
         self._n_generations = 0  # number of generations
         # set for restart
         self.sigma_threshold = options.get('sigma_threshold', 1e-12)  # stopping threshold of sigma for restart
-        self.stagnation = options.get('stagnation', np.maximum(10, self.ndim_problem))
+        assert self.sigma_threshold >= 0.0
+        self.stagnation = options.get('stagnation', np.maximum(30, self.ndim_problem))
+        assert self.stagnation > 0
         self.fitness_diff = options.get('fitness_diff', 1e-12)  # stopping threshold of fitness difference for restart
+        assert self.fitness_diff >= 0.0
         self._sigma_bak = np.copy(self.sigma)  # bak for restart
         self._fitness_list = [self.best_so_far_y]  # to store `best_so_far_y` generated in each generation
         self._n_restart = 0  # number of restarts
+        self._printed_evaluations = self.n_function_evaluations
 
     def initialize(self):
         raise NotImplementedError
@@ -101,19 +105,27 @@ class DS(Optimizer):
             x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
         else:
             x = np.copy(self.x)
+        assert x.shape == (self.ndim_problem,)
         return x
 
-    def _print_verbose_info(self, fitness, y):
-        if self.saving_fitness:
-            if not np.isscalar(y):
-                fitness.extend(y)
-            else:
-                fitness.append(y)
-        if self.verbose and ((not self._n_generations % self.verbose) or (self.termination_signal > 0)):
-            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
-            print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+    def _print_verbose_info(self, fitness, y, is_print=False):
+        if y is not None:
+            if self.saving_fitness:
+                if not np.isscalar(y):
+                    fitness.extend(y)
+                else:
+                    fitness.append(y)
+        if self.verbose:
+            is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
+            is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
+            is_verbose_2 = self.termination_signal > 0 and is_verbose
+            is_verbose_3 = is_print and is_verbose
+            if is_verbose_1 or is_verbose_2 or is_verbose_3:
+                info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
+                print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+                self._printed_evaluations = self.n_function_evaluations
 
-    def _collect(self, fitness, y=None, mean=None):
+    def _collect(self, fitness, y=None):
         self._print_verbose_info(fitness, y)
         results = Optimizer._collect(self, fitness)
         results['_n_generations'] = self._n_generations
