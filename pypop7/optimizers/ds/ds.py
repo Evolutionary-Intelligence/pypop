@@ -79,7 +79,7 @@ class DS(Optimizer):
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
         self.x = options.get('x')  # initial (starting) point
-        self.sigma = options.get('sigma')  # initial global step-size
+        self.sigma = options.get('sigma', 1.0)  # initial global step-size
         assert self.sigma > 0.0, f'`self.sigma` == {self.sigma}, but should > 0.0.'
         self._n_generations = 0  # number of generations
         # set for restart
@@ -103,14 +103,18 @@ class DS(Optimizer):
             x = np.copy(self.x)
         return x
 
-    def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose):
+    def _print_verbose_info(self, fitness, y):
+        if self.saving_fitness:
+            if not np.isscalar(y):
+                fitness.extend(y)
+            else:
+                fitness.append(y)
+        if self.verbose and ((not self._n_generations % self.verbose) or (self.termination_signal > 0)):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
-    def _collect_results(self, fitness):
-        results = Optimizer._collect_results(self, fitness)
-        results['sigma'] = self.sigma
-        results['_n_restart'] = self._n_restart
+    def _collect(self, fitness, y=None, mean=None):
+        self._print_verbose_info(fitness, y)
+        results = Optimizer._collect(self, fitness)
         results['_n_generations'] = self._n_generations
         return results
