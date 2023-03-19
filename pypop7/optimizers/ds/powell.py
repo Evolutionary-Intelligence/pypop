@@ -26,7 +26,6 @@ class POWELL(DS):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'sigma' - initial global step-size (`float`, default: `1.0`),
                 * 'x'     - initial (starting) point (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
@@ -50,7 +49,6 @@ class POWELL(DS):
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
        ...            'x': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1,
        ...            'verbose_frequency': 500}
        >>> powell = POWELL(problem, options)  # initialize the optimizer class
        >>> results = powell.optimize()  # run the optimization process
@@ -60,10 +58,8 @@ class POWELL(DS):
 
     Attributes
     ----------
-    sigma : `float`
-            initial global step-size.
-    x     : `array_like`
-            initial (starting) point.
+    x : `array_like`
+        initial (starting) point.
 
     References
     ----------
