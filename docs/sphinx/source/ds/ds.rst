@@ -9,6 +9,7 @@ Direct Search (DS)
    :maxdepth: 2
    :caption: DSs:
 
+   powell
    gps
    nm
    hj
