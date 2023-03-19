@@ -6,15 +6,13 @@ from pypop7.optimizers.ds.ds import DS
 class NM(DS):
     """Nelder-Mead simplex method (NM).
 
-    .. note:: `NM` is perhaps the best-known and most-cited Direct (Pattern) Search method, till now.
+    .. note:: `NM` is perhaps the best-known and most-cited Direct (Pattern) Search method from 1965, till now.
        As pointed out by `Wright <https://tinyurl.com/mrmemn34>`_ (`Member of National Academy of Engineering
        1997 <https://www.nae.edu/MembersSection/MemberDirectory/30068.aspx>`_), *"In addition to concerns about
        the lack of theory, mainstream optimization researchers were not impressed by the Nelder-Mead method's
        practical performance, which can be appallingly poor."* However, today `NM` is still widely used to optimize
-       *relatively low-dimensional* objective functions.
-
-       It is **highly recommended** to first attempt other more advanced methods for large-scale black-box
-       optimization.
+       *relatively low-dimensional* objective functions. It is **highly recommended** to first attempt other more
+       advanced methods for large-scale black-box optimization.
 
        AKA `downhill simplex method <https://www.jmlr.org/papers/v3/strens02a.html>`_.
 
@@ -29,19 +27,23 @@ class NM(DS):
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
+                * 'sigma'     - initial global step-size (`float`, default: `1.0`),
                 * 'x'         - initial (starting) point (`array_like`),
-                * 'sigma'     - initial (global) step-size (`float`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
                 * 'alpha'     - reflection factor (`float`, default: `1.0`),
-                * 'gamma'     - expansion factor (`float`, default: `2.0`),
                 * 'beta'      - contraction factor (`float`, default: `0.5`),
+                * 'gamma'     - expansion factor (`float`, default: `2.0`),
                 * 'shrinkage' - shrinkage factor (`float`, default: `0.5`).
 
     Examples
     --------
-    Use the Pattern Search optimizer `NM` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -52,11 +54,11 @@ class NM(DS):
        >>> from pypop7.optimizers.ds.nm import NM
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'x': 3 * numpy.ones((2,)),
+       ...            'x': 3*numpy.ones((2,)),
        ...            'sigma': 0.1,
        ...            'verbose': 500}
        >>> nm = NM(problem, options)  # initialize the optimizer class
@@ -65,23 +67,23 @@ class NM(DS):
        >>> print(f"NM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        NM: 5000, 1.3337953711044745e-13
 
-    Furthermore, an interesting visualization of `NM`'s search trajectory on a 2-dimensional test function is shown in
-    `this GitHub link <https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/demo/demo_nm.gif>`_.
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/2hv3yk7e>`_ for more details.
 
     Attributes
     ----------
-    x         : `array_like`
-                starting point.
-    sigma     : `float`
-                final (global) step-size.
     alpha     : `float`
-                reflection factor
-    gamma     : `float`
-                expansion factor
+                reflection factor.
     beta      : `float`
-                contraction factor
+                contraction factor.
+    gamma     : `float`
+                expansion factor.
     shrinkage : `float`
-                shrinkage factor
+                shrinkage factor.
+    sigma     : `float`
+                initial global step-size.
+    x         : `array_like`
+                initial (starting) point.
 
     References
     ----------
@@ -108,9 +110,13 @@ class NM(DS):
     def __init__(self, problem, options):
         DS.__init__(self, problem, options)
         self.alpha = options.get('alpha', 1.0)  # reflection factor
-        self.gamma = options.get('gamma', 2.0)  # expansion factor
+        assert self.alpha > 0.0
         self.beta = options.get('beta', 0.5)  # contraction factor
+        assert self.beta > 0.0
+        self.gamma = options.get('gamma', 2.0)  # expansion factor
+        assert self.gamma > 0.0
         self.shrinkage = options.get('shrinkage', 0.5)  # shrinkage factor
+        assert self.shrinkage > 0.0
         self.n_individuals = self.ndim_problem + 1
 
     def initialize(self, args=None, is_restart=False):
@@ -120,29 +126,27 @@ class NM(DS):
         y[0] = self._evaluate_fitness(x[0], args)
         for i in range(1, self.n_individuals):
             if self._check_terminations():
-                return x, y
+                return x, y, y
             x[i] = x[0]
             x[i, i - 1] += self.sigma*self.rng_initialization.uniform(-1, 1)
             y[i] = self._evaluate_fitness(x[i], args)
-        return x, y
+        return x, y, y
 
-    def iterate(self, x=None, y=None, args=None, fitness=None):
-        order = np.argsort(y)
+    def iterate(self, x=None, y=None, args=None):
+        order, fitness = np.argsort(y), []
         l, h = order[0], order[-1]  # index of lowest and highest points
         p_mean = np.mean(x[order[:-1]], axis=0)  # centroid of all vertices except the worst
         p_star = (1 + self.alpha)*p_mean - self.alpha*x[h]  # reflection
         y_star = self._evaluate_fitness(p_star, args)
-        if self.saving_fitness:
-            fitness.append(y_star)
+        fitness.append(y_star)
         if self._check_terminations():
-            return x, y
+            return x, y, fitness
         if y_star < y[l]:
             p_star_star = self.gamma*p_star + (1 - self.gamma)*p_mean  # expansion
             y_star_star = self._evaluate_fitness(p_star_star, args)
-            if self.saving_fitness:
-                fitness.append(y_star_star)
+            fitness.append(y_star_star)
             if self._check_terminations():
-                return x, y
+                return x, y, fitness
             if y_star_star < y_star:  # as suggested in [Wright, 1996]
                 x[h], y[h] = p_star_star, y_star_star
             else:
@@ -153,23 +157,21 @@ class NM(DS):
                     x[h], y[h] = p_star, y_star
                 p_star_star = self.beta*x[h] + (1 - self.beta)*p_mean
                 y_star_star = self._evaluate_fitness(p_star_star, args)
-                if self.saving_fitness:
-                    fitness.append(y_star_star)
+                fitness.append(y_star_star)
                 if self._check_terminations():
-                    return x, y
+                    return x, y, fitness
                 if y_star_star > y[h]:
                     for i in range(1, self.n_individuals):  # shrinkage
                         x[order[i]] = x[l] + self.shrinkage*(x[order[i]] - x[l])
                         y[order[i]] = self._evaluate_fitness(x[order[i]], args)
-                        if self.saving_fitness:
-                            fitness.append(y[order[i]])
+                        fitness.append(y[order[i]])
                         if self._check_terminations():
-                            return x, y
+                            return x, y, fitness
                 else:
                     x[h], y[h] = p_star_star, y_star_star
             else:
                 x[h], y[h] = p_star, y_star
-        return x, y
+        return x, y, fitness
 
     def restart_reinitialize(self, args=None, x=None, y=None, fitness=None):
         self._fitness_list.append(self.best_so_far_y)
@@ -178,30 +180,24 @@ class NM(DS):
             is_restart_2 = (self._fitness_list[-self.stagnation] - self._fitness_list[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
         if is_restart:
-            self.sigma = np.copy(self._sigma_bak)
-            x, y = self.initialize(args, is_restart)
-            if self.saving_fitness:
-                fitness.extend(y)
+            self._print_verbose_info(fitness, y)
+            x, y, y = self.initialize(args, is_restart)
             self._fitness_list = [self.best_so_far_y]
             self._n_generations = 0
             self._n_restart += 1
             if self.verbose:
-                print(' ....... restart .......')
-            self._print_verbose_info(y)
-        return x, y
+                print(' ....... *** restart *** .......')
+        return x, y, y
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DS.optimize(self, fitness_function)
-        x, y = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
+        x, y, yy = self.initialize(args)
         while True:
-            x, y = self.iterate(x, y, args, fitness)
+            self._print_verbose_info(fitness, yy)
+            x, y, yy = self.iterate(x, y, args)
             if self._check_terminations():
                 break
             self._n_generations += 1
-            self._print_verbose_info(y)
             if self.is_restart:
-                x, y = self.restart_reinitialize(args, x, y, fitness)
-        return self._collect_results(fitness)
+                x, y, yy = self.restart_reinitialize(args, x, y, fitness)
+        return self._collect(fitness, yy)
