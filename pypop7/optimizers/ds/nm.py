@@ -14,7 +14,8 @@ class NM(DS):
        *relatively low-dimensional* objective functions. It is **highly recommended** to first attempt other more
        advanced methods for large-scale black-box optimization.
 
-       AKA `downhill simplex method <https://www.jmlr.org/papers/v3/strens02a.html>`_.
+       AKA `downhill simplex method <https://www.jmlr.org/papers/v3/strens02a.html>`_, `polytope algorithm
+       <https://www.jstor.org/stable/3182874>`_.
 
     Parameters
     ----------
@@ -96,6 +97,11 @@ class NM(DS):
     Numerical recipes: The art of scientific computing.
     Cambridge University Press.
     http://numerical.recipes/
+    
+    Senn, S. and Nelder, J., 2003.
+    A conversation with John Nelder.
+    Statistical Science, pp.118-131.
+    https://www.jstor.org/stable/3182874
 
     Wright, M.H., 1996.
     Direct search methods: Once scorned, now respectable.
