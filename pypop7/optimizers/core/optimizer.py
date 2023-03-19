@@ -124,6 +124,14 @@ class Optimizer(object):
             # recover 1-based index
             self.fitness[0, 0], self.fitness[-1, 0] = 1, len(fitness)
 
+    def _check_success(self):
+        if (self.upper_boundary is not None) and (self.lower_boundary is not None) and (
+                np.any(self.lower_boundary > self.best_so_far_x) or np.any(self.best_so_far_x > self.upper_boundary)):
+            return False
+        elif np.isnan(self.best_so_far_y) or np.any(np.isnan(self.best_so_far_x)):
+            return False
+        return True
+
     def _collect(self, fitness):
         if self.saving_fitness:
             self._compress_fitness(fitness[:self.n_function_evaluations])
@@ -133,7 +141,8 @@ class Optimizer(object):
                 'runtime': time.time() - self.start_time,
                 'termination_signal': self.termination_signal,
                 'time_function_evaluations': self.time_function_evaluations,
-                'fitness': self.fitness}
+                'fitness': self.fitness,
+                'success': self._check_success()}
 
     def initialize(self):
         raise NotImplementedError
