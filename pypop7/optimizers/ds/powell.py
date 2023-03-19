@@ -26,7 +26,7 @@ class POWELL(DS):
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'x'     - initial (starting) point (`array_like`),
+                * 'x' - initial (starting) point (`array_like`),
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
@@ -78,7 +78,7 @@ class POWELL(DS):
     """
     def __init__(self, problem, options):
         DS.__init__(self, problem, options)
-        self._func = None
+        self._func = None  # only for inner line searcher
 
     def initialize(self, args=None, is_restart=False):
         x = self._initialize_x(is_restart)  # initial (starting) search point
