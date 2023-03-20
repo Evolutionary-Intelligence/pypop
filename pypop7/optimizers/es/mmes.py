@@ -43,7 +43,7 @@ class MMES(ES):
 
     Examples
     --------
-    Use the optimizer `MMES` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -187,10 +187,12 @@ class MMES(ES):
         fitness = ES.optimize(self, fitness_function)
         x, mean, p, w, q, t, v, y = self.initialize(args)
         self._print_verbose_info(fitness, y[0])
-        while not self._check_terminations():
+        while not self.termination_signal:
             y_bak = np.copy(y)
             # sample and evaluate offspring population
             x, y = self.iterate(x, mean, q, v, y, args)
+            if self._check_terminations():
+                break
             mean, p, w, q, t, v = self._update_distribution(x, mean, p, w, q, t, v, y, y_bak)
             self._n_generations += 1
             self._print_verbose_info(fitness, y)
