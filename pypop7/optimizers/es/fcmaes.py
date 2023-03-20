@@ -33,7 +33,7 @@ class FCMAES(ES):
 
     Examples
     --------
-    Use the optimizer `FCMAES` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -151,9 +151,11 @@ class FCMAES(ES):
     def optimize(self, fitness_function=None, args=None):
         fitness = ES.optimize(self, fitness_function)
         mean, x, y, p, p_hat, s = self.initialize()
-        while not self._check_terminations():
+        while not self.termination_signal:
             y_bak = np.copy(y)
             x, y = self.iterate(mean, x, y, p, p_hat, args)
+            if self._check_terminations():
+                break
             self._print_verbose_info(fitness, y)
             mean, p, p_hat, s = self._update_distribution(mean, x, y, p, p_hat, s, y_bak)
             mean, x, y, p, p_hat, s = self.restart_reinitialize(mean, x, y, p, p_hat, s)
