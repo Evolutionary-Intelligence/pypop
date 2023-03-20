@@ -131,7 +131,8 @@ class DS(Optimizer):
                 self._printed_evaluations = self.n_function_evaluations
 
     def _collect(self, fitness, y=None):
-        self._print_verbose_info(fitness, y)
+        if len(y) > 0:
+            self._print_verbose_info(fitness, y)
         results = Optimizer._collect(self, fitness)
         results['_n_generations'] = self._n_generations
         return results
