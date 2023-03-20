@@ -134,6 +134,9 @@ class POWELL(DS):
        >>> print(f"POWELL: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        POWELL: 50000, 0.0
 
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/bd66khwy>`_ for more details.
+
     Attributes
     ----------
     x : `array_like`
