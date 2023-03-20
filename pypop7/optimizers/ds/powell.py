@@ -1,6 +1,6 @@
 import numpy as np
-from scipy.optimize.optimize import Brent,\
-    _wrap_function as wf, _line_for_search as ls, _minimize_scalar_bounded as msb
+from scipy.optimize.optimize import _wrap_function as wf,\
+    _line_for_search as ls, _minimize_scalar_bounded as msb
 
 from pypop7.optimizers.ds.ds import DS
 
@@ -54,7 +54,6 @@ class POWELL(DS):
        >>> results = powell.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"POWELL: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       POWELL: 5000, 0e0
 
     Attributes
     ----------
@@ -89,55 +88,43 @@ class POWELL(DS):
         _, self._func = wf(self._evaluate_fitness, args=args)
         return x, y, u, y
 
-    def _line_search(self, x, d, tol, y):
-        def _func(alpha):
-            return self._func(np.array(x + np.multiply(alpha, d)))
+    def _line_search(self, x, d, tol):
+        def _func(alpha):  # only for line search
+            return self._func(x + alpha*d)
 
-        if self.lower_boundary is None and self.upper_boundary is None:
-            alpha_min, fret, _, _ = Brent(_func, full_output=1, tol=tol)
-            d = alpha_min*x
-            return np.squeeze(fret), x + d, d
-        else:
-            bound = ls(x, d, self.lower_boundary, self.upper_boundary)
-            if np.isneginf(bound[0]) and np.isposinf(bound[1]):
-                return self._line_search(x, d, tol, y)
-            elif not np.isneginf(bound[0]) and not np.isposinf(bound[1]):
-                res = msb(_func, bound, xatol=tol/100.0)
-                d = res.x*d
-                return np.squeeze(res.fun), x + d, d
-            else:
-                bound = np.arctan(bound[0]), np.arctan(bound[1])
-                res = msb(lambda xx: _func(np.tan(xx)), bound, xatol=tol/100.0)
-                d = np.tan(res.x)*d
-                return np.squeeze(res.fun), x + d, d
+        bound = ls(x, d, self.lower_boundary, self.upper_boundary)
+        res = msb(_func, bound, xatol=tol/100.0)
+        d *= res.x
+        return res.fun, x + d, d
 
     def iterate(self, x=None, y=None, u=None, args=None):
         xx, yy = np.copy(x), np.copy(y)
-        ind, delta_k, ys = 0, 0, []
+        ind, delta, ys = 0, 0.0, []
         for i in range(self.ndim_problem):
             if self._check_terminations():
                 return x, y, u, ys
             d, diff = u[i], y
-            y, x, d = self._line_search(x, d, 1e-4*100, y)
+            y, x, d = self._line_search(x, d, 1e-4*100)
             ys.append(y)
             diff -= y
-            if diff > delta_k:
-                delta_k, ind = diff, i
-        d = x - xx
-        x1 = 2.0*x - xx
-        fx1 = self.fitness_function(x1)
-        if yy > fx1:
-            t = 2.0*(yy + fx1 - 2.0*y)
-            temp = yy - y - delta_k
-            t *= temp**2
-            temp = yy - fx1
-            t -= delta_k*temp**2
+            if diff > delta:
+                delta, ind = diff, i
+        d = x - xx  # extrapolated point
+        _, ratio_e = ls(x, d, self.lower_boundary, self.upper_boundary)
+        xxx = x + min(ratio_e, 1.0)*d
+        yyy = self.fitness_function(xxx)
+        if yy > yyy:
+            t, temp = 2.0*(yy + yyy - 2.0*y), yy - y - delta
+            t *= np.square(temp)
+            temp = yy - yyy
+            t -= delta*np.square(temp)
             if t < 0.0:
-                y, x, d = self._line_search(x, d, 1e-4*100, y)
+                y, x, d = self._line_search(x, d, 1e-4*100)
                 ys.append(y)
                 if np.any(d):
                     u[ind] = u[-1]
                     u[-1] = d
+        self._n_generations += 1
         return x, y, u, ys
 
     def optimize(self, fitness_function=None, args=None):
@@ -146,6 +133,5 @@ class POWELL(DS):
         while not self.termination_signal:
             self._print_verbose_info(fitness, yy)
             x, y, u, yy = self.iterate(x, y, u, args)
-            self._n_generations += 1
         results = self._collect(fitness, yy)
         return results
