@@ -163,6 +163,8 @@ class LMMAES(ES):
         while not self._check_terminations():
             # sample and evaluate offspring population
             z, d, y = self.iterate(z, d, mean, tm, y, args)
+            if self.termination_signal:
+                break
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
             mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
