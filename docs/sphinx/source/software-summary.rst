@@ -7,9 +7,7 @@ Software Summary and Comparisons
 Python
 ------
 
-* https://esa.github.io/pygmo2/
-
-`pygmo <https://esa.github.io/pygmo2/>`_ is *a scientific Python library for massively parallel optimization*.
+* https://esa.github.io/pygmo2/ (`pygmo <https://esa.github.io/pygmo2/>`_ is *a scientific Python library for massively parallel optimization*.)
 
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.de
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.sade
@@ -68,6 +66,11 @@ Python
 * https://scipy.org/
 
   * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-neldermead.html
+  * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-powell.html
+
+* https://github.com/facebookresearch/LA-MCTS
+
+  * https://github.com/facebookresearch/LaMCTS
 
 * https://github.com/pybrain/pybrain (Now it is not actively maintained.)
 
