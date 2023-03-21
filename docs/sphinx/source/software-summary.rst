@@ -49,9 +49,8 @@ Python
 
 * https://github.com/RobertTLange/evosax
 
-* https://pymoo.org/
+* https://pymoo.org/ (`pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.)
 
-`pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.
   * https://pymoo.org/algorithms/soo/cmaes.html
   * https://pymoo.org/algorithms/soo/de.html
   * https://pymoo.org/algorithms/soo/es.html
@@ -67,6 +66,7 @@ Python
 
   * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-neldermead.html
   * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-powell.html
+  * https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html
 
 * https://github.com/facebookresearch/LA-MCTS
 
