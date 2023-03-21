@@ -160,10 +160,10 @@ class LMMAES(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         z, d, mean, s, tm, y = self.initialize()
-        while not self._check_terminations():
+        while not self.termination_signal:
             # sample and evaluate offspring population
             z, d, y = self.iterate(z, d, mean, tm, y, args)
-            if self.termination_signal:
+            if self._check_terminations():
                 break
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
