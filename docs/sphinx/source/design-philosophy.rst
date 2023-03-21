@@ -52,12 +52,13 @@ acceptable criteria to select from them, as presented below in details:
 
 * Respect for **Originality**
 
-  For each optimizer included in *pypop7*, we expect to give its original/representative reference (also including its good implementations/improvements). If you find some important references missed, please do NOT hesitate to contact us (and we will be happy to add it if necessary).
-
 .. note::
-  *"It is both enjoyable and educational to hear the ideas directly from the creators".*
+  *"It is both enjoyable and educational to hear the ideas directly from the creators".*---Hennessy, J.L. and Patterson,
+  D.A., 2019. Computer architecture: A quantitative approach (Sixth Edition). Elsevier.
 
-  --- Hennessy, J.L. and Patterson, D.A., 2019. Computer architecture: A quantitative approach (Sixth Edition). Elsevier.
+  For each optimizer included in *PyPop7*, we expect to give its original/representative reference (sometimes also
+  including its good implementations/improvements). If you find some important references missed, please do NOT hesitate
+  to contact us (and we will be happy to add it if necessary).
 
 * Respect for **Repeatability**
 
