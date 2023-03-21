@@ -108,6 +108,11 @@ class NM(DS):
     Pitman Research Notes in Mathematics Series, pp.191-208.
     https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable
 
+    Dean, W.K., Heald, K.J. and Deming, S.N., 1975.
+    Simplex optimization of reaction yields.
+    Science, 189(4205), pp.805-806.
+    https://www.science.org/doi/10.1126/science.189.4205.805
+
     Nelder, J.A. and Mead, R., 1965.
     A simplex method for function minimization.
     The Computer Journal, 7(4), pp.308-313.

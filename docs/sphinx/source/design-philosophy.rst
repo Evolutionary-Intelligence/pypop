@@ -52,15 +52,34 @@ acceptable criteria to select from them, as presented below in details:
 
 * Respect for **Originality**
 
-  For each optimizer included in *pypop7*, we expect to give its original/representative reference (also including its good implementations/improvements). If you find some important references missed, please do NOT hesitate to contact us (and we will be happy to add it if necessary).
+  For each optimizer included in *PyPop7*, we expect to give its original/representative reference (sometimes also
+  including its good implementations/improvements). If you find some important references missed, please do NOT hesitate
+  to contact us (and we will be happy to add it if necessary).
 
 .. note::
-  *"It is both enjoyable and educational to hear the ideas directly from the creators".*
-
-  --- Hennessy, J.L. and Patterson, D.A., 2019. Computer architecture: A quantitative approach (Sixth Edition). Elsevier.
+  *"It is both enjoyable and educational to hear the ideas directly from the creators".*---Hennessy, J.L. and Patterson,
+  D.A., 2019. Computer architecture: A quantitative approach (Sixth Edition). Elsevier.
 
 * Respect for **Repeatability**
 
-  For randomized search, properly controlling randomness is very crucial to repeat numerical experiments. Here we follow the `Random Sampling <https://numpy.org/doc/stable/reference/random/generator.html>`_ suggestions from `NumPy <https://numpy.org/doc/stable/reference/random/>`_. In other worlds, you must **explicitly** set the random seed for each optimizer.
+  For randomized search, properly controlling randomness is very crucial to repeat numerical experiments. Here we follow
+  the `Random Sampling <https://numpy.org/doc/stable/reference/random/generator.html>`_ suggestions from `NumPy
+  <https://numpy.org/doc/stable/reference/random/>`_. In other worlds, you must **explicitly** set the random seed for
+  each optimizer. For more discussions about **repeatability** from machine learning, evolutionary computation, and 
+  metaheuristics communities, refer to the following papers, to name a few:
+  
+  * Swan, J., Adriaensen, S., Brownlee, A.E., Hammond, K., Johnson, C.G., Kheiri, A., Krawiec, F., Merelo, J.J.,
+    Minku, L.L., Özcan, E., Pappa, G.L., et al., 2022. `Metaheuristics “in the large”
+    <https://www.sciencedirect.com/science/article/pii/S0377221721004707>`_. European Journal of Operational Research,
+    297(2), pp.393-406.
+  
+  * López-Ibáñez, M., Branke, J. and Paquete, L., 2021. `Reproducibility in evolutionary computation
+    <https://dl.acm.org/doi/abs/10.1145/3466624>`_. ACM Transactions on Evolutionary Learning and Optimization,
+    1(4), pp.1-21.
 
-We expect to see more discussions about **Beauty of Black-Box Optimizers (BBO)**!
+  * Sonnenburg, S., Braun, M.L., Ong, C.S., Bengio, S., Bottou, L., Holmes, G., LeCunn, Y., Muller, K.R., Pereira, F.,
+    Rasmussen, C.E., Ratsch, G., et al., 2007. `The need for open source software in machine learning
+    <https://jmlr.csail.mit.edu/papers/volume8/sonnenburg07a/sonnenburg07a.pdf>`_. Journal of Machine Learning Research,
+    8, pp.2443-2466.
+
+We expect to see more discussions about the **Beauty of Black-Box Optimizers (BBO)**!

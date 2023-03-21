@@ -76,6 +76,8 @@ Python
 
 * https://github.com/blaa/PyGene (Now it is not actively maintained.)
 
+* https://github.com/SimonBlanke/Gradient-Free-Optimizers (Discrete Optimization)
+
 R
 -
 
@@ -126,6 +128,15 @@ Java
 ----
 
 * https://github.com/GMUEClab/ecj (https://cs.gmu.edu/~eclab/projects/ecj/)
+* https://github.com/sdarg/opt4j/ (https://sdarg.github.io/opt4j/)
+* https://www.isa.us.es/fom/modules/portalWFInterface/init.php (Discrete Optimization)
+* https://jmetal.sourceforge.net/
+* http://www.jamesframework.org/
+
+C#
+--
+
+* https://github.com/heal-research/HeuristicLab (https://dev.heuristiclab.com/trac.fcgi/wiki)
 
 Others
 ------

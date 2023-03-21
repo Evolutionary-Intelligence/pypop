@@ -8,25 +8,16 @@ Problem Definition
 ------------------
 
 First, an *objective function* (called *fitness function* in this library) needs to be defined in the `function
-<https://docs.python.org/3/reference/compound_stmts.html#function-definitions>`_ form. Then, for simplicity, the
-data structure `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ is used as an effective
-way to store all settings related to the optimization problem at hand, such as:
+<https://docs.python.org/3/reference/compound_stmts.html#function-definitions>`_ form. Then, the standard data
+structure `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ is used as a simple yet
+effective way to store all settings related to the optimization problem at hand, such as:
   * `fitness_function`: objective function to be **minimized** (`func`),
   * `ndim_problem`: number of dimensionality (`int`),
   * `upper_boundary`: upper boundary of search range (`array_like`),
-  * `lower_boundary`: lower boundary of search range (`array_like`),
-  * `initial_upper_boundary`: upper boundary only for initialization (`array_like`),
-  * `initial_lower_boundary`: lower boundary only for initialization (`array_like`).
+  * `lower_boundary`: lower boundary of search range (`array_like`).
 
 Note that without loss of generality, only the **minimization** process is considered in this library, since
 *maximization* can be easily transferred to *minimization* by negating it.
-
-if *not* given, both `initial_upper_boundary` and `initial_lower_boundary` are set to `upper_boundary` and
-`lower_boundary`, respectively. When `initial_upper_boundary` and `initial_lower_boundary` are explicitly given,
-the initialization of population/individual will be sampled from [`initial_lower_boundary`, `initial_upper_boundary`]
-rather than [`lower_boundary`, `upper_boundary`]. This is *mainly* used for *benchmarking-of-optimizers* purpose (in
-order to avoid utilizing `symmetry and origin <https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_
-to possibly bias the search).
 
 Below is a simple example to define the well-known test function `Rosenbrock
 <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
@@ -91,7 +82,21 @@ When the fitness function itself involves other *input arguments* except the sam
        3.98657911234714 100000  # this is a well-recognized *local* attractor rather than the global optimum
 
 When there are multiple (>=2) input arguments except the sampling point `x`, all of them should be organized via
-a `function` or `class` wrapper with only one input argument except the sampling point `x` (in `dict` form).
+a `function` or `class` wrapper with only one input argument except the sampling point `x` (in `dict` or `tuple`
+form).
+
+Typically,  `upper_boundary` and `lower_boundary` are enough for end-users to control the search range. However,
+sometimes for *benchmarking-of-optimizers* purpose (e.g., to avoid utilizing `symmetry and origin
+<https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_ to possibly bias the search), we add
+two extra settings to control the initialization of the population/individual:
+
+  * `initial_upper_boundary`: upper boundary only for initialization (`array_like`),
+  * `initial_lower_boundary`: lower boundary only for initialization (`array_like`).
+
+if *not* given, both `initial_upper_boundary` and `initial_lower_boundary` are set to `upper_boundary` and
+`lower_boundary`, respectively. When `initial_upper_boundary` and `initial_lower_boundary` are explicitly given,
+the initialization of population/individual will be sampled from [`initial_lower_boundary`, `initial_upper_boundary`]
+rather than [`lower_boundary`, `upper_boundary`].
 
 Optimizer Setting
 -----------------
@@ -201,3 +206,5 @@ e.g. convergence rate / solution quality / runtime).
 In the future, we expect to add the recent **Automated Algorithm Selection** techniques in this library, as shown below:
   * Kerschke, P., Hoos, H.H., Neumann, F. and Trautmann, H., 2019. Automated algorithm selection: Survey and
     perspectives. Evolutionary Computation, 27(1), pp.3-45.
+  * Hoos, H.H., Neumann, F. and Trautmann, H., 2017. Automated algorithm selection and configuration (Dagstuhl Seminar
+    16412). Dagstuhl Reports, 6(10), pp.33-74.
