@@ -127,6 +127,7 @@ Java
 
 * https://github.com/GMUEClab/ecj (https://cs.gmu.edu/~eclab/projects/ecj/)
 * https://jmetal.sourceforge.net/
+* https://github.com/sdarg/opt4j/ (https://sdarg.github.io/opt4j/)
 * http://www.jamesframework.org/
 
 Others
