@@ -40,7 +40,7 @@ class RMES(R1ES):
 
     Examples
     --------
-    Use the optimizer `RMES` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -145,12 +145,14 @@ class RMES(R1ES):
         fitness = ES.optimize(self, fitness_function)
         x, mean, p, s, mp, t_hat, y = self.initialize(args)
         self._print_verbose_info(fitness, y[0])
-        while not self._check_terminations():
+        while not self.termination_signal:
             y_bak = np.copy(y)
             # sample and evaluate offspring population
             x, y = self.iterate(x, mean, mp, y, args)
             self._n_generations += 1
             self._print_verbose_info(fitness, y)
+            if self._check_terminations():
+                break
             mean, p, s, mp, t_hat = self._update_distribution(x, mean, p, s, mp, t_hat, y, y_bak)
             x, mean, p, s, mp, t_hat, y = self.restart_reinitialize(
                 args, x, mean, p, s, mp, t_hat, y, fitness)
