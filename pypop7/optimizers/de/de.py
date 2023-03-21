@@ -89,7 +89,7 @@ class DE(Optimizer):
             info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
             print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
 
-    def _collect_results(self, fitness=None):
-        results = Optimizer._collect_results(self, fitness)
+    def _collect(self, fitness=None):
+        results = Optimizer._collect(self, fitness)
         results['_n_generations'] = self._n_generations
         return results
