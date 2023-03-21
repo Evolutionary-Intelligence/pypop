@@ -8,25 +8,16 @@ Problem Definition
 ------------------
 
 First, an *objective function* (called *fitness function* in this library) needs to be defined in the `function
-<https://docs.python.org/3/reference/compound_stmts.html#function-definitions>`_ form. Then, for simplicity, the
-data structure `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ is used as an effective
-way to store all settings related to the optimization problem at hand, such as:
+<https://docs.python.org/3/reference/compound_stmts.html#function-definitions>`_ form. Then, the standard data
+structure `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ is used as a simple yet
+effective way to store all settings related to the optimization problem at hand, such as:
   * `fitness_function`: objective function to be **minimized** (`func`),
   * `ndim_problem`: number of dimensionality (`int`),
   * `upper_boundary`: upper boundary of search range (`array_like`),
-  * `lower_boundary`: lower boundary of search range (`array_like`),
-  * `initial_upper_boundary`: upper boundary only for initialization (`array_like`),
-  * `initial_lower_boundary`: lower boundary only for initialization (`array_like`).
+  * `lower_boundary`: lower boundary of search range (`array_like`).
 
 Note that without loss of generality, only the **minimization** process is considered in this library, since
 *maximization* can be easily transferred to *minimization* by negating it.
-
-if *not* given, both `initial_upper_boundary` and `initial_lower_boundary` are set to `upper_boundary` and
-`lower_boundary`, respectively. When `initial_upper_boundary` and `initial_lower_boundary` are explicitly given,
-the initialization of population/individual will be sampled from [`initial_lower_boundary`, `initial_upper_boundary`]
-rather than [`lower_boundary`, `upper_boundary`]. This is *mainly* used for *benchmarking-of-optimizers* purpose (in
-order to avoid utilizing `symmetry and origin <https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_
-to possibly bias the search).
 
 Below is a simple example to define the well-known test function `Rosenbrock
 <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
