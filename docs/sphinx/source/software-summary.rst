@@ -76,6 +76,7 @@ Python
 
 * https://github.com/blaa/PyGene (Now it is not actively maintained.)
 
+* https://github.com/huawei-noah/vega (AutoML)
 * https://github.com/SimonBlanke/Gradient-Free-Optimizers (Discrete Optimization)
 
 R
@@ -151,4 +152,5 @@ https://nlopt.readthedocs.io/en/latest/
 
 https://coin-or.github.io/Ipopt/
 
-http://zhar.net/howto/html/
+* https://sop.tik.ee.ethz.ch/pisa/principles.html (Now it is not actively maintained.)
+* http://zhar.net/howto/html/ (Now it is not actively maintained.)
