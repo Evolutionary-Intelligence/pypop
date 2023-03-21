@@ -76,6 +76,7 @@ Python
 
 * https://github.com/blaa/PyGene (Now it is not actively maintained.)
 
+* https://github.com/huawei-noah/vega (AutoML)
 * https://github.com/SimonBlanke/Gradient-Free-Optimizers (Discrete Optimization)
 
 R
