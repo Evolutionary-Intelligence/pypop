@@ -84,6 +84,19 @@ When the fitness function itself involves other *input arguments* except the sam
 When there are multiple (>=2) input arguments except the sampling point `x`, all of them should be organized via
 a `function` or `class` wrapper with only one input argument except the sampling point `x` (in `dict` form).
 
+Typically,  `upper_boundary` and `lower_boundary` are enough for end-users to control the search range. However,
+sometimes for for *benchmarking-of-optimizers* purpose (to avoid utilizing `symmetry and origin
+<https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_ to possibly bias the search), we add
+two extra settings to control the initialization of the population/individual:
+
+  * `initial_upper_boundary`: upper boundary only for initialization (`array_like`),
+  * `initial_lower_boundary`: lower boundary only for initialization (`array_like`).
+
+if *not* given, both `initial_upper_boundary` and `initial_lower_boundary` are set to `upper_boundary` and
+`lower_boundary`, respectively. When `initial_upper_boundary` and `initial_lower_boundary` are explicitly given,
+the initialization of population/individual will be sampled from [`initial_lower_boundary`, `initial_upper_boundary`]
+rather than [`lower_boundary`, `upper_boundary`].
+
 Optimizer Setting
 -----------------
 
