@@ -151,4 +151,5 @@ https://nlopt.readthedocs.io/en/latest/
 
 https://coin-or.github.io/Ipopt/
 
-http://zhar.net/howto/html/
+* https://sop.tik.ee.ethz.ch/pisa/principles.html (Now it is not actively maintained.)
+* http://zhar.net/howto/html/ (Now it is not actively maintained.)
