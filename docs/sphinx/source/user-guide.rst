@@ -201,3 +201,5 @@ e.g. convergence rate / solution quality / runtime).
 In the future, we expect to add the recent **Automated Algorithm Selection** techniques in this library, as shown below:
   * Kerschke, P., Hoos, H.H., Neumann, F. and Trautmann, H., 2019. Automated algorithm selection: Survey and
     perspectives. Evolutionary Computation, 27(1), pp.3-45.
+  * Hoos, H.H., Neumann, F. and Trautmann, H., 2017. Automated algorithm selection and configuration (Dagstuhl Seminar
+    16412). Dagstuhl Reports, 6(10), pp.33-74.
