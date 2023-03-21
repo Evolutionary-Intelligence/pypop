@@ -178,4 +178,4 @@ class JADE(DE):
             if self._check_terminations():
                 break
             self._print_verbose_info(y)
-        return self._collect_results(fitness)
+        return self._collect(fitness)
