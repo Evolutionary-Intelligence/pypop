@@ -38,7 +38,7 @@ class LMMAES(ES):
 
     Examples
     --------
-    Use the optimizer `LMMAES` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
