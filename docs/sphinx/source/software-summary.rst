@@ -126,6 +126,7 @@ Java
 ----
 
 * https://github.com/GMUEClab/ecj (https://cs.gmu.edu/~eclab/projects/ecj/)
+* https://jmetal.sourceforge.net/
 * http://www.jamesframework.org/
 
 Others
