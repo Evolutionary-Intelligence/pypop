@@ -85,23 +85,13 @@ class DDCMA(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self._mu_eff = None
-        self._mu_eff_negative = None
-        self.c_s = None
-        self.d_s = None
-        self._gamma_s = 0.0
-        self._gamma_c = 0.0
-        self._gamma_d = 0.0
-        self.c_1 = None
-        self.c_w = None
-        self.c_c = None
-        self._w = None
-        self.c_1_d = None
-        self.c_w_d = None
-        self.c_c_d = None
-        self._w_d = None
-        self._beta_eig = None
-        self._t_eig = None
+        self._mu_eff, self._mu_eff_negative = None, None
+        self.c_s, self.d_s = None, None
+        self._gamma_s, self._gamma_c, self._gamma_d = 0.0, 0.0, 0.0
+        self.c_1, self.c_w, self.c_c = None, None, None
+        self._w, self._w_d = None, None
+        self.c_1_d, self.c_w_d, self.c_c_d = None, None, None
+        self._beta_eig, self._t_eig = None, None
         self._n_generations = 0
 
     def _set_c_1_and_c_1_d(self, m):
@@ -118,9 +108,7 @@ class DDCMA(ES):
         self.d_s = 1.0 + self.c_s + 2.0*np.maximum(0.0, np.sqrt((self._mu_eff - 1.0)/(self.ndim_problem + 1.0)) - 1.0)
         mu_apostrophe = self._mu_eff + 1.0/self._mu_eff - 2.0 + self.n_individuals/(2.0*(self.n_individuals + 5.0))
         m = self.ndim_problem*(self.ndim_problem + 1)/2
-        self._gamma_s = 0.0
-        self._gamma_c = 0.0
-        self._gamma_d = 0.0
+        self._gamma_s, self._gamma_c, self._gamma_d = 0.0, 0.0, 0.0
         self.c_1 = self._set_c_1_and_c_1_d(m)
         self.c_w = np.minimum(mu_apostrophe*self.c_1, 1.0 - self.c_1)
         self.c_c = np.sqrt(self._mu_eff*self.c_1)/2.0
@@ -217,9 +205,11 @@ class DDCMA(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va = self.initialize()
-        while not self._check_terminations():
+        while not self.termination_signal:
             # sample and evaluate offspring population
             z, cz, x, y = self.iterate(mean, d, sqrt_c, z, cz, x, y, args)
+            if self._check_terminations():
+                break
             mean, d, sqrt_c, inv_sqrt_c, cz, p_s, p_c, p_c_d, cm, sqrt_eig_va = self._update_distribution(
                 mean, d, sqrt_c, inv_sqrt_c, z, cz, x, y, p_s, p_c, p_c_d, cm, sqrt_eig_va)
             self._print_verbose_info(fitness, y)
