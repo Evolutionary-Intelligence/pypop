@@ -76,6 +76,8 @@ Python
 
 * https://github.com/blaa/PyGene (Now it is not actively maintained.)
 
+* https://github.com/SimonBlanke/Gradient-Free-Optimizers (Discrete Optimization)
+
 R
 -
 
