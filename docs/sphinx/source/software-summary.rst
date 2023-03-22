@@ -91,7 +91,7 @@ https://cran.r-project.org/web/views/Optimization.html
 * https://cran.r-project.org/web/packages/cmaes/index.html
 * https://cran.r-project.org/web/packages/DEoptimR/index.html
   * Currently, it only provides an implementation of the `jDE` algorithm by Brest et al. (2006).
-
+* https://cran.r-project.org/web/packages/neldermead/index.html (NM)
 * https://svn.r-project.org/Rjournal/trunk/html/_site/archive/2013-1/xiang-gubian-suomela-etal.pdf (SA)
 
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for
