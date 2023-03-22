@@ -48,5 +48,5 @@ if __name__ == '__main__':
                    'verbose': 1e3}
         solver = Solver(problem, options)
         results = solver.optimize()
-        print(results)  # 5.0182080713057076e-14 vs 0.19331169 (from pymoo)
+        print(results)  # 4.3076653355456074e-14 vs 0.19331169 (from pymoo)
         print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
