@@ -208,6 +208,9 @@ library, as shown below (just to name a few):
   * Lindauer, M., Eggensperger, K., Feurer, M., Biedenkapp, A., Deng, D., Benjamins, C., Ruhkopf, T., Sass, R. and
     Hutter, F., 2022. SMAC3: A versatile Bayesian optimization package for hyperparameter optimization.
     Journal of Machine Learning Research, 23(54), pp.1-9.
+  * Schede, E., Brandt, J., Tornede, A., Wever, M., Bengs, V., Hüllermeier, E. and Tierney, K., 2022.
+    A survey of methods for automated algorithm configuration. Journal of Artificial Intelligence Research,
+    75, pp.425-487.
   * Kerschke, P., Hoos, H.H., Neumann, F. and Trautmann, H., 2019. Automated algorithm selection: Survey and
     perspectives. Evolutionary Computation, 27(1), pp.3-45.
   * Hoos, H.H., Neumann, F. and Trautmann, H., 2017. Automated algorithm selection and configuration (Dagstuhl Seminar
