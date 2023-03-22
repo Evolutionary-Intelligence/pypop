@@ -203,7 +203,11 @@ Perhaps the simplest way to algorithm selection is **trial-and-error**. However,
 for algorithm selection. In practice, the algorithm selection should depend mainly on the final performance criteria (
 e.g. convergence rate / solution quality / runtime).
 
-In the future, we expect to add the recent **Automated Algorithm Selection** techniques in this library, as shown below:
+In the future, we expect to add the **Automated Algorithm Selection and Configuration** techniques in this
+library, as shown below (just to name a few):
+  * Lindauer, M., Eggensperger, K., Feurer, M., Biedenkapp, A., Deng, D., Benjamins, C., Ruhkopf, T., Sass, R. and
+    Hutter, F., 2022. SMAC3: A versatile Bayesian optimization package for hyperparameter optimization.
+    Journal of Machine Learning Research, 23(54), pp.1-9.
   * Kerschke, P., Hoos, H.H., Neumann, F. and Trautmann, H., 2019. Automated algorithm selection: Survey and
     perspectives. Evolutionary Computation, 27(1), pp.3-45.
   * Hoos, H.H., Neumann, F. and Trautmann, H., 2017. Automated algorithm selection and configuration (Dagstuhl Seminar

@@ -7,9 +7,7 @@ Software Summary and Comparisons
 Python
 ------
 
-* https://esa.github.io/pygmo2/
-
-`pygmo <https://esa.github.io/pygmo2/>`_ is *a scientific Python library for massively parallel optimization*.
+* https://esa.github.io/pygmo2/ (`pygmo <https://esa.github.io/pygmo2/>`_ is *a scientific Python library for massively parallel optimization*.)
 
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.de
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.sade
@@ -51,9 +49,8 @@ Python
 
 * https://github.com/RobertTLange/evosax
 
-* https://pymoo.org/
+* https://pymoo.org/ (`pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.)
 
-`pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.
   * https://pymoo.org/algorithms/soo/cmaes.html
   * https://pymoo.org/algorithms/soo/de.html
   * https://pymoo.org/algorithms/soo/es.html
@@ -68,6 +65,12 @@ Python
 * https://scipy.org/
 
   * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-neldermead.html
+  * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-powell.html
+  * https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html
+
+* https://github.com/facebookresearch/LA-MCTS
+
+  * https://github.com/facebookresearch/LaMCTS
 
 * https://github.com/pybrain/pybrain (Now it is not actively maintained.)
 
@@ -87,8 +90,9 @@ https://cran.r-project.org/web/views/Optimization.html
 * https://cran.r-project.org/web/packages/CEoptim/index.html
 * https://cran.r-project.org/web/packages/cmaes/index.html
 * https://cran.r-project.org/web/packages/DEoptimR/index.html
-  * Currently, it only provides an implementation of the `jDE` algorithm by Brest et al. (2006).
 
+  * Currently, it only provides an implementation of the `jDE` algorithm by Brest et al. (2006).
+* https://cran.r-project.org/web/packages/neldermead/index.html (NM)
 * https://svn.r-project.org/Rjournal/trunk/html/_site/archive/2013-1/xiang-gubian-suomela-etal.pdf (SA)
 
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for
