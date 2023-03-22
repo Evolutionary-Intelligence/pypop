@@ -75,6 +75,7 @@ class SHADE(JADE):
     def __init__(self, problem, options):
         JADE.__init__(self, problem, options)
         self.h = options.get('h', 100)  # length of historical memory
+        assert 0 < self.h
         self.m_mu = np.ones(self.h)*self.mu  # means of normal distribution
         self.m_median = np.ones(self.h)*self.median  # medians of Cauchy distribution
         self._k = 0  # index to update
@@ -134,7 +135,7 @@ class SHADE(JADE):
             self._k = (self._k + 1)%self.h
         return x, y, a
 
-    def iterate(self, args=None, x=None, y=None, a=None):
+    def iterate(self, x=None, y=None, a=None, args=None):
         x_mu, f_mu, r = self.mutate(x, y, a)
         x_cr, p_cr = self.crossover(x_mu, x, r)
         x_cr = self.bound(x_cr, x)
