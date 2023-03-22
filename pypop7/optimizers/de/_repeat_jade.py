@@ -28,7 +28,7 @@ if __name__ == '__main__':
     results = jade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 1.2487346869372509e-64 vs 1.3e-54 (from the original paper)
+    # 9.363502685733142e-66 vs 1.3e-54 (from the original paper)
 
     problem = {'fitness_function': step,
                'ndim_problem': ndim_problem,
