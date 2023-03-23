@@ -112,6 +112,8 @@ class CLPSO(PSO):
                 size=(self.ndim_problem,))*(n_x[i] - x[i]))  # velocity update
             v[i] = np.clip(v[i], self._min_v, self._max_v)
             x[i] += v[i]  # position update
+            if self.is_bound:
+                x[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary)
             y[i] = self._evaluate_fitness(x[i], args)
             if y[i] < p_y[i]:  # personally-best position update
                 p_x[i], p_y[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary), y[i]
