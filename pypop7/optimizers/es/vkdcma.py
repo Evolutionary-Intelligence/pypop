@@ -41,7 +41,7 @@ class VKDCMA(ES):
 
     Examples
     --------
-    Use the optimizer `VKDCMA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -65,7 +65,7 @@ class VKDCMA(ES):
        VKDCMA: 5000, 1.7960753151742513e-13
 
     For its correctness checking of coding, refer to `this code-based repeatability report
-    <>`_ for more details.
+    <https://tinyurl.com/mrxvx4hk>`_ for more details.
 
     Attributes
     ----------
@@ -245,8 +245,10 @@ class VKDCMA(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         d, p_s, v, s, p_c, d_x, u, mean, x, y = self.initialize()
-        while not self._check_terminations():
+        while not self.termination_signal:
             d, p_s, v, s, p_c, d_x, u, mean, x, y = self.iterate(d, p_s, v, s, p_c, d_x, u, mean, x, y, args)
+            if self._check_terminations():
+                break
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
             d, p_s, v, s, p_c, d_x, u, mean, x, y = self.restart_reinitialize(d, p_s, v, s, p_c, d_x, u, mean, x, y)
