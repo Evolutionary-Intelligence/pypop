@@ -89,12 +89,12 @@ class CCMAES2016(ES):
         self.c_mu = self.options.get('c_mu', self._mu_eff/(np.square(self.ndim_problem) + self._mu_eff))
         return x, mean, a, p_s, p_c, y
 
-    def iterate(self, x=None, mean=None, a=None, y=None):
+    def iterate(self, x=None, mean=None, a=None, y=None, args=None):
         for k in range(self.n_individuals):
             if self._check_terminations():
                 return x, y
             x[k] = mean + self.sigma*np.dot(a, self.rng_optimization.standard_normal((self.ndim_problem,)))
-            y[k] = self._evaluate_fitness(x[k])
+            y[k] = self._evaluate_fitness(x[k], args)
         return x, y
 
     def _update_distribution(self, x=None, mean=None, a=None, p_s=None, p_c=None, y=None):
@@ -119,8 +119,11 @@ class CCMAES2016(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         x, mean, a, p_s, p_c, y = self.initialize()
-        while not self._check_terminations():
-            x, y = self.iterate(x, mean, a, y)  # sample and evaluate offspring population
+        while not self.termination_signal:
+            # sample and evaluate offspring population
+            x, y = self.iterate(x, mean, a, y, args)
+            if self._check_terminations():
+                break
             mean, a, p_s, p_c = self._update_distribution(x, mean, a, p_s, p_c, y)
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
