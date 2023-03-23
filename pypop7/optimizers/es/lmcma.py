@@ -52,7 +52,7 @@ class LMCMA(ES):
 
     Examples
     --------
-    Use the optimizer `LMCMA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -194,8 +194,8 @@ class LMCMA(ES):
             x = self._c*x - d[self._j[t]]*np.dot(vm[self._j[t]], x)*vm[self._j[t]]
         return x
 
-    def _update_distribution(self, mean=None, x=None, p_c=None, s=None, vm=None,
-                             pm=None, b=None, d=None, y=None, y_bak=None):
+    def update_distribution(self, mean=None, x=None, p_c=None, s=None, vm=None,
+                            pm=None, b=None, d=None, y=None, y_bak=None):
         mean_bak = np.dot(self._w, x[np.argsort(y)[:self.n_parents]])
         p_c = self._p_c_1*p_c + self._p_c_2*(mean_bak - mean)/self.sigma
         # select and store direction vectors - to preserve a certain temporal distance in terms of
@@ -246,11 +246,13 @@ class LMCMA(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, x, p_c, s, vm, pm, b, d, y = self.initialize()
-        while not self._check_terminations():
+        while not self.termination_signal:
             y_bak = np.copy(y)
             # sample and evaluate offspring population
             x, y = self.iterate(mean, x, pm, vm, y, b, args)
-            mean, p_c, s, vm, pm, b, d = self._update_distribution(
+            if self._check_terminations():
+                break
+            mean, p_c, s, vm, pm, b, d = self.update_distribution(
                 mean, x, p_c, s, vm, pm, b, d, y, y_bak)
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
