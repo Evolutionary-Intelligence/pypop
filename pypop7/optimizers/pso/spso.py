@@ -109,7 +109,8 @@ class SPSO(PSO):
                     self.society*society_rand*(n_x[i] - x[i]))  # velocity update
             v[i] = np.clip(v[i], self._min_v, self._max_v)
             x[i] += v[i]  # position update
-            x[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary)
+            if self.is_bound:
+                x[i] = np.clip(x[i], self.lower_boundary, self.upper_boundary)
             y[i] = self._evaluate_fitness(x[i], args)  # fitness evaluation
             if y[i] < p_y[i]:  # online update
                 p_x[i], p_y[i] = x[i], y[i]
