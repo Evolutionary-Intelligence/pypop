@@ -111,6 +111,7 @@ class PSO(Optimizer):
         assert self.society >= 0.0
         self.max_ratio_v = options.get('max_ratio_v', 0.2)  # maximal ratio of velocity
         assert 0.0 < self.max_ratio_v <= 1.0
+        self.is_bound = options.get('is_bound', False)
         self._max_v = self.max_ratio_v*(self.upper_boundary - self.lower_boundary)  # maximal velocity
         self._min_v = -self._max_v  # minimal velocity
         self._topology = None  # neighbors topology of social learning
