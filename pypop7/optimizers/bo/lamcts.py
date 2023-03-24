@@ -1,482 +1,351 @@
-"""Latent Action Monto Carlo Tree Search(LA-MCTS)
+from typing import NamedTuple
+from itertools import count
+from collections import deque
 
-    Parameters
-    ----------
-    problem : `dict`
-              problem arguments with the following common settings (`keys`):
-                * 'fitness_function' - objective function to be **minimized** (`func`),
-                * 'ndim_problem'     - number of dimensionality (`int`),
-                * 'upper_boundary'   - upper boundary of search range (`array_like`),
-                * 'lower_boundary'   - lower boundary of search range (`array_like`).
-    options : `dict`
-              optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
-              and with the following particular settings (`keys`):
-                * 'n_individuals' - population size (`int`, default: `40`),
-                * 'Cp'            - Cp for MCTS (`int`, default: `1`),
-                * 'leaf_size'     - tree leaf size (`int`, default: `10`),
-                * 'kernel_type'   - kernel type for SVM (`string`, default: `rbf`),
-                * 'gamma_type'    - gamma type for SVM (`string`, default: `auto`),
-                * 'solver_type'   - solver type for SVM (`string`, default: `bo`).
-
-    Examples
-    --------
-    Use the BO optimizer `LAMCTS` to minimize the well-known test function
-    `Rastrigin <http://en.wikipedia.org/wiki/Rastrigin_function>`_:
-
-    .. code-block:: python
-       :linenos:
-
-       >>> import numpy
-       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
-       >>> from pypop7.optimizers.bo.lamcts import LAMCTS
-       >>> problem = {'fitness_function': rastrigin,  # define problem arguments
-       ...            'ndim_problem': 20,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 10 * numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 100,  # set optimizer options
-       ...            'n_individuals': 40,
-       ...            'Cp': 1,
-       ...            'leaf_size': 10,
-       ...            'kernel_type': "rbf",
-       ...            'gamma_type': "auto",
-       ...            'solver_type': "bo",
-       ...            'seed_rng': 0}
-       >>> lamcts = LAMCTS(problem, options)  # initialize the optimizer class
-       >>> results = lamcts.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"LAMCTS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       LAMCTS: 100, 318.2422013365453
-
-    Attributes
-    ----------
-    n_individuals  : `int`
-                    number of offspring, offspring population size.
-    Cp             : `int`
-                    Cp for MCTS.
-    leaf_size      : `int`
-                    tree leaf size.
-    kernel_type    : 'string'
-                    kernel type for SVM.
-    gamma_type    : 'string'
-                    gamma type for SVM.
-    solver_type    : 'string'
-                    solver type for SVM.
-
-    Reference
-    ---------
-    L. Wang, R. Fonseca, Y. Tian
-    Learning Search Space Partition for Black-box Optimization using Monte Carlo Tree Search
-    NeurIPS 2020
-    https://proceedings.neurips.cc/paper/2020/hash/e2ce14e81dba66dbff9cbc35ecfdb704-Abstract.html
-    Code of paper:
-    https://github.com/facebookresearch/LaMCTS/tree/main/LA-MCTS
-"""
 import numpy as np
-import torch
+from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.svm import SVC
-from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.gaussian_process.kernels import ConstantKernel, Matern
-from scipy.stats import norm
-import copy as cp
-from torch.quasirandom import SobolEngine
 
 from pypop7.optimizers.core.optimizer import Optimizer
+from pypop7.optimizers.es.maes import MAES
 
 
-# generate initial points
-def latin_hyper_cube(n, dims, ub, lb):
-    points = np.zeros((n, dims))
-    centers = (1.0 + 2.0 * np.arange(0.0, n))
-    centers = centers / float(2 * n)
-    for i in range(0, dims):
-        points[:, i] = centers[np.random.permutation(n)]
-    perturbation = np.random.uniform(-1.0, 1.0, (n, dims))
-    perturbation = perturbation / float(2 * n)
-    points += perturbation
-    points = points * (ub - lb) + lb
-    return points
+class Sample(NamedTuple):  # basic data class for classification
+    x: np.ndarray = np.empty(0)
+    y: float = float('NaN')
 
 
-# Use for classifying points
-class Classifier:
-    def __init__(self, samples, dimension, kernel_type, gamma_type):
-        self.dimension = dimension
-        # create gaussian regressor
-        noise = 0.1
-        m52 = ConstantKernel(1.0) * Matern(length_scale=1.0, nu=2.5)
-        self.gpr = GaussianProcessRegressor(kernel=m52, alpha=noise**2)
-        self.kmeans = KMeans(n_clusters=2)
-        # data structure
-        self.samples = []
-        self.x = []
-        self.fx = []
-        # learn boundary
-        self.kernel_type = kernel_type
-        self.gamma_type = gamma_type
-        self.svm = SVC(kernel=kernel_type, gamma=gamma_type)
-        self.update_samples(samples)
+def _remove_duplicate(x):  # for class Bag
+    u, idx = np.unique(x, return_index=True, axis=0)
+    return u.astype(dtype=float), idx
 
-    def get_mean(self):
-        if len(self.fx) == 0:
-            return float('inf')
+
+class Bag(object):  # basic data class for classification
+    def __init__(self, x, y=np.empty(0)):
+        self._ndim = x.shape[1] if isinstance(x, np.ndarray) else x
+        if isinstance(x, np.ndarray):
+            self.x, i = _remove_duplicate(x)
         else:
-            return np.mean(self.fx)
-
-    def update_samples(self, samples):
-        self.x = []
-        self.fx = []
-        self.samples = samples
-        for sample in samples:
-            self.x.append(sample[0])
-            self.fx.append(sample[1])
-        self.x = np.asarray(self.x, dtype=np.float64).reshape(-1, self.dimension)
-        self.fx = np.asarray(self.fx, dtype=np.float64).reshape(-1)
-
-    def learn_cluster(self):
-        data = np.concatenate((self.x, self.fx.reshape([-1, 1])), axis=1)
-        self.kmeans = self.kmeans.fit(data)
-        plabel = self.kmeans.predict(data)
-        zero_label_fx = []
-        one_label_fx = []
-        for i in range(len(plabel)):
-            if plabel[i] == 0:
-                zero_label_fx.append(self.fx[i])
-            elif plabel[i] == 1:
-                one_label_fx.append(self.fx[i])
-            else:
-                print("There should only be two cluster")
-        zero_label_mean = np.mean(zero_label_fx)
-        one_label_mean = np.mean(one_label_fx)
-        if zero_label_mean > one_label_mean:
-            for i in range(len(plabel)):
-                if plabel[i] == 0:
-                    plabel[1] = 1
-                else:
-                    plabel[i] = 0
-        return plabel
-
-    def expected_improvement(self, x, xi=0.001):
-        x_sample = self.x
-        mu, std = self.gpr.predict(x, return_std=True)
-        mu_sample = self.gpr.predict(x_sample)
-        y_max = np.max(mu_sample)
-        a = (mu - y_max - xi)
-        z = a / std
-        return a * norm.cdf(z) + std * norm.pdf(z)
-
-    def get_sample_ratio_in_region(self, x, path):
-        length = len(x)
-        for node in path:
-            if len(x) == 0:
-                return 0, np.array([])
-            boundary = node[0].classifier.svm
-            x = x[boundary.predict(x) == node[1]]
-        ratio = len(x) / length
-        return ratio, x
-
-    def split_data(self):
-        good_samples = []
-        bad_samples = []
-        if len(self.samples) == 0:
-            return good_samples, bad_samples
-        plabel = self.learn_cluster()
-        assert len(plabel) == len(self.x)
-        if (1 in plabel) == True:
-            self.svm.fit(self.x, plabel)
-            for i in range(len(plabel)):
-                if plabel[i] == 0:
-                    good_samples.append(self.samples[i])
-                else:
-                    bad_samples.append((self.samples[i]))
-            assert len(good_samples) + len(bad_samples) == len(self.samples)
-            return good_samples, bad_samples, True
+            self.x, i = np.empty((0, self._ndim)), None
+        if y.size > 0:
+            self.y = y.copy() if i is None else y[i]
         else:
-            return self.samples, [], False
+            self.y = np.empty(0)
+        self.best, self.mean = None, float('NaN')
+        self._update_best()
 
-    def propose_rand_sample_sobol(self, sample_num, path, lower_boundary, upper_boundary):
-        seed = np.random.randint(int(1e6))
-        sobol = SobolEngine(dimension=self.dimension, scramble=True, seed=seed)
+    def __len__(self):
+        return len(self.x)
 
-        ratio_check, centers = self.get_sample_ratio_in_region(self.x, path)
-        if ratio_check == 0 or len(centers) == 0:
-            return np.random.uniform(lower_boundary, upper_boundary, size=(sample_num, self.dimension))
+    def _update_best(self):
+        if self.y.size == 0:
+            return
+        self.mean, best = np.mean(self.y), np.argmin(self.y)
+        if (self.best is None) or (self.y[best] < self.best.y):
+            self.best = Sample(self.x[best], self.y[best])
 
-        final_cands = []
-        for center in centers:
-            center = self.x[np.random.randint(len(self.x))]
-            cands = sobol.draw(2000).to(dtype=torch.float64).cpu().detach().numpy()
-            ratio = 1
-            leng = 0.0001
-            Blimit = np.max(upper_boundary - lower_boundary)
-            while ratio == 1 and leng < Blimit:
-                lb = np.clip(center - leng/2, lower_boundary, upper_boundary)
-                ub = np.clip(center + leng/2, lower_boundary, upper_boundary)
-                cands_ = cp.deepcopy(cands)
-                cands_ = (ub - lb) * cands_ + lb
-                ratio, cands_ = self.get_sample_ratio_in_region(cands_, path)
-                if ratio < 1:
-                    final_cands.extend(cands_.tolist())
-                leng *= 2
-        final_cands = np.array(final_cands)
-        if len(final_cands) > sample_num:
-            final_cands_idx = np.random.choice(len(final_cands), sample_num)
-            return final_cands[final_cands_idx]
-        else:
-            if len(final_cands) == 0:
-                return np.random.uniform(lower_boundary, upper_boundary, size=(sample_num, self.dimension))
-            else:
-                return final_cands
-
-    def propose_sample_bo(self, sample_num, path, lower_bound, upper_bound, samples):
-        # train the gpr
-        x = []
-        fx = []
-        for sample in samples:
-            x.append(sample[0])
-            fx.append(sample[1])
-        x = np.asarray(x).reshape(-1, self.dimension)
-        fx = np.asarray(fx).reshape(-1)
-        self.gpr.fit(x, fx)
-
-        if len(path) == 0:
-            return np.random.uniform(lower_bound, upper_bound, size=(sample_num, self.dimension))
-        nums_rand_samples = 10000
-        x = self.propose_rand_sample_sobol(nums_rand_samples, path, lower_bound, upper_bound)
-        if len(x) == 0:
-            return np.random.uniform(lower_bound, upper_bound, size=(sample_num, self.dimension))
-        # select x with least expect improvement
-        expect_improves = self.expected_improvement(x, xi=0.001)
-        order = np.argsort(expect_improves)[:sample_num]
-        return x[order]
-
-
-# Use for build tree
-class Node:
-    obj_counter = 0
-    # If a leave holds >= SPLIT_THRESH, we split into two new nodes.
-
-    def __init__(self, parent=None, dimension=10, is_reset=False, kernel_type='rbf', gamma_type='auto'):
-        self.dimension = dimension
-        self.parent = parent
-        self.kids = []  # 0:good, 1:bad
-        self.n = 0  # represent number of visit this node
-        self.value = float('inf')  # node value equal to mean of object values in objects set
-        self.objects = []
-        self.is_svm_splittable = False
-        self.classifier = Classifier([], self.dimension, kernel_type, gamma_type)
-        if is_reset:
-            Node.obj_counter = 0
-        self.id = Node.obj_counter
-        Node.obj_counter += 1
-
-    def update_kids(self, good_kid, bad_kid):
-        assert len(self.kids) == 0
-        self.kids.append(good_kid)
-        self.kids.append(bad_kid)
-        assert self.kids[0].classifier.get_mean() < self.kids[1].classifier.get_mean()
-
-    def is_leaf(self):
-        if len(self.kids) == 0:
-            return True
-        else:
+    def extend(self, other):
+        size_bak = len(self.x)
+        self.x, idx = _remove_duplicate(np.concatenate((self.x, other.x)))
+        if len(self.x) == size_bak:  # without duplicate
             return False
+        if len(self.y) == size_bak:
+            if other.y.size > 0:
+                self.y = np.concatenate((self.y, other.y))[idx]
+            elif len(self.y) > 0:
+                self.y = np.concatenate((self.y, np.full((len(self.x) - len(self.y),), float('inf'))))
+            self._update_best()
+        return True
 
-    def train_and_split(self):
-        self.classifier.update_samples(self.objects)
-        good_kid_data, bad_kid_data, is_split = self.classifier.split_data()
-        return good_kid_data, bad_kid_data, is_split
 
-    def update_objects(self, samples):
-        self.objects.clear()
-        self.objects.extend(samples)
-        self.classifier.update_samples(self.objects)
-        if len(self.objects) <= 2:
-            self.is_svm_splittable = False
+class KMSVM(object):  # classification class based on K-Means and SVM
+    def __init__(self, lb, ub):
+        self._lb, self._ub = lb, ub
+        self._min_lb, self._max_ub = np.min(lb), np.max(ub)
+        self._diff = (self._max_ub - self._min_lb)/2.0
+        self._center = (self._max_ub + self._min_lb)/2.0
+        self._scaler = StandardScaler(with_mean=False, with_std=False)
+        self._kmeans = KMeans(n_clusters=2)
+        self._svm = SVC(kernel='rbf', gamma='auto', max_iter=100000)
+        self._is_fitted = False
+
+    def _learn_labels(self, bag):
+        std = bag.y.std()
+        std = 1.0 if std == 0.0 else std
+        y = ((bag.y - bag.y.mean())/std)*self._diff + self._center
+        return self._kmeans.fit_predict(np.concatenate((bag.x, y.reshape(-1, 1)), axis=1))
+
+    def classify(self, bag):
+        labels = self._learn_labels(bag)
+        if len(np.unique(labels)) <= 1:
+            return np.array([], dtype=np.int)
+        self._scaler.fit(bag.x)
+        x = self._scaler.transform(bag.x)
+        self._svm.fit(x, labels)
+        self._is_fitted = self._svm.fit_status_ == 0
+        if self._is_fitted:
+            return (self._svm.predict(x) >= 0.5).astype(int)
+        return np.array([], dtype=np.int)
+
+    def predict(self, x):
+        if self._is_fitted:
+            return (self._svm.predict(self._scaler.transform(x)) >= 0.5).astype(int)
         else:
-            self.is_svm_splittable = True
-        self.value = self.classifier.get_mean()
-        self.n = len(self.objects)
+            return np.full(len(x), 1, dtype=int)
 
-    def propose_sample_bo(self, sample_num, path, lower_boundary, upper_boundary, samples):
-        propose_x = self.classifier.propose_sample_bo(sample_num, path, lower_boundary,
-                                                      upper_boundary, samples)
-        return propose_x
 
-    def clear_data(self):
-        self.objects.clear()
+class Node:  # basic class for recursive decomposition
+    _min_size = 3
+    _next_id, _all_nodes, _all_leaves = count(), {}, set()
 
-    def visit(self):
-        self.n += 1
+    @staticmethod
+    def build_tree(root):
+        queue = deque()
+        queue.append(root)
+        while len(queue) > 0:
+            node = queue.popleft()
+            for child in node.children:
+                if child.is_leaf:
+                    Node._all_leaves.remove(child._id)
+                else:
+                    queue.append(child)
+                del Node._all_nodes[child._id]
+            node.clear_children()
+        queue = deque()
+        queue.append(root)
+        while len(queue) > 0:
+            node = queue.popleft()
+            Node._all_nodes[node._id] = node
+            children = node.split()
+            if len(children) == 0:
+                Node._all_leaves.add(node._id)
+            else:
+                for child in children:
+                    queue.append(child)
+        return Node._all_nodes[root._id]
 
-    def get_ucb(self, cp):
-        if self.n == 0 or self.parent is None:
-            return float('inf')
+    @property
+    def best(self):
+        return self._bag.best
+
+    @property
+    def children(self):
+        return [Node._all_nodes[n] for n in self._children]
+
+    @property
+    def is_leaf(self):
+        return len(self._children) == 0
+
+    @property
+    def mean(self):
+        return self._bag.mean
+
+    @property
+    def n_d(self):
+        c = len(self._children)
+        for n in self._children:
+            c += Node._all_nodes[n].n_d
+        return c
+
+    @property
+    def parent(self):
+        return None if self._parent < 0 else Node._all_nodes[self._parent]
+
+    @property
+    def splittable(self):
+        return len(self._bag) >= self._leaf_size
+
+    def _update_cb(self):
+        self.cb = self._bag.best.y
+        if self._parent >= 0:
+            parent = Node._all_nodes[self._parent]
+            n_p, n_j = len(parent._bag.y), len(self._bag.y)
+            self.cb -= 2.0*self.c_e*np.sqrt(2.0*np.power(n_p, 0.5)/n_j)
+
+    def __init__(self, ndim, leaf_size, c_e, bag, label=-1, parent=-1, lb=None, ub=None):
+        self._ndim, self._leaf_size, self.c_e = ndim, leaf_size, c_e
+        self._lb, self._ub = lb, ub
+        self._label, self._parent = label, parent
+        self._classifier = KMSVM(lb, ub)
+        self._children = []
+        self._bag = bag
+        self.cb = float('NaN')
+        self._update_cb()
+        self._id = next(Node._next_id)
+        Node._all_nodes[self._id] = self
+
+    def add_bag(self, bag):
+        if not self._bag.extend(bag):
+            return
+        self._update_cb()
+        if self._parent >= 0:
+            Node._all_nodes[self._parent].add_bag(bag)
+
+    def classify(self):
+        s = []
+        if self.splittable:
+            labels = self._classifier.classify(self._bag)
+            unique_labels = np.unique(labels)
+            if len(unique_labels) > 1:
+                for label in unique_labels:
+                    choice = label == labels
+                    if choice.sum() < Node._min_size:
+                        s.clear()
+                        break
+                    s.append((label, choice))
+        return s
+
+    def clear_children(self):
+        self._children.clear()
+
+    def path_from_root(self):
+        nodes, node = [self], self.parent
+        while node is not None:
+            nodes.append(node)
+            node = node.parent
+        nodes.reverse()
+        return nodes
+
+    def split(self, s=None):
+        self._children.clear()
+        s = self.classify() if s is None else s
+        children = []
+        for label, choice in s:
+            bag = Bag(self._bag.x[choice], self._bag.y[choice])
+            child = Node(self._ndim, self._leaf_size, self.c_e, bag, label, self._id, self._lb, self._ub)
+            children.append(child)
+            self._children.append(child._id)
+        return children
+
+    def sort_leaves(self, nodes):
+        if self.is_leaf:
+            nodes.append(self)
         else:
-            # according to the paper
-            # return self.value / self.n + 2 * Cp * np.sqrt(2 * np.log(self.parent.n) / self.n)
-            # according to the code
-            return self.value + 2 * cp * np.sqrt(2 * np .power(self.parent.n, 0.5) / self.n)
+            s = sorted(self.children, key=lambda c: (c.cb, c.mean, c.best.y), reverse=False)
+            for node in s:
+                node.sort_leaves(nodes)
 
-    def get_name(self):
-        return "node" + str(self.id)
 
-    def get_value(self):
-        return self.value
+class Path:  # basic class for recursive decomposition
+    def __init__(self, nodes):
+        self._path = nodes
+
+    def __len__(self):
+        return len(self._path)
+
+    def __getitem__(self, i):
+        return self._path[i]
+
+    def expand(self):
+        last = self._path[-1]
+        while not last.is_leaf:
+            last = sorted(last.children, key=lambda c: (c.cb, c.mean, c.best.y), reverse=False)[0]
+            self._path.append(last)
+
+
+class Sampler(object):  # for sampling in nodes
+    def __init__(self, problem, _func, args, rng):
+        self.problem, self._ndim = problem, problem['ndim_problem']
+        self._func, self.args = _func, args
+        self.lb, self.ub = problem['lower_boundary'], problem['upper_boundary']
+        self.cmaes, self.rng, self.fitness = None, rng, []
+
+    def sample(self, n_samples, path=None):
+        if path is None or len(path) < 2:
+            x = (self.ub + self.lb)/2.0
+            sigma = np.max(self._func.ub - self._func.lb)/6.0
+        else:
+            bag = path[-1]._bag
+            x, x_std = np.mean(bag.x, axis=0), np.std(bag.x, axis=0) 
+            sigma = (np.mean(x_std) + 3.0*np.std(x_std))/3.0
+            sigma = np.max(self._func.ub - self._func.lb)/6.0 if sigma == 0.0 else sigma
+        bags = Bag(self._ndim)
+        if self.cmaes is None:
+            options = {'mean': x, 'sigma': sigma, 'n_individuals': 4, 'seed_rng': self.rng}
+            self.cmaes = MAES(self.problem, options)
+            x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.cmaes.initialize()
+        else:
+            x, mean, p_s, p_c, cm, eig_ve, eig_va, y = None, None, None, None, None, None, None, None
+        while len(bags) < n_samples:
+            x, y = self.cmaes.iterate(x, mean, eig_ve, eig_va, y, self.args)
+            self.fitness.extend(y)
+            if self.cmaes._check_terminations():
+                break
+            self.cmaes.n_generations += 1
+            mean, p_s, p_c, cm, eig_ve, eig_va = self.cmaes.update_distribution(
+                x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
+            bags.extend(Bag(x, y))
+        return bags
 
 
 class LAMCTS(Optimizer):
+    """Latent Action Monte Carlo Tree Search (LAMCTS).
+
+    https://github.com/facebookresearch/LA-MCTS
+    https://github.com/facebookresearch/LaMCTS
+    """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
-        self.kernel_type = options.get('kernel_type', "rbf")
-        self.gamma_type = options.get('gamma_type', "auto")
-        self.Cp = options.get('Cp', 1)
-        self.leaf_size = options.get('leaf_size', 10)
-        self.solver_type = options.get('solver_type', "bo")
+        self.n_individuals = options.get('n_individuals', 100)  # number of individuals/samples
+        self.c_e = options.get('c_e', 0.01)  # factor to control exploration
+        self.leaf_size = options.get('leaf_size', 40)  # leaf size
+        self.init_individuals = options.get('init_individuals', 100)  # number of initial individuals
+        self._sampler, self._root, self._mcts = None, None, None
         self._n_generations = 0
-        self.nodes = []
-        self.samples = []
-        self.sample_counter = 0
-        self.current_best_sample = None
-        self.current_best_value = float('inf')
+        self.problem = problem
 
-        # initialize the root
-        root = Node(parent=None, dimension=self.ndim_problem,
-                    is_reset=True, kernel_type=self.kernel_type, gamma_type=self.gamma_type)
-        self.nodes.append(root)
-        self.ROOT = root
+    @property
+    def stats(self):
+        if self._mcts is not None:
+            return self._mcts
+        return self._stats()
 
-    def initialize(self, is_restart=False):
-        values = []
-        points = latin_hyper_cube(self.n_individuals, self.ndim_problem,
-                                  self.upper_boundary, self.lower_boundary)
-        for point in points:
-            values.append(self.collect_samples(point))
-        return values
-
-    def get_leaf_status(self):
-        status = []
-        for node in self.nodes:
-            if node.is_leaf() is True and len(node.objects) > self.leaf_size and node.is_svm_splittable is True:
-                status.append(True)
-            else:
-                status.append(False)
-        return np.array(status)
-
-    def dynamic_treeify(self):
-        # clean the original tree
-        self.ROOT.obj_counter = 0
-        for node in self.nodes:
-            node.clear_data()
-        self.nodes.clear()
-
-        # reset the root
-        new_root = Node(parent=None, dimension=self.ndim_problem, is_reset=True,
-                        kernel_type=self.kernel_type, gamma_type=self.gamma_type)
-        self.nodes.append(new_root)
-        self.ROOT = new_root
-        self.ROOT.update_objects(self.samples)
-
-        # build the tree
-        while True:
-            status = self.get_leaf_status()
-            if True in status:
-                split_by_samples = np.argwhere(self.get_leaf_status() == True).reshape(-1)
-                for idx in split_by_samples:
-                    parent = self.nodes[idx]
-                    good_kid_data, bad_kid_data, is_split = parent.train_and_split()
-                    if is_split is True:
-                        good_kid = Node(parent, self.ndim_problem, False, self.kernel_type, self.gamma_type)
-                        bad_kid = Node(parent, self.ndim_problem, False, self.kernel_type, self.gamma_type)
-                        good_kid.update_objects(good_kid_data)
-                        bad_kid.update_objects(bad_kid_data)
-                        if good_kid.classifier.get_mean() < bad_kid.classifier.get_mean():
-                            parent.update_kids(good_kid, bad_kid)
-                            self.nodes.append(good_kid)
-                            self.nodes.append(bad_kid)
-                        else:
-                            parent.update_kids(bad_kid, good_kid)
-                            self.nodes.append(bad_kid)
-                            self.nodes.append(good_kid)
-                    else:
-                        self.nodes[idx].is_svm_splittable = False
-            else:
-                break
-
-    def collect_samples(self, x, value=None):
-        if value is None:
-            value = self._evaluate_fitness(x)
-        if value < self.current_best_value:
-            self.current_best_value = value
-            self.current_best_sample = x
-        self.sample_counter += 1
-        self.samples.append((x, value))
-        return value
-
-    def select(self):
-        current_node = self.ROOT
-        path = []
-        while current_node.is_leaf() is False:
-            uct = []
-            for kid in current_node.kids:
-                uct.append(kid.get_ucb(self.Cp))
-            choice = np.random.choice(np.argwhere(uct == np.amin(uct)).reshape(-1), 1)[0]
-            path.append((current_node, choice))
-            current_node = current_node.kids[choice]
-        return current_node, path
-
-    # refresh the value and num of a line of tree
-    def back_propagate(self, leaf, value):
-        current_node = leaf
-        while current_node is not None:
-            current_node.value = (current_node.value * current_node.n + value) / (current_node.value + 1)
-            current_node.n += 1
-            current_node = current_node.parent
-
-    def iterate(self, leaf, path):
-        values = []
-        if self.solver_type == 'bo':
-            samples = leaf.propose_sample_bo(1, path, self.lower_boundary,
-                                             self.upper_boundary, self.samples)
+    def _stats(self):
+        if self._root is not None:
+            leaves, sizes = [], []
+            self._root.sort_leaves(leaves)
+            for leaf in leaves:
+                sizes.append(len(leaf._bag))
+            sizes = np.array(sizes)
+            return self._root.n_d + 1, len(sizes), np.mean(sizes), np.median(sizes)
         else:
-            raise Exception("Solver not implemented")
-        for i in range(len(samples)):
-            if self.solver_type == 'bo':
-                value = self.collect_samples(samples[i])
+            return 0, 0, 0.0, 0.0
+
+    def initialize(self, args=None):
+        def _func(x):
+            return self._evaluate_fitness(x, args)
+        self._sampler = Sampler(self.problem, _func, args,
+                                self.rng_initialization.integers(np.iinfo(np.int64).max))
+        samples = self._sampler.sample(self.init_individuals)
+        self._root = Node(self.ndim_problem, self.leaf_size, self.c_e*samples.best.y,
+                          samples, lb=self.lower_boundary, ub=self.upper_boundary)
+        self._root = Node.build_tree(self._root)
+        self._mcts = self._stats()
+
+    def iterate(self):
+        all_leaves = []
+        self._root.sort_leaves(all_leaves)
+        bags = None
+        for sample_node in all_leaves:
+            path = Path(sample_node.path_from_root())
+            if bags is None:
+                bags = self._sampler.sample(self.n_individuals, path)
             else:
-                raise Exception("Solver not implemented")
-            self.back_propagate(leaf, value)
-            values.append(value)
-        return values
-
-    def optimize(self, fitness_function=None):
-        fitness = Optimizer.optimize(self, fitness_function)
-        values = self.initialize()
-        if self.saving_fitness:
-            fitness.extend(values)
-        while True:
-            self.dynamic_treeify()
-            leaf, path = self.select()
-            values = self.iterate(leaf, path)
-            if self.saving_fitness:
-                fitness.extend(values)
-            if self._check_terminations():
+                bags.extend(self._sampler.sample(self.n_individuals, path))
+            if len(bags) >= self.n_individuals:
                 break
-            self._n_generations += 1
-            self._print_verbose_info(values)
-        results = self._collect_results(fitness)
-        return results
+        if bags is None or len(bags) == 0:
+            bags = self._sampler.sample(self.n_individuals)
+        self._root.add_bag(bags)
+        self._root.c_e = self.c_e*self._root._bag.best.y
+        self._root = Node.build_tree(self._root)
+        self._mcts = self._stats()
+        self._n_generations += 1
 
-    def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose):
-            best_so_far_y = -self.best_so_far_y if self._is_maximization else self.best_so_far_y
-            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
-            print(info.format(self._n_generations, best_so_far_y, np.min(y), self.n_function_evaluations))
-
-    def _collect_results(self, fitness):
-        results = Optimizer._collect_results(self, fitness)
-        results['_n_generations'] = self._n_generations
-        return results
+    def optimize(self, fitness_function=None, args=None):
+        fitness = Optimizer.optimize(self, fitness_function)
+        self.initialize(args)
+        while not self._check_terminations():
+            self.iterate()
+        return self._collect(fitness, self._sampler.fitness)
