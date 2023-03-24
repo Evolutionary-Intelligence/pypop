@@ -285,8 +285,61 @@ class Sampler(object):  # for sampling in nodes
 class LAMCTS(Optimizer):
     """Latent Action Monte Carlo Tree Search (LAMCTS).
 
-    https://github.com/facebookresearch/LA-MCTS
-    https://github.com/facebookresearch/LaMCTS
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'n_individuals' - number of individuals/samples (`int`, default: `100`),
+                * 'c_e'           - factor to control exploration (`float`, default: `0.01`),
+                * 'leaf_size'     - leaf size (`int`, default: 40).
+
+    Examples
+    --------
+    Use the optimizer to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.bo.lamcts import LAMCTS
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022}
+       >>> lamcts = LAMCTS(problem, options)  # initialize the optimizer class
+       >>> results = lamcts.optimize()  # run the optimization process
+       >>> # return the number of used function evaluations and found best-so-far fitness
+       >>> print(f"LAMCTS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       LAMCTS: 5000, 0.0004803571235158698
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/5f827dwh>`_ for more details.
+
+    References
+    ----------
+    Wang, L., Fonseca, R. and Tian, Y., 2020.
+    Learning search space partition for black-box optimization using monte carlo tree search.
+    Advances in Neural Information Processing Systems, 33, pp.19511-19522.
+    https://arxiv.org/abs/2007.00708 (an updated version)
+    https://proceedings.neurips.cc/paper/2020/hash/e2ce14e81dba66dbff9cbc35ecfdb704-Abstract.html
+    (the original version)
+
+    https://github.com/facebookresearch/LA-MCTS (an updated version)
+    https://github.com/facebookresearch/LaMCTS (the original version)
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
