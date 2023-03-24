@@ -46,7 +46,7 @@ class OPOA2015(ES):
 
     Examples
     --------
-    Use the optimizer `OPOA2015` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -139,14 +139,14 @@ class OPOA2015(ES):
         self._n_generations += 1
         return mean, y, cf, best_so_far_y, p_s, p_c
 
-    def restart_reinitialize(self, args=None, mean=None, y=None, cf=None, best_so_far_y=None,
-                             p_s=None, p_c=None, fitness=None):
+    def restart_reinitialize(self, mean=None, y=None, cf=None, best_so_far_y=None,
+                             p_s=None, p_c=None, fitness=None, args=None):
         self._list_fitness.append(best_so_far_y)
         is_restart_1, is_restart_2 = self.sigma < self.sigma_threshold, False
         if len(self._list_fitness) >= self.stagnation:
             is_restart_2 = (self._list_fitness[-self.stagnation] - self._list_fitness[-1]) < self.fitness_diff
         is_restart = bool(is_restart_1) or bool(is_restart_2)
-        if is_restart:
+        if self.is_restart and is_restart:
             self._print_verbose_info(fitness, y, True)
             if self.verbose:
                 print(' ....... *** restart *** .......')
@@ -166,7 +166,6 @@ class OPOA2015(ES):
             self._print_verbose_info(fitness, y)
             mean, y, cf, best_so_far_y, p_s, p_c = self.iterate(
                 mean, cf, best_so_far_y, p_s, p_c, args)
-            if self.is_restart:
-                mean, y, cf, best_so_far_y, p_s, p_c = self.restart_reinitialize(
-                    args, mean, y, cf, best_so_far_y, p_s, p_c, fitness)
+            mean, y, cf, best_so_far_y, p_s, p_c = self.restart_reinitialize(
+                mean, y, cf, best_so_far_y, p_s, p_c, fitness, args)
         return self._collect(fitness, y, mean)
