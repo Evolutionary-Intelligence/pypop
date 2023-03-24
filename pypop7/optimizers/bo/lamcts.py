@@ -245,11 +245,11 @@ class Path:  # basic class for recursive decomposition
 
 
 class Sampler(object):  # for sampling in nodes
-    def __init__(self, problem, _func, args, rng):
+    def __init__(self, problem, _func, args, rng, verbose):
         self.problem, self._ndim = problem, problem['ndim_problem']
         self._func, self.args = _func, args
         self.lb, self.ub = problem['lower_boundary'], problem['upper_boundary']
-        self.cmaes, self.rng, self.fitness = None, rng, []
+        self.cmaes, self.rng, self.fitness, self.verbose = None, rng, [], verbose
 
     def sample(self, n_samples, path=None):
         if path is None or len(path) < 2:
@@ -262,7 +262,8 @@ class Sampler(object):  # for sampling in nodes
             sigma = np.max(self._func.ub - self._func.lb)/6.0 if sigma == 0.0 else sigma
         bags = Bag(self._ndim)
         if self.cmaes is None:
-            options = {'mean': x, 'sigma': sigma, 'n_individuals': 4, 'seed_rng': self.rng}
+            options = {'mean': x, 'sigma': sigma, 'n_individuals': 4,
+                       'seed_rng': self.rng, 'saving_fitness': 1, 'verbose': self.verbose}
             self.cmaes = MAES(self.problem, options)
             x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.cmaes.initialize()
         else:
@@ -316,7 +317,7 @@ class LAMCTS(Optimizer):
         def _func(x):
             return self._evaluate_fitness(x, args)
         self._sampler = Sampler(self.problem, _func, args,
-                                self.rng_initialization.integers(np.iinfo(np.int64).max))
+                                self.rng_initialization.integers(np.iinfo(np.int64).max), self.verbose)
         samples = self._sampler.sample(self.init_individuals)
         self._root = Node(self.ndim_problem, self.leaf_size, self.c_e*samples.best.y,
                           samples, lb=self.lower_boundary, ub=self.upper_boundary)
@@ -342,6 +343,12 @@ class LAMCTS(Optimizer):
         self._root = Node.build_tree(self._root)
         self._mcts = self._stats()
         self._n_generations += 1
+
+    def _collect(self, fitness, y=None):
+        fitness.extend(y)
+        results = Optimizer._collect(self, fitness)
+        results['_n_generations'] = self._n_generations
+        return results
 
     def optimize(self, fitness_function=None, args=None):
         fitness = Optimizer.optimize(self, fitness_function)
