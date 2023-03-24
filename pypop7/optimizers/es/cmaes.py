@@ -37,7 +37,7 @@ class CMAES(ES):
 
     Examples
     --------
-    Use the optimizer `CMAES` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -116,7 +116,7 @@ class CMAES(ES):
         self._p_s_2 = None
         self._p_c_1 = None  # for evolution path update of covariance matrix adaptation (CMA)
         self._p_c_2 = None
-        self._n_generations = None
+        self.n_generations, self._n_generations = None, None
 
     def _set_c_c(self):
         return (4.0 + self._mu_eff/self.ndim_problem)/(self.ndim_problem + 4.0 + 2.0*self._mu_eff/self.ndim_problem)
@@ -157,7 +157,7 @@ class CMAES(ES):
         eig_va = np.ones((self.ndim_problem,))  # eigenvalues of covariance matrix
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         self._list_initial_mean.append(np.copy(mean))
-        self._n_generations = 0
+        self._n_generations = self.n_generations = 0
         return x, mean, p_s, p_c, cm, eig_ve, eig_va, y
 
     def iterate(self, x=None, mean=None, eig_ve=None, eig_va=None, y=None, args=None):
@@ -180,7 +180,7 @@ class CMAES(ES):
         p_s = self._p_s_1*p_s + self._p_s_2*np.dot(cm_minus_half, wd)
         self.sigma *= np.exp(self.c_s/self.d_sigma*(np.linalg.norm(p_s)/self._e_chi - 1.0))
         # update covariance matrix (CMA)
-        h_s = 1.0 if np.linalg.norm(p_s)/np.sqrt(1.0 - np.power(1.0 - self.c_s, 2*(self._n_generations + 1))) < (
+        h_s = 1.0 if np.linalg.norm(p_s)/np.sqrt(1.0 - np.power(1.0 - self.c_s, 2*(self.n_generations + 1))) < (
                 1.4 + 2.0/(self.ndim_problem + 1.0))*self._e_chi else 0.0
         p_c = self._p_c_1*p_c + h_s*self._p_c_2*wd
         w_o = self._w*np.where(self._w >= 0, 1.0, self.ndim_problem/(np.power(np.linalg.norm(
@@ -211,7 +211,8 @@ class CMAES(ES):
             if self._check_terminations():
                 break
             self._print_verbose_info(fitness, y)
-            self._n_generations += 1
+            self.n_generations += 1
+            self._n_generations = self.n_generations
             mean, p_s, p_c, cm, eig_ve, eig_va = self.update_distribution(x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
             if self.is_restart:
                 x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.restart_reinitialize(
