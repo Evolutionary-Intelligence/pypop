@@ -1,6 +1,7 @@
 from typing import NamedTuple
 from itertools import count
 from collections import deque
+import time
 
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -8,7 +9,7 @@ from sklearn.cluster import KMeans
 from sklearn.svm import SVC
 
 from pypop7.optimizers.core.optimizer import Optimizer
-from pypop7.optimizers.es.maes import MAES
+from pypop7.optimizers.es.cmaes import CMAES
 
 
 class Sample(NamedTuple):  # basic data class for classification
@@ -245,38 +246,39 @@ class Path:  # basic class for recursive decomposition
 
 
 class Sampler(object):  # for sampling in nodes
-    def __init__(self, problem, _func, args, rng, verbose):
+    def __init__(self, problem, func, rng, ev):
         self.problem, self._ndim = problem, problem['ndim_problem']
-        self._func, self.args = _func, args
+        self.problem['fitness_function'] = func
         self.lb, self.ub = problem['lower_boundary'], problem['upper_boundary']
-        self.cmaes, self.rng, self.fitness, self.verbose = None, rng, [], verbose
+        self.cmaes, self.rng, self.fitness = None, rng, []
+        self.ev = ev
 
     def sample(self, n_samples, path=None):
         if path is None or len(path) < 2:
             x = (self.ub + self.lb)/2.0
-            sigma = np.max(self._func.ub - self._func.lb)/6.0
+            sigma = np.max(self.ub - self.lb)/6.0
         else:
             bag = path[-1]._bag
             x, x_std = np.mean(bag.x, axis=0), np.std(bag.x, axis=0) 
             sigma = (np.mean(x_std) + 3.0*np.std(x_std))/3.0
-            sigma = np.max(self._func.ub - self._func.lb)/6.0 if sigma == 0.0 else sigma
+            sigma = np.max(self.ub - self.lb)/6.0 if sigma == 0.0 else sigma
         bags = Bag(self._ndim)
-        if self.cmaes is None:
-            options = {'mean': x, 'sigma': sigma, 'n_individuals': 4,
-                       'seed_rng': self.rng, 'saving_fitness': 1, 'verbose': self.verbose}
-            self.cmaes = MAES(self.problem, options)
-            x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.cmaes.initialize()
-        else:
-            x, mean, p_s, p_c, cm, eig_ve, eig_va, y = None, None, None, None, None, None, None, None
+        options = {'mean': x, 'sigma': sigma, 'n_individuals': 4,
+                   'seed_rng': self.rng.integers(np.iinfo(np.int64).max),
+                   'saving_fitness': 1, 'verbose': False, 'max_function_evaluations':
+                       self.ev.max_function_evaluations - self.ev.n_function_evaluations}
+        self.cmaes = CMAES(self.problem, options)
+        self.cmaes.start_time = time.time()
+        x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.cmaes.initialize()
         while len(bags) < n_samples:
-            x, y = self.cmaes.iterate(x, mean, eig_ve, eig_va, y, self.args)
+            x, y = self.cmaes.iterate(x, mean, eig_ve, eig_va, y)
             self.fitness.extend(y)
-            if self.cmaes._check_terminations():
-                break
+            if self.ev._check_terminations():
+                return bags
             self.cmaes.n_generations += 1
             mean, p_s, p_c, cm, eig_ve, eig_va = self.cmaes.update_distribution(
                 x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
-            bags.extend(Bag(x, y))
+            bags.extend(Bag(np.copy(x), np.copy(y)))
         return bags
 
 
@@ -316,8 +318,7 @@ class LAMCTS(Optimizer):
     def initialize(self, args=None):
         def _func(x):
             return self._evaluate_fitness(x, args)
-        self._sampler = Sampler(self.problem, _func, args,
-                                self.rng_initialization.integers(np.iinfo(np.int64).max), self.verbose)
+        self._sampler = Sampler(self.problem, _func, self.rng_initialization, self)
         samples = self._sampler.sample(self.init_individuals)
         self._root = Node(self.ndim_problem, self.leaf_size, self.c_e*samples.best.y,
                           samples, lb=self.lower_boundary, ub=self.upper_boundary)
@@ -329,6 +330,8 @@ class LAMCTS(Optimizer):
         self._root.sort_leaves(all_leaves)
         bags = None
         for sample_node in all_leaves:
+            if self._check_terminations():
+                return
             path = Path(sample_node.path_from_root())
             if bags is None:
                 bags = self._sampler.sample(self.n_individuals, path)
@@ -355,4 +358,7 @@ class LAMCTS(Optimizer):
         self.initialize(args)
         while not self._check_terminations():
             self.iterate()
+            if self.verbose:
+                print(f'n_function_evaluations {self.n_function_evaluations}: ' +
+                      f'best_so_far_y {self.best_so_far_y:.5}')
         return self._collect(fitness, self._sampler.fitness)
