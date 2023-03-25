@@ -40,7 +40,7 @@ class SEPCMAES(ES):
 
     Examples
     --------
-    Use the optimizer `SEPCMAES` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -91,11 +91,9 @@ class SEPCMAES(ES):
         ES.__init__(self, problem, options)
         self.options = options
         self.c_c = options.get('c_c', 4.0/(self.ndim_problem + 4.0))
-        self.c_s = None
-        self.c_cov = None
+        self.c_s, self.c_cov = None, None
         self.d_sigma = None
-        self._s_1 = None
-        self._s_2 = None
+        self._s_1, self._s_2 = None, None
 
     def _set_c_cov(self):
         c_cov = (1.0/self._mu_eff)*(2.0/np.power(self.ndim_problem + np.sqrt(2.0), 2)) + (
@@ -171,9 +169,11 @@ class SEPCMAES(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         z, x, mean, s, p, c, d, y = self.initialize()
-        while not self._check_terminations():
+        while not self.termination_signal:
             # sample and evaluate offspring population
             z, x, y = self.iterate(z, x, mean, d, y, args)
+            if self._check_terminations():
+                break
             self._print_verbose_info(fitness, y)
             mean, s, p, c, d = self._update_distribution(z, x, s, p, c, d, y)
             self._n_generations += 1
