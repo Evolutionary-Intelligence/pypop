@@ -101,6 +101,7 @@ https://cran.r-project.org/web/views/Optimization.html
   * Currently, it only provides an implementation of the `jDE` algorithm by Brest et al. (2006).
 
 * https://cran.r-project.org/web/packages/neldermead/index.html (NM)
+* https://cran.r-project.org/web/packages/NMOF/index.html (DE/GA/PSO/SA)
 * https://cran.r-project.org/web/packages/RCEIM/index.html (CEM)
 * https://svn.r-project.org/Rjournal/trunk/html/_site/archive/2013-1/xiang-gubian-suomela-etal.pdf (SA)
 
