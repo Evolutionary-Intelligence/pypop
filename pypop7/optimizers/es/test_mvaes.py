@@ -27,9 +27,8 @@ class TestMVAES(unittest.TestCase):
                        'seed_rng': 0,
                        'x': 4 * np.ones((ndim_problem,)),  # mean
                        'sigma': 0.1,
-                       'verbose_frequency': 200,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 200000,
+                       'verbose': 200,
+                       'saving_fitness': 1,
                        'n_parents': 1}
             solver = Solver(problem, options)
             results = solver.optimize()
