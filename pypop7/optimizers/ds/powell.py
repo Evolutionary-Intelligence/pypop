@@ -1,5 +1,4 @@
 import numpy as np
-from scipy.optimize.optimize import _wrap_function as wf, _line_for_search as ls
 
 from pypop7.optimizers.ds.ds import DS
 
@@ -81,6 +80,19 @@ def _minimize_scalar_bounded(func, bounds,
         if num_iterations == max_iterations - 1:
             break
     return y, gm_2, yy
+
+
+def _line_for_search(x0, alpha, lb, ub):
+    # this is adopted from https://github.com/scipy/scipy/blob/main/scipy/optimize/_optimize.py
+    nonzero, = alpha.nonzero()
+    lb, ub = lb[nonzero], ub[nonzero]
+    x0, alpha = x0[nonzero], alpha[nonzero]
+    low, high = (lb - x0)/alpha, (ub - x0)/alpha
+    pos = alpha > 0
+    min_pos, min_neg = np.where(pos, low, 0), np.where(pos, 0, high)
+    max_pos, max_neg = np.where(pos, high, 0), np.where(pos, 0, low)
+    l_min, l_max = np.max(min_pos + min_neg), np.min(max_pos + max_neg)
+    return (l_min, l_max) if l_max >= l_min else (0, 0)
 
 
 class POWELL(DS):
@@ -165,16 +177,17 @@ class POWELL(DS):
         x = self._initialize_x(is_restart)  # initial (starting) search point
         y = self._evaluate_fitness(x, args)  # fitness
         u = np.identity(self.ndim_problem)
-        if args is None:
-            args = ()
-        _, self._func = wf(self._evaluate_fitness, args=args)
+
+        def _wrapper(xx):
+            return self._evaluate_fitness(xx, args)
+        self._func = _wrapper
         return x, y, u, y
 
     def _line_search(self, x, d, tol=1e-4*100):
         def _func(alpha):  # only for line search
             return self._func(x + alpha*d)
 
-        bound = ls(x, d, self.lower_boundary, self.upper_boundary)
+        bound = _line_for_search(x, d, self.lower_boundary, self.upper_boundary)
         y, gm, yy = _minimize_scalar_bounded(_func, bound,
                                              self.max_function_evaluations - self.n_function_evaluations,
                                              self.fitness_threshold, tol/100.0)
@@ -194,7 +207,7 @@ class POWELL(DS):
             if diff > delta:
                 delta, big_ind = diff, i
         d = x - xx  # extrapolated point
-        _, ratio_e = ls(x, d, self.lower_boundary, self.upper_boundary)
+        _, ratio_e = _line_for_search(x, d, self.lower_boundary, self.upper_boundary)
         xxx = x + min(ratio_e, 1.0)*d
         yyy = self.fitness_function(xxx)
         if yy > yyy:
