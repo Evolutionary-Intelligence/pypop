@@ -71,6 +71,7 @@ Python
 
 Some interesting code snapshots involving population-based methods are shown below:
 
+* https://github.com/apourchot/CEM-RL (CEM)
 * https://github.com/facebookresearch/LA-MCTS (BO/CMA-ES)
 
   * https://github.com/facebookresearch/LaMCTS
