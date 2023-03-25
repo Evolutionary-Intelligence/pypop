@@ -165,22 +165,26 @@ different `DE <https://pypop.readthedocs.io/en/latest/de/de.html>`_ versions to 
         import seaborn as sns
         import matplotlib.pyplot as plt
 
+
+        # see https://esa.github.io/pagmo2/docs/cpp/problems/lennard_jones.html for the below fitness function
         prob = pg.problem(pg.lennard_jones(150))
         print(prob)  # 444-dimensional
 
-        def energy_func(x):  # wrapper
+
+        def energy_func(x):  # wrapper to obtain fitness of type `float`
             return float(prob.fitness(x))
+
 
         results = []  # to save all optimization results from different optimizers
         for DE in [CDE, JADE]:
             problem = {'fitness_function': energy_func,
-                               'ndim_problem': 444,
-                               'upper_boundary': 3*np.ones((444,)),
-                               'lower_boundary': -3*np.ones((444,))}
-            options = {'max_function_evaluations': 300000,
-                              'seed_rng': 2022,  # for repeatability
-                              'saving_fitness': 1,  # to save all fitness generated during optimization
-                              'boundary': True}  # for JADE (not for CDE)
+                       'ndim_problem': 444,
+                       'upper_boundary': prob.get_bounds()[1],
+                       'lower_boundary': prob.get_bounds()[0]}
+            options = {'max_function_evaluations': 100000,
+                       'seed_rng': 2022,  # for repeatability
+                       'saving_fitness': 1,  # to save all fitness generated during optimization
+                       'boundary': True}  # for JADE (but not for CDE)
             solver = DE(problem, options)
             results.append(solver.optimize())
             print(results[-1])
