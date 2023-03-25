@@ -99,6 +99,7 @@ https://cran.r-project.org/web/views/Optimization.html
 * https://cran.r-project.org/web/packages/cmaes/index.html (CMA-ES)
 * https://cran.r-project.org/web/packages/DEoptim/index.html (DE)
 * https://cran.r-project.org/web/packages/DEoptimR/index.html (JDE)
+* https://cran.r-project.org/web/packages/GA/index.html (GA)
 * https://cran.r-project.org/web/packages/GenSA/index.html (SA)
 * https://cran.r-project.org/web/packages/neldermead/index.html (NM)
 * https://cran.r-project.org/web/packages/nloptr/index.html
