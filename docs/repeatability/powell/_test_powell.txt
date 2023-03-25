@@ -6,14 +6,13 @@
        -8.88178420e-16,  0.00000000e+00,  0.00000000e+00,  0.00000000e+00]),
  'best_so_far_y': 3.619666516445121e-21,
  'n_function_evaluations': 10757,
- 'runtime': 2.6785645484924316,
+ 'runtime': 1.7891004085540771,
  'termination_signal': <Terminations.FITNESS_THRESHOLD: 3>,
- 'time_function_evaluations': 1.999030351638794,
+ 'time_function_evaluations': 1.448082685470581,
  'fitness': array([[1.00000000e+00, 1.16497779e+09],
        [1.07570000e+04, 3.61966652e-21]]),
  'success': True,
  '_n_generations': 1}
-*** Runtime: 2.70855e+00
 ******* rosenbrock *******
   * Generation 0: best_so_far_y 1.43946e+07, min(y) 1.43946e+07 & Evaluations 1
   * Generation 122: best_so_far_y 2.74760e-08, min(y) 2.74760e-08 & Evaluations 2000000
@@ -22,9 +21,9 @@
        1.00000478, 1.00000903, 1.00001654, 1.0000341 , 1.00006652]),
  'best_so_far_y': 2.747601928739163e-08,
  'n_function_evaluations': 2000000,
- 'runtime': 368.3222551345825,
+ 'runtime': 356.31919264793396,
  'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
- 'time_function_evaluations': 291.28054761886597,
+ 'time_function_evaluations': 289.4615662097931,
  'fitness': array([[1.00000000e+00, 1.43945910e+07],
        [2.00000000e+04, 2.44949822e+05],
        [4.00000000e+04, 1.40257772e+04],
@@ -128,7 +127,6 @@
        [2.00000000e+06, 2.74760193e-08]]),
  'success': True,
  '_n_generations': 122}
-*** Runtime: 3.71071e+02
 ******* rastrigin *******
   * Generation 0: best_so_far_y 1.60000e+04, min(y) 1.60000e+04 & Evaluations 1
 {'best_so_far_x': array([-8.8817842e-16, -8.8817842e-16, -8.8817842e-16, -8.8817842e-16,
@@ -136,11 +134,10 @@
        -8.8817842e-16, -8.8817842e-16, -8.8817842e-16, -8.8817842e-16]),
  'best_so_far_y': 0.0,
  'n_function_evaluations': 7998,
- 'runtime': 1.0794217586517334,
+ 'runtime': 0.7821252346038818,
  'termination_signal': <Terminations.FITNESS_THRESHOLD: 3>,
- 'time_function_evaluations': 0.6697525978088379,
+ 'time_function_evaluations': 0.5400397777557373,
  'fitness': array([[1.000e+00, 1.600e+04],
        [7.998e+03, 0.000e+00]]),
  'success': True,
  '_n_generations': 1}
-*** Runtime: 3.72170e+02
