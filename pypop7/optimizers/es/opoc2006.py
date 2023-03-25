@@ -28,7 +28,7 @@ class OPOC2006(ES):
 
     Examples
     --------
-    Use the optimizer `OPOC2006` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -60,7 +60,6 @@ class OPOC2006(ES):
     A computational efficient covariance matrix update and a (1+1)-CMA for evolution strategies.
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 453-460). ACM.
     https://dl.acm.org/doi/abs/10.1145/1143997.1144082
-    (See Algorithm 2 for details.)
     """
     def __init__(self, problem, options):
         options['n_individuals'] = 1  # mandatory setting
@@ -120,10 +119,12 @@ class OPOC2006(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, y, a, best_so_far_y, p_s = self.initialize(args)
-        while not self._check_terminations():
+        while not self.termination_signal:
             self._print_verbose_info(fitness, y)
             mean, y, a, best_so_far_y, p_s = self.iterate(mean, a, best_so_far_y, p_s, args)
             self._n_generations += 1
+            if self._check_terminations():
+                break
             if self.is_restart:
                 mean, y, a, best_so_far_y, p_s = self.restart_reinitialize(
                     mean, y, a, best_so_far_y, p_s, fitness, args)
