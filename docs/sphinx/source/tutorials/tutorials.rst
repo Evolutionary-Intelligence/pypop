@@ -181,7 +181,7 @@ different `DE <https://pypop.readthedocs.io/en/latest/de/de.html>`_ versions to 
                        'ndim_problem': 444,
                        'upper_boundary': prob.get_bounds()[1],
                        'lower_boundary': prob.get_bounds()[0]}
-            options = {'max_function_evaluations': 100000,
+            options = {'max_function_evaluations': 300000,
                        'seed_rng': 2022,  # for repeatability
                        'saving_fitness': 1,  # to save all fitness generated during optimization
                        'boundary': True}  # for JADE (but not for CDE)
@@ -191,10 +191,10 @@ different `DE <https://pypop.readthedocs.io/en/latest/de/de.html>`_ versions to 
 
         sns.set_theme(style='darkgrid')
         plt.figure()
-        labels = ['CDE', 'JADE']
-        for i, res in enumerate(results):
-            # starting 1000 can avoid excessively high values generated during the early stage to disrupt convergence curve
-            plt.plot(res['fitness'][1000:, 0], res['fitness'][1000:, 1], label=labels[i])
+        for label, res in zip(['CDE', 'JADE'], results):
+            # starting 1000 can avoid excessively high values generated during the early stage
+            #   to disrupt convergence curves
+            plt.plot(res['fitness'][1000:, 0], res['fitness'][1000:, 1], label=label)
 
         plt.legend()
         plt.show()
