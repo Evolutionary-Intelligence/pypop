@@ -148,12 +148,13 @@ Lennard-Jones Cluster Optimization
    :width: 321px
    :align: center
 
-Note that the above figure (i.e., three clusters of atoms) is directly from
+Note that the above figure (i.e., three clusters of atoms) is taken directly from
 http://doye.chem.ox.ac.uk/jon/structures/LJ/pictures/LJ.new.gif.
 
 In chemistry, `Lennard-Jones Cluster Optimization <https://tinyurl.com/4ukrspc9>`_ is a popular single-objective
 real-parameter (black-box) optimization problem, which is to minimize the energy of a cluster of atoms assuming a
-`Lennard-Jones <http://doye.chem.ox.ac.uk/jon/structures/LJ.html>`_ potential between each pair.
+`Lennard-Jones <http://doye.chem.ox.ac.uk/jon/structures/LJ.html>`_ potential between each pair. Here, we use two
+different `DE <https://pypop.readthedocs.io/en/latest/de/de.html>`_ versions to solve this high-dimensional problem:
 
     .. code-block:: python
 
@@ -180,7 +181,7 @@ real-parameter (black-box) optimization problem, which is to minimize the energy
                               'seed_rng': 2022,  # for repeatability
                               'saving_fitness': 1,  # to save all fitness generated during optimization
                               'boundary': True}  # for JADE (not for CDE)
-            solver = DE(problem, options)  # without boundary constraints
+            solver = DE(problem, options)
             results.append(solver.optimize())
             print(results[-1])
 
@@ -194,17 +195,18 @@ real-parameter (black-box) optimization problem, which is to minimize the energy
         plt.legend()
         plt.show()
 
-The generated convergence curves for both `CDE` (without box constraints) and `JADE` (with box constraints) are
+The two convergence curves generated for `CDE` (without box constraints) and `JADE` (with box constraints) are
 presented in the following image:
 
 .. image:: images/CDE_vs_JADE.png
    :align: center
 
-From the above figure, different `DE` versions show different search performance: `CDE` does not limit samples into
-the given search boundaries during optimization and generate a out-of-box solution very fast, while `JADE` limits
-all samples into the given search boundaries during optimization and generate an inside-of-box solution relatively
-slow. In other words, open-source implementations play an important role for repeatability, since *slightly different*
-implementation details could sometimes even result in *totally different* search behaviors.
+From the above figure, two different `DE` versions show different search performance: `CDE` does not limit samples into
+the given search boundaries during optimization and generate a out-of-box solution (which may be infeasible in practice)
+**very fast**, while `JADE` limits all samples into the given search boundaries during optimization and generate an
+inside-of-box solution **relatively slow**. Since *different* implementations of the same algorithm family details could
+sometimes even result in *totally different* search behaviors, their **open-source** implementations play an important role
+for **repeatability**.
 
 For more interesting applications of `DE` on challenging real-world problems, refer to e.g.,
 `[An et al., 2020, PNAS] <https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117>`_;
