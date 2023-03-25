@@ -147,7 +147,7 @@ For more interesting applications of `ES`/`CMA-ES`/`NES` on challenging real-wor
 `[Wang&Ponce, 2022, GECCO] <https://dl.acm.org/doi/10.1145/3512290.3528725>`_;
 `[Nomura et al., 2021, AAAI] <https://ojs.aaai.org/index.php/AAAI/article/view/17109>`_,
 `[Anand et al., 2021, Mach. Learn.: Sci. Technol.] <https://iopscience.iop.org/article/10.1088/2632-2153/abf3ac>`_,
-`[Dong et al., 2019] <https://openaccess.thecvf.com/content_CVPR_2019/papers/Dong_Efficient_Decision-Based_Black-Box_Adversarial_Attacks_on_Face_Recognition_CVPR_2019_paper.pdf>`_;
+`[Dong et al., 2019, CVPR] <https://openaccess.thecvf.com/content_CVPR_2019/papers/Dong_Efficient_Decision-Based_Black-Box_Adversarial_Attacks_on_Face_Recognition_CVPR_2019_paper.pdf>`_;
 `[Ha&Schmidhuber, 2018, NeurIPS] <https://papers.nips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html>`_;
 `[OpenAI, 2017] <https://openai.com/research/evolution-strategies>`_,
 `[Zhang et al., 2017, Science] <https://www.science.org/doi/10.1126/science.aal5054>`_,
