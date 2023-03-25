@@ -11,7 +11,7 @@ Here we provide several *interesting* tutorials to help better use this library 
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
   recently by FacebookResearch)
 
-For all black-box optimizers (BBO) from this open-source library, we also provide a *toy* example on their corresponding
+For each black-box optimizer (BBO) from this open-source library, we also provide a *toy* example on their corresponding
 `API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_ documentations and two *testing* code (if possible) on
 their corresponding `source code <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_
 folders.
@@ -30,8 +30,110 @@ This figure shows the (interesting) evolution process of lens shape, optimized b
 The objective of Lens Shape Optimization is to find the optimal shape of glass body such that parallel incident light
 rays are concentrated in a given point on a plane while using a minimum of glass material possible.
 Refer to `Beyer, 2020, GECCO <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_ for more mathematical details
-about the 15-dimensional objective function used here. To repeat this above figure, please run the following code:
-https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/lens_shape_optimization.py.
+about the 15-dimensional objective function used here. To repeat this above figure, please run the following `code
+<https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/lens_shape_optimization.py>`_:
+
+.. code-block:: python
+
+        import numpy as np
+        import imageio.v2 as imageio  # for animation
+        import matplotlib.pyplot as plt  # for static plotting
+        from matplotlib.path import Path  # for static plotting
+        import matplotlib.patches as patches  # for static plotting
+
+        from pypop7.optimizers.es.es import ES  # abstract class for all ES
+        from pypop7.optimizers.es.maes import MAES  # Matrix Adaptation Evolution Strategy
+
+
+        # <1> - Set Parameters for Lens Shape Optimization (global)
+        weight = 0.9  # weight of focus function
+        r = 7  # radius of lens
+        h = 1  # trapezoidal slices of height
+        b = 20  # distance between lens and object
+        eps = 1.5  # refraction index
+        d_init = 3  # initialization
+
+
+        # <2> - Define Objective Function (aka Fitness Function) to be Minimized
+        def func_lens(x):  # refer to [Beyer, 2020, ACM-GECCO] for all mathematical details
+            n = len(x)
+            focus = r - ((h*np.arange(1, n) - 0.5) + b/h*(eps - 1)*np.transpose(np.abs(x[1:]) - np.abs(x[:(n-1)])))
+            mass = h*(np.sum(np.abs(x[1:(n-1)])) + 0.5*(np.abs(x[0]) + np.abs(x[n-1])))
+            return weight*np.sum(focus**2) + (1.0 - weight)*mass
+
+
+        def get_path(x):  # only for plotting
+            left, right, height = [], [], r
+            for i in range(len(x)):
+                x[i] = -x[i] if x[i] < 0 else x[i]
+                left.append((-0.5*x[i], height))
+                right.append((0.5*x[i], height))
+                height -= 1
+            points = left
+            for i in range(len(right)):
+                points.append(right[-i - 1])
+            points.append(left[0])
+            codes = [Path.MOVETO]
+            for i in range(len(points) - 2):
+                codes.append(Path.LINETO)
+            codes.append(Path.CLOSEPOLY)
+            return Path(points, codes)
+
+
+        def plot(xs):
+            file_names, frames = [], []
+            for i in range(len(xs)):
+                sub_figure = '_' + str(i) + '.png'
+                fig = plt.figure()
+                ax = fig.add_subplot(111)
+                plt.rcParams['font.family'] = 'Times New Roman'
+                plt.rcParams['font.size'] = '12'
+                ax.set_xlim(-10, 10)
+                ax.set_ylim(-8, 8)
+                path = get_path(xs[i])
+                patch = patches.PathPatch(path, facecolor='orange', lw=2)
+                ax.add_patch(patch)
+                plt.savefig(sub_figure)
+                file_names.append(sub_figure)
+            for image in file_names:
+                frames.append(imageio.imread(image))
+            imageio.mimsave('lens_shape_optimization.gif', frames, 'GIF', duration=0.3)
+
+
+        # <3> - Extend Optimizer Class MAES to Generate Data for Plotting
+        class MAESPLOT(MAES):  # to overwrite original MAES algorithm for plotting
+            def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
+                fitness = ES.optimize(self, fitness_function)
+                z, d, mean, s, tm, y = self.initialize()
+                xs = [mean.copy()]  # for plotting
+                while not self._check_terminations():
+                    z, d, y = self.iterate(z, d, mean, tm, y, args)
+                    if self.saving_fitness and (not self._n_generations % self.saving_fitness):
+                        xs.append(self.best_so_far_x)  # for plotting
+                    mean, s, tm = self._update_distribution(z, d, mean, s, tm, y)
+                    self._print_verbose_info(fitness, y)
+                    self._n_generations += 1
+                    if self.is_restart:
+                        z, d, mean, s, tm, y = self.restart_reinitialize(z, d, mean, s, tm, y)
+                res = self._collect(fitness, y, mean)
+                res['xs'] = xs  # for plotting
+                return res
+
+
+        if __name__ == '__main__':
+            ndim_problem = 15  # dimension of objective function
+            problem = {'fitness_function': func_lens,  # objective (fitness) function
+                       'ndim_problem': ndim_problem,  # number of dimensionality of objective function
+                       'lower_boundary': -5*np.ones((ndim_problem,)),  # lower boundary of search range
+                       'upper_boundary': 5*np.ones((ndim_problem,))}  # upper boundary of search range
+            options = {'max_function_evaluations': 7e3,  # maximum of function evaluations
+                       'seed_rng': 2022,  # seed of random number generation (for repeatability)
+                       'x': d_init*np.ones((ndim_problem,)),  # initial mean of Gaussian search distribution
+                       'sigma': 0.3,  # global step-size of Gaussian search distribution (not necessarily an optimal value)
+                       'saving_fitness': 50,  # to record best-so-far fitness every 50 function evaluations
+                       'is_restart': False}  # whether or not to run the (default) restart process
+            results = MAESPLOT(problem, options).optimize()
+            plot(results['xs'])
 
 As written by `Darwin <https://education.nationalgeographic.org/resource/charles-darwin/>`_, `"If it could be
 demonstrated that any complex organ existed, which could not possibly have been formed by numerous, successive,
