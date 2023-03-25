@@ -331,6 +331,17 @@ class LAMCTS(BO):
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/5f827dwh>`_ for more details.
 
+    Attributes
+    ----------
+    c_e              : float
+                       factor to control exploration.
+    init_individuals : int
+                       number of initial individuals.
+    leaf_size        : int
+                       leaf size.
+    n_individuals    : int
+                       number of individuals/samples.
+
     References
     ----------
     Wang, L., Fonseca, R. and Tian, Y., 2020.
