@@ -105,6 +105,7 @@ https://cran.r-project.org/web/views/Optimization.html
 * https://cran.r-project.org/web/packages/neldermead/index.html (NM)
 * https://cran.r-project.org/web/packages/nloptr/index.html
 * https://cran.r-project.org/web/packages/NMOF/index.html (DE/GA/PSO/SA)
+* https://cran.r-project.org/web/packages/pso/index.html (PSO)
 * https://cran.r-project.org/web/packages/RCEIM/index.html (CEM)
 * https://cran.r-project.org/web/packages/rCMA/index.html (CMA-ES)
 * https://cran.r-project.org/web/packages/rgenoud/index.html (GA)
