@@ -1,7 +1,7 @@
 """This code only tests whether the corresponding optimizer could run or not.
   In other words, it *cannot* validate the correctness regarding its working procedure.
   For the correctness validation of programming, refer to the following link:
-
+    https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/_repeat_powell.py
 """
 import unittest
 import time
