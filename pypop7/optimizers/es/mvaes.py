@@ -61,9 +61,10 @@ class MVAES(ES):
         v = (1 - self.c_v) * np.sign(np.dot(v, p_m)) * v + self.c_v * p_m  # Line 7
         return mean, p_s, p_m, v
 
-    def restart_initialize(self, mean=None, p_s=None, p_m=None, v=None, z=None, z_1=None, x=None, y=None):
-        if ES.restart_initialize(self):
-            mean, p_s, p_m, v, z, z_1, x, y = self.initialize(True)
+    def restart_reinitialize(self, args=None, mean=None, p_s=None, p_m=None, v=None, z=None,
+                             z_1=None, x=None, y=None, fitness=None):
+        if self.is_restart and ES.restart_reinitialize(self, y):
+            mean, p_s, p_m, v, z, z_1, x, y = self.initialize(args, True)
         return mean, p_s, p_m, v, z, z_1, x, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
@@ -71,15 +72,13 @@ class MVAES(ES):
         mean, p_s, p_m, v, z, z_1, x, y = self.initialize()
         while True:
             z, z_1, x, y = self.iterate(mean, v, z, z_1, x, y, args)  # sample and evaluate offspring population
-            if self.record_fitness:
-                fitness.extend(y)
             if self._check_terminations():
                 break
             mean, p_s, p_m, v = self._update_distribution(p_s, p_m, v, z, z_1, x, y)
             self._n_generations += 1
-            self._print_verbose_info(y)
-            if self.is_restart:
-                mean, p_s, p_m, v, z, z_1, x, y = self.restart_initialize(mean, p_s, p_m, v, z, z_1, x, y)
-        results = self._collect_results(fitness, mean)
+            self._print_verbose_info(fitness, y)
+            mean, p_s, p_m, v, z, z_1, x, y = self.restart_reinitialize(
+                args, mean, p_s, p_m, v, z, z_1, x, y, fitness)
+        results = self._collect(fitness, y, mean)
         results['v'] = v
         return results
