@@ -78,8 +78,9 @@ Some interesting code snapshots involving population-based methods are shown bel
 * https://github.com/huawei-noah/vega (AutoML)
 * https://github.com/SimonBlanke/Gradient-Free-Optimizers (Discrete Optimization)
 
-The below library seems to be actively maintained (according to the last update time):
+The below libraries seem to be not *actively* maintained (according to the last update time):
 
+* https://github.com/LDNN97/Evolutionary-Optimization-Algorithms (Now it is not actively maintained.)
 * https://github.com/pybrain/pybrain (Now it is not actively maintained.)
 
   * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
