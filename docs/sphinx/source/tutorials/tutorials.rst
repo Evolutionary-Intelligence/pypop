@@ -141,6 +141,22 @@ slight modifications, my theory would absolutely break down."
 <https://www.sciencedirect.com/science/article/pii/S0045782599003813>`_ Luckily, the evolution of an eye-lens could
 indeed proceed through many small steps from only the *optimization* (rather biological) view of point.
 
+For more interesting applications of `ES`/`CMA-ES`/`NES` on challenging real-world problems, refer to e.g.,
+`[Lange et al., 2023, ICLR] <https://openreview.net/pdf?id=mFDU0fP3EQH>`_;
+`[Sun et al., 2022, ICML] <https://proceedings.mlr.press/v162/sun22e.html>`_;
+`[Wang&Ponce, 2022, GECCO] <https://dl.acm.org/doi/10.1145/3512290.3528725>`_;
+`[Bharti et al., 2022, Rev. Mod. Phys] <https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.94.015004>`_;
+`[Nomura et al., 2021, AAAI] <https://ojs.aaai.org/index.php/AAAI/article/view/17109>`_,
+`[Anand et al., 2021, Mach. Learn.: Sci. Technol.] <https://iopscience.iop.org/article/10.1088/2632-2153/abf3ac>`_,
+`[Maheswaranathan et al., 2019, ICML] <http://proceedings.mlr.press/v97/maheswaranathan19a.html>`_,
+`[Dong et al., 2019, CVPR] <https://openaccess.thecvf.com/content_CVPR_2019/papers/Dong_Efficient_Decision-Based_Black-Box_Adversarial_Attacks_on_Face_Recognition_CVPR_2019_paper.pdf>`_;
+`[Ha&Schmidhuber, 2018, NeurIPS] <https://papers.nips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html>`_;
+`[OpenAI, 2017] <https://openai.com/research/evolution-strategies>`_,
+`[Zhang et al., 2017, Science] <https://www.science.org/doi/10.1126/science.aal5054>`_,
+`[Koumoutsakos et al., 2001, AIAA] <https://arc.aiaa.org/doi/10.2514/2.1404>`_,
+`[Lipson&Pollack, 2000, Nature] <https://www.nature.com/articles/35023115>`_,
+just to name a few.
+
 Lennard-Jones Cluster Optimization
 ----------------------------------
 
@@ -148,12 +164,13 @@ Lennard-Jones Cluster Optimization
    :width: 321px
    :align: center
 
-Note that the above figure (i.e., three clusters of atoms) is directly from
+Note that the above figure (i.e., three clusters of atoms) is taken directly from
 http://doye.chem.ox.ac.uk/jon/structures/LJ/pictures/LJ.new.gif.
 
 In chemistry, `Lennard-Jones Cluster Optimization <https://tinyurl.com/4ukrspc9>`_ is a popular single-objective
 real-parameter (black-box) optimization problem, which is to minimize the energy of a cluster of atoms assuming a
-`Lennard-Jones <http://doye.chem.ox.ac.uk/jon/structures/LJ.html>`_ potential between each pair.
+`Lennard-Jones <http://doye.chem.ox.ac.uk/jon/structures/LJ.html>`_ potential between each pair. Here, we use two
+different `DE <https://pypop.readthedocs.io/en/latest/de/de.html>`_ versions to solve this high-dimensional problem:
 
     .. code-block:: python
 
@@ -164,47 +181,52 @@ real-parameter (black-box) optimization problem, which is to minimize the energy
         import seaborn as sns
         import matplotlib.pyplot as plt
 
+
+        # see https://esa.github.io/pagmo2/docs/cpp/problems/lennard_jones.html for the below fitness function
         prob = pg.problem(pg.lennard_jones(150))
         print(prob)  # 444-dimensional
 
-        def energy_func(x):  # wrapper
+
+        def energy_func(x):  # wrapper to obtain fitness of type `float`
             return float(prob.fitness(x))
+
 
         results = []  # to save all optimization results from different optimizers
         for DE in [CDE, JADE]:
             problem = {'fitness_function': energy_func,
-                               'ndim_problem': 444,
-                               'upper_boundary': 3*np.ones((444,)),
-                               'lower_boundary': -3*np.ones((444,))}
-            options = {'max_function_evaluations': 300000,
-                              'seed_rng': 2022,  # for repeatability
-                              'saving_fitness': 1,  # to save all fitness generated during optimization
-                              'boundary': True}  # for JADE (not for CDE)
-            solver = DE(problem, options)  # without boundary constraints
+                       'ndim_problem': 444,
+                       'upper_boundary': prob.get_bounds()[1],
+                       'lower_boundary': prob.get_bounds()[0]}
+            options = {'max_function_evaluations': 400000,
+                       'seed_rng': 2022,  # for repeatability
+                       'saving_fitness': 1,  # to save all fitness generated during optimization
+                       'boundary': True}  # for JADE (but not for CDE)
+            solver = DE(problem, options)
             results.append(solver.optimize())
             print(results[-1])
 
         sns.set_theme(style='darkgrid')
         plt.figure()
-        labels = ['CDE', 'JADE']
-        for i, res in enumerate(results):
-            # starting 1000 can avoid excessively high values generated during the early stage to disrupt convergence curve
-            plt.plot(res['fitness'][1000:, 0], res['fitness'][1000:, 1], label=labels[i])
+        for label, res in zip(['CDE', 'JADE'], results):
+            # starting 250000 can avoid excessively high values generated during the early stage
+            #   to disrupt convergence curves
+            plt.plot(res['fitness'][250000:, 0], res['fitness'][250000:, 1], label=label)
 
         plt.legend()
         plt.show()
 
-The generated convergence curves for both `CDE` (without box constraints) and `JADE` (with box constraints) are
+The two convergence curves generated for `CDE` (without box constraints) and `JADE` (with box constraints) are
 presented in the following image:
 
 .. image:: images/CDE_vs_JADE.png
    :align: center
 
-From the above figure, different `DE` versions show different search performance: `CDE` does not limit samples into
-the given search boundaries during optimization and generate a out-of-box solution very fast, while `JADE` limits
-all samples into the given search boundaries during optimization and generate an inside-of-box solution relatively
-slow. In other words, open-source implementations play an important role for repeatability, since *slightly different*
-implementation details could sometimes even result in *totally different* search behaviors.
+From the above figure, two different `DE` versions show different search performance: `CDE` does not limit samples into
+the given search boundaries during optimization and generate a out-of-box solution (which may be infeasible in practice)
+**very fast**, while `JADE` limits all samples into the given search boundaries during optimization and generate an
+inside-of-box solution **relatively slow**. Since *different* implementations of the same algorithm family details could
+sometimes even result in *totally different* search behaviors, their **open-source** implementations play an important role
+for **repeatability**.
 
 For more interesting applications of `DE` on challenging real-world problems, refer to e.g.,
 `[An et al., 2020, PNAS] <https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117>`_;

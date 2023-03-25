@@ -105,8 +105,12 @@ https://cran.r-project.org/web/views/Optimization.html
 * https://cran.r-project.org/web/packages/neldermead/index.html (NM)
 * https://cran.r-project.org/web/packages/nloptr/index.html
 * https://cran.r-project.org/web/packages/NMOF/index.html (DE/GA/PSO/SA)
+* https://cran.r-project.org/web/packages/pso/index.html (PSO)
 * https://cran.r-project.org/web/packages/RCEIM/index.html (CEM)
 * https://cran.r-project.org/web/packages/rCMA/index.html (CMA-ES)
+* https://cran.r-project.org/web/packages/rgenoud/index.html (GA)
+* https://github.com/hzambran/hydroPSO (PSO)
+* https://github.com/jakobbossek/ecr2
 
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for
 Iterative Optimization Heuristics (IOHs)*.
@@ -167,7 +171,6 @@ the powerful CMA-ES algorithm*.
 
 https://nlopt.readthedocs.io/en/latest/
 
-https://coin-or.github.io/Ipopt/
-
-* https://sop.tik.ee.ethz.ch/pisa/principles.html (Now it is not actively maintained.)
+* https://coin-or.github.io/Ipopt/
 * http://zhar.net/howto/html/ (Now it is not actively maintained.)
+* https://sop.tik.ee.ethz.ch/pisa/principles.html (Now it is not actively maintained.)
