@@ -94,12 +94,10 @@ R
 
 https://cran.r-project.org/web/views/Optimization.html
 
+* https://cran.r-project.org/web/packages/adagio/index.html (NM/HJ)
 * https://cran.r-project.org/web/packages/CEoptim/index.html (CEM)
 * https://cran.r-project.org/web/packages/cmaes/index.html
-* https://cran.r-project.org/web/packages/DEoptimR/index.html (DE)
-
-  * Currently, it only provides an implementation of the `jDE` algorithm by Brest et al. (2006).
-
+* https://cran.r-project.org/web/packages/DEoptimR/index.html (JDE)
 * https://cran.r-project.org/web/packages/neldermead/index.html (NM)
 * https://cran.r-project.org/web/packages/nloptr/index.html
 * https://cran.r-project.org/web/packages/NMOF/index.html (DE/GA/PSO/SA)
