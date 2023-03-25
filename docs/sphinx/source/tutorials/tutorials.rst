@@ -145,6 +145,7 @@ For more interesting applications of `ES`/`CMA-ES`/`NES` on challenging real-wor
 `[Lange et al., 2023, ICLR] <https://openreview.net/pdf?id=mFDU0fP3EQH>`_;
 `[Sun et al., 2022, ICML] <https://proceedings.mlr.press/v162/sun22e.html>`_;
 `[Wang&Ponce, 2022, GECCO] <https://dl.acm.org/doi/10.1145/3512290.3528725>`_;
+`[Bharti et al., 2022, Rev. Mod. Phys] <https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.94.015004>`_;
 `[Nomura et al., 2021, AAAI] <https://ojs.aaai.org/index.php/AAAI/article/view/17109>`_,
 `[Anand et al., 2021, Mach. Learn.: Sci. Technol.] <https://iopscience.iop.org/article/10.1088/2632-2153/abf3ac>`_,
 `[Maheswaranathan et al., 2019, ICML] <http://proceedings.mlr.press/v97/maheswaranathan19a.html>`_,
