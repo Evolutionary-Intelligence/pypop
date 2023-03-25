@@ -45,7 +45,7 @@ class LMCMAES(ES):
 
     Examples
     --------
-    Use the optimizer `LMCMAES` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -216,10 +216,12 @@ class LMCMAES(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, x, p_c, s, vm, pm, b, d, y = self.initialize()
-        while not self._check_terminations():
+        while not self.termination_signal:
             y_bak = np.copy(y)
             # sample and evaluate offspring population
             x, y = self.iterate(mean, x, pm, vm, y, b, args)
+            if self._check_terminations():
+                break
             mean, p_c, s, vm, pm, b, d = self._update_distribution(
                 mean, x, p_c, s, vm, pm, b, d, y, y_bak)
             self._print_verbose_info(fitness, y)
