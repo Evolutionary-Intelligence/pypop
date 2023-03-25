@@ -73,28 +73,28 @@ class LMCMAES(ES):
 
     Attributes
     ----------
-    c_c             : `float`
-                      learning rate for evolution path update.
-    c_s             : `float`
-                      learning rate for population success rule.
-    c_1             : `float`
-                      learning rate for covariance matrix adaptation.
-    d_s             : `float`
-                      delay rate for population success rule.
-    m               : `int`
-                      number of direction vectors.
-    mean            : `array_like`
-                      initial (starting) point, aka mean of Gaussian search distribution.
-    n_individuals   : `int`
-                      number of offspring, aka offspring population size.
-    n_parents       : `int`
-                      number of parents, aka parental population size.
-    n_steps         : `int`
-                      target number of generations between vectors.
-    sigma           : `float`
-                      initial global step-size, aka mutation strength.
-    z_star          : `float`
-                      target success rate for population success rule.
+    c_c           : `float`
+                    learning rate for evolution path update.
+    c_s           : `float`
+                    learning rate for population success rule.
+    c_1           : `float`
+                    learning rate for covariance matrix adaptation.
+    d_s           : `float`
+                    delay rate for population success rule.
+    m             : `int`
+                    number of direction vectors.
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search distribution.
+    n_individuals : `int`
+                    number of offspring, aka offspring population size.
+    n_parents     : `int`
+                    number of parents, aka parental population size.
+    n_steps       : `int`
+                    target number of generations between vectors.
+    sigma         : `float`
+                    initial global step-size, aka mutation strength.
+    z_star        : `float`
+                    target success rate for population success rule.
 
     References
     ----------
