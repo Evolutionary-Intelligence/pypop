@@ -109,6 +109,7 @@ https://cran.r-project.org/web/views/Optimization.html
 * https://cran.r-project.org/web/packages/RCEIM/index.html (CEM)
 * https://cran.r-project.org/web/packages/rCMA/index.html (CMA-ES)
 * https://cran.r-project.org/web/packages/rgenoud/index.html (GA)
+* https://github.com/hzambran/hydroPSO (PSO)
 
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for
 Iterative Optimization Heuristics (IOHs)*.
