@@ -99,12 +99,12 @@ https://cran.r-project.org/web/views/Optimization.html
 * https://cran.r-project.org/web/packages/cmaes/index.html (CMA-ES)
 * https://cran.r-project.org/web/packages/DEoptim/index.html (DE)
 * https://cran.r-project.org/web/packages/DEoptimR/index.html (JDE)
+* https://cran.r-project.org/web/packages/GenSA/index.html (SA)
 * https://cran.r-project.org/web/packages/neldermead/index.html (NM)
 * https://cran.r-project.org/web/packages/nloptr/index.html
 * https://cran.r-project.org/web/packages/NMOF/index.html (DE/GA/PSO/SA)
 * https://cran.r-project.org/web/packages/RCEIM/index.html (CEM)
 * https://cran.r-project.org/web/packages/rCMA/index.html (CMA-ES)
-* https://svn.r-project.org/Rjournal/trunk/html/_site/archive/2013-1/xiang-gubian-suomela-etal.pdf (SA)
 
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for
 Iterative Optimization Heuristics (IOHs)*.
