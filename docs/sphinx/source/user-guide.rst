@@ -143,21 +143,25 @@ hyper-parameters):
 Result Analysis
 ---------------
 
-After the optimization stage, all optimizers return at least the following common results (collected into a `dict`):
+After the ending of optimization stage, all optimizers return at least the following common results (collected into
+a `dict`) in a **unified** way:
   * `best_so_far_x`: the best-so-far solution found during optimization,
   * `best_so_far_y`: the best-so-far fitness (aka objective value) found during optimization,
-  * `n_function_evaluations`: the total number of function evaluations used during optimization,
-  * `runtime`: the total runtime used during the entire optimization stage,
-  * `termination_signal`: the termination signal (`MAX_FUNCTION_EVALUATIONS` or `MAX_RUNTIME` or `FITNESS_THRESHOLD`),
-  * `time_function_evaluations`: the total runtime spent in function evaluations,
-  * `fitness`: a list of fitness generated during the entire optimization stage.
+  * `n_function_evaluations`: the total number of function evaluations used during optimization (which never exceeds
+    `max_function_evaluations`),
+  * `runtime`: the total runtime used during the entire optimization stage (which does not exceed `max_runtime`),
+  * `termination_signal`: the termination signal from three common candidates (`MAX_FUNCTION_EVALUATIONS`,
+    `MAX_RUNTIME`, and `FITNESS_THRESHOLD`),
+  * `time_function_evaluations`: the total runtime spent only in function evaluations,
+  * `fitness`: a list of fitness (aka objective value) generated during the entire optimization stage.
 
 When the optimizer option `saving_fitness` is set to `False`, `fitness` will be `None`. When the optimizer option
-`saving_fitness` is set to an integer `n` (e.g., 1000), `fitness` will be a list of fitness generated every `n`
-(e.g. 1000) function evaluations. Note that both the *first* and *last* fitness are always saved in this case.
+`saving_fitness` is set to an integer `n` (> 0), `fitness` will be a list of fitness generated every `n` function
+evaluations. Note that both the *first* and *last* fitness are always saved as the *beginning* and *ending* of
+optimization.
 
-Below is a simple example to visualize the *convergence* procedure of Evolution Strategy (ES) on the classical
-`sphere` function:
+Below is a simple example to visualize the *fitness convergence* procedure of Evolution Strategy (ES) on the
+classical `sphere` function:
 
     .. code-block:: python
        :linenos:
