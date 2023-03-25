@@ -64,13 +64,21 @@ Python
 
 * https://scipy.org/
 
+  * https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html
   * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-neldermead.html
   * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-powell.html
-  * https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html
+  * https://docs.scipy.org/doc/scipy/reference/optimize.minimize_scalar-brent.html
 
-* https://github.com/facebookresearch/LA-MCTS
+Some interesting code snapshots involving population-based methods are shown below:
+
+* https://github.com/facebookresearch/LA-MCTS (BO/CMA-ES)
 
   * https://github.com/facebookresearch/LaMCTS
+
+* https://github.com/huawei-noah/vega (AutoML)
+* https://github.com/SimonBlanke/Gradient-Free-Optimizers (Discrete Optimization)
+
+The below library seems to be actively maintained (according to the last update time):
 
 * https://github.com/pybrain/pybrain (Now it is not actively maintained.)
 
@@ -80,9 +88,6 @@ Python
 * https://github.com/blaa/PyGene (Now it is not actively maintained.)
 
 * https://github.com/scikit-optimize/scikit-optimize (Now it is not actively maintained.)
-
-* https://github.com/huawei-noah/vega (AutoML)
-* https://github.com/SimonBlanke/Gradient-Free-Optimizers (Discrete Optimization)
 
 R
 -
