@@ -171,7 +171,6 @@ the powerful CMA-ES algorithm*.
 
 https://nlopt.readthedocs.io/en/latest/
 
-https://coin-or.github.io/Ipopt/
-
-* https://sop.tik.ee.ethz.ch/pisa/principles.html (Now it is not actively maintained.)
+* https://coin-or.github.io/Ipopt/
 * http://zhar.net/howto/html/ (Now it is not actively maintained.)
+* https://sop.tik.ee.ethz.ch/pisa/principles.html (Now it is not actively maintained.)
