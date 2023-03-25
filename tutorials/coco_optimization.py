@@ -27,9 +27,9 @@ if __name__ == '__main__':
         d = current_problem.dimension
         problem = {'fitness_function': current_problem,
                    'ndim_problem': d,
-                   'lower_boundary': -10 * np.ones((d,)),
-                   'upper_boundary': 10 * np.ones((d,))}
-        options = {'max_function_evaluations': 1e3 * d,
+                   'lower_boundary': -10*np.ones((d,)),
+                   'upper_boundary': 10*np.ones((d,))}
+        options = {'max_function_evaluations': 1e3*d,
                    'seed_rng': 2022,
                    'sigma': 1.0,
                    'verbose': False,
