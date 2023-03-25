@@ -33,7 +33,7 @@ class VDCMA(ES):
 
     Examples
     --------
-    Use the optimizer `VDCMA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -84,15 +84,9 @@ class VDCMA(ES):
         ES.__init__(self, problem, options)
         self.options = options
         self.c_factor = options.get('c_factor', np.maximum((self.ndim_problem - 5.0)/6.0, 0.5))
-        self.c_c = None
-        self.c_1 = None
-        self.c_mu = None
-        self.c_s = None
+        self.c_c, self.c_1, self.c_mu, self.c_s = None, None, None, None
         self.d_s = None
-        self._v_n = None
-        self._v_2 = None
-        self._v_ = None
-        self._v_p2 = None
+        self._v_n, self._v_2, self._v_, self._v_p2 = None, None, None, None
 
     def initialize(self, is_restart=False):
         self.c_c = self.options.get('c_c', (4.0 + self._mu_eff/self.ndim_problem)/(
@@ -199,12 +193,16 @@ class VDCMA(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         d, v, p_s, p_c, z, zz, x, mean, y = self.initialize()
-        while not self._check_terminations():
-            z, zz, x, y = self.iterate(d, z, zz, x, mean, y, args)  # sample and evaluate offspring population
+        while not self.termination_signal:
+            # sample and evaluate offspring population
+            z, zz, x, y = self.iterate(d, z, zz, x, mean, y, args)
+            if self._check_terminations():
+                break
             self._print_verbose_info(fitness, y)
             mean, p_s, p_c, v, d = self._update_distribution(d, v, p_s, p_c, zz, x, y)
             self._n_generations += 1
-            d, v, p_s, p_c, z, zz, x, mean, y = self.restart_reinitialize(d, v, p_s, p_c, z, zz, x, mean, y)
+            d, v, p_s, p_c, z, zz, x, mean, y = self.restart_reinitialize(
+                d, v, p_s, p_c, z, zz, x, mean, y)
         results = self._collect(fitness, y, mean)
         results['d'] = d
         results['v'] = v
