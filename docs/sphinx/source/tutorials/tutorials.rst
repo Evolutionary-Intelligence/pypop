@@ -219,6 +219,7 @@ The two convergence curves generated for `CDE` (without box constraints) and `JA
 presented in the following image:
 
 .. image:: images/CDE_vs_JADE.png
+   :width: 321px
    :align: center
 
 From the above figure, two different `DE` versions show different search performance: `CDE` does not limit samples into
