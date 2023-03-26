@@ -8,16 +8,15 @@ import matplotlib.pyplot as plt
 from nevergrad.functions.photonics.core import Photonics
 
 from pypop7.optimizers.pso.clpso import CLPSO
+from pypop7.optimizers.de.jade import JADE
 
-def plot(x, y, name):
+def plot(x_1, y_1, x_2, y_2, name):
     sub_figure = name  + '.png'
     plt.figure(figsize=(8, 6))
     plt.rcParams['font.family'] = 'Times New Roman'
     plt.rcParams['font.size'] = '12'
-
-    plt.plot(x, y, color='black', linewidth=1.0, linestyle='-', label='CLPSO')
-    plt.rcParams['font.family'] = 'Times New Roman'
-    plt.rcParams['font.size'] = '12'
+    plt.plot(x_1, y_1, color='black', linewidth=1.0, linestyle='-', label='CLPSO')
+    plt.plot(x_2, y_2, color='red', linewidth=1.0, linestyle='-', label='JADE')
     plt.legend()
     plt.xlabel('Fevals')
     plt.ylabel('Fitness')
@@ -43,4 +42,11 @@ if __name__ == '__main__':
     solver = CLPSO(problem, options)
     results = solver.optimize()
     res = results['fitness']
-    plot(res[:, 0], res[:, 1], 'photonics_optimization')
+    x_1, y_1 = res[:, 0], res[:, 1]
+
+    jade = JADE(problem, options)
+    results = jade.optimize()
+    res = results['fitness']
+    x_2, y_2 = res[:, 0], res[:, 1]
+
+    plot(x_1, y_1, x_2, y_2, 'photonics_optimization')
