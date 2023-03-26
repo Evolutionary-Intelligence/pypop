@@ -1,58 +1,51 @@
-"""This is a simple demo that optimizes on the well-designed `gymnasium` platform.
-    The code of gymnaisum can be found in:
+"""This is a simple demo to optimize a linear controller on the popular `gymnasium` platform:
     https://github.com/Farama-Foundation/Gymnasium
-    Use pip install "gymnasium[all], to install all dependencies
 """
-import gymnasium as gym
 import numpy as np
-from gymnasium.spaces.discrete import Discrete
+import gymnasium as gym
 
 from pypop7.optimizers.es.maes import MAES as Solver
-env = gym.make("CartPole-v1", render_mode="human")
+
+
+env = gym.make('CartPole-v1', render_mode='human')
+dim = 2  # for action probability space
 
 
 class Controller:
     def __init__(self, observation):
         self.observation = observation
+        self.dim = dim  # for action probability space
 
     def __call__(self, x):
-        total_reward = 0
-        self.observation, info = env.reset()
-        if type(env.action_space) == Discrete:
-            dim = 2
-        else:
-            dim = len(env.action_space)
+        rewards = 0
+        self.observation, _ = env.reset()
         for i in range(1000):
             action = np.matmul(x.reshape(dim, -1), self.observation[:, np.newaxis])
-            total_action = np.sum(action)
-            a, b = action[0] / total_action, action[1] / total_action
-            if a < b:
-                choose_action = 1
+            actions = np.sum(action)
+            prob_left, prob_right = action[0]/actions, action[1]/actions  # seen as a probability
+            if prob_left < prob_right:
+                action = 1
             else:
-                choose_action = 0
-            self.observation, reward, terminated, truncated, info = env.step(choose_action)
-            total_reward += reward
+                action = 0
+            self.observation, reward, terminated, truncated, _ = env.step(action)
+            rewards += reward
             if terminated or truncated:
-                return -total_reward
-        return -total_reward
+                return -rewards  # for minimization (rather than maximization) 
+        return -rewards  # to negate rewards
 
 
-observation, info = env.reset(seed=42)
-if type(env.action_space) == Discrete:
-    dim = 2
-else:
-    dim = len(env.action_space)
-
-controller = Controller(observation)
-pro = {'fitness_function': controller,
-       'ndim_problem': len(observation) * dim,
-       'lower_boundary': -10 * np.ones((len(observation) * dim,)),
-       'upper_boundary': 10 * np.ones((len(observation) * dim,))}
-opt = {'max_function_evaluations': 1e4,
-       'seed_rng': 0,
-       'sigma': 3.0,
-       'verbose': 1,
-       'saving_fitness': 0}
-solver = Solver(pro, opt)
-res = solver.optimize()
-env.close()
+if __name__ == '__main__':
+    observation, _ = env.reset(seed=2023)
+    controller = Controller(observation)
+    pro = {'fitness_function': controller,
+           'ndim_problem': len(observation)*dim,
+           'lower_boundary': -10*np.ones((len(observation)*dim,)),
+           'upper_boundary': 10*np.ones((len(observation)*dim,))}
+    opt = {'max_function_evaluations': 1e4,
+           'seed_rng': 0,
+           'sigma': 3.0,
+           'verbose': 1,
+           'saving_fitness': 0}
+    solver = Solver(pro, opt)
+    res = solver.optimize()
+    env.close()
