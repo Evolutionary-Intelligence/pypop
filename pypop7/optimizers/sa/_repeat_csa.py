@@ -5,10 +5,10 @@
     https://dl.acm.org/doi/abs/10.1145/29380.29864
     https://dl.acm.org/doi/10.1145/66888.356281
 
-    Luckily our code could repeat the data reported in the original paper *well* on at least the following
-    test functions, although the settings of some hyper-parameters are not given clearly in the original
-    paper. Therefore, we argue that its repeatability could be **well-documented** on at least these chosen
-    test functions.
+    Luckily our Python code could repeat the data reported in the original paper *well* on at least the
+    following test functions, although the settings of some hyper-parameters are not given clearly in
+    the original paper. Therefore, we argue that its repeatability could be **well-documented** on at
+    least these test functions.
 """
 import numpy as np
 
