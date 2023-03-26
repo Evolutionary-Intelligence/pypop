@@ -7,6 +7,12 @@ from athena.active import ActiveSubspaces
 class ASGA(GA):
     """Active Subspace Genetic Algorithm (ASGA).
 
+    .. note:: Before running this optimizer, please manually install the dependency called `athena-mathlab
+       <https://github.com/mathLab/ATHENA>`_ via `pip install athena-mathlab`. Currently this dependency
+       is still actively updated and improved, which may result in a failure for our implementation. We
+       expect it to be stable in the near future. In other words, now it should be used for *experimental*
+       purposes rather than *practical* purposes.
+
     Parameters
     ----------
     problem : dict
