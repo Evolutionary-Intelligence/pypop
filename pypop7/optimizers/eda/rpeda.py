@@ -122,13 +122,11 @@ class RPEDA(EDA):
         x, xx, y = self.initialize()
         while True:
             x, y = self.iterate(xx, y, args)
-            if self.saving_fitness:
-                fitness.extend(y)
             if self._check_terminations():
                 break
             # select top individuals
             order = np.argsort(y)[:self.n_parents]
             xx = np.copy(x[order])
-            self._print_verbose_info(y)
             self._n_generations += 1
-        return self._collect_results(fitness)
+            self._print_verbose_info(fitness, y)
+        return self._collect(fitness, y)

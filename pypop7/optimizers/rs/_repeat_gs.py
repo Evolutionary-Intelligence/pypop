@@ -8,7 +8,7 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/gs
 
-    We found that the current implementation could show *very similar* performance on the same
+    We found that the current Python implementation could show *very similar* performance on the same
     benchmark functions (after removing its noise part). The resulting much less (>100x) number of function
     evaluations needed may be well explained by the much easier fitness landscape (i.e., without noisiness).
 """

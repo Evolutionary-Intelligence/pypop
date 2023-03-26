@@ -6,13 +6,14 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class EP(Optimizer):
     """Evolutionary Programming (EP).
 
-    This is the **base** (abstract) class for all `EP` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `EP` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
     .. note:: `EP` is one of three classical families of evolutionary algorithms (EAs), proposed originally by Lawrence
-       J. Fogel, one recipient of both `Evolutionary Computation Pioneer Award 1998 <https://tinyurl.com/456as566>`_ and
+       J. Fogel, the recipient of `IEEE Evolutionary Computation Pioneer Award 1998 <https://tinyurl.com/456as566>`_ and
        `IEEE Frank Rosenblatt Award 2006 <https://tinyurl.com/yj28zxfa>`_. When used for continuous optimization, most
-       of modern `EP` share much similarities (e.g. self-adaptation) with `ES`, another representative EA.
+       of modern `EP` versions share much similarities (e.g. self-adaptation) with `ES
+       <https://pypop.readthedocs.io/en/latest/es/es.html>`_, another representative EA.
 
     Parameters
     ----------
@@ -64,6 +65,11 @@ class EP(Optimizer):
     https://link.springer.com/chapter/10.1007/3-540-61108-8_28
 
     Fogel, D.B., 1994.
+    An introduction to simulated evolutionary optimization.
+    IEEE Transactions on Neural Networks, 5(1), pp.3-14.
+    https://ieeexplore.ieee.org/abstract/document/265956
+
+    Fogel, D.B., 1994.
     Evolutionary programming: An introduction and some current directions.
     Statistics and Computing, 4(2), pp.113-129.
     https://link.springer.com/article/10.1007/BF00175356
@@ -79,6 +85,7 @@ class EP(Optimizer):
             self.n_individuals = 100  # number of offspring, aka offspring population size
         self.sigma = options.get('sigma')  # initial global step-size, aka mutation strength
         self._n_generations = 0  # number of generations
+        self._printed_evaluations = 0  # only for printing
 
     def initialize(self):
         raise NotImplementedError
@@ -86,12 +93,24 @@ class EP(Optimizer):
     def iterate(self):
         raise NotImplementedError
 
-    def _print_verbose_info(self, y):
-        if self.verbose and (not self._n_generations % self.verbose):
-            info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
-            print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+    def _print_verbose_info(self, fitness, y, is_print=False):
+        if y is not None and self.saving_fitness:
+            if not np.isscalar(y):
+                fitness.extend(y)
+            else:
+                fitness.append(y)
+        if self.verbose:
+            is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
+            is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
+            is_verbose_2 = self.termination_signal > 0 and is_verbose
+            is_verbose_3 = is_print and is_verbose
+            if is_verbose_1 or is_verbose_2 or is_verbose_3:
+                info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
+                print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+                self._printed_evaluations = self.n_function_evaluations
 
-    def _collect_results(self, fitness=None):
-        results = Optimizer._collect_results(self, fitness)
+    def _collect(self, fitness=None, y=None):
+        self._print_verbose_info(fitness, y)
+        results = Optimizer._collect(self, fitness)
         results['_n_generations'] = self._n_generations
         return results

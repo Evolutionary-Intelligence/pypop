@@ -45,7 +45,7 @@ class LMCMAES(ES):
 
     Examples
     --------
-    Use the optimizer `LMCMAES` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -73,28 +73,28 @@ class LMCMAES(ES):
 
     Attributes
     ----------
-    c_c             : `float`
-                      learning rate for evolution path update.
-    c_s             : `float`
-                      learning rate for population success rule.
-    c_1             : `float`
-                      learning rate for covariance matrix adaptation.
-    d_s             : `float`
-                      delay rate for population success rule.
-    m               : `int`
-                      number of direction vectors.
-    mean            : `array_like`
-                      initial (starting) point, aka mean of Gaussian search distribution.
-    n_individuals   : `int`
-                      number of offspring, aka offspring population size.
-    n_parents       : `int`
-                      number of parents, aka parental population size.
-    n_steps         : `int`
-                      target number of generations between vectors.
-    sigma           : `float`
-                      initial global step-size, aka mutation strength.
-    z_star          : `float`
-                      target success rate for population success rule.
+    c_c           : `float`
+                    learning rate for evolution path update.
+    c_s           : `float`
+                    learning rate for population success rule.
+    c_1           : `float`
+                    learning rate for covariance matrix adaptation.
+    d_s           : `float`
+                    delay rate for population success rule.
+    m             : `int`
+                    number of direction vectors.
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search distribution.
+    n_individuals : `int`
+                    number of offspring, aka offspring population size.
+    n_parents     : `int`
+                    number of parents, aka parental population size.
+    n_steps       : `int`
+                    target number of generations between vectors.
+    sigma         : `float`
+                    initial global step-size, aka mutation strength.
+    z_star        : `float`
+                    target success rate for population success rule.
 
     References
     ----------
@@ -216,10 +216,12 @@ class LMCMAES(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, x, p_c, s, vm, pm, b, d, y = self.initialize()
-        while not self._check_terminations():
+        while not self.termination_signal:
             y_bak = np.copy(y)
             # sample and evaluate offspring population
             x, y = self.iterate(mean, x, pm, vm, y, b, args)
+            if self._check_terminations():
+                break
             mean, p_c, s, vm, pm, b, d = self._update_distribution(
                 mean, x, p_c, s, vm, pm, b, d, y, y_bak)
             self._print_verbose_info(fitness, y)

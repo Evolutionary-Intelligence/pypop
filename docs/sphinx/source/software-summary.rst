@@ -64,38 +64,59 @@ Python
 
 * https://scipy.org/
 
+  * https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html
   * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-neldermead.html
   * https://docs.scipy.org/doc/scipy/reference/optimize.minimize-powell.html
-  * https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html
+  * https://docs.scipy.org/doc/scipy/reference/optimize.minimize_scalar-brent.html
 
-* https://github.com/facebookresearch/LA-MCTS
+Some interesting code snapshots involving population-based methods are shown below:
+
+* https://github.com/apourchot/CEM-RL (CEM)
+* https://github.com/facebookresearch/LA-MCTS (BO/CMA-ES)
 
   * https://github.com/facebookresearch/LaMCTS
 
-* https://github.com/pybrain/pybrain (Now it is not actively maintained.)
-
-  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
-  * https://github.com/chanshing/xnes
-
-* https://github.com/blaa/PyGene (Now it is not actively maintained.)
-
-* https://github.com/scikit-optimize/scikit-optimize (Now it is not actively maintained.)
-
 * https://github.com/huawei-noah/vega (AutoML)
 * https://github.com/SimonBlanke/Gradient-Free-Optimizers (Discrete Optimization)
+
+The below libraries seem to be not *actively* maintained (according to the last update time):
+
+* https://github.com/blaa/PyGene (Now it is not actively maintained.)
+* https://github.com/LDNN97/Evolutionary-Optimization-Algorithms (Now it is not actively maintained.)
+* https://github.com/pybrain/pybrain (Now it is not actively maintained.)
+
+  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/fem.py
+  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/nes.py
+  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/rank1.py
+  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/snes.py
+  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
+  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/xnes.py
+  * https://github.com/chanshing/xnes
+* https://github.com/scikit-optimize/scikit-optimize (Now it is not actively maintained.)
+* https://github.com/strongio/evolutionary-optimization (Now it is not actively maintained.)
 
 R
 -
 
 https://cran.r-project.org/web/views/Optimization.html
 
-* https://cran.r-project.org/web/packages/CEoptim/index.html
-* https://cran.r-project.org/web/packages/cmaes/index.html
-* https://cran.r-project.org/web/packages/DEoptimR/index.html
-
-  * Currently, it only provides an implementation of the `jDE` algorithm by Brest et al. (2006).
+* https://cran.r-project.org/web/packages/adagio/index.html (NM/HJ)
+* https://cran.r-project.org/web/packages/CEoptim/index.html (CEM)
+* https://cran.r-project.org/web/packages/cmaes/index.html (CMA-ES)
+* https://cran.r-project.org/web/packages/DEoptim/index.html (DE)
+* https://cran.r-project.org/web/packages/DEoptimR/index.html (JDE)
+* https://cran.r-project.org/web/packages/GA/index.html (GA)
+* https://cran.r-project.org/web/packages/genalg/index.html (GA)
+* https://cran.r-project.org/web/packages/GenSA/index.html (SA)
 * https://cran.r-project.org/web/packages/neldermead/index.html (NM)
-* https://svn.r-project.org/Rjournal/trunk/html/_site/archive/2013-1/xiang-gubian-suomela-etal.pdf (SA)
+* https://cran.r-project.org/web/packages/nloptr/index.html
+* https://cran.r-project.org/web/packages/NMOF/index.html (DE/GA/PSO/SA)
+* https://cran.r-project.org/web/packages/pso/index.html (PSO)
+* https://cran.r-project.org/web/packages/RCEIM/index.html (CEM)
+* https://cran.r-project.org/web/packages/rCMA/index.html (CMA-ES)
+* https://cran.r-project.org/web/packages/rgenoud/index.html (GA)
+* https://github.com/hzambran/hydroPSO (PSO)
+* https://github.com/jakobbossek/ecr2
 
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for
 Iterative Optimization Heuristics (IOHs)*.
@@ -156,7 +177,6 @@ the powerful CMA-ES algorithm*.
 
 https://nlopt.readthedocs.io/en/latest/
 
-https://coin-or.github.io/Ipopt/
-
-* https://sop.tik.ee.ethz.ch/pisa/principles.html (Now it is not actively maintained.)
+* https://coin-or.github.io/Ipopt/
 * http://zhar.net/howto/html/ (Now it is not actively maintained.)
+* https://sop.tik.ee.ethz.ch/pisa/principles.html (Now it is not actively maintained.)

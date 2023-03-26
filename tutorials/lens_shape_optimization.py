@@ -5,16 +5,16 @@
     https://dl.acm.org/doi/abs/10.1145/3377929.3389870
 """
 import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.path import Path
-import matplotlib.patches as patches
-import imageio.v2 as imageio
+import imageio.v2 as imageio  # for animation
+import matplotlib.pyplot as plt  # for static plotting
+from matplotlib.path import Path  # for static plotting
+import matplotlib.patches as patches  # for static plotting
 
-from pypop7.optimizers.es.es import ES
-from pypop7.optimizers.es.maes import MAES
+from pypop7.optimizers.es.es import ES  # abstract class for all ES
+from pypop7.optimizers.es.maes import MAES  # Matrix Adaptation Evolution Strategy
 
 
-# set parameters for lens shape optimization
+# <1> - Set Parameters for Lens Shape Optimization (global)
 weight = 0.9  # weight of focus function
 r = 7  # radius of lens
 h = 1  # trapezoidal slices of height
@@ -23,19 +23,18 @@ eps = 1.5  # refraction index
 d_init = 3  # initialization
 
 
-# define objective function to be minimized
-def f_lens(x):  # refer to [Beyer, 2020, ACM-GECCO] for the mathematical details
+# <2> - Define Objective Function (aka Fitness Function) to be Minimized
+def func_lens(x):  # refer to [Beyer, 2020, ACM-GECCO] for all mathematical details
     n = len(x)
     focus = r - ((h*np.arange(1, n) - 0.5) + b/h*(eps - 1)*np.transpose(np.abs(x[1:]) - np.abs(x[:(n-1)])))
     mass = h*(np.sum(np.abs(x[1:(n-1)])) + 0.5*(np.abs(x[0]) + np.abs(x[n-1])))
     return weight*np.sum(focus**2) + (1.0 - weight)*mass
 
 
-def get_path(x):
+def get_path(x):  # only for plotting
     left, right, height = [], [], r
     for i in range(len(x)):
-        if x[i] < 0:
-            x[i] *= -1
+        x[i] = -x[i] if x[i] < 0 else x[i]
         left.append((-0.5*x[i], height))
         right.append((0.5*x[i], height))
         height -= 1
@@ -67,16 +66,15 @@ def plot(xs):
         file_names.append(sub_figure)
     for image in file_names:
         frames.append(imageio.imread(image))
-    imageio.mimsave('./lens_optimization.gif', frames, 'GIF', duration=0.3)
+    imageio.mimsave('lens_shape_optimization.gif', frames, 'GIF', duration=0.3)
 
 
-class MAES1(MAES):  # to overwrite the original MAES algorithm for plotting
+class MAESPLOT(MAES):  # to overwrite original MAES algorithm for plotting
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         z, d, mean, s, tm, y = self.initialize()
         xs = [mean.copy()]  # for plotting
         while not self._check_terminations():
-            # sample and evaluate offspring population
             z, d, y = self.iterate(z, d, mean, tm, y, args)
             if self.saving_fitness and (not self._n_generations % self.saving_fitness):
                 xs.append(self.best_so_far_x)  # for plotting
@@ -86,14 +84,13 @@ class MAES1(MAES):  # to overwrite the original MAES algorithm for plotting
             if self.is_restart:
                 z, d, mean, s, tm, y = self.restart_reinitialize(z, d, mean, s, tm, y)
         res = self._collect(fitness, y, mean)
-        res['s'] = s
         res['xs'] = xs  # for plotting
         return res
 
 
 if __name__ == '__main__':
     ndim_problem = 15  # dimension of objective function
-    problem = {'fitness_function': f_lens,  # objective function
+    problem = {'fitness_function': func_lens,  # objective (fitness) function
                'ndim_problem': ndim_problem,  # number of dimensionality of objective function
                'lower_boundary': -5*np.ones((ndim_problem,)),  # lower boundary of search range
                'upper_boundary': 5*np.ones((ndim_problem,))}  # upper boundary of search range
@@ -103,5 +100,5 @@ if __name__ == '__main__':
                'sigma': 0.3,  # global step-size of Gaussian search distribution (not necessarily an optimal value)
                'saving_fitness': 50,  # to record best-so-far fitness every 50 function evaluations
                'is_restart': False}  # whether or not to run the (default) restart process
-    results = MAES1(problem, options).optimize()
+    results = MAESPLOT(problem, options).optimize()
     plot(results['xs'])

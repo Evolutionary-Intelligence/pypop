@@ -1,14 +1,15 @@
 from typing import NamedTuple
 from itertools import count
 from collections import deque
+import time
 
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.svm import SVC
 
-from pypop7.optimizers.core.optimizer import Optimizer
-from pypop7.optimizers.es.maes import MAES
+from pypop7.optimizers.bo.bo import BO
+from pypop7.optimizers.es.cmaes import CMAES
 
 
 class Sample(NamedTuple):  # basic data class for classification
@@ -60,14 +61,15 @@ class Bag(object):  # basic data class for classification
 
 
 class KMSVM(object):  # classification class based on K-Means and SVM
-    def __init__(self, lb, ub):
+    def __init__(self, lb, ub, rng):
         self._lb, self._ub = lb, ub
         self._min_lb, self._max_ub = np.min(lb), np.max(ub)
         self._diff = (self._max_ub - self._min_lb)/2.0
         self._center = (self._max_ub + self._min_lb)/2.0
         self._scaler = StandardScaler(with_mean=False, with_std=False)
-        self._kmeans = KMeans(n_clusters=2)
-        self._svm = SVC(kernel='rbf', gamma='auto', max_iter=100000)
+        self._kmeans = KMeans(n_clusters=2, random_state=rng.integers(2**32))
+        self._svm = SVC(kernel='rbf', gamma='auto', max_iter=100000,
+                        random_state=rng.integers(2**32))
         self._is_fitted = False
 
     def _learn_labels(self, bag):
@@ -163,11 +165,11 @@ class Node:  # basic class for recursive decomposition
             n_p, n_j = len(parent._bag.y), len(self._bag.y)
             self.cb -= 2.0*self.c_e*np.sqrt(2.0*np.power(n_p, 0.5)/n_j)
 
-    def __init__(self, ndim, leaf_size, c_e, bag, label=-1, parent=-1, lb=None, ub=None):
+    def __init__(self, ndim, leaf_size, c_e, bag, label=-1, parent=-1, lb=None, ub=None, rng=None):
         self._ndim, self._leaf_size, self.c_e = ndim, leaf_size, c_e
         self._lb, self._ub = lb, ub
         self._label, self._parent = label, parent
-        self._classifier = KMSVM(lb, ub)
+        self._classifier, self.rng = KMSVM(lb, ub, rng), rng
         self._children = []
         self._bag = bag
         self.cb = float('NaN')
@@ -213,7 +215,8 @@ class Node:  # basic class for recursive decomposition
         children = []
         for label, choice in s:
             bag = Bag(self._bag.x[choice], self._bag.y[choice])
-            child = Node(self._ndim, self._leaf_size, self.c_e, bag, label, self._id, self._lb, self._ub)
+            child = Node(self._ndim, self._leaf_size, self.c_e, bag, label, self._id,
+                         self._lb, self._ub, self.rng)
             children.append(child)
             self._children.append(child._id)
         return children
@@ -245,49 +248,114 @@ class Path:  # basic class for recursive decomposition
 
 
 class Sampler(object):  # for sampling in nodes
-    def __init__(self, problem, _func, args, rng, verbose):
+    def __init__(self, problem, func, rng, ev):
         self.problem, self._ndim = problem, problem['ndim_problem']
-        self._func, self.args = _func, args
+        self.problem['fitness_function'] = func
         self.lb, self.ub = problem['lower_boundary'], problem['upper_boundary']
-        self.cmaes, self.rng, self.fitness, self.verbose = None, rng, [], verbose
+        self.cmaes, self.rng, self.fitness = None, rng, []
+        self.ev = ev
 
     def sample(self, n_samples, path=None):
         if path is None or len(path) < 2:
             x = (self.ub + self.lb)/2.0
-            sigma = np.max(self._func.ub - self._func.lb)/6.0
+            sigma = np.max(self.ub - self.lb)/6.0
         else:
             bag = path[-1]._bag
             x, x_std = np.mean(bag.x, axis=0), np.std(bag.x, axis=0) 
             sigma = (np.mean(x_std) + 3.0*np.std(x_std))/3.0
-            sigma = np.max(self._func.ub - self._func.lb)/6.0 if sigma == 0.0 else sigma
+            sigma = np.max(self.ub - self.lb)/6.0 if sigma == 0.0 else sigma
         bags = Bag(self._ndim)
-        if self.cmaes is None:
-            options = {'mean': x, 'sigma': sigma, 'n_individuals': 4,
-                       'seed_rng': self.rng, 'saving_fitness': 1, 'verbose': self.verbose}
-            self.cmaes = MAES(self.problem, options)
-            x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.cmaes.initialize()
-        else:
-            x, mean, p_s, p_c, cm, eig_ve, eig_va, y = None, None, None, None, None, None, None, None
+        options = {'mean': x, 'sigma': sigma, 'n_individuals': 4,
+                   'seed_rng': self.rng.integers(np.iinfo(np.int64).max),
+                   'saving_fitness': 1, 'verbose': False, 'max_function_evaluations':
+                       self.ev.max_function_evaluations - self.ev.n_function_evaluations}
+        self.cmaes = CMAES(self.problem, options)
+        self.cmaes.start_time = time.time()
+        x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.cmaes.initialize()
         while len(bags) < n_samples:
-            x, y = self.cmaes.iterate(x, mean, eig_ve, eig_va, y, self.args)
+            x, y = self.cmaes.iterate(x, mean, eig_ve, eig_va, y)
             self.fitness.extend(y)
-            if self.cmaes._check_terminations():
-                break
+            if self.ev._check_terminations():
+                return bags
             self.cmaes.n_generations += 1
             mean, p_s, p_c, cm, eig_ve, eig_va = self.cmaes.update_distribution(
                 x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
-            bags.extend(Bag(x, y))
+            bags.extend(Bag(np.copy(x), np.copy(y)))
         return bags
 
 
-class LAMCTS(Optimizer):
+class LAMCTS(BO):
     """Latent Action Monte Carlo Tree Search (LAMCTS).
 
-    https://github.com/facebookresearch/LA-MCTS
-    https://github.com/facebookresearch/LaMCTS
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'n_individuals' - number of individuals/samples (`int`, default: `100`),
+                * 'c_e'           - factor to control exploration (`float`, default: `0.01`),
+                * 'leaf_size'     - leaf size (`int`, default: 40).
+
+    Examples
+    --------
+    Use the optimizer to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.bo.lamcts import LAMCTS
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 1}
+       >>> lamcts = LAMCTS(problem, options)  # initialize the optimizer class
+       >>> results = lamcts.optimize()  # run the optimization process
+       >>> # return the number of used function evaluations and found best-so-far fitness
+       >>> print(f"LAMCTS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       LAMCTS: 5000, 0.00011439953866179555
+
+    For its correctness checking of coding, refer to `this code-based repeatability report
+    <https://tinyurl.com/5f827dwh>`_ for more details.
+
+    Attributes
+    ----------
+    c_e              : float
+                       factor to control exploration.
+    init_individuals : int
+                       number of initial individuals.
+    leaf_size        : int
+                       leaf size.
+    n_individuals    : int
+                       number of individuals/samples.
+
+    References
+    ----------
+    Wang, L., Fonseca, R. and Tian, Y., 2020.
+    Learning search space partition for black-box optimization using monte carlo tree search.
+    Advances in Neural Information Processing Systems, 33, pp.19511-19522.
+    https://arxiv.org/abs/2007.00708 (an updated version)
+    https://proceedings.neurips.cc/paper/2020/hash/e2ce14e81dba66dbff9cbc35ecfdb704-Abstract.html
+    (the original version)
+
+    https://github.com/facebookresearch/LA-MCTS (an updated version)
+    https://github.com/facebookresearch/LaMCTS (the original version)
     """
     def __init__(self, problem, options):
-        Optimizer.__init__(self, problem, options)
+        BO.__init__(self, problem, options)
         self.n_individuals = options.get('n_individuals', 100)  # number of individuals/samples
         self.c_e = options.get('c_e', 0.01)  # factor to control exploration
         self.leaf_size = options.get('leaf_size', 40)  # leaf size
@@ -316,11 +384,10 @@ class LAMCTS(Optimizer):
     def initialize(self, args=None):
         def _func(x):
             return self._evaluate_fitness(x, args)
-        self._sampler = Sampler(self.problem, _func, args,
-                                self.rng_initialization.integers(np.iinfo(np.int64).max), self.verbose)
+        self._sampler = Sampler(self.problem, _func, self.rng_initialization, self)
         samples = self._sampler.sample(self.init_individuals)
-        self._root = Node(self.ndim_problem, self.leaf_size, self.c_e*samples.best.y,
-                          samples, lb=self.lower_boundary, ub=self.upper_boundary)
+        self._root = Node(self.ndim_problem, self.leaf_size, self.c_e*samples.best.y, samples,
+                          lb=self.lower_boundary, ub=self.upper_boundary, rng=self.rng_initialization)
         self._root = Node.build_tree(self._root)
         self._mcts = self._stats()
 
@@ -329,6 +396,8 @@ class LAMCTS(Optimizer):
         self._root.sort_leaves(all_leaves)
         bags = None
         for sample_node in all_leaves:
+            if self._check_terminations():
+                return
             path = Path(sample_node.path_from_root())
             if bags is None:
                 bags = self._sampler.sample(self.n_individuals, path)
@@ -346,13 +415,16 @@ class LAMCTS(Optimizer):
 
     def _collect(self, fitness, y=None):
         fitness.extend(y)
-        results = Optimizer._collect(self, fitness)
+        results = BO._collect(self, fitness)
         results['_n_generations'] = self._n_generations
         return results
 
     def optimize(self, fitness_function=None, args=None):
-        fitness = Optimizer.optimize(self, fitness_function)
+        fitness = BO.optimize(self, fitness_function)
         self.initialize(args)
         while not self._check_terminations():
             self.iterate()
+            if self.verbose:
+                print(f'n_function_evaluations {self.n_function_evaluations}: ' +
+                      f'best_so_far_y {self.best_so_far_y:.5}')
         return self._collect(fitness, self._sampler.fitness)

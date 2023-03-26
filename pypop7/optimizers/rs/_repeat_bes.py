@@ -8,8 +8,8 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/bes
 
-    Since the current implementation is only a *simplified* version of the original BES algorithm without noisy
-    function (fitness) evaluations, its repeatability **cannot** be guaranteed.
+    Since the current Python implementation is only a *simplified* version of the original BES algorithm
+    without noisy function (fitness) evaluations, its repeatability **cannot** be guaranteed.
 
     However, we found that the current implementation could show *very similar* performance on the same
     benchmark functions (after removing its noise part). The resulting much less (>100x) number of function

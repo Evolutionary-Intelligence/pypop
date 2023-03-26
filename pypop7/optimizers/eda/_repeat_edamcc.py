@@ -59,9 +59,8 @@ if __name__ == '__main__':
                    'theta': 0.3,
                    'c': 20,
                    'n_individuals': 200,
-                   'verbose_frequency': 20,
-                   'record_fitness': True,
-                   'record_fitness_frequency': 1}
+                   'verbose': 20,
+                   'saving_fitness': 1}
         if f == schwefel221:
             problem['lower_boundary'] = -100 * np.ones((ndim_problem,))
             problem['upper_boundary'] = 100 * np.ones((ndim_problem,))

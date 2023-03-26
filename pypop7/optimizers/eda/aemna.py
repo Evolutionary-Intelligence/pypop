@@ -106,15 +106,11 @@ class AEMNA(EDA):
     def optimize(self, fitness_function=None, args=None):
         fitness = EDA.optimize(self, fitness_function)
         x, y, mean, cov = self.initialize(args)
-        if self.saving_fitness:
-            fitness.extend(y)
-        self._print_verbose_info(y)
+        self._print_verbose_info(fitness, y)
         while True:  # similar to steady-state genetic algorithm
             x, y, mean, cov = self.iterate(x, y, mean, cov, args)
-            if self.saving_fitness:
-                fitness.extend(y)
             if self._check_terminations():
                 break
             self._n_generations += 1
-            self._print_verbose_info(y)
-        return self._collect_results(fitness)
+            self._print_verbose_info(fitness, y)
+        return self._collect(fitness, y)

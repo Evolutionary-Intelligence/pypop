@@ -1,0 +1,277 @@
+******* ellipsoid *******
+n_function_evaluations 200: best_so_far_y 1.7163e+08
+n_function_evaluations 300: best_so_far_y 1.7163e+08
+n_function_evaluations 400: best_so_far_y 1.7163e+08
+n_function_evaluations 500: best_so_far_y 1.6218e+08
+n_function_evaluations 600: best_so_far_y 1.5779e+08
+n_function_evaluations 700: best_so_far_y 1.4726e+08
+n_function_evaluations 800: best_so_far_y 1.4651e+08
+n_function_evaluations 900: best_so_far_y 1.2604e+08
+n_function_evaluations 1000: best_so_far_y 1.2604e+08
+n_function_evaluations 1100: best_so_far_y 1.2061e+08
+n_function_evaluations 1200: best_so_far_y 1.0163e+08
+n_function_evaluations 1300: best_so_far_y 1.0159e+08
+n_function_evaluations 1400: best_so_far_y 1.0159e+08
+n_function_evaluations 1500: best_so_far_y 1.0159e+08
+n_function_evaluations 1600: best_so_far_y 1.0159e+08
+n_function_evaluations 1700: best_so_far_y 9.574e+07
+n_function_evaluations 1800: best_so_far_y 9.0545e+07
+n_function_evaluations 1900: best_so_far_y 8.3072e+07
+n_function_evaluations 2000: best_so_far_y 7.7659e+07
+n_function_evaluations 2100: best_so_far_y 7.6389e+07
+n_function_evaluations 2200: best_so_far_y 7.0077e+07
+n_function_evaluations 2300: best_so_far_y 6.8809e+07
+n_function_evaluations 2400: best_so_far_y 6.4305e+07
+n_function_evaluations 2500: best_so_far_y 6.1613e+07
+n_function_evaluations 2600: best_so_far_y 5.8745e+07
+n_function_evaluations 2700: best_so_far_y 5.548e+07
+n_function_evaluations 2800: best_so_far_y 5.2022e+07
+n_function_evaluations 2900: best_so_far_y 5.0534e+07
+n_function_evaluations 3000: best_so_far_y 4.781e+07
+n_function_evaluations 3100: best_so_far_y 4.5167e+07
+n_function_evaluations 3200: best_so_far_y 4.2332e+07
+n_function_evaluations 3300: best_so_far_y 4.0822e+07
+n_function_evaluations 3400: best_so_far_y 3.9922e+07
+n_function_evaluations 3500: best_so_far_y 3.9026e+07
+n_function_evaluations 3600: best_so_far_y 3.814e+07
+n_function_evaluations 3700: best_so_far_y 3.7151e+07
+n_function_evaluations 3800: best_so_far_y 3.4764e+07
+n_function_evaluations 3900: best_so_far_y 3.3792e+07
+n_function_evaluations 4000: best_so_far_y 3.2389e+07
+n_function_evaluations 4100: best_so_far_y 3.133e+07
+n_function_evaluations 4200: best_so_far_y 3.017e+07
+n_function_evaluations 4300: best_so_far_y 2.9607e+07
+n_function_evaluations 4400: best_so_far_y 2.842e+07
+n_function_evaluations 4500: best_so_far_y 2.681e+07
+n_function_evaluations 4600: best_so_far_y 2.593e+07
+n_function_evaluations 4700: best_so_far_y 2.505e+07
+n_function_evaluations 4800: best_so_far_y 2.4398e+07
+n_function_evaluations 4900: best_so_far_y 2.4159e+07
+n_function_evaluations 5000: best_so_far_y 2.3627e+07
+n_function_evaluations 5100: best_so_far_y 2.2425e+07
+n_function_evaluations 5200: best_so_far_y 2.1953e+07
+n_function_evaluations 5300: best_so_far_y 2.1185e+07
+n_function_evaluations 5400: best_so_far_y 2.047e+07
+n_function_evaluations 5500: best_so_far_y 1.9562e+07
+n_function_evaluations 5600: best_so_far_y 1.9059e+07
+n_function_evaluations 5700: best_so_far_y 1.7696e+07
+n_function_evaluations 5800: best_so_far_y 1.7185e+07
+n_function_evaluations 5900: best_so_far_y 1.6714e+07
+n_function_evaluations 6000: best_so_far_y 1.548e+07
+n_function_evaluations 6100: best_so_far_y 1.548e+07
+n_function_evaluations 6200: best_so_far_y 1.5432e+07
+n_function_evaluations 6300: best_so_far_y 1.5362e+07
+n_function_evaluations 6400: best_so_far_y 1.493e+07
+n_function_evaluations 6500: best_so_far_y 1.493e+07
+n_function_evaluations 6600: best_so_far_y 1.493e+07
+n_function_evaluations 6700: best_so_far_y 1.493e+07
+n_function_evaluations 6800: best_so_far_y 1.493e+07
+n_function_evaluations 6900: best_so_far_y 1.493e+07
+n_function_evaluations 7000: best_so_far_y 1.493e+07
+n_function_evaluations 7100: best_so_far_y 1.4401e+07
+n_function_evaluations 7200: best_so_far_y 1.4401e+07
+n_function_evaluations 7300: best_so_far_y 1.4352e+07
+n_function_evaluations 7400: best_so_far_y 1.4238e+07
+n_function_evaluations 7500: best_so_far_y 1.4079e+07
+n_function_evaluations 7600: best_so_far_y 1.3928e+07
+n_function_evaluations 7700: best_so_far_y 1.3928e+07
+n_function_evaluations 7800: best_so_far_y 1.3928e+07
+n_function_evaluations 7900: best_so_far_y 1.3928e+07
+n_function_evaluations 8000: best_so_far_y 1.3928e+07
+n_function_evaluations 8100: best_so_far_y 1.3928e+07
+n_function_evaluations 8200: best_so_far_y 1.3928e+07
+n_function_evaluations 8300: best_so_far_y 1.3928e+07
+{'best_so_far_x': array([-1.56258122e+00,  1.38939949e+00, -3.85069459e-01,  1.61797315e+00,
+        ...,
+        3.46840178e-03, -7.45309108e-02, -5.08929634e-02,  9.15030606e-04]),
+ 'best_so_far_y': 13927655.768722853,
+ 'n_function_evaluations': 8300,
+ 'runtime': 3658.6219873428345,
+ 'termination_signal': <Terminations.MAX_RUNTIME: 2>,
+ 'time_function_evaluations': 2.4117472171783447,
+ 'fitness': array([[1.00000000e+00, 1.83703261e+08],
+       [8.30000000e+03, 1.39276558e+07]]),
+ 'success': False,
+ '_n_generations': 82}
+*** Runtime: 3.65878e+03
+******* rosenbrock *******
+n_function_evaluations 200: best_so_far_y 2.5817e+06
+n_function_evaluations 300: best_so_far_y 2.5817e+06
+n_function_evaluations 400: best_so_far_y 1.462e+06
+n_function_evaluations 500: best_so_far_y 1.462e+06
+n_function_evaluations 600: best_so_far_y 1.1836e+06
+n_function_evaluations 700: best_so_far_y 9.2643e+05
+n_function_evaluations 800: best_so_far_y 8.3781e+05
+n_function_evaluations 900: best_so_far_y 8.3781e+05
+n_function_evaluations 1000: best_so_far_y 7.8362e+05
+n_function_evaluations 1100: best_so_far_y 7.8362e+05
+n_function_evaluations 1200: best_so_far_y 7.8362e+05
+n_function_evaluations 1300: best_so_far_y 7.8362e+05
+n_function_evaluations 1400: best_so_far_y 6.7517e+05
+n_function_evaluations 1500: best_so_far_y 6.7517e+05
+n_function_evaluations 1600: best_so_far_y 6.4371e+05
+n_function_evaluations 1700: best_so_far_y 6.4371e+05
+n_function_evaluations 1800: best_so_far_y 6.3245e+05
+n_function_evaluations 1900: best_so_far_y 6.0359e+05
+n_function_evaluations 2000: best_so_far_y 5.7245e+05
+n_function_evaluations 2100: best_so_far_y 5.2523e+05
+n_function_evaluations 2200: best_so_far_y 5.0891e+05
+n_function_evaluations 2300: best_so_far_y 4.9807e+05
+n_function_evaluations 2400: best_so_far_y 4.762e+05
+n_function_evaluations 2500: best_so_far_y 4.6383e+05
+n_function_evaluations 2600: best_so_far_y 4.4935e+05
+n_function_evaluations 2700: best_so_far_y 4.3594e+05
+n_function_evaluations 2800: best_so_far_y 4.178e+05
+n_function_evaluations 2900: best_so_far_y 3.957e+05
+n_function_evaluations 3000: best_so_far_y 3.7775e+05
+n_function_evaluations 3100: best_so_far_y 3.7066e+05
+n_function_evaluations 3200: best_so_far_y 3.4344e+05
+n_function_evaluations 3300: best_so_far_y 3.3343e+05
+n_function_evaluations 3400: best_so_far_y 3.2532e+05
+n_function_evaluations 3500: best_so_far_y 3.0531e+05
+n_function_evaluations 3600: best_so_far_y 2.9374e+05
+n_function_evaluations 3700: best_so_far_y 2.832e+05
+n_function_evaluations 3800: best_so_far_y 2.7566e+05
+n_function_evaluations 3900: best_so_far_y 2.7058e+05
+n_function_evaluations 4000: best_so_far_y 2.7058e+05
+n_function_evaluations 4100: best_so_far_y 2.5603e+05
+n_function_evaluations 4200: best_so_far_y 2.5224e+05
+n_function_evaluations 4300: best_so_far_y 2.5224e+05
+n_function_evaluations 4400: best_so_far_y 2.476e+05
+n_function_evaluations 4500: best_so_far_y 2.3642e+05
+n_function_evaluations 4600: best_so_far_y 2.2671e+05
+n_function_evaluations 4700: best_so_far_y 2.1812e+05
+n_function_evaluations 4800: best_so_far_y 2.0621e+05
+n_function_evaluations 4900: best_so_far_y 2.0087e+05
+n_function_evaluations 5000: best_so_far_y 1.9681e+05
+n_function_evaluations 5100: best_so_far_y 1.9344e+05
+n_function_evaluations 5200: best_so_far_y 1.8675e+05
+n_function_evaluations 5300: best_so_far_y 1.8081e+05
+n_function_evaluations 5400: best_so_far_y 1.7729e+05
+n_function_evaluations 5500: best_so_far_y 1.7725e+05
+n_function_evaluations 5600: best_so_far_y 1.7245e+05
+n_function_evaluations 5700: best_so_far_y 1.6225e+05
+n_function_evaluations 5800: best_so_far_y 1.5768e+05
+n_function_evaluations 5900: best_so_far_y 1.5383e+05
+n_function_evaluations 6000: best_so_far_y 1.5376e+05
+n_function_evaluations 6100: best_so_far_y 1.53e+05
+n_function_evaluations 6200: best_so_far_y 1.5127e+05
+n_function_evaluations 6300: best_so_far_y 1.5118e+05
+n_function_evaluations 6400: best_so_far_y 1.4896e+05
+n_function_evaluations 6500: best_so_far_y 1.4871e+05
+n_function_evaluations 6600: best_so_far_y 1.455e+05
+n_function_evaluations 6700: best_so_far_y 1.4278e+05
+n_function_evaluations 6800: best_so_far_y 1.4219e+05
+n_function_evaluations 6900: best_so_far_y 1.4171e+05
+n_function_evaluations 7000: best_so_far_y 1.3982e+05
+n_function_evaluations 7100: best_so_far_y 1.3599e+05
+n_function_evaluations 7200: best_so_far_y 1.3384e+05
+n_function_evaluations 7300: best_so_far_y 1.2817e+05
+n_function_evaluations 7400: best_so_far_y 1.254e+05
+n_function_evaluations 7500: best_so_far_y 1.208e+05
+n_function_evaluations 7600: best_so_far_y 1.1934e+05
+n_function_evaluations 7700: best_so_far_y 1.1687e+05
+n_function_evaluations 7800: best_so_far_y 1.1065e+05
+n_function_evaluations 7900: best_so_far_y 1.0955e+05
+{'best_so_far_x': array([-8.55712892e-01, -2.97506335e-01,  4.18899328e-01,  7.30494180e-03,
+        ...,
+        2.17871917e-01, -6.44745363e-01,  3.68907275e-01,  7.47669691e-01]),
+ 'best_so_far_y': 109553.49965228044,
+ 'n_function_evaluations': 7900,
+ 'runtime': 3658.7628965377808,
+ 'termination_signal': <Terminations.MAX_RUNTIME: 2>,
+ 'time_function_evaluations': 2.06386661529541,
+ 'fitness': array([[1.00000000e+00, 2.67946425e+06],
+       [7.90000000e+03, 1.09553500e+05]]),
+ 'success': True,
+ '_n_generations': 78}
+*** Runtime: 7.31757e+03
+******* rastrigin *******
+n_function_evaluations 200: best_so_far_y 1.2576e+04
+n_function_evaluations 300: best_so_far_y 1.2576e+04
+n_function_evaluations 400: best_so_far_y 1.2576e+04
+n_function_evaluations 500: best_so_far_y 1.1959e+04
+n_function_evaluations 600: best_so_far_y 1.1799e+04
+n_function_evaluations 700: best_so_far_y 1.156e+04
+n_function_evaluations 800: best_so_far_y 1.156e+04
+n_function_evaluations 900: best_so_far_y 1.156e+04
+n_function_evaluations 1000: best_so_far_y 1.156e+04
+n_function_evaluations 1100: best_so_far_y 1.156e+04
+n_function_evaluations 1200: best_so_far_y 1.0987e+04
+n_function_evaluations 1300: best_so_far_y 1.0987e+04
+n_function_evaluations 1400: best_so_far_y 1.0987e+04
+n_function_evaluations 1500: best_so_far_y 1.0987e+04
+n_function_evaluations 1600: best_so_far_y 1.0987e+04
+n_function_evaluations 1700: best_so_far_y 1.0987e+04
+n_function_evaluations 1800: best_so_far_y 1.0987e+04
+n_function_evaluations 1900: best_so_far_y 1.0987e+04
+n_function_evaluations 2000: best_so_far_y 1.0987e+04
+n_function_evaluations 2100: best_so_far_y 1.0987e+04
+n_function_evaluations 2200: best_so_far_y 1.0987e+04
+n_function_evaluations 2300: best_so_far_y 1.0987e+04
+n_function_evaluations 2400: best_so_far_y 1.0948e+04
+n_function_evaluations 2500: best_so_far_y 1.0948e+04
+n_function_evaluations 2600: best_so_far_y 1.0948e+04
+n_function_evaluations 2700: best_so_far_y 1.0716e+04
+n_function_evaluations 2800: best_so_far_y 1.0716e+04
+n_function_evaluations 2900: best_so_far_y 1.0716e+04
+n_function_evaluations 3000: best_so_far_y 1.0625e+04
+n_function_evaluations 3100: best_so_far_y 1.0385e+04
+n_function_evaluations 3200: best_so_far_y 1.015e+04
+n_function_evaluations 3300: best_so_far_y 9981.5
+n_function_evaluations 3400: best_so_far_y 9842.9
+n_function_evaluations 3500: best_so_far_y 9836.1
+n_function_evaluations 3600: best_so_far_y 9761.8
+n_function_evaluations 3700: best_so_far_y 9717.1
+n_function_evaluations 3800: best_so_far_y 9546.0
+n_function_evaluations 3900: best_so_far_y 9546.0
+n_function_evaluations 4000: best_so_far_y 9546.0
+n_function_evaluations 4100: best_so_far_y 9407.1
+n_function_evaluations 4200: best_so_far_y 9407.1
+n_function_evaluations 4300: best_so_far_y 9407.1
+n_function_evaluations 4400: best_so_far_y 9407.1
+n_function_evaluations 4500: best_so_far_y 9285.2
+n_function_evaluations 4600: best_so_far_y 9231.7
+n_function_evaluations 4700: best_so_far_y 9209.6
+n_function_evaluations 4800: best_so_far_y 9175.4
+n_function_evaluations 4900: best_so_far_y 9108.3
+n_function_evaluations 5000: best_so_far_y 9052.8
+n_function_evaluations 5100: best_so_far_y 9052.8
+n_function_evaluations 5200: best_so_far_y 9004.7
+n_function_evaluations 5300: best_so_far_y 8954.0
+n_function_evaluations 5400: best_so_far_y 8935.1
+n_function_evaluations 5500: best_so_far_y 8868.9
+n_function_evaluations 5600: best_so_far_y 8868.9
+n_function_evaluations 5700: best_so_far_y 8868.9
+n_function_evaluations 5800: best_so_far_y 8868.9
+n_function_evaluations 5900: best_so_far_y 8818.3
+n_function_evaluations 6000: best_so_far_y 8818.3
+n_function_evaluations 6100: best_so_far_y 8761.2
+n_function_evaluations 6200: best_so_far_y 8761.2
+n_function_evaluations 6300: best_so_far_y 8706.5
+n_function_evaluations 6400: best_so_far_y 8706.5
+n_function_evaluations 6500: best_so_far_y 8678.7
+n_function_evaluations 6600: best_so_far_y 8619.9
+n_function_evaluations 6700: best_so_far_y 8607.2
+n_function_evaluations 6800: best_so_far_y 8607.2
+n_function_evaluations 6900: best_so_far_y 8607.2
+n_function_evaluations 7000: best_so_far_y 8595.7
+n_function_evaluations 7100: best_so_far_y 8595.7
+n_function_evaluations 7200: best_so_far_y 8590.2
+n_function_evaluations 7300: best_so_far_y 8584.5
+n_function_evaluations 7400: best_so_far_y 8584.5
+n_function_evaluations 7500: best_so_far_y 8511.6
+n_function_evaluations 7600: best_so_far_y 8511.6
+{'best_so_far_x': array([ 2.16269753e+00, -1.31585214e+00, -5.44307525e-01,  1.57746998e+00,
+        ...,
+        1.74173201e+00,  3.48672313e+00,  6.62200804e-02, -2.56298945e-02]),
+ 'best_so_far_y': 8511.559825170172,
+ 'n_function_evaluations': 7600,
+ 'runtime': 3647.636435508728,
+ 'termination_signal': <Terminations.MAX_RUNTIME: 2>,
+ 'time_function_evaluations': 1.1395330429077148,
+ 'fitness': array([[1.00000000e+00, 1.27678935e+04],
+       [7.60000000e+03, 8.51155983e+03]]),
+ 'success': False,
+ '_n_generations': 75}
+*** Runtime: 1.09652e+04
