@@ -1,4 +1,4 @@
-"""This is a simple demo that optimize 6 Global Trajectory Optimization problems provided by `pykep`:
+"""This is a simple demo that uses PSO to optimize 6 Global Trajectory Optimization problems provided by `pykep`:
     https://esa.github.io/pykep/
     https://esa.github.io/pykep/examples/ex13.html
 """
