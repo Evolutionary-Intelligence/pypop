@@ -1,52 +1,42 @@
-"""This is a simple demo that optimizes the Bragg mirrors structures, modeled in the following paper:
+"""This is a simple demo that optimizes the Bragg mirrors structure, modeled in the following paper:
     Bennet, P., Centeno, E., Rapin, J., Teytaud, O. and Moreau, A., 2020.
-    The photonics and ARCoating testbeds in Nevergrad.
+    The photonics and ARCoating testbeds in NeverGrad.
     https://hal.uca.fr/hal-02613161v1
 """
 import numpy as np
 import matplotlib.pyplot as plt
 from nevergrad.functions.photonics.core import Photonics
 
-from pypop7.optimizers.pso.clpso import CLPSO
-from pypop7.optimizers.de.jade import JADE
-
-def plot(x_1, y_1, x_2, y_2, name):
-    sub_figure = name  + '.png'
-    plt.figure(figsize=(8, 6))
-    plt.rcParams['font.family'] = 'Times New Roman'
-    plt.rcParams['font.size'] = '12'
-    plt.plot(x_1, y_1, color='black', linewidth=1.0, linestyle='-', label='CLPSO')
-    plt.plot(x_2, y_2, color='red', linewidth=1.0, linestyle='-', label='JADE')
-    plt.legend()
-    plt.xlabel('Fevals')
-    plt.ylabel('Fitness')
-    plt.title('Bragg mirrors structures')
-    plt.savefig(sub_figure)
+from pypop7.optimizers.pso.clpso import CLPSO  # https://pypop.readthedocs.io/en/latest/pso/clpso.html
+from pypop7.optimizers.de.jade import JADE  # https://pypop.readthedocs.io/en/latest/de/jade.html
 
 
 if __name__ == '__main__':
-    ndim_problem = 10 # dimension of objective function
-    half = int(ndim_problem/2)
-    func = Photonics("bragg", ndim_problem)
-    problem = {'fitness_function': func,
-               'ndim_problem': ndim_problem,
-               'lower_boundary': np.hstack((2*np.ones(half), 30*np.ones(half))),
-               'upper_boundary': np.hstack((3*np.ones(half), 180*np.ones(half)))}
-    options = {'max_function_evaluations': 50000,  # 100000
-               'fitness_threshold': 1e-10,
-               'n_individuals': 200,
-               'is_bound': True,
-               'seed_rng': 0,
-               'saving_fitness': 200,
-               'verbose': 200}
-    solver = CLPSO(problem, options)
-    results = solver.optimize()
-    res = results['fitness']
-    x_1, y_1 = res[:, 0], res[:, 1]
+    plt.figure(figsize=(8, 6))
+    plt.rcParams['font.family'] = 'Times New Roman'
+    plt.rcParams['font.size'] = '12'
 
-    jade = JADE(problem, options)
-    results = jade.optimize()
-    res = results['fitness']
-    x_2, y_2 = res[:, 0], res[:, 1]
-
-    plot(x_1, y_1, x_2, y_2, 'photonics_optimization')
+    labels = ['CLPSO', 'JADE']
+    for i, Opt in enumerate([CLPSO, JADE]):
+        ndim_problem = 10  # dimension of objective function
+        half = int(ndim_problem/2)
+        func = Photonics("bragg", ndim_problem)
+        problem = {'fitness_function': func,
+                   'ndim_problem': ndim_problem,
+                   'lower_boundary': np.hstack((2*np.ones(half), 30*np.ones(half))),
+                   'upper_boundary': np.hstack((3*np.ones(half), 180*np.ones(half)))}
+        options = {'max_function_evaluations': 50000,
+                   'n_individuals': 200,
+                   'is_bound': True,
+                   'seed_rng': 0,
+                   'saving_fitness': 1,
+                   'verbose': 200}
+        solver = Opt(problem, options)
+        results = solver.optimize()
+        res = results['fitness']
+        plt.plot(res[:, 0], res[:, 1], linewidth=2.0, linestyle='-', label=labels[i])
+    plt.legend()
+    plt.xlabel('Number of Function Evaluations')
+    plt.ylabel('Fitness (to be Minimized)')
+    plt.title('Bragg Mirrors Structure')
+    plt.savefig('photonics_optimization.png')
