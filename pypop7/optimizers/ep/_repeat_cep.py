@@ -10,10 +10,10 @@
     https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for
 
     Note that we first update individual step-sizes and then update offspring for each generation as the
-    same as the second paper (but different from the first paper), in order to obtain fast local convergence.
+    same as the second paper (but different from the first paper), which typically obtains faster local convergence.
 
     Luckily our code could repeat the data reported in the original paper *well*.
-    Therefore, we argue that the repeatability of `CEP` could be **well-documented** (*at least partly*).
+    Therefore, we argue that its repeatability could be **well-documented** (*at least partly*).
 """
 import numpy as np
 
@@ -26,9 +26,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': ackley,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -32 * np.ones((ndim_problem,)),
-               'upper_boundary': 32 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500 * 100,
+               'lower_boundary': -32*np.ones((ndim_problem,)),
+               'upper_boundary': 32*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500*100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     cep = CEP(problem, options)
@@ -38,9 +38,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': sphere,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -100 * np.ones((ndim_problem,)),
-               'upper_boundary': 100 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500 * 100,
+               'lower_boundary': -100*np.ones((ndim_problem,)),
+               'upper_boundary': 100*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500*100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     cep = CEP(problem, options)
@@ -50,9 +50,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': step,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -100 * np.ones((ndim_problem,)),
-               'upper_boundary': 100 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500 * 100,
+               'lower_boundary': -100*np.ones((ndim_problem,)),
+               'upper_boundary': 100*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500*100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     cep = CEP(problem, options)
@@ -63,9 +63,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -30 * np.ones((ndim_problem,)),
-               'upper_boundary': 30 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500 * 100,
+               'lower_boundary': -30*np.ones((ndim_problem,)),
+               'upper_boundary': 30*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500*100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     cep = CEP(problem, options)
@@ -75,9 +75,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -5.12 * np.ones((ndim_problem,)),
-               'upper_boundary': 5.12 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500 * 100,
+               'lower_boundary': -5.12*np.ones((ndim_problem,)),
+               'upper_boundary': 5.12*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500*100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     cep = CEP(problem, options)
