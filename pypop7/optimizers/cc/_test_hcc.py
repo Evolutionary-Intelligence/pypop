@@ -1,5 +1,7 @@
 """This code only tests whether the corresponding optimizer could run or not.
   In other words, it *cannot* validate the correctness regarding its working procedure.
+  For the correctness validation of programming, we cannot provide a code-based repeatability report
+    since this version combines two different but related research advances.
 """
 import unittest
 import time
