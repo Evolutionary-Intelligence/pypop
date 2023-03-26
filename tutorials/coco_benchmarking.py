@@ -1,12 +1,14 @@
 """A simple example for `COCO` Benchmarking using `PyPop7`:
     https://github.com/numbbo/coco
+    
+    To install `COCO` successfully, please read the above link carefully.
 """
 import os
 import webbrowser  # for post-processing in the browser
 
 import numpy as np
 import cocoex  # experimentation module of `COCO`
-import cocopp  # post-processing modules of `COCO`
+import cocopp  # post-processing module of `COCO`
 
 from pypop7.optimizers.es.maes import MAES
 
