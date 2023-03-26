@@ -14,8 +14,8 @@ if __name__ == '__main__':
         options = {'max_function_evaluations': 6e5,
                    'm': 1000,
                    'seed_rng': 0,
-                   'verbose_frequency': 100,
-                   'record_fitness': True}
+                   'verbose': 100,
+                   'saving_fitness': 1}
         rpeda = RPEDA(problem, options)
         results = rpeda.optimize()
         print(f.__name__, results['best_so_far_y'])

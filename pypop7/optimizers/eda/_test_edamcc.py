@@ -22,9 +22,8 @@ class TestSCEM(unittest.TestCase):
                        'theta': 0.3,
                        'c': 20,
                        'n_individuals': 200,
-                       'verbose_frequency': 1,
-                       'record_fitness': True,
-                       'record_fitness_frequency': 1}
+                       'verbose': 1,
+                       'saving_fitness': 1}
             solver = Solver(problem, options)
             results = solver.optimize()
             print(results)

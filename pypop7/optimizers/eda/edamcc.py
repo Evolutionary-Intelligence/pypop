@@ -41,12 +41,14 @@ class EDAMCC(EDA):
         self.theta = options.get('theta', 0.3)
         self.c = options.get('c', 3)
 
-    def initialize(self):
-        x = np.empty((self.n_individuals, self.ndim_problem))
+    def initialize(self, args=None):
+        x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
+                                            size=(self.n_individuals, self.ndim_problem))  # population
         y = np.empty((self.n_individuals,))
         for i in range(self.n_individuals):
-            x[i] = self._initialize_x()
-            y[i] = self._evaluate_fitness(x[i])
+            if self._check_terminations():
+                break
+            y[i] = self._evaluate_fitness(x[i], args)
         return x, y
 
     def iterate(self, x, y):
@@ -106,13 +108,11 @@ class EDAMCC(EDA):
     def optimize(self, fitness_function=None):
         fitness = EDA.optimize(self, fitness_function)
         x, y = self.initialize()
+        self._print_verbose_info(fitness, y)
         while True:
-            if self.record_fitness:
-                fitness.extend(y)
+            x, y = self.iterate(x, y)
             if self._check_terminations():
                 break
-            x, y = self.iterate(x, y)
             self._n_generations += 1
-            self._print_verbose_info(y)
-        results = self._collect_results(fitness)
-        return results
+            self._print_verbose_info(fitness, y)
+        return self._collect(fitness, y)
