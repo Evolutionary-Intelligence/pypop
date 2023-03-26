@@ -4,10 +4,10 @@
     IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
     https://ieeexplore.ieee.org/abstract/document/771163
 
-    Since its source code is not openly available till now, the performance differences between our code and
-    the original paper are very hard (if not impossible) to analyze. We notice that different people may give
-    different implementations based on different understandings of its algorithmic operation details, which
-    may explain the following performance differences.
+    Since its source code is not openly available till now, the performance differences between our Python
+    code and the original paper are very hard (if not impossible) to analyze. We notice that different
+    people may give different implementations based on different understandings of its algorithmic details,
+    which may explain the following performance differences.
 
     We expect that a much closer open-source implementation could be given in the future, no matter by
     ourselves or others.
