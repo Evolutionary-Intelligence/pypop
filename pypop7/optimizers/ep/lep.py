@@ -25,13 +25,13 @@ class LEP(CEP):
                 * 'n_individuals'  - number of offspring, aka offspring population size (`int`, default: `100`),
                 * 'q'              - number of opponents for pairwise comparisons (`int`, default: `10`),
                 * 'tau'            - learning rate of individual step-sizes self-adaptation (`float`, default:
-                  `1.0/np.sqrt(2.0*np.sqrt(self.ndim_problem))`),
+                  `1.0/np.sqrt(2.0*np.sqrt(problem['ndim_problem']))`),
                 * 'tau_apostrophe' - learning rate of individual step-sizes self-adaptation (`float`, default:
-                  `1.0/np.sqrt(2.0*self.ndim_problem)`.
+                  `1.0/np.sqrt(2.0*problem['ndim_problem'])`.
 
     Examples
     --------
-    Use the Evolutionary Programming optimizer `LEP` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -42,8 +42,8 @@ class LEP(CEP):
        >>> from pypop7.optimizers.ep.lep import LEP
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
        ...            'sigma': 0.1}
