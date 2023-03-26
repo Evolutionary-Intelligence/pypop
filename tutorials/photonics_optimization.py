@@ -1,14 +1,4 @@
 """This is a simple demo that optimizes the Bragg mirrors structures, modeled in the following paper:
-    Barry, M.A., Berthier, V., Wilts, B.D., Cambourieux, M.C., Bennet, P., Pollès, R., Teytaud, O., Centeno, E., Biais, N. and Moreau, A., 2020.
-    Evolutionary algorithms converge towards evolved biological photonic structures.
-    Scientific reports, 10(1), p.12024.
-    https://arxiv.org/abs/1808.04689
-
-    Defrance, J., Lemaître, C., Ajib, R., Benedicto, J., Mallet, E., Pollès, R., Plumey, J.P., Mihailovic, M., Centeno, E., Ciracì, C. and Smith, D., 2016.
-    Moosh: A numerical swiss army knife for the optics of multilayers in octave/matlab.
-    Journal of Open Research Software, 4(1).
-    https://openresearchsoftware.metajnl.com/articles/10.5334/jors.100
-
     Bennet, P., Centeno, E., Rapin, J., Teytaud, O. and Moreau, A., 2020.
     The photonics and ARCoating testbeds in Nevergrad.
     https://hal.uca.fr/hal-02613161v1
@@ -25,7 +15,7 @@ def plot(x, y, name):
     plt.rcParams['font.family'] = 'Times New Roman'
     plt.rcParams['font.size'] = '12'
 
-    plt.plot(x, y, color='black', linewidth=1.0, linestyle='-', label='CPSO')
+    plt.plot(x, y, color='black', linewidth=1.0, linestyle='-', label='CLPSO')
     plt.rcParams['font.family'] = 'Times New Roman'
     plt.rcParams['font.size'] = '12'
     plt.legend()
