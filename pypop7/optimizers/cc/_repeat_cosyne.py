@@ -4,21 +4,20 @@
     Journal of Machine Learning Research, 9(31), pp.937-965.
     https://jmlr.org/papers/v9/gomez08a.html
 
-    We notice that the EvoTorch library (recently developed in the company of two original authors) provides
-      an open-source implementation for it:
+    We notice that the EvoTorch library (recently developed in the company of two original authors)
+      provides an open-source implementation for it:
     https://docs.evotorch.ai/v0.3.0/reference/evotorch/algorithms/ga/#evotorch.algorithms.ga.Cosyne
 
     In our implementation, we refer to this open-source implementation rather than the original paper,
     but with a slight simplification for the *permutation* operator.
 
-    Luckily our code could repeat the data reported in the reference library *well*.
+    Luckily our Python code could repeat the data reported in the reference library *well*.
     Therefore, we argue that its repeatability could be **well-documented**.
 
 
 
     The reference Python code based on EvoTorch is given below:
     -----------------------------------------------------------
-
     import torch
     from evotorch import Problem
     from evotorch.algorithms import ga
