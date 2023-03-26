@@ -86,7 +86,7 @@ class JADE(DE):
         assert 0.0 <= self.p <= 1.0
         self.c = options.get('c', 0.1)  # life span
         assert 0.0 <= self.c <= 1.0
-        self.boundary = options.get('boundary', False)
+        self.is_bound = options.get('is_bound', False)
 
     def initialize(self, args=None):
         x = self.rng_initialization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
@@ -100,7 +100,7 @@ class JADE(DE):
         return x, y, a
 
     def bound(self, x=None, xx=None):
-        if not self.boundary:
+        if not self.is_bound:
             return x
         for k in range(self.n_individuals):
             idx = np.array(x[k] < self.lower_boundary)
