@@ -43,7 +43,7 @@ class RES(ES):
 
     Examples
     --------
-    Use the optimizer `RES` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -159,10 +159,12 @@ class RES(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, y, best_so_far_y = self.initialize(args)
-        while not self._check_terminations():
+        while not self.termination_signal:
             self._print_verbose_info(fitness, y)
             x, y = self.iterate(args, mean)
             self._n_generations += 1
+            if self._check_terminations():
+                break
             self.sigma *= np.power(np.exp(float(y < best_so_far_y) - 0.2), self.lr_sigma)
             if y < best_so_far_y:
                 mean, best_so_far_y = x, y
