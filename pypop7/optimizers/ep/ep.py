@@ -6,13 +6,14 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class EP(Optimizer):
     """Evolutionary Programming (EP).
 
-    This is the **base** (abstract) class for all `EP` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `EP` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
     .. note:: `EP` is one of three classical families of evolutionary algorithms (EAs), proposed originally by Lawrence
-       J. Fogel, one recipient of both `Evolutionary Computation Pioneer Award 1998 <https://tinyurl.com/456as566>`_ and
+       J. Fogel, the recipient of `IEEE Evolutionary Computation Pioneer Award 1998 <https://tinyurl.com/456as566>`_ and
        `IEEE Frank Rosenblatt Award 2006 <https://tinyurl.com/yj28zxfa>`_. When used for continuous optimization, most
-       of modern `EP` share much similarities (e.g. self-adaptation) with `ES`, another representative EA.
+       of modern `EP` versions share much similarities (e.g. self-adaptation) with `ES
+       <https://pypop.readthedocs.io/en/latest/es/es.html>`_, another representative EA.
 
     Parameters
     ----------
@@ -84,6 +85,7 @@ class EP(Optimizer):
             self.n_individuals = 100  # number of offspring, aka offspring population size
         self.sigma = options.get('sigma')  # initial global step-size, aka mutation strength
         self._n_generations = 0  # number of generations
+        self._printed_evaluations = 0  # only for printing
 
     def initialize(self):
         raise NotImplementedError
@@ -92,12 +94,11 @@ class EP(Optimizer):
         raise NotImplementedError
 
     def _print_verbose_info(self, fitness, y, is_print=False):
-        if y is not None:
-            if self.saving_fitness:
-                if not np.isscalar(y):
-                    fitness.extend(y)
-                else:
-                    fitness.append(y)
+        if y is not None and self.saving_fitness:
+            if not np.isscalar(y):
+                fitness.extend(y)
+            else:
+                fitness.append(y)
         if self.verbose:
             is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
             is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
