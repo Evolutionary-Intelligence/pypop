@@ -32,4 +32,4 @@ if __name__ == '__main__':
         solver = MAES(problem, options)
         print(solver.optimize())
     cocopp.main(observer.result_folder)
-    webbrowser.open("file://" + os.getcwd() + "/ppdata/index.html")
+    webbrowser.open('file://' + os.getcwd() + '/ppdata/index.html')

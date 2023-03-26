@@ -452,7 +452,13 @@ optimizers in the **black-box** setting.
                 solver = MAES(problem, options)
                 print(solver.optimize())
             cocopp.main(observer.result_folder)
-            webbrowser.open("file://" + os.getcwd() + "/ppdata/index.html")
+            webbrowser.open('file://' + os.getcwd() + '/ppdata/index.html')
+
+The final HTML outputs look like:
+
+.. image:: images/COCO_MAES.png
+   :width: 500px
+   :align: center
 
 Benchmarking on the Famous NeverGrad Platform
 ---------------------------------------------
