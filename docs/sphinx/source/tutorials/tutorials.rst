@@ -266,7 +266,7 @@ Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_)
         for prob_number in range(0, 6):
             udp = problems[prob_number]
 
-            def fitness_func(x):  # wrap
+            def fitness_func(x):  # wrapper of fitness function
                 return udp.fitness(x)[0]
 
             prob = pg.problem(udp)
