@@ -2,7 +2,6 @@
     https://esa.github.io/pykep/
     https://esa.github.io/pykep/examples/ex13.html
 """
-import numpy as np
 import pygmo as pg  # it's better to use conda to install (and it's better to use pygmo==2.18)
 import pykep as pk  # it's better to use conda to install
 import matplotlib.pyplot as plt
@@ -23,7 +22,6 @@ for prob_number in range(0, 6):
 
     prob = pg.problem(udp)
     print(prob)
-
     pro = {'fitness_function': fitness_func,
            'ndim_problem': prob.get_nx(),
            'lower_boundary': prob.get_lb(),
