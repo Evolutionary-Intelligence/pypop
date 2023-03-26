@@ -158,7 +158,6 @@ class HCC(CC):
                     ea_s.append(eig_va)
                     y_s.append(yy)
             else:
-                y = []
                 for i, opt in enumerate(sub_optimizers):
                     ii = range(i*self.ndim_subproblem, np.minimum((i + 1)*self.ndim_subproblem, self.ndim_problem))
 
