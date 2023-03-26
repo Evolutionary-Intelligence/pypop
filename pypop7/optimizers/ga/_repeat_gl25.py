@@ -4,7 +4,7 @@
     European Journal of Operational Research, 185(3), pp.1088-1113.
     https://www.sciencedirect.com/science/article/abs/pii/S0377221706006308
 
-    Luckily our code could repeat the data reported in the original paper *well*.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
     Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
