@@ -60,11 +60,11 @@ class CODE(CDE):
     """
     def __init__(self, problem, options):
         CDE.__init__(self, problem, options)
-        self.boundary = options.get('boundary', False)
+        self.is_bound = options.get('is_bound', False)
         self._pool = [[1.0, 0.1], [1.0, 0.9], [0.8, 0.2]]  # a pool of two control parameters (f, cr)
 
     def bound(self, x=None):
-        if not self.boundary:
+        if not self.is_bound:
             return x
         for k in range(self.n_individuals):
             idx = np.array(x[k] < self.lower_boundary)
