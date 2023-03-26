@@ -2,6 +2,7 @@
     https://esa.github.io/pykep/
     https://esa.github.io/pykep/examples/ex13.html
 """
+import numpy as np
 import pygmo as pg  # it's better to use conda to install (and it's better to use pygmo==2.18)
 import pykep as pk  # it's better to use conda to install
 import matplotlib.pyplot as plt
@@ -12,6 +13,7 @@ from pypop7.optimizers.pso.spso import SPSO as Solver
 fig, axes = plt.subplots(nrows=3, ncols=2, sharex='col', sharey='row', figsize=(15, 15))
 problems = [pk.trajopt.gym.cassini2, pk.trajopt.gym.eve_mga1dsm, pk.trajopt.gym.messenger,
             pk.trajopt.gym.rosetta, pk.trajopt.gym.em5imp, pk.trajopt.gym.em7imp]
+ticks = [0, 5e3, 1e4, 1.5e4, 2e4]
 
 for prob_number in range(0, 6):
     udp = problems[prob_number]
@@ -51,5 +53,6 @@ for prob_number in range(0, 6):
         axes[2, 1].set_title('em7imp')
 for ax in axes.flat:
     ax.set(xlabel='Function Evaluations', ylabel='Fitness [m/s]')
+    ax.set_xticks(ticks)
     ax.grid()
 plt.savefig('pykep_optimization.jpg')  # to save locally
