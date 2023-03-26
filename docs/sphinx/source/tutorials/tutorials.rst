@@ -5,7 +5,9 @@ Here we provide several *interesting* tutorials to help better use this library 
 <https://pypop.readthedocs.io/en/latest/installation.html>`_, as shown below:
 
 * Lens Shape Optimization (15-dimensional)
-* Lennard-Jones Cluster Optimization (444-dimensional)
+* Lennard-Jones Cluster Optimization from `pagmo <https://esa.github.io/pagmo2/>`_ (444-dimensional)
+* Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ developed by
+  European Space Agency
 * Benchmarking for Large-Scale Black-Box Optimization (up to 2000-dimensional)
 * Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (up to 640-dimensional)
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
@@ -234,6 +236,91 @@ For more interesting applications of `DE` on challenging real-world problems, re
 `[Gagnon et al., 2017, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.053203>`_;
 `[Laganowsky et al., 2014, Nature] <https://www.nature.com/articles/nature13419>`_;
 `[Lovett et al., 2013, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.110.220501>`_,
+just to name a few.
+
+Global Trajectory Optimization
+------------------------------
+
+Six hard Global Trajectory Optimization problems have been given in `pykep <https://esa.github.io/pykep/index.html>`_,
+developed at `European Space Agency <https://sophia.estec.esa.int/gtoc_portal/>`_. Here we use the standard Particle
+Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_) as a baseline:
+
+    .. code-block:: python
+
+        """This is a simple demo that uses PSO to optimize 6 Global Trajectory Optimization problems provided by `pykep`:
+            https://esa.github.io/pykep/
+            https://esa.github.io/pykep/examples/ex13.html
+        """
+        import pygmo as pg  # it's better to use conda to install (and it's better to use pygmo==2.18)
+        import pykep as pk  # it's better to use conda to install
+        import matplotlib.pyplot as plt
+
+        from pypop7.optimizers.pso.spso import SPSO as Solver
+
+
+        fig, axes = plt.subplots(nrows=3, ncols=2, sharex='col', sharey='row', figsize=(15, 15))
+        problems = [pk.trajopt.gym.cassini2, pk.trajopt.gym.eve_mga1dsm, pk.trajopt.gym.messenger,
+                    pk.trajopt.gym.rosetta, pk.trajopt.gym.em5imp, pk.trajopt.gym.em7imp]
+        ticks = [0, 5e3, 1e4, 1.5e4, 2e4]
+
+        for prob_number in range(0, 6):
+            udp = problems[prob_number]
+
+            def fitness_func(x):  # wrap
+                return udp.fitness(x)[0]
+
+            prob = pg.problem(udp)
+            print(prob)
+            pro = {'fitness_function': fitness_func,
+                   'ndim_problem': prob.get_nx(),
+                   'lower_boundary': prob.get_lb(),
+                   'upper_boundary': prob.get_ub()}
+            opt = {'seed_rng': 0,
+                   'max_function_evaluations': 2e4,
+                   'saving_fitness': 1}
+            solver = Solver(pro, opt)
+            res = solver.optimize()
+            if prob_number == 0:
+                axes[0, 0].semilogy(res['fitness'][:, 0], res['fitness'][:, 1], '--', color='fuchsia', label='SPSO')
+                axes[0, 0].set_title('cassini2')
+            elif prob_number == 1:
+                axes[0, 1].semilogy(res['fitness'][:, 0], res['fitness'][:, 1], '--', color='royalblue', label='SPSO')
+                axes[0, 1].set_title('eve_mga1dsm')
+            elif prob_number == 2:
+                axes[1, 0].semilogy(res['fitness'][:, 0], res['fitness'][:, 1], '--', color='deepskyblue', label='SPSO')
+                axes[1, 0].set_title('messenger')
+            elif prob_number == 3:
+                axes[1, 1].semilogy(res['fitness'][:, 0], res['fitness'][:, 1], '--', color='lime', label='SPSO')
+                axes[1, 1].set_title('rosetta')
+            elif prob_number == 4:
+                axes[2, 0].semilogy(res['fitness'][:, 0], res['fitness'][:, 1], '--', color='darkorange', label='SPSO')
+                axes[2, 0].set_title('em5imp')
+            elif prob_number == 5:
+                axes[2, 1].semilogy(res['fitness'][:, 0], res['fitness'][:, 1], '--', color='brown', label='SPSO')
+                axes[2, 1].set_title('em7imp')
+        for ax in axes.flat:
+            ax.set(xlabel='Function Evaluations', ylabel='Fitness [m/s]')
+            ax.set_xticks(ticks)
+            ax.grid()
+        plt.savefig('pykep_optimization.jpg')  # to save locally
+
+The convergence curves on six different instances obtained via `SPSO` are given below:
+
+.. image:: images/pykep_optimization.jpg
+   :width: 500px
+   :align: center
+
+For more applications of `PSO` on challenging real-world problems, refer to e.g.,
+`[Reddy et al., 2023, TC] <https://ieeexplore.ieee.org/document/10005787>`_;
+`[Guan et al., 2022, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.186001>`_;
+`[Weiel, et al., 2021, Nature Mach. Intell.] <https://www.nature.com/articles/s42256-021-00366-3>`_;
+`[Tang et al., 2019, TPAMI] <https://ieeexplore.ieee.org/abstract/document/8386667>`_;
+`[ Villeneuve et al., 2017, Science] <https://www.science.org/doi/10.1126/science.aam8393>`_;
+`[Zhang et al., 2015, IJCV] <https://link.springer.com/article/10.1007/s11263-015-0819-8>`_;
+`[Sharp et al., 2015, CHI] <https://dl.acm.org/doi/abs/10.1145/2702123.2702179>`_;
+`[Tompson et al., 2014, TOG] <https://dl.acm.org/doi/abs/10.1145/2629500>`_;
+`[Baca et al., 2013, Cell] <https://www.cell.com/cell/fulltext/S0092-8674(13)00343-7>`_;
+`[Kim et al., 2012, Nature] <https://www.nature.com/articles/nature11546>`_;
 just to name a few.
 
 Benchmarking for Large-Scale Black-Box Optimization (LSBBO)
