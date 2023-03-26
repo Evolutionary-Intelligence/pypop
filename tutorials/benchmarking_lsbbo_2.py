@@ -44,22 +44,21 @@ class Experiment(object):
 
 class Experiments(object):
     def __init__(self, start, end, ndim_problem):
-        self.start = start
-        self.end = end
+        self.start, self.end = start, end
         self.ndim_problem = ndim_problem
-        self.indices = range(self.start, self.end + 1)
+        # for testing the local search ability
         self.functions = [cf.sphere, cf.cigar, cf.discus, cf.cigar_discus, cf.ellipsoid,
                           cf.different_powers, cf.schwefel221, cf.step, cf.rosenbrock, cf.schwefel12]
-        self.seeds = np.random.default_rng(2022).integers(
+        self.seeds = np.random.default_rng(2022).integers(  # for repeatability
             np.iinfo(np.int64).max, size=(len(self.functions), 50))
 
     def run(self, optimizer):
-        for index in self.indices:
+        for index in range(self.start, self.end + 1):
             print('* experiment: {:d} ***:'.format(index))
-            for d, f in enumerate(self.functions):
+            for i, f in enumerate(self.functions):
                 start_time = time.time()
                 print('  * function: {:s}:'.format(f.__name__))
-                experiment = Experiment(index, f, self.seeds[d, index], self.ndim_problem)
+                experiment = Experiment(index, f, self.seeds[i, index], self.ndim_problem)
                 experiment.run(optimizer)
                 print('    runtime: {:7.5e}.'.format(time.time() - start_time))
 
@@ -85,6 +84,14 @@ if __name__ == '__main__':
         from pypop7.optimizers.rs.gs import GS as Optimizer
     elif params['optimizer'] == 'BES':
         from pypop7.optimizers.rs.bes import BES as Optimizer
+    elif params['optimizer'] == 'HJ':
+        from pypop7.optimizers.ds.hj import HJ as Optimizer
+    elif params['optimizer'] == 'NM':
+        from pypop7.optimizers.ds.nm import NM as Optimizer
+    elif params['optimizer'] == 'POWELL':
+        from pypop7.optimizers.ds.powell import POWELL as Optimizer
+    else:
+        raise ValueError(f"Cannot find optimizer class {params['optimizer']} in PyPop7!")
     experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
     experiments.run(Optimizer)
-    print('*** Total runtime: {:7.5e} ***.'.format(time.time() - start_runtime))
+    print('Total runtime: {:7.5e}.'.format(time.time() - start_runtime))
