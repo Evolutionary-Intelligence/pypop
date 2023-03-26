@@ -83,9 +83,6 @@ class LEP(CEP):
         for i in range(self.n_individuals):
             if self._check_terminations():
                 return x, sigmas, y, xx, ss, yy
-            # base = self.rng_optimization.standard_normal()
-            # ss[i] = sigmas[i]*np.exp(self.tau_apostrophe*base + self.tau*self.rng_optimization.standard_normal(
-            #     size=(self.ndim_problem,)))
             ss[i] = sigmas[i]*np.exp(self.tau_apostrophe*self.rng_optimization.standard_normal(
                 size=(self.ndim_problem,)) + self.tau*self.rng_optimization.standard_normal(
                 size=(self.ndim_problem,)))

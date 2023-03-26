@@ -134,17 +134,12 @@ class CEP(EP):
         return x, sigmas, y, xx, ss, yy
 
     def optimize(self, fitness_function=None, args=None):
-        fitness, is_initialization = EP.optimize(self, fitness_function), True
-        x, sigmas, y, xx, ss, yy = None, None, None, None, None, None
+        fitness = EP.optimize(self, fitness_function)
+        x, sigmas, y, xx, ss, yy = self.initialize(args)
+        self._print_verbose_info(fitness, y)
         while True:
-            if is_initialization:
-                x, sigmas, y, xx, ss, yy = self.initialize(args)
-                is_initialization = False
-            else:
-                x, sigmas, y, xx, ss, yy = self.iterate(x, sigmas, y, xx, ss, yy, args)
-            if self.saving_fitness:
-                fitness.extend(y)
-            self._print_verbose_info(y)
+            x, sigmas, y, xx, ss, yy = self.iterate(x, sigmas, y, xx, ss, yy, args)
             if self._check_terminations():
                 break
-        return self._collect_results(fitness)
+            self._print_verbose_info(fitness, y)
+        return self._collect(fitness, y)
