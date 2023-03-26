@@ -8,7 +8,7 @@
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/repeatability/g3pcx/_repeat_g3pcx.png
 
-    Luckily our code could repeat the data reported in the original paper *well*.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
     Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
