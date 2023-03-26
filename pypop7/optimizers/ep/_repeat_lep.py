@@ -4,7 +4,7 @@
     IEEE Transactions on Evolutionary Computation, 8(1), pp.1-13.
     https://ieeexplore.ieee.org/document/1266370
 
-    Luckily our code could repeat the data reported in the original paper *well*.
+    Luckily our Python code could repeat the data reported in the original paper *nearly well*.
     Therefore, we argue that its repeatability could be **well-documented** (*at least partly*).
 """
 import numpy as np
