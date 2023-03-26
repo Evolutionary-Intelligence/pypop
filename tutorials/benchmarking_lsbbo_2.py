@@ -1,3 +1,6 @@
+"""Before running this script, please first run the following script to generate necessary data:
+    https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/benchmarking_lsbbo_1.py
+"""
 import os
 import time
 import pickle
@@ -10,35 +13,33 @@ import pypop7.benchmarks.continuous_functions as cf
 
 class Experiment(object):
     def __init__(self, index, function, seed, ndim_problem):
-        self.index = index
-        self.function = function
-        self.seed = seed
-        self.ndim_problem = ndim_problem
-        self._folder = 'pypop7_benchmarks_lso'
+        self.index, self.seed = index, seed
+        self.function, self.ndim_problem = function, ndim_problem
+        self._folder = 'pypop7_benchmarks_lso'  # to save all local data generated during optimization
         if not os.path.exists(self._folder):
             os.makedirs(self._folder)
-        self._file = os.path.join(self._folder, 'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle')
+        self._file = os.path.join(self._folder, 'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle')  # file format
 
     def run(self, optimizer):
         problem = {'fitness_function': self.function,
                    'ndim_problem': self.ndim_problem,
-                   'upper_boundary': 10.0 * np.ones((self.ndim_problem,)),
-                   'lower_boundary': -10.0 * np.ones((self.ndim_problem,))}
-        options = {'max_function_evaluations': 100000 * self.ndim_problem,
-                   'max_runtime': 3600 * 3,  # seconds
+                   'upper_boundary': 10.0*np.ones((self.ndim_problem,)),
+                   'lower_boundary': -10.0*np.ones((self.ndim_problem,))}
+        options = {'max_function_evaluations': 100000*self.ndim_problem,
+                   'max_runtime': 3600*3,  # seconds (=3 hours)
                    'fitness_threshold': 1e-10,
                    'seed_rng': self.seed,
                    'saving_fitness': 2000,
                    'verbose': 0}
-        if optimizer.__name__ in []:
-            options['sigma'] = 20.0 / 3.0
+        if optimizer.__name__ in ['PRS', 'SRS', 'GS', 'BES', 'HJ', 'NM', 'POWELL', 'FEP']:
+            options['sigma'] = 20.0/3.0
         solver = optimizer(problem, options)
         results = solver.optimize()
         file = self._file.format(solver.__class__.__name__,
                                  solver.fitness_function.__name__,
                                  solver.ndim_problem,
                                  self.index)
-        with open(file, 'wb') as handle:
+        with open(file, 'wb') as handle:  # data format (pickle)
             pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
@@ -90,6 +91,8 @@ if __name__ == '__main__':
         from pypop7.optimizers.ds.nm import NM as Optimizer
     elif params['optimizer'] == 'POWELL':
         from pypop7.optimizers.ds.powell import POWELL as Optimizer
+    elif params['optimizer'] == 'FEP':
+        from pypop7.optimizers.ep.fep import FEP as Optimizer
     else:
         raise ValueError(f"Cannot find optimizer class {params['optimizer']} in PyPop7!")
     experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
