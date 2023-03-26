@@ -357,7 +357,7 @@ Note that for each algorithm family, we also provide some *representative* appli
   * Fogel, D.B. and Fogel, L.J., 1995, September. [An introduction to evolutionary programming](https://link.springer.com/chapter/10.1007/3-540-61108-8_28). In European Conference on Artificial Evolution (pp. 21-33). Springer, Berlin, Heidelberg.
   * Fogel, D.B., 1994. [Evolutionary programming: An introduction and some current directions](https://link.springer.com/article/10.1007/BF00175356). Statistics and Computing, 4(2), pp.113-129.
   * Bäck, T. and Schwefel, H.P., 1993. [An overview of evolutionary algorithms for parameter optimization](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for). Evolutionary Computation, 1(1), pp.1-23.
-  * Applications: e.g., [Hoorfar, 2007, IEEE-TAP](https://ieeexplore.ieee.org/document/4120264); [Damavandi&Safavi-Naeini, 2005, IEEE-TCSI](https://ieeexplore.ieee.org/document/1427899).
+  * Applications: e.g., [Hoorfar, 2007, IEEE-TAP](https://ieeexplore.ieee.org/document/4120264); [Cui et al., 2006, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1060.0514); [Damavandi&Safavi-Naeini, 2005, IEEE-TCSI](https://ieeexplore.ieee.org/document/1427899).
 * Pattern Search
   * Audet, C., Le Digabel, S., Rochon Montplaisir, V. and Tribes, C., 2022. [Algorithm XXXX: NOMAD version 4: Nonlinear optimization with the MADS algorithm](https://dl.acm.org/doi/abs/10.1145/3544489). ACM Transactions on Mathematical Software.
   * Brent, R.P., 2013. [Algorithms for minimization without derivatives](https://maths-people.anu.edu.au/~brent/pub/pub011.html). Courier Corporation.
