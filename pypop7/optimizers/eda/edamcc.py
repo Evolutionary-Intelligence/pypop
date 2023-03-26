@@ -115,5 +115,4 @@ class EDAMCC(EDA):
                 break
             self._n_generations += 1
             self._print_verbose_info(fitness, y)
-        results = self._collect(fitness, y)
-        return results
+        return self._collect(fitness, y)
