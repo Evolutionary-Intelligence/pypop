@@ -11,7 +11,7 @@ class GENITOR(GA):
 
        This is a *slightly modified* version of `GENITOR` for continuous optimization. Originally `GENITOR` was proposed
        to solve challenging `neuroevolution <https://www.nature.com/articles/s42256-018-0006-z>`_ problems by Whitley,
-       `recipient of IEEE Evolutionary Computation Pioneer Award 2022 <https://tinyurl.com/456as566>`_.
+       `the recipient of IEEE Evolutionary Computation Pioneer Award 2022 <https://tinyurl.com/456as566>`_.
 
     Parameters
     ----------
