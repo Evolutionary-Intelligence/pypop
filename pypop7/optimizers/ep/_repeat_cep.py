@@ -12,7 +12,7 @@
     Note that we first update individual step-sizes and then update offspring for each generation as the
     same as the second paper (but different from the first paper), which typically obtains faster local convergence.
 
-    Luckily our code could repeat the data reported in the original paper *well*.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
     Therefore, we argue that its repeatability could be **well-documented** (*at least partly*).
 """
 import numpy as np
