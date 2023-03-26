@@ -45,6 +45,11 @@ class GA(Optimizer):
     MIT Press.
     https://mitpress.mit.edu/9780262041942/evolutionary-computation/
 
+    Mitchell, M., 1998.
+    An introduction to genetic algorithms.
+    MIT Press.
+    https://mitpress.mit.edu/9780262631853/an-introduction-to-genetic-algorithms/
+
     Levine, D., 1997.
     Commentary—Genetic algorithms: A practitioner's view.
     INFORMS Journal on Computing, 9(3), pp.256-259.
@@ -81,6 +86,11 @@ class GA(Optimizer):
     Scientific American, 267(1), pp.66-73.
     https://www.scientificamerican.com/article/genetic-algorithms/
 
+    Goldberg, D.E., 1989.
+    Genetic algorithms in search, optimization and machine learning.
+    Reading: Addison-Wesley.
+    https://www.goodreads.com/en/book/show/142613
+ 
     Goldberg, D.E. and Holland, J.H., 1988.
     Genetic algorithms and machine learning.
     Machine Learning, 3(2), pp.95-99.
