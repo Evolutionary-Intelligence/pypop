@@ -6,8 +6,8 @@
 
     Since its source code is not openly available till now, the performance differences between our code and
     the original paper are very hard (if not impossible) to analyze. We notice that different people may give
-    different implementations based on different understandings of its algorithmic operations, which may
-    explain the following performance differences.
+    different implementations based on different understandings of its algorithmic operation details, which
+    may explain the following performance differences.
 
     We expect that a much closer open-source implementation could be given in the future, no matter by
     ourselves or others.
@@ -23,9 +23,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': ackley,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -32 * np.ones((ndim_problem,)),
-               'upper_boundary': 32 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500 * 100,
+               'lower_boundary': -32*np.ones((ndim_problem,)),
+               'upper_boundary': 32*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500*100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     fep = FEP(problem, options)
@@ -35,9 +35,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': sphere,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -100 * np.ones((ndim_problem,)),
-               'upper_boundary': 100 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500 * 100,
+               'lower_boundary': -100*np.ones((ndim_problem,)),
+               'upper_boundary': 100*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500*100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     fep = FEP(problem, options)
@@ -47,9 +47,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': step,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -100 * np.ones((ndim_problem,)),
-               'upper_boundary': 100 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 1500 * 100,
+               'lower_boundary': -100*np.ones((ndim_problem,)),
+               'upper_boundary': 100*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 1500*100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     fep = FEP(problem, options)
@@ -59,9 +59,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -30 * np.ones((ndim_problem,)),
-               'upper_boundary': 30 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 20000 * 100,
+               'lower_boundary': -30*np.ones((ndim_problem,)),
+               'upper_boundary': 30*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 20000*100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     fep = FEP(problem, options)
@@ -71,9 +71,9 @@ if __name__ == '__main__':
 
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -5.12 * np.ones((ndim_problem,)),
-               'upper_boundary': 5.12 * np.ones((ndim_problem,))}
-    options = {'max_function_evaluations': 5000 * 100,
+               'lower_boundary': -5.12*np.ones((ndim_problem,)),
+               'upper_boundary': 5.12*np.ones((ndim_problem,))}
+    options = {'max_function_evaluations': 5000*100,
                'seed_rng': 0,  # undefined in the original paper
                'sigma': 3.0}
     fep = FEP(problem, options)
