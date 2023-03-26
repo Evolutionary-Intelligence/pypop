@@ -28,7 +28,7 @@ class JADE(DE):
                   default: `0.5`),
                 * 'p'             - level of greediness of mutation strategy (`float`, default: `0.05`),
                 * 'c'             - life span (`float`, default: `0.1`),
-                * 'boundary'      - flag to limit all samplings inside the search range (`boolean`, default: `False`).
+                * 'is_bound'      - flag to limit all samplings inside the search range (`boolean`, default: `False`).
 
     Examples
     --------
@@ -58,10 +58,10 @@ class JADE(DE):
 
     Attributes
     ----------
-    boundary      : `boolean`
-                    flag to limit all samplings inside the search range.
     c             : `float`
                     life span.
+    is_bound      : `boolean`
+                    flag to limit all samplings inside the search range.
     median        : `float`
                     median of Cauchy distribution for adaptation of mutation factor.
     mu            : `float`
