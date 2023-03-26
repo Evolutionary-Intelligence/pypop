@@ -6,8 +6,8 @@
 
     Since several implementation details were not very clear in the original paper, it is hard to
       repeat the original experiments *perfectly*, according to our experiences.
-    Our current implementation could generate the *relatively close but not perfect* result on the following
-      test function, depending on your level of acceptance.
+    Our current Python implementation could generate the *relatively close but not perfect* result on the
+    following test function.
     We still expect to improve it, in order to match the original paper as close as possible in the future
       (if possible).
 
