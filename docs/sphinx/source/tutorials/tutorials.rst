@@ -505,8 +505,68 @@ The final HTML outputs look like:
 Benchmarking on the Famous NeverGrad Platform
 ---------------------------------------------
 
-As pointed out in the recent paper `[Meunier et al., 2022, IEEE-TEVC]
+As pointed out in the recent paper from Facebook AI Research `[Meunier et al., 2022, TEVC]
 <https://ieeexplore.ieee.org/abstract/document/9524335>`_, *"Existing studies in black-box optimization suffer from
 low generalizability, caused by a typically selective choice of problem instances used for training and testing of
 different optimization algorithms. Among other issues, this practice promotes overfitting and poor-performing user
 guidelines."*
+
+Here we choose a **real-world** optimization problem to compare two population-based optimizers (`PSO` vs `DE`)
+in the following:
+
+    .. code-block:: python
+
+        """This is a simple demo that optimizes the Bragg mirrors structure, modeled in the following paper:
+            Bennet, P., Centeno, E., Rapin, J., Teytaud, O. and Moreau, A., 2020.
+            The photonics and ARCoating testbeds in NeverGrad.
+            https://hal.uca.fr/hal-02613161v1
+        """
+        import numpy as np
+        import matplotlib.pyplot as plt
+        from nevergrad.functions.photonics.core import Photonics
+
+        from pypop7.optimizers.pso.clpso import CLPSO  # https://pypop.readthedocs.io/en/latest/pso/clpso.html
+        from pypop7.optimizers.de.jade import JADE  # https://pypop.readthedocs.io/en/latest/de/jade.html
+
+
+        if __name__ == '__main__':
+            plt.figure(figsize=(8, 6))
+            plt.rcParams['font.family'] = 'Times New Roman'
+            plt.rcParams['font.size'] = '12'
+
+            labels = ['CLPSO', 'JADE']
+            for i, Opt in enumerate([CLPSO, JADE]):
+                ndim_problem = 10  # dimension of objective function
+                half = int(ndim_problem/2)
+                func = Photonics("bragg", ndim_problem)
+                problem = {'fitness_function': func,
+                           'ndim_problem': ndim_problem,
+                           'lower_boundary': np.hstack((2*np.ones(half), 30*np.ones(half))),
+                           'upper_boundary': np.hstack((3*np.ones(half), 180*np.ones(half)))}
+                options = {'max_function_evaluations': 50000,
+                           'n_individuals': 200,
+                           'is_bound': True,
+                           'seed_rng': 0,
+                           'saving_fitness': 1,
+                           'verbose': 200}
+                solver = Opt(problem, options)
+                results = solver.optimize()
+                res = results['fitness']
+                plt.plot(res[:, 0], res[:, 1], linewidth=2.0, linestyle='-', label=labels[i])
+            plt.legend()
+            plt.xlabel('Number of Function Evaluations')
+            plt.ylabel('Fitness (to be Minimized)')
+            plt.title('Bragg Mirrors Structure')
+            plt.savefig('photonics_optimization.png')
+
+
+The final figure output is:
+
+.. image:: images/photonics_optimization.png
+   :width: 500px
+   :align: center
+
+For each black-box optimizer (BBO) from this open-source library, we also provide a *toy* example on their corresponding
+`API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_ documentations and two *testing* code (if possible) on
+their corresponding `source code <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_
+folders.
