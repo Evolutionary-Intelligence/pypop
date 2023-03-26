@@ -428,7 +428,7 @@ optimizers in the **black-box** setting.
 
         import numpy as np
         import cocoex  # experimentation module of `COCO`
-        import cocopp  # post-processing modules of `COCO`
+        import cocopp  # post-processing module of `COCO`
 
         from pypop7.optimizers.es.maes import MAES
 
