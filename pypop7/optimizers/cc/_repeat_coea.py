@@ -9,7 +9,7 @@
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/coea
 
     The original paper used the binary representation, which is *rarely* used for continuous optimization.
-    Our implementation uses the real-valued representation, with a different sub-optimizer.
+    Our Python implementation uses the real-valued representation, with a different sub-optimizer.
 
     Luckily our code could still repeat the data reported in the original paper *well*.
     Therefore, we argue that its repeatability could be **well-documented**.
