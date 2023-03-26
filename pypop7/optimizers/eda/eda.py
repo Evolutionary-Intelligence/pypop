@@ -82,6 +82,7 @@ class EDA(Optimizer):
             self.n_parents = int(self.n_individuals/2)
         self._n_generations = 0
         self._n_restart = 0
+        self._printed_evaluations = self.n_function_evaluations
 
     def initialize(self):
         raise NotImplementedError

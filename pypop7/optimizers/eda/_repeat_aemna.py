@@ -25,12 +25,12 @@ if __name__ == '__main__':
     options = {'max_function_evaluations': 301850,
                'n_individuals': 2000,
                'seed_rng': 0,  # undefined in the original paper
-               'verbose_frequency': 1000}
+               'verbose': 1000}
     aemna = AEMNA(problem, options)
     results = aemna.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 7.517279751033313
+    # 8.67464285339613
     # vs 3263.0010 (from the original paper)
 
     problem = {'fitness_function': griewank,
@@ -40,10 +40,10 @@ if __name__ == '__main__':
     options = {'max_function_evaluations': 301850,
                'n_individuals': 750,
                'seed_rng': 0,  # undefined in the original paper
-               'verbose_frequency': 1000}
+               'verbose': 1000}
     aemna = AEMNA(problem, options)
     results = aemna.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 0.7944761831988641
+    # 0.59856558868619
     # vs 12.9407 (from the original paper)
