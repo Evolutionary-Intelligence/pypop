@@ -9,6 +9,7 @@ Here we provide several *interesting* tutorials to help better use this library 
 * Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ (developed by
   European Space Agency),
 * Benchmarking for Large-Scale Black-Box Optimization,
+* Controller Design/Optimization,
 * Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform,
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
   recently by FacebookResearch).
@@ -210,7 +211,7 @@ different `DE <https://pypop.readthedocs.io/en/latest/de/de.html>`_ versions to 
         sns.set_theme(style='darkgrid')
         plt.figure()
         for label, res in zip(['CDE', 'JADE'], results):
-            # starting 250000 can avoid excessively high values generated during the early stage
+            # starting from 250000 can avoid excessively high values generated during the early stage
             #   to disrupt convergence curves
             plt.plot(res['fitness'][250000:, 0], res['fitness'][250000:, 1], label=label)
 
@@ -344,6 +345,7 @@ against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and `sepa
     .. code-block:: python
 
         import time
+
         import numpy as np
 
         from pypop7.benchmarks.shifted_functions import generate_shift_vector
@@ -379,122 +381,75 @@ against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and `sepa
         if __name__ == '__main__':
             generate_sv_and_rm()
 
-Then, invoke different optimizers on these (rotated and shifted) test functions:
+Then, invoke multiple different optimizers from `PyPop7` on these (rotated and shifted) test functions:
 
     .. code-block:: python
 
-        import os
-        import time
-        import pickle
-        import argparse
-
-        import numpy as np
-
-        import pypop7.benchmarks.continuous_functions as cf
-
-
-        class Experiment(object):
-            def __init__(self, index, function, seed, ndim_problem):
-                self.index = index
-                self.function = function
-                self.seed = seed
-                self.ndim_problem = ndim_problem
-                self._folder = 'pypop7_benchmarks_lso'
-                if not os.path.exists(self._folder):
-                    os.makedirs(self._folder)
-                self._file = os.path.join(self._folder, 'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle')
-
-            def run(self, optimizer):
-                problem = {'fitness_function': self.function,
-                           'ndim_problem': self.ndim_problem,
-                           'upper_boundary': 10.0*np.ones((self.ndim_problem,)),
-                           'lower_boundary': -10.0*np.ones((self.ndim_problem,))}
-                options = {'max_function_evaluations': 100000 * self.ndim_problem,
-                           'max_runtime': 3600*3,  # seconds
-                           'fitness_threshold': 1e-10,
-                           'seed_rng': self.seed,
-                           'saving_fitness': 2000,
-                           'verbose': 0}
-                if optimizer.__name__ in ['PRS', 'RHC', 'ARHC', 'SRS', 'BES',
-                    'CS', 'HJ', 'NM', 'GPS',
-                    'CEP', 'FEP', 'LEP',
-                    'GENITOR', 'G3PCX', 'GL25', 'ASGA',
-                    'NSA', 'CSA', 'ESA',
-                    'RES', 'DSAES', 'CSAES',
-                    'OPOC2006', 'OPOC2009', 'SEPCMAES', 'OPOA2010', 'OPOA2015',
-                    'CCMAES2009', 'MAES', 'LMCMA', 'LMMAES', 'MMES',
-                    'SCEM', 'DSCEM', 'DCEM']:
-                    options['sigma'] = 20.0/3.0
-                solver = optimizer(problem, options)
-                results = solver.optimize()
-                file = self._file.format(solver.__class__.__name__,
-                                         solver.fitness_function.__name__,
-                                         solver.ndim_problem,
-                                         self.index)
-                with open(file, 'wb') as handle:
-                    pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-
-        class Experiments(object):
-            def __init__(self, start, end, ndim_problem):
-                self.start = start
-                self.end = end
-                self.ndim_problem = ndim_problem
-                self.indices = range(self.start, self.end + 1)
-                self.functions = [cf.sphere, cf.cigar, cf.discus, cf.cigar_discus, cf.ellipsoid,
-                                  cf.different_powers, cf.schwefel221, cf.step, cf.rosenbrock, cf.schwefel12]
-                self.seeds = np.random.default_rng(2022).integers(
-                    np.iinfo(np.int64).max, size=(len(self.functions), 50))
-
-            def run(self, optimizer):
-                for index in self.indices:
-                    print('* experiment: {:d} ***:'.format(index))
-                    for d, f in enumerate(self.functions):
-                        start_time = time.time()
-                        print('  * function: {:s}:'.format(f.__name__))
-                        experiment = Experiment(index, f, self.seeds[d, index], self.ndim_problem)
-                        experiment.run(optimizer)
-                        print('    runtime: {:7.5e}.'.format(time.time() - start_time))
-
-
-        if __name__ == '__main__':
-            start_runtime = time.time()
-            parser = argparse.ArgumentParser()
-            parser.add_argument('--start', '-s', type=int)  # starting index of experiments (from 0 to 49)
-            parser.add_argument('--end', '-e', type=int)  # ending index of experiments (from 0 to 49)
-            parser.add_argument('--optimizer', '-o', type=str)
-            parser.add_argument('--ndim_problem', '-d', type=int, default=2000)
-            args = parser.parse_args()
-            params = vars(args)
-            if params['optimizer'] == 'MAES':  # 2017
-                from pypop7.optimizers.es.maes import MAES as Optimizer
-            elif params['optimizer'] == 'FMAES':  # 2017
-                from pypop7.optimizers.es.fmaes import FMAES as Optimizer
-            elif params['optimizer'] == 'LMCMA':  # 2017
-                from pypop7.optimizers.es.lmcma import LMCMA as Optimizer
-            elif params['optimizer'] == 'LMMAES':  # 2019
-                from pypop7.optimizers.es.lmmaes import LMMAES as Optimizer
-            elif params['optimizer'] == 'MMES':  # 2021
-                from pypop7.optimizers.es.mmes import MMES as Optimizer
-            elif params['optimizer'] == 'BES':
-                from pypop7.optimizers.rs.bes import BES as Optimizer
-            elif params['optimizer'] == 'SRS':
-                from pypop7.optimizers.rs.srs import SRS as Optimizer
-            elif params['optimizer'] == 'ARHC':
-                from pypop7.optimizers.rs.arhc import ARHC as Optimizer
-            elif params['optimizer'] == 'RHC':
-                from pypop7.optimizers.rs.rhc import RHC as Optimizer
-            elif params['optimizer'] == 'PRS':
-                from pypop7.optimizers.rs.prs import PRS as Optimizer
-            experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
-            experiments.run(Optimizer)
-            print('*** Total runtime: {:7.5e} ***.'.format(time.time() - start_runtime))
-
-Please run the above code (named as `run_experiments.py`) in the background, since it needs very long runtime for LSBBO:
+Please run the above script (named as `run_experiments.py`) in the background on a high-performing server, since it
+needs a very long runtime for LSBBO:
 
     .. code-block:: bash
 
         $ nohup python run_experiments.py -s=1 -e=2 -o=LMCMA >LMCMA_1_2.out 2>&1 &  # on Linux
+
+Controller Design/Optimization
+------------------------------
+
+Using population-based (e.g., evolutionary) optimization methods to design robot controllers has a relatively long
+history. Recently, the increasing availability of distributed computing make them a competitive alternative to RL, as
+empirically demonstrated in `OpenAI's 2017 research report <https://openai.com/research/evolution-strategies>`_. Here,
+we provide a *very simplified* demo to show how `ES` works well on a classical control problem called `CartPole`:
+
+    .. code-block:: python
+
+        """This is a simple demo to optimize a linear controller on the popular `gymnasium` platform:
+            https://github.com/Farama-Foundation/Gymnasium
+
+            For benchmarking, please use the more challenging MuJoCo tasks: https://mujoco.org/
+        """
+        import numpy as np
+        import gymnasium as gym  # to be installed from https://github.com/Farama-Foundation/Gymnasium
+
+        from pypop7.optimizers.es.maes import MAES as Solver
+
+
+        env = gym.make('CartPole-v1', render_mode='human')
+        action_dim = 2  # for action probability space
+
+
+        class Controller:  # linear controller for simplicity
+            def __init__(self, obs):
+                self.observation = obs
+
+            def __call__(self, x):
+                rewards = 0
+                self.observation, _ = env.reset()
+                for i in range(1000):
+                    action = np.matmul(x.reshape(action_dim, -1), self.observation[:, np.newaxis])  # linear controller
+                    actions = np.sum(action)
+                    prob_left, prob_right = action[0]/actions, action[1]/actions  # seen as a probability
+                    action = 1 if prob_left < prob_right else 0
+                    self.observation, reward, terminated, truncated, _ = env.step(action)
+                    rewards += reward
+                    if terminated or truncated:
+                        return -rewards  # for minimization (rather than maximization)
+                return -rewards  # to negate rewards
+
+
+        if __name__ == '__main__':
+            observation, _ = env.reset(seed=2023)
+            controller = Controller(observation)
+            pro = {'fitness_function': controller,
+                   'ndim_problem': len(observation)*action_dim,
+                   'lower_boundary': -10*np.ones((len(observation)*action_dim,)),
+                   'upper_boundary': 10*np.ones((len(observation)*action_dim,))}
+            opt = {'max_function_evaluations': 1e4,
+                   'seed_rng': 0,
+                   'sigma': 3.0,
+                   'verbose': 1}
+            solver = Solver(pro, opt)
+            print(solver.optimize())
+            env.close()
 
 Benchmarking on the Well-Designed COCO Platform
 -----------------------------------------------
