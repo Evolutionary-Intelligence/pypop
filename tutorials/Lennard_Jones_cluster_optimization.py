@@ -38,7 +38,7 @@ if __name__ == '__main__':
     sns.set_theme(style='darkgrid')
     plt.figure()
     for label, res in zip(['CDE', 'JADE'], results):
-        # starting 250000 can avoid excessively high values generated during the early stage
+        # starting from 250000 can avoid excessively high values generated during the early stage
         #   to disrupt convergence curves
         plt.plot(res['fitness'][250000:, 0], res['fitness'][250000:, 1], label=label)
 
