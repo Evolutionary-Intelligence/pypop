@@ -7,6 +7,9 @@ from pypop7.optimizers.ga.ga import GA
 class G3PCX(GA):
     """Generalized Generation Gap with Parent-Centric Recombination (G3PCX).
 
+    .. note:: Originally `G3PCX` was proposed to scale up the efficiency of `GA` mainly by Deb,
+       `the recipient of IEEE Evolutionary Computation Pioneer Award 2018 <https://tinyurl.com/456as566>`_.
+
     Parameters
     ----------
     problem : dict
