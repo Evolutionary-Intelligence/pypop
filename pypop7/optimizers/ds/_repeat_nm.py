@@ -11,7 +11,6 @@
 
     The Python reference script is given below (note that first install `pymoo` via `pip install pymoo`):
     -----------------------------------------------------------------------------------------------------
-
     from pymoo.algorithms.soo.nonconvex.nelder import NelderMead
     from pymoo.problems.single import Ackley
     from pymoo.optimize import minimize
