@@ -31,7 +31,8 @@ class Experiment(object):
                    'seed_rng': self.seed,
                    'saving_fitness': 2000,
                    'verbose': 0}
-        if optimizer.__name__ in ['PRS', 'SRS', 'GS', 'BES', 'HJ', 'NM', 'POWELL', 'FEP']:
+        if optimizer.__name__ in ['PRS', 'SRS', 'GS', 'BES', 'HJ', 'NM', 'POWELL', 'FEP', 'GENITOR', 'G3PCX',
+                                  'GL25']:
             options['sigma'] = 20.0/3.0
         solver = optimizer(problem, options)
         results = solver.optimize()
@@ -93,6 +94,12 @@ if __name__ == '__main__':
         from pypop7.optimizers.ds.powell import POWELL as Optimizer
     elif params['optimizer'] == 'FEP':
         from pypop7.optimizers.ep.fep import FEP as Optimizer
+    elif params['optimizer'] == 'GENITOR':
+        from pypop7.optimizers.ga.genitor import GENITOR as Optimizer
+    elif params['optimizer'] == 'G3PCX':
+        from pypop7.optimizers.ga.g3pcx import G3PCX as Optimizer
+    elif params['optimizer'] == 'GL25':
+        from pypop7.optimizers.ga.gl25 import GL25 as Optimizer
     else:
         raise ValueError(f"Cannot find optimizer class {params['optimizer']} in PyPop7!")
     experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
