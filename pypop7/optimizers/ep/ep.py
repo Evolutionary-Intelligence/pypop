@@ -64,6 +64,11 @@ class EP(Optimizer):
     https://link.springer.com/chapter/10.1007/3-540-61108-8_28
 
     Fogel, D.B., 1994.
+    An introduction to simulated evolutionary optimization.
+    IEEE Transactions on Neural Networks, 5(1), pp.3-14.
+    https://ieeexplore.ieee.org/abstract/document/265956
+
+    Fogel, D.B., 1994.
     Evolutionary programming: An introduction and some current directions.
     Statistics and Computing, 4(2), pp.113-129.
     https://link.springer.com/article/10.1007/BF00175356
