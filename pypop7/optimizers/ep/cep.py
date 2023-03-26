@@ -28,13 +28,13 @@ class CEP(EP):
                 * 'n_individuals'  - number of offspring, aka offspring population size (`int`, default: `100`),
                 * 'q'              - number of opponents for pairwise comparisons (`int`, default: `10`),
                 * 'tau'            - learning rate of individual step-sizes self-adaptation (`float`, default:
-                  `1.0/np.sqrt(2.0*np.sqrt(self.ndim_problem))`),
+                  `1.0/np.sqrt(2.0*np.sqrt(problem['ndim_problem']))`),
                 * 'tau_apostrophe' - learning rate of individual step-sizes self-adaptation (`float`, default:
-                  `1.0/np.sqrt(2.0*self.ndim_problem)`.
+                  `1.0/np.sqrt(2.0*problem['ndim_problem'])`.
 
     Examples
     --------
-    Use the Evolutionary Programming optimizer `CEP` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -45,8 +45,8 @@ class CEP(EP):
        >>> from pypop7.optimizers.ep.cep import CEP
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
        ...            'sigma': 0.1}
@@ -102,7 +102,7 @@ class CEP(EP):
             y[i] = self._evaluate_fitness(x[i], args)
         xx = np.empty((self.n_individuals, self.ndim_problem))
         ss = np.empty((self.n_individuals, self.ndim_problem))  # eta
-        yy = np.empty((self.n_individuals,))
+        yy = np.copy(y)
         return x, sigmas, y, xx, ss, yy
 
     def iterate(self, x=None, sigmas=None, y=None, xx=None, ss=None, yy=None, args=None):
@@ -136,10 +136,9 @@ class CEP(EP):
     def optimize(self, fitness_function=None, args=None):
         fitness = EP.optimize(self, fitness_function)
         x, sigmas, y, xx, ss, yy = self.initialize(args)
-        self._print_verbose_info(fitness, y)
         while True:
+            self._print_verbose_info(fitness, yy)
             x, sigmas, y, xx, ss, yy = self.iterate(x, sigmas, y, xx, ss, yy, args)
             if self._check_terminations():
                 break
-            self._print_verbose_info(fitness, y)
-        return self._collect(fitness, y)
+        return self._collect(fitness, yy)
