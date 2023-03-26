@@ -102,6 +102,7 @@ class HCC(CC):
             options = {'seed_rng': self.rng_initialization.integers(np.iinfo(np.int64).max),
                        'sigma': sigma,
                        'max_runtime': self.max_runtime,
+                       'fitness_threshold': self.fitness_threshold,
                        'verbose': False}
             cma = CMAES(problem, options)
             cma.start_time = time.time()
@@ -117,6 +118,7 @@ class HCC(CC):
         options = {'seed_rng': self.rng_initialization.integers(np.iinfo(np.int64).max),
                    'sigma': sigma,
                    'max_runtime': self.max_runtime,
+                   'fitness_threshold': self.fitness_threshold,
                    'verbose': False}
         lmcma = LMCMA(problem, options)
         return sub_optimizers, self.best_so_far_y, lmcma
