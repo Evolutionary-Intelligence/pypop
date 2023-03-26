@@ -6,10 +6,10 @@ from pypop7.optimizers.ep.cep import CEP
 class FEP(CEP):
     """Fast Evolutionary Programming with self-adaptive mutation (FEP).
 
-    .. note:: `FEP` was proposed mainly by Yao in 1999, recipient of both `Evolutionary Computation Pioneer Award
-       2013 <https://tinyurl.com/456as566>`_ and `IEEE Frank Rosenblatt Award 2020
-       <https://tinyurl.com/yj28zxfa>`_, where the classical Gaussian sampling distribution is replaced by the
-       heavy-tailed Cachy distribution for better exploration on multi-modal black-box problems.
+    .. note:: `FEP` was proposed mainly by Yao in 1999, the recipient of `IEEE Evolutionary Computation Pioneer Award
+       2013 <https://tinyurl.com/456as566>`_ and `IEEE Frank Rosenblatt Award 2020 <https://tinyurl.com/yj28zxfa>`_,
+       where the classical Gaussian sampling distribution is replaced by the heavy-tailed Cachy distribution for better
+       exploration on multi-modal black-box problems.
 
     Parameters
     ----------
@@ -29,13 +29,13 @@ class FEP(CEP):
                 * 'n_individuals'  - number of offspring, aka offspring population size (`int`, default: `100`),
                 * 'q'              - number of opponents for pairwise comparisons (`int`, default: `10`),
                 * 'tau'            - learning rate of individual step-sizes self-adaptation (`float`, default:
-                  `1.0/np.sqrt(2.0*np.sqrt(self.ndim_problem))`),
+                  `1.0/np.sqrt(2.0*np.sqrt(problem['ndim_problem']))`),
                 * 'tau_apostrophe' - learning rate of individual step-sizes self-adaptation (`float`, default:
-                  `1.0/np.sqrt(2.0*self.ndim_problem)`.
+                  `1.0/np.sqrt(2.0*problem['ndim_problem'])`.
 
     Examples
     --------
-    Use the Evolutionary Programming optimizer `FEP` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -46,8 +46,8 @@ class FEP(CEP):
        >>> from pypop7.optimizers.ep.fep import FEP
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
        ...            'sigma': 0.1}
