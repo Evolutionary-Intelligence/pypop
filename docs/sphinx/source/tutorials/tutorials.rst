@@ -413,35 +413,46 @@ Benchmarking on the Well-Designed COCO Platform
 -----------------------------------------------
 
 From the `evolutionary computation <https://www.nature.com/articles/nature14544>`_ community,
-`COCO <https://github.com/numbbo/coco>`_ is a *well-designed* platform for comparing continuous optimizers
-in a black-box setting.
+`COCO <https://github.com/numbbo/coco>`_ is a *well-designed* and *actively-maintained* platform for comparing continuous
+optimizers in the **black-box** setting.
 
     .. code-block:: python
 
-        import cocoex
-        import numpy as np
+        """A simple example for `COCO` Benchmarking using `PyPop7`:
+          https://github.com/numbbo/coco
+          
+          To install `COCO` successfully, please read the above link carefully. 
+        """
+        import os
+        import webbrowser  # for post-processing in the browser
 
-        from pypop7.optimizers.ds.nm import NM as Solver
+        import numpy as np
+        import cocoex  # experimentation module of `COCO`
+        import cocopp  # post-processing modules of `COCO`
+
+        from pypop7.optimizers.es.maes import MAES
 
 
         if __name__ == '__main__':
-            print(cocoex.known_suite_names)
-            suite = cocoex.Suite('bbob', '', '')
-            for current_problem in suite:
-                print(current_problem)
-                d = current_problem.dimension
-                problem = {'fitness_function': current_problem,
-                           'ndim_problem': d,
-                           'lower_boundary': -10 * np.ones((d,)),
-                           'upper_boundary': 10 * np.ones((d,))}
-                options = {'max_function_evaluations': 1e3 * d,
+            suite, output = 'bbob', 'coco-maes'
+            budget_multiplier = 1e3  # or 1e4, 1e5, ...
+            observer = cocoex.Observer(suite, 'result_folder: ' + output)
+            minimal_print = cocoex.utilities.MiniPrint()
+            for function in cocoex.Suite(suite, '', ''):
+                function.observe_with(observer)  # generate data for `cocopp` post-processing
+                sigma = np.min(function.upper_bounds - function.lower_bounds)/3.0
+                problem = {'fitness_function': function,
+                           'ndim_problem': function.dimension,
+                           'lower_boundary': function.lower_bounds,
+                           'upper_boundary': function.upper_bounds}
+                options = {'max_function_evaluations': function.dimension*budget_multiplier,
                            'seed_rng': 2022,
-                           'sigma': 1.0,
-                           'verbose': False,
-                           'saving_fitness': 2000}
-                solver = Solver(problem, options)
-                results = solver.optimize()
-                print('  best-so-far fitness:', results['best_so_far_y'])
+                           'x': function.initial_solution,
+                           'sigma': sigma}
+                solver = MAES(problem, options)
+                print(solver.optimize())
+            cocopp.main(observer.result_folder)
+            webbrowser.open("file://" + os.getcwd() + "/ppdata/index.html")
 
 Benchmarking on the Famous NeverGrad Platform
 ---------------------------------------------
