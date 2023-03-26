@@ -4,14 +4,14 @@ Tutorials
 Here we provide several *interesting* tutorials to help better use this library `PyPop7
 <https://pypop.readthedocs.io/en/latest/installation.html>`_, as shown below:
 
-* Lens Shape Optimization (15-dimensional)
-* Lennard-Jones Cluster Optimization from `pagmo <https://esa.github.io/pagmo2/>`_ (444-dimensional)
-* Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ developed by
-  European Space Agency
-* Benchmarking for Large-Scale Black-Box Optimization (up to 2000-dimensional)
-* Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (up to 640-dimensional)
+* Lens Shape Optimization,
+* Lennard-Jones Cluster Optimization from `pagmo <https://esa.github.io/pagmo2/>`_,
+* Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ (developed by
+  European Space Agency),
+* Benchmarking for Large-Scale Black-Box Optimization,
+* Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform,
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
-  recently by FacebookResearch)
+  recently by FacebookResearch).
 
 For each black-box optimizer (BBO) from this open-source library, we also provide a *toy* example on their corresponding
 `API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_ documentations and two *testing* code (if possible) on
@@ -331,7 +331,7 @@ performance, analyzing their advantages and limitations, and also choosing state
 before applying them to more challenging real-world problems.
 
 .. note:: *“A biased benchmark, excluding large parts of the real-world needs, leads to biased conclusions, no matter
-   how many experiments we perform.”* ---`[Meunier et al., 2022, IEEE-TEVC]
+   how many experiments we perform.”* ---`[Meunier et al., 2022, TEVC]
    <https://ieeexplore.ieee.org/abstract/document/9524335>`_
 
 Here we show how to benchmark multiple black-box optimizers on a *relatively large* collection of LSBBO test functions,
