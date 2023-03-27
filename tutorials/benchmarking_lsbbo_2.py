@@ -32,7 +32,8 @@ class Experiment(object):
                    'saving_fitness': 2000,
                    'verbose': 0}
         if optimizer.__name__ in ['PRS', 'SRS', 'GS', 'BES', 'HJ', 'NM', 'POWELL', 'FEP', 'GENITOR', 'G3PCX',
-                                  'GL25', 'COCMA', 'HCC', 'SPSO', 'SPSOL', 'CLPSO', 'CCPSO2', 'UMDA', 'EMNA', 'RPEDA']:
+                                  'GL25', 'COCMA', 'HCC', 'SPSO', 'SPSOL', 'CLPSO', 'CCPSO2', 'UMDA', 'EMNA', 'RPEDA',
+                                  'XNES', 'SNES', 'R1NES']:
             options['sigma'] = 20.0/3.0
         solver = optimizer(problem, options)
         results = solver.optimize()
@@ -130,6 +131,12 @@ if __name__ == '__main__':
         from pypop7.optimizers.eda.emna import EMNA as Optimizer
     elif params['optimizer'] == 'RPEDA':
         from pypop7.optimizers.eda.rpeda import RPEDA as Optimizer
+    elif params['optimizer'] == 'XNES':
+        from pypop7.optimizers.nes.xnes import XNES as Optimizer
+    elif params['optimizer'] == 'SNES':
+        from pypop7.optimizers.nes.snes import SNES as Optimizer
+    elif params['optimizer'] == 'R1NES':
+        from pypop7.optimizers.nes.r1nes import R1NES as Optimizer
     else:
         raise ValueError(f"Cannot find optimizer class {params['optimizer']} in PyPop7!")
     experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
