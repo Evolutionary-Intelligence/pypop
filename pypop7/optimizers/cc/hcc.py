@@ -51,7 +51,7 @@ class HCC(CC):
        >>> results = hcc.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"HCC: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       HCC: 5000, 5.610179991025547e-09
+       HCC: 5000, 0.0006576371426980234
 
     For its correctness checking of coding, we cannot provide the code-based repeatability report, since this
     implementation combines two different papers. To our knowledge, few well-designed open-source code of `CC` is
@@ -129,7 +129,7 @@ class HCC(CC):
         # run upper-level LM-CMA
         lm_mean, lm_x, lm_p_c, lm_s, lm_vm, lm_pm, lm_b, lm_d, lm_y = lmcma.initialize()  # for upper-level LM-CMA
         lmcma.start_time = time.time()
-        lmcma.fitness_function = self.fitness_function
+        lmcma.fitness_function = self._evaluate_fitness
         # run lower-level CMA-ES
         x_s, mean_s, ps_s, pc_s, cm_s, ee_s, ea_s, y_s = [], [], [], [], [], [], [], []  # for lower-level CMA-ES
         while not self._check_terminations():
