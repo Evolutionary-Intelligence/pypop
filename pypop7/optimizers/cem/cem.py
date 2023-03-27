@@ -103,7 +103,7 @@ class CEM(Optimizer):
         assert self.sigma is not None and self.sigma > 0.0
         self._sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
         self._n_generations = 0
-        self._printed_evaluations = self.n_function_evaluations
+        self._printed_evaluations = self.n_function_evaluations  # only for printing
 
     def initialize(self):
         raise NotImplementedError
@@ -119,12 +119,11 @@ class CEM(Optimizer):
         return mean
 
     def _print_verbose_info(self, fitness, y, is_print=False):
-        if y is not None:
-            if self.saving_fitness:
-                if not np.isscalar(y):
-                    fitness.extend(y)
-                else:
-                    fitness.append(y)
+        if y is not None and self.saving_fitness:
+            if not np.isscalar(y):
+                fitness.extend(y)
+            else:
+                fitness.append(y)
         if self.verbose:
             is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
             is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
