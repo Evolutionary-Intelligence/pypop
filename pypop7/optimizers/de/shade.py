@@ -25,8 +25,8 @@ class SHADE(JADE):
                 * 'mu'            - mean of normal distribution for adaptation of crossover probability (`float`,
                   default: `0.5`),
                 * 'median'        - median of Cauchy distribution for adaptation of mutation factor (`float`,
-                  default: `0.5`).
-                *  'h'            - length of historical memory (`int`, default: `100`)
+                  default: `0.5`),
+                *  'h'            - length of historical memory (`int`, default: `100`).
 
     Examples
     --------
