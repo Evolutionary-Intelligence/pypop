@@ -6,7 +6,7 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class ES(Optimizer):
     """Evolution Strategies (ES).
 
-    This is the **base** (abstract) class for all `ES` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `ES` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
     .. note:: `ES` are a well-established family of randomized **population-based** search algorithms, proposed by two
