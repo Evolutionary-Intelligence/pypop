@@ -41,8 +41,9 @@ problem = {'fitness_function': rosenbrock,  # cost function
            'lower_boundary': -5*np.ones((ndim_problem,)),  # search boundary
            'upper_boundary': 5*np.ones((ndim_problem,))}
 
-# 3. Run one or more black-box optimizers from ```pypop7``` on the given optimization problem:
+# 3. Run one or more black-box optimizers on the given optimization problem:
 #   here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO
+#   https://pypop.readthedocs.io/en/latest/es/lmmaes.html
 from pypop7.optimizers.es.lmmaes import LMMAES
 # define all the necessary algorithm options (which differ among different optimizers)
 options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than this threshold
