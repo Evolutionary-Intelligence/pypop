@@ -7,7 +7,7 @@ class AEMNA(EDA):
     """Adaptive Estimation of Multivariate Normal Algorithm (AEMNA).
 
     .. note:: `AEMNA` learns the *full* covariance matrix of the Gaussian sampling distribution, resulting
-       in a *cubic* time complexity w.r.t. each sampling. Therefore, like `EMNA`, it is rarely used for
+       in a *cubic* time complexity w.r.t. each generation. Therefore, like `EMNA`, it is rarely used for
        large-scale black-box optimization (LSBBO). It is **highly recommended** to first attempt other
        more advanced methods for LSBBO.
 
@@ -25,13 +25,13 @@ class AEMNA(EDA):
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring, offspring population size (`int`, default: `200`),
-                * 'n_parents'     - number of parents, parental population size (`int`, default:
-                  `int(self.n_individuals/2)`).
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `200`),
+                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
+                  `int(options['n_individuals']/2)`).
 
     Examples
     --------
-    Use the EDA optimizer `AEMNA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -42,8 +42,8 @@ class AEMNA(EDA):
        >>> from pypop7.optimizers.eda.aemna import AEMNA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> aemna = AEMNA(problem, options)  # initialize the optimizer class
@@ -58,9 +58,9 @@ class AEMNA(EDA):
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring, offspring population size.
+                    number of offspring, aka offspring population size.
     n_parents     : `int`
-                    number of parents, parental population size.
+                    number of parents, aka parental population size.
 
     References
     ----------
@@ -101,16 +101,13 @@ class AEMNA(EDA):
                                  ((x[worst, i] - mean[i])*(x[worst, j] - mean[j]))/self.n_parents +
                                  ((xx[i] - mean[i])*(xx[j] - mean[j]))/self.n_parents)
             x[worst], y[worst] = xx, yy
+        self._n_generations += 1
         return x, y, mean, cov
 
     def optimize(self, fitness_function=None, args=None):
         fitness = EDA.optimize(self, fitness_function)
         x, y, mean, cov = self.initialize(args)
-        self._print_verbose_info(fitness, y)
-        while True:  # similar to steady-state genetic algorithm
-            x, y, mean, cov = self.iterate(x, y, mean, cov, args)
-            if self._check_terminations():
-                break
-            self._n_generations += 1
+        while not self._check_terminations():  # similar to steady-state genetic algorithm
             self._print_verbose_info(fitness, y)
+            x, y, mean, cov = self.iterate(x, y, mean, cov, args)
         return self._collect(fitness, y)
