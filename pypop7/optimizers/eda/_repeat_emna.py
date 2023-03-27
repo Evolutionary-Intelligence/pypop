@@ -5,12 +5,10 @@
     https://link.springer.com/book/10.1007/978-1-4615-1539-5
     (See Chapter 8 Experimental Results in Function Optimization with EDAs in Continuous Domain.)
 
-    There seems to be vey small performance gaps between the original paper and our code, which may be
-    ignored for benchmarking. Such gaps may attribute to a slight implementation difference (where our
-    code does not use *ad-hoc elitist selection* employed in the original paper).
-
-    Based on the above analysis, we argue that the repeatability of `EMNA` can be well-documented
-    (*at least partly*).
+    There seems to be vey small performance gaps between the original paper and our Python code, which
+    may be ignored for benchmarking. Such gaps may attribute to a slight implementation difference
+    (where our Python code does not use *ad-hoc elitist selection* employed in the original paper).
+    We argue that its repeatability can be **well-documented**.
 """
 import numpy as np
 
@@ -32,8 +30,7 @@ if __name__ == '__main__':
     results = emna.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 7.674018032114672
-    # vs 8.7201 (from the original paper)
+    # 7.674018032114779 vs 8.7201 (from the original paper)
 
     problem = {'fitness_function': griewank,
                'ndim_problem': ndim_problem,
@@ -46,15 +43,14 @@ if __name__ == '__main__':
     results = emna.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 0.0
-    # vs 5.1166e-02 (from the original paper)
+    # 0.0 vs 5.1166e-02 (from the original paper)
 
     ndim_problem = 50
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -10 * np.ones((ndim_problem,)),
-               'upper_boundary': 10 * np.ones((ndim_problem,))}
+               'lower_boundary': -10*np.ones((ndim_problem,)),
+               'upper_boundary': 10*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 301850,
                'n_individuals': 2000,
                'seed_rng': 0}  # undefined in the original paper
@@ -62,13 +58,12 @@ if __name__ == '__main__':
     results = emna.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 56.717810673268225
-    # vs 49.7588 (from the original paper)
+    # 56.71781067326537 vs 49.7588 (from the original paper)
 
     problem = {'fitness_function': griewank,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -600 * np.ones((ndim_problem,)),
-               'upper_boundary': 600 * np.ones((ndim_problem,))}
+               'lower_boundary': -600*np.ones((ndim_problem,)),
+               'upper_boundary': 600*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 301850,
                'n_individuals': 750,
                'seed_rng': 0}  # undefined in the original paper
@@ -76,5 +71,4 @@ if __name__ == '__main__':
     results = emna.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 1.24590323770534
-    # vs 8.7673e-06 (from the original paper)
+    # 1.2459032377053032 vs 8.7673e-06 (from the original paper)
