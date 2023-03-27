@@ -9,8 +9,8 @@ class CEM(Optimizer):
     This is the **abstract** class for all `CEM` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
-    .. note:: `CEM` is a class of **principled** population-based optimizers, proposed originally by *Rubinstein*,
-        whose core idea is based on **Kullback–Leibler (or Cross-Entropy) minimization**.
+    .. note:: `CEM` is a class of principled population-based optimizers, proposed originally by *Rubinstein*,
+        whose core idea is based on Kullback–Leibler (or Cross-Entropy) minimization.
 
        `"CEM is not only based on fundamental principles (cross-entropy distance, maximum likelihood, etc.), but is
        also very easy to program (with far fewer parameters than many other global optimization heuristics), and
@@ -39,7 +39,7 @@ class CEM(Optimizer):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_individuals' - number of individuals/samples (`int`, default: `1000`),
-                * 'n_parents'     - number of elitists (`int`, default: `200`),
+                * 'n_parents'     - number of elitists (`int`, default: `200`).
 
     Attributes
     ----------
@@ -103,7 +103,7 @@ class CEM(Optimizer):
         assert self.sigma is not None and self.sigma > 0.0
         self._sigmas = self.sigma*np.ones((self.ndim_problem,))  # individual step-sizes
         self._n_generations = 0
-        self._printed_evaluations = self.n_function_evaluations
+        self._printed_evaluations = self.n_function_evaluations  # only for printing
 
     def initialize(self):
         raise NotImplementedError
@@ -119,12 +119,11 @@ class CEM(Optimizer):
         return mean
 
     def _print_verbose_info(self, fitness, y, is_print=False):
-        if y is not None:
-            if self.saving_fitness:
-                if not np.isscalar(y):
-                    fitness.extend(y)
-                else:
-                    fitness.append(y)
+        if y is not None and self.saving_fitness:
+            if not np.isscalar(y):
+                fitness.extend(y)
+            else:
+                fitness.append(y)
         if self.verbose:
             is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
             is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose

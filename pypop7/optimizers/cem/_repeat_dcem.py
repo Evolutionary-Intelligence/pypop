@@ -12,7 +12,6 @@
     You can run the following Python script (note that first download the library from
       https://github.com/facebookresearch/dcem):
     ----------------------------------------------------------------------------------
-
     import numpy as np
     import torch
 

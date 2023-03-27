@@ -12,7 +12,6 @@
 
     You can run the following Matlab script (note that save function `Rosen` as a separate file):
     ---------------------------------------------------------------------------------------------
-
     function out = Rosen(X)
     r=[];
     for i = 1:size(X,2)-1
