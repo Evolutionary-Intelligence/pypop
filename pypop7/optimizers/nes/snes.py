@@ -6,6 +6,54 @@ from pypop7.optimizers.nes.nes import NES
 class SNES(NES):
     """Separable Natural Evolution Strategies (SNES).
 
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'n_individuals' - number of offspring/descendants, aka offspring population size (`int`),
+                * 'n_parents'     - number of parents/ancestors, aka parental population size (`int`),
+                * 'mean'          - initial (starting) point (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`).
+
+    Examples
+    --------
+    Use the optimizer to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.nes.snes import SNES
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       >>> snes = SNES(problem, options)  # initialize the optimizer class
+       >>> results = snes.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"SNES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       SNES: 5000, 0.49730042657448875
+
     References
     ----------
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
@@ -55,6 +103,7 @@ class SNES(NES):
         u = u/np.sum(u) - 1.0/self.n_individuals
         mean += d*np.dot(u, s)
         d *= np.exp(0.5*self.lr_cv*np.dot(u, [np.square(k) - 1.0 for k in s]))
+        self._n_generations += 1
         return mean, d
 
     def restart_reinitialize(self, s=None, y=None, mean=None, d=None):
@@ -71,6 +120,5 @@ class SNES(NES):
                 break
             self._print_verbose_info(fitness, y)
             mean, d = self._update_distribution(s, y, mean, d)
-            self._n_generations += 1
             s, y, mean, d = self.restart_reinitialize(s, y, mean, d)
         return self._collect(fitness, y, mean)
