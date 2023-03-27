@@ -40,17 +40,11 @@ if __name__ == '__main__':
                    'ndim_problem': ndim_problem}
         options = {'max_function_evaluations': 1e4,
                    'seed_rng': 2,
-                   'x': 4 * np.ones((ndim_problem,)),
+                   'x': 4*np.ones((ndim_problem,)),
                    'saving_fitness': 1,
                    'is_restart': False}
         solver = Solver(problem, options)
         results = solver.optimize()
         print(results)
-        print(results['best_so_far_y'])
-        # seed_rng | best_so_far_y
-        # 0          1.93568028e-08
-        # 1          2.31961586e-08
-        # 2          2.99819403e-08
-        # 3          1.37582416e-08
-        # 4          6.1094349e-08
+        print(results['best_so_far_y'])  # 2.99819403e-08
         print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
