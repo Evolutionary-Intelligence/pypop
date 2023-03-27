@@ -55,11 +55,11 @@ if __name__ == '__main__':
     for f in [rosenbrock, cigar, ellipsoid, discus, different_powers]:
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem,
-                   'lower_boundary': -10 * np.ones((ndim_problem,)),
-                   'upper_boundary': 10 * np.ones((ndim_problem,))}
+                   'lower_boundary': -10*np.ones((ndim_problem,)),
+                   'upper_boundary': 10*np.ones((ndim_problem,))}
         options = {'fitness_threshold': 1e-8,
                    'seed_rng': 1,  # not given in the original paper
-                   'sigma': 20.0 / 3.0,
+                   'sigma': 20.0/3.0,
                    'is_restart': False,
                    'saving_fitness': 1}
         rmes = FCMAES(problem, options)
