@@ -27,7 +27,7 @@ class UMDA(EDA):
               and with the following particular settings (`keys`):
                 * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `200`),
                 * 'n_parents'     - number of parents, aka parental population size (`int`, default:
-                  `int(self.n_individuals/2)`).
+                  `int(options['n_individuals']/2)`).
 
     Examples
     --------
@@ -93,6 +93,7 @@ class UMDA(EDA):
     """
     def __init__(self, problem, options):
         EDA.__init__(self, problem, options)
+        assert self.n_individuals > 0
 
     def initialize(self, args=None):
         x = self.rng_optimization.uniform(self.initial_lower_boundary, self.initial_upper_boundary,
