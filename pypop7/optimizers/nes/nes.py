@@ -6,6 +6,51 @@ from pypop7.optimizers.es.es import ES
 class NES(ES):
     """Natural Evolution Strategies (NES).
 
+    This is the **abstract** class for all `NES` classes. Please use any of its instantiated subclasses to
+    optimize the black-box problem at hand.
+
+    .. note:: `NES` is a family of **principled** population-based randomized search methods, which maximize
+       the expected fitness along with (estimated) `natural gradients
+       <https://direct.mit.edu/neco/article-abstract/10/2/251/6143/Natural-Gradient-Works-Efficiently-in-Learning>`_.
+       In this library, we have converted it to the *minimization* problem, in accordance with other modules.
+
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'n_individuals' - number of offspring/descendants, aka offspring population size (`int`),
+                * 'n_parents'     - number of parents/ancestors, aka parental population size (`int`),
+                * 'mean'          - initial (starting) point (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`).
+
+    Attributes
+    ----------
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
+    n_individuals : `int`
+                    number of offspring/descendants, aka offspring population size.
+    n_parents     : `int`
+                    number of parents/ancestors, aka parental population size.
+    sigma         : `float`
+                    global step-size, aka mutation strength (i.e., overall std of Gaussian search distribution).
+
+    Methods
+    -------
+
     References
     ----------
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
