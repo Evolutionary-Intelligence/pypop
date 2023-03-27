@@ -124,7 +124,7 @@ if __name__ == '__main__':
     elif params['optimizer'] == 'MRAS':
         from pypop7.optimizers.cem.mras import MRAS as Optimizer
     elif params['optimizer'] == 'DSCEM':
-        from pypop7.optimizers.cem import DSCEM as Optimizer
+        from pypop7.optimizers.cem.dscem import DSCEM as Optimizer
     elif params['optimizer'] == 'UMDA':
         from pypop7.optimizers.eda.umda import UMDA as Optimizer
     elif params['optimizer'] == 'EMNA':
@@ -137,6 +137,22 @@ if __name__ == '__main__':
         from pypop7.optimizers.nes.snes import SNES as Optimizer
     elif params['optimizer'] == 'R1NES':
         from pypop7.optimizers.nes.r1nes import R1NES as Optimizer
+    elif params['optimizer'] == 'CMAES':
+        from pypop7.optimizers.es.cmaes import CMAES as Optimizer
+    elif params['optimizer'] == 'FMAES':
+        from pypop7.optimizers.es.fmaes import FMAES as Optimizer
+    elif params['optimizer'] == 'RMES':
+        from pypop7.optimizers.es.rmes import RMES as Optimizer
+    elif params['optimizer'] == 'VDCMA':
+        from pypop7.optimizers.es.vdcma import VDCMA as Optimizer
+    elif params['optimizer'] == 'LMMAES':
+        from pypop7.optimizers.es.lmmaes import LMMAES as Optimizer
+    elif params['optimizer'] == 'MMES':
+        from pypop7.optimizers.es.mmes import MMES as Optimizer
+    elif params['optimizer'] == 'LMCMA':
+        from pypop7.optimizers.es.lmcma import LMCMA as Optimizer
+    elif params['optimizer'] == 'LAMCTS':
+        from pypop7.optimizers.bo.lamcts import LAMCTS as Optimizer
     else:
         raise ValueError(f"Cannot find optimizer class {params['optimizer']} in PyPop7!")
     experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
