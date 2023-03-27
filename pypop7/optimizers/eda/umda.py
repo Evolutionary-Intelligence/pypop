@@ -25,13 +25,13 @@ class UMDA(EDA):
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring, offspring population size (`int`, default: `200`),
-                * 'n_parents'     - number of parents, parental population size (`int`, default:
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `200`),
+                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
                   `int(self.n_individuals/2)`).
 
     Examples
     --------
-    Use the EDA optimizer `UMDA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -42,8 +42,8 @@ class UMDA(EDA):
        >>> from pypop7.optimizers.eda.umda import UMDA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> umda = UMDA(problem, options)  # initialize the optimizer class
@@ -58,9 +58,9 @@ class UMDA(EDA):
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring, offspring population size.
+                    number of offspring, aka offspring population size.
     n_parents     : `int`
-                    number of parents, parental population size.
+                    number of parents, aka parental population size.
 
     References
     ----------
@@ -117,11 +117,8 @@ class UMDA(EDA):
     def optimize(self, fitness_function=None, args=None):
         fitness = EDA.optimize(self, fitness_function)
         x, y = self.initialize(args)
-        self._print_verbose_info(fitness, y)
-        while True:
-            x, y = self.iterate(x, y, args)
-            if self._check_terminations():
-                break
-            self._n_generations += 1
+        while not self._check_terminations():
             self._print_verbose_info(fitness, y)
+            x, y = self.iterate(x, y, args)
+            self._n_generations += 1
         return self._collect(fitness, y)
