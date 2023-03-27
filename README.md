@@ -20,11 +20,11 @@ The following three simple steps are enough to utilize the optimization power of
 $ pip install pypop7
 ```
 
-For simplicity, all required dependencies are *automatically* installed according to [setup.cfg](https://github.com/Evolutionary-Intelligence/pypop/blob/main/setup.cfg).
+For simplicity, all required dependencies (except special cases) are *automatically* installed according to [setup.cfg](https://github.com/Evolutionary-Intelligence/pypop/blob/main/setup.cfg).
 
-2. Define your own objective function for the optimization problem at hand,
+2. Define the objective/cost function (called *fitness function* in this library) for the optimization problem at hand,
 
-3. Run one or more black-box optimizers from ```pypop7``` on the given optimization problem:
+3. Run one or more black-box optimizers on this optimization problem:
 
 ```Python
 import numpy as np  # for numerical computation, which is also the computing engine of pypop7
@@ -32,14 +32,14 @@ import numpy as np  # for numerical computation, which is also the computing eng
 # 2. Define your own objective function for the optimization problem at hand:
 #   the below example is Rosenbrock, the notorious test function in the optimization community
 def rosenbrock(x):
-    return 100 * np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
+    return 100*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
 
 # define the fitness (cost) function and also its settings
 ndim_problem = 1000
 problem = {'fitness_function': rosenbrock,  # cost function
            'ndim_problem': ndim_problem,  # dimension
-           'lower_boundary': -5 * np.ones((ndim_problem,)),  # search boundary
-           'upper_boundary': 5 * np.ones((ndim_problem,))}
+           'lower_boundary': -5*np.ones((ndim_problem,)),  # search boundary
+           'upper_boundary': 5*np.ones((ndim_problem,))}
 
 # 3. Run one or more black-box optimizers from ```pypop7``` on the given optimization problem:
 #   here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO
@@ -56,7 +56,7 @@ results = lmmaes.optimize()  # run its (time-consuming) search process
 print(results)
 ```
 
-## A (*still growing*) List of Publicly Available Black-Box Optimizers (BBO)
+## Black-Box Optimizers (BBO)
 
 <p align="center">
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/Summary-BBO.png" alt="drawing"/>
