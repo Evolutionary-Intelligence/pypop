@@ -32,7 +32,7 @@ class Experiment(object):
                    'saving_fitness': 2000,
                    'verbose': 0}
         if optimizer.__name__ in ['PRS', 'SRS', 'GS', 'BES', 'HJ', 'NM', 'POWELL', 'FEP', 'GENITOR', 'G3PCX',
-                                  'GL25']:
+                                  'GL25', 'COCMA', 'HCC', 'SPSO', 'SPSOL', 'CLPSO', 'CCPSO2']:
             options['sigma'] = 20.0/3.0
         solver = optimizer(problem, options)
         results = solver.optimize()
@@ -100,6 +100,18 @@ if __name__ == '__main__':
         from pypop7.optimizers.ga.g3pcx import G3PCX as Optimizer
     elif params['optimizer'] == 'GL25':
         from pypop7.optimizers.ga.gl25 import GL25 as Optimizer
+    elif params['optimizer'] == 'COCMA':
+        from pypop7.optimizers.cc.cocma import COCMA as Optimizer
+    elif params['optimizer'] == 'HCC':
+        from pypop7.optimizers.cc.hcc import HCC as Optimizer
+    elif params['optimizer'] == 'SPSO':
+        from pypop7.optimizers.pso.spso import SPSO as Optimizer
+    elif params['optimizer'] == 'SPSOL':
+        from pypop7.optimizers.pso.spsol import SPSOL as Optimizer
+    elif params['optimizer'] == 'CLPSO':
+        from pypop7.optimizers.pso.clpso import CLPSO as Optimizer
+    elif params['optimizer'] == 'CCPSO2':
+        from pypop7.optimizers.pso.ccpso2 import CCPSO2 as Optimizer
     else:
         raise ValueError(f"Cannot find optimizer class {params['optimizer']} in PyPop7!")
     experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
