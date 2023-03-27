@@ -395,6 +395,10 @@ needs a very long runtime for LSBBO:
 Controller Design/Optimization
 ------------------------------
 
+.. image:: https://gymnasium.farama.org/_images/cart_pole.gif
+   :width: 321px
+   :align: center
+
 Using population-based (e.g., evolutionary) optimization methods to design robot controllers has a relatively long
 history. Recently, the increasing availability of distributed computing make them a competitive alternative to RL, as
 empirically demonstrated in `OpenAI's 2017 research report <https://openai.com/research/evolution-strategies>`_. Here,
