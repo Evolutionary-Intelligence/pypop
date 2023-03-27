@@ -3,7 +3,7 @@
     Natural evolution strategies.
     Journal of Machine Learning Research, 15(1), pp.949-980.
     https://jmlr.org/papers/v15/wierstra14a.html
-    https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/xnes.py
+    https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/snes.py
 
 
 
@@ -40,7 +40,7 @@ if __name__ == '__main__':
                    'ndim_problem': ndim_problem}
         options = {'max_function_evaluations': 5e5,
                    'seed_rng': 0,
-                   'x': 4 * np.ones((ndim_problem,)),
+                   'x': 4*np.ones((ndim_problem,)),
                    'sigma': 1.0,
                    'saving_fitness': 1,
                    'is_restart': False}
