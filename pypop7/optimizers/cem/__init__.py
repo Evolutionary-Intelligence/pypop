@@ -1,4 +1,4 @@
-from pypop7.optimizers.cem.cem import CEM
+from pypop7.optimizers.cem.cem import CEM  # abstract class for all CEM classes
 from pypop7.optimizers.cem.scem import SCEM
 from pypop7.optimizers.cem.dscem import DSCEM
 from pypop7.optimizers.cem.mras import MRAS
