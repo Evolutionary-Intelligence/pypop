@@ -63,8 +63,8 @@ print(results)
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/Summary-BBO.png" alt="drawing"/>
 </p>
 
-Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) has not been covered in this library till now, since it works mainly in the *discrete* search space.
-Furthermore, brute-force search (exhaustive/grid search) is also excluded in this library, since it can work only for very low dimensions.
+Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this library, since they works mainly in the *discrete* search space.
+Furthermore, brute-force search (exhaustive/grid search) is also excluded in this library, since it works only for very low dimensions. In the future version, we will consider to add [Simultaneous Perturbation Stochastic Approximation](https://www.jhuapl.edu/SPSA/) into this library.
 
 ******* *** *******
 * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific version for LSO (e.g., dimension >= 1000).
