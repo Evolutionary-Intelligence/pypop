@@ -49,8 +49,8 @@ from pypop7.optimizers.es.lmmaes import LMMAES
 options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than this threshold
            'max_runtime': 3600,  # 1 hours (terminate when the actual runtime exceeds it)
            'seed_rng': 0,  # seed of random number generation (which must be explicitly set for repeatability)
-           'x': 4 * np.ones((ndim_problem,)),  # initial mean of search (mutation/sampling) distribution
-           'sigma': 0.3,  # initial global step-size of search distribution
+           'x': 4.0*np.ones((ndim_problem,)),  # initial mean of search (mutation/sampling) distribution
+           'sigma': 0.3,  # initial global step-size of search distribution (not necessarily optimal)
            'verbose': 500}
 lmmaes = LMMAES(problem, options)  # initialize the optimizer
 results = lmmaes.optimize()  # run its (time-consuming) search process
