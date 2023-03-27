@@ -48,7 +48,7 @@ if __name__ == '__main__':
                        'upper_boundary': np.ones((d,))}
             options = {'seed_rng': 0,  # not given in the original paper
                        'fitness_threshold': 1e-14,
-                       'sigma': 1 / 3,  # not given in the original paper
+                       'sigma': 1.0/3,  # not given in the original paper
                        'saving_fitness': 1,
                        'is_restart': False}
             if f == sphere:
