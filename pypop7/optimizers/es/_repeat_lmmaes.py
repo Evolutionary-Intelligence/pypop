@@ -64,7 +64,7 @@ if __name__ == '__main__':
                        'ndim_problem': d}
             options = {'fitness_threshold': 1e-10,
                        'seed_rng': 0,  # undefined in the original paper
-                       'x': 4 * np.ones((d,)),  # mean
+                       'x': 4*np.ones((d,)),  # mean
                        'sigma': 3,
                        'verbose': 5000,
                        'saving_fitness': 100,
