@@ -29,8 +29,8 @@ if __name__ == '__main__':
         print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem,
-                   'lower_boundary': -5 * np.ones((ndim_problem,)),
-                   'upper_boundary': 5 * np.ones((ndim_problem,))}
+                   'lower_boundary': -5*np.ones((ndim_problem,)),
+                   'upper_boundary': 5*np.ones((ndim_problem,))}
         options = {'max_function_evaluations': 1e8,
                    'fitness_threshold': 1e-10,
                    'seed_rng': 0,  # undefined in the original paper
