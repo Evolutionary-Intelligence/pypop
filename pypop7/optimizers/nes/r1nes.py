@@ -54,6 +54,21 @@ class R1NES(NES):
        >>> print(f"R1NES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        R1NES: 5000, 0.005172532562628031
 
+    Attributes
+    ----------
+    lr_cv         : `float`
+                    learning rate of covariance matrix adaptation.
+    lr_sigma      : `float`
+                    learning rate of global step-size adaptation.
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
+    n_individuals : `int`
+                    number of offspring/descendants, aka offspring population size.
+    n_parents     : `int`
+                    number of parents/ancestors, aka parental population size.
+    sigma         : `float`
+                    global step-size, aka mutation strength (i.e., overall std of Gaussian search distribution).
+
     References
     ----------
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
