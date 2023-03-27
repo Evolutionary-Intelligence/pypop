@@ -8,6 +8,46 @@ class SGES(NES):
 
     .. note:: Here we include it **only** for *theoretical* and/or *educational* purpose.
 
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'n_individuals' - number of offspring/descendants, aka offspring population size (`int`),
+                * 'n_parents'     - number of parents/ancestors, aka parental population size (`int`),
+                * 'mean'          - initial (starting) point (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'lr_mean'       - learning rate of distribution mean update (`float`, default: `0.01`),
+                * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default: `0.01`).
+
+    Attributes
+    ----------
+    lr_mean       : `float`
+                    learning rate of distribution mean update.
+    lr_sigma      : `float`
+                    learning rate of global step-size adaptation.
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
+    n_individuals : `int`
+                    number of offspring/descendants, aka offspring population size.
+    n_parents     : `int`
+                    number of parents/ancestors, aka parental population size.
+    sigma         : `float`
+                    global step-size, aka mutation strength (i.e., overall std of Gaussian search distribution).
+
     References
     ----------
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
