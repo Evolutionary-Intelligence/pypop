@@ -54,6 +54,19 @@ class SNES(NES):
        >>> print(f"SNES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SNES: 5000, 0.49730042657448875
 
+    Attributes
+    ----------
+    lr_cv         : `float`
+                    learning rate of covariance matrix adaptation.
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
+    n_individuals : `int`
+                    number of offspring/descendants, aka offspring population size.
+    n_parents     : `int`
+                    number of parents/ancestors, aka parental population size.
+    sigma         : `float`
+                    global step-size, aka mutation strength (i.e., overall std of Gaussian search distribution).
+
     References
     ----------
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
