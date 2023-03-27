@@ -32,7 +32,7 @@ class Experiment(object):
                    'saving_fitness': 2000,
                    'verbose': 0}
         if optimizer.__name__ in ['PRS', 'SRS', 'GS', 'BES', 'HJ', 'NM', 'POWELL', 'FEP', 'GENITOR', 'G3PCX',
-                                  'GL25', 'COCMA', 'HCC', 'SPSO', 'SPSOL', 'CLPSO', 'CCPSO2']:
+                                  'GL25', 'COCMA', 'HCC', 'SPSO', 'SPSOL', 'CLPSO', 'CCPSO2', 'UMDA', 'EMNA', 'RPEDA']:
             options['sigma'] = 20.0/3.0
         solver = optimizer(problem, options)
         results = solver.optimize()
@@ -124,6 +124,12 @@ if __name__ == '__main__':
         from pypop7.optimizers.cem.mras import MRAS as Optimizer
     elif params['optimizer'] == 'DSCEM':
         from pypop7.optimizers.cem import DSCEM as Optimizer
+    elif params['optimizer'] == 'UMDA':
+        from pypop7.optimizers.eda.umda import UMDA as Optimizer
+    elif params['optimizer'] == 'EMNA':
+        from pypop7.optimizers.eda.emna import EMNA as Optimizer
+    elif params['optimizer'] == 'RPEDA':
+        from pypop7.optimizers.eda.rpeda import RPEDA as Optimizer
     else:
         raise ValueError(f"Cannot find optimizer class {params['optimizer']} in PyPop7!")
     experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
