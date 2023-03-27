@@ -16,7 +16,6 @@
 
     You can run the following Python script (note that first install `pymoo` via `pip install pymoo`):
     --------------------------------------------------------------------------------------------------
-
     from pymoo.algorithms.soo.nonconvex.pso import PSO
     from pymoo.problems.single import Ackley
     from pymoo.optimize import minimize
