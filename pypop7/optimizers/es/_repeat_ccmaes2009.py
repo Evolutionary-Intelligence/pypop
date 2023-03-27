@@ -48,11 +48,11 @@ if __name__ == '__main__':
             print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
             problem = {'fitness_function': f,
                        'ndim_problem': d,
-                       'lower_boundary': 0.1 * np.ones((d,)),
-                       'upper_boundary': 0.3 * np.ones((d,))}
+                       'lower_boundary': 0.1*np.ones((d,)),
+                       'upper_boundary': 0.3*np.ones((d,))}
             options = {'fitness_threshold': 1e-10,
                        'seed_rng': 0,
-                       'sigma': 0.2 / 3,
+                       'sigma': 0.2/3,
                        'saving_fitness': 1,
                        'is_restart': False}
             if f.__name__ == 'ellipsoid':
