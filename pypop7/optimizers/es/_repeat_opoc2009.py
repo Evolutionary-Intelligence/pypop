@@ -3,7 +3,6 @@
     Efficient covariance matrix update for variable metric evolution strategies.
     Machine Learning, 75(2), pp.167-197.
     https://link.springer.com/article/10.1007/s10994-009-5102-1
-    (See Algorithm 2 for details.)
 
     All generated figures can be accessed via the following link:
     https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/opoc2009
@@ -27,8 +26,8 @@ if __name__ == '__main__':
     d = 20
     problem = {'fitness_function': ellipsoid,
                'ndim_problem': d,
-               'lower_boundary': 0.1 * np.ones((d,)),
-               'upper_boundary': 0.3 * np.ones((d,))}
+               'lower_boundary': 0.1*np.ones((d,)),
+               'upper_boundary': 0.3*np.ones((d,))}
     options = {'fitness_threshold': 1e-250,
                'max_function_evaluations': 6e4,
                'seed_rng': 0,
@@ -56,8 +55,8 @@ if __name__ == '__main__':
     for d in dims:
         problem = {'fitness_function': cigar,
                    'ndim_problem': d,
-                   'lower_boundary': 0.1 * np.ones((d,)),
-                   'upper_boundary': 0.3 * np.ones((d,))}
+                   'lower_boundary': 0.1*np.ones((d,)),
+                   'upper_boundary': 0.3*np.ones((d,))}
         options = {'fitness_threshold': 1e-15,
                    'max_function_evaluations': 1e6,
                    'seed_rng': 0,
