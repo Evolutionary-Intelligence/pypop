@@ -11,6 +11,56 @@ class ONES(SGES):
        a relatively clean derivation **from first principles**. Here we include `ONES` **mainly** for *benchmarking*
        and *theoretical* purpose.
 
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+              and with the following particular settings (`keys`):
+                * 'n_individuals' - number of offspring/descendants, aka offspring population size (`int`),
+                * 'n_parents'     - number of parents/ancestors, aka parental population size (`int`),
+                * 'mean'          - initial (starting) point (`array_like`),
+
+                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                    bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
+
+                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
+                * 'lr_mean'       - learning rate of distribution mean update (`float`, default: `1.0`),
+                * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default: `1.0`).
+
+    Examples
+    --------
+    Use the optimizer to minimize the well-known test function
+    `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.nes.ones import ONES
+       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'seed_rng': 2022,
+       ...            'mean': 3*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       >>> ones = ONES(problem, options)  # initialize the optimizer class
+       >>> results = ones.optimize()  # run the optimization process
+       >>> # return the number of function evaluations and best-so-far fitness
+       >>> print(f"ONES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       ONES: 5000, 4.08973753355584e-05
+
     References
     ----------
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
@@ -49,6 +99,7 @@ class ONES(SGES):
         mean += self.lr_mean*grad[:self.ndim_problem]
         self._d_cv += self.lr_sigma*self._flat2triu(grad[self.ndim_problem:])
         cv = np.dot(self._d_cv.T, self._d_cv)
+        self._n_generations += 1
         return x, y, mean, cv
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
@@ -60,6 +111,5 @@ class ONES(SGES):
                 break
             self._print_verbose_info(fitness, y)
             x, y, mean, cv = self._update_distribution(x, y, mean, cv)
-            self._n_generations += 1
             x, y, mean, cv = self.restart_reinitialize(x, y, mean, cv)
         return self._collect(fitness, y, mean)
