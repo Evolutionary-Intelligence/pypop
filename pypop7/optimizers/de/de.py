@@ -87,12 +87,11 @@ class DE(Optimizer):
         raise NotImplementedError
 
     def _print_verbose_info(self, fitness, y, is_print=False):
-        if y is not None:
-            if self.saving_fitness:
-                if not np.isscalar(y):
-                    fitness.extend(y)
-                else:
-                    fitness.append(y)
+        if y is not None and self.saving_fitness:
+            if not np.isscalar(y):
+                fitness.extend(y)
+            else:
+                fitness.append(y)
         if self.verbose:
             is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
             is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
