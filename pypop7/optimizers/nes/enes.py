@@ -70,6 +70,21 @@ class ENES(ONES):
        >>> print(f"ENES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        ENES: 5000, 0.00035668252927080496
 
+    Attributes
+    ----------
+    lr_mean       : `float`
+                    learning rate of distribution mean update.
+    lr_sigma      : `float`
+                    learning rate of global step-size adaptation.
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
+    n_individuals : `int`
+                    number of offspring/descendants, aka offspring population size.
+    n_parents     : `int`
+                    number of parents/ancestors, aka parental population size.
+    sigma         : `float`
+                    global step-size, aka mutation strength (i.e., overall std of Gaussian search distribution).
+
     References
     ----------
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
