@@ -118,6 +118,12 @@ if __name__ == '__main__':
         from pypop7.optimizers.de.jade import JADE as Optimizer
     elif params['optimizer'] == 'SHADE':
         from pypop7.optimizers.de.shade import SHADE as Optimizer
+    elif params['optimizer'] == 'SCEM':
+        from pypop7.optimizers.cem.scem import SCEM as Optimizer
+    elif params['optimizer'] == 'MRAS':
+        from pypop7.optimizers.cem.mras import MRAS as Optimizer
+    elif params['optimizer'] == 'DSCEM':
+        from pypop7.optimizers.cem import DSCEM as Optimizer
     else:
         raise ValueError(f"Cannot find optimizer class {params['optimizer']} in PyPop7!")
     experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
