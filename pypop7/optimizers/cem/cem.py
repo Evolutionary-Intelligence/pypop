@@ -39,7 +39,7 @@ class CEM(Optimizer):
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'n_individuals' - number of individuals/samples (`int`, default: `1000`),
-                * 'n_parents'     - number of elitists (`int`, default: `200`),
+                * 'n_parents'     - number of elitists (`int`, default: `200`).
 
     Attributes
     ----------
