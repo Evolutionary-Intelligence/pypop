@@ -58,8 +58,8 @@ if __name__ == '__main__':
     for f in [discus, cigar, ellipsoid, rosenbrock]:
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem,
-                   'lower_boundary': -5 * np.ones((ndim_problem,)),
-                   'upper_boundary': 5 * np.ones((ndim_problem,))}
+                   'lower_boundary': -5*np.ones((ndim_problem,)),
+                   'upper_boundary': 5*np.ones((ndim_problem,))}
         options = {'fitness_threshold': 1e-8,
                    'max_function_evaluations': 1e8,
                    'seed_rng': 2022,  # not given in the original paper
