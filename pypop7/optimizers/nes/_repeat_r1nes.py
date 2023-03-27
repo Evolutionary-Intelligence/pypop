@@ -20,8 +20,7 @@
     np.random.seed(5)
     solver = Rank1NES(cigar, 4*np.ones((100,)), maxEvaluations=5e5, verbose=True)
     solver.x = 4*np.ones((100,))
-    solver.learn()
-    # -3.4497462517488313e-06
+    solver.learn()  # -3.4497462517488313e-06
 """
 import time
 
@@ -40,7 +39,7 @@ if __name__ == '__main__':
                    'ndim_problem': ndim_problem}
         options = {'max_function_evaluations': 5e5,
                    'seed_rng': 2,
-                   'x': 4 * np.ones((ndim_problem,)),
+                   'x': 4*np.ones((ndim_problem,)),
                    'saving_fitness': 1,
                    'is_restart': False}
         solver = Solver(problem, options)
