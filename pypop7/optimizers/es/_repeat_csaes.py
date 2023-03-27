@@ -24,12 +24,12 @@ if __name__ == '__main__':
     plt.figure()
     problem = {'fitness_function': schwefel12,
                'ndim_problem': 20,
-               'lower_boundary': -65 * np.ones((20,)),
-               'upper_boundary': 65 * np.ones((20,))}
+               'lower_boundary': -65*np.ones((20,)),
+               'upper_boundary': 65*np.ones((20,))}
     options = {'max_function_evaluations': 60000,
                'fitness_threshold': 1e-3,
                'seed_rng': 0,  # undefined in the original paper
-               'sigma': 2,  # undefined in the original paper
+               'sigma': 2.0,  # undefined in the original paper
                'n_individuals': 10,
                'saving_fitness': 1,
                'is_restart': False}
