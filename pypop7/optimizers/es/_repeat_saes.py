@@ -87,5 +87,5 @@ if __name__ == '__main__':
     results = saes.optimize()
     print(results)
     print(results['best_so_far_y'])  # 1.3530314470392882e-18
-    print(results['sigma'])  # 1.7207386524822042e-10
-    print(results['_n_generations'])  # 484
+    print(results['sigma'])  # 1.7694109040812627e-10
+    print(results['_n_generations'])  # 483
