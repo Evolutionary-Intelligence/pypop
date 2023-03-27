@@ -10,7 +10,6 @@ Particle Swarm Optimizer (PSO)
    :caption: PSOs:
 
    ccpso2
-   ipsols
    ipso
    clpso
    cpso
