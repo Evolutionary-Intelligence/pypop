@@ -14,7 +14,8 @@ class PSO(Optimizer):
        Pioneer Award 2012 <https://tinyurl.com/456as566>`_. Its underlying motivation comes from very interesting
        collective behaviors (e.g. `flocking <https://dl.acm.org/doi/10.1145/37402.37406>`_) observed from social
        animals (such as `birds <https://dl.acm.org/doi/10.1145/2629613>`_), which are often regarded as a particular
-       form of *emergence* or *self-organization*.
+       form of *emergence* or *self-organization*. Recently, PSO-type swarm optimizers are theoretically analyzed
+       under the `Consensus-Based Optimization (CBO) <https://jmlr.csail.mit.edu/papers/v22/21-0259.html>`_ framework.
 
     Parameters
     ----------
