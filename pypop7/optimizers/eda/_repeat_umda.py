@@ -8,15 +8,15 @@
     Since its source code is not openly available, the performance differences are very hard (
     if not impossible) to analyze.
 
-    However, we again notice the following paper:
+    However, we notice the following paper:
     Larrañaga, P. and Lozano, J.A. eds., 2001.
     Estimation of distribution algorithms: A new tool for evolutionary computation.
     Springer Science & Business Media.
     https://link.springer.com/book/10.1007/978-1-4615-1539-5
     (See Chapter 8 Experimental Results in Function Optimization with EDAs in Continuous Domain)
 
-    With nearly the same settings with the first paper, very close performance can be obtained by our code.
-    Therefore, we argue that the repeatability of `UMDA` can be well-documented (*at least partly*).
+   Very close performance can be obtained by our Python code. Therefore, we argue that its
+   repeatability can be **well-documented**.
 """
 import numpy as np
 
@@ -38,9 +38,7 @@ if __name__ == '__main__':
     results = umda.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 8.221260903106916
-    # vs 0.13754 (from the first original paper)
-    # vs 8.7204  (from the second original paper)
+    # 8.221260903106916 vs 8.7204  (from the second paper)
 
     problem = {'fitness_function': griewank,
                'ndim_problem': ndim_problem,
@@ -53,9 +51,7 @@ if __name__ == '__main__':
     results = umda.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 0.0
-    # vs 0.011076   (from the first original paper)
-    # vs 6.0783e-02 (from the second original paper)
+    # 0.0 vs 6.0783e-02 (from the second paper)
 
     ndim_problem = 50
 
@@ -70,13 +66,12 @@ if __name__ == '__main__':
     results = umda.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 47.805237128504224
-    # vs 48.8949  (from the second original paper)
+    # 47.805237128504224 vs 48.8949  (from the second paper)
 
     problem = {'fitness_function': griewank,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -600 * np.ones((ndim_problem,)),
-               'upper_boundary': 600 * np.ones((ndim_problem,))}
+               'lower_boundary': -600*np.ones((ndim_problem,)),
+               'upper_boundary': 600*np.ones((ndim_problem,))}
     options = {'max_function_evaluations': 300000,
                'n_individuals': 750,
                'seed_rng': 0}  # undefined in the original paper
@@ -84,5 +79,4 @@ if __name__ == '__main__':
     results = umda.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 0.0
-    # vs 8.9869e-06 (from the second original paper)
+    # 0.0 vs 8.9869e-06 (from the second paper)
