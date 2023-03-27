@@ -67,9 +67,13 @@ Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/a
 Furthermore, brute-force search (exhaustive/grid search) is also excluded in this library, since it works only for very low dimensions. In the future version, we will consider to add [Simultaneous Perturbation Stochastic Approximation](https://www.jhuapl.edu/SPSA/) into this library.
 
 ******* *** *******
-* ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific version for LSO (e.g., dimension >= 1000).
-* ![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) version for *relatively low-dimensional* problems (though it may also work well under certain LSO circumstances).
-* ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline version for benchmarking purpose or for theoretical interest.
+* ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific BBO version for LSO (e.g., dimension >= 1000).
+* ![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) BBO version for *relatively low-dimensional* problems (though it may work well under certain LSO circumstances).
+* ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline BBO version mainly for *theoretical* interest.
+
+Note that this classification based only on dimensions is just a rough estimation for algorithm selection. In practice, perhaps the simplest way to algorithm selection
+is trial-and-error or to try more advanced [Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
+
 ******* *** *******
 
 * **Evolution Strategies (ES)** [e.g. [Ollivier et al., 2017, JMLR](https://www.jmlr.org/papers/v18/14-467.html); [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4); [Rudolph, 2012](https://link.springer.com/referenceworkentry/10.1007/978-3-540-92910-9_22); [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466); [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6); [Schwefel, 1984](https://link.springer.com/article/10.1007/BF01876146)]
