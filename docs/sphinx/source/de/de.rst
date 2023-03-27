@@ -9,6 +9,7 @@ Differential Evolution (DE)
    :maxdepth: 2
    :caption: DEs:
 
+   shade
    code
    jade
    tde
