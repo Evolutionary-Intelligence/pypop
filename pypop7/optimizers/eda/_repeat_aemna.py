@@ -5,9 +5,9 @@
     https://link.springer.com/book/10.1007/978-1-4615-1539-5
     (See Chapter 8 Experimental Results in Function Optimization with EDAs in Continuous Domain.)
 
-    Surprisingly, our code reported *much better* results than the original paper. However, given that it shows
-    very similar performance with its same kind `EMNA`, we still argue that the repeatability of `AEMNA` can be
-    well-documented (*at least partly*).
+    Surprisingly, our Python code reported better results than the original paper. However,
+    given that it shows very similar performance with its same kind `EMNA`, we still argue that its
+    repeatability can be *well-documented*.
 """
 import numpy as np
 
@@ -30,8 +30,7 @@ if __name__ == '__main__':
     results = aemna.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 8.67464285339613
-    # vs 3263.0010 (from the original paper)
+    # 8.67464285339613 vs 3263.0010 (from the original paper)
 
     problem = {'fitness_function': griewank,
                'ndim_problem': ndim_problem,
@@ -45,5 +44,4 @@ if __name__ == '__main__':
     results = aemna.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 0.59856558868619
-    # vs 12.9407 (from the original paper)
+    # 0.59856558868619 vs 12.9407 (from the original paper)
