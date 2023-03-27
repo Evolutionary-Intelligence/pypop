@@ -4,7 +4,7 @@
     IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics), 41(2), pp.368-384.
     https://ieeexplore.ieee.org/document/5582312
 
-    Luckily our code could repeat the data reported in the original paper *well*.
+    Luckily our Python code could repeat the data reported in the original paper *well*.
     Therefore, we argue that its repeatability could be **well-documented**.
 """
 import time
