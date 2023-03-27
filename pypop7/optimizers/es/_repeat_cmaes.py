@@ -110,7 +110,7 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem}
     options = {'max_function_evaluations': 51000,
                'seed_rng': 0,
-               'x': 3 * np.ones((ndim_problem,)),  # mean
+               'x': 3*np.ones((ndim_problem,)),  # mean
                'sigma': 2.0,
                'saving_fitness': 3000}
     solver = Solver(problem, options)
@@ -141,7 +141,7 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem}
     options = {'max_function_evaluations': 6000,
                'seed_rng': 0,
-               'x': 3 * np.ones((ndim_problem,)),  # mean
+               'x': 3*np.ones((ndim_problem,)),  # mean
                'sigma': 2.0,
                'saving_fitness': 3000}
     solver = Solver(problem, options)
@@ -157,7 +157,7 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem}
     options = {'max_function_evaluations': 40000,
                'seed_rng': 0,
-               'x': 3 * np.ones((ndim_problem,)),  # mean
+               'x': 3*np.ones((ndim_problem,)),  # mean
                'sigma': 2.0,
                'saving_fitness': 3000}
     solver = Solver(problem, options)
@@ -185,7 +185,7 @@ if __name__ == '__main__':
                'ndim_problem': ndim_problem}
     options = {'max_function_evaluations': 3000,
                'seed_rng': 0,
-               'x': 3 * np.ones((ndim_problem,)),  # mean
+               'x': 3*np.ones((ndim_problem,)),  # mean
                'sigma': 2.0,
                'saving_fitness': 300,
                'is_restart': False}
