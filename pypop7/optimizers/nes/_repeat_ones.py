@@ -39,7 +39,7 @@ if __name__ == '__main__':
                    'ndim_problem': ndim_problem}
         options = {'max_function_evaluations': 28200,
                    'seed_rng': 4,
-                   'x': 4 * np.ones((ndim_problem,)),
+                   'x': 4*np.ones((ndim_problem,)),
                    'saving_fitness': 1,
                    'is_restart': False}
         solver = Solver(problem, options)
