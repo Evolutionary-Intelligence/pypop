@@ -31,7 +31,7 @@ if __name__ == '__main__':
                    'ndim_problem': ndim_problem}
         options = {'fitness_threshold': 1e-8,
                    'seed_rng': 1,
-                   'x': 3.0 * np.ones((ndim_problem,)),  # mean
+                   'x': 3.0*np.ones((ndim_problem,)),  # mean
                    'sigma': 2.0,
                    'verbose': 2000,
                    'saving_fitness': 20000}
