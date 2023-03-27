@@ -27,11 +27,11 @@ class EMNA(UMDA):
               and with the following particular settings (`keys`):
                 * 'n_individuals' - number of offspring, offspring population size (`int`, default: `200`),
                 * 'n_parents'     - number of parents, parental population size (`int`, default:
-                  `int(self.n_individuals/2)`).
+                  `int(options['n_individuals']/2)`).
 
     Examples
     --------
-    Use the EDA optimizer `EMNA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -42,8 +42,8 @@ class EMNA(UMDA):
        >>> from pypop7.optimizers.eda.emna import EMNA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> emna = EMNA(problem, options)  # initialize the optimizer class
@@ -58,9 +58,9 @@ class EMNA(UMDA):
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring, offspring population size.
+                    number of offspring, aka offspring population size.
     n_parents     : `int`
-                    number of parents, parental population size.
+                    number of parents, aka parental population size.
 
     References
     ----------
