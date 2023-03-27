@@ -62,7 +62,7 @@ class Fig2(R1ES):  # to save data for Fig. 2
             f.append(np.min(y))
             p_norm.append(np.linalg.norm(p))
             stepsize.append(self.sigma)
-            theta.append(np.arccos(np.abs(np.dot(p, e1)) / p_norm[-1]))
+            theta.append(np.arccos(np.abs(np.dot(p, e1))/p_norm[-1]))
         res = self._collect(fitness, y, mean)
         res['p'] = p
         res['s'] = s
@@ -79,11 +79,11 @@ if __name__ == '__main__':
     ndim_problem = 200
     problem = {'fitness_function': cigar,
                'ndim_problem': ndim_problem,
-               'lower_boundary': -10 * np.ones((ndim_problem,)),
-               'upper_boundary': 10 * np.ones((ndim_problem,))}
+               'lower_boundary': -10*np.ones((ndim_problem,)),
+               'upper_boundary': 10*np.ones((ndim_problem,))}
     options = {'fitness_threshold': 1e-8,
                'seed_rng': 2022,  # not given in the original paper
-               'sigma': 20 / 3}
+               'sigma': 20/3}
     r1es = Fig2(problem, options)
     results = r1es.optimize()
     xx = np.arange(len(results['f'])) + 1
@@ -105,12 +105,12 @@ if __name__ == '__main__':
     for func in [ellipsoid, discus, rosenbrock]:
         problem = {'fitness_function': func,
                    'ndim_problem': ndim_problem,
-                   'lower_boundary': -10 * np.ones((ndim_problem,)),
-                   'upper_boundary': 10 * np.ones((ndim_problem,))}
+                   'lower_boundary': -10*np.ones((ndim_problem,)),
+                   'upper_boundary': 10*np.ones((ndim_problem,))}
         options = {'fitness_threshold': 1e-8,
                    'max_function_evaluations': 1e8,
                    'seed_rng': 2022,  # not given in the original paper
-                   'sigma': 20.0 / 3.0,
+                   'sigma': 20.0/3.0,
                    'saving_fitness': 1,
                    'is_restart': False}
         r1es = Fig2(problem, options)
