@@ -32,7 +32,7 @@ if __name__ == '__main__':
     for f in [_hyper_ellipsoid, _different_powers, rosenbrock]:
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem}
-        options = {'max_function_evaluations': 200 * 1e3,
+        options = {'max_function_evaluations': 200*1e3,
                    'fitness_threshold': 1e-6,
                    'seed_rng': 2022,  # not given in the original paper
                    'verbose_frequency': 1000,
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     for f in [ellipsoid, rosenbrock]:
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem}
-        options = {'max_function_evaluations': 200 * 1e3,
+        options = {'max_function_evaluations': 200*1e3,
                    'fitness_threshold': 1e-9,
                    'seed_rng': 2022,  # not given in the original paper
                    'verbose_frequency': 1000,
