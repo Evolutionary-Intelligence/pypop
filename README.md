@@ -8,7 +8,7 @@
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/PyPop-Logo-Small-0.png" alt="drawing" width="321"/>
 </p>
 
-More specifically, for alleviating their notorious **curse of dimensionality** (from *iterative sampling*), the primary focus of ```PyPop7``` is to cover their **State-Of-The-Art (SOTA) implementations for Large-Scale Optimization (LSO)**, though many of their other versions and variants are also included here (for benchmarking/mixing purpose, and sometimes even for practical purpose).
+More specifically, for alleviating their notorious **curse of dimensionality**, the primary focus of ```PyPop7``` is to cover their **State Of The Art (SOTA) for Large-Scale Optimization (LSO)**, though many of their small/medium-scaled versions and variants are also included here (mainly for benchmarking purpose).
 
 ## How to Use PyPop7
 
