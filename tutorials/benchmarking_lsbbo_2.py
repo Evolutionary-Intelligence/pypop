@@ -112,6 +112,12 @@ if __name__ == '__main__':
         from pypop7.optimizers.pso.clpso import CLPSO as Optimizer
     elif params['optimizer'] == 'CCPSO2':
         from pypop7.optimizers.pso.ccpso2 import CCPSO2 as Optimizer
+    elif params['optimizer'] == 'CDE':
+        from pypop7.optimizers.de.cde import CDE as Optimizer
+    elif params['optimizer'] == 'JADE':
+        from pypop7.optimizers.de.jade import JADE as Optimizer
+    elif params['optimizer'] == 'SHADE':
+        from pypop7.optimizers.de.shade import SHADE as Optimizer
     else:
         raise ValueError(f"Cannot find optimizer class {params['optimizer']} in PyPop7!")
     experiments = Experiments(params['start'], params['end'], params['ndim_problem'])
