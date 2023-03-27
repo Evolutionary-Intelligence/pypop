@@ -11,7 +11,7 @@
 from pypop7.optimizers.core import Optimizer, Terminations  # base (abstract) class for all optimizers
 from pypop7.optimizers.rs import RS, PRS, RHC, ARHC, SRS, BES
 from pypop7.optimizers.ep import EP, CEP, FEP, LEP
-from pypop7.optimizers.ga import GA, GENITOR, G3PCX, GL25, ASGA
+from pypop7.optimizers.ga import GA, GENITOR, G3PCX, GL25  # ASGA
 from pypop7.optimizers.sa import SA, CSA, ESA, NSA
 from pypop7.optimizers.cc import CC, COEA, COSYNE
 from pypop7.optimizers.pso import PSO, SPSO, SPSOL, CLPSO, IPSO, CCPSO2
