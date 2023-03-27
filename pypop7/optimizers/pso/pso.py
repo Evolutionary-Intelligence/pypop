@@ -51,6 +51,21 @@ class PSO(Optimizer):
 
     References
     ----------
+    Cipriani, C., Huang, H. and Qiu, J., 2022.
+    Zero-inertia limit: From particle swarm optimization to consensus-based optimization.
+    SIAM Journal on Mathematical Analysis, 54(3), pp.3091-3121.
+    https://epubs.siam.org/doi/10.1137/21M1412323
+ 
+    Fornasier, M., Huang, H., Pareschi, L. and Sünnen, P., 2022.
+    Anisotropic diffusion in consensus-based optimization on the sphere.
+    SIAM Journal on Optimization, 32(3), pp.1984-2012.
+    https://epubs.siam.org/doi/abs/10.1137/21M140941X
+ 
+    Fornasier, M., Huang, H., Pareschi, L. and Sünnen, P., 2021.
+    Consensus-based optimization on the sphere: Convergence to global minimizers and machine learning.
+    Journal of Machine Learning Research, 22(1), pp.10722-10776.
+    https://jmlr.csail.mit.edu/papers/v22/21-0259.html
+ 
     Blackwell, T. and Kennedy, J., 2018.
     Impact of communication topology in particle swarm optimization.
     IEEE Transactions on Evolutionary Computation, 23(4), pp.689-702.
