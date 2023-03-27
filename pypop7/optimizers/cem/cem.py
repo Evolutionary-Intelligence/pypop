@@ -9,8 +9,8 @@ class CEM(Optimizer):
     This is the **abstract** class for all `CEM` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
-    .. note:: `CEM` is a class of **principled** population-based optimizers, proposed originally by *Rubinstein*,
-        whose core idea is based on **Kullback–Leibler (or Cross-Entropy) minimization**.
+    .. note:: `CEM` is a class of principled population-based optimizers, proposed originally by *Rubinstein*,
+        whose core idea is based on Kullback–Leibler (or Cross-Entropy) minimization.
 
        `"CEM is not only based on fundamental principles (cross-entropy distance, maximum likelihood, etc.), but is
        also very easy to program (with far fewer parameters than many other global optimization heuristics), and
