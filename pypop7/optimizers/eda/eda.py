@@ -6,7 +6,7 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class EDA(Optimizer):
     """Estimation of Distribution Algorithms (EDA).
 
-    This is the **base** (abstract) class for all `EDA` classes. Please use any of its instantiated subclasses to
+    This is the **abstract** class for all `EDA` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand.
 
     .. note:: *`EDA` are a modern branch of evolutionary algorithms with some unique advantages in
@@ -36,9 +36,9 @@ class EDA(Optimizer):
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring, offspring population size.
+                    number of offspring, aka offspring population size.
     n_parents     : `int`
-                    number of parents, parental population size.
+                    number of parents, aka parental population size.
 
     Methods
     -------
@@ -46,6 +46,16 @@ class EDA(Optimizer):
     References
     ----------
     https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=22182
+
+    Brookes, D., Busia, A., Fannjiang, C., Murphy, K. and Listgarten, J., 2020, July.
+    A view of estimation of distribution algorithms through the lens of expectation-maximization.
+    In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 189-190). ACM.
+    https://dl.acm.org/doi/abs/10.1145/3377929.3389938
+
+    Kabán, A., Bootkrajang, J. and Durrant, R.J., 2016.
+    Toward large-scale continuous EDA: A random matrix theory perspective.
+    Evolutionary Computation, 24(2), pp.255-291.
+    https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix
 
     Larrañaga, P. and Lozano, J.A. eds., 2002.
     Estimation of distribution algorithms: A new tool for evolutionary computation.
@@ -73,6 +83,11 @@ class EDA(Optimizer):
     The equation for response to selection and its use for prediction.
     Evolutionary Computation, 5(3), pp.303-346.
     https://tinyurl.com/yt78c786
+
+    Baluja, S. and Caruana, R., 1995.
+    Removing the genetics from the standard genetic algorithm.
+    In International Conference on Machine Learning (pp. 38-46). Morgan Kaufmann.
+    https://www.sciencedirect.com/science/article/pii/B9781558603776500141
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
@@ -91,12 +106,11 @@ class EDA(Optimizer):
         raise NotImplementedError
 
     def _print_verbose_info(self, fitness, y, is_print=False):
-        if y is not None:
-            if self.saving_fitness:
-                if not np.isscalar(y):
-                    fitness.extend(y)
-                else:
-                    fitness.append(y)
+        if y is not None and self.saving_fitness:
+            if not np.isscalar(y):
+                fitness.extend(y)
+            else:
+                fitness.append(y)
         if self.verbose:
             is_verbose = self._printed_evaluations != self.n_function_evaluations  # to avoid repeated printing
             is_verbose_1 = (not self._n_generations % self.verbose) and is_verbose
