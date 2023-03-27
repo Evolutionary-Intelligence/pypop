@@ -125,9 +125,11 @@ class CCMAES2009(ES):
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
         mean, z, x, a, a_i, p_s, p_c, y = self.initialize()
-        while not self._check_terminations():
+        while not self.termination_signal:
             # sample and evaluate offspring population
             z, x, y = self.iterate(z, x, mean, a, y, args)
+            if self._check_terminations():
+                break
             mean, a, a_i, p_s, p_c = self._update_distribution(z, x, a, a_i, p_s, p_c, y)
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
