@@ -1,0 +1,102 @@
+******* ellipsoid *******
+  * Generation 0: best_so_far_y 4.52512e+08, min(y) 4.52512e+08 & Evaluations 100
+  * Generation 2000: best_so_far_y 4.18081e+04, min(y) 4.18081e+04 & Evaluations 200100
+  * Generation 4000: best_so_far_y 1.60339e+04, min(y) 1.60339e+04 & Evaluations 400100
+  * Generation 6000: best_so_far_y 1.26958e+04, min(y) 1.26958e+04 & Evaluations 600100
+  * Generation 8000: best_so_far_y 1.19653e+04, min(y) 1.19653e+04 & Evaluations 800100
+  * Generation 10000: best_so_far_y 2.36785e+02, min(y) 2.36785e+02 & Evaluations 1000100
+  * Generation 12000: best_so_far_y 1.32529e+02, min(y) 1.32529e+02 & Evaluations 1200100
+  * Generation 14000: best_so_far_y 9.66185e+01, min(y) 9.66185e+01 & Evaluations 1400100
+  * Generation 16000: best_so_far_y 2.36858e+01, min(y) 2.36858e+01 & Evaluations 1600100
+  * Generation 18000: best_so_far_y 9.81490e+00, min(y) 9.81490e+00 & Evaluations 1800100
+  * Generation 19999: best_so_far_y 8.45711e+00, min(y) 8.45711e+00 & Evaluations 2000000
+{'best_so_far_x': array([-2.22603280e-02, -8.00355224e-04, -3.51430413e-04, -1.50450862e-03,
+        ...,
+        4.86742257e-06, -3.95893188e-06, -3.06045746e-06,  5.62287764e-06]),
+ 'best_so_far_y': 8.45711021739621,
+ 'n_function_evaluations': 2000000,
+ 'runtime': 3743.8196351528168,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 289.08232259750366,
+ 'fitness': array([[1.00000000e+00, 6.11520270e+08],
+       [2.00000000e+05, 4.18080948e+04],
+       [4.00000000e+05, 1.60352624e+04],
+       [6.00000000e+05, 1.26984183e+04],
+       [8.00000000e+05, 1.19692366e+04],
+       [1.00000000e+06, 2.36969456e+02],
+       [1.20000000e+06, 1.32532788e+02],
+       [1.40000000e+06, 9.66223938e+01],
+       [1.60000000e+06, 2.36858464e+01],
+       [1.80000000e+06, 9.81550588e+00],
+       [2.00000000e+06, 8.45711022e+00]]),
+ 'success': True,
+ '_n_generations': 19999}
+*** Runtime: 3.74389e+03
+******* rosenbrock *******
+  * Generation 0: best_so_far_y 1.21161e+07, min(y) 1.21161e+07 & Evaluations 100
+  * Generation 2000: best_so_far_y 4.66457e+03, min(y) 4.66457e+03 & Evaluations 200100
+  * Generation 4000: best_so_far_y 3.21897e+03, min(y) 3.21897e+03 & Evaluations 400100
+  * Generation 6000: best_so_far_y 2.50923e+03, min(y) 2.50923e+03 & Evaluations 600100
+  * Generation 8000: best_so_far_y 2.11342e+03, min(y) 2.11342e+03 & Evaluations 800100
+  * Generation 10000: best_so_far_y 1.79010e+03, min(y) 1.79010e+03 & Evaluations 1000100
+  * Generation 12000: best_so_far_y 1.62697e+03, min(y) 1.62697e+03 & Evaluations 1200100
+  * Generation 14000: best_so_far_y 1.50631e+03, min(y) 1.50631e+03 & Evaluations 1400100
+  * Generation 16000: best_so_far_y 1.42448e+03, min(y) 1.42448e+03 & Evaluations 1600100
+  * Generation 18000: best_so_far_y 1.36575e+03, min(y) 1.36575e+03 & Evaluations 1800100
+  * Generation 19999: best_so_far_y 1.34281e+03, min(y) 1.34281e+03 & Evaluations 2000000
+{'best_so_far_x': array([ 9.27594682e-01,  8.59023598e-01,  7.31846856e-01,  5.31512315e-01,
+        ...,
+        1.24296112e-02,  1.00412743e-02,  1.36659227e-02,  1.83803371e-04]),
+ 'best_so_far_y': 1342.8131684291686,
+ 'n_function_evaluations': 2000000,
+ 'runtime': 3655.1105542182922,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 298.5500934123993,
+ 'fitness': array([[1.00000000e+00, 1.40426725e+07],
+       [2.00000000e+05, 4.66729431e+03],
+       [4.00000000e+05, 3.21972275e+03],
+       [6.00000000e+05, 2.50938212e+03],
+       [8.00000000e+05, 2.11368397e+03],
+       [1.00000000e+06, 1.79017519e+03],
+       [1.20000000e+06, 1.62714638e+03],
+       [1.40000000e+06, 1.50695353e+03],
+       [1.60000000e+06, 1.42449562e+03],
+       [1.80000000e+06, 1.36581146e+03],
+       [2.00000000e+06, 1.34281317e+03]]),
+ 'success': True,
+ '_n_generations': 19999}
+*** Runtime: 7.39906e+03
+******* rastrigin *******
+  * Generation 0: best_so_far_y 1.76006e+04, min(y) 1.76006e+04 & Evaluations 100
+  * Generation 2000: best_so_far_y 6.30263e+03, min(y) 6.30263e+03 & Evaluations 200100
+  * Generation 4000: best_so_far_y 4.37455e+03, min(y) 4.37455e+03 & Evaluations 400100
+  * Generation 6000: best_so_far_y 3.09098e+03, min(y) 3.09098e+03 & Evaluations 600100
+  * Generation 8000: best_so_far_y 2.17089e+03, min(y) 2.17089e+03 & Evaluations 800100
+  * Generation 10000: best_so_far_y 1.55031e+03, min(y) 1.55031e+03 & Evaluations 1000100
+  * Generation 12000: best_so_far_y 1.16933e+03, min(y) 1.16933e+03 & Evaluations 1200100
+  * Generation 14000: best_so_far_y 8.82423e+02, min(y) 8.82423e+02 & Evaluations 1400100
+  * Generation 16000: best_so_far_y 6.60251e+02, min(y) 6.60251e+02 & Evaluations 1600100
+  * Generation 18000: best_so_far_y 5.02035e+02, min(y) 5.02035e+02 & Evaluations 1800100
+  * Generation 19999: best_so_far_y 3.71710e+02, min(y) 3.71710e+02 & Evaluations 2000000
+{'best_so_far_x': array([-8.44321616e-03,  6.93152725e-02,  6.57459213e-03, -1.62208537e-02,
+        ...,
+        2.70731643e-03, -1.87522053e-03,  1.01848577e+00,  4.79863822e-03]),
+ 'best_so_far_y': 371.71039074910186,
+ 'n_function_evaluations': 2000000,
+ 'runtime': 2683.765918493271,
+ 'termination_signal': <Terminations.MAX_FUNCTION_EVALUATIONS: 1>,
+ 'time_function_evaluations': 150.38205647468567,
+ 'fitness': array([[1.00000000e+00, 1.87184955e+04],
+       [2.00000000e+05, 6.30328075e+03],
+       [4.00000000e+05, 4.37455379e+03],
+       [6.00000000e+05, 3.09129144e+03],
+       [8.00000000e+05, 2.17088797e+03],
+       [1.00000000e+06, 1.55042644e+03],
+       [1.20000000e+06, 1.17043234e+03],
+       [1.40000000e+06, 8.82423031e+02],
+       [1.60000000e+06, 6.60250967e+02],
+       [1.80000000e+06, 5.02034520e+02],
+       [2.00000000e+06, 3.71710391e+02]]),
+ 'success': True,
+ '_n_generations': 19999}
+*** Runtime: 1.00832e+04
