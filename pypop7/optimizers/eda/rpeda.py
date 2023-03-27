@@ -6,8 +6,8 @@ from pypop7.optimizers.eda.eda import EDA
 class RPEDA(EDA):
     """Random-Projection Estimation of Distribution Algorithm (RPEDA).
 
-    .. note:: `RPEDA` uses **random matrix theory (RMT)** to sample individuals on multiple embedded subspace,
-       though it still evaluates individuals on the original search space. It has a **quadractic** time
+    .. note:: `RPEDA` uses **random matrix theory (RMT)** to sample individuals on multiple embedded subspaces,
+       though it still evaluates all individuals on the original search space. It has a **quadractic** time
        complexity w.r.t. each sampling for large-scale black-box optimization.
 
     Parameters
@@ -26,14 +26,14 @@ class RPEDA(EDA):
               and with the following particular settings (`keys`):
                 * 'n_individuals' - number of offspring, offspring population size (`int`, default: `300`),
                 * 'n_parents'     - number of parents, parental population size (`int`, default:
-                  `int(0.25*self.n_individuals)`),
+                  `int(0.25*options['n_individuals'])`),
                 * 'k'             - projection dimensionality (`int`, default: `3`),
                 * 'm'             - number of random projection matrices (`int`, default:
-                  `int(np.ceil(4*self.ndim_problem/self.k)`).
+                  `int(np.ceil(4*options['n_individuals']/options['k'])`).
 
     Examples
     --------
-    Use the EDA optimizer `RPEDA` to minimize the well-known test function
+    Use the optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -44,8 +44,8 @@ class RPEDA(EDA):
        >>> from pypop7.optimizers.eda.rpeda import RPEDA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5 * numpy.ones((2,)),
-       ...            'upper_boundary': 5 * numpy.ones((2,))}
+       ...            'lower_boundary': -5*numpy.ones((2,)),
+       ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
        ...            'k': 2}
@@ -58,9 +58,9 @@ class RPEDA(EDA):
     Attributes
     ----------
     n_individuals : `int`
-                    number of offspring, offspring population size.
+                    number of offspring, aka offspring population size.
     n_parents     : `int`
-                    number of parents, parental population size.
+                    number of parents, aka parental population size.
     k             : `int`
                     projection dimensionality.
     m             : `int`
@@ -120,12 +120,11 @@ class RPEDA(EDA):
     def optimize(self, fitness_function=None, args=None):
         fitness = EDA.optimize(self, fitness_function)
         x, xx, y = self.initialize()
-        while True:
+        while not self.termination_signal:
             x, y = self.iterate(xx, y, args)
             if self._check_terminations():
                 break
-            # select top individuals
-            order = np.argsort(y)[:self.n_parents]
+            order = np.argsort(y)[:self.n_parents]  # to select top individuals
             xx = np.copy(x[order])
             self._n_generations += 1
             self._print_verbose_info(fitness, y)
