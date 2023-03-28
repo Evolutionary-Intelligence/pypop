@@ -27,10 +27,14 @@ if __name__ == '__main__':
                    'ndim_problem': 444,
                    'upper_boundary': prob.get_bounds()[1],
                    'lower_boundary': prob.get_bounds()[0]}
+        if DE == JADE:  # for JADE (but not for CDE)
+            is_bound = True
+        else:
+            is_bound = False
         options = {'max_function_evaluations': 400000,
                    'seed_rng': 2022,  # for repeatability
                    'saving_fitness': 1,  # to save all fitness generated during optimization
-                   'boundary': True}  # for JADE (but not for CDE)
+                   'is_bound': is_bound}
         solver = DE(problem, options)
         results.append(solver.optimize())
         print(results[-1])
