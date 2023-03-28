@@ -13,7 +13,8 @@ A Unified API
 
 For `PyPop7`, we use the popular Object-Oriented Programming (OOP) to structure all optimizers, which
 can provide consistency, flexibility, and simplicity. We did not adopt another popular
-Procedure-Oriented Programming. However, in the future versions, we may provide such an interface.
+Procedure-Oriented Programming. However, in the future versions, we may provide such an interface
+only at the end-user level (rather than the developer level).
 
 For all optimizers, the abstract class called `Optimizer
 <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py>`_
