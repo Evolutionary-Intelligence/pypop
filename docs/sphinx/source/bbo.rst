@@ -36,6 +36,10 @@ No Free Lunch Theorems (NFL)
 As mathematically proved in `[Wolpert&Macready, 1997, TEVC] <https://ieeexplore.ieee.org/document/585893>`_, **"for any
 algorithm, any elevated performance over one class of problems is offset by performance over another class."**
 
+This may in part explain why there exist a large number of optimization algorithms from different research communities
+in practice. However, unfortunately **not** all optimizers are well-designed and widely-acceptable. Refer to the `Design
+Philosophy <https://pypop.readthedocs.io/en/latest/design-philosophy.html>`_ section for discussions.
+
 Curse of Dimensionality for Large-Scale BBO (LSBBO)
 ---------------------------------------------------
 
