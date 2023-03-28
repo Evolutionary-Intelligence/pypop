@@ -78,7 +78,7 @@ Arguably, the *beauty* of general-purpose black-box optimizers should come from 
 breadth**, though the aesthetic judgment is somewhat *subjective*. We believe that well-designed optimizers could pass
 **Test-of-Time** in the history of black-box optimization. For recent critical discussions, refer to e.g.
 `"metaphor-based metaheuristics, a call for action: the elephant in the room"
-<https://link.springer.com/article/10.1007/s11721-021-00202-9>`_ and `"A critical problem in benchmarking and analysis
+<https://link.springer.com/article/10.1007/s11721-021-00202-9>`_ and `"a critical problem in benchmarking and analysis
 of evolutionary computation methods" <https://www.nature.com/articles/s42256-022-00579-0>`_.
 
 For **benchmarking** of continuous optimizers, refer to e.g.
