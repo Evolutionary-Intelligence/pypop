@@ -23,8 +23,8 @@ Some common problem characteristics of BBO are presented below:
 * ill-condition,
 * noisiness.
 
-For BBO, the only information accessible to the algorithm is function evaluations, which can be freely selected by
-the algorithm, leading to Zeroth-Order Optimization (ZOO).
+For black-box problems, the only information accessible to the algorithm is *function evaluations*, which can be freely
+selected by the algorithm, leading to Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO).
 
 No Free Lunch Theorems (NFL)
 ----------------------------
