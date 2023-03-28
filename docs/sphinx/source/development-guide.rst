@@ -5,7 +5,8 @@ Development Guide
    This `Development Guide` page is still actively updated.
 
 Before reading this page, it is required to first read `User Guide
-<https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for some basic information.
+<https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for some basic information. Note that
+this topic is mainly for advanced developers, the end-users can skip this page freely.
 
 A Unified API
 -------------
