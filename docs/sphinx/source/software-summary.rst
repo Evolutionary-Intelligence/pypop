@@ -145,8 +145,11 @@ C
 C++
 ---
 
-* https://github.com/chgagne/beagle (Now it is not actively maintained.)
 * https://github.com/CMA-ES/libcmaes (CMA-ES)
+* https://github.com/nojhan/paradiseo
+
+* https://github.com/sferes2/sferes2 (Now it is not actively maintained.)
+* https://github.com/chgagne/beagle (Now it is not actively maintained.)
 * https://github.com/Shark-ML/Shark (Now it is not actively maintained.)
 
   * https://github.com/Shark-ML/Shark/blob/master/include/shark/Algorithms/DirectSearch/VDCMA.h (VD-CMA)
