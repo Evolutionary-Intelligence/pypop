@@ -23,8 +23,8 @@ Some common problem characteristics of BBO are presented below:
 * ill-condition,
 * noisiness.
 
-For BBO, the only information accessible to the algorithm is function evaluations, which can be freely selected by
-the algorithm, leading to Zeroth-Order Optimization (ZOO).
+For black-box problems, the only information accessible to the algorithm is *function evaluations*, which can be freely
+selected by the algorithm, leading to Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO).
 
 No Free Lunch Theorems (NFL)
 ----------------------------
@@ -36,8 +36,21 @@ No Free Lunch Theorems (NFL)
 As mathematically proved in `[Wolpert&Macready, 1997, TEVC] <https://ieeexplore.ieee.org/document/585893>`_, **"for any
 algorithm, any elevated performance over one class of problems is offset by performance over another class."**
 
+This may in part explain why there exist a large number of optimization algorithms from different research communities
+in practice. However, unfortunately **not** all optimizers are well-designed and widely-acceptable. Refer to the `Design
+Philosophy <https://pypop.readthedocs.io/en/latest/design-philosophy.html>`_ section for discussions.
+
 Curse of Dimensionality for Large-Scale BBO (LSBBO)
 ---------------------------------------------------
+
+Arguably for all black-box optimizers, they can suffer from the famous "Curse of Dimensionality", since the essence
+of nearly all black-box optimizers are based on limited sampling. Refer to e.g., `[Nesterov&Spokoiny, 2017, FoCM]
+<https://link.springer.com/article/10.1007/s10208-015-9296-2>`_ for a deep theoretical analysis.
+
+Luckily, for some real-world applications, there may exist some structures to be available. If such a structure can be
+efficiently exploited in an automatic fashion (via well-designed optimization strategies), the convergence rate may be
+significantly improved, if possible. Therefore, any general-purpose black-box optimizer may still need to keep a *subtle*
+balance between exploiting concrete problem structures and exploring the entire design space of the optimizer.
 
 General-Purpose Optimization Algorithms
 ---------------------------------------
@@ -86,7 +99,7 @@ POPulation-based OPtimization (POP)
 Population-based (particularly evolutionary) optimizers (POP) usually have the following advantages for black-box problems,
 when particularly compared to individual-based counterparts:
 
-* few assumptions (even assumptions-free),
+* few *a priori* assumptions (e.g. with a limited knowledge bias),
 * flexible framework (easy integration with problem-specific knowledge via e.g. memetic algorithms),
 * robust performance (e.g. w.r.t. noisy perturbation or hyper-parameters),
 * diverse solutions (e.g. for multi-modal/multi-objective/dynamic optimization),
@@ -96,12 +109,14 @@ For details (models, algorithms, theories, and applications) about POP, please r
 reviews or books (just to name a few):
 
 * Miikkulainen, R. and Forrest, S., 2021. A biological perspective on evolutionary computation. Nature Machine Intelligence, 3(1), pp.9-15.
+* Schoenauer, M., 2015. Chapter 28: Evolutionary algorithms. Handbook of Evolutionary Thinking in the Sciences. Springer.
 * Eiben, A.E. and Smith, J., 2015. From evolutionary computation to the evolution of things. Nature, 521(7553), pp.476-482.
 * De Jong, K.A., Fogel, D.B. and Schwefel, H.P., 1997. A history of evolutionary computation. Handbook of Evolutionary Computation. Oxford University Press.
 * Forrest, S., 1993. Genetic algorithms: Principles of natural selection applied to computation. Science, 261(5123), pp.872-878.
 
 For **principled design of continuous stochastic search**, refer to e.g.
-`[Nikolaus&Auger, 2014] <https://link.springer.com/chapter/10.1007/978-3-642-33206-7_8>`_.
+`[Nikolaus&Auger, 2014] <https://link.springer.com/chapter/10.1007/978-3-642-33206-7_8>`_;
+`[Wierstra et al., 2014] <https://jmlr.org/papers/v15/wierstra14a.html>`_.
 
 For each algorithm family, we also provide some of *wide-recognized* references on its own API documentations. You can also see `this GitHub website
 <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_ for a (still growing) paper list of Evolutionary Computation (EC)
