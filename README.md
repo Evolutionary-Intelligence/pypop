@@ -200,7 +200,7 @@ For LSO, computational efficiency is an indispensable performance criterion of D
 
 ## References
 
-Note that for each algorithm family, we also provide some *representative* application instances, most of which were published on top-tier journals and conferences (such as, Nature, Science, PNAS, PRL, PIEEE, etc.).
+For each algorithm family, we provide several *representative* applications published on some [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) journals and conferences (such as, Nature, Science, PNAS, PRL, JACS, PIEEE, etc.).
 
 * Derivative-Free Optimization (DFO)
   * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). Foundations of Computational Mathematics, 22(2), pp.507-560.
