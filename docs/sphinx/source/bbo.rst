@@ -90,7 +90,7 @@ POPulation-based OPtimization (POP)
 Population-based (particularly evolutionary) optimizers (POP) usually have the following advantages for black-box problems,
 when particularly compared to individual-based counterparts:
 
-* few assumptions (even assumptions-free),
+* few *a priori* assumptions (e.g. with a limited knowledge bias),
 * flexible framework (easy integration with problem-specific knowledge via e.g. memetic algorithms),
 * robust performance (e.g. w.r.t. noisy perturbation or hyper-parameters),
 * diverse solutions (e.g. for multi-modal/multi-objective/dynamic optimization),
@@ -100,6 +100,7 @@ For details (models, algorithms, theories, and applications) about POP, please r
 reviews or books (just to name a few):
 
 * Miikkulainen, R. and Forrest, S., 2021. A biological perspective on evolutionary computation. Nature Machine Intelligence, 3(1), pp.9-15.
+* Schoenauer, M., 2015. Chapter 28: Evolutionary algorithms. Handbook of Evolutionary Thinking in the Sciences. Springer.
 * Eiben, A.E. and Smith, J., 2015. From evolutionary computation to the evolution of things. Nature, 521(7553), pp.476-482.
 * De Jong, K.A., Fogel, D.B. and Schwefel, H.P., 1997. A history of evolutionary computation. Handbook of Evolutionary Computation. Oxford University Press.
 * Forrest, S., 1993. Genetic algorithms: Principles of natural selection applied to computation. Science, 261(5123), pp.872-878.
