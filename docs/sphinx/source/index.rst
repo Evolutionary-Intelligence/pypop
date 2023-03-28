@@ -93,6 +93,7 @@ In practice, three simple steps are enough to utilize the optimization power of 
    rs/rs
    bo/bo
    bbo
+   development-guide
    software-summary
    applications
    sponsor
