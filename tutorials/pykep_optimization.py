@@ -28,7 +28,8 @@ for prob_number in range(0, 6):
            'upper_boundary': prob.get_ub()}
     opt = {'seed_rng': 0,
            'max_function_evaluations': 2e4,
-           'saving_fitness': 1}
+           'saving_fitness': 1,
+           'is_bound': True}
     solver = Solver(pro, opt)
     res = solver.optimize()
     if prob_number == 0:
