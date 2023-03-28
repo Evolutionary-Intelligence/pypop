@@ -43,7 +43,7 @@ Python
 * https://github.com/google/vizier
 
 * https://github.com/fmfn/BayesianOptimization
-* https://github.com/hardmaru/estool
+* https://github.com/hardmaru/estool (Now it is not actively maintained.)
 * https://github.com/mradaideh/neorl
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
 
@@ -115,7 +115,7 @@ https://cran.r-project.org/web/views/Optimization.html
 * https://cran.r-project.org/web/packages/RCEIM/index.html (CEM)
 * https://cran.r-project.org/web/packages/rCMA/index.html (CMA-ES)
 * https://cran.r-project.org/web/packages/rgenoud/index.html (GA)
-* https://github.com/hzambran/hydroPSO (PSO)
+* https://github.com/hzambran/hydroPSO (Now it is not actively maintained.)
 * https://github.com/jakobbossek/ecr2
 
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for
@@ -124,7 +124,7 @@ Iterative Optimization Heuristics (IOHs)*.
 Matlab
 ------
 
-* https://cse-lab.seas.harvard.edu/cse-lab-software (CMA-ES)
+* https://cse-lab.seas.harvard.edu/cse-lab-software (Now it is not actively maintained.)
 
   * https://gitlab.ethz.ch/mavt-cse/cma-es
 
@@ -139,17 +139,14 @@ Matlab
 C
 -
 
-* https://github.com/CMA-ES/c-cmaes (CMA-ES)
+* https://github.com/CMA-ES/c-cmaes (Now it is not actively maintained.)
 * https://www.egr.msu.edu/~kdeb/codes/g3pcx/g3pcx.tar (G3PCX)
 
 C++
 ---
 
-* https://github.com/CMA-ES/libcmaes (CMA-ES)
-* https://github.com/nojhan/paradiseo
-
-* https://github.com/sferes2/sferes2 (Now it is not actively maintained.)
 * https://github.com/chgagne/beagle (Now it is not actively maintained.)
+* https://github.com/CMA-ES/libcmaes (CMA-ES)
 * https://github.com/Shark-ML/Shark (Now it is not actively maintained.)
 
   * https://github.com/Shark-ML/Shark/blob/master/include/shark/Algorithms/DirectSearch/VDCMA.h (VD-CMA)
@@ -161,8 +158,10 @@ Java
 * https://github.com/GMUEClab/ecj (https://cs.gmu.edu/~eclab/projects/ecj/)
 * https://github.com/sdarg/opt4j/ (https://sdarg.github.io/opt4j/)
 * https://www.isa.us.es/fom/modules/portalWFInterface/init.php (Discrete Optimization)
-* https://jmetal.sourceforge.net/
-* http://www.jamesframework.org/
+* https://jmetal.sourceforge.net/ (Now it is not actively maintained.)
+* http://www.jamesframework.org/ (Now it is not actively maintained.)
+* https://github.com/dwdyer/watchmaker (Now it is not actively maintained.)
+* https://github.com/jenetics/jenetics (GA/GP)
 
 C#
 --
