@@ -1,6 +1,9 @@
 """This is a simple demo to optimize a linear controller on the popular `gymnasium` platform:
     https://github.com/Farama-Foundation/Gymnasium
 
+    $ pip install gymnasium
+    $ pip install gymnasium[classic-control]
+
     For benchmarking, please use the more challenging MuJoCo tasks: https://mujoco.org/
 """
 import numpy as np
