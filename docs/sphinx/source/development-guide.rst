@@ -8,6 +8,10 @@ Before reading this page, it is required to first read `User Guide
 <https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for some basic information. Note that
 this topic is mainly for advanced developers, the end-users can skip this page freely.
 
+For **docstring conventions**, `PEP 257 <https://peps.python.org/pep-0257/>`_ is used in this library.
+Since this library is built on the NumPy ecosystem, we further use the docstring conventions from
+`numpydoc <https://numpydoc.readthedocs.io/en/latest/format.html>`_.
+
 A Unified API
 -------------
 
