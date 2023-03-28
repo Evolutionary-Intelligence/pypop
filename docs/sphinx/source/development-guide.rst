@@ -25,6 +25,9 @@ needs to be inherited implicitly or explicitly, in order to provide a unified AP
 
 * All functions public to end-users should be defined in this class except special cases.
 
+* All settings related to fair benchmarking comparisons (e.g., `max_function_evaluations`,
+  `max_runtime`, and `fitness_threshold`) should be defined in this class.
+
 Initialization of Optimizer Options
 -----------------------------------
 
@@ -35,35 +38,36 @@ of `Optimizer` should be inherited:
     .. code-block:: bash
 
        def __init__(self, problem, options):
-           # here all members will be inherited by any subclass
+           # here all members will be inherited by any subclass of `Optimizer`
 
-The *exclusive* members of the subclass will be defined after inheriting the above function.
+The *exclusive* members of the subclass will be defined after inheriting the above function of `Optimizer`.
 
 Initialization of Population
 ----------------------------
 
 We separate the initialization of *optimizer options* with that of *population* (a set of individuals),
 in order to obtain flexibility. To achieve this, the following function `initialize
-<https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L147>`_ should be modified:
+<https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L147>`_ should
+be modified:
 
     .. code-block:: bash
 
        def initialize(self):  # for population initialization
-           raise NotImplementedError  # need to be implemented in any subclass
+           raise NotImplementedError  # need to be implemented in any subclass of `Optimizer`
 
 Its another goal is to minimize the number of class members, to make it easy to set for end-users,
-but at the slight cost of more variables control for developers.
+but at a slight cost of more variables control for developers.
 
-Control of One Generation
--------------------------
+Computation of Each Generation
+------------------------------
 
-Define each generation (iteration) via modifying the following function `iterate
+Update each one generation (iteration) via modifying the following function `iterate
 <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L150>`_:
 
     .. code-block:: bash
 
        def iterate(self):  # for one generation (iteration)
-           raise NotImplementedError  # need to be implemented in any subclass
+           raise NotImplementedError  # need to be implemented in any subclass of `Optimizer`
 
 Control of Entire Optimization Process
 --------------------------------------
@@ -73,5 +77,8 @@ Control the entire search process via modifying the following function `optimize
 
     .. code-block:: bash
 
-       def optimize(self, fitness_function=None):
-           return None  # `None` should be replaced in any subclass
+       def optimize(self, fitness_function=None):  # entire optimization process
+           return None  # `None` should be replaced in any subclass of `Optimizer`
+
+Typically, common auxiliary tasks (e.g., printing verbose information, restarting) are conducted inside
+this function.
