@@ -33,7 +33,8 @@ class Experiment(object):
                    'verbose': 0}
         if optimizer.__name__ in ['PRS', 'SRS', 'GS', 'BES', 'HJ', 'NM', 'POWELL', 'FEP', 'GENITOR', 'G3PCX',
                                   'GL25', 'COCMA', 'HCC', 'SPSO', 'SPSOL', 'CLPSO', 'CCPSO2', 'UMDA', 'EMNA', 'RPEDA',
-                                  'XNES', 'SNES', 'R1NES']:
+                                  'XNES', 'SNES', 'R1NES', 'CMAES', 'FMAES', 'RMES', 'VDCMA', 'LMMAES', 'MMES', 'LMCMA',
+                                  'LAMCTS']:
             options['sigma'] = 20.0/3.0
         solver = optimizer(problem, options)
         results = solver.optimize()
