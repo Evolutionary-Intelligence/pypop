@@ -43,6 +43,15 @@ Philosophy <https://pypop.readthedocs.io/en/latest/design-philosophy.html>`_ sec
 Curse of Dimensionality for Large-Scale BBO (LSBBO)
 ---------------------------------------------------
 
+Arguably for all black-box optimizers, they can suffer from the famous "Curse of Dimensionality", since the essence
+of nearly all black-box optimizers are based on limited sampling. Refer to e.g., `[Nesterov&Spokoiny, 2017, FoCM]
+<https://link.springer.com/article/10.1007/s10208-015-9296-2>`_ for a deep theoretical analysis.
+
+Luckily, for some real-world applications, there may exist some structures to be available. If such a structure can be
+efficiently exploited in an automatic fashion (via well-designed optimization strategies), the convergence rate may be
+significantly improved, if possible. Therefore, any general-purpose black-box optimizer may still need to keep a *subtle*
+balance between exploiting concrete problem structures and exploring the entire design space of the optimizer.
+
 General-Purpose Optimization Algorithms
 ---------------------------------------
 
