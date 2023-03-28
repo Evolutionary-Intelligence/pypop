@@ -23,13 +23,14 @@ a virtual environment (e.g. named as `env_pypop7`):
 
 .. code-block:: bash
 
+    conda deactivate  # close exiting virtual env
     conda create -y --prefix env_pypop7  # you can change the name of virtual environment to any
-    conda activate env_pypop7
+    conda activate env_pypop7  # for Windows OS (use `conda activate env_pypop7/` for Linux)
     conda install -y --prefix env_pypop7 python=3.8.12
     pip install pypop7
     conda deactivate
 
-Note that the above Python version (`3.8.12`) can be changed to meet your personal Python3 version.
+Note that the above Python version (`3.8.12`) can be changed to meet your personal Python3 version (>=3.5).
 
 Although we strongly recommend to use the the `conda` package manager to build the virtual environment as your working
 space, currently we do not add this library to `conda-forge <https://conda-forge.org/>`_ and leave it for the future
