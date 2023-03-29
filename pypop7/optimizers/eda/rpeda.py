@@ -43,17 +43,17 @@ class RPEDA(EDA):
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.eda.rpeda import RPEDA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
-       ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'ndim_problem': 20,
+       ...            'lower_boundary': -5*numpy.ones((20,)),
+       ...            'upper_boundary': 5*numpy.ones((20,))}
+       >>> options = {'max_function_evaluations': 500000,  # set optimizer options
        ...            'seed_rng': 2022,
        ...            'k': 2}
        >>> rpeda = RPEDA(problem, options)  # initialize the optimizer class
        >>> results = rpeda.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"RPEDA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       RPEDA: 5000, 0.05347416897341553
+       RPEDA: 500000, 15.67048345324486
 
     Attributes
     ----------
