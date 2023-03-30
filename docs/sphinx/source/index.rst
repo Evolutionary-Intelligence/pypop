@@ -1,4 +1,4 @@
-.. This is the official documentation of PyPop7 (Pure-PYthon library of POPulation-based black-box OPtimization).
+.. This is the official documentation of PyPop7 (a Pure-PYthon library of POPulation-based black-box OPtimization).
 
 Welcome to PyPop7's Documentation!
 ==================================
@@ -14,11 +14,12 @@ Welcome to PyPop7's Documentation!
 **PyPop7** is a *Pure-PYthon* library of *POPulation-based OPtimization* for single-objective, real-parameter,
 black-box problems. Its main goal is to provide a *unified* interface and *elegant* implementations for
 **Black-Box Optimizers (BBO)**, *particularly population-based optimizers*, in order to facilitate research
-repeatability and also real-world applications.
+repeatability, benchmarking of BBO, and also real-world applications.
 
 More specifically, for alleviating the notorious **curse of dimensionality** of BBO, the primary focus of `PyPop7
 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to cover their **State-Of-The-Art (SOTA) implementations
-for Large-Scale Optimization (LSO)**, though many of their *small-scale* versions and variants are also included here.
+for Large-Scale Optimization (LSO)**, though many of their *medium/small-scaled* versions and variants are also included
+here (mainly for theoretical or benchmarking purposes).
 
 .. image:: images/logo.png
    :width: 321px
