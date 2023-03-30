@@ -97,12 +97,13 @@ class CMAES(ES):
     In Proceedings of IEEE International Conference on Evolutionary Computation (pp. 312-317). IEEE.
     https://ieeexplore.ieee.org/abstract/document/542381
 
-    See the lightweight implementation of CMA-ES:
+    See the lightweight implementation of CMA-ES from cyberagent.ai:
     https://github.com/CyberAgentAILab/cmaes
     """
     def __init__(self, problem, options):
         self.options = options
         ES.__init__(self, problem, options)
+        assert self.n_individuals >= 2
         self._mu_eff = None
         self._mu_eff_minus = None
         self._w = None
