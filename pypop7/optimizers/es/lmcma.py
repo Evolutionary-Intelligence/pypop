@@ -62,18 +62,19 @@ class LMCMA(ES):
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.lmcma import LMCMA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
-       ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'ndim_problem': 1000,
+       ...            'lower_boundary': -5*numpy.ones((1000,)),
+       ...            'upper_boundary': 5*numpy.ones((1000,))}
+       >>> options = {'max_function_evaluations': 1e5*1000,  # set optimizer options
+       ...            'fitness_threshold': 1e-8,
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
+       ...            'mean': 3*numpy.ones((1000,)),
        ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> lmcma = LMCMA(problem, options)  # initialize the optimizer class
        >>> results = lmcma.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"LMCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       LMCMA: 5000, 7.729604455095068e-08
+       LMCMA: 2482983, 9.998653039116044e-09
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/24jnfhbs>`_ for more details.
