@@ -43,6 +43,7 @@ Python
 * https://github.com/google/vizier
 
 * https://github.com/fmfn/BayesianOptimization
+* https://github.com/ljvmiranda921/pyswarms (PSO)
 * https://github.com/mradaideh/neorl
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
 
