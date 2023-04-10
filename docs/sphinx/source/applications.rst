@@ -9,3 +9,7 @@ Up to now, this library `PyPop7` has been used (at least) in the following paper
 Till now, this library `PyPop7` has been cited in the following papers:
 
 * Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
+
+For other introductions/coverage, refer to e.g.:
+
+* `medium <https://medium.com/@monocosmo77/how-black-box-optimization-works-part2-machine-learning-bb63b4c93557>`_
