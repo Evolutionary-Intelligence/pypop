@@ -156,6 +156,7 @@ For more interesting applications of `ES`/`CMA-ES`/`NES` on challenging real-wor
 `[Ha&Schmidhuber, 2018, NeurIPS] <https://papers.nips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html>`_;
 `[OpenAI, 2017] <https://openai.com/research/evolution-strategies>`_,
 `[Zhang et al., 2017, Science] <https://www.science.org/doi/10.1126/science.aal5054>`_,
+`[Agrawal et al., 2014, TVCG] <https://ieeexplore.ieee.org/abstract/document/6781622>`_,
 `[Koumoutsakos et al., 2001, AIAA] <https://arc.aiaa.org/doi/10.2514/2.1404>`_,
 `[Lipson&Pollack, 2000, Nature] <https://www.nature.com/articles/35023115>`_,
 just to name a few.
