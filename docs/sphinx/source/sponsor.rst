@@ -16,7 +16,7 @@ SUSTech @ Shenzhen, China from 2021 to 2023), and actively developed by three of
 We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech) and recent (2022) discussions wih
 Changwu Huang (at SUSTech).
 
-Finally, we thanks for all the following open-source code to make **repeatability** much easier (still updated):
+Finally, we thanks very much for all the following open-source code to make **repeatability** much easier (still updated):
 
 * `Xiaoyu He <https://hxyokokok.github.io/>`_: `MATLAB code for MMES <https://github.com/hxyokokok/MMES>`_ (
   `forked <https://github.com/Evolutionary-Intelligence/MMES>`_ )
