@@ -20,6 +20,8 @@ Finally, we thanks very much for all the following open-source code to make **re
 
 * `Ilya Loshchilov <http://www.loshchilov.com/>`_: `C code for LMCMA
   <https://sites.google.com/site/ecjlmcma/>`_
+* `Ilya Loshchilov <http://www.loshchilov.com/>`_: `C code for LMCMAES
+  <https://sites.google.com/site/lmcmaeses/>`_
 * `Prof. Tobias Glasmachers <https://www.ini.rub.de/the_institute/people/tobias-glasmachers/>`_: `PYTHON code for LMMAES
   <https://www.ini.rub.de/upload/editor/file/1604950981_dc3a4459a4160b48d51e/lmmaes.py>`_
 * `Prof. Xiaoyu He <https://hxyokokok.github.io/>`_: `MATLAB code for MMES <https://github.com/hxyokokok/MMES>`_ (
