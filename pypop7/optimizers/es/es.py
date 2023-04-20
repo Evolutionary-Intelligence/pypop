@@ -120,10 +120,12 @@ class ES(Optimizer):
         assert self.n_individuals > 0, f'`self.n_individuals` = {self.n_individuals}, but should > 0.'
         if self.n_parents is None:  # number of parents (μ: mu), parental population size
             self.n_parents = int(self.n_individuals/2)
-            if self.n_parents > 1:
-                self._w, self._mu_eff = self._compute_weights()
-                self._e_chi = np.sqrt(self.ndim_problem)*(  # E[||N(0,I)||]: expectation of chi distribution
-                    1.0 - 1.0/(4.0*self.ndim_problem) + 1.0/(21.0*np.square(self.ndim_problem)))
+        assert self.n_parents <= self.n_individuals,\
+            f'self.n_parents (== {self.n_parents}) should <= self.n_individuals (== {self.n_individuals})'
+        if self.n_parents > 1:
+            self._w, self._mu_eff = self._compute_weights()
+            self._e_chi = np.sqrt(self.ndim_problem)*(  # E[||N(0,I)||]: expectation of chi distribution
+                1.0 - 1.0/(4.0*self.ndim_problem) + 1.0/(21.0*np.square(self.ndim_problem)))
         assert self.n_parents > 0, f'`self.n_parents` = {self.n_parents}, but should > 0.'
         self.mean = options.get('mean')  # mean of Gaussian search/sampling/mutation distribution
         if self.mean is None:  # `mean` overwrites `x` if both are set
