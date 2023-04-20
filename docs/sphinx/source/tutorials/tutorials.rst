@@ -156,6 +156,7 @@ For more interesting applications of `ES`/`CMA-ES`/`NES` on challenging real-wor
 `[Ha&Schmidhuber, 2018, NeurIPS] <https://papers.nips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html>`_;
 `[OpenAI, 2017] <https://openai.com/research/evolution-strategies>`_,
 `[Zhang et al., 2017, Science] <https://www.science.org/doi/10.1126/science.aal5054>`_,
+`[Agrawal et al., 2014, TVCG] <https://ieeexplore.ieee.org/abstract/document/6781622>`_,
 `[Koumoutsakos et al., 2001, AIAA] <https://arc.aiaa.org/doi/10.2514/2.1404>`_,
 `[Lipson&Pollack, 2000, Nature] <https://www.nature.com/articles/35023115>`_,
 just to name a few.
@@ -567,7 +568,7 @@ Using population-based (e.g., `evolutionary <https://link.springer.com/article/1
 methods to design robot controllers has a relatively long history. Recently, the increasing availability of distributed
 computing makes them a competitive alternative to RL, as empirically demonstrated in `OpenAI's 2017 research report
 <https://openai.com/research/evolution-strategies>`_. Here, we provide a *very simplified* demo to show how `ES` works
-well on a classical control problem called `CartPole`:
+well on a `classical <https://ieeexplore.ieee.org/document/9306925>`_ control problem called `CartPole`:
 
     .. code-block:: python
 
