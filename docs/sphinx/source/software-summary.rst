@@ -155,6 +155,8 @@ C++
   * https://github.com/Shark-ML/Shark/blob/master/include/shark/Algorithms/DirectSearch/VDCMA.h (VD-CMA)
   * https://github.com/Shark-ML/Shark/blob/master/include/shark/Algorithms/DirectSearch/LMCMA.h (LM-CMA)
 
+* https://www.cs.wm.edu/~va/software/DirectSearch/direct_code/
+
 Java
 ----
 
