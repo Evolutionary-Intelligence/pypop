@@ -26,7 +26,7 @@ here (mainly for theoretical or benchmarking purposes).
    :align: center
 
 .. note::
-   This open-source Python library is still under active development (from 2021 to now).
+   This open-source Python library for continuous black-box optimization is under active development (from 2021 to now).
 
 **Quick Start**
 
