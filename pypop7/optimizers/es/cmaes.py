@@ -188,7 +188,7 @@ class CMAES(ES):
             np.dot(cm_minus_half, np.transpose(d)), axis=0), 2) + 1e-8))
         cm = ((1.0 + self.c_1*(1.0 - h_s)*self.c_c*(2.0 - self.c_c) - self.c_1 - self.c_w*np.sum(self._w))*cm +
               self.c_1*np.outer(p_c, p_c))  # rank-one update
-        for i in range(self.n_individuals):  # rank-μ update
+        for i in range(self.n_individuals):  # rank-μ update (to estimate variances of sampled *steps*)
             cm += self.c_w*w_o[i]*np.outer(d[order[i]], d[order[i]])
         # do eigen decomposition (SVD)
         cm = (cm + np.transpose(cm))/2.0
