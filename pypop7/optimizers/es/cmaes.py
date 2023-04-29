@@ -69,7 +69,7 @@ class CMAES(ES):
     mean          : `array_like`
                     initial (starting) point, aka mean of Gaussian search distribution.
     n_individuals : `int`
-                    number of offspring, aka offspring population size.
+                    number of offspring, aka offspring population size / sample size.
     n_parents     : `int`
                     number of parents, aka parental population size.
     sigma         : `float`
