@@ -71,7 +71,7 @@ class CMAES(ES):
     n_individuals : `int`
                     number of offspring, aka offspring population size / sample size.
     n_parents     : `int`
-                    number of parents, aka parental population size.
+                    number of parents, aka parental population size / number of positively selected search points.
     sigma         : `float`
                     final global step-size, aka mutation strength.
 
