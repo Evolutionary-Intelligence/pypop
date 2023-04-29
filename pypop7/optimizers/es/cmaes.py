@@ -104,7 +104,7 @@ class CMAES(ES):
         self.options = options
         ES.__init__(self, problem, options)
         assert self.n_individuals >= 2
-        self._mu_eff = None
+        self._mu_eff = None  # effective sample size of selected samples / variance effective selection mass 
         self._mu_eff_minus = None
         self._w = None
         self._alpha_cov = 2.0
