@@ -77,7 +77,7 @@ class CMAES(ES):
 
     References
     ----------
-    Hansen, N., 2016.
+    Hansen, N., 2023.
     The CMA evolution strategy: A tutorial.
     arXiv preprint arXiv:1604.00772.
     https://arxiv.org/abs/1604.00772
