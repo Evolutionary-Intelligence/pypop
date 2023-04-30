@@ -90,6 +90,11 @@ class CSAES(DSAES):
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
 
+    Kern, S., Müller, S.D., Hansen, N., Büche, D., Ocenasek, J. and Koumoutsakos, P., 2004.
+    Learning probability distributions in continuous evolutionary algorithms–a comparative review.
+    Natural Computing, 3, pp.77-112.
+    https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e
+
     Ostermeier, A., Gawelczyk, A. and Hansen, N., 1994, October.
     Step-size adaptation based on non-local use of selection information
     In International Conference on Parallel Problem Solving from Nature (pp. 189-198).
