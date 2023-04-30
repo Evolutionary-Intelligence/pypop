@@ -110,16 +110,16 @@ class CMAES(ES):
         self._alpha_cov = 2.0
         self.c_s = None
         self.d_sigma = None
-        self.c_c = None  # decay rate for cumulation (evolution) path for rank-one update of covariance matrix
-        self.c_1 = None
+        self.c_c = None  # decay rate for cumulation (evolution) path for rank-one update of CMA
+        self.c_1 = None  # learning rate for rank-one update of CMA
         self.c_w = None
         self._p_s_1 = None  # for evolution path update of cumulative step-length adaptation (CSA)
         self._p_s_2 = None
-        self._p_c_1 = None  # for evolution path update of covariance matrix adaptation (CMA)
+        self._p_c_1 = None  # for evolution path update of CMA
         self._p_c_2 = None
         self.n_generations, self._n_generations = None, None
 
-    def _set_c_c(self):  # decay rate for cumulation (evolution) path for rank-one update of covariance matrix
+    def _set_c_c(self):  # to set decay rate for cumulation (evolution) path for rank-one update of CMA
         return (4.0 + self._mu_eff/self.ndim_problem)/(self.ndim_problem + 4.0 + 2.0*self._mu_eff/self.ndim_problem)
 
     def _set_c_w(self):
