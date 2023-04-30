@@ -7,7 +7,7 @@ Software Summary and Comparisons
 Python
 ------
 
-* https://esa.github.io/pygmo2/ (`pygmo <https://esa.github.io/pygmo2/>`_ is *a scientific Python library for massively parallel optimization*.)
+* https://esa.github.io/pygmo2/ ( `pygmo <https://esa.github.io/pygmo2/>`_ is a **well-designed** and **well-maintained** Python library for **parallel optimization**. )
 
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.de
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.sade
@@ -20,23 +20,25 @@ Python
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.cmaes
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.xnes
 
-* https://github.com/CMA-ES/pycma (CMA-ES)
+* https://github.com/CMA-ES/pycma ( **CMA-ES** )
 
-  * https://github.com/akimotolab/multi-fidelity (DD-CMA-ES)
+  * https://github.com/akimotolab/multi-fidelity ( **DD-CMA-ES** )
 
-    * https://gist.github.com/youheiakimoto/08b95b52dfbf8832afc71dfff3aed6c8 (VD-CMA)
-    * https://gist.github.com/youheiakimoto/2fb26c0ace43c22b8f19c7796e69e108 (VKD-CMA)
-    * https://gist.github.com/youheiakimoto/1180b67b5a0b1265c204cba991fa8518 (DD-CMA-ES)
-    * https://github.com/akimotolab/CMAES_Tutorial (CMA-ES)
+    * https://gist.github.com/youheiakimoto/08b95b52dfbf8832afc71dfff3aed6c8 ( **VD-CMA** )
+    * https://gist.github.com/youheiakimoto/2fb26c0ace43c22b8f19c7796e69e108 ( **VKD-CMA** )
+    * https://gist.github.com/youheiakimoto/1180b67b5a0b1265c204cba991fa8518 ( **DD-CMA-ES** )
+    * https://github.com/akimotolab/CMAES_Tutorial ( **CMA-ES** )
 
-  * https://github.com/CyberAgentAILab/cmaes (CMA-ES)
+  * https://github.com/CyberAgentAILab/cmaes ( **CMA-ES** )
 
-    * https://github.com/c-bata/benchmark-warm-starting-cmaes (CMA-ES)
-    * https://github.com/EvoConJP/CMA-ES_with_Margin (CMA-ES)
+    * https://github.com/c-bata/benchmark-warm-starting-cmaes ( **CMA-ES** )
+    * https://github.com/EvoConJP/CMA-ES_with_Margin ( **CMA-ES** )
 
-  * https://github.com/NiMlr/High-Dim-ES-RL (CMA-ES)
+  * https://github.com/NiMlr/High-Dim-ES-RL ( **CMA-ES** )
 
-  * https://github.com/optuna/optuna (CMA-ES)
+  * https://github.com/optuna/optuna ( **CMA-ES** )
+
+* https://github.com/dietmarwo/fast-cma-es ( **CMA-ES** )
 
 * https://github.com/google/evojax
 
