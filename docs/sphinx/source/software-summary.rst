@@ -1,5 +1,5 @@
-Software Summary and Comparisons
-=================================
+Software Summary
+================
 
 .. note:: This page is **actively** updated now, since many open-source software and code for black-box optimization
    are still missed here. We will happy to add it if you find some *important* work omitted here.
