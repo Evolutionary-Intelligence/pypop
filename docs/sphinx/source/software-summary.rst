@@ -40,7 +40,7 @@ Python
 
 * https://github.com/dietmarwo/fast-cma-es ( **CMA-ES** )
 
-* https://github.com/google/evojax
+* https://github.com/google/evojax ( **NeuroEvolution** )
 
 * https://github.com/google/vizier
 
