@@ -42,7 +42,7 @@ Python
 
 * https://github.com/google/evojax ( **NeuroEvolution** )
 
-* https://github.com/google/vizier
+* https://github.com/google/vizier ( **Hyperparameter Optimization** | **AutoML** )
 
 * https://github.com/fmfn/BayesianOptimization
 * https://github.com/ljvmiranda921/pyswarms (PSO)
