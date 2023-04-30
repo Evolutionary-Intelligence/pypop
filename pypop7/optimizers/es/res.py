@@ -166,7 +166,7 @@ class RES(ES):
             if self._check_terminations():
                 break
             self.sigma *= np.power(np.exp(float(y < best_so_far_y) - 0.2), self.lr_sigma)
-            if y < best_so_far_y:
+            if y <= best_so_far_y:
                 mean, best_so_far_y = x, y
             mean, y, best_so_far_y = self.restart_reinitialize(args, mean, y, best_so_far_y, fitness)
         return self._collect(fitness, y, mean)
