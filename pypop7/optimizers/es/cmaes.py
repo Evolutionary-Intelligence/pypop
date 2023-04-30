@@ -110,7 +110,7 @@ class CMAES(ES):
         self._alpha_cov = 2.0
         self.c_s = None
         self.d_sigma = None
-        self.c_c = None
+        self.c_c = None  # decay rate for cumulation (evolution) path for rank-one update of covariance matrix
         self.c_1 = None
         self.c_w = None
         self._p_s_1 = None  # for evolution path update of cumulative step-length adaptation (CSA)
