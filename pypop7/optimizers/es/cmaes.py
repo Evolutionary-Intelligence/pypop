@@ -119,7 +119,7 @@ class CMAES(ES):
         self._p_c_2 = None
         self.n_generations, self._n_generations = None, None
 
-    def _set_c_c(self):
+    def _set_c_c(self):  # decay rate for cumulation (evolution) path for rank-one update of covariance matrix
         return (4.0 + self._mu_eff/self.ndim_problem)/(self.ndim_problem + 4.0 + 2.0*self._mu_eff/self.ndim_problem)
 
     def _set_c_w(self):
