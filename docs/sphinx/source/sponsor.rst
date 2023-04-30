@@ -18,6 +18,7 @@ Changwu Huang (at SUSTech).
 
 Finally, we thanks very much for all the following open-source code to make **repeatability** much easier (still updated):
 
+* `cyberagent.ai <https://cyberagent.ai/>`_: `PYTHON code for CMAES <https://github.com/CyberAgentAILab/cmaes>`_
 * `Ilya Loshchilov <http://www.loshchilov.com/>`_: `C code for LMCMA
   <https://sites.google.com/site/ecjlmcma/>`_
 * `Ilya Loshchilov <http://www.loshchilov.com/>`_: `C code for LMCMAES
