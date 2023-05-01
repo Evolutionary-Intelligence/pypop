@@ -44,13 +44,13 @@ In practice, three simple steps are enough to utilize the optimization power of 
        :linenos:
 
        >>> import numpy as np  # for numerical computation, which is also the computing engine of pypop7
-       >>> def rosenbrock(x):  # notorious test function in the optimization community
+       >>> def rosenbrock(x):  # notorious test (benchmarking) function in the optimization community
        ...     return 100*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
-       >>> ndim_problem = 1000  # define the fitness (cost) function and also its settings
+       >>> ndim_problem = 1000  # problem dimension
        >>> problem = {'fitness_function': rosenbrock,  # cost function to be minimized
        ...            'ndim_problem': ndim_problem,  # problem dimension
-       ...            'lower_boundary': -5*np.ones((ndim_problem,)),  # search boundary
-       ...            'upper_boundary': 5*np.ones((ndim_problem,))}  # search boundary
+       ...            'lower_boundary': -5*np.ones((ndim_problem,)),  # lower search boundary
+       ...            'upper_boundary': 5*np.ones((ndim_problem,))}  # upper search boundary
 
 3. Run one or more black-box optimizers from `pypop7` on the given optimization problem:
 
