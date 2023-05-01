@@ -19,7 +19,6 @@ Python
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.simulated_annealing
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.cmaes
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.xnes
-
 * https://github.com/CMA-ES/pycma ( **CMA-ES** )
 
   * https://github.com/akimotolab/multi-fidelity ( **DD-CMA-ES** )
@@ -28,29 +27,20 @@ Python
     * https://gist.github.com/youheiakimoto/2fb26c0ace43c22b8f19c7796e69e108 ( **VKD-CMA** )
     * https://gist.github.com/youheiakimoto/1180b67b5a0b1265c204cba991fa8518 ( **DD-CMA-ES** )
     * https://github.com/akimotolab/CMAES_Tutorial ( **CMA-ES** )
-
   * https://github.com/CyberAgentAILab/cmaes ( **CMA-ES** )
 
     * https://github.com/c-bata/benchmark-warm-starting-cmaes ( **CMA-ES** )
     * https://github.com/EvoConJP/CMA-ES_with_Margin ( **CMA-ES** )
-
   * https://github.com/NiMlr/High-Dim-ES-RL ( **CMA-ES** )
-
   * https://github.com/optuna/optuna ( **CMA-ES** )
-
 * https://github.com/dietmarwo/fast-cma-es ( **CMA-ES** )
-
 * https://github.com/google/evojax ( **NeuroEvolution** )
-
 * https://github.com/google/vizier ( **Hyperparameter Optimization** | **AutoML** )
-
-* https://github.com/fmfn/BayesianOptimization
+* https://github.com/fmfn/BayesianOptimization ( **BO** )
 * https://github.com/ljvmiranda921/pyswarms (PSO)
 * https://github.com/mradaideh/neorl
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
-
 * https://github.com/RobertTLange/evosax
-
 * https://pymoo.org/ (`pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.)
 
   * https://pymoo.org/algorithms/soo/cmaes.html
