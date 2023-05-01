@@ -38,7 +38,7 @@ In practice, three simple steps are enough to utilize the optimization power of 
 
        $ pip install pypop7
 
-2. Define your own objective (cost) function for the optimization problem at hand:
+2. Define your own objective (cost) function (to be minimized) for the optimization problem at hand:
 
     .. code-block:: python
        :linenos:
@@ -48,7 +48,7 @@ In practice, three simple steps are enough to utilize the optimization power of 
        ...     return 100*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
        >>> ndim_problem = 1000  # define the fitness (cost) function and also its settings
        >>> problem = {'fitness_function': rosenbrock,  # cost function to be minimized
-       ...            'ndim_problem': ndim_problem,  # dimension
+       ...            'ndim_problem': ndim_problem,  # problem dimension
        ...            'lower_boundary': -5*np.ones((ndim_problem,)),  # search boundary
        ...            'upper_boundary': 5*np.ones((ndim_problem,))}  # search boundary
 
