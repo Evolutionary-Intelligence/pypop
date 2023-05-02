@@ -157,7 +157,7 @@ Java
 * https://github.com/sdarg/opt4j/ (https://sdarg.github.io/opt4j/)
 * https://www.isa.us.es/fom/modules/portalWFInterface/init.php (Discrete Optimization)
 * https://jmetal.sourceforge.net/ (Now it is not actively maintained.)
-* http://www.jamesframework.org/ (Now it is not actively maintained.)
+* http://www.jamesframework.org/ ( Now it is not actively maintained: Last update - Aug 16, 2016. )
 * https://github.com/dwdyer/watchmaker (Now it is not actively maintained.)
 * https://github.com/jenetics/jenetics (GA/GP)
 
