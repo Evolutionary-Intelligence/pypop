@@ -41,6 +41,7 @@ Python
 * https://github.com/mradaideh/neorl
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
 * https://github.com/RobertTLange/evosax
+* https://github.com/uber-research/poet ( **POET** )
 * https://pymoo.org/ (`pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.)
 
   * https://pymoo.org/algorithms/soo/cmaes.html
