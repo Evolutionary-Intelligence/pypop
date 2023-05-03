@@ -19,6 +19,7 @@ Python
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.simulated_annealing
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.cmaes
   * https://esa.github.io/pygmo2/algorithms.html#pygmo.xnes
+* https://github.com/AureumChaos/LEAP
 * https://github.com/CMA-ES/pycma ( **CMA-ES** )
 
   * https://github.com/akimotolab/multi-fidelity ( **DD-CMA-ES** )
