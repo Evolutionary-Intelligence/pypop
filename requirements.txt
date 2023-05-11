@@ -8,4 +8,4 @@ seaborn
 celluloid
 imageio
 athena-mathlab
--e git+https://github.com/locuslab/lml.git@cf8251e56332bfe89d2078b06c92d8d489352266#egg=lml
+-e git+https://github.com/locuslab/lml.git
