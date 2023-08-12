@@ -11,7 +11,7 @@
     from pybrain.optimization.distributionbased.rank1 import Rank1NES
 
 
-    def cigar(x):
+    def cigar(x):  # maximization
         x = np.power(x, 2)
         y = x[0] + (10 ** 6) * np.sum(x[1:])
         return -y
@@ -20,7 +20,7 @@
     np.random.seed(5)
     solver = Rank1NES(cigar, 4*np.ones((100,)), maxEvaluations=5e5, verbose=True)
     solver.x = 4*np.ones((100,))
-    solver.learn()  # -3.4497462517488313e-06
+    solver.learn()  # -3.4497462517488313e-06 (maximization)
 """
 import time
 
@@ -45,5 +45,5 @@ if __name__ == '__main__':
         solver = Solver(problem, options)
         results = solver.optimize()
         print(results)
-        print(results['best_so_far_y'])  # 1.925873624433685e-06
+        print(results['best_so_far_y'])  # 1.925873624433685e-06 (minimization)
         print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
