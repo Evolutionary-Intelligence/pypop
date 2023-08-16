@@ -44,13 +44,17 @@ GA
 
 * Drugan, M. M., & Thierens, D. (2010). Geometrical recombination operators for real-coded evolutionary mcmcs. Evolutionary Computation, 18(2), 157-198.
 
+NM
+--
+* Gao, F., & Han, L. (2012). Implementing the Nelder-Mead simplex algorithm with adaptive parameters. Computational Optimization and Applications, 51(1), 259-277.
+
 RS
 --
 
 * Sener, O., & Koltun, V. (2019, September). Learning to guide random search. In International Conference on Learning Representations.
 
-BBO
----
+BBO/DFO/ZOO
+-----------
 
-* Gao, F., & Han, L. (2012). Implementing the Nelder-Mead simplex algorithm with adaptive parameters. Computational Optimization and Applications, 51(1), 259-277.
+* Antonakopoulos, K., Vu, D.Q., Cevher, V., Levy, K. and Mertikopoulos, P., 2022, June. UnderGrad: A universal black-box optimization method with almost dimension-free convergence rate guarantees. In International Conference on Machine Learning (pp. 772-795). PMLR.
 * Flaxman, A. D., Kalai, A. T., & McMahan, H. B. (2005, January). Online convex optimization in the bandit setting: gradient descent without a gradient. In Proceedings of Annual ACM-SIAM symposium on Discrete Algorithms (pp. 385-394).
