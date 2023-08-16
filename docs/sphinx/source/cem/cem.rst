@@ -9,7 +9,6 @@ Cross-Entropy Method (CEM)
    :maxdepth: 2
    :caption: CEMs:
 
-   dcem
    mras
    dscem
    scem
