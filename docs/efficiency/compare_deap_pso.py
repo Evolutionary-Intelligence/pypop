@@ -38,10 +38,10 @@ def updateParticle(part, best, phi1, phi2):
 
 
 toolbox = base.Toolbox()
-toolbox.register("particle", generate, size=2, pmin=-6, pmax=6, smin=-3, smax=3)
+toolbox.register("particle", generate, size=2000, pmin=-10.0, pmax=10.0, smin=-4.0, smax=4.0)
 toolbox.register("population", tools.initRepeat, list, toolbox.particle)
 toolbox.register("update", updateParticle, phi1=2.0, phi2=2.0)
-toolbox.register("evaluate", benchmarks.h1)
+toolbox.register("evaluate", )
 
 
 def main():
