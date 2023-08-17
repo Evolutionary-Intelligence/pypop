@@ -52,6 +52,7 @@ RS
 --
 
 * Sener, O., & Koltun, V. (2019, September). Learning to guide random search. In International Conference on Learning Representations.
+* Rastrigin, L.A., 1963. The convergence of the random search method in the extremal control of a many parameter system. Automaton & Remote Control, 24, pp.1337-1342. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 * Brooks, S.H., 1958. A discussion of random methods for seeking maxima. Operations Research, 6(2), pp.244-251. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 
 BBO/DFO/ZOO
