@@ -1,25 +1,30 @@
 # Taken directly from https://github.com/DEAP/deap/blob/master/examples/pso/basic.py
 #    with slight modifications for comparisons
+#
+# Please first install deap (http://deap.readthedocs.org/):
+#    $ pip install deap
 import math
 import random
 import operator
 
 import numpy
-from deap import base
-from deap import tools
-from deap import creator
+from deap import base, tools, creator
+from pypop7.benchmarks.base_functions import sphere as _sphere
+
+
+def sphere(x):
+    return -_sphere(x),
 
 
 creator.create("FitnessMax", base.Fitness, weights=(1.0,))  # for maximization
-creator.create("Particle", list, fitness=creator.FitnessMax, speed=list, 
-    smin=None, smax=None, best=None)
+creator.create("Particle", list, fitness=creator.FitnessMax, speed=list,
+               smin=None, smax=None, best=None)
 
 
 def generate(size, pmin, pmax, smin, smax):
-    part = creator.Particle(random.uniform(pmin, pmax) for _ in range(size)) 
+    part = creator.Particle(random.uniform(pmin, pmax) for _ in range(size))
     part.speed = [random.uniform(smin, smax) for _ in range(size)]
-    part.smin = smin
-    part.smax = smax
+    part.smin, part.smax = smin, smax
     return part
 
 
@@ -38,27 +43,24 @@ def updateParticle(part, best, phi1, phi2):
 
 
 toolbox = base.Toolbox()
-toolbox.register("particle", generate, size=2000, pmin=-10.0, pmax=10.0, smin=-4.0, smax=4.0)
+toolbox.register("particle", generate, size=2000, pmin=-10.0, pmax=10.0,
+                 smin=-4.0, smax=4.0)
 toolbox.register("population", tools.initRepeat, list, toolbox.particle)
 toolbox.register("update", updateParticle, phi1=2.0, phi2=2.0)
-toolbox.register("evaluate", )
+toolbox.register("evaluate", sphere)
 
 
 def main():
-    pop = toolbox.population(n=5)
+    pop = toolbox.population(n=20)  # initial population
     stats = tools.Statistics(lambda ind: ind.fitness.values)
-    stats.register("avg", numpy.mean)
-    stats.register("std", numpy.std)
     stats.register("min", numpy.min)
-    stats.register("max", numpy.max)
 
     logbook = tools.Logbook()
     logbook.header = ["gen", "evals"] + stats.fields
 
-    GEN = 1000
-    best = None
+    best = None  # globally best position
 
-    for g in range(GEN):
+    for g in range(1000):
         for part in pop:
             part.fitness.values = toolbox.evaluate(part)
             if not part.best or part.best.fitness < part.fitness:
@@ -70,11 +72,9 @@ def main():
         for part in pop:
             toolbox.update(part, best)
 
-        # Gather all the fitnesses in one list and print the stats
         logbook.record(gen=g, evals=len(pop), **stats.compile(pop))
         print(logbook.stream)
 
-    return pop, logbook, best
 
 if __name__ == "__main__":
     main()
