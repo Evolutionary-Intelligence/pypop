@@ -51,6 +51,7 @@ NM
 RS
 --
 
+* Li, L. and Talwalkar, A., 2020. Random search and reproducibility for neural architecture search. In Uncertainty in Artificial Intelligence (pp. 367-377). PMLR.
 * Sener, O., & Koltun, V., 2019. Learning to guide random search. In International Conference on Learning Representations.
 * Chupeau, M., Bénichou, O. and Voituriez, R., 2015. Cover times of random searches. Nature Physics, 11(10), pp.844-847.
 * Zabinsky, Z.B., 2003. Stochastic adaptive search for global optimization. Springer Science & Business Media.
