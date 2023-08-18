@@ -52,6 +52,7 @@ RS
 --
 
 * Sener, O., & Koltun, V., 2019. Learning to guide random search. In International Conference on Learning Representations.
+* Schrack, G. and Choit, M., 1976. Optimized relative step size random searches. Mathematical Programming, 10(1), pp.230-244. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 * Schumer, M.A. and Steiglitz, K., 1968. Adaptive step size random search. IEEE Transactions on Automatic Control, 13(3), pp.270-276. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 * Matyas, J., 1965. Random optimization. Automation and Remote control, 26(2), pp.246-253. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 * Rastrigin, L.A., 1963. The convergence of the random search method in the extremal control of a many parameter system. Automaton & Remote Control, 24, pp.1337-1342. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
