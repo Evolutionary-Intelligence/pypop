@@ -61,7 +61,7 @@ def main():
     # to store a list of sampled function evaluations and best-so-far fitness
     fe, fitness = [], []
 
-    while (time.time() - start_time) < (60):  # 3 hours * 60 * 3
+    while (time.time() - start_time) < (60 * 60 * 3):  # 3 hours
         for part in pop:
             part.fitness.values = toolbox.evaluate(part)
             n_fe += 1  # current number of function evaluations
