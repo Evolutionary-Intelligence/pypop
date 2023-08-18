@@ -4,6 +4,7 @@
 # Please first install deap (http://deap.readthedocs.org/):
 #    $ pip install deap
 import math
+import time
 import random
 import operator
 
@@ -51,6 +52,8 @@ toolbox.register("evaluate", sphere)
 
 
 def main():
+    start_time = time.time()
+
     pop = toolbox.population(n=20)  # initial population
     stats = tools.Statistics(lambda ind: ind.fitness.values)
     stats.register("min", numpy.min)
@@ -58,9 +61,11 @@ def main():
     logbook = tools.Logbook()
     logbook.header = ["gen", "evals"] + stats.fields
 
+    g = 0
     best = None  # globally best position
 
-    for g in range(1000):
+    while (time.time() - start_time) < (60 * 60 * 3):  # 3 hours
+        g += 1
         for part in pop:
             part.fitness.values = toolbox.evaluate(part)
             if not part.best or part.best.fitness < part.fitness:
@@ -74,6 +79,8 @@ def main():
 
         logbook.record(gen=g, evals=len(pop), **stats.compile(pop))
         print(logbook.stream)
+    
+    print('*** runtime (seconds) ***:', time.time() - start_time)
 
 
 if __name__ == "__main__":
