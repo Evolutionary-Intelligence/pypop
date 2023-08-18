@@ -6,9 +6,10 @@
 import math
 import time
 import random
+import pickle
 import operator
 
-import numpy
+import numpy as np
 from deap import base, tools, creator
 from pypop7.benchmarks.base_functions import sphere as _sphere
 
@@ -55,19 +56,21 @@ def main():
     start_time = time.time()
 
     pop = toolbox.population(n=20)  # initial population
-    stats = tools.Statistics(lambda ind: ind.fitness.values)
-    stats.register("min", numpy.min)
-
-    logbook = tools.Logbook()
-    logbook.header = ["gen", "evals"] + stats.fields
-
-    g = 0
     best = None  # globally best position
 
+    n_fe = 0  # number of function evaluations
+    # to store a list of sampled function evaluations and best-so-far fitness
+    fe, fitness = [], []
+
     while (time.time() - start_time) < (60 * 60 * 3):  # 3 hours
-        g += 1
         for part in pop:
             part.fitness.values = toolbox.evaluate(part)
+            n_fe += 1  # current number of function evaluations
+            fe.append(n_fe)
+            if len(fitness) == 0 or fitness[-1] < part.fitness.values[0]:
+                fitness.append(part.fitness.values[0])
+            else:
+                fitness.append(fitness[-1])
             if not part.best or part.best.fitness < part.fitness:
                 part.best = creator.Particle(part)
                 part.best.fitness.values = part.fitness.values
@@ -77,9 +80,14 @@ def main():
         for part in pop:
             toolbox.update(part, best)
 
-        logbook.record(gen=g, evals=len(pop), **stats.compile(pop))
-        print(logbook.stream)
-    
+    fitness = np.vstack((fe, fitness)).T
+    fitness[:, -1] *= -1  # for minimization
+    results = {'best_so_far_y': fitness[-1],
+               'n_function_evaluations': n_fe,
+               'runtime': time.time() - start_time,
+               'fitness': fitness}
+    with open('DEAP_PSO.pickle', 'wb') as handle:
+        pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('*** runtime (seconds) ***:', time.time() - start_time)
 
 
