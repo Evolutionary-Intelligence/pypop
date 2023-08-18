@@ -91,10 +91,11 @@ class CDE(DE):
             if self._check_terminations():
                 break
             y[i] = self._evaluate_fitness(x[i], args)
-        return x, y
 
-    def mutate(self, x=None):
         v, base = np.empty((self.n_individuals, self.ndim_problem)), np.arange(self.n_individuals)
+        return x, y, v, base
+
+    def mutate(self, x=None, v=None, base=None):
         for i in range(self.n_individuals):
             r0 = self.rng_optimization.choice(np.setdiff1d(base, i))
             r1 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0]))
@@ -122,8 +123,8 @@ class CDE(DE):
                 x[i], y[i] = v[i], yy
         return x, y
 
-    def iterate(self, x=None, y=None, args=None):
-        v = self.mutate(x)
+    def iterate(self, x=None, y=None, v=None, base=None, args=None):
+        v = self.mutate(x, v, base)
         v = self.crossover(v, x)
         x, y = self.select(v, x, y, args)
         self._n_generations += 1
@@ -131,8 +132,8 @@ class CDE(DE):
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
-        x, y = self.initialize(args)
+        x, y, v, base = self.initialize(args)
         while not self._check_terminations():
             self._print_verbose_info(fitness, y)
-            x, y = self.iterate(x, y, args)
+            x, y = self.iterate(x, y, v, base, args)
         return self._collect(fitness, y)
