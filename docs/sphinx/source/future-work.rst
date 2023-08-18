@@ -54,6 +54,7 @@ RS
 * Li, L. and Talwalkar, A., 2020. Random search and reproducibility for neural architecture search. In Uncertainty in Artificial Intelligence (pp. 367-377). PMLR.
 * Sener, O., & Koltun, V., 2019. Learning to guide random search. In International Conference on Learning Representations.
 * Chupeau, M., Bénichou, O. and Voituriez, R., 2015. Cover times of random searches. Nature Physics, 11(10), pp.844-847.
+* Qi, Y., Mao, X., Lei, Y., Dai, Z. and Wang, C., 2014, May. The strength of random search on automated program repair. In Proceedings of International Conference on Software Engineering (pp. 254-265). IEEE.
 * Hein, A.M. and McKinley, S.A., 2012. Sensing and decision-making in random search. Proceedings of the National Academy of Sciences, 109(30), pp.12070-12074.
 * Zabinsky, Z.B., 2003. Stochastic adaptive search for global optimization. Springer Science & Business Media.
 * Viswanathan, G.M., Buldyrev, S.V., Havlin, S., Da Luz, M.G.E., Raposo, E.P. and Stanley, H.E., 1999. Optimizing the success of random searches. Nature, 401(6756), pp.911-914.
