@@ -54,6 +54,7 @@ RS
 * Li, L. and Talwalkar, A., 2020. Random search and reproducibility for neural architecture search. In Uncertainty in Artificial Intelligence (pp. 367-377). PMLR.
 * Sener, O., & Koltun, V., 2019. Learning to guide random search. In International Conference on Learning Representations.
 * Chupeau, M., Bénichou, O. and Voituriez, R., 2015. Cover times of random searches. Nature Physics, 11(10), pp.844-847.
+* Hein, A.M. and McKinley, S.A., 2012. Sensing and decision-making in random search. Proceedings of the National Academy of Sciences, 109(30), pp.12070-12074.
 * Zabinsky, Z.B., 2003. Stochastic adaptive search for global optimization. Springer Science & Business Media.
 * Viswanathan, G.M., Buldyrev, S.V., Havlin, S., Da Luz, M.G.E., Raposo, E.P. and Stanley, H.E., 1999. Optimizing the success of random searches. Nature, 401(6756), pp.911-914.
 * Schrack, G. and Choit, M., 1976. Optimized relative step size random searches. Mathematical Programming, 10(1), pp.230-244. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
