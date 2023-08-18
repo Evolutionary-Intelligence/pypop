@@ -57,6 +57,7 @@ RS
 * Chupeau, M., Bénichou, O. and Voituriez, R., 2015. Cover times of random searches. Nature Physics, 11(10), pp.844-847.
 * Qi, Y., Mao, X., Lei, Y., Dai, Z. and Wang, C., 2014, May. The strength of random search on automated program repair. In Proceedings of International Conference on Software Engineering (pp. 254-265). IEEE.
 * Hein, A.M. and McKinley, S.A., 2012. Sensing and decision-making in random search. Proceedings of the National Academy of Sciences, 109(30), pp.12070-12074.
+* Tejedor, V., Voituriez, R. and Bénichou, O., 2012. Optimizing persistent random searches. Physical Review Letters, 108(8), p.088103.
 * Zabinsky, Z.B., 2003. Stochastic adaptive search for global optimization. Springer Science & Business Media.
 * Viswanathan, G.M., Buldyrev, S.V., Havlin, S., Da Luz, M.G.E., Raposo, E.P. and Stanley, H.E., 1999. Optimizing the success of random searches. Nature, 401(6756), pp.911-914.
 * Schrack, G. and Choit, M., 1976. Optimized relative step size random searches. Mathematical Programming, 10(1), pp.230-244. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
