@@ -55,6 +55,7 @@ RS
 * Sener, O., & Koltun, V., 2019. Learning to guide random search. In International Conference on Learning Representations.
 * Chupeau, M., Bénichou, O. and Voituriez, R., 2015. Cover times of random searches. Nature Physics, 11(10), pp.844-847.
 * Zabinsky, Z.B., 2003. Stochastic adaptive search for global optimization. Springer Science & Business Media.
+* Viswanathan, G.M., Buldyrev, S.V., Havlin, S., Da Luz, M.G.E., Raposo, E.P. and Stanley, H.E., 1999. Optimizing the success of random searches. Nature, 401(6756), pp.911-914.
 * Schrack, G. and Choit, M., 1976. Optimized relative step size random searches. Mathematical Programming, 10(1), pp.230-244. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 * Schumer, M.A. and Steiglitz, K., 1968. Adaptive step size random search. IEEE Transactions on Automatic Control, 13(3), pp.270-276. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 * Matyas, J., 1965. Random optimization. Automation and Remote control, 26(2), pp.246-253. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
