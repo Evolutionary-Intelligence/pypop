@@ -57,7 +57,7 @@ results = lmmaes.optimize()  # run its (time-consuming) search process
 print(results)
 ```
 
-Note that for ```PyPop7```, the number ```7``` is added just because ```pypop``` has been registered by other in PyPI.
+Note that for ```PyPop7```, the number ```7``` is added just because ```pypop``` has been registered by other in [PyPI](https://pypi.org/).
 
 ## Black-Box Optimizers (BBO)
 
