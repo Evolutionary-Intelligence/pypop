@@ -20,4 +20,4 @@ Till now, our library `PyPop7` has been cited (at least) in the following papers
 For other introductions/coverage, refer to e.g.:
 
 * `medium <https://medium.com/@monocosmo77/how-black-box-optimization-works-part2-machine-learning-bb63b4c93557>`_
-* `微信公众号 <https://mp.weixin.qq.com/s/4JO2sYouiEvmq9XNUJkncA>`_
+* `微信公众号: 演化智能 <https://mp.weixin.qq.com/s/4JO2sYouiEvmq9XNUJkncA>`_
