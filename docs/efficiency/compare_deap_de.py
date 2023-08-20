@@ -68,9 +68,9 @@ def main(f):
 
     fitness = np.vstack((fe, fitness)).T
     results = {'best_so_far_y': fitness[-1],
-            'n_function_evaluations': n_fe,
-            'runtime': time.time() - start_time,
-            'fitness': fitness}
+               'n_function_evaluations': n_fe,
+               'runtime': time.time() - start_time,
+               'fitness': fitness}
     with open('DEAP_DE.pickle', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('*** runtime (seconds) ***:', time.time() - start_time)
