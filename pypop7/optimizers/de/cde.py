@@ -62,8 +62,6 @@ class CDE(DE):
     n_individuals : `int`
                     number of offspring, aka offspring population size.
 
-    See `User Guide <https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for more options/settings.
-
     References
     ----------
     Price, K.V., 2013.
@@ -80,6 +78,8 @@ class CDE(DE):
     Differential evolution – a simple and efficient heuristic for global optimization over continuous spaces.
     Journal of Global Optimization, 11(4), pp.341–359.
     https://link.springer.com/article/10.1023/A:1008202821328
+    (Kenneth Price&Rainer Storn won the **2017** `Evolutionary Computation Pioneer Award from IEEE CIS
+    <https://cis.ieee.org/awards/past-recipients#EvolutionaryComputationPioneerAward>`_.)
     """
     def __init__(self, problem, options):
         DE.__init__(self, problem, options)
