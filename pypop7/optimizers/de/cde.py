@@ -7,6 +7,7 @@ class CDE(DE):
     """Classic Differential Evolution (CDE).
 
     .. note:: Typically, `DE/rand/1/bin` is seen as the **classic/basic** version of `DE`.
+       `CDE` often optimizes on relatively low-dimensional (e.g., < 100) search spaces. 
 
     Parameters
     ----------
