@@ -32,15 +32,6 @@ def cxBinomial(x, y, cr):
     return x
 
 
-def cxExponential(x, y, cr):
-    index = random.randrange(len(x))
-    for i in chain(range(index, len(x)), range(0, index)):
-        x[i] = y[i]
-        if random.random() < cr:
-            break
-    return x
-
-
 def main(f):
     start_time = time.time()
 
@@ -53,7 +44,7 @@ def main(f):
                      toolbox.attr_float, 2000)
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
     toolbox.register("mutate", mutDE, f=0.5)
-    toolbox.register("mate", cxExponential, cr=0.9)
+    toolbox.register("mate", cxBinomial, cr=0.9)
     toolbox.register("select", tools.selRandom, k=3)
     toolbox.register("evaluate", f)
 
