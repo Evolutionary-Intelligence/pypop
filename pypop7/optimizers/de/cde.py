@@ -110,10 +110,11 @@ class CDE(DE):
         """Binomial crossover (uniform discrete crossover)."""
         for i in range(self.n_individuals):
             j_r = self.rng_optimization.integers(self.ndim_problem)
-            tmp = v[i, j_r]  # to avoid loop (a trick)
+            # to avoid loop (a simple yet effective trick)
+            tmp = v[i, j_r]
             co = self.rng_optimization.random(self.ndim_problem) > self.cr
-            v[i, co] = x[i, co]  # to avoid loop (a trick)
-            v[i, j_r] = tmp  # to avoid loop (a trick)
+            v[i, co] = x[i, co]
+            v[i, j_r] = tmp
         return v
 
     def select(self, v=None, x=None, y=None, args=None):
