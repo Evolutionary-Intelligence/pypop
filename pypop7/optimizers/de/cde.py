@@ -62,6 +62,8 @@ class CDE(DE):
     n_individuals : `int`
                     number of offspring, aka offspring population size.
 
+    See `User Guide <https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for more options/settings.
+
     References
     ----------
     Price, K.V., 2013.
