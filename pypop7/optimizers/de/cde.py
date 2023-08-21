@@ -48,7 +48,7 @@ class CDE(DE):
        >>> results = cde.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CDE: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CDE: 5000, 1.0490841426568313e-10
+       CDE: 5000, 7.517670268794657e-09
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/3fc826yt>`_ for more details.
