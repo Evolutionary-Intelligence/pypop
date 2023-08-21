@@ -94,8 +94,7 @@ class CDE(DE):
             if self._check_terminations():
                 break
             y[i] = self._evaluate_fitness(x[i], args)
-
-        v = np.empty((self.n_individuals, self.ndim_problem))
+        v = np.empty((self.n_individuals, self.ndim_problem))  # for mutation
         return x, y, v
 
     def mutate(self, x=None, v=None):
