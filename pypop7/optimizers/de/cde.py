@@ -91,14 +91,16 @@ class CDE(DE):
             if self._check_terminations():
                 break
             y[i] = self._evaluate_fitness(x[i], args)
-        return x, y
 
-    def mutate(self, x=None):
-        v, base = np.empty((self.n_individuals, self.ndim_problem)), np.arange(self.n_individuals)
+        v = np.empty((self.n_individuals, self.ndim_problem))
+        return x, y, v
+
+    def mutate(self, x=None, v=None):
+        n = self.n_individuals
         for i in range(self.n_individuals):
-            r0 = self.rng_optimization.choice(np.setdiff1d(base, i))
-            r1 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0]))
-            r2 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0, r1]))
+            r0 = self.rng_optimization.choice([j for j in range(n) if j != i])
+            r1 = self.rng_optimization.choice([j for j in range(n) if (j != i and j != r0)])
+            r2 = self.rng_optimization.choice([j for j in range(n) if (j != i and j != r0 and j != r1)])
             v[i] = x[r0] + self.f*(x[r1] - x[r2])
         return v
 
@@ -106,11 +108,10 @@ class CDE(DE):
         """Binomial crossover (uniform discrete crossover)."""
         for i in range(self.n_individuals):
             j_r = self.rng_optimization.integers(self.ndim_problem)
-            for j in range(self.ndim_problem):
-                if j == j_r or self.rng_optimization.random() <= self.cr:
-                    pass
-                else:
-                    v[i, j] = x[i, j]
+            tmp = v[i, j_r]  # to avoid loop (a trick)
+            co = self.rng_optimization.random(self.ndim_problem) > self.cr
+            v[i, co] = x[i, co]  # to avoid loop (a trick)
+            v[i, j_r] = tmp  # to avoid loop (a trick)
         return v
 
     def select(self, v=None, x=None, y=None, args=None):
@@ -122,8 +123,8 @@ class CDE(DE):
                 x[i], y[i] = v[i], yy
         return x, y
 
-    def iterate(self, x=None, y=None, args=None):
-        v = self.mutate(x)
+    def iterate(self, x=None, y=None, v=None, args=None):
+        v = self.mutate(x, v)
         v = self.crossover(v, x)
         x, y = self.select(v, x, y, args)
         self._n_generations += 1
@@ -131,8 +132,8 @@ class CDE(DE):
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
-        x, y = self.initialize(args)
+        x, y, v = self.initialize(args)
         while not self._check_terminations():
             self._print_verbose_info(fitness, y)
-            x, y = self.iterate(x, y, args)
+            x, y = self.iterate(x, y, v, args)
         return self._collect(fitness, y)
