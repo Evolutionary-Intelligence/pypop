@@ -68,7 +68,7 @@ def main(f):
         else:
             fitness.append(fitness[-1])
 
-    while (time.time() - start_time) < (60 * 3):  # 3 hours
+    while (time.time() - start_time) < (60 * 60 * 3):  # 3 hours
         children = []
         for i_p, agent in enumerate(pop):
             a, b, c = [toolbox.clone(ind) for ind in toolbox.select(pop, i_p)]
