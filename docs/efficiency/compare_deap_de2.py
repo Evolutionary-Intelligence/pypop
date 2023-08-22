@@ -7,7 +7,6 @@ import time
 import array
 import random
 import pickle
-from itertools import chain
 
 import numpy as np
 from deap import base, tools, creator
