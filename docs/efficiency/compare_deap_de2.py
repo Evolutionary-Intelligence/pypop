@@ -31,6 +31,14 @@ def cxBinomial(x, y, cr):
     return x
 
 
+def selRandom(individuals, i):  # for consistency with the original paper
+    n = len(individuals)
+    r0 = random.choice([j for j in range(n) if j != i])
+    r1 = random.choice([j for j in range(n) if (j != i and j != r0)])
+    r2 = random.choice([j for j in range(n) if (j != i and j != r0 and j != r1)])
+    return [individuals[r0], individuals[r1], individuals[r2]]
+
+
 def main(f):
     start_time = time.time()
 
@@ -44,7 +52,7 @@ def main(f):
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
     toolbox.register("mutate", mutDE, f=0.5)
     toolbox.register("mate", cxBinomial, cr=0.9)
-    toolbox.register("select", tools.selRandom, k=3)
+    toolbox.register("select", selRandom)
     toolbox.register("evaluate", f)
 
     n_fe = 0  # number of function evaluations
@@ -62,10 +70,10 @@ def main(f):
         else:
             fitness.append(fitness[-1])
 
-    while (time.time() - start_time) < (60 * 60 * 3):  # 3 hours
+    while (time.time() - start_time) < (60 * 3):  # 3 hours
         children = []
-        for agent in pop:
-            a, b, c = [toolbox.clone(ind) for ind in toolbox.select(pop)]
+        for i_p, agent in enumerate(pop):
+            a, b, c = [toolbox.clone(ind) for ind in toolbox.select(pop, i_p)]
             x = toolbox.clone(agent)
             y = toolbox.clone(agent)
             y = toolbox.mutate(y, a, b, c)
