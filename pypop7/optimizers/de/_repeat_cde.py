@@ -11,7 +11,7 @@ import numpy as np
 import time
 
 from pypop7.benchmarks.base_functions import sphere, rosenbrock, griewank
-from cde import CDE
+from pypop7.optimizers.de.cde import CDE
 
 
 if __name__ == '__main__':
