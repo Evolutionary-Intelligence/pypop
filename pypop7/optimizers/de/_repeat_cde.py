@@ -8,7 +8,6 @@
     Therefore, we argue that its repeatability could be **well-documented**.
 """
 import numpy as np
-import time
 
 from pypop7.benchmarks.base_functions import sphere, rosenbrock, griewank
 from pypop7.optimizers.de.cde import CDE
@@ -24,11 +23,10 @@ if __name__ == '__main__':
                'n_individuals': 5,
                'f': 0.9,
                'cr': 0.1}
-    start_time = time.time()
     cde = CDE(problem, options)
     results = cde.optimize()
-    print(results['n_function_evaluations'], results['best_so_far_y'], time.time() - start_time)
-    # 364 vs 406 (from the original paper) 0.03568911552429199
+    print(results['n_function_evaluations'], results['best_so_far_y'])
+    # 364 vs 406 (from the original paper)
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': 2,
@@ -39,11 +37,10 @@ if __name__ == '__main__':
                'n_individuals': 10,
                'f': 0.9,
                'cr': 0.9}
-    start_time = time.time()
     cde = CDE(problem, options)
     results = cde.optimize()
-    print(results['n_function_evaluations'], results['best_so_far_y'], time.time() - start_time)
-    # 528 vs 654 (from the original paper) 0.05886220932006836
+    print(results['n_function_evaluations'], results['best_so_far_y'])
+    # 528 vs 654 (from the original paper)
 
     problem = {'fitness_function': griewank,
                'ndim_problem': 10,
@@ -54,8 +51,7 @@ if __name__ == '__main__':
                'n_individuals': 25,
                'f': 0.5,
                'cr': 0.2}
-    start_time = time.time()
     cde = CDE(problem, options)
     results = cde.optimize()
-    print(results['n_function_evaluations'], results['best_so_far_y'], time.time() - start_time)
-    # 11554 vs 12752 (from the original paper) 1.1777536869049072
+    print(results['n_function_evaluations'], results['best_so_far_y'])
+    # 11554 vs 12752 (from the original paper)
