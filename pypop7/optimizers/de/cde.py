@@ -48,7 +48,7 @@ class CDE(DE):
        >>> results = cde.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"CDE: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CDE: 5000, 7.517670268794657e-09
+       CDE: 5000, 2.0242437417701847e-07
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/3fc826yt>`_ for more details.
@@ -98,10 +98,9 @@ class CDE(DE):
         return x, y, v
 
     def mutate(self, x=None, v=None):
-        base = range(self.n_individuals)
-        for i in base:
-            r = self.rng_optimization.permutation(base)[:4]
-            r = r[r != i][:3]
+        for i in range(self.n_individuals):
+            r = self.rng_optimization.permutation(self.n_individuals)[:4]
+            r = r[r != i][:3]  # a simple yet effective trick
             v[i] = x[r[0]] + self.f*(x[r[1]] - x[r[2]])
         return v
 
