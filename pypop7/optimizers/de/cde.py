@@ -7,7 +7,7 @@ class CDE(DE):
     """Classic Differential Evolution (CDE).
 
     .. note:: Typically, `DE/rand/1/bin` is seen as the **classic/basic** version of `DE`.
-       `CDE` often optimizes on relatively low-dimensional (e.g., < 100) search spaces. 
+       `CDE` often optimizes on relatively low-dimensional (e.g., < 100) search spaces.
 
     Parameters
     ----------
@@ -98,12 +98,11 @@ class CDE(DE):
         return x, y, v
 
     def mutate(self, x=None, v=None):
-        n = self.n_individuals
-        for i in range(self.n_individuals):
-            r0 = self.rng_optimization.choice([j for j in range(n) if j != i])
-            r1 = self.rng_optimization.choice([j for j in range(n) if (j != i and j != r0)])
-            r2 = self.rng_optimization.choice([j for j in range(n) if (j != i and j != r0 and j != r1)])
-            v[i] = x[r0] + self.f*(x[r1] - x[r2])
+        base = range(self.n_individuals)
+        for i in base:
+            r = self.rng_optimization.permutation(base)[:4]
+            r = r[r != i][:3]
+            v[i] = x[r[0]] + self.f*(x[r[1]] - x[r[2]])
         return v
 
     def crossover(self, v=None, x=None):
