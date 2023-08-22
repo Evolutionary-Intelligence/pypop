@@ -32,11 +32,9 @@ def cxBinomial(x, y, cr):
 
 
 def selRandom(individuals, i):  # for consistency with the original paper
-    n = len(individuals)
-    r0 = random.choice([j for j in range(n) if j != i])
-    r1 = random.choice([j for j in range(n) if (j != i and j != r0)])
-    r2 = random.choice([j for j in range(n) if (j != i and j != r0 and j != r1)])
-    return [individuals[r0], individuals[r1], individuals[r2]]
+    r = np.random.permutation(len(individuals))[:4]  # for consistency
+    r = r[r != i][:3]  # a simple yet effective trick
+    return [individuals[r[0]], individuals[r[1]], individuals[r[2]]]
 
 
 def main(f):
