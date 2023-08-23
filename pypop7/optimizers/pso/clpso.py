@@ -108,7 +108,7 @@ class CLPSO(PSO):
             if self._check_terminations():
                 return v, x, y, p_x, p_y, n_x
             self._learn_topology(p_x, p_y, i, n_x)
-            v[i] = (self._w[self._n_generations]*v[i] + self.c*self.rng_optimization.uniform(
+            v[i] = (self._w[min(self._n_generations, len(self._w))]*v[i] + self.c*self.rng_optimization.uniform(
                 size=(self.ndim_problem,))*(n_x[i] - x[i]))  # velocity update
             v[i] = np.clip(v[i], self._min_v, self._max_v)
             x[i] += v[i]  # position update

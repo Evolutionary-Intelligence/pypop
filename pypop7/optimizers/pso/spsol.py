@@ -115,7 +115,7 @@ class SPSOL(PSO):
             n_x[i] = self._ring_topology(p_x, p_y, i)  # online update within ring topology
             cognition_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
             society_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
-            v[i] = (self._w[self._n_generations]*v[i] +
+            v[i] = (self._w[min(self._n_generations, len(self._w))]*v[i] +
                     self.cognition*cognition_rand*(p_x[i] - x[i]) +
                     self.society*society_rand*(n_x[i] - x[i]))  # velocity update
             v[i] = np.clip(v[i], self._min_v, self._max_v)
