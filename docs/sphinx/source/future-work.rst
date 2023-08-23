@@ -23,6 +23,11 @@ ES
 * Arnold, D. V., & Beyer, H. G. (2004). Performance analysis of evolutionary optimization with cumulative step length adaptation. IEEE Transactions on Automatic Control, 49(4), 617-622.
 * Beyer, H. G., & Arnold, D. V. (2003). Qualms regarding the optimality of cumulative path length control in CSA/CMA-evolution strategies. Evolutionary Computation, 11(1), 19-28.
 
+EDA
+---
+
+* Teytaud, F. and Teytaud, O., 2009, July. Why one must use reweighting in estimation of distribution algorithms. In Proceedings of ACM Annual Conference on Genetic and Evolutionary Computation (pp. 453-460).
+
 PSO
 ---
 
