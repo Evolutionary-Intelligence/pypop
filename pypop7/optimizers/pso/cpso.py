@@ -90,7 +90,7 @@ class CPSO(PSO):
                 if self._check_terminations():
                     return v, x, y, p_x, p_y, n_x, fitness
                 n_x[i, j] = p_x[np.argmin(p_y), j]
-                v[i, j] = (self._w[self._n_generations]*v[i, j] +
+                v[i, j] = (self._w[min(self._n_generations, len(self._w))]*v[i, j] +
                            self.cognition*cognition_rand[i, j]*(p_x[i, j] - x[i, j]) +
                            self.society*society_rand[i, j]*(n_x[i, j] - x[i, j]))  # velocity update
                 v[i, j] = np.clip(v[i, j], self._min_v[j], self._max_v[j])
