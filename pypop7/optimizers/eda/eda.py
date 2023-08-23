@@ -63,6 +63,7 @@ class EDA(Optimizer):
     Estimation of distribution algorithms: A new tool for evolutionary computation.
     Springer Science & Business Media.
     https://link.springer.com/book/10.1007/978-1-4615-1539-5
+    ([Jose Lozano: IEEE Fellow for contributions to EDAs](https://tinyurl.com/sssfsfw8))
 
     Mühlenbein, H. and Mahnig, T., 2001.
     Evolutionary algorithms: From recombination to search distributions.
