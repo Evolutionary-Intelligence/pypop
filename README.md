@@ -295,6 +295,7 @@ For each algorithm family, we provide several *representative* applications publ
   * Teytaud, F. and Teytaud, O., 2009, July. [Why one must use reweighting in estimation of distribution algorithms](https://dl.acm.org/doi/10.1145/1569901.1569964). In Proceedings of ACM Annual Conference on Genetic and Evolutionary Computation (pp. 453-460).
   * Larrañaga, P. and Lozano, J.A. eds., 2001. [Estimation of distribution algorithms: A new tool for evolutionary computation](https://link.springer.com/book/10.1007/978-1-4615-1539-5). Springer Science & Business Media.
   * Mühlenbein, H., 1997. [The equation for response to selection and its use for prediction](https://tinyurl.com/yt78c786).  Evolutionary Computation, 5(3), pp.303-346.
+  * Baluja, S. and Caruana, R., 1995. [Removing the genetics from the standard genetic algorithm](https://www.sciencedirect.com/science/article/pii/B9781558603776500141). In International Conference on Machine Learning (pp. 38-46). Morgan Kaufmann.
 * Cross-Entropy Method (CEM)
   * Pinneri, C., Sawant, S., Blaes, S., Achterhold, J., Stueckler, J., Rolinek, M. and Martius, G., 2021, October. [Sample-efficient cross-entropy method for real-time planning](https://proceedings.mlr.press/v155/pinneri21a.html). In Conference on Robot Learning (pp. 1049-1065). PMLR.
   * Amos, B. and Yarats, D., 2020, November. [The differentiable cross-entropy method](https://proceedings.mlr.press/v119/amos20a.html). In International Conference on Machine Learning (pp. 291-302). PMLR.
