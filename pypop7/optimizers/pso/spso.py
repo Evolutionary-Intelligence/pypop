@@ -104,7 +104,7 @@ class SPSO(PSO):
             n_x[i] = p_x[np.argmin(p_y)]  # online update within global topology
             cognition_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
             society_rand = self.rng_optimization.uniform(size=(self.ndim_problem,))
-            v[i] = (self._w[[min(self._n_generations, len(self._w) - 1)]]*v[i] +
+            v[i] = (self._w[min(self._n_generations, len(self._w) - 1)]*v[i] +
                     self.cognition*cognition_rand*(p_x[i] - x[i]) +
                     self.society*society_rand*(n_x[i] - x[i]))  # velocity update
             v[i] = np.clip(v[i], self._min_v, self._max_v)
