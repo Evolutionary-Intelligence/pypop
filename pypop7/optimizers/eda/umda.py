@@ -31,7 +31,7 @@ class UMDA(EDA):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the optimizer `UMDA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -64,6 +64,11 @@ class UMDA(EDA):
 
     References
     ----------
+    Mühlenbein, H. and Mahnig, T., 2002.
+    Evolutionary computation and Wright's equation.
+    Theoretical Computer Science, 287(1), pp.145-165.
+    https://www.sciencedirect.com/science/article/pii/S0304397502000981
+
     Larrañaga, P. and Lozano, J.A. eds., 2001.
     Estimation of distribution algorithms: A new tool for evolutionary computation.
     Springer Science & Business Media.
