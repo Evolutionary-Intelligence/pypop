@@ -57,7 +57,7 @@ results = lmmaes.optimize()  # run its (time-consuming) search process
 print(results)
 ```
 
-Note that for ```PyPop7```, the number ```7``` is added just because ```pypop``` has been registered by [other](http://pypop.org/) in [PyPI](https://pypi.org/).
+Note that for ```PyPop7```, the number ```7``` is added just because ```pypop``` has been registered by [other](http://pypop.org/) in [PyPI](https://pypi.org/). The icon *butterfly* for `PyPop7` is used to respect to **Fisher**: [The Genetical Theory of Natural Selection](https://global.oup.com/academic/product/the-genetical-theory-of-natural-selection-9780198504405?cc=gb&lang=en&), which inspired the proposal of [Genetic Algorithms (GA)](https://dl.acm.org/doi/10.1145/321127.321128).
 
 ## Black-Box Optimizers (BBO)
 
