@@ -83,10 +83,14 @@ class EMNAWA(EMNA):
 
     def iterate(self, x=None, y=None, mean=None, cov=None, args=None):
         order = np.argsort(y)[:self.n_parents]
-        w = 1 / multivariate_normal(mean=mean, cov=cov).pdf(x[order]).reshape(-1, 1)
+        try:
+            m = multivariate_normal(mean=mean, cov=cov)
+        except Exception:
+            m = multivariate_normal(mean=mean, cov=cov + 1e-100 * np.eye(self.ndim_problem))
+
+        w = 1 / m.pdf(x[order]).reshape(-1, 1)
         w = w / np.sum(w)
         x[order] += (x[order] - mean)*w
-
         mean = np.mean(x[order], axis=0)
         cov = np.cov(np.transpose(x[order]))
         for i in range(self.n_individuals):
