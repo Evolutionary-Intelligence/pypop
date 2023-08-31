@@ -125,7 +125,7 @@ class CODE(CDE):
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
-        x, y = self.initialize(args)
+        x, y, _ = self.initialize(args)
         while not self._check_terminations():
             self._print_verbose_info(fitness, y)
             x, y = self.iterate(x, y, args)
