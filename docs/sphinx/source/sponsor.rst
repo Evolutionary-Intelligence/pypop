@@ -15,7 +15,7 @@ Research Program under Grant No. JCYJ20200109141235597 (2,000,000 Yuan granted t
 We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech) and recent (2022) discussions wih
 Changwu Huang (at SUSTech).
 
-Finally, we thanks very much for all the following open-source code to make **repeatability** much easier (still updated):
+Finally, we thank very much for all the following open-source code to make **repeatability** much easier (still updated):
 
 * `cyberagent.ai <https://cyberagent.ai/>`_: `PYTHON code for CMAES <https://github.com/CyberAgentAILab/cmaes>`_
 * `Ilya Loshchilov <http://www.loshchilov.com/>`_: `C code for LMCMA
