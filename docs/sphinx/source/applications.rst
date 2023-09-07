@@ -13,8 +13,9 @@ Till now, our library `PyPop7` has been used (at least) in the following project
 
 * https://github.com/BruthYU/BPT-VLM (2023)
 * https://opof.kavrakilab.org/ (2023)
+* https://github.com/moesio-f/py-abm-public (2023)
 
-Till now, our library `PyPop7` has been cited (at least) in the following papers:
+Till now, our paper about this library `PyPop7` has been cited (at least) in the following papers:
 
 * Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
 
