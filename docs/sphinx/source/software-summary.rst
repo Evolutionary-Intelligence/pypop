@@ -90,7 +90,7 @@ The below libraries seem to be not *actively* maintained (according to the last 
   * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/xnes.py
   * https://github.com/chanshing/xnes
 * https://github.com/scikit-optimize/scikit-optimize (Now it is not actively maintained.)
-* https://github.com/strongio/evolutionary-optimization (Now it is not actively maintained.)
+* https://github.com/strongio/evolutionary-optimization (Now it is not actively maintained: Last update - Jan 22, 2020. )
 * https://github.com/uber/fiber ( Now it is not actively maintained: Last update - Mar 15, 2021. )
 
 R
