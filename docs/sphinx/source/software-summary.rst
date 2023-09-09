@@ -78,7 +78,7 @@ The below libraries seem to be not *actively* maintained (according to the last 
 
 * https://github.com/blaa/PyGene (Now it is not actively maintained.)
 * https://github.com/hardmaru/estool (Now it is not actively maintained.)
-* https://github.com/HIPS/Spearmint (Now it is not actively maintained.)
+* https://github.com/HIPS/Spearmint (Now it is not actively maintained: Last update - Apr 3, 2019.)
 * https://github.com/LDNN97/Evolutionary-Optimization-Algorithms (Now it is not actively maintained: Last update - Apr 14, 2019.)
 * https://github.com/pybrain/pybrain (Now it is not actively maintained: Last update - Dec 18, 2017.)
 
