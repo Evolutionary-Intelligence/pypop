@@ -425,4 +425,6 @@ This open-source Python library for black-box optimization is now supported by S
 
 ## Citation for PyPop7
 
-If this library is used in your paper or project, it is highly welcomed to cite the following paper: **Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y., Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.**
+If this open-source pure-Python library is used in your paper or project, it is highly welcomed to cite the following arXiv preprint paper:
+
+**Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y., Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.**
