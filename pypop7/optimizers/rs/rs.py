@@ -65,6 +65,11 @@ class RS(Optimizer):
     A Field Guide to Dynamical Recurrent Networks, pp.231-235.
     https://ml.jku.at/publications/older/ch9.pdf
 
+    Schmidhuber, J. and Hochreiter, S., 1996.
+    Guessing can outperform many long time lag algorithms.
+    Technical Report.
+    https://www.bioinf.jku.at/publications/older/3204.pdf
+
     Rastrigin, L.A., 1986.
     Random search as a method for optimization and adaptation.
     In Stochastic Optimization.
