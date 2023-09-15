@@ -104,29 +104,36 @@ class CODE(CDE):
         return x_cr
 
     def select(self, x=None, y=None, x_cr=None, args=None):
+        yyy = []  # to store all fitnesses
         for k in range(self.n_individuals):
             if self._check_terminations():
                 break
             yy = self._evaluate_fitness(x_cr[k], args)
+            yyy.append(yy)
             if yy < y[k]:
                 x[k], y[k] = x_cr[k], yy
-        return x, y
+        return x, y, yyy
 
     def iterate(self, x=None, y=None, args=None):
+        yy = []  # to store all fitnesses
         x1, x2, x3, f_p = self.mutate(x)
         x1 = self.bound(self.crossover(x1, x, f_p[:, 0, 1]))
         x2 = self.bound(self.crossover(x2, x, f_p[:, 1, 1]))
         x3 = self.bound(x3)
-        x, y = self.select(x, y, x1, args)
-        x, y = self.select(x, y, x2, args)
-        x, y = self.select(x, y, x3, args)
+        x, y, yy_1 = self.select(x, y, x1, args)
+        x, y, yy_2 = self.select(x, y, x2, args)
+        x, y, yy_3 = self.select(x, y, x3, args)
+        yy.extend(yy_1)
+        yy.extend(yy_2)
+        yy.extend(yy_3)
         self._n_generations += 1
-        return x, y
+        return x, y, yy
 
     def optimize(self, fitness_function=None, args=None):
         fitness = DE.optimize(self, fitness_function)
         x, y, _ = self.initialize(args)
+        yy = y
         while not self._check_terminations():
-            self._print_verbose_info(fitness, y)
-            x, y = self.iterate(x, y, args)
-        return self._collect(fitness, y)
+            self._print_verbose_info(fitness, yy)
+            x, y, yy = self.iterate(x, y, args)
+        return self._collect(fitness, yy)
