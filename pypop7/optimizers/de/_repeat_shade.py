@@ -28,7 +28,7 @@ if __name__ == '__main__':
     results = shade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 8.957042713165505e-09 vs 0.00e+00 (from the original paper)
+    # 8.957042714361382e-09 vs 0.00e+00 (from the original paper)
 
     problem = {'fitness_function': ellipsoid,
                'ndim_problem': ndim_problem,
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     results = shade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 9.642986249479663e-09 vs 9.00e+03 (from the original paper)
+    # 9.642985936066791e-09 vs 9.00e+03 (from the original paper)
 
     problem = {'fitness_function': cigar,
                'ndim_problem': ndim_problem,
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     results = shade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 8.657678885645805e-09 vs 4.02e+01 (from the original paper)
+    # 8.657677766913165e-09 vs 4.02e+01 (from the original paper)
 
     problem = {'fitness_function': discus,
                'ndim_problem': ndim_problem,
@@ -70,4 +70,4 @@ if __name__ == '__main__':
     results = shade.optimize()
     print(results)
     print(results['best_so_far_y'])
-    # 9.982659257321872e-09 vs 1.92e-04 (from the original paper)
+    # 9.982659193421452e-09 vs 1.92e-04 (from the original paper)

@@ -95,8 +95,8 @@ class SHADE(JADE):
                 f_mu[k] = cauchy.rvs(loc=self.m_median[r[k]], scale=0.1, random_state=self.rng_optimization)
             if f_mu[k] > 1.0:
                 f_mu[k] = 1.0
-            r1 = self.rng_optimization.choice(np.setdiff1d(np.arange(self.n_individuals), k))
-            r2 = self.rng_optimization.choice(np.setdiff1d(np.arange(len(x_un)), np.union1d(k, r1)))
+            r1 = self.rng_optimization.choice([i for i in range(self.n_individuals) if i != k])
+            r2 = self.rng_optimization.choice([i for i in range(len(x_un)) if i != k and i != r1])
             x_mu[k] = x[k] + f_mu[k]*(x[idx[k]] - x[k]) + f_mu[k]*(x[r1] - x_un[r2])
         return x_mu, f_mu, r
 
