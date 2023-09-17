@@ -43,7 +43,7 @@ if __name__ == '__main__':
     fep = FEP(problem, options)
     results = fep.optimize()
     print(results['best_so_far_y'])
-    # 0.20684583227726805 vs 5.7e-4 (from the original paper)
+    # 0.2068458322772658 vs 5.7e-4 (from the original paper)
 
     problem = {'fitness_function': step,
                'ndim_problem': ndim_problem,
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     fep = FEP(problem, options)
     results = fep.optimize()
     print(results['best_so_far_y'])
-    # 100.13847984981406 vs 5.06 (from the original paper)
+    # 100.13847984981416 vs 5.06 (from the original paper)
 
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,

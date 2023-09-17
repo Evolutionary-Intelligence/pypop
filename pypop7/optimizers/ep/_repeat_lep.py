@@ -26,7 +26,7 @@ if __name__ == '__main__':
     lep = LEP(problem, options)
     results = lep.optimize()
     print(results['best_so_far_y'])
-    # 0.09633170691381965 vs 0.974767
+    # 0.09633170691380899 vs 0.974767
 
     problem = {'fitness_function': sphere,
                'ndim_problem': ndim_problem,
@@ -38,7 +38,7 @@ if __name__ == '__main__':
     lep = LEP(problem, options)
     results = lep.optimize()
     print(results['best_so_far_y'])
-    # 0.0062445469828842585 vs 0.001979
+    # 0.006244546982883647 vs 0.001979
 
     problem = {'fitness_function': rosenbrock,
                'ndim_problem': ndim_problem,
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     lep = LEP(problem, options)
     results = lep.optimize()
     print(results['best_so_far_y'])
-    # 37.60584627168451 vs 72.343559
+    # 37.60584627168424 vs 72.343559
 
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,

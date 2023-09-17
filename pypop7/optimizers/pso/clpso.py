@@ -100,7 +100,7 @@ class CLPSO(PSO):
                     n_x[i, d] = p_x[i, d]
             if np.alltrue(exemplars == i):  # learning from other when all exemplars are itself
                 ndim = self.rng_optimization.integers(self.ndim_problem)  # randomly selected dimension
-                exemplar = self.rng_optimization.choice(np.setdiff1d(range(self.n_individuals), i))
+                exemplar = self.rng_optimization.choice([k for k in range(self.n_individuals) if k != i])
                 n_x[i, ndim] = p_x[exemplar, ndim]
 
     def iterate(self, v=None, x=None, y=None, p_x=None, p_y=None, n_x=None, args=None):

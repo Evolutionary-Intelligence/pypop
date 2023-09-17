@@ -46,7 +46,7 @@ if __name__ == '__main__':
     cep = CEP(problem, options)
     results = cep.optimize()
     print(results['best_so_far_y'])
-    # 0.031063134665527244 vs 0.00095
+    # 0.031063134665526067 vs 0.00095
 
     problem = {'fitness_function': step,
                'ndim_problem': ndim_problem,
@@ -71,7 +71,7 @@ if __name__ == '__main__':
     cep = CEP(problem, options)
     results = cep.optimize()
     print(results['best_so_far_y'])
-    # 75.89000295666568 vs 98.673779
+    # 75.8900029566657 vs 98.673779
 
     problem = {'fitness_function': rastrigin,
                'ndim_problem': ndim_problem,
@@ -83,4 +83,4 @@ if __name__ == '__main__':
     cep = CEP(problem, options)
     results = cep.optimize()
     print(results['best_so_far_y'])
-    # 37.5086948264173 vs 63.415617
+    # 37.50869482641724 vs 63.415617

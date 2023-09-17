@@ -83,7 +83,7 @@ class CODE(CDE):
         base = np.arange(self.n_individuals)
         f_p = self.rng_optimization.choice(self._pool, (self.n_individuals, 3))
         for k in range(self.n_individuals):
-            base_k = np.setdiff1d(base, k)
+            base_k = [i for i in base if i != k]
             r = self.rng_optimization.choice(base_k, (3,), False)
             x1[k] = x[r[0]] + f_p[k, 0, 0]*(x[r[1]] - x[r[2]])  # rand/1/bin
             r = self.rng_optimization.choice(base_k, (5,), False)

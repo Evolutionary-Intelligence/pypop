@@ -50,7 +50,7 @@ if __name__ == '__main__':
                'saving_fitness': 20000}
     solver = Solver(problem, options)
     results = solver.optimize()
-    print(results)  # 9.16746679e-11 vs 0 (from the original paper)
+    print(results)  # 5.79061243e-11 vs 0 (from the original paper)
     print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
 
     start_run = time.time()
