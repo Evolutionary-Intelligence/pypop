@@ -87,21 +87,17 @@ class TDE(DE):
         return x, y
 
     def mutate(self, x=None, y=None):
-        v, base = np.empty((self.n_individuals, self.ndim_problem)), np.arange(self.n_individuals)
+        v = np.empty((self.n_individuals, self.ndim_problem))
         for i in range(self.n_individuals):
+            r = self.rng_optimization.permutation(self.n_individuals)[:4]
+            r = r[r != i][:3]  # a simple yet effective trick
             if self.rng_optimization.random() < self.tm:  # trigonometric mutation
-                r0 = self.rng_optimization.choice(np.setdiff1d(base, i))
-                r1 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0]))
-                r2 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0, r1]))
-                p = np.abs(y[r0]) + np.abs(y[r1]) + np.abs(y[r2])
-                p1, p2, p3 = np.abs(y[r0])/p, np.abs(y[r1])/p, np.abs(y[r2])/p
-                v[i] = ((x[r0] + x[r1] + x[r2])/3.0 + (p2 - p1)*(x[r0] - x[r1]) +
-                        (p3 - p2)*(x[r1] - x[r2]) + (p1 - p3)*(x[r2] - x[r0]))
+                p = np.abs(y[r[0]]) + np.abs(y[r[1]]) + np.abs(y[r[2]])
+                p1, p2, p3 = np.abs(y[r[0]])/p, np.abs(y[r[1]])/p, np.abs(y[r[2]])/p
+                v[i] = ((x[r[0]] + x[r[1]] + x[r[2]])/3.0 + (p2 - p1)*(x[r[0]] - x[r[1]]) +
+                        (p3 - p2)*(x[r[1]] - x[r[2]]) + (p1 - p3)*(x[r[2]] - x[r[0]]))
             else:  # same as the original DE version (`DE/rand/1/bin`)
-                r0 = self.rng_optimization.choice(np.setdiff1d(base, i))
-                r1 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0]))
-                r2 = self.rng_optimization.choice(np.setdiff1d(base, [i, r0, r1]))
-                v[i] = x[r0] + self.f*(x[r1] - x[r2])
+                v[i] = x[r[0]] + self.f*(x[r[1]] - x[r[2]])
         return v
 
     def crossover(self, v=None, x=None):
