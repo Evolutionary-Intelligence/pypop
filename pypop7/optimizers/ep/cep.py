@@ -122,7 +122,7 @@ class CEP(EP):
         new_y = np.hstack((yy, y))
         n_win = np.zeros((2*self.n_individuals,))  # number of win
         for i in range(2*self.n_individuals):
-            for j in self.rng_optimization.choice(np.setdiff1d(range(2*self.n_individuals), i),
+            for j in self.rng_optimization.choice([j for j in range(2*self.n_individuals) if j != i],
                                                   size=self.q, replace=False):
                 if new_y[i] < new_y[j]:
                     n_win[i] += 1
