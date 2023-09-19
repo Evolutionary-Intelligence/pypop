@@ -16,6 +16,7 @@ Till now, our library `PyPop7` has been used (at least) in the following project
 * https://github.com/TUIlmenauAMS/BlackBoxOptimizerSPcomparison (2023)
 * https://github.com/moesio-f/py-abm-public (2023)
 * https://github.com/Evolutionary-Intelligence/M-DES (2023)
+* https://github.com/Evolutionary-Intelligence/dpop7 (2023)
 
 Till now, our paper about this library `PyPop7` has been cited (at least) in the following papers:
 
