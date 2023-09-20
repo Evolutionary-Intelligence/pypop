@@ -179,8 +179,10 @@ the powerful CMA-ES algorithm*.
   * https://github.com/CMA-ES/libcmaes (C++)
   * https://github.com/CMA-ES/pycma (Python)
 
-https://nlopt.readthedocs.io/en/latest/
-
+* https://nlopt.readthedocs.io/en/latest/
 * https://coin-or.github.io/Ipopt/
 * http://zhar.net/howto/html/ (Now it is not actively maintained.)
 * https://sop.tik.ee.ethz.ch/pisa/principles.html (Now it is not actively maintained.)
+
+For experimental comparisons, refer to e.g., `2021 <https://onlinelibrary.wiley.com/doi/10.1111/exsy.12672>`_
+for MOO.
