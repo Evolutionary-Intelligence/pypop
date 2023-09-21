@@ -65,10 +65,10 @@ Note that for ```PyPop7```, the number ```7``` is added just because ```pypop```
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/Summary-BBO.png" alt="drawing"/>
 </p>
 
-Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this open-source library, since they works mainly in *discrete/combinatorial* search spaces. Furthermore, brute-force search (exhaustive/grid search) is also excluded here, since it works only for *very low* (typically < 10) dimensions. In the near future version, we will consider to add [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this library.
+Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this open-source library, since they works mainly in *discrete/combinatorial* search spaces. Furthermore, brute-force search (exhaustive/grid search) is also excluded here, since it works only for *very low* (typically < 10) dimensions. In the near future version, we will consider to add [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this open-source library.
 
 ******* *** *******
-* ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific BBO version for LSO (e.g., dimension >= 1000).
+* ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific BBO version for LSO (dimension >= 1000).
 * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) BBO version for *relatively low-dimensional* problems (though it may work well under certain LSO circumstances).
 * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline BBO version mainly for *theoretical* interest.
 
