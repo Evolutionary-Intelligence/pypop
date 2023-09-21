@@ -2,7 +2,7 @@
 
 [![GNU General Public License v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE) [![PyPI for pypop7](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/) [![Documentation Status](https://readthedocs.org/projects/pypop/badge/?version=latest)](https://pypop.readthedocs.io/en/latest/?badge=latest) [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7) [![Python](https://img.shields.io/badge/Python-3.5%20%7C%203.6%20%7C%203.7%20%7C%203.8%20%7C%203.9%20%7C%203.10-yellow.svg)](https://www.python.org/)
 
-```PyPop7``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for single-objective, real-parameter, black-box problems (**currently actively maintained**). Its main goal is to provide a *unified* interface and *elegant* implementations for **Black-Box Optimization (BBO)**, *particularly population-based optimizers*, in order to facilitate research repeatability, benchmarking of BBO and real-world applications.
+```PyPop7``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for single-objective, real-parameter, black-box problems (**currently actively maintained**). Its goal is to provide a *unified* interface and *elegant* implementations for **Black-Box Optimization (BBO)**, *particularly population-based optimizers*, in order to facilitate research repeatability, benchmarking of BBO, and real-world applications.
 
 <p align="center">
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/PyPop-Logo-Small-0.png" alt="drawing" width="321"/>
