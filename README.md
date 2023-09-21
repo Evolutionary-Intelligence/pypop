@@ -10,9 +10,9 @@
 
 More specifically, for alleviating their **curse of dimensionality**, the primary focus of ```PyPop7``` is to cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their small/medium-scaled versions and variants are also included here (mainly for theoretical or benchmarking purposes).
 
-## How to Use PyPop7
+## How to Quickly Use PyPop7
 
-The following three simple steps are enough to utilize the optimization power of [PyPop7](https://pypi.org/project/pypop7/):
+The following three steps are enough to utilize the optimization power of this library [PyPop7](https://pypi.org/project/pypop7/):
 
 1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html):
 
