@@ -59,14 +59,13 @@ print(results)
 
 Note that for ```PyPop7```, the number ```7``` is added just because ```pypop``` has been registered by [other](http://pypop.org/) in [PyPI](https://pypi.org/). The icon *butterfly* for `PyPop7` is used to respect to the book (a complete variorum edition) of **Fisher**, ["the greatest of Darwin's successors"](https://link.springer.com/article/10.1007/s00265-010-1122-x): [The Genetical Theory of Natural Selection](https://global.oup.com/academic/product/the-genetical-theory-of-natural-selection-9780198504405?cc=gb&lang=en&) (where four butterflies were drawn in its cover), which inspired the proposal of [Genetic Algorithms (GA)](https://dl.acm.org/doi/10.1145/321127.321128).
 
-## Black-Box Optimizers (BBO)
+## A Large Number of Black-Box Optimizers (BBO)
 
 <p align="center">
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/Summary-BBO.png" alt="drawing"/>
 </p>
 
-Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this library, since they works mainly in the *discrete/combinatorial* search space.
-Furthermore, brute-force search (exhaustive/grid search) is also excluded in this library, since it works only for very low (e.g., < 10) dimensions. In the near future version, we will consider to add [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this library.
+Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this open-source library, since they works mainly in *discrete/combinatorial* search spaces. Furthermore, brute-force search (exhaustive/grid search) is also excluded here, since it works only for *very low* (typically < 10) dimensions. In the near future version, we will consider to add [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this library.
 
 ******* *** *******
 * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific BBO version for LSO (e.g., dimension >= 1000).
