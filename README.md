@@ -14,13 +14,13 @@ More specifically, for alleviating their **curse of dimensionality**, the primar
 
 The following three steps are enough to utilize the optimization power of this library [PyPop7](https://pypi.org/project/pypop7/):
 
-1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html):
+1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) (*a strong suggestion*):
 
 ```bash
 $ pip install pypop7
 ```
 
-For simplicity, all required dependencies (except special cases) are *automatically* installed according to [setup.cfg](https://github.com/Evolutionary-Intelligence/pypop/blob/main/setup.cfg).
+For simplicity, all required library dependencies (except special cases) are *automatically* installed according to [setup.cfg](https://github.com/Evolutionary-Intelligence/pypop/blob/main/setup.cfg).
 
 2. Define the objective/cost function (called *fitness function* in this library) for the optimization problem at hand,
 
