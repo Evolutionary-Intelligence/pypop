@@ -1,8 +1,8 @@
 Tutorials
 =========
 
-Here we provide several *interesting* tutorials to help better use this library `PyPop7
-<https://pypop.readthedocs.io/en/latest/installation.html>`_, as shown below:
+Here we provide several *interesting* tutorials to help better use this **open-source** library `PyPop7
+<https://pypop.readthedocs.io/en/latest/installation.html>`_ for black-box optimization, as shown below:
 
 * Lens Shape Optimization,
 * Lennard-Jones Cluster Optimization from `pagmo <https://esa.github.io/pagmo2/>`_,
