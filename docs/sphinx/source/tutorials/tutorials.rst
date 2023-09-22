@@ -146,6 +146,7 @@ indeed proceed through many small steps from only the *optimization* (rather bio
 
 For more interesting applications of `ES`/`CMA-ES`/`NES` on challenging real-world problems, refer to e.g.,
 `[Lange et al., 2023, ICLR] <https://openreview.net/pdf?id=mFDU0fP3EQH>`_;
+`[Slade et al., 2022, Nature] <https://www.nature.com/articles/s41586-022-05191-1>`_;
 `[Sun et al., 2022, ICML] <https://proceedings.mlr.press/v162/sun22e.html>`_;
 `[Wang&Ponce, 2022, GECCO] <https://dl.acm.org/doi/10.1145/3512290.3528725>`_;
 `[Bharti et al., 2022, Rev. Mod. Phys] <https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.94.015004>`_;
