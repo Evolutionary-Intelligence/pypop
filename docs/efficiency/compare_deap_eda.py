@@ -1,7 +1,7 @@
 # Taken directly from https://github.com/DEAP/deap/blob/master/examples/eda/emna.py
 #    with slight modifications for comparisons (Here EMNA is a specific EDA version)
 #
-# Please first install deap (http://deap.readthedocs.org/):
+# Please first install deap (see http://deap.readthedocs.org/ for details):
 #    $ pip install deap
 import time
 import pickle
@@ -57,7 +57,7 @@ def eaGenerateUpdate(toolbox, start_time):
                'n_function_evaluations': n_fe,
                'runtime': time.time() - start_time,
                'fitness': fitness}
-    with open('DEAP_EDA.pickle', 'wb') as handle:
+    with open('DEAP-EDA.pickle', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('*** runtime (seconds) ***:', time.time() - start_time)
 
