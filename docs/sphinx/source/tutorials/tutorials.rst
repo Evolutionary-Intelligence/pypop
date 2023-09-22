@@ -9,7 +9,7 @@ Here we provide several *interesting* tutorials to help better use this library 
 * Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ (developed by
   European Space Agency),
 * Benchmarking for Large-Scale Black-Box Optimization,
-* Controller Design/Optimization,
+* Controller Design/Optimization (aka Direct Policy Search),
 * Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform,
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
   recently by FacebookResearch).
