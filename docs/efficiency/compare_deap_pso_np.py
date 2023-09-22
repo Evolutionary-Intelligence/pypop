@@ -1,7 +1,7 @@
 # Taken directly from https://github.com/DEAP/deap/blob/master/examples/pso/basic_numpy.py
 #    with slight modifications for comparisons
 #
-# Please first install deap (http://deap.readthedocs.org/):
+# Please first install deap (see http://deap.readthedocs.org/ for details):
 #    $ pip install deap
 import math
 import time
