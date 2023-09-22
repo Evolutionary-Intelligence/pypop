@@ -26,19 +26,19 @@ Lens Shape Optimization
    :width: 321px
    :align: center
 
-This figure shows the (interesting) evolution process of lens shape, optimized by `MAES
+This figure shows an interesting evolution process of the lens shape, optimized by `MAES
 <https://pypop.readthedocs.io/en/latest/es/maes.html>`_, a *simplified* modern version of the well-established
-`CMA-ES <https://www.nature.com/articles/nature14544>`_ algorithm nearly without significant performance loss.
+`CMA-ES <https://www.nature.com/articles/nature14544>`_ algorithm (nearly without significant performance loss).
 
-The objective of Lens Shape Optimization is to find the optimal shape of glass body such that parallel incident light
-rays are concentrated in a given point on a plane while using a minimum of glass material possible.
-Refer to `Beyer, 2020, GECCO <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_ for more mathematical details
-about the 15-dimensional objective function used here. To repeat this above figure, please run the following `code
-<https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/lens_shape_optimization.py>`_:
+The main objective of Lens Shape Optimization is to find the optimal shape of glass body such that parallel incident
+light rays are concentrated in a given point on a plane while using a minimum of glass material possible.
+Refer to `[Beyer, 2020, GECCO] <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_ for more mathematical details
+about this 15-dimensional objective function used here. To repeat this above figure, please run the following `Python
+code <https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/lens_shape_optimization.py>`_:
 
 .. code-block:: python
 
-        # Written by Guochen Zhou and *Qiqi Duan*
+        # Written/Checked by Guochen Zhou, Minghan Zhang, and *Qiqi Duan*
         import numpy as np
         import imageio.v2 as imageio  # for animation
         import matplotlib.pyplot as plt  # for static plotting
