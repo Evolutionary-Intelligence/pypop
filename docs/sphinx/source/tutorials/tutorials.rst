@@ -419,13 +419,9 @@ Then, invoke multiple different optimizers from `PyPop7` on these (rotated and s
                            'max_runtime': 3600*3,  # seconds (=3 hours)
                            'fitness_threshold': 1e-10,
                            'seed_rng': self.seed,
+                           'sigma': 20.0/3.0,
                            'saving_fitness': 2000,
                            'verbose': 0}
-                if optimizer.__name__ in ['PRS', 'SRS', 'GS', 'BES', 'HJ', 'NM', 'POWELL', 'FEP', 'GENITOR', 'G3PCX',
-                                          'GL25', 'COCMA', 'HCC', 'SPSO', 'SPSOL', 'CLPSO', 'CCPSO2', 'UMDA', 'EMNA', 'RPEDA',
-                                          'XNES', 'SNES', 'R1NES', 'CMAES', 'FMAES', 'RMES', 'VDCMA', 'LMMAES', 'MMES', 'LMCMA',
-                                          'LAMCTS']:
-                    options['sigma'] = 20.0/3.0
                 solver = optimizer(problem, options)
                 results = solver.optimize()
                 file = self._file.format(solver.__class__.__name__,
