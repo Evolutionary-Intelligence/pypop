@@ -38,6 +38,7 @@ about the 15-dimensional objective function used here. To repeat this above figu
 
 .. code-block:: python
 
+        # Written by Guochen Zhou and *Qiqi Duan*
         import numpy as np
         import imageio.v2 as imageio  # for animation
         import matplotlib.pyplot as plt  # for static plotting
