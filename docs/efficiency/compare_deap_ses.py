@@ -54,7 +54,7 @@ def eaMuCommaLambda(population, toolbox, cxpb, mutpb):
         else:
             fitness.append(fitness[-1])
 
-    while (time.time() - start_time) < (60 * 3):  # 3 hours * 60
+    while (time.time() - start_time) < (60 * 60 * 3):  # 3 hours 
         offspring = algorithms.varOr(population, toolbox, 100, cxpb, mutpb)
         invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
         fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
@@ -73,7 +73,7 @@ def eaMuCommaLambda(population, toolbox, cxpb, mutpb):
                'n_function_evaluations': n_fe,
                'runtime': time.time() - start_time,
                'fitness': fitness}
-    with open('DEAP-RES.pickle', 'wb') as handle:
+    with open('DEAP-SES.pickle', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('*** runtime (seconds) ***:', time.time() - start_time)
 
