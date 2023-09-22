@@ -5,7 +5,7 @@ import pickle
 import numpy
 
 from pypop7.benchmarks.base_functions import sphere  # function to be minimized
-from pypop7.optimizers.de.cde import CDE
+from pypop7.optimizers.de.cde import CDE  # Classic Differential Evolution
 
 
 if __name__ == "__main__":
