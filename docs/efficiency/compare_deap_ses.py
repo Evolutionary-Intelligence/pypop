@@ -1,7 +1,7 @@
 # Taken directly from https://github.com/DEAP/deap/blob/master/examples/es/fctmin.py
 #    with slight modifications for comparisons
 #
-# Please first install deap (http://deap.readthedocs.org/):
+# Please first install deap (see http://deap.readthedocs.org/ for details):
 #    $ pip install deap
 import time
 import array
@@ -73,7 +73,7 @@ def eaMuCommaLambda(population, toolbox, cxpb, mutpb):
                'n_function_evaluations': n_fe,
                'runtime': time.time() - start_time,
                'fitness': fitness}
-    with open('DEAP_RES.pickle', 'wb') as handle:
+    with open('DEAP-RES.pickle', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('*** runtime (seconds) ***:', time.time() - start_time)
 
