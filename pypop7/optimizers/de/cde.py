@@ -7,13 +7,15 @@ class CDE(DE):
     """Classic Differential Evolution (CDE).
 
     .. note:: Typically, `DE/rand/1/bin` is seen as the **classic/basic** version of `DE`.
-       `CDE` often optimizes on relatively low-dimensional (e.g., < 100) search spaces.
+       `CDE` often optimizes on relatively low-dimensional (e.g., << 1000) search spaces.
+       Its two creators (Kenneth Price&Rainer Storn) won the 2017 Evolutionary Computation
+       Pioneer Award from IEEE-CIS.
 
     Parameters
     ----------
     problem : `dict`
               problem arguments with the following common settings (`keys`):
-                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'fitness_function' - objective/cost function to be **minimized** (`func`),
                 * 'ndim_problem'     - number of dimensionality (`int`),
                 * 'upper_boundary'   - upper boundary of search range (`array_like`),
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
@@ -50,7 +52,7 @@ class CDE(DE):
        >>> print(f"CDE: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        CDE: 5000, 2.0242437417701847e-07
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
+    For its correctness checking of Python coding, refer to `this code-based repeatability report
     <https://tinyurl.com/3fc826yt>`_ for more details.
 
     Attributes
