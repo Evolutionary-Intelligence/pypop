@@ -16,6 +16,7 @@ if __name__ == "__main__":
                'upper_boundary': 10.0*numpy.ones((ndim_problem,))}
     options = {'max_runtime': 60*60*3,  # set optimizer options
                'verbose': False,
+               'saving_fitness': 2000,
                'seed_rng': 0}
     spso = SPSO(problem, options)  # initialize the optimizer class
     results = spso.optimize()  # run the optimization process
