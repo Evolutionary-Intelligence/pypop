@@ -54,6 +54,10 @@ NM
 --
 * Gao, F., & Han, L. (2012). Implementing the Nelder-Mead simplex algorithm with adaptive parameters. Computational Optimization and Applications, 51(1), 259-277.
 
+BO
+--
+* Tan, J. and Nayman, N., 2023, July. Two-stage kernel Bayesian optimization in high dimensions. In Uncertainty in Artificial Intelligence (pp. 2099-2110). PMLR.
+
 RS
 --
 
