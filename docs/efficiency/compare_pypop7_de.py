@@ -1,6 +1,7 @@
 # Please first install pypop7 (see https://pypop.rtfd.io/ for details):
 #    $ pip install pypop7
 import pickle
+import argparse
 
 import numpy
 
@@ -9,6 +10,10 @@ from pypop7.optimizers.de.cde import CDE  # Classic Differential Evolution
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--index', '-i', type=int)  # index of the experiment
+    args = parser.parse_args()
+    params = vars(args)
     ndim_problem = 2000
     problem = {'fitness_function': sphere,  # define problem arguments
                'ndim_problem': ndim_problem,
@@ -17,7 +22,7 @@ if __name__ == "__main__":
     options = {'max_runtime': 60*60*3,  # set optimizer options
                'verbose': False,
                'saving_fitness': 2000,
-               'seed_rng': 0}
+               'seed_rng': params['index']}
     cde = CDE(problem, options)  # initialize the optimizer class
     results = cde.optimize()  # run the optimization process
     # return the number of function evaluations and best-so-far fitness
