@@ -145,7 +145,8 @@ slight modifications, my theory would absolutely break down."
 <https://www.sciencedirect.com/science/article/pii/S0045782599003813>`_ Luckily, the evolution of an eye-lens could
 indeed proceed through many small steps from only the *optimization* (rather biological) view of point.
 
-For more interesting applications of `ES`/`CMA-ES`/`NES` on challenging real-world problems, refer to e.g.,
+For more interesting applications of `ES <https://dl.acm.org/doi/10.1145/3583133.3595041>`_ / `CMA-ES` / `NES` on
+challenging real-world problems, refer to e.g.,
 `[Lange et al., 2023, ICLR] <https://openreview.net/pdf?id=mFDU0fP3EQH>`_;
 `[Slade et al., 2022, Nature] <https://www.nature.com/articles/s41586-022-05191-1>`_;
 `[De Croon et al., 2022, Nature] <https://www.nature.com/articles/s41586-022-05182-2>`_;
