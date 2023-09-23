@@ -353,6 +353,7 @@ against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and `sepa
 
     .. code-block:: python
 
+        # Written/Checked by Chang Shao, Mingyang Feng, and *Qiqi Duan*
         import time
 
         import numpy as np
