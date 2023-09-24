@@ -1,25 +1,27 @@
 Installation of PyPop7
 ======================
 
-In order to install *pypop7*, it is **highly recommended** to use the Python3-based virtual environment via
-`venv <https://docs.python.org/3/library/venv.html>`_ or
-`conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_:
+In order to install *pypop7*, it is **highly recommended** to use the `Python3 <https://docs.python.org/3/>`_-based
+virtual environment via `venv <https://docs.python.org/3/library/venv.html>`_ or
+`conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_.
+
+`Anaconda <https://docs.anaconda.com/>`_ is a very popular `Python` programming platform for scientists.
 
 Pip via Python Package Index (PyPI)
 -----------------------------------
+
+Note that `pip <https://pip.pypa.io/en/stable/>`_ is the package installer for Python. You can use it to install
+various packages easily.
 
 .. code-block:: bash
 
     pip install pypop7
 
-Note that `pip <https://pip.pypa.io/en/stable/>`_ is the package installer for Python. You can use it to install
-various packages easily from the Python Package Index (PyPI).
-
 Conda-based Virtual Environment
 -------------------------------
 
-You can first use the very popular `conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_ tool to create
-a virtual environment (e.g. named as `env_pypop7`):
+You can first use the popular `conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_ tool to create
+a virtual environment (e.g., named as `env_pypop7`):
 
 .. code-block:: bash
 
