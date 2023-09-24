@@ -46,9 +46,9 @@ Although we strongly recommend to use the the `conda` package manager to build t
 space, currently we do not add this library to `conda-forge <https://conda-forge.org/>`_ and leave it for the future
 (maybe 2024). As a result, you can only use `pip install pypop7` for `conda`.
 
-For Matlab Users
+For MATLAB Users
 ----------------
 
-For Matlab users, `Matlab-to-Python Migration Guide
+For Matlab users, `MATLAB-to-Python Migration Guide
 <https://www.enthought.com/wp-content/uploads/2019/08/Enthought-MATLAB-to-Python-White-Paper_.pdf>`_ or
 `NumPy for MATLAB Users <https://numpy.org/devdocs/user/numpy-for-matlab-users.html>`_ is highly recommended.
