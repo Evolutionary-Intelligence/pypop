@@ -3,6 +3,7 @@ import sys
 import pickle
 
 import numpy as np
+
 from pypop7.optimizers.core import optimizer
 sys.modules['optimizer'] = optimizer  # for `pickle`
 
