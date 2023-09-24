@@ -41,5 +41,6 @@ space, currently we do not add this library to `conda-forge <https://conda-forge
 For Matlab Users
 ----------------
 
-For Matlab users, this `Matlab-to-Python migration guide
-<https://www.enthought.com/wp-content/uploads/2019/08/Enthought-MATLAB-to-Python-White-Paper_.pdf>`_ is highly recommended.
+For Matlab users, `Matlab-to-Python Migration Guide
+<https://www.enthought.com/wp-content/uploads/2019/08/Enthought-MATLAB-to-Python-White-Paper_.pdf>`_ or
+`NumPy for MATLAB Users <https://numpy.org/devdocs/user/numpy-for-matlab-users.html>`_ is highly recommended.
