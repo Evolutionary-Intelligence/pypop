@@ -15,6 +15,7 @@ of his group members (**Qiqi Duan**, *Chang Shao*, and *Guochen Zhou*).
   * Now *Haobin Yang* from SUSTech helps to proofread all the documents.
   * Now *Minghan Zhang* from University of Warwick helps to search papers involved in this library and test on
     MacOS X.
+  * Now *Zonghan He* from SUSTech helps to test the installation process on Windows10 OS.
 
 We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech) and recent (2022) discussions wih
 Changwu Huang (at SUSTech).
