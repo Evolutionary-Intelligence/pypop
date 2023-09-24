@@ -1,6 +1,7 @@
 # Please first install pypop7 (see https://pypop.rtfd.io/ for details):
 #    $ pip install pypop7
 import pickle
+import argparse
 
 import numpy
 
@@ -9,6 +10,10 @@ from pypop7.optimizers.eda.umda import UMDA  # Univariate Marginal Distribution 
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--index', '-i', type=int)  # index of the experiment
+    args = parser.parse_args()
+    params = vars(args)
     ndim_problem = 2000
     problem = {'fitness_function': sphere,  # define problem arguments
                'ndim_problem': ndim_problem,
@@ -18,7 +23,7 @@ if __name__ == "__main__":
                'verbose': False,
                'saving_fitness': 2000,
                'sigma': 2.0,
-               'seed_rng': 0}
+               'seed_rng': params['index']}
     umda = UMDA(problem, options)  # initialize the optimizer class
     results = umda.optimize()  # run the optimization process
     # return the number of function evaluations and best-so-far fitness
