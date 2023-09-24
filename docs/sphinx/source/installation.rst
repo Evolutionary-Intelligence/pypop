@@ -35,3 +35,9 @@ Note that the above Python version (`3.8.12`) can be changed to meet your person
 Although we strongly recommend to use the the `conda` package manager to build the virtual environment as your working
 space, currently we do not add this library to `conda-forge <https://conda-forge.org/>`_ and leave it for the future
 (maybe 2024). As a result, you can only use `pip install pypop7` for `conda`.
+
+For Matlab Users
+----------------
+
+For Matlab users, this `Matlab-to-Python migration guide
+<https://www.enthought.com/wp-content/uploads/2019/08/Enthought-MATLAB-to-Python-White-Paper_.pdf>`_ is highly recommended.
