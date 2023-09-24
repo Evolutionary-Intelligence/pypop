@@ -17,6 +17,14 @@ various packages easily.
 
     pip install pypop7
 
+If the latest cutting-edge version is preferred, you can install directly from the GitHub repository:
+
+.. code-block:: bash
+   
+   git clone https://github.com/Evolutionary-Intelligence/pypop.git
+   cd pypop
+   pip install -e .
+
 Conda-based Virtual Environment
 -------------------------------
 
