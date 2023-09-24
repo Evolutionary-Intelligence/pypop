@@ -1,8 +1,5 @@
-"""This Python script only plots the *median* convergence curves for
-    black-box optimizers (BBO) considered.
-
-    https://github.com/Evolutionary-Intelligence/pypop
-    https://pypop.readthedocs.io/en/latest/index.html
+"""Compare computational efficiency between *DEAP* and *PYPOP7*
+    on the well-known Sphere test function.
 """
 import os
 import sys
