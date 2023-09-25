@@ -15,7 +15,7 @@ sys.modules['optimizer'] = optimizer  # for `pickle`
 
 
 def read_pickle(s, f, i):
-    afile = os.path.join('./', s + '-DE_' + i + '.pickle')
+    afile = os.path.join('./docs/efficiency/sphere', s + '-DE_' + i + '.pickle')
     with open(afile, 'rb') as handle:
         return pickle.load(handle)
 
@@ -53,11 +53,11 @@ if __name__ == '__main__':
                 run.append(time[j][i][-1] if time[j][i][-1] <= max_runtime else max_runtime)
                 fit.append(fitness[j][i][-1] if fitness[j][i][-1] >= fitness_threshold else fitness_threshold)
                 r_f.append([run[i], fit[i], i])
-            r_f.sort(key= lambda x: (x[0], x[1]))  # sort by first runtime then fitness
+            r_f.sort(key=lambda x: (x[0], x[1]))  # sort by first runtime then fitness
             order = r_f[int(n_trials/2)][2]  # for median (but non-standard)
             top_order.append(order)
             top_fitness.append([run[order], fit[order], a])
-        top_fitness.sort(key= lambda x: (x[0], x[1]))
+        top_fitness.sort(key=lambda x: (x[0], x[1]))
         top_fitness = [t for t in [tr[2] for tr in top_fitness]]
         print('  #top fitness:', top_fitness)
         print('  #top order:', [(a, to + 1) for a, to in zip(algos, top_order)])
@@ -71,5 +71,26 @@ if __name__ == '__main__':
         plt.xticks(fontsize=22, fontweight='bold')
         plt.yticks(fontsize=22, fontweight='bold')
         plt.legend(loc=4, ncol=3, fontsize=14)
+        plt.rcParams['font.family'] = 'Times New Roman'
+        plt.show()
+
+        fig = plt.figure(figsize=(8.5, 8.5))
+        ax1 = fig.add_subplot(111)
+        ax2 = ax1.twinx()
+        fcs = ['g', 'b']
+        xticks = []
+        labels = []
+        for j, a in enumerate(algos):
+            ax1.bar([0.5 + j], [fe[j][top_order[j]][-1]], fc=fcs[j])
+            xticks.append(0.5 + j)
+            labels.append(a)
+        ax1.set_xlabel('Name of Algorithms', fontsize=24, fontweight='bold')
+        ax1.set_ylabel('Number of Function Evaluations', fontsize=24, fontweight='bold')
+        ax1.set_xticks(xticks, labels, fontsize=22, fontweight='bold')
+        ax1.set_xlim(0, len(xticks))
+        ax2.plot(np.ones(len(xticks) + 1,) * fe[1][top_order[1]][-1]/fe[0][top_order[0]][-1], color='r', linewidth=3)
+        ax2.set_yticks(np.arange(0, 11, 1))
+        ax2.set_ylabel('Ratio of Numbers of Function Evaluations', fontsize=24, fontweight='bold')
+        plt.title(f, fontsize=24, fontweight='bold')
         plt.rcParams['font.family'] = 'Times New Roman'
         plt.show()
