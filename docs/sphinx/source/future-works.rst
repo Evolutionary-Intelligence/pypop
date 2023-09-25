@@ -18,6 +18,7 @@ SPSA
 ES
 --
 
+* Spettel, P. and Beyer, H.G., 2022. On the design of a matrix adaptation evolution strategy for optimization on general quadratic manifolds. ACM Transactions on Evolutionary Learning and Optimization, 2(3), pp.1-32.
 * Maheswaranathan, N., Metz, L., Tucker, G., Choi, D., & Sohl-Dickstein, J. (2019, May). Guided evolutionary strategies: Augmenting random search with surrogate gradients. In International Conference on Machine Learning (pp. 4264-4273). PMLR.
 * Choromanski, K., Rowland, M., Sindhwani, V., Turner, R., & Weller, A. (2018, July). Structured evolution with compact architectures for scalable policy optimization. In International Conference on Machine Learning (pp. 970-978). PMLR.
 * Beyer, H.G., 2014. Convergence analysis of evolutionary algorithms that are based on the paradigm of information geometry. Evolutionary Computation, 22(4), pp.679-709.
