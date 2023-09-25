@@ -52,3 +52,9 @@ For MATLAB Users
 For Matlab users, `MATLAB-to-Python Migration Guide
 <https://www.enthought.com/wp-content/uploads/2019/08/Enthought-MATLAB-to-Python-White-Paper_.pdf>`_ or
 `NumPy for MATLAB Users <https://numpy.org/devdocs/user/numpy-for-matlab-users.html>`_ is highly recommended.
+
+For R Users
+-----------
+
+For R (and S-Plus) users, `NumPy-for-R <https://mathesaurus.sourceforge.net/r-numpy.html>`_
+is highly recommended.
