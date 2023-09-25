@@ -16,7 +16,7 @@ sys.modules['optimizer'] = optimizer  # for `pickle`
 
 
 def read_pickle(s, f, i):
-    afile = os.path.join('./docs/efficiency/sphere', s + '-DE_' + i + '.pickle')
+    afile = os.path.join('./', s + '-DE_' + i + '.pickle')
     with open(afile, 'rb') as handle:
         return pickle.load(handle)
 
