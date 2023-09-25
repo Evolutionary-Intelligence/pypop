@@ -88,7 +88,8 @@ if __name__ == '__main__':
         ax1.set_xlim(0, len(xticks))
         ax2.plot(np.ones(len(xticks) + 1,)*fe[1][top_order[1]][-1]/fe[0][top_order[0]][-1], color='r', linewidth=3)
         ax2.set_yticks(np.arange(0, 11, 1))
-        ax2.set_ylabel('Speedup w.r.t. Function Evaluations', fontsize=24, fontweight='bold')
+        ax2.tick_params(colors='r')
+        ax2.set_ylabel('Speedup w.r.t. Function Evaluations', fontsize=24, fontweight='bold', color='r')
         plt.title(f, fontsize=24, fontweight='bold')
         plt.rcParams['font.family'] = 'Times New Roman'
         plt.show()
