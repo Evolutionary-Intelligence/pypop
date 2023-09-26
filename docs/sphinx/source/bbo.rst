@@ -21,7 +21,7 @@ Some common problem characteristics of BBO are presented below:
 * non-linearity,
 * multi-modality,
 * ill-condition,
-* noisiness.
+* noisiness/stochasticity (e.g., `[Mhanna&Assaad, 2023, ICML] <https://proceedings.mlr.press/v202/mhanna23a/mhanna23a.pdf>`_).
 
 For black-box problems, the only information accessible to the algorithm is *function evaluations*, which can be freely
 selected by the algorithm, leading to Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO).
