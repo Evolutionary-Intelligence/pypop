@@ -15,16 +15,20 @@ as shown in e.g. the classical book **<<Introduction to Derivative-Free Optimiza
 
 Some common problem characteristics of BBO are presented below:
 
-* unavailability of gradient information in the black-box setting (even if the gradient information actually exists),
-* without a precise model (e.g., owing to complex simulation),
-* non-differentiability,
-* non-linearity,
-* multi-modality,
-* ill-condition,
-* noisiness/stochasticity (e.g., `[Mhanna&Assaad, 2023, ICML] <https://proceedings.mlr.press/v202/mhanna23a/mhanna23a.pdf>`_).
+* unavailability of gradient information in the black-box setting (even if the gradient information actually exists);
+* without a precise model (e.g., owing to complex simulation);
+* non-differentiability;
+* non-linearity;
+* multi-modality;
+* ill-condition;
+* noisiness/stochasticity, such as
+
+  * `[Mhanna&Assaad, 2023, ICML] <https://proceedings.mlr.press/v202/mhanna23a/mhanna23a.pdf>`_,
+  * `[Bollapragada&Wild, 2023, MPC] <https://link.springer.com/article/10.1007/s12532-023-00233-9>`_.
 
 For black-box problems, the only information accessible to the algorithm is *function evaluations*, which can be freely
-selected by the algorithm, leading to Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO).
+selected by the algorithm, leading to Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO) or
+Gradient-Free Optimization (GFO).
 
 No Free Lunch Theorems (NFL)
 ----------------------------
