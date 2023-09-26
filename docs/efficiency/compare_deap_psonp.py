@@ -85,7 +85,7 @@ def main():
                'n_function_evaluations': n_fe,
                'runtime': time.time() - start_time,
                'fitness': fitness}
-    with open('DEAP-PSONP.pickle', 'wb') as handle:
+    with open('DEAP-PSO.pickle', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('*** runtime (seconds) ***:', time.time() - start_time)
 
