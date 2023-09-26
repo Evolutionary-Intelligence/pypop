@@ -24,7 +24,8 @@ Some common problem characteristics of BBO are presented below:
 * noisiness/stochasticity, such as
 
   * `[Mhanna&Assaad, 2023, ICML] <https://proceedings.mlr.press/v202/mhanna23a/mhanna23a.pdf>`_,
-  * `[Bollapragada&Wild, 2023, MPC] <https://link.springer.com/article/10.1007/s12532-023-00233-9>`_.
+  * `[Bollapragada&Wild, 2023, MPC] <https://link.springer.com/article/10.1007/s12532-023-00233-9>`_,
+  * `[Yi et al., 2022, Automatica] <https://www.sciencedirect.com/science/article/pii/S0005109822002035>`_.
 
 For black-box problems, the only information accessible to the algorithm is *function evaluations*, which can be freely
 selected by the algorithm, leading to Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO) or
