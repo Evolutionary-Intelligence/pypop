@@ -24,9 +24,9 @@ if __name__ == "__main__":
                'saving_fitness': 2000,
                'sigma': 20.0/3.0, 
                'seed_rng': params['index']}
-    res = RES(problem, options)  # initialize the optimizer class
-    results = res.optimize()  # run the optimization process
+    saes = SAES(problem, options)  # initialize the optimizer class
+    results = saes.optimize()  # run the optimization process
     # return the number of function evaluations and best-so-far fitness
-    print(f"RES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-    with open('PYPOP7-RES.pickle', 'wb') as handle:
+    print(f"SAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+    with open('PYPOP7-SAES.pickle', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
