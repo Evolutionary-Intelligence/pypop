@@ -29,5 +29,5 @@ if __name__ == "__main__":
     results = lmmaes.optimize()  # run the optimization process
     # return the number of function evaluations and best-so-far fitness
     print(f"LMMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-    with open('PYPOP7LA-CMA-ES.pickle', 'wb') as handle:
+    with open('PYPOP7LA-CMAES.pickle', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
