@@ -3,11 +3,14 @@ import numpy as np
 from pypop7.benchmarks.base_functions import BaseFunction
 
 
-def logistics_regression(x, w):
-    y = 1/(1 + np.exp(-np.dot(x, w)))
-    return y
+def log_loss_logistics_regression(x, y, w):
+    loss = []
+    for xx, yy in zip(x, y):
+        p = 1/(1 + np.exp(np.dot(xx, w)))
+        loss.append(-yy*np.log(p) - (1 - yy)*np.log(1 - p))
+    return np.mean(loss)
 
 
 class Sphere(BaseFunction):
-    def __call__(self, x, w):
-        return logistics_regression(x, w)
+    def __call__(self, x, y, w):
+        return log_loss_logistics_regression(x, y, w)
