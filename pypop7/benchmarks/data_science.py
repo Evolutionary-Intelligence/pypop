@@ -11,6 +11,6 @@ def log_loss_logistics_regression(x, y, w):
     return np.mean(loss)
 
 
-class Sphere(BaseFunction):
+class LogLossLogisticsRegression(BaseFunction):
     def __call__(self, x, y, w):
         return log_loss_logistics_regression(x, y, w)
