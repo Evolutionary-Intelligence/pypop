@@ -1,4 +1,4 @@
-"""Compare computational efficiency between *DEAP (CMA-ES)* and *PYPOP7 (LM-CMA)*
+"""Compare computational efficiency between *DEAP (PSO)* and *PYPOP7 (SPSO)*
     on the well-known Sphere test function.
 """
 import os
