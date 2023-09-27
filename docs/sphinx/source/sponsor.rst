@@ -31,3 +31,4 @@ Finally, we thank very much for all the following open-source code to make **rep
   <https://www.ini.rub.de/upload/editor/file/1604950981_dc3a4459a4160b48d51e/lmmaes.py>`_
 * `Prof. Xiaoyu He <https://hxyokokok.github.io/>`_: `MATLAB code for MMES <https://github.com/hxyokokok/MMES>`_ (
   `forked <https://github.com/Evolutionary-Intelligence/MMES>`_ )
+* Prof. Suganthan: `MATLAB code for CLPSO <https://github.com/P-N-Suganthan/CODES>`_
