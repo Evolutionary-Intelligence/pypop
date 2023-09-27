@@ -22,11 +22,12 @@ if __name__ == "__main__":
     options = {'max_runtime': 60*60*3,  # set optimizer options
                'verbose': False,
                'saving_fitness': 2000,
-               'sigma': 20.0/3.0, 
+               'sigma': 20.0/3.0,
+               'is_restart': False,
                'seed_rng': params['index']}
     lmmaes = LMMAES(problem, options)  # initialize the optimizer class
     results = lmmaes.optimize()  # run the optimization process
     # return the number of function evaluations and best-so-far fitness
     print(f"LMMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-    with open('PYPOP7-LMMAES.pickle', 'wb') as handle:
+    with open('PYPOP7LA-CMA-ES.pickle', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)

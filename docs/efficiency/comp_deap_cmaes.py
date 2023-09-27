@@ -38,7 +38,7 @@ def eaGenerateUpdate(toolbox, start_time):
                'n_function_evaluations': n_fe,
                'runtime': time.time() - start_time,
                'fitness': fitness}
-    with open('DEAP_CMAES.pickle', 'wb') as handle:
+    with open('DEAP-CMAES.pickle', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('*** runtime (seconds) ***:', time.time() - start_time)
 
