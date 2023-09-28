@@ -34,13 +34,12 @@ Python
     * https://github.com/EvoConJP/CMA-ES_with_Margin ( **CMA-ES** )
   * https://github.com/NiMlr/High-Dim-ES-RL ( **CMA-ES** )
   * https://github.com/optuna/optuna ( **CMA-ES** )
-* https://github.com/dietmarwo/fast-cma-es ( **CMA-ES** )
+* https://github.com/deephyper/deephyper (**BO**)
 * https://github.com/google/evojax ( **NeuroEvolution** )
 * https://github.com/google/vizier ( **Hyperparameter Optimization** | **AutoML** )
 * https://github.com/fmfn/BayesianOptimization ( **BO** )
 * https://github.com/hyperopt/hyperopt ( **RS** )
-* https://github.com/ljvmiranda921/pyswarms (PSO)
-* https://github.com/mradaideh/neorl
+* https://github.com/ljvmiranda921/pyswarms (**PSO**)
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
 * https://github.com/RobertTLange/evosax
 * https://github.com/uber-research/poet ( **POET** )
@@ -67,7 +66,8 @@ Python
 Some interesting code snapshots involving population-based methods are shown below:
 
 * https://github.com/apourchot/CEM-RL (CEM)
-* https://github.com/brain-research/guided-evolutionary-strategies
+* https://github.com/brain-research/guided-evolutionary-strategies (ES)
+* https://github.com/dietmarwo/fast-cma-es (CMA-ES)
 * https://github.com/facebookresearch/LA-MCTS (BO/CMA-ES)
 
   * https://github.com/facebookresearch/LaMCTS
