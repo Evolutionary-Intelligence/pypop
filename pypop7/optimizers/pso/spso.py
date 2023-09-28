@@ -42,15 +42,15 @@ class SPSO(PSO):
        >>> from pypop7.optimizers.pso.spso import SPSO
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> spso = SPSO(problem, options)  # initialize the optimizer class
        >>> results = spso.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SPSO: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SPSO: 5000, 3.456165303371902e-09
+       SPSO: 5000, 3.456e-09
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/2wwrr588>`_ for more details.
