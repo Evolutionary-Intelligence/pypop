@@ -10,7 +10,7 @@ def logistic_regression(w, x, y):
     ""
     loss = np.empty(len(w))
     for i in range(len(w)):
-        p = 1.0/(1.0 + np.exp(np.dot(x[i], w)))
+        p = 1.0/(1.0 + np.exp(-np.dot(x[i], w)))
         loss[i] = -y[i]*np.log(p) - (1.0 - y[i])*np.log(1.0 - p))
     return np.mean(loss)
 
