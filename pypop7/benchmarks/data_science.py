@@ -4,7 +4,7 @@ from pypop7.benchmarks.base_functions import BaseFunction
 
 
 def logistic_regression(w, x, y):
-    """"Cross-Entropy Loss Function of (Binary) Logistic Regression.
+    """"Cross-Entropy Loss Function of Logistic Regression (with binary labels {0, 1}).
 
         https://web.stanford.edu/~jurafsky/slp3/5.pdf
         https://developer.ibm.com/articles/implementing-logistic-regression-from-scratch-in-python/
