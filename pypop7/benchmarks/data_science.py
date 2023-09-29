@@ -4,6 +4,7 @@ from pypop7.benchmarks.base_functions import BaseFunction
 
 
 def logistic_regression(w, x, y):
+    """"Cross-Entropy Loss Function of Logistic Regression.""
     loss = np.empty(len(w))
     for i in range(len(w)):
         p = 1.0/(1.0 + np.exp(np.dot(x[i], w)))
