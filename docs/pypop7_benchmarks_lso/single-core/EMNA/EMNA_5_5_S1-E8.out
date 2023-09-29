@@ -1,0 +1,36 @@
+* experiment: 5 ***:
+  * function: sphere:
+    runtime: 1.08028e+04.
+  * function: cigar:
+    runtime: 1.08022e+04.
+  * function: discus:
+    runtime: 1.08037e+04.
+  * function: cigar_discus:
+    runtime: 1.08001e+04.
+  * function: ellipsoid:
+    runtime: 1.08025e+04.
+  * function: different_powers:
+    runtime: 1.08023e+04.
+  * function: schwefel221:
+    runtime: 1.08028e+04.
+  * function: step:
+    runtime: 1.08036e+04.
+  * function: rosenbrock:
+Traceback (most recent call last):
+  File "run_experiments.py", line 218, in <module>
+    experiments.run(Optimizer)
+  File "run_experiments.py", line 78, in run
+    experiment.run(optimizer)
+  File "run_experiments.py", line 51, in run
+    results = solver.optimize()
+  File ".../umda.py", line 123, in optimize
+    x, y = self.iterate(x, y, args)
+  File ".../emna.py", line 88, in iterate
+    x[i] = self.rng_optimization.multivariate_normal(mean, cov)
+  File "_generator.pyx", line 3703, in numpy.random._generator.Generator.multivariate_normal
+  File "<__array_function__ internals>", line 180, in svd
+  File ".../site-packages/numpy/linalg/linalg.py", line 1657, in svd
+    u, s, vh = gufunc(a, signature=signature, extobj=extobj)
+  File ".../site-packages/numpy/linalg/linalg.py", line 98, in _raise_linalgerror_svd_nonconvergence
+    raise LinAlgError("SVD did not converge")
+numpy.linalg.LinAlgError: SVD did not converge

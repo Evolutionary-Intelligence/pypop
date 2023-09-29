@@ -1,0 +1,6 @@
+* experiment: 15 ***:
+  * function: rosenbrock:
+    runtime: 1.08009e+04.
+  * function: schwefel12:
+    runtime: 1.08033e+04.
+*** Total runtime: 2.16042e+04 ***.
