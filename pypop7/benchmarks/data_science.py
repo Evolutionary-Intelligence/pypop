@@ -7,6 +7,7 @@ def logistic_regression(w, x, y):
     """"Cross-Entropy Loss Function of (Binary) Logistic Regression.
 
         https://web.stanford.edu/~jurafsky/slp3/5.pdf
+        https://developer.ibm.com/articles/implementing-logistic-regression-from-scratch-in-python/
     ""
     loss = np.empty(len(w))
     for i in range(len(w)):
