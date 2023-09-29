@@ -4,10 +4,10 @@ from pypop7.benchmarks.base_functions import BaseFunction
 
 
 def logistic_regression(w, x, y):
-    loss = []
+    loss = np.empty(len(w))
     for i in range(len(w)):
         p = 1.0/(1.0 + np.exp(np.dot(x[i], w)))
-        loss.append(-y[i]*np.log(p) - (1 - y[i])*np.log(1 - p))
+        loss[i] = -y[i]*np.log(p) - (1.0 - y[i])*np.log(1.0 - p))
     return np.mean(loss)
 
 
