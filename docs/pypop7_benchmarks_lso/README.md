@@ -55,7 +55,7 @@
 | [CPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/cpso.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/CPSO) |
 | [SPSOL](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spsol.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/SPSOL) |
 | [SPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spso.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/SPSO) |
-| []() | [link]() |
-| []() | [link]() |
-| []() | [link]() |
-| []() | [link]() |
+| [HCC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/hcc.py) | []() |
+| [COCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/cocma.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/COCMA) |
+| [COEA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/coea.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/COEA) |
+| [COSYNE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/cosyne.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/COSYNE) |
