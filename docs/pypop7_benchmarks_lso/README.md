@@ -62,9 +62,9 @@
 | [ESA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/esa.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/ESA) |
 | [CSA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/csa.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/CSA) |
 | [NSA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/nsa.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/NSA) |
-| []() | [link]() |
-| []() | [link]() |
-| []() | [link]() |
+| [ASGA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/asga.py) | [link]() |
+| [GL25](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/GL25) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/GL25) |
+| [G3PCX](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/G3PCX) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/G3PCX) |
 | []() | [link]() |
 | []() | [link]() |
 | []() | [link]() |
