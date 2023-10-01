@@ -1,0 +1,22 @@
+* experiment: 2 ***:
+  * function: griewank:
+    runtime: 1.08036e+04.
+  * function: ackley:
+    runtime: 8.15257e+03.
+  * function: rastrigin:
+    runtime: 1.08018e+04.
+  * function: levy_montalvo:
+    runtime: 1.08002e+04.
+  * function: michalewicz:
+    runtime: 1.08002e+04.
+  * function: salomon:
+    runtime: 1.08029e+04.
+  * function: bohachevsky:
+    runtime: 1.08035e+04.
+  * function: scaled_rastrigin:
+    runtime: 1.08005e+04.
+  * function: skew_rastrigin:
+    runtime: 1.08006e+04.
+  * function: schaffer:
+    runtime: 1.08029e+04.
+*** Total runtime: 1.05369e+05 ***.
