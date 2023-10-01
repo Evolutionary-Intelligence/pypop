@@ -1,22 +1,22 @@
 * experiment: 1 ***:
-  * function: sphere:
-    runtime: 1.08005e+04.
-  * function: cigar:
-    runtime: 1.08001e+04.
-  * function: discus:
-    runtime: 1.08001e+04.
-  * function: cigar_discus:
-    runtime: 1.08001e+04.
-  * function: ellipsoid:
-    runtime: 1.08007e+04.
-  * function: different_powers:
-    runtime: 1.08001e+04.
-  * function: schwefel221:
-    runtime: 1.08015e+04.
-  * function: step:
+  * function: griewank:
+    runtime: 9.79776e+03.
+  * function: ackley:
+    runtime: 1.08003e+04.
+  * function: rastrigin:
+    runtime: 1.08003e+04.
+  * function: levy_montalvo:
     runtime: 1.08002e+04.
-  * function: rosenbrock:
-    runtime: 1.08006e+04.
-  * function: schwefel12:
-    runtime: 1.08023e+04.
-*** Total runtime: 1.08007e+05 ***.
+  * function: michalewicz:
+    runtime: 1.08002e+04.
+  * function: salomon:
+    runtime: 1.08008e+04.
+  * function: bohachevsky:
+    runtime: 1.08002e+04.
+  * function: scaled_rastrigin:
+    runtime: 1.08003e+04.
+  * function: skew_rastrigin:
+    runtime: 1.08003e+04.
+  * function: schaffer:
+    runtime: 1.08002e+04.
+*** Total runtime: 1.07001e+05 ***.
