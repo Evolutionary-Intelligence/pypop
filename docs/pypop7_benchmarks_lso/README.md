@@ -65,6 +65,7 @@
 | [ASGA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/asga.py) | [link]() |
 | [GL25](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/GL25) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/GL25) |
 | [G3PCX](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/G3PCX) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/G3PCX) |
+| [GENITOR](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/genitor.py) | [link]() |
 | [LEP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/lep.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/LEP) |
 | [FEP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/fep.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/FEP) |
 | [CEP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/cep.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/CEP) |
