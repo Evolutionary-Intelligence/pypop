@@ -34,7 +34,7 @@
 | [SNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/snes.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/SNES) |
 | [XNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/xnes.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/XNES) |
 | [ENES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/enes.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/ENES) |
-| [ONES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/ones.py) | []() |
+| [ONES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/ones.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/ONES) |
 | [SGES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/sges.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/SGES) |
 | [RPEDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/rpeda.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/RPEDA) |
 | [UMDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/umda.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/UMDA) |
