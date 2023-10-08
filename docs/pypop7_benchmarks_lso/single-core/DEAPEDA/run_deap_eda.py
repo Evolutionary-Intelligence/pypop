@@ -60,14 +60,14 @@ class EMNA(object):  # Here EMNA is a specific EDA version (in fact)
         self.sigma = 2.0
 
     def generate(self, ind_init):
-        arz = self.centroid + self.sigma * np.random.randn(200, self.dim)
+        arz = self.centroid + self.sigma*np.random.randn(200, self.dim)
         return list(map(ind_init, arz))
 
     def update(self, population):
         sorted_pop = sorted(population, key=attrgetter("fitness"), reverse=True)
         z = sorted_pop[:100] - self.centroid
         avg = np.mean(z, axis=0)
-        self.sigma = np.sqrt(np.sum(np.sum((z - avg) ** 2, axis=1))/(100*self.dim))
+        self.sigma = np.sqrt(np.sum(np.sum((z - avg)**2, axis=1))/(100*self.dim))
         self.centroid += avg
 
 
@@ -76,7 +76,7 @@ def ea_generate_update(toolbox, start_time, ii):
     # to store a list of sampled function evaluations and best-so-far fitness
     fe, fitness = [], []
 
-    while (time.time() - start_time) < (60 * 60 * 3):  # 3 hours
+    while (time.time() - start_time) < (60*60*3):  # 3 hours
         population = toolbox.generate()
         fitnesses = toolbox.map(toolbox.evaluate, population)
         for ind, fit in zip(population, fitnesses):
