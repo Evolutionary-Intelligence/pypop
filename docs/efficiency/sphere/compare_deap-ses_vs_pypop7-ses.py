@@ -7,14 +7,13 @@ import pickle  # for data storage
 
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import rcParams
 
 from pypop7.optimizers.core import optimizer
 sys.modules['optimizer'] = optimizer  # for `pickle`
 
 
-def read_pickle(s, i):
-    with open(os.path.join('./', s + '-SES_' + i + '.pickle'), 'rb') as handle:
+def read_pickle(s, ii):
+    with open(os.path.join('./', s + '-SES_' + ii + '.pickle'), 'rb') as handle:
         return pickle.load(handle)
 
 
@@ -51,7 +50,7 @@ if __name__ == '__main__':
         r_f.sort(key=lambda x: (x[0], x[1]))  # sort by first runtime then fitness
         order = r_f[int(n_trials/2)][2]  # for median (but non-standard for simplicity)
         top_order.append(order)
-    top_fitness.append([run[order], fit[order], a])
+        top_fitness.append([run[order], fit[order], a])
     top_fitness.sort(key=lambda x: (x[0], x[1]))
     top_fitness = [t for t in [tr[2] for tr in top_fitness]]
     print('  #top fitness:', top_fitness)
@@ -66,6 +65,7 @@ if __name__ == '__main__':
     plt.yticks(fontsize=18, fontweight='bold')
     plt.title('Sphere', fontsize=18, fontweight='bold')
     plt.legend(labels, fontsize=18)
+    plt.yscale('log')
     plt.show()
 
     fig = plt.figure(figsize=(8.5, 8.5))
