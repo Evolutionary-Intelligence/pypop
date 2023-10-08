@@ -1,5 +1,5 @@
-"""This Python script plots the *median* convergence curves for DE
-    with respective to (actual) runtime.
+"""This Python script plots the *median* convergence curves for various DEs
+    with respective to actual runtime (to be needed).
 
     https://pypop.readthedocs.io/en/latest/index.html
     https://deap.readthedocs.io/en/master/
@@ -8,7 +8,6 @@ import os
 import sys
 import pickle  # for data storage
 
-import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -40,39 +39,37 @@ if __name__ == '__main__':
                 time[j].append([])
                 fitness[j].append([])
         for i in range(n_trials):
-            b = []
             for j, a in enumerate(algos):
                 results = read_pickle(a, f, str(i + 1))
-                b.append(results['best_so_far_y'])
                 time[j][i] = results['fitness'][:, 0]*results['runtime']/results['n_function_evaluations']
                 y = results['fitness'][:, 1]
-                for i_y in range(1, len(y)):  # for best-so-far fitness curve
-                    if y[i_y] > y[i_y - 1]:
-                        y[i_y] = y[i_y - 1]
                 fitness[j][i] = y
-        plt.figure(figsize=(8.6, 8.6))
+                print(' '*4, i + 1, ' + ', a, ':', results['best_so_far_y'], results['n_function_evaluations'])
+        top_fitness, top_order = [], []
+        for j, a in enumerate(algos):
+            run, fit, r_f = [], [], []
+            for i in range(len(time[j])):
+                run.append(time[j][i][-1] if time[j][i][-1] <= max_runtime else max_runtime)
+                fit.append(fitness[j][i][-1] if fitness[j][i][-1] >= fitness_threshold else fitness_threshold)
+                r_f.append([run[i], fit[i], i])
+            r_f.sort(key=lambda x: (x[0], x[1]))  # sort by first runtime then fitness
+            order = r_f[int(n_trials/2)][2]  # for median (but non-standard)
+            top_order.append(order)
+            top_fitness.append([run[order], fit[order], a])
+        top_fitness.sort(key= lambda x: (x[0], x[1]))
+        top_fitness = [t for t in [tr[2] for tr in top_fitness]]
+        print('  #top fitness:', top_fitness)
+        print('  #top order:', [(a, to + 1) for a, to in zip(algos, top_order)])
+        plt.figure(figsize=(8.5, 8.5))
         plt.yscale('log')
-        top_ranked = []
         for j, a in enumerate(algos):
-            end_runtime = [time[j][i][-1] for i in range(len(time[j]))]
-            end_fit = [fitness[j][i][-1] for i in range(len(fitness[j]))]
-            order = np.argsort(end_runtime)[int(n_trials/2)]  # for median (but non-standard)
-            _r = end_runtime[order] if end_runtime[order] <= max_runtime else max_runtime
-            _f = end_fit[order] if end_fit[order] >= fitness_threshold else fitness_threshold
-            top_ranked.append([_r, _f, a])
-        top_ranked.sort(key=lambda x: (x[0], x[1]))  # sort by first runtime then fitness
-        top_ranked = [t for t in [tr[2] for tr in top_ranked]]
-        print('  #top:', top_ranked)
-        for j, a in enumerate(algos):
-            end_runtime = [time[j][i][-1] for i in range(len(time[j]))]
-            order = np.argsort(end_runtime)[int(n_trials/2)]  # for median (but non-standard)
-            plt.plot(time[j][order], fitness[j][order], label=a)
+            plt.plot(time[j][top_order[j]], fitness[j][top_order[j]], label=a)
         plt.xlabel('Running Time (Seconds)', fontsize=24, fontweight='bold')
         plt.ylabel('Cost', fontsize=24, fontweight='bold')
         plt.title(f, fontsize=24, fontweight='bold')
         plt.xticks(fontsize=22, fontweight='bold')
         plt.yticks(fontsize=22, fontweight='bold')
-        plt.legend(loc=4, ncol=3, fontsize=12)
+        plt.legend(loc=4, ncol=3, fontsize=14)
         plt.rcParams['font.family'] = 'Times New Roman'
         plt.savefig('./figures/DEs-' + f + '.png', format='png')
         plt.show()
