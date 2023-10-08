@@ -1,4 +1,5 @@
-"""This Python script plots the *median* convergence curves for DE.
+"""This Python script plots the *median* convergence curves for DE
+    with respective to (actual) runtime.
 
     https://pypop.readthedocs.io/en/latest/index.html
     https://deap.readthedocs.io/en/master/
