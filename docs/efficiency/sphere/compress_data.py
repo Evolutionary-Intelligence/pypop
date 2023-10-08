@@ -8,14 +8,14 @@ from pypop7.optimizers.core import optimizer
 sys.modules['optimizer'] = optimizer  # for `pickle`
 
 
-def io_pickle(i, i_o, results=None):
-    afile = os.path.join('./', 'DEAP-PSO_' + i + '.pickle')
+def io_pickle(ii, i_o, r=None):
+    afile = os.path.join('./', 'DEAP-PSO_' + ii + '.pickle')
     if i_o == 'r':
         with open(afile, 'rb') as handle:
             return pickle.load(handle)
     else:
         with open(afile, 'wb') as handle:  # to save all data in .pickle format
-            pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
+            pickle.dump(r, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
 def compress_fitness(fitness):
