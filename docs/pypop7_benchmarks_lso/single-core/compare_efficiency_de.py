@@ -56,7 +56,7 @@ if __name__ == '__main__':
             order = r_f[int(n_trials/2)][2]  # for median (but non-standard)
             top_order.append(order)
             top_fitness.append([run[order], fit[order], a])
-        top_fitness.sort(key= lambda x: (x[0], x[1]))
+        top_fitness.sort(key=lambda x: (x[0], x[1]))
         top_fitness = [t for t in [tr[2] for tr in top_fitness]]
         print('  #top fitness:', top_fitness)
         print('  #top order:', [(a, to + 1) for a, to in zip(algos, top_order)])
