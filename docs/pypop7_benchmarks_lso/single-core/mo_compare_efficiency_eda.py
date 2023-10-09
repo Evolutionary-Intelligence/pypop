@@ -44,7 +44,7 @@ if __name__ == '__main__':
                 time[j][i] = results['fitness'][:, 0]*results['runtime']/results['n_function_evaluations']
                 y = results['fitness'][:, 1]
                 if f == 'michalewicz':  # for printing in the log scale
-                    y += 600.0
+                    y += 1200.0
                 fitness[j][i] = y
                 print(' '*4, i + 1, ' + ', a, ':', results['best_so_far_y'], results['n_function_evaluations'])
         top_fitness, top_order = [], []
