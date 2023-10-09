@@ -18,7 +18,9 @@ Some common problem characteristics of BBO are presented below:
 * unavailability of gradient information in the black-box setting (even if the gradient information actually exists);
 * without a precise model (e.g., owing to complex simulation);
 * non-differentiability;
-* non-linearity;
+* non-linearity, such as
+
+  * `nonlinear metamaterials <https://arxiv.org/abs/2307.07606>`_.
 * multi-modality;
 * ill-condition;
 * noisiness/stochasticity, such as
