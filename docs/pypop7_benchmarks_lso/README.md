@@ -1,6 +1,6 @@
 # README
 
-## Open-Access Data
+## Open-Access Data on the Single-Core Setting
 
 | Black-Box Optimizer | Data Folder |
 | ------------------- | ----------- |
