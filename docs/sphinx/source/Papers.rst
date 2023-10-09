@@ -31,6 +31,7 @@ ES
 EDA
 ---
 
+* Lu, M., Ning, S., Liu, S., Sun, F., Zhang, B., Yang, B. and Wang, L., 2023, June. OPT-GAN: A broad-spectrum global optimizer for black-box problems by learning distribution. In Proceedings of AAAI Conference on Artificial Intelligence (pp. 12462-12472).
 * Teytaud, F. and Teytaud, O., 2009, July. Why one must use reweighting in estimation of distribution algorithms. In Proceedings of ACM Annual Conference on Genetic and Evolutionary Computation (pp. 453-460).
 
 PSO
