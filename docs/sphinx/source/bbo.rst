@@ -21,7 +21,9 @@ Some common problem characteristics of BBO are presented below:
 * non-linearity, such as
 
   * `nonlinear metamaterials <https://arxiv.org/abs/2307.07606>`_.
-* multi-modality;
+* multi-modality/non-convexity, such as
+
+  * `variational quantum eigensolvers <https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.5.033071>`_.
 * ill-condition, such as
 
   * `nonlinear metamaterials <https://arxiv.org/abs/2307.07606>`_.
