@@ -22,7 +22,9 @@ Some common problem characteristics of BBO are presented below:
 
   * `nonlinear metamaterials <https://arxiv.org/abs/2307.07606>`_.
 * multi-modality;
-* ill-condition;
+* ill-condition, such as
+
+  * `nonlinear metamaterials <https://arxiv.org/abs/2307.07606>`_.
 * noisiness/stochasticity, such as
 
   * `[Mhanna&Assaad, 2023, ICML] <https://proceedings.mlr.press/v202/mhanna23a/mhanna23a.pdf>`_,
