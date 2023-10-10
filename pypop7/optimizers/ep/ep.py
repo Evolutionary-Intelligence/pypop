@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.core.optimizer import Optimizer
 
