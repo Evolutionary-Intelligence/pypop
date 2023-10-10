@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 from scipy.stats import levy_stable
 
 from pypop7.optimizers.ep.cep import CEP
@@ -37,7 +37,7 @@ class LEP(CEP):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.ep.lep import LEP
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
