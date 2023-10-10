@@ -25,7 +25,7 @@ if __name__ == '__main__':
     sns.set_theme(style='darkgrid')
 
     n_trials = 10
-    algos = ['EMNA', 'AEMNA', 'UMDA', 'RPEDA']
+    algos = ['DEAPEDA', 'EMNA', 'AEMNA', 'UMDA', 'RPEDA', 'DCEM', 'DSCEM', 'MRAS', 'SCEM']
     max_runtime, fitness_threshold = 3600*3 - 10*60, 1e-10
     funcs = ['sphere', 'cigar', 'discus', 'cigar_discus', 'ellipsoid',
              'different_powers', 'schwefel221', 'step', 'rosenbrock', 'schwefel12']
