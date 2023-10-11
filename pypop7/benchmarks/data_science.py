@@ -31,9 +31,9 @@ def square_loss_lr(w, x, y):
         Note that this loss function for binary classification is non-convex (non-linear least squares).
 
         https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8
+        https://openreview.net/forum?id=ryxz8CVYDH (2020)
         https://epubs.siam.org/doi/abs/10.1137/1.9781611976236.23 (2020)
         https://openreview.net/forum?id=BJe-DsC5Fm (2019)
-        https://openreview.net/forum?id=ryxz8CVYDH
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
