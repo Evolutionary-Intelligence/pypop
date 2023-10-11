@@ -38,7 +38,7 @@ class ONES(SGES):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the optimizer `ONES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
