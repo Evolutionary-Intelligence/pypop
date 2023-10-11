@@ -1,14 +1,12 @@
 import numpy as np  # engine for numerical computing
 from scipy.stats import multivariate_normal
 
-from pypop7.optimizers.eda.emna import EMNA
 from pypop7.optimizers.eda.eda import EDA
+from pypop7.optimizers.eda.emna import EMNA
 
 
-class EMNAWA(EMNA):
-    """Estimation of Multivariate Normal Algorithm with Weighted Averages (EMNAWA).
-
-    .. note:: .
+class REMNA(EMNA):
+    """Reweighting Estimation of Multivariate Normal Algorithm (REMNA).
 
     Parameters
     ----------
@@ -30,7 +28,7 @@ class EMNAWA(EMNA):
 
     Examples
     --------
-    Use the optimizer `EMNAWA` to minimize the well-known test function
+    Use the optimizer `REMNA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -38,18 +36,18 @@ class EMNAWA(EMNA):
 
        >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
-       >>> from pypop7.optimizers.eda.emnawa import EMNAWA
+       >>> from pypop7.optimizers.eda.remna import REMNA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5.0*numpy.ones((2,)),
        ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
-       >>> emnawa = EMNAWA(problem, options)  # initialize the optimizer class
-       >>> results = emnawa.optimize()  # run the optimization process
+       >>> remna = REMNA(problem, options)  # initialize the optimizer class
+       >>> results = remna.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
-       >>> print(f"EMNAWA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       EMNAWA: 5000, 0.008375142194038284
+       >>> print(f"REMNA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       REMNA: 5000, 0.10884736030419488
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/2p8xksyy>`_ for more details.
@@ -72,7 +70,7 @@ class EMNAWA(EMNA):
         EMNA.__init__(self, problem, options)
 
     def initialize(self, args=None):
-        mean, cov = (self.initial_upper_boundary + self.initial_lower_boundary) / 2, 0.1 * np.eye(self.ndim_problem)
+        mean, cov = (self.initial_upper_boundary + self.initial_lower_boundary)/2.0, 0.1*np.eye(self.ndim_problem)
         x = self.rng_optimization.multivariate_normal(mean, cov, size=(self.n_individuals,))  # population
         y = np.empty((self.n_individuals,))  # fitness
         for i in range(self.n_individuals):
@@ -86,10 +84,9 @@ class EMNAWA(EMNA):
         try:
             m = multivariate_normal(mean=mean, cov=cov)
         except Exception:
-            m = multivariate_normal(mean=mean, cov=cov + 1e-100 * np.eye(self.ndim_problem))
-        w = 1 / m.pdf(x[order]).reshape(-1, 1)
-        w = w / np.sum(w)
-        x[order] += (x[order] - mean)*w
+            m = multivariate_normal(mean=mean, cov=cov + 1e-100*np.eye(self.ndim_problem))
+        w = 1.0/m.pdf(x[order]).reshape(-1, 1)
+        x[order] += (x[order] - mean)*w/np.sum(w)
         mean = np.mean(x[order], axis=0)
         cov = np.cov(np.transpose(x[order]))
         for i in range(self.n_individuals):
