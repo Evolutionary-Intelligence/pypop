@@ -60,3 +60,16 @@ def logistic_loss_lr(w, x, y):
 class LogisticLossLR(BaseFunction):
     def __call__(self, w, x, y):
         return logistic_loss_lr(w, x, y)
+
+
+def logistic_loss_l2(w, x, y):
+    """Logistic Loss Function with L2-Regularization of Logistic Regression (with binary labels/classes {-1, 1}).
+
+        https://epubs.siam.org/doi/abs/10.1137/1.9781611976236.23
+    """
+    return logistic_loss_lr(w, x, y) + np.sum(np.square(w))/(2.0*len(y))
+
+
+class LogisticLossL2(BaseFunction):
+    def __call__(self, w, x, y):
+        return logistic_loss_l2(w, x, y)
