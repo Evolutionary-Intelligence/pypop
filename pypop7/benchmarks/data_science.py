@@ -37,8 +37,7 @@ def square_loss_lr(w, x, y):
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
-        p = 1.0/(1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:]))))
-        loss[i] = np.square(y[i] - p)
+        loss[i] = np.square(y[i] - 1.0/(1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:])))))
     return np.mean(loss)
 
 
