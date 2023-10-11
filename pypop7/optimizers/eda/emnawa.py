@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 from scipy.stats import multivariate_normal
 
 from pypop7.optimizers.eda.emna import EMNA
@@ -36,7 +36,7 @@ class EMNAWA(EMNA):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.eda.emnawa import EMNAWA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
