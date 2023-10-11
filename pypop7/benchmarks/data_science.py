@@ -11,6 +11,7 @@ def cross_entropy_loss_lr(w, x, y):
         https://web.stanford.edu/~jurafsky/slp3/5.pdf
         https://developer.ibm.com/articles/implementing-logistic-regression-from-scratch-in-python/
         https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_2_Cross_entropy.html
+        https://openreview.net/forum?id=BJe-DsC5Fm (2019)
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
@@ -30,7 +31,7 @@ def square_loss_lr(w, x, y):
         Note that this loss function is non-convex (non-linear least squares).
 
         https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8
-        https://openreview.net/forum?id=BJe-DsC5Fm
+        https://openreview.net/forum?id=BJe-DsC5Fm (2019)
         https://openreview.net/forum?id=ryxz8CVYDH
         https://epubs.siam.org/doi/abs/10.1137/1.9781611976236.23
     """
