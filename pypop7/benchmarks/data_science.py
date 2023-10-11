@@ -22,3 +22,22 @@ def cross_entropy_loss_lr(w, x, y):
 class CrossEntropyLossLR(BaseFunction):
     def __call__(self, w, x, y):
         return cross_entropy_loss_lr(w, x, y)
+
+
+def square_loss_lr(w, x, y):
+    """"Square Loss Function of Logistic Regression (with binary labels/classes {0, 1}).
+
+        Note that this loss function is non-convex.
+
+        https://epubs.siam.org/doi/abs/10.1137/1.9781611976236.23
+    ""
+    loss = np.empty(len(y))
+    for i in range(len(y)):
+        p = 1.0/(1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:]))))
+        loss[i] = np.square(y[i] - p)
+    return np.mean(loss)
+
+
+class SquareLossLR(BaseFunction):
+    def __call__(self, w, x, y):
+        return square_loss_lr(w, x, y)
