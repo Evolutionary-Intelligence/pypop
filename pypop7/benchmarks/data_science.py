@@ -1,4 +1,5 @@
 import numpy as np  # engine for numerical computing
+from numpy import genfromtxt  # to read datasets
 
 from pypop7.benchmarks.base_functions import BaseFunction
 
@@ -84,3 +85,20 @@ def mpc2023_nonsmooth(w, x, y):
     for i in range(len(y)):
         loss[i] = np.abs(np.dot(w, x[i]) - y[i])
     return np.mean(loss)
+
+
+def read_parkinson_disease_classification():
+    """Sakar,C., Serbes,Gorkem, Gunduz,Aysegul, Nizam,Hatice, and Sakar,Betul. (2018).
+        Parkinson's Disease Classification.
+        UCI Machine Learning Repository.
+        https://doi.org/10.24432/C5MS4X
+
+        # Data: https://archive.ics.uci.edu/static/public/470/parkinson+s+disease+classification.zip
+        # Instances: 756
+        # Features: 753
+        # Class: 0/1
+        # Missing Values: No
+    """
+    d = genfromtxt('pd_speech_features.csv', delimiter=',')
+    x, y = d[2:, 1:-1], d[2:, -1]
+    return x, y
