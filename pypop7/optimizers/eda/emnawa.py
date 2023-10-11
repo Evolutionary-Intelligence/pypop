@@ -24,13 +24,13 @@ class EMNAWA(EMNA):
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.Inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring, offspring population size (`int`, default: `200`),
-                * 'n_parents'     - number of parents, parental population size (`int`, default:
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `200`),
+                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
                   `int(options['n_individuals']/2)`).
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the optimizer `EMNAWA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -41,8 +41,8 @@ class EMNAWA(EMNA):
        >>> from pypop7.optimizers.eda.emnawa import EMNAWA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022}
        >>> emnawa = EMNAWA(problem, options)  # initialize the optimizer class
@@ -87,7 +87,6 @@ class EMNAWA(EMNA):
             m = multivariate_normal(mean=mean, cov=cov)
         except Exception:
             m = multivariate_normal(mean=mean, cov=cov + 1e-100 * np.eye(self.ndim_problem))
-
         w = 1 / m.pdf(x[order]).reshape(-1, 1)
         w = w / np.sum(w)
         x[order] += (x[order] - mean)*w
