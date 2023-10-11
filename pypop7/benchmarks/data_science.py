@@ -73,3 +73,14 @@ def logistic_loss_l2(w, x, y):
 class LogisticLossL2(BaseFunction):
     def __call__(self, w, x, y):
         return logistic_loss_l2(w, x, y)
+
+
+def mpc2023_nonsmooth(w, x, y):
+    """Nonsmooth Function from MPC-2023.
+
+        https://link.springer.com/article/10.1007/s12532-023-00233-9 (2023)
+    """
+    loss = np.empty(len(y))
+    for i in range(len(y)):
+        loss[i] = np.abs(np.dot(w, x[i]) - y[i])
+    return np.mean(loss)
