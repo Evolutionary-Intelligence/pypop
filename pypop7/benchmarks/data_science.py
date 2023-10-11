@@ -3,7 +3,7 @@ import numpy as np
 from pypop7.benchmarks.base_functions import BaseFunction
 
 
-def logistic_regression(w, x, y):
+def cross_entropy_loss_lr(w, x, y):
     """"Cross-Entropy Loss Function of Logistic Regression (with binary labels {0, 1}).
 
         Note that this loss function is convex.
@@ -19,6 +19,6 @@ def logistic_regression(w, x, y):
     return np.mean(loss)
 
 
-class LogisticRegression(BaseFunction):
+class CrossEntropyLossLR(BaseFunction):
     def __call__(self, w, x, y):
-        return logistic_regression(w, x, y)
+        return cross_entropy_loss_lr(w, x, y)
