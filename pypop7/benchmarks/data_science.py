@@ -6,7 +6,7 @@ from pypop7.benchmarks.base_functions import BaseFunction
 def cross_entropy_loss_lr(w, x, y):
     """Cross-Entropy Loss Function of Logistic Regression (with binary labels/classes {0, 1}).
 
-        Note that this loss function is convex.
+        Note that this loss function for binary classification is convex.
 
         https://web.stanford.edu/~jurafsky/slp3/5.pdf
         https://developer.ibm.com/articles/implementing-logistic-regression-from-scratch-in-python/
