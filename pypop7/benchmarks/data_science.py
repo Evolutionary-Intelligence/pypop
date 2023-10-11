@@ -48,6 +48,8 @@ class SquareLossLR(BaseFunction):
 
 def logistic_loss_lr(w, x, y):
     """Logistic Loss Function of Logistic Regression (with binary labels/classes {-1, 1}).
+
+        https://www.tandfonline.com/doi/full/10.1080/00031305.2021.2006781
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
