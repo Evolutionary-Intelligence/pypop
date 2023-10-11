@@ -29,6 +29,7 @@ def square_loss_lr(w, x, y):
 
         Note that this loss function is non-convex (non-linear least squares).
 
+        https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8
         https://epubs.siam.org/doi/abs/10.1137/1.9781611976236.23
     """
     loss = np.empty(len(y))
