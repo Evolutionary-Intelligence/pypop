@@ -44,3 +44,17 @@ def square_loss_lr(w, x, y):
 class SquareLossLR(BaseFunction):
     def __call__(self, w, x, y):
         return square_loss_lr(w, x, y)
+
+
+def logistic_loss_lr(w, x, y):
+    """Logistic Loss Function of Logistic Regression (with binary labels/classes {-1, 1}).
+    """
+    loss = np.empty(len(y))
+    for i in range(len(y)):
+        loss[i] = np.log(1.0 + np.exp(-y[i]*(w[0] + np.dot(x[i], w[1:]))))
+    return np.mean(loss)
+
+
+class LogisticLossLR(BaseFunction):
+    def __call__(self, w, x, y):
+        return logistic_loss_lr(w, x, y)
