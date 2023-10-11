@@ -31,7 +31,7 @@ class R1NES(NES):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the optimizer `R1NES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
