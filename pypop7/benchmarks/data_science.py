@@ -136,3 +136,22 @@ def read_madelon():
     x = genfromtxt('madelon_train.data', delimiter=' ')
     y = genfromtxt('madelon_train.labels')
     return x, y
+
+
+def read_cnae9():
+    """Ciarelli,Patrick and Oliveira,Elias. (2012).
+        CNAE-9.
+        UCI Machine Learning Repository.
+        https://doi.org/10.24432/C51G7P.
+
+        # Data: https://archive.ics.uci.edu/static/public/233/cnae+9.zip
+        # Instances: 1080
+        # Features: 856
+        # Class: 0/1
+        # Missing Values: No
+    """
+    d = genfromtxt('CNAE-9.data', delimiter=',')
+    x, y = d[:, 1:], d[:, 0]
+    index_not_9, index_9 = y != 9, y == 9
+    y[index_not_9], y[index_9] = 0, 1
+    return x, y
