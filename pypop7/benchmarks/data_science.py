@@ -34,6 +34,7 @@ def square_loss_lr(w, x, y):
         https://openreview.net/forum?id=ryxz8CVYDH (2020)
         https://epubs.siam.org/doi/abs/10.1137/1.9781611976236.23 (2020)
         https://openreview.net/forum?id=BJe-DsC5Fm (2019)
+        https://proceedings.neurips.cc/paper/2018/file/ba9a56ce0a9bfa26e8ed9e10b2cc8f46-Paper.pdf (2018)
         https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8 (2018)
     """
     loss = np.empty(len(y))
