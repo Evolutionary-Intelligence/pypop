@@ -156,3 +156,19 @@ def read_cnae9():
     index_not_9, index_9 = y != 9, y == 9
     y[index_not_9], y[index_9] = 0, 1
     return x, y
+
+
+def read_qsar_androgen_receptor():
+    """QSAR androgen receptor. (2019).
+        UCI Machine Learning Repository.
+        https://doi.org/10.24432/C53317.
+
+        # Data: https://archive.ics.uci.edu/static/public/509/qsar+androgen+receptor.zip
+        # Instances: 1687
+        # Features: 1024
+        # Class: -1/1
+        # Missing Values: No
+    """
+    d = genfromtxt('qsar_androgen_receptor.csv', delimiter=';')
+    x, y = d[:, :-1], d[:, -1]
+    return x, y
