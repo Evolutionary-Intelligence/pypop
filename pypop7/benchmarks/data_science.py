@@ -102,3 +102,20 @@ def read_parkinson_disease_classification():
     d = genfromtxt('pd_speech_features.csv', delimiter=',')
     x, y = d[2:, 1:-1], d[2:, -1]
     return x, y
+
+
+def read_semeion_handwritten_digit():
+    """Tactile,Srl, Massimo,Buscema, and Stefano,Terzi (1994).
+        Semeion Handwritten Digit.
+        UCI Machine Learning Repository.
+        https://doi.org/10.24432/C5SC8V
+
+        # Data: https://archive.ics.uci.edu/static/public/178/semeion+handwritten+digit.zip
+        # Instances: 1593
+        # Features: 256 (for 266 Features: the last 10 columns are class labels for digit 0 - 9)
+        # Class: 0/1
+        # Missing Values: No
+    """
+    d = genfromtxt('semeion.data', delimiter=' ')
+    x, y = d[:, :256], d[:, -1]  # only to classify digit 9
+    return x, y
