@@ -112,7 +112,7 @@ def read_semeion_handwritten_digit():
 
         # Data: https://archive.ics.uci.edu/static/public/178/semeion+handwritten+digit.zip
         # Instances: 1593
-        # Features: 256 (for 266 Features: the last 10 columns are class labels for digit 0 - 9)
+        # Features: 256 (For 266 Features: the last 10 columns are class labels for digit 0 - 9)
         # Class: 0/1
         # Missing Values: No
     """
