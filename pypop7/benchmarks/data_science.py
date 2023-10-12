@@ -52,7 +52,7 @@ def logistic_loss_lr(w, x, y):
         AKA softmax cost.
 
         https://www.tandfonline.com/doi/full/10.1080/00031305.2021.2006781
-        https://github.com/jermwatt/machine_learning_refined
+        https://github.com/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_3_Softmax.ipynb
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
