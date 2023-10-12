@@ -122,23 +122,6 @@ def read_semeion_handwritten_digit():
     return x, y
 
 
-def read_madelon():
-    """Guyon,Isabelle. (2008).
-        Madelon.
-        UCI Machine Learning Repository.
-        https://doi.org/10.24432/C5602H.
-
-        # Data: https://archive.ics.uci.edu/static/public/171/madelon.zip
-        # Instances: 2000
-        # Features: 500
-        # Class: -1/1
-        # Missing Values: No
-    """
-    x = genfromtxt('madelon_train.data', delimiter=' ')
-    y = genfromtxt('madelon_train.labels')
-    return x, y
-
-
 def read_cnae9():
     """Ciarelli,Patrick and Oliveira,Elias. (2012).
         CNAE-9.
@@ -155,6 +138,23 @@ def read_cnae9():
     x, y = d[:, 1:], d[:, 0]
     index_not_9, index_9 = y != 9, y == 9
     y[index_not_9], y[index_9] = 0, 1
+    return x, y
+
+
+def read_madelon():
+    """Guyon,Isabelle. (2008).
+        Madelon.
+        UCI Machine Learning Repository.
+        https://doi.org/10.24432/C5602H.
+
+        # Data: https://archive.ics.uci.edu/static/public/171/madelon.zip
+        # Instances: 2000
+        # Features: 500
+        # Class: -1/1
+        # Missing Values: No
+    """
+    x = genfromtxt('madelon_train.data', delimiter=' ')
+    y = genfromtxt('madelon_train.labels')
     return x, y
 
 
