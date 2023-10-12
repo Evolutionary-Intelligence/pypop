@@ -5,6 +5,34 @@ import pypop7.benchmarks.data_science as ds
 
 
 if __name__ == '__main__':
+    x, y = ds.read_parkinson_disease_classification()
+    assert x.shape == (756, 753)
+    assert y.shape == (756,)
+    assert sum(y == 0) == 192
+    assert sum(y == 1) == 564
+    assert sum(y == 0) + sum(y == 1) == len(y)
+    print(x.dtype, y.dtype)
+
+    w = np.zeros((x.shape[1] + 1,))
+    loss = ds.cross_entropy_loss_lr(w, x, y)
+    print(loss)  # 0.6931471805599454
+    loss = ds.square_loss_lr(w, x, y)
+    print(loss)  # 0.25
+
+    x, y = ds.read_semeion_handwritten_digit()
+    assert x.shape == (1593, 256)
+    assert y.shape == (1593,)
+    assert sum(y == 0) == 1435
+    assert sum(y == 1) == 158
+    assert sum(y == 0) + sum(y == 1) == len(y)
+    print(x.dtype, y.dtype)
+
+    w = np.zeros((x.shape[1] + 1,))
+    loss = ds.cross_entropy_loss_lr(w, x, y)
+    print(loss)  # 0.6931471805599452
+    loss = ds.square_loss_lr(w, x, y)
+    print(loss)  # 0.25
+
     x, y = ds.read_cnae9()
     assert x.shape == (1080, 856)
     assert y.shape == (1080,)
