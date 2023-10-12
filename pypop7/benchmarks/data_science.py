@@ -119,3 +119,20 @@ def read_semeion_handwritten_digit():
     d = genfromtxt('semeion.data', delimiter=' ')
     x, y = d[:, :256], d[:, -1]  # only to classify digit 9
     return x, y
+
+
+def read_madelon():
+    """Guyon,Isabelle. (2008).
+        Madelon.
+        UCI Machine Learning Repository.
+        https://doi.org/10.24432/C5602H.
+
+        # Data: https://archive.ics.uci.edu/static/public/171/madelon.zip
+        # Instances: 2000
+        # Features: 500
+        # Class: -1/1
+        # Missing Values: No
+    """
+    x = genfromtxt('madelon_train.data', delimiter=' ')
+    y = genfromtxt('madelon_train.labels')
+    return x, y
