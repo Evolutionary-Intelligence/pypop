@@ -1,3 +1,5 @@
+import numpy as np
+
 import pypop7.benchmarks.data_science as ds
 
 
@@ -25,3 +27,7 @@ if __name__ == '__main__':
     assert sum(y == 1) == 199
     assert sum(y == -1) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
+
+    w = np.zeros((x.shape[1] + 1,))
+    loss = ds.cross_entropy_loss_lr(w, x, y)
+    print(loss)  # 0.6931471805599453
