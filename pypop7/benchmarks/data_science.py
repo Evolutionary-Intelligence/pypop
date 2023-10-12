@@ -9,8 +9,6 @@ def cross_entropy_loss_lr(w, x, y):
 
         Note that this loss function for binary classification is convex.
 
-        https://web.stanford.edu/~jurafsky/slp3/5.pdf
-        https://developer.ibm.com/articles/implementing-logistic-regression-from-scratch-in-python/
         https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_2_Cross_entropy.html
         https://openreview.net/forum?id=BJe-DsC5Fm (2019)
     """
