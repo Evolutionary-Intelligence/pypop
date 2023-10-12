@@ -95,7 +95,7 @@ def read_parkinson_disease_classification():
 
         # Data: https://archive.ics.uci.edu/static/public/470/parkinson+s+disease+classification.zip
         # Instances: 756
-        # Features: 753
+        # Features: 753 (Delete `id` from 754 Features)
         # Class: 0/1
         # Missing Values: No
     """
