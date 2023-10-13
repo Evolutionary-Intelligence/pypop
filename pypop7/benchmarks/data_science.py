@@ -100,6 +100,8 @@ def hinge_loss_perceptron():
     """Hinge Loss Function of Perceptron.
 
         AKA perceptron cost, rectified linear unit cost.
+
+        This cost function is always convex but only has a single discontinuous derivative in each variable dimension.
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
