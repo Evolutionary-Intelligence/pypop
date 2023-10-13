@@ -78,6 +78,24 @@ class LogisticLossL2(BaseFunction):
         return logistic_loss_l2(w, x, y)
 
 
+def tanh_loss_lr(w, x, y):
+    """Tanh Loss Function of Logistic Regression (with binary labels/classes {-1, 1}).
+
+        Note that this loss function for binary classification is non-convex (non-linear least squares).
+
+        https://github.com/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_3_Softmax.ipynb
+    """
+    loss = np.empty(len(y))
+    for i in range(len(y)):
+        loss[i] = np.square(2.0/(1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:])))) -1.0 - y[i])
+    return np.mean(loss)
+
+
+class TanhLossLR(BaseFunction):
+    def __call__(self, w, x, y):
+        return tanh_loss_lr(w, x, y)
+
+
 def mpc2023_nonsmooth(w, x, y):
     """Nonsmooth Function from MPC-2023.
 
