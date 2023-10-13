@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 from scipy.stats import multivariate_normal as mn
 
 from pypop7.optimizers.cem import CEM
@@ -40,7 +40,7 @@ class MRAS(CEM):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.cem.mras import MRAS
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
