@@ -96,6 +96,22 @@ class TanhLossLR(BaseFunction):
         return tanh_loss_lr(w, x, y)
 
 
+def hinge_loss_perceptron():
+    """Hinge Loss Function of Perceptron.
+
+        AKA perceptron cost, rectified linear unit cost.
+    """
+    loss = np.empty(len(y))
+    for i in range(len(y)):
+        loss[i] = np.max(0, -y[i]*(w[0] + np.dot(x[i], w[1:])))
+    return np.mean(loss)
+
+
+class HingeLossPerceptron(BaseFunction):
+    def __call__(self, w, x, y):
+        return hinge_loss_perceptron(w, x, y)
+
+
 def mpc2023_nonsmooth(w, x, y):
     """Nonsmooth Function from MPC-2023.
 
