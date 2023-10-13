@@ -96,7 +96,7 @@ class TanhLossLR(BaseFunction):
         return tanh_loss_lr(w, x, y)
 
 
-def hinge_loss_perceptron():
+def hinge_loss_perceptron(w, x, y):
     """Hinge Loss Function of Perceptron.
 
         AKA perceptron cost, rectified linear unit cost.
@@ -159,7 +159,7 @@ def read_semeion_handwritten_digit():
     return x, y
 
 
-def read_cnae9():
+def read_cnae9(is_10=True):
     """Ciarelli,Patrick and Oliveira,Elias. (2012).
         CNAE-9.
         UCI Machine Learning Repository.
@@ -174,7 +174,10 @@ def read_cnae9():
     d = genfromtxt('CNAE-9.data', delimiter=',')
     x, y = d[:, 1:], d[:, 0]
     index_not_9, index_9 = y != 9, y == 9
-    y[index_not_9], y[index_9] = 0, 1
+    if is_10:
+        y[index_not_9], y[index_9] = 0, 1
+    else:
+        y[index_not_9], y[index_9] = -1, 1
     return x, y
 
 
