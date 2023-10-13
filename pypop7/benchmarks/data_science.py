@@ -49,7 +49,7 @@ class SquareLossLR(BaseFunction):
 def logistic_loss_lr(w, x, y):
     """Logistic Loss Function of Logistic Regression (with binary labels/classes {-1, 1}).
 
-        AKA softmax cost.
+        AKA softmax cost (always convex regardless of the dataset used).
 
         https://www.tandfonline.com/doi/full/10.1080/00031305.2021.2006781
         https://github.com/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_3_Softmax.ipynb
