@@ -159,7 +159,7 @@ def read_madelon():
     return x, y
 
 
-def read_qsar_androgen_receptor():
+def read_qsar_androgen_receptor(is_10=False):
     """QSAR androgen receptor. (2019).
         UCI Machine Learning Repository.
         https://doi.org/10.24432/C53317.
@@ -172,4 +172,6 @@ def read_qsar_androgen_receptor():
     """
     d = genfromtxt('qsar_androgen_receptor.csv', delimiter=';')
     x, y = d[:, :-1], d[:, -1]
+    if is_10:  # to convert all labels with -1 to 0
+        y[y == -1] = 0
     return x, y
