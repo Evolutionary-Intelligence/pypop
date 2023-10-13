@@ -142,7 +142,7 @@ def read_cnae9():
     return x, y
 
 
-def read_madelon():
+def read_madelon(is_10=False):
     """Guyon,Isabelle. (2008).
         Madelon.
         UCI Machine Learning Repository.
@@ -156,6 +156,8 @@ def read_madelon():
     """
     x = genfromtxt('madelon_train.data', delimiter=' ')
     y = genfromtxt('madelon_train.labels')
+    if is_10:  # to convert all labels with -1 to 0
+        y[y == -1] = 0
     return x, y
 
 
