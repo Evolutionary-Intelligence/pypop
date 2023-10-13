@@ -87,7 +87,7 @@ def tanh_loss_lr(w, x, y):
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
-        loss[i] = np.square(2.0/(1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:])))) -1.0 - y[i])
+        loss[i] = np.square(2.0/(1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:])))) - 1.0 - y[i])
     return np.mean(loss)
 
 
