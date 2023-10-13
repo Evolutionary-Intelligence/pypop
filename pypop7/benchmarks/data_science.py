@@ -142,7 +142,7 @@ def read_parkinson_disease_classification():
     return x, y
 
 
-def read_semeion_handwritten_digit():
+def read_semeion_handwritten_digit(is_10=True):
     """Tactile,Srl, Massimo,Buscema, and Stefano,Terzi (1994).
         Semeion Handwritten Digit.
         UCI Machine Learning Repository.
@@ -156,6 +156,8 @@ def read_semeion_handwritten_digit():
     """
     d = genfromtxt('semeion.data', delimiter=' ')
     x, y = d[:, :256], d[:, -1]  # only to classify digit 9
+    if not is_10:
+        y[y == 0] = -1
     return x, y
 
 
