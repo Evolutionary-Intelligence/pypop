@@ -150,6 +150,24 @@ class LossMarginPerceptron(BaseFunction):
         return loss_margin_perceptron(w, x, y)
 
 
+def loss_svm(w, x, y, r=None):
+    """Loss Function of Support Vector Machines.
+
+        https://jermwatt.github.io/machine_learning_refined/ (2020)
+    """
+    if r is None:
+        r = 1e-3
+    loss = np.empty(len(y))
+    for i in range(len(y)):
+        loss[i] = np.max(0, 1 - y[i]*(w[0] + np.dot(x[i], w[1:])))
+    return np.mean(loss) + r*np.sum(np.square(w))
+
+
+class LossSVM(BaseFunction):
+    def __call__(self, w, x, y):
+        return loss_svm(w, x, y)
+
+
 def mpc2023_nonsmooth(w, x, y):
     """Nonsmooth Function from MPC-2023.
 
