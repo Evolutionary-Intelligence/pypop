@@ -27,6 +27,7 @@ For Chinese users, sometimes the following PyPI configuration can be used to spe
 rather than the default PyPI setting:
 
 .. code-block:: bash
+
     pip config set global.index-url https://pypi.org/simple
     pip config set install.trusted-host files.pythonhosted.org
 
