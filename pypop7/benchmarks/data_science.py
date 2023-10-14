@@ -5,10 +5,10 @@ from pypop7.benchmarks.base_functions import BaseFunction
 
 
 def cross_entropy_loss_lr(w, x, y):
-    """Cross-Entropy Loss Function of Logistic Regression (with binary labels/classes {0, 1}).
+    """Cross-Entropy Loss Function of Logistic Regression (LR with binary labels/classes {0, 1}).
 
         Note that this loss function for binary (two-class) classification is always convex
-          regardless of the used dataset.
+          regardless of the used dataset. It is very often used in practice to perform LR.
 
         https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_2_Cross_entropy.html
         https://openreview.net/forum?id=BJe-DsC5Fm (2019)
@@ -26,7 +26,7 @@ class CrossEntropyLossLR(BaseFunction):
 
 
 def square_loss_lr(w, x, y):
-    """Square Loss Function of Logistic Regression (with binary labels/classes {0, 1}).
+    """Square Loss Function of Logistic Regression (LR with binary labels/classes {0, 1}).
 
         Note that this loss function for binary classification is generally non-convex (non-linear least squares).
 
@@ -49,7 +49,7 @@ class SquareLossLR(BaseFunction):
 
 
 def logistic_loss_lr(w, x, y):
-    """Logistic Loss Function of Logistic Regression (with binary labels/classes {-1, 1}).
+    """Logistic Loss Function of Logistic Regression (LR with binary labels/classes {-1, 1}).
 
         AKA softmax cost (always convex regardless of the dataset used).
 
@@ -68,7 +68,7 @@ class LogisticLossLR(BaseFunction):
 
 
 def logistic_loss_l2(w, x, y):
-    """Logistic Loss Function with L2-Regularization of Logistic Regression (with binary labels/classes {-1, 1}).
+    """Logistic Loss Function with L2-Regularization of Logistic Regression (LR with binary labels/classes {-1, 1}).
 
         https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8 (2018)
     """
@@ -81,9 +81,9 @@ class LogisticLossL2(BaseFunction):
 
 
 def tanh_loss_lr(w, x, y):
-    """Tanh Loss Function of Logistic Regression (with binary labels/classes {-1, 1}).
+    """Tanh Loss Function of Logistic Regression (LR with binary labels/classes {-1, 1}).
 
-        Note that this loss function for binary classification is non-convex (non-linear least squares).
+        Note that this loss function for binary classification is generally non-convex (non-linear least squares).
 
         https://github.com/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_3_Softmax.ipynb
     """
