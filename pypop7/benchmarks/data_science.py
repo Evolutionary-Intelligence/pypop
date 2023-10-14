@@ -134,6 +134,22 @@ class HingeLossPerceptron(BaseFunction):
         return hinge_loss_perceptron(w, x, y)
 
 
+def loss_margin_perceptron(w, x, y):
+    """Loss Function of Margin Perceptron.
+
+        https://jermwatt.github.io/machine_learning_refined/ (2020)
+    """
+    loss = np.empty(len(y))
+    for i in range(len(y)):
+        loss[i] = np.max(0, 1 - y[i]*(w[0] + np.dot(x[i], w[1:])))
+    return np.mean(loss)
+
+
+class LossMarginPerceptron(BaseFunction):
+    def __call__(self, w, x, y):
+        return loss_margin_perceptron(w, x, y)
+
+
 def mpc2023_nonsmooth(w, x, y):
     """Nonsmooth Function from MPC-2023.
 
