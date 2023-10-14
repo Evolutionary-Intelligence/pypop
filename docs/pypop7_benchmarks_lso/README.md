@@ -73,7 +73,7 @@
 | [GPS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/gps.py) | [link]() |
 | [NM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/nm.py) | [link]() |
 | [HJ](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/hj.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/HJ) |
-| [CS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/cs.py) | [link]() |
+| [CS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/cs.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/CS) |
 | [BES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/bes.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/BES) |
 | [GS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/gs.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/GS) |
 | [SRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/srs.py) | [link](https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/pypop7_benchmarks_lso/single-core/SRS) |
