@@ -17,6 +17,19 @@ various packages easily.
 
     pip install pypop7
 
+For Chinese users, sometimes the following PyPI configuration can be used to speedup the installation process
+
+.. code-block:: bash
+
+    pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+    pip config set install.trusted-host mirrors.aliyun.com
+
+rather than the default PyPI setting:
+
+.. code-block:: bash
+    pip config set global.index-url https://pypi.org/simple
+    pip config set install.trusted-host files.pythonhosted.org
+
 If the latest cutting-edge version is preferred, you can install directly from the GitHub repository:
 
 .. code-block:: bash
