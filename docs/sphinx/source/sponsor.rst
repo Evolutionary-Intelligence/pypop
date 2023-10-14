@@ -4,7 +4,8 @@ Sponsor
 This open-source Python library for **large-scale black-box optimization** is supported by Shenzhen Fundamental
 Research Program under Grant No. JCYJ20200109141235597 (2,000,000 Yuan granted to *Prof. Yuhui Shi* from CSE, Southern
 University of Science and Technology (SUSTech) @ Shenzhen, China from 2021 to 2023), and actively developed by three
-of his group members (*Qiqi Duan*, *Chang Shao*, and *Guochen Zhou*).
+of his group members (*Qiqi Duan* also in Harbin Institute of Technology, *Chang Shao* also in University of Technology
+Sydney, and *Guochen Zhou*).
 
   * Now *Zhuowei Wang* from University of Technology Sydney (UTS) takes part in this library as one core developer (for
     testing).
