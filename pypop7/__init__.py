@@ -3,10 +3,10 @@
     implementations for Black-Box Optimization (BBO), particularly population-based optimizers, in order to
     facilitate research repeatability and also real-world applications.
 
-    More specifically, for alleviating the notorious curse of dimensionality of BBO (based on iterative sampling),
+    More specifically, for alleviating the notorious **curse of dimensionality** of BBO (based on iterative sampling),
     the primary focus of PyPop7 is to cover their State-Of-The-Art (SOTA) implementations for Large-Scale Optimization
     (LSO), though many of their other versions and variants are also included here (for benchmarking/mixing purpose,
-    and sometimes even for practical purpose).
+    and also for practical purpose).
 """
 from pypop7.optimizers.core import Optimizer, Terminations  # base (abstract) class for all optimizers
 from pypop7.optimizers.rs import RS, PRS, RHC, ARHC, SRS, GS, BES
