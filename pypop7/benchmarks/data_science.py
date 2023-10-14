@@ -29,6 +29,7 @@ def square_loss_lr(w, x, y):
 
         Note that this loss function for binary classification is non-convex (non-linear least squares).
 
+        https://jermwatt.github.io/machine_learning_refined/ (2020)
         https://openreview.net/forum?id=ryxz8CVYDH (2020)
         https://epubs.siam.org/doi/abs/10.1137/1.9781611976236.23 (2020)
         https://openreview.net/forum?id=BJe-DsC5Fm (2019)
