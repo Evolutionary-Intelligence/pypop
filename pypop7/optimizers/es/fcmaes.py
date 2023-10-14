@@ -1,4 +1,4 @@
-import numpy as np   # engine for numerical computing
+import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.es.es import ES
 
@@ -39,7 +39,7 @@ class FCMAES(ES):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy   # engine for numerical computing
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.fcmaes import FCMAES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
