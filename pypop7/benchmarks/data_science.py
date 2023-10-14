@@ -104,6 +104,10 @@ def hinge_loss_perceptron(w, x, y):
         AKA perceptron cost, rectified linear unit cost.
 
         This cost function is always convex but only has a single discontinuous derivative in each variable dimension.
+        Note that it always has a trivial solution at the origin, thus one may need to take care in practice to avoid
+        finding it (or a point too close to it) **accidentally**.
+
+        https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_4_Perceptron.ipynb
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
