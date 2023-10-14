@@ -74,3 +74,12 @@ For R Users
 
 For R (and S-Plus) users, `NumPy-for-R <https://mathesaurus.sourceforge.net/r-numpy.html>`_
 is highly recommended.
+
+Uninstall this Open-Source Library
+----------------------------------
+
+If necessary, you could uninstall this open-source library *freely* with one simple command:
+
+.. code-block:: bash
+
+    pip uninstall -y pypop7
