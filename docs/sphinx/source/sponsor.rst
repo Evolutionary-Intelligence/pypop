@@ -18,6 +18,7 @@ Institute of Technology, *Chang Shao* also in University of Technology Sydney, a
     MacOS X.
   * Now *Zonghan He* from SUSTech helps to test the installation process on Windows10 OS.
   * Now *Yajing Tan* from SUSTech is added as one of core developers in order to increase new optimizers.
+  * Now *Jian Zeng* from Guangdong Police College helps to collect BBOs for data mining.
 
 We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech) and recent (2022) discussions wih
 Changwu Huang (at SUSTech).
