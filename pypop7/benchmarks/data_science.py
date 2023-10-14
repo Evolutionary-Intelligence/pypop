@@ -27,7 +27,7 @@ class CrossEntropyLossLR(BaseFunction):
 def square_loss_lr(w, x, y):
     """Square Loss Function of Logistic Regression (with binary labels/classes {0, 1}).
 
-        Note that this loss function for binary classification is non-convex (non-linear least squares).
+        Note that this loss function for binary classification is generally non-convex (non-linear least squares).
 
         https://jermwatt.github.io/machine_learning_refined/ (2020)
         https://openreview.net/forum?id=ryxz8CVYDH (2020)
