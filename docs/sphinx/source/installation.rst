@@ -5,7 +5,8 @@ In order to install *pypop7*, it is **highly recommended** to use the `Python3 <
 virtual environment via `venv <https://docs.python.org/3/library/venv.html>`_ or
 `conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_.
 
-`Anaconda <https://docs.anaconda.com/>`_ is a very popular `Python` programming platform for scientists.
+`Anaconda <https://docs.anaconda.com/>`_ is a very popular `Python` programming platform for scientists and researchers
+for artificial intelligence (AI) / machine learning (ML).
 
 Pip via Python Package Index (PyPI)
 -----------------------------------
@@ -55,7 +56,7 @@ a virtual environment (e.g., named as `env_pypop7`):
     pip install pypop7
     conda deactivate
 
-Note that the above Python version (`3.8.12`) can be changed to meet your personal Python3 version (>=3.5).
+Note that the above Python version (`3.8.12`) can be changed to meet your personal Python3 version (>=3.5 if possible).
 
 Although we strongly recommend to use the the `conda` package manager to build the virtual environment as your working
 space, currently we do not add this library to `conda-forge <https://conda-forge.org/>`_ and leave it for the future
