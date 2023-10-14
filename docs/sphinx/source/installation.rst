@@ -18,6 +18,7 @@ various packages easily.
     pip install pypop7
 
 For Chinese users, sometimes the following PyPI configuration can be used to speedup the installation process
+of PyPop7:
 
 .. code-block:: bash
 
@@ -31,7 +32,7 @@ rather than the default PyPI setting:
     pip config set global.index-url https://pypi.org/simple
     pip config set install.trusted-host files.pythonhosted.org
 
-If the latest cutting-edge version is preferred, you can install directly from the GitHub repository:
+If the latest cutting-edge version is preferred, you can install directly from the GitHub repository of PyPop7:
 
 .. code-block:: bash
    
