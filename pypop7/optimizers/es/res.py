@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.es.es import ES
 
@@ -49,7 +49,7 @@ class RES(ES):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.res import RES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
