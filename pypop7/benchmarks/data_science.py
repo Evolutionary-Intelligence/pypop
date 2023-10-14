@@ -25,6 +25,19 @@ class CrossEntropyLossLR(BaseFunction):
         return cross_entropy_loss_lr(w, x, y)
 
 
+def cross_entropy_loss_l2(w, x, y):
+    """"Cross-Entropy Loss Function with L2-Regularization of Logistic Regression (LR with binary labels/classes {0, 1}).
+
+        https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8 (2018)
+    """
+    return cross_entropy_loss_lr(w, x, y) + np.sum(np.square(w))/(2.0*len(y))
+
+
+class CrossEntropyLossL2(BaseFunction):
+    def __call__(self, w, x, y):
+        return cross_entropy_loss_l2(w, x, y)
+
+
 def square_loss_lr(w, x, y):
     """Square Loss Function of Logistic Regression (LR with binary labels/classes {0, 1}).
 
