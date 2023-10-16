@@ -151,7 +151,7 @@ class LossMarginPerceptron(BaseFunction):
 
 
 def loss_svm(w, x, y, r=None):
-    """Loss Function of Support Vector Machines.
+    """Loss Function of Support Vector Machines (SVM with binary labels/classes {-1, 1}).
 
         https://jermwatt.github.io/machine_learning_refined/ (2020)
     """
