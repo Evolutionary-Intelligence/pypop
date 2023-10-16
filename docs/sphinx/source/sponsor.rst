@@ -15,8 +15,8 @@ University).
   * Now *Yijun Yang* from UTS helps to suggest papers about Bayesian Optimization (BO).
   * Now *Qi Zhao* from SUSTech helps to proofread all the documents.
   * Now *Haobin Yang* from SUSTech helps to proofread all the documents.
-  * Now *Minghan Zhang* from University of Warwick helps to search papers involved in this library and test on
-    MacOS X.
+  * Now *Minghan Zhang* from University of Warwick/Imperial College London helps to search papers involved in this library
+    and test on MacOS X.
   * Now *Zonghan He* from SUSTech helps to test the installation process on Windows10 OS.
   * Now *Yajing Tan* from SUSTech is added as one of core developers in order to increase new optimizers.
   * Now *Jian Zeng* from Guangdong Police College helps to collect BBOs for data mining.
