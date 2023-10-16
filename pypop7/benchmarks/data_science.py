@@ -113,7 +113,7 @@ class TanhLossLR(BaseFunction):
 
 
 def hinge_loss_perceptron(w, x, y):
-    """Hinge Loss Function of Perceptron.
+    """Hinge Loss Function of Perceptron (with binary labels/classes {-1, 1}).
 
         AKA perceptron cost, rectified linear unit cost.
 
@@ -125,7 +125,7 @@ def hinge_loss_perceptron(w, x, y):
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
-        loss[i] = np.max(0, -y[i]*(w[0] + np.dot(x[i], w[1:])))
+        loss[i] = np.maximum(0.0, -y[i]*(w[0] + np.dot(x[i], w[1:])))
     return np.mean(loss)
 
 
