@@ -26,7 +26,7 @@ class CrossEntropyLossLR(BaseFunction):
 
 
 def cross_entropy_loss_l2(w, x, y):
-    """"Cross-Entropy Loss Function with L2-Regularization of Logistic Regression (LR with binary labels/classes {0, 1}).
+    """"Cross-Entropy Loss Function with L2-Regularization of Logistic Regression (LR with binary labels {0, 1}).
 
         https://jermwatt.github.io/machine_learning_refined/ (2020)
         https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8 (2018)
@@ -159,7 +159,7 @@ def loss_svm(w, x, y, r=None):
         r = 1e-3
     loss = np.empty(len(y))
     for i in range(len(y)):
-        loss[i] = np.max(0, 1 - y[i]*(w[0] + np.dot(x[i], w[1:])))
+        loss[i] = np.maximum(0.0, 1.0 - y[i]*(w[0] + np.dot(x[i], w[1:])))
     return np.mean(loss) + r*np.sum(np.square(w))
 
 
