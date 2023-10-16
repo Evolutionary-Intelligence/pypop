@@ -18,7 +18,7 @@ University).
   * Now *Minghan Zhang* from University of Warwick/Imperial College London helps to search papers involved in this library
     and test on MacOS X.
   * Now *Zonghan He* from SUSTech helps to test the installation process on Windows10 OS.
-  * Now *Yajing Tan* from SUSTech is added as one of core developers in order to increase new optimizers.
+  * Now *Yajing Tan* from SUSTech is added as one of core developers in order to increase new black-box optimizers.
   * Now *Jian Zeng* from Guangdong Police College helps to collect BBOs for data mining.
 
 We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech) and recent (2022) discussions wih
