@@ -164,8 +164,8 @@ def loss_svm(w, x, y, r=None):
 
 
 class LossSVM(BaseFunction):
-    def __call__(self, w, x, y):
-        return loss_svm(w, x, y)
+    def __call__(self, w, x, y, r=None):
+        return loss_svm(w, x, y, r=None)
 
 
 def mpc2023_nonsmooth(w, x, y):
