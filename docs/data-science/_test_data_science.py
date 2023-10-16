@@ -192,6 +192,10 @@ def test_read_qsar_androgen_receptor():
 
 
 if __name__ == '__main__':
+    test_hinge_loss_perceptron()
+    test_loss_margin_perceptron()
+    test_loss_svm()
+
     test_read_parkinson_disease_classification()
     test_read_semeion_handwritten_digit()
     test_read_cnae9()
