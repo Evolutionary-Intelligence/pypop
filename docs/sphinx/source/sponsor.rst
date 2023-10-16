@@ -14,7 +14,7 @@ University).
     to search papers involved in this library and test on MacOS X.
   * Now *Yijun Yang* from UTS/Beihang University helps to suggest papers about Bayesian Optimization (BO).
   * Now *Qi Zhao* from SUSTech helps to proofread all the documents.
-  * Now *Haobin Yang* from SUSTech helps to proofread all the documents.
+  * Now *Haobin Yang* from SUSTech helps to proofread and standardize the documents.
   * Now *Minghan Zhang* from University of Warwick/Imperial College London helps to search papers involved in this library
     and test on MacOS X.
   * Now *Zonghan He* from SUSTech helps to test the installation process on Windows10 OS.
