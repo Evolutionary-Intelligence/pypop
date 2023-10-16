@@ -153,7 +153,7 @@ class LossMarginPerceptron(BaseFunction):
 def loss_svm(w, x, y, r=None):
     """Loss Function of Support Vector Machines (SVM with binary labels/classes {-1, 1}).
 
-        https://jermwatt.github.io/machine_learning_refined/ (2020)
+        https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_5_SVMs.html (2020)
     """
     if r is None:
         r = 1e-3
