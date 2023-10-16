@@ -4,6 +4,17 @@ from sklearn.preprocessing import Normalizer
 import pypop7.benchmarks.data_science as ds
 
 
+def test_hinge_loss_perceptron():
+    x, y = ds.read_qsar_androgen_receptor()
+    transformer = Normalizer().fit(x)
+    x = transformer.transform(x)
+    w = 3.0*np.ones((x.shape[1] + 1,))
+    print(ds.hinge_loss_perceptron(w, x, y))  # 26.065669550828645
+    hinge_loss_perceptron = ds.HingeLossPerceptron()
+    print(hinge_loss_perceptron(w, x, y))  # 26.065669550828645
+    assert ds.hinge_loss_perceptron(w, x, y) == hinge_loss_perceptron(w, x, y)
+
+
 def test_loss_margin_perceptron():
     x, y = ds.read_qsar_androgen_receptor()
     transformer = Normalizer().fit(x)
