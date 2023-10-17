@@ -103,6 +103,17 @@ def test_loss_svm():
     assert ds.loss_svm(w, x, y) == loss_svm(w, x, y)
 
 
+def test_mpc2023_nonsmooth():
+    x, y = ds.read_qsar_androgen_receptor()
+    transformer = Normalizer().fit(x)
+    x = transformer.transform(x)
+    w = 3.0*np.ones((x.shape[1],))
+    print(ds.mpc2023_nonsmooth(w, x, y))  # 28.046327372522406
+    mpc2023_nonsmooth = ds.MPC2023Nonsmooth()
+    print(mpc2023_nonsmooth(w, x, y))  # 28.046327372522406
+    assert ds.mpc2023_nonsmooth(w, x, y) == mpc2023_nonsmooth(w, x, y)
+
+
 def test_read_parkinson_disease_classification():
     x, y = ds.read_parkinson_disease_classification()
     assert x.shape == (756, 753)
@@ -258,10 +269,15 @@ def test_read_qsar_androgen_receptor():
 
 
 if __name__ == '__main__':
+    test_cross_entropy_loss_lr()
+    test_cross_entropy_loss_l2()
+    test_logistic_loss_lr()
+    test_logistic_loss_l2()
     test_tanh_loss_lr()
     test_hinge_loss_perceptron()
     test_loss_margin_perceptron()
     test_loss_svm()
+    test_mpc2023_nonsmooth()
 
     test_read_parkinson_disease_classification()
     test_read_semeion_handwritten_digit()
