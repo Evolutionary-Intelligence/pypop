@@ -62,6 +62,7 @@ NM
 BO
 --
 * Tan, J. and Nayman, N., 2023, July. Two-stage kernel Bayesian optimization in high dimensions. In Uncertainty in Artificial Intelligence (pp. 2099-2110). PMLR.
+* Liu, S., Feng, Q., Eriksson, D., Letham, B. and Bakshy, E., 2023, April. Sparse Bayesian optimization. In International Conference on Artificial Intelligence and Statistics (pp. 3754-3774). PMLR.
 
 RS
 --
