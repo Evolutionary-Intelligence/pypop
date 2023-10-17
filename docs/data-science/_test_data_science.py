@@ -123,11 +123,13 @@ def test_read_parkinson_disease_classification():
     assert sum(y == 0) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
 
-    w = np.zeros((x.shape[1] + 1,))
-    loss = ds.cross_entropy_loss_lr(w, x, y)
-    print(loss)  # 0.6931471805599454
-    loss = ds.square_loss_lr(w, x, y)
-    print(loss)  # 0.25
+    x, y = ds.read_parkinson_disease_classification(is_10=False)
+    assert x.shape == (756, 753)
+    assert y.shape == (756,)
+    assert sum(y == -1) == 192
+    assert sum(y == 1) == 564
+    assert sum(y == -1) + sum(y == 1) == len(y)
+    print(x.dtype, y.dtype)
 
 
 def test_read_semeion_handwritten_digit():
@@ -139,12 +141,6 @@ def test_read_semeion_handwritten_digit():
     assert sum(y == 0) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
 
-    w = np.zeros((x.shape[1] + 1,))
-    loss = ds.cross_entropy_loss_lr(w, x, y)
-    print(loss)  # 0.6931471805599452
-    loss = ds.square_loss_lr(w, x, y)
-    print(loss)  # 0.25
-
     x, y = ds.read_semeion_handwritten_digit(is_10=False)
     assert x.shape == (1593, 256)
     assert y.shape == (1593,)
@@ -152,16 +148,6 @@ def test_read_semeion_handwritten_digit():
     assert sum(y == 1) == 158
     assert sum(y == -1) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
-
-    transformer = Normalizer().fit(x)
-    print(x)
-    x = transformer.transform(x)
-    print(x)
-    w = 3.0 * np.ones((x.shape[1] + 1,))
-    loss = ds.logistic_loss_lr(w, x, y)
-    print(loss)  # 27.198973500103
-    loss = ds.logistic_loss_l2(w, x, y)
-    print(loss)  # 27.924962200667974
 
 
 def test_read_cnae9():
@@ -173,12 +159,6 @@ def test_read_cnae9():
     assert sum(y == 0) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
 
-    w = np.zeros((x.shape[1] + 1,))
-    loss = ds.cross_entropy_loss_lr(w, x, y)
-    print(loss)  # 0.6931471805599453
-    loss = ds.square_loss_lr(w, x, y)
-    print(loss)  # 0.25
-
     x, y = ds.read_cnae9(is_10=False)
     assert x.shape == (1080, 856)
     assert y.shape == (1080,)
@@ -186,16 +166,6 @@ def test_read_cnae9():
     assert sum(y == 1) == 120
     assert sum(y == -1) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
-
-    transformer = Normalizer().fit(x)
-    print(x)
-    x = transformer.transform(x)
-    print(x)
-    w = 3.0 * np.ones((x.shape[1] + 1,))
-    loss = ds.logistic_loss_lr(w, x, y)
-    print(loss)  # 9.246709678819988
-    loss = ds.logistic_loss_l2(w, x, y)
-    print(loss)  # 12.81754301215332
 
 
 def test_read_madelon():
@@ -207,16 +177,6 @@ def test_read_madelon():
     assert sum(y == -1) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
 
-    transformer = Normalizer().fit(x)
-    print(x)
-    x = transformer.transform(x)
-    print(x)
-    w = 3.0 * np.ones((x.shape[1] + 1,))
-    loss = ds.logistic_loss_lr(w, x, y)
-    print(loss)  # 34.97093739858563
-    loss = ds.logistic_loss_l2(w, x, y)
-    print(loss)  # 36.09818739858564
-
     x, y = ds.read_madelon(is_10=True)
     assert x.shape == (2000, 500)
     assert y.shape == (2000,)
@@ -224,12 +184,6 @@ def test_read_madelon():
     assert sum(y == 1) == 1000
     assert sum(y == 0) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
-
-    w = np.zeros((x.shape[1] + 1,))
-    loss = ds.cross_entropy_loss_lr(w, x, y)
-    print(loss)  # 0.6931471805599454
-    loss = ds.square_loss_lr(w, x, y)
-    print(loss)  # 0.25
 
 
 def test_read_qsar_androgen_receptor():
@@ -241,18 +195,6 @@ def test_read_qsar_androgen_receptor():
     assert sum(y == -1) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
 
-    transformer = Normalizer().fit(x)
-    print(x)
-    x = transformer.transform(x)
-    print(x)
-    w = 3.0*np.ones((x.shape[1] + 1,))
-    loss = ds.logistic_loss_lr(w, x, y)
-    print(loss)  # 26.06566955795496
-    loss = ds.logistic_loss_l2(w, x, y)
-    print(loss)  # 28.799813007866042
-    loss = ds.tanh_loss_lr(w, x, y)
-    print(loss)  # 3.52815643380549
-
     x, y = ds.read_qsar_androgen_receptor(is_10=True)
     assert x.shape == (1687, 1024)
     assert y.shape == (1687,)
@@ -261,16 +203,11 @@ def test_read_qsar_androgen_receptor():
     assert sum(y == 0) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
 
-    w = np.zeros((x.shape[1] + 1,))
-    loss = ds.cross_entropy_loss_lr(w, x, y)
-    print(loss)  # 0.6931471805599453
-    loss = ds.square_loss_lr(w, x, y)
-    print(loss)  # 0.25
-
 
 if __name__ == '__main__':
     test_cross_entropy_loss_lr()
     test_cross_entropy_loss_l2()
+    test_square_loss_lr()
     test_logistic_loss_lr()
     test_logistic_loss_l2()
     test_tanh_loss_lr()
