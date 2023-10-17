@@ -4,6 +4,17 @@ from sklearn.preprocessing import Normalizer
 import pypop7.benchmarks.data_science as ds
 
 
+def test_cross_entropy_loss_l2():
+    x, y = ds.read_parkinson_disease_classification()
+    transformer = Normalizer().fit(x)
+    x = transformer.transform(x)
+    w = 3.0*np.ones((x.shape[1] + 1,))
+    print(ds.cross_entropy_loss_l2(w, x, y))  # 6.226073681166976
+    cross_entropy_loss_l2 = ds.CrossEntropyLossL2()
+    print(cross_entropy_loss_l2(w, x, y))  # 6.226073681166976
+    assert ds.cross_entropy_loss_l2(w, x, y) == cross_entropy_loss_l2(w, x, y)
+
+
 def test_square_loss_lr():
     x, y = ds.read_parkinson_disease_classification()
     transformer = Normalizer().fit(x)
