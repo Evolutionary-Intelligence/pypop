@@ -179,6 +179,11 @@ def mpc2023_nonsmooth(w, x, y):
     return np.mean(loss)
 
 
+class MPC2023Nonsmooth(BaseFunction):
+    def __call__(self, w, x, y):
+        return mpc2023_nonsmooth(w, x, y)
+
+
 def read_parkinson_disease_classification():
     """Sakar,C., Serbes,Gorkem, Gunduz,Aysegul, Nizam,Hatice, and Sakar,Betul. (2018).
         Parkinson's Disease Classification.
