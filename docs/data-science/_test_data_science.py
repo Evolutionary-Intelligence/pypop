@@ -4,6 +4,17 @@ from sklearn.preprocessing import Normalizer
 import pypop7.benchmarks.data_science as ds
 
 
+def test_logistic_loss_lr():
+    x, y = ds.read_qsar_androgen_receptor()
+    transformer = Normalizer().fit(x)
+    x = transformer.transform(x)
+    w = 3.0*np.ones((x.shape[1] + 1,))
+    print(ds.logistic_loss_lr(w, x, y))  # 26.06566955795496
+    logistic_loss_lr = ds.LogisticLossLR()
+    print(logistic_loss_lr(w, x, y))  # 26.06566955795496
+    assert ds.logistic_loss_lr(w, x, y) == logistic_loss_lr(w, x, y)
+
+
 def test_logistic_loss_l2():
     x, y = ds.read_qsar_androgen_receptor()
     transformer = Normalizer().fit(x)
