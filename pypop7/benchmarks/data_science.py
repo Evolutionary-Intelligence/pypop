@@ -184,7 +184,7 @@ class MPC2023Nonsmooth(BaseFunction):
         return mpc2023_nonsmooth(w, x, y)
 
 
-def read_parkinson_disease_classification():
+def read_parkinson_disease_classification(is_10=True):
     """Sakar,C., Serbes,Gorkem, Gunduz,Aysegul, Nizam,Hatice, and Sakar,Betul. (2018).
         Parkinson's Disease Classification.
         UCI Machine Learning Repository.
@@ -198,6 +198,8 @@ def read_parkinson_disease_classification():
     """
     d = genfromtxt('pd_speech_features.csv', delimiter=',')
     x, y = d[2:, 1:-1], d[2:, -1]
+    if not is_10:
+        y[y == 0] = -1
     return x, y
 
 
