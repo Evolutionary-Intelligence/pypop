@@ -4,6 +4,17 @@ from sklearn.preprocessing import Normalizer
 import pypop7.benchmarks.data_science as ds
 
 
+def test_tanh_loss_lr():
+    x, y = ds.read_qsar_androgen_receptor()
+    transformer = Normalizer().fit(x)
+    x = transformer.transform(x)
+    w = 3.0*np.ones((x.shape[1] + 1,))
+    print(ds.tanh_loss_lr(w, x, y))  # 3.52815643380549
+    tanh_loss_lr = ds.TanhLossLR()
+    print(tanh_loss_lr(w, x, y))  # 3.52815643380549
+    assert ds.tanh_loss_lr(w, x, y) == tanh_loss_lr(w, x, y)
+
+
 def test_hinge_loss_perceptron():
     x, y = ds.read_qsar_androgen_receptor()
     transformer = Normalizer().fit(x)
@@ -192,6 +203,7 @@ def test_read_qsar_androgen_receptor():
 
 
 if __name__ == '__main__':
+    test_tanh_loss_lr()
     test_hinge_loss_perceptron()
     test_loss_margin_perceptron()
     test_loss_svm()
