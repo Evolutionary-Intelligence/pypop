@@ -59,7 +59,7 @@ print(results)
 
 Note that for ```PyPop7```, the number ```7``` is added just because ```pypop``` has been registered by [other](http://pypop.org/) in [PyPI](https://pypi.org/). The icon *butterfly* for `PyPop7` is used to respect to the book (a complete variorum edition) of **Fisher**, ["the greatest of Darwin's successors"](https://link.springer.com/article/10.1007/s00265-010-1122-x): [The Genetical Theory of Natural Selection](https://global.oup.com/academic/product/the-genetical-theory-of-natural-selection-9780198504405?cc=gb&lang=en&) (where four butterflies were drawn in its cover), which inspired the proposal of [Genetic Algorithms (GA)](https://dl.acm.org/doi/10.1145/321127.321128).
 
-For a number of **public use cases** of `PyPop7`, see [this online document](https://pypop.readthedocs.io/en/latest/applications.html) for more details. For new/missed black-box optimizers, we provide a *unified* API interface to freely add them if they satisfy the following design philosophy (see [development-guide](https://pypop.readthedocs.io/en/latest/development-guide.html) for details).
+For a list of **public use cases** of `PyPop7`, see [this online document](https://pypop.readthedocs.io/en/latest/applications.html) for more details. For new/missed black-box optimizers, we provide a *unified* API interface to freely add them if they satisfy the following design philosophy (see [development-guide](https://pypop.readthedocs.io/en/latest/development-guide.html) for details).
 
 ## A Large Number of Black-Box Optimizers (BBO)
 
