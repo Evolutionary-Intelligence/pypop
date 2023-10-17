@@ -4,6 +4,17 @@ from sklearn.preprocessing import Normalizer
 import pypop7.benchmarks.data_science as ds
 
 
+def test_square_loss_lr():
+    x, y = ds.read_parkinson_disease_classification()
+    transformer = Normalizer().fit(x)
+    x = transformer.transform(x)
+    w = 3.0*np.ones((x.shape[1] + 1,))
+    print(ds.square_loss_lr(w, x, y))  # 0.6055914432091616
+    square_loss_lr = ds.SquareLossLR()
+    print(square_loss_lr(w, x, y))  # 0.6055914432091616
+    assert ds.square_loss_lr(w, x, y) == square_loss_lr(w, x, y)
+
+
 def test_logistic_loss_lr():
     x, y = ds.read_qsar_androgen_receptor()
     transformer = Normalizer().fit(x)
