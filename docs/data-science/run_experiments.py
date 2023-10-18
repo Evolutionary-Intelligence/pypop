@@ -22,6 +22,32 @@ class SquareLossLRQAR(object):
         return ds.square_loss_lr(w, self.x, self.y)
 
 
+class SquareLossLRM(object):
+    def __init__(self):
+        self.x, self.y = ds.read_madelon(is_10=True)
+        transformer = Normalizer().fit(self.x)
+        self.x = transformer.transform(self.x)
+
+    def __format__(self, format_spec):
+        return 'square_loss_lr_m'
+
+    def __call__(self, w):
+        return ds.square_loss_lr(w, self.x, self.y)
+
+
+class SquareLossLRC(object):
+    def __init__(self):
+        self.x, self.y = ds.read_cnae9(is_10=True)
+        transformer = Normalizer().fit(self.x)
+        self.x = transformer.transform(self.x)
+
+    def __format__(self, format_spec):
+        return 'square_loss_lr_m'
+
+    def __call__(self, w):
+        return ds.square_loss_lr(w, self.x, self.y)
+
+
 class Experiment(object):
     """Each experiment consists of four settings:
         `index`       : experiment (trial) index (`int`, >= 1),
@@ -52,7 +78,7 @@ class Experiment(object):
         # to define all the necessary properties of the black-box optimizer considered
         options = {'max_function_evaluations': np.Inf,  # here we focus on the *wall-clock* time
                    # 'max_function_evaluations': np.Inf,
-                   'max_runtime': 60*5,  # maximal runtime to be allowed (seconds)
+                   'max_runtime': 60*10,  # maximal runtime to be allowed (seconds)
                    'fitness_threshold': 1e-10,  # fitness threshold to stop the optimization process
                    'seed_rng': self.seed,  # seed for random number generation (RNG)
                    'saving_fitness': 2000,  # to compress the convergence data (for saving storage space)
@@ -77,9 +103,13 @@ class Experiments(object):
         self.end = end  # ending index of independent experiments
         assert self.end > 0 and self.end >= self.start
         self.indices = range(self.start, self.end + 1)  # index range (1-based rather 0-based)
+        square_loss_lr_c = SquareLossLRC()
+        square_loss_lr_m = SquareLossLRM()
         square_loss_lr_qar = SquareLossLRQAR()
-        self.functions = [square_loss_lr_qar]
-        self.ndim_problem = [square_loss_lr_qar.x.shape[1] + 1]
+        self.functions = [square_loss_lr_c, square_loss_lr_m, square_loss_lr_qar]
+        self.ndim_problem = [square_loss_lr_c.x.shape[1] + 1,
+                             square_loss_lr_m.x.shape[1] + 1,
+                             square_loss_lr_qar.x.shape[1] + 1]
         self.seeds = np.random.default_rng(2023).integers(  # to generate all random seeds *in advances*
             np.iinfo(np.int64).max, size=(len(self.functions), 20))
 
@@ -248,7 +278,7 @@ if __name__ == '__main__':
         from pypop7.optimizers.es.res import RES as Optimizer
     elif params['optimizer'] == 'POWELL':  # 1965
         from pypop7.optimizers.ds.powell import POWELL as Optimizer
-    elif params['optimizer'] == 'NM':  # 1965
+    elif params['optimizer'] == 'NM':  # [Nelder&Mead, 1965]
         from pypop7.optimizers.ds.nm import NM as Optimizer
     elif params['optimizer'] == 'HJ':  # [Hooke&Jeeves, 1961]
         from pypop7.optimizers.ds.hj import HJ as Optimizer
