@@ -139,11 +139,11 @@ class Experiments(object):
                           mpc2023_nonsmooth_c,
                           mpc2023_nonsmooth_m,
                           mpc2023_nonsmooth_qar]
-        self.ndim_problem = [mpc2023_nonsmooth_pdc.x.shape[1] + 1,
-                             mpc2023_nonsmooth_shd.x.shape[1] + 1,
-                             mpc2023_nonsmooth_c.x.shape[1] + 1,
-                             mpc2023_nonsmooth_m.x.shape[1] + 1,
-                             mpc2023_nonsmooth_qar.x.shape[1] + 1]
+        self.ndim_problem = [mpc2023_nonsmooth_pdc.x.shape[1],
+                             mpc2023_nonsmooth_shd.x.shape[1],
+                             mpc2023_nonsmooth_c.x.shape[1],
+                             mpc2023_nonsmooth_m.x.shape[1],
+                             mpc2023_nonsmooth_qar.x.shape[1]]
         self.seeds = np.random.default_rng(2023).integers(  # to generate all random seeds *in advances*
             np.iinfo(np.int64).max, size=(len(self.functions), 20))
 
