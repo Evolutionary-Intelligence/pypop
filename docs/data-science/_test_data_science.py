@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.preprocessing import Normalizer
+from sklearn.preprocessing import MinMaxScaler, Normalizer
 
 import pypop7.benchmarks.data_science as ds
 
@@ -202,6 +202,10 @@ def test_read_qsar_androgen_receptor():
     assert sum(y == 1) == 199
     assert sum(y == 0) + sum(y == 1) == len(y)
     print(x.dtype, y.dtype)
+    scalar = MinMaxScaler()
+    scalar.fit(x)
+    x = scalar.transform(x)
+    print(np.min(x), np.max(x))  # 0.0 1.0
 
 
 if __name__ == '__main__':
