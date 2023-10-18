@@ -42,7 +42,20 @@ class SquareLossLRC(object):
         self.x = transformer.transform(self.x)
 
     def __format__(self, format_spec):
-        return 'square_loss_lr_m'
+        return 'square_loss_lr_c'
+
+    def __call__(self, w):
+        return ds.square_loss_lr(w, self.x, self.y)
+
+
+class SquareLossLRSHD(object):
+    def __init__(self):
+        self.x, self.y = ds.read_semeion_handwritten_digit(is_10=True)
+        transformer = Normalizer().fit(self.x)
+        self.x = transformer.transform(self.x)
+
+    def __format__(self, format_spec):
+        return 'square_loss_lr_shd'
 
     def __call__(self, w):
         return ds.square_loss_lr(w, self.x, self.y)
@@ -103,11 +116,16 @@ class Experiments(object):
         self.end = end  # ending index of independent experiments
         assert self.end > 0 and self.end >= self.start
         self.indices = range(self.start, self.end + 1)  # index range (1-based rather 0-based)
+        square_loss_lr_shd = SquareLossLRSHD()
         square_loss_lr_c = SquareLossLRC()
         square_loss_lr_m = SquareLossLRM()
         square_loss_lr_qar = SquareLossLRQAR()
-        self.functions = [square_loss_lr_c, square_loss_lr_m, square_loss_lr_qar]
-        self.ndim_problem = [square_loss_lr_c.x.shape[1] + 1,
+        self.functions = [square_loss_lr_shd,
+                          square_loss_lr_c,
+                          square_loss_lr_m,
+                          square_loss_lr_qar]
+        self.ndim_problem = [square_loss_lr_shd.x.shape[1] + 1,
+                             square_loss_lr_c.x.shape[1] + 1,
                              square_loss_lr_m.x.shape[1] + 1,
                              square_loss_lr_qar.x.shape[1] + 1]
         self.seeds = np.random.default_rng(2023).integers(  # to generate all random seeds *in advances*
@@ -276,10 +294,10 @@ if __name__ == '__main__':
         from pypop7.optimizers.es.ssaes import SSAES as Optimizer
     elif params['optimizer'] == 'RES':  # 1973
         from pypop7.optimizers.es.res import RES as Optimizer
-    elif params['optimizer'] == 'POWELL':  # 1965
-        from pypop7.optimizers.ds.powell import POWELL as Optimizer
     elif params['optimizer'] == 'NM':  # [Nelder&Mead, 1965]
         from pypop7.optimizers.ds.nm import NM as Optimizer
+    elif params['optimizer'] == 'POWELL':  # [Powell, 1964]
+        from pypop7.optimizers.ds.powell import POWELL as Optimizer
     elif params['optimizer'] == 'HJ':  # [Hooke&Jeeves, 1961]
         from pypop7.optimizers.ds.hj import HJ as Optimizer
     elif params['optimizer'] == 'PRS':  # [Brooks, 1958]
