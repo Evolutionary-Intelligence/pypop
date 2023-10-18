@@ -61,6 +61,19 @@ class SquareLossLRSHD(object):
         return ds.square_loss_lr(w, self.x, self.y)
 
 
+class SquareLossLRPDC(object):
+    def __init__(self):
+        self.x, self.y = ds.read_parkinson_disease_classification(is_10=True)
+        transformer = Normalizer().fit(self.x)
+        self.x = transformer.transform(self.x)
+
+    def __format__(self, format_spec):
+        return 'square_loss_lr_pdc'
+
+    def __call__(self, w):
+        return ds.square_loss_lr(w, self.x, self.y)
+
+
 class Experiment(object):
     """Each experiment consists of four settings:
         `index`       : experiment (trial) index (`int`, >= 1),
@@ -116,15 +129,18 @@ class Experiments(object):
         self.end = end  # ending index of independent experiments
         assert self.end > 0 and self.end >= self.start
         self.indices = range(self.start, self.end + 1)  # index range (1-based rather 0-based)
+        square_loss_lr_pdc = SquareLossLRPDC()
         square_loss_lr_shd = SquareLossLRSHD()
         square_loss_lr_c = SquareLossLRC()
         square_loss_lr_m = SquareLossLRM()
         square_loss_lr_qar = SquareLossLRQAR()
-        self.functions = [square_loss_lr_shd,
+        self.functions = [square_loss_lr_pdc,
+                          square_loss_lr_shd,
                           square_loss_lr_c,
                           square_loss_lr_m,
                           square_loss_lr_qar]
-        self.ndim_problem = [square_loss_lr_shd.x.shape[1] + 1,
+        self.ndim_problem = [square_loss_lr_pdc.x.shape[1] + 1,
+                             square_loss_lr_shd.x.shape[1] + 1,
                              square_loss_lr_c.x.shape[1] + 1,
                              square_loss_lr_m.x.shape[1] + 1,
                              square_loss_lr_qar.x.shape[1] + 1]
@@ -292,7 +308,7 @@ if __name__ == '__main__':
         from pypop7.optimizers.ep.cep import CEP as Optimizer
     elif params['optimizer'] == 'SSAES':  # 1980
         from pypop7.optimizers.es.ssaes import SSAES as Optimizer
-    elif params['optimizer'] == 'RES':  # 1973
+    elif params['optimizer'] == 'RES':  # [Rechenberg, 1973]
         from pypop7.optimizers.es.res import RES as Optimizer
     elif params['optimizer'] == 'NM':  # [Nelder&Mead, 1965]
         from pypop7.optimizers.ds.nm import NM as Optimizer
