@@ -11,7 +11,7 @@ import pypop7.benchmarks.data_science as ds
 
 class TanhLossLRQAR(object):
     def __init__(self):
-        self.x, self.y = ds.read_qsar_androgen_receptor(is_10=True)
+        self.x, self.y = ds.read_qsar_androgen_receptor(is_10=False)
         transformer = Normalizer().fit(self.x)
         self.x = transformer.transform(self.x)
 
@@ -24,7 +24,7 @@ class TanhLossLRQAR(object):
 
 class TanhLossLRM(object):
     def __init__(self):
-        self.x, self.y = ds.read_madelon(is_10=True)
+        self.x, self.y = ds.read_madelon(is_10=False)
         transformer = Normalizer().fit(self.x)
         self.x = transformer.transform(self.x)
 
@@ -37,7 +37,7 @@ class TanhLossLRM(object):
 
 class TanhLossLRC(object):
     def __init__(self):
-        self.x, self.y = ds.read_cnae9(is_10=True)
+        self.x, self.y = ds.read_cnae9(is_10=False)
         transformer = Normalizer().fit(self.x)
         self.x = transformer.transform(self.x)
 
@@ -50,7 +50,7 @@ class TanhLossLRC(object):
 
 class TanhLossLRSHD(object):
     def __init__(self):
-        self.x, self.y = ds.read_semeion_handwritten_digit(is_10=True)
+        self.x, self.y = ds.read_semeion_handwritten_digit(is_10=False)
         transformer = Normalizer().fit(self.x)
         self.x = transformer.transform(self.x)
 
@@ -63,7 +63,7 @@ class TanhLossLRSHD(object):
 
 class TanhLossLRPDC(object):
     def __init__(self):
-        self.x, self.y = ds.read_parkinson_disease_classification(is_10=True)
+        self.x, self.y = ds.read_parkinson_disease_classification(is_10=False)
         transformer = Normalizer().fit(self.x)
         self.x = transformer.transform(self.x)
 
