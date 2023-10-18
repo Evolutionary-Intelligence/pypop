@@ -104,7 +104,7 @@ class Experiment(object):
         # to define all the necessary properties of the black-box optimizer considered
         options = {'max_function_evaluations': np.Inf,  # here we focus on the *wall-clock* time
                    # 'max_function_evaluations': np.Inf,
-                   'max_runtime': 60*5,  # maximal runtime to be allowed (seconds)
+                   'max_runtime': 60*60*3,  # maximal runtime to be allowed (seconds)
                    'fitness_threshold': 1e-10,  # fitness threshold to stop the optimization process
                    'seed_rng': self.seed,  # seed for random number generation (RNG)
                    'saving_fitness': 2000,  # to compress the convergence data (for saving storage space)
@@ -300,11 +300,11 @@ if __name__ == '__main__':
         from pypop7.optimizers.de.cde import CDE as Optimizer
     elif params['optimizer'] == 'SPSO':  # 1995
         from pypop7.optimizers.pso.spso import SPSO as Optimizer
-    elif params['optimizer'] == 'CSAES':  # 1994
+    elif params['optimizer'] == 'CSAES':  # [Ostermeier et al., 1994]
         from pypop7.optimizers.es.csaes import CSAES as Optimizer
-    elif params['optimizer'] == 'DSAES':  # 1994
+    elif params['optimizer'] == 'DSAES':  # [Ostermeier et al., 1994]
         from pypop7.optimizers.es.dsaes import DSAES as Optimizer
-    elif params['optimizer'] == 'CEP':  # 1993
+    elif params['optimizer'] == 'CEP':  # [Bäck&Schwefel, 1993]
         from pypop7.optimizers.ep.cep import CEP as Optimizer
     elif params['optimizer'] == 'SSAES':  # [Schwefel, 1984]
         from pypop7.optimizers.es.ssaes import SSAES as Optimizer
