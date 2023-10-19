@@ -41,7 +41,7 @@ In practice, three simple steps are enough to utilize the optimization power of 
 See `this online documentation <https://pypop.readthedocs.io/en/latest/installation.html>`_ for details about *multiple*
 installation ways.
 
-2. Define your own objective (cost) function (to be minimized) for the optimization problem at hand:
+2. Define your own objective/cost function (to be **minimized**) for the optimization problem at hand:
 
     .. code-block:: python
        :linenos:
@@ -54,6 +54,9 @@ installation ways.
        ...            'ndim_problem': ndim_problem,  # problem dimension
        ...            'lower_boundary': -5*np.ones((ndim_problem,)),  # lower search boundary
        ...            'upper_boundary': 5*np.ones((ndim_problem,))}  # upper search boundary
+
+See `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for details about the problem
+definition.
 
 3. Run one or more black-box optimizers from `pypop7` on the given optimization problem:
 
