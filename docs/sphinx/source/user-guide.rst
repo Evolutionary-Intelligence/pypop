@@ -12,7 +12,7 @@ First, an *objective function* (also called *fitness function* in this library) 
 <https://docs.python.org/3/reference/compound_stmts.html#function-definitions>`_ form. Then, the standard data
 structure `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ is used as a simple yet
 effective way to store all settings related to the optimization problem at hand, such as:
-  * `fitness_function`: objective function to be **minimized** (`func`),
+  * `fitness_function`: objective/cost function to be **minimized** (`func`),
   * `ndim_problem`: number of dimensionality (`int`),
   * `upper_boundary`: upper boundary of search range (`array_like`),
   * `lower_boundary`: lower boundary of search range (`array_like`).
