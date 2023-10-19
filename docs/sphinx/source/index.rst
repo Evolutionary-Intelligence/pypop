@@ -38,6 +38,9 @@ In practice, three simple steps are enough to utilize the optimization power of 
 
        $ pip install pypop7
 
+See `this online documentation <https://pypop.readthedocs.io/en/latest/installation.html>`_ for details about *multiple*
+installation ways.
+
 2. Define your own objective (cost) function (to be minimized) for the optimization problem at hand:
 
     .. code-block:: python
