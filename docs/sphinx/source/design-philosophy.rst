@@ -46,6 +46,13 @@ widely acceptable criteria to select from them, as presented below in details:
   * Piotrowski, A.P. and Napiorkowski, J.J., 2018. `Some metaheuristics should be simplified
     <https://www.sciencedirect.com/science/article/abs/pii/S0020025517310332>`_. Information Sciences, 427, pp.32-62.
 
+  * Sörensen, K., Sevaux, M. and Glover, F., 2018. `A history of metaheuristics
+    <https://link.springer.com/referenceworkentry/10.1007/978-3-319-07124-4_4`_. In Handbook of Heuristics (pp. 791-808).
+    Springer, Cham.
+
+  * Sörensen, K., 2015. `Metaheuristics—the metaphor exposed <https://onlinelibrary.wiley.com/doi/full/10.1111/itor.12001>`_.
+    International Transactions in Operational Research, 22(1), pp.3-18.
+
 .. note::
 
   *"If there is a single dominant theme in this ..., it is that practical methods of numerical computation can be
@@ -60,11 +67,11 @@ widely acceptable criteria to select from them, as presented below in details:
   powerful optimizers are always desirable for new and more challenging applications. On the one hand, some of these
   methods may share *more or less* similarities. On the other hand, they may also show *significant* differences (w.r.t.
   motivations / objectives / implementations / communities / practitioners). Therefore, we hope to cover such a
-  diversity from different research communities such as artificial intelligence (particularly machine learning
-  (`evolutionary computation <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_ and
-  zeroth-order optimization)), mathematical optimization/programming (particularly global optimization), operations
-  research / management science, automatic control, electronic engineering, open-source software, physics, chemistry,
-  and others.
+  diversity from different research communities such as artificial intelligence/machine learning (particularly 
+  (`evolutionary computation <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_, swarm
+  intelligence, and zeroth-order optimization)), mathematical optimization/programming (particularly global optimization),
+  operations research / management science, automatic control (random search), electronic engineering, open-source software,
+  physics, chemistry, and many others.
 
 * Respect for **Originality**
 
