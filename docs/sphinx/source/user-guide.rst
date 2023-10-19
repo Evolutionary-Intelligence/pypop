@@ -8,7 +8,7 @@ Configuration*.
 Problem Definition
 ------------------
 
-First, an *objective function* (called *fitness function* in this library) needs to be defined in the `function
+First, an *objective function* (also called *fitness function* in this library) needs to be defined in the `function
 <https://docs.python.org/3/reference/compound_stmts.html#function-definitions>`_ form. Then, the standard data
 structure `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ is used as a simple yet
 effective way to store all settings related to the optimization problem at hand, such as:
