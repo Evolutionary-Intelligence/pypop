@@ -12,7 +12,7 @@ Pip via Python Package Index (PyPI)
 -----------------------------------
 
 Note that `pip <https://pip.pypa.io/en/stable/>`_ is the package installer for Python. You can use it to install
-various packages easily.
+various packages easily. For `PyPop7`, please run the following command:
 
 .. code-block:: bash
 
