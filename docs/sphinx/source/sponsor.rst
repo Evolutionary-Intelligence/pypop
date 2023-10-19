@@ -34,6 +34,8 @@ Finally, we thank very much for all the following open-source code to make **rep
   <https://sites.google.com/site/lmcmaeses/>`_
 * `Prof. Tobias Glasmachers <https://www.ini.rub.de/the_institute/people/tobias-glasmachers/>`_: `PYTHON code for LMMAES
   <https://www.ini.rub.de/upload/editor/file/1604950981_dc3a4459a4160b48d51e/lmmaes.py>`_
+* `Prof. Akimoto <https://sites.google.com/site/youheiakimotospage/>`_: `PYTHON code for VDCMA
+  <https://gist.github.com/youheiakimoto/08b95b52dfbf8832afc71dfff3aed6c8>`_
 * `Prof. Xiaoyu He <https://hxyokokok.github.io/>`_: `MATLAB code for MMES <https://github.com/hxyokokok/MMES>`_ (
   `forked <https://github.com/Evolutionary-Intelligence/MMES>`_ )
 * `Prof. Suganthan <https://github.com/P-N-Suganthan>`_: `MATLAB code for CLPSO <https://github.com/P-N-Suganthan/CODES>`_
