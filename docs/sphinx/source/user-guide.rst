@@ -103,15 +103,16 @@ Optimizer Setting
 -----------------
 
 This library provides a *unified* API for hyper-parameter settings of all black-box optimizers. The following
-algorithm options (all stored into a `dict`) are common for all optimizers:
+algorithm options (all stored into a `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ format)
+are common for all optimizers:
+
   * `max_function_evaluations`: maximum of function evaluations (`int`, default: `np.Inf`),
   * `max_runtime`: maximal runtime to be allowed (`float`, default: `np.Inf`),
   * `seed_rng`: seed for random number generation needed to be *explicitly* set (`int`).
 
-At least one of two options (`max_function_evaluations` and `max_runtime`) should be set, according to
-the available computing resources or acceptable runtime.
-
-For **repeatability**, `seed_rng` should be *explicitly* set for random number generation (`RNG
+At least one of two options (`max_function_evaluations` and `max_runtime`) should be set according to
+the available computing resources or acceptable runtime (i.e., **problem-dependent**). For **repeatability**,
+`seed_rng` should be *explicitly* set for random number generation (`RNG
 <https://numpy.org/doc/stable/reference/random/>`_).
 
 Note that for any optimizer, its *specific* options/settings (see its API documentation for details) can be
