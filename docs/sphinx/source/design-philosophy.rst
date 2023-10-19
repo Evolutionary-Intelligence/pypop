@@ -31,6 +31,9 @@ acceptable criteria to select from them, as presented below in details:
   `repeatability <https://dl.acm.org/doi/full/10.1145/3466624>`_ and `overfitting
   <http://incompleteideas.net/IncIdeas/BitterLesson.html>`_ issues.
 
+  * Campelo, F. and Aranha, C., 2023. `Lessons from the evolutionary computation Bestiary
+    <https://publications.aston.ac.uk/id/eprint/44574/1/ALIFE_LLCS.pdf>`_. Artificial Life. Early Access.
+
   * Swan, J., Adriaensen, S., Brownlee, A.E., Hammond, K., Johnson, C.G., Kheiri, A., Krawiec, F., Merelo, J.J.,
     Minku, L.L., Özcan, E., Pappa, G.L., et al., 2022. `Metaheuristics “in the large”
     <https://www.sciencedirect.com/science/article/pii/S0377221721004707>`_. European Journal of Operational Research,
