@@ -206,8 +206,8 @@ Perhaps the simplest way to algorithm selection is **trial-and-error**. However,
 *rule of thumb* to guide algorithm selection according to algorithm classification. Refer to `its GitHub homepage
 <https://github.com/Evolutionary-Intelligence/pypop>`_ for details about three different classification families
 (only based on the dimensionality). It is worthwhile noting that this classification is *just a very rough estimation*
-for algorithm selection. In practice, the algorithm selection should depend mainly on the final performance criteria (
-e.g. convergence rate / solution quality / runtime).
+for algorithm selection. In practice, the algorithm selection should depend mainly on the final performance criteria
+(e.g., convergence rate / solution quality / runtime).
 
 In the future, we expect to add the **Automated Algorithm Selection and Configuration** techniques in this
 library, as shown below (just to name a few):
