@@ -77,7 +77,8 @@ definition.
        9.877e-11 3928055
 
 See `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_ for
-details about the optimizer setting.
+details about the optimizer setting. Refer to the following contents for all the black-box optimizers available
+in this open-source library.
 
 
 
