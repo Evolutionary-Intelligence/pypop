@@ -31,6 +31,15 @@ acceptable criteria to select from them, as presented below in details:
   `repeatability <https://dl.acm.org/doi/full/10.1145/3466624>`_ and `overfitting
   <http://incompleteideas.net/IncIdeas/BitterLesson.html>`_ issues.
 
+  * Swan, J., Adriaensen, S., Brownlee, A.E., Hammond, K., Johnson, C.G., Kheiri, A., Krawiec, F., Merelo, J.J.,
+    Minku, L.L., Özcan, E., Pappa, G.L., et al., 2022. `Metaheuristics “in the large”
+    <https://www.sciencedirect.com/science/article/pii/S0377221721004707>`_. European Journal of Operational Research,
+    297(2), pp.393-406.
+
+  * Aranha, C., Camacho Villalón, C.L., Campelo, F., Dorigo, M., Ruiz, R., Sevaux, M., Sörensen, K. and Stützle, T., 2022.
+    `Metaphor-based metaheuristics, a call for action: The elephant in the room
+    <https://link.springer.com/article/10.1007/s11721-021-00202-9>`_. Swarm Intelligence, 16(1), pp.1-6.
+
 .. note::
 
   *"If there is a single dominant theme in this ..., it is that practical methods of numerical computation can be
@@ -67,12 +76,7 @@ acceptable criteria to select from them, as presented below in details:
   <https://numpy.org/doc/stable/reference/random/>`_. In other worlds, you must **explicitly** set the random seed for
   each optimizer. For more discussions about **repeatability** from machine learning, evolutionary computation, and 
   metaheuristics communities, refer to the following papers, to name a few:
-  
-  * Swan, J., Adriaensen, S., Brownlee, A.E., Hammond, K., Johnson, C.G., Kheiri, A., Krawiec, F., Merelo, J.J.,
-    Minku, L.L., Özcan, E., Pappa, G.L., et al., 2022. `Metaheuristics “in the large”
-    <https://www.sciencedirect.com/science/article/pii/S0377221721004707>`_. European Journal of Operational Research,
-    297(2), pp.393-406.
-  
+    
   * López-Ibáñez, M., Branke, J. and Paquete, L., 2021. `Reproducibility in evolutionary computation
     <https://dl.acm.org/doi/abs/10.1145/3466624>`_. ACM Transactions on Evolutionary Learning and Optimization,
     1(4), pp.1-21.
@@ -82,4 +86,4 @@ acceptable criteria to select from them, as presented below in details:
     <https://jmlr.csail.mit.edu/papers/volume8/sonnenburg07a/sonnenburg07a.pdf>`_. Journal of Machine Learning Research,
     8, pp.2443-2466.
 
-We expect to see more discussions about the **Beauty of Black-Box Optimizers (BBO)**!
+We expect to see more interesting discussions about the **Beauty of Black-Box Optimizers (BBO)**!
