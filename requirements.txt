@@ -7,3 +7,4 @@ matplotlib
 seaborn
 celluloid
 imageio
+sphinx-rtd-theme
