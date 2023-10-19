@@ -68,7 +68,7 @@ widely acceptable criteria to select from them, as presented below in details:
   methods may share *more or less* similarities. On the other hand, they may also show *significant* differences (w.r.t.
   motivations / objectives / implementations / communities / practitioners). Therefore, we hope to cover such a
   diversity from different research communities such as artificial intelligence/machine learning (particularly 
-  (`evolutionary computation <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_, swarm
+  `evolutionary computation <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_, swarm
   intelligence, and zeroth-order optimization), mathematical optimization/programming (particularly derivative-free/global
   optimization), operations research / management science (metaheuristics), automatic control (random search), electronic
   engineering, physics, chemistry, open-source software, and many others.
