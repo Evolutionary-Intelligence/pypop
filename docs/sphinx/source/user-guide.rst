@@ -14,14 +14,14 @@ structure `dict <https://docs.python.org/3/tutorial/datastructures.html#dictiona
 effective way to store all settings related to the optimization problem at hand, such as:
   * `fitness_function`: objective/cost function to be **minimized** (`func`),
   * `ndim_problem`: number of dimensionality (`int`),
-  * `upper_boundary`: upper boundary of search range (`array_like`),
-  * `lower_boundary`: lower boundary of search range (`array_like`).
+  * `upper_boundary`: upper boundary of the search range (`array_like`),
+  * `lower_boundary`: lower boundary of the search range (`array_like`).
 
 Note that without loss of generality, only the **minimization** process is considered in this library, since
 *maximization* can be easily transferred to *minimization* by negating it.
 
 Below is a simple example to define the well-known test function `Rosenbrock
-<http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
+<http://en.wikipedia.org/wiki/Rosenbrock_function>`_ from the optimization community:
 
     .. code-block:: python
        :linenos:
