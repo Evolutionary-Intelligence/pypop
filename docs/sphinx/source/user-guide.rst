@@ -69,8 +69,8 @@ When the fitness function itself involves other *input arguments* except the sam
        >>> ndim_problem = 10
        >>> problem = {'fitness_function': rosenbrock,
        ...            'ndim_problem': ndim_problem,
-       ...            'lower_boundary': -5*np.ones((ndim_problem,)),
-       ...            'upper_boundary': 5*np.ones((ndim_problem,))}
+       ...            'lower_boundary': -5.0*np.ones((ndim_problem,)),
+       ...            'upper_boundary': 5.0*np.ones((ndim_problem,))}
        >>> from pypop7.optimizers.es.maes import MAES  # which can be replaced by any other optimizer in this library
        >>> options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than 1e-10
        ...            'max_function_evaluations': ndim_problem*10000,  # maximum of function evaluations
@@ -130,11 +130,11 @@ hyper-parameters):
        >>> from pypop7.optimizers.cem.scem import SCEM
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 10,
-       ...            'lower_boundary': -5*np.ones((10,)),
-       ...            'upper_boundary': 5*np.ones((10,))}
+       ...            'lower_boundary': -5.0*np.ones((10,)),
+       ...            'upper_boundary': 5.0*np.ones((10,))}
        >>> options = {'max_function_evaluations': 1000000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 4*np.ones((10,)),  # initial mean of Gaussian search distribution
+       ...            'mean': 4.0*np.ones((10,)),  # initial mean of Gaussian search distribution
        ...            'sigma': 3.0}  # initial std (aka global step-size) of Gaussian search distribution
        >>> scem = SCEM(problem, options)  # initialize the optimizer class
        >>> results = scem.optimize()  # run the optimization process
@@ -146,7 +146,7 @@ Result Analysis
 ---------------
 
 After the ending of optimization stage, all optimizers return at least the following common results (collected into
-a `dict`) in a **unified** way:
+a `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ data structure) in a **unified** way:
   * `best_so_far_x`: the best-so-far solution found during optimization,
   * `best_so_far_y`: the best-so-far fitness (aka objective value) found during optimization,
   * `n_function_evaluations`: the total number of function evaluations used during optimization (which never exceeds
@@ -162,8 +162,8 @@ When the optimizer option `saving_fitness` is set to `False`, `fitness` will be 
 evaluations. Note that both the *first* and *last* fitness are always saved as the *beginning* and *ending* of
 optimization.
 
-Below is a simple example to visualize the *fitness convergence* procedure of Evolution Strategy (ES) on the
-classical `sphere` function:
+Below is a simple example to visualize the *fitness convergence* procedure of Rechenberg’s (1+1)-Evolution
+Strategy on the classical `sphere` function (one of the simplest test functions):
 
     .. code-block:: python
        :linenos:
