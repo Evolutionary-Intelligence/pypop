@@ -7,4 +7,3 @@ matplotlib
 seaborn
 celluloid
 imageio
-athena-mathlab
