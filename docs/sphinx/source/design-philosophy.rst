@@ -70,8 +70,9 @@ widely acceptable criteria to select from them, as presented below in details:
   diversity from different research communities such as artificial intelligence/machine learning (particularly 
   `evolutionary computation <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_, swarm
   intelligence, and zeroth-order optimization), mathematical optimization/programming (particularly derivative-free/global
-  optimization), operations research / management science (metaheuristics), automatic control (random search), electronic
-  engineering, physics, chemistry, open-source software, and many others.
+  optimization), operations research / management science (`metaheuristics
+  <https://www.informs.org/Recognizing-Excellence/Award-Recipients/Fred-W.-Glover>`_), automatic control (random search),
+  electronic engineering, physics, chemistry, open-source software, and many others.
 
 .. note::
 
