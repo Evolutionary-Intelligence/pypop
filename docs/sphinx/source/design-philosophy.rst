@@ -50,7 +50,8 @@ widely acceptable criteria to select from them, as presented below in details:
 
   *"If there is a single dominant theme in this ..., it is that practical methods of numerical computation can be
   simultaneously efficient, clever, and --important-- clear."*---Press, W.H., Teukolsky, S.A., Vetterling, W.T. and
-  Flannery, B.P., 2007. Numerical recipes: The art of scientific computing. Cambridge University Press.
+  Flannery, B.P., 2007. `Numerical recipes: The art of scientific computing <http://numerical.recipes/>`_.
+  Cambridge University Press.
 
 * Respect for **Diversity**
 
