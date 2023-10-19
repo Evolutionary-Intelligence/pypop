@@ -52,8 +52,8 @@ installation ways.
        >>> ndim_problem = 1000  # problem dimension
        >>> problem = {'fitness_function': rosenbrock,  # cost function to be minimized
        ...            'ndim_problem': ndim_problem,  # problem dimension
-       ...            'lower_boundary': -5*np.ones((ndim_problem,)),  # lower search boundary
-       ...            'upper_boundary': 5*np.ones((ndim_problem,))}  # upper search boundary
+       ...            'lower_boundary': -5.0*np.ones((ndim_problem,)),  # lower search boundary
+       ...            'upper_boundary': 5.0*np.ones((ndim_problem,))}  # upper search boundary
 
 See `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for details about the problem
 definition.
@@ -67,8 +67,8 @@ definition.
        >>> options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than 1e-10
        ...            'max_runtime': 3600,  # terminate when the actual runtime exceeds 1 hour (i.e. 3600 seconds)
        ...            'seed_rng': 0,  # seed of random number generation (which must be set for repeatability)
-       ...            'x': 4*np.ones((ndim_problem,)),  # initial mean of search distribution
-       ...            'sigma': 0.3,  # initial global step-size of search distribution
+       ...            'x': 4.0*np.ones((ndim_problem,)),  # initial mean of search distribution
+       ...            'sigma': 0.3,  # initial global step-size of search distribution (to be fine-tuned)
        ...            'verbose': 500}
        >>> lmmaes = LMMAES(problem, options)  # initialize the optimizer (a unified interface for all optimizers)
        >>> results = lmmaes.optimize()  # run its (time-consuming) search process
