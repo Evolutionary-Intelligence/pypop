@@ -47,7 +47,7 @@ widely acceptable criteria to select from them, as presented below in details:
     <https://www.sciencedirect.com/science/article/abs/pii/S0020025517310332>`_. Information Sciences, 427, pp.32-62.
 
   * Sörensen, K., Sevaux, M. and Glover, F., 2018. `A history of metaheuristics
-    <https://link.springer.com/referenceworkentry/10.1007/978-3-319-07124-4_4`_. In Handbook of Heuristics (pp. 791-808).
+    <https://link.springer.com/referenceworkentry/10.1007/978-3-319-07124-4_4>`_. In Handbook of Heuristics (pp. 791-808).
     Springer, Cham.
 
   * Sörensen, K., 2015. `Metaheuristics—the metaphor exposed <https://onlinelibrary.wiley.com/doi/full/10.1111/itor.12001>`_.
