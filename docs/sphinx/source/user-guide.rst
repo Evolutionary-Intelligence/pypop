@@ -2,7 +2,8 @@ User Guide
 ==========
 
 Before applying `pypop7` to real-world black-box optimization (BBO) problems, the following user guidelines should
-be read: *problem definition*, *optimizer setting*, *result analysis*, and *algorithm selection and configuration*.
+be read sequentially: *Problem Definition*, *Optimizer Setting*, *Result Analysis*, and *Algorithm Selection and
+Configuration*.
 
 Problem Definition
 ------------------
