@@ -26,9 +26,9 @@ widely acceptable criteria to select from them, as presented below in details:
   **NOT** considered here. Sometimes, several **very complex** optimizers could obtain the top rank on some
   competitions consisting of only *artificially-constructed* benchmark functions. However, these optimizers may become
   **over-skilled** on these artifacts. In our opinions, a good optimizer should be elegant (at least understandable)
-  and `generalizable <http://incompleteideas.net/IncIdeas/BitterLesson.html>`_. If there is no persuasive application
-  reported for it, we will not consider any **very complex** optimizer in this library, in order to aovid the possible
-  `repeatability <https://dl.acm.org/doi/full/10.1145/3466624>`_ and `overfitting
+  and `generalizable <http://incompleteideas.net/IncIdeas/BitterLesson.html>`_. If there is no persuasive/successful
+  real-world applications reported for it, we will not consider any **very complex** optimizer in this library, in order
+  to aovid the possible `repeatability <https://dl.acm.org/doi/full/10.1145/3466624>`_ and `overfitting
   <http://incompleteideas.net/IncIdeas/BitterLesson.html>`_ issues.
 
   * Campelo, F. and Aranha, C., 2023. `Lessons from the evolutionary computation Bestiary
@@ -42,6 +42,9 @@ widely acceptable criteria to select from them, as presented below in details:
   * Aranha, C., Camacho Villalón, C.L., Campelo, F., Dorigo, M., Ruiz, R., Sevaux, M., Sörensen, K. and Stützle, T., 2022.
     `Metaphor-based metaheuristics, a call for action: The elephant in the room
     <https://link.springer.com/article/10.1007/s11721-021-00202-9>`_. Swarm Intelligence, 16(1), pp.1-6.
+
+  * Piotrowski, A.P. and Napiorkowski, J.J., 2018. `Some metaheuristics should be simplified
+    <https://www.sciencedirect.com/science/article/abs/pii/S0020025517310332>`_. Information Sciences, 427, pp.32-62.
 
 .. note::
 
