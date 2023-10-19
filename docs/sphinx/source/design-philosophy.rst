@@ -73,6 +73,12 @@ widely acceptable criteria to select from them, as presented below in details:
   optimization), operations research / management science (metaheuristics), automatic control (random search), electronic
   engineering, physics, chemistry, open-source software, and many others.
 
+.. note::
+
+   *"The theory of evolution by natural selection explains the adaptedness and diversity of the world solely
+   materialistically".*---`[Mayr, 2009, Scientific American]
+   <https://www.scientificamerican.com/article/darwins-influence-on-modern-thought1/>`_.
+
 * Respect for **Originality**
 
   For each optimizer included in *PyPop7*, we expect to give its original/representative reference (sometimes also
