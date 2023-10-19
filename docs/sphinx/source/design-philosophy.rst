@@ -69,9 +69,9 @@ widely acceptable criteria to select from them, as presented below in details:
   motivations / objectives / implementations / communities / practitioners). Therefore, we hope to cover such a
   diversity from different research communities such as artificial intelligence/machine learning (particularly 
   (`evolutionary computation <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_, swarm
-  intelligence, and zeroth-order optimization)), mathematical optimization/programming (particularly global optimization),
-  operations research / management science, automatic control (random search), electronic engineering, open-source software,
-  physics, chemistry, and many others.
+  intelligence, and zeroth-order optimization), mathematical optimization/programming (particularly derivative-free/global
+  optimization), operations research / management science (metaheuristics), automatic control (random search), electronic
+  engineering, physics, chemistry, open-source software, and many others.
 
 * Respect for **Originality**
 
@@ -81,7 +81,8 @@ widely acceptable criteria to select from them, as presented below in details:
 
 .. note::
   *"It is both enjoyable and educational to hear the ideas directly from the creators".*---Hennessy, J.L. and Patterson,
-  D.A., 2019. Computer architecture: A quantitative approach (Sixth Edition). Elsevier.
+  D.A., 2019. `Computer architecture: A quantitative approach (Sixth Edition)
+  <https://shop.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1>`_. Elsevier.
 
 * Respect for **Repeatability**
 
