@@ -74,7 +74,10 @@ definition.
        >>> results = lmmaes.optimize()  # run its (time-consuming) search process
        >>> # print the best-so-far fitness and used function evaluations returned by the used black-box optimizer
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
-       9.8774e-11 3928055
+       9.877e-11 3928055
+
+See `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_ for
+details about the optimizer setting.
 
 
 
