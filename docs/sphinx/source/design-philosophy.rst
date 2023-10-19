@@ -1,7 +1,7 @@
 Design Philosophy
 =================
 
-Given a large number of (black-box) optimizers which keep increasing almost every day, we need some (possibly) widely
+Given a large number of (black-box) optimizers which keep increasing almost every month, we need some (possibly) widely
 acceptable criteria to select from them, as presented below in details:
 
 * Respect for **Beauty (Elegance)**
