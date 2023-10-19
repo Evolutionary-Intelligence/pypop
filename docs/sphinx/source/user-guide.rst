@@ -80,7 +80,7 @@ When the fitness function itself involves other *input arguments* except the sam
        >>> maes = MAES(problem, options)  # initialize the optimizer
        >>> results = maes.optimize(args=100.0)  # args as input arguments of fitness function except sampling point
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
-       3.98657911234714 100000  # this is a well-recognized *local* attractor rather than the global optimum
+       7.573e-11 15537
 
 When there are multiple (>=2) input arguments except the sampling point `x`, all of them should be organized via
 a `function` or `class` wrapper with only one input argument except the sampling point `x` (in `dict` or `tuple`
