@@ -51,7 +51,7 @@ a virtual environment (e.g., named as `env_pypop7`):
 
     conda deactivate  # close exiting virtual env
     conda create -y --prefix env_pypop7  # you can change the name of virtual environment to any
-    conda activate ./env_pypop7  # for Windows OS (use `conda activate env_pypop7/` for Linux)
+    conda activate ./env_pypop7  # for Windows (`conda activate env_pypop7/` for Linux or `conda activate env_pypop7` for MacOS)
     conda install -y --prefix env_pypop7 python=3.8.12
     pip install pypop7
     conda deactivate
