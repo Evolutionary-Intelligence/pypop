@@ -53,6 +53,10 @@ widely acceptable criteria to select from them, as presented below in details:
   * Sörensen, K., 2015. `Metaheuristics—the metaphor exposed <https://onlinelibrary.wiley.com/doi/full/10.1111/itor.12001>`_.
     International Transactions in Operational Research, 22(1), pp.3-18.
 
+  * Auger, A., Hansen, N. and Schoenauer, M., 2012. `Benchmarking of continuous black box optimization algorithms
+    <https://direct.mit.edu/evco/article-abstract/20/4/481/956/Benchmarking-of-Continuous-Black-Box-Optimization>`_.
+    Evolutionary Computation, 20(4), pp.481-481.
+
 .. note::
 
   *"If there is a single dominant theme in this ..., it is that practical methods of numerical computation can be
