@@ -151,6 +151,7 @@ For more interesting applications of `ES <https://dl.acm.org/doi/10.1145/3583133
 challenging real-world problems, refer to e.g.,
 `[Lee et al., 2023, Science Robotics] <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_;
 `[Lange et al., 2023, ICLR] <https://openreview.net/pdf?id=mFDU0fP3EQH>`_;
+`[Yu et al., 2023, IJCAI] <https://www.ijcai.org/proceedings/2023/0187.pdf>`_;
 `[Slade et al., 2022, Nature] <https://www.nature.com/articles/s41586-022-05191-1>`_;
 `[De Croon et al., 2022, Nature] <https://www.nature.com/articles/s41586-022-05182-2>`_;
 `[Sun et al., 2022, ICML] <https://proceedings.mlr.press/v162/sun22e.html>`_;
