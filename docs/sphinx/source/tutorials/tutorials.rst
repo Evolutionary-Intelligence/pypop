@@ -5,7 +5,7 @@ Here we provide several *interesting* tutorials to help better use this `open-so
 library `PyPop7 <https://pypop.readthedocs.io/en/latest/installation.html>`_ for black-box optimization (BBO), as
 shown below:
 
-* Lens Shape Optimization,
+* Lens Shape Optimization from `[Beyer, GECCO] <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_,
 * Lennard-Jones Cluster Optimization from `pagmo <https://esa.github.io/pagmo2/>`_,
 * Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ (developed by
   European Space Agency),
