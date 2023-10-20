@@ -6,12 +6,14 @@ library `PyPop7 <https://pypop.readthedocs.io/en/latest/installation.html>`_ for
 shown below:
 
 * Lens Shape Optimization from `[Beyer, GECCO] <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_,
-* Lennard-Jones Cluster Optimization from `pagmo <https://esa.github.io/pagmo2/>`_,
+* Lennard-Jones Cluster Optimization from `pagmo <https://esa.github.io/pagmo2/>`_ (developed by
+  European Space Agency),
 * Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ (developed by
   European Space Agency),
-* Benchmarking for Large-Scale Black-Box Optimization,
+* Benchmarking for Large-Scale Black-Box Optimization (BBO),
 * Controller Design/Optimization (aka Direct Policy Search),
-* Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform,
+* Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact Award
+  Winner <https://dl.acm.org/doi/abs/10.1145/3447929.3447930>`_),
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
   recently by FacebookResearch).
 
