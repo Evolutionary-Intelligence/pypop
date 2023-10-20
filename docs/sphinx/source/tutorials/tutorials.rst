@@ -149,6 +149,7 @@ For more interesting applications of `ES <https://dl.acm.org/doi/10.1145/3583133
 `CMA-ES <http://www.cmap.polytechnique.fr/~nikolaus.hansen/gecco-2022-cma-tutorial.pdf>`_ /
 `NES <https://jmlr.org/papers/v15/wierstra14a.html>`_ on
 challenging real-world problems, refer to e.g.,
+`[Lee et al., 2023, Science Robotics] <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_;
 `[Lange et al., 2023, ICLR] <https://openreview.net/pdf?id=mFDU0fP3EQH>`_;
 `[Slade et al., 2022, Nature] <https://www.nature.com/articles/s41586-022-05191-1>`_;
 `[De Croon et al., 2022, Nature] <https://www.nature.com/articles/s41586-022-05182-2>`_;
