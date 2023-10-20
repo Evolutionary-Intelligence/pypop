@@ -90,3 +90,6 @@ Control the entire search process via modifying the following function `optimize
 
 Typically, common auxiliary tasks (e.g., printing verbose information, restarting) are conducted inside
 this function.
+
+Using Pure Random Search as an Illustrative Example
+---------------------------------------------------
