@@ -108,4 +108,6 @@ widely acceptable criteria to select from them, as presented below in details:
     <https://jmlr.csail.mit.edu/papers/volume8/sonnenburg07a/sonnenburg07a.pdf>`_. Journal of Machine Learning Research,
     8, pp.2443-2466.
 
-We expect to see more interesting discussions about the **Beauty of Black-Box Optimizers (BBO)**!
+We expect to see more interesting discussions about the **Beauty of Black-Box Optimizers**! For **new/missed** BBO, we
+provide a *unified* API interface to freely add them if they satisfy the above design philosophy (see
+`development-guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for details).
