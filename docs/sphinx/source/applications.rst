@@ -13,7 +13,7 @@ Up to now, this library `PyPop7` has been used (at least) in the following paper
 Till now, our library `PyPop7` has been used (at least) in the following projects:
 
 * https://github.com/BruthYU/BPT-VLM (2023)
-* https://opof.kavrakilab.org/ (2023)
+* https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
 * https://github.com/TUIlmenauAMS/BlackBoxOptimizerSPcomparison (2023)
 * https://github.com/moesio-f/py-abm-public (2023)
 * https://github.com/Evolutionary-Intelligence/M-DES (2023)
