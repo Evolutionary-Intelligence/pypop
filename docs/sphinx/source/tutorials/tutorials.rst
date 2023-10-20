@@ -17,8 +17,9 @@ shown below:
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
   recently by FacebookResearch).
 
-For each black-box optimizer from this open-source library, we also provide a *toy* example on their corresponding
-**API** documentations and two *testing* code (if possible) on their corresponding `Python source code
+For each black-box optimizer from this `open-source <https://twitter.com/ylecun/status/1715363851967906176>`_
+library, we also provide a *toy* example on their corresponding **API** documentations and two *testing* code
+(if possible) on their corresponding `Python source code
 <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_ folders.
 
 Lens Shape Optimization
