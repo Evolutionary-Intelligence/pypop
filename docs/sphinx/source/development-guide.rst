@@ -101,7 +101,7 @@ Using Pure Random Search as an Illustrative Example
          from pypop7.optimizers.core.optimizer import Optimizer
          
          
-         class PRS(Optimizer):  # inherited the abstract class called `Optimizer`
+         class PRS(Optimizer):  # Inheritation of `Optimizer`
              """Pure Random Search (PRS).
              """
              def __init__(self, problem, options):
