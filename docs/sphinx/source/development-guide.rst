@@ -83,7 +83,7 @@ Control of Entire Optimization Process
 Control the entire search process via modifying the following function `optimize
 <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L153>`_:
 
-   .. code-block:: bash
+    .. code-block:: bash
 
        def optimize(self, fitness_function=None):  # entire optimization process
            return None  # `None` should be replaced in any subclass of `Optimizer`
