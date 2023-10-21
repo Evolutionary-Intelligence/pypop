@@ -128,7 +128,7 @@ Using Pure Random Search as an Illustrative Example
              def iterate(self): # individual-based sampling
                  return self._sample(self.rng_optimization)
          
-             # Saving of Finess and Control of Output Verbose Information
+             # Saving of Finess and Control of Printing Verbose Information
              def _print_verbose_info(self, fitness, y):
                  if self.saving_fitness:
                      if not np.isscalar(y):
