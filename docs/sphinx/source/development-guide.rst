@@ -107,6 +107,7 @@ Using Pure Random Search as an Illustrative Example
              def __init__(self, problem, options):
                  Optimizer.__init__(self, problem, options)
                  self.x = options.get('x')  # initial (starting) point
+                 self.verbose = options.get('verbose', 1000)
                  self._n_generations = 0  # number of generations
          
              def _sample(self, rng):
