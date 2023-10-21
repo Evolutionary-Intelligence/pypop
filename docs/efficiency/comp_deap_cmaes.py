@@ -20,7 +20,7 @@ def eaGenerateUpdate(toolbox, start_time):
     # to store a list of sampled function evaluations and best-so-far fitness
     fe, fitness = [], []
 
-    while (time.time() - start_time) < (60 * 60 * 3):  # 3 hours 
+    while (time.time() - start_time) < (60*60*3):  # 3 hours
         population = toolbox.generate()
         fitnesses = toolbox.map(toolbox.evaluate, population)
         for ind, fit in zip(population, fitnesses):
