@@ -5,18 +5,21 @@ Here we provide several *interesting* tutorials to help better use this `open-so
 library `PyPop7 <https://pypop.readthedocs.io/en/latest/installation.html>`_ for black-box optimization (BBO), as
 shown below:
 
-* Lens Shape Optimization,
-* Lennard-Jones Cluster Optimization from `pagmo <https://esa.github.io/pagmo2/>`_,
+* Lens Shape Optimization from `[Beyer, GECCO] <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_,
+* Lennard-Jones Cluster Optimization from `pagmo <https://esa.github.io/pagmo2/>`_ (developed by
+  European Space Agency),
 * Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ (developed by
   European Space Agency),
-* Benchmarking for Large-Scale Black-Box Optimization,
+* Benchmarking for Large-Scale Black-Box Optimization (BBO),
 * Controller Design/Optimization (aka Direct Policy Search),
-* Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform,
+* Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact Award
+  Winner <https://dl.acm.org/doi/abs/10.1145/3447929.3447930>`_),
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
   recently by FacebookResearch).
 
-For each black-box optimizer from this open-source library, we also provide a *toy* example on their corresponding
-**API** documentations and two *testing* code (if possible) on their corresponding `Python source code
+For each black-box optimizer from this `open-source <https://twitter.com/ylecun/status/1715363851967906176>`_
+library, we also provide a *toy* example on their corresponding **API** documentations and two *testing* code
+(if possible) on their corresponding `Python source code
 <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_ folders.
 
 Lens Shape Optimization
@@ -149,7 +152,10 @@ For more interesting applications of `ES <https://dl.acm.org/doi/10.1145/3583133
 `CMA-ES <http://www.cmap.polytechnique.fr/~nikolaus.hansen/gecco-2022-cma-tutorial.pdf>`_ /
 `NES <https://jmlr.org/papers/v15/wierstra14a.html>`_ on
 challenging real-world problems, refer to e.g.,
+`[Lee et al., 2023, Science Robotics] <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_;
 `[Lange et al., 2023, ICLR] <https://openreview.net/pdf?id=mFDU0fP3EQH>`_;
+`[Yu et al., 2023, IJCAI] <https://www.ijcai.org/proceedings/2023/0187.pdf>`_;
+`[Kim et al., 2023, Science Robotics] <https://www.science.org/doi/10.1126/scirobotics.add1053>`_;
 `[Slade et al., 2022, Nature] <https://www.nature.com/articles/s41586-022-05191-1>`_;
 `[De Croon et al., 2022, Nature] <https://www.nature.com/articles/s41586-022-05182-2>`_;
 `[Sun et al., 2022, ICML] <https://proceedings.mlr.press/v162/sun22e.html>`_;
