@@ -104,6 +104,7 @@ Using Pure Random Search as an Illustrative Example
          class PRS(Optimizer):  # Inheritation of `Optimizer`
              """Pure Random Search (PRS).
              """
+             # Initialization of Optimizer Options
              def __init__(self, problem, options):
                  Optimizer.__init__(self, problem, options)
                  self.x = options.get('x')  # initial (starting) point
