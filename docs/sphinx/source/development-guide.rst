@@ -83,7 +83,7 @@ Control of Entire Optimization Process
 Control the entire search process via modifying the following function `optimize
 <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L153>`_:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
        def optimize(self, fitness_function=None):  # entire optimization process
            return None  # `None` should be replaced in any subclass of `Optimizer`
@@ -93,3 +93,69 @@ this function.
 
 Using Pure Random Search as an Illustrative Example
 ---------------------------------------------------
+
+   .. code-block:: bash
+
+         import numpy as np
+         
+         from pypop7.optimizers.core.optimizer import Optimizer
+         
+         
+         class PRS(Optimizer):  # inherited the abstract class called `Optimizer`
+             """Pure Random Search (PRS).
+             """
+             def __init__(self, problem, options):
+                 Optimizer.__init__(self, problem, options)
+                 self.x = options.get('x')  # initial (starting) point
+                 self._n_generations = 0  # number of generations
+         
+             def _sample(self, rng):
+                 x = rng.uniform(self.initial_lower_boundary, self.initial_upper_boundary)
+                 return x
+         
+             # Initialization of Population
+             def initialize(self):
+                 if self.x is None:
+                     x = self._sample(self.rng_initialization)
+                 else:
+                     x = np.copy(self.x)
+                 assert len(x) == self.ndim_problem
+                 return x
+         
+             # Computation of Each Generation
+             def iterate(self): # individual-based sampling
+                 return self._sample(self.rng_optimization)
+         
+             # Saving of Finess and Control of Output Verbose Information
+             def _print_verbose_info(self, fitness, y):
+                 if self.saving_fitness:
+                     if not np.isscalar(y):
+                         fitness.extend(y)
+                     else:
+                         fitness.append(y)
+                 if self.verbose and ((not self._n_generations % self.verbose) or (self.termination_signal > 0)):
+                     info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
+                     print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
+         
+             # Collection of Necessary Information 
+             def _collect(self, fitness, y=None):
+                 if y is not None:
+                     self._print_verbose_info(fitness, y)
+                 results = Optimizer._collect(self, fitness)
+                 results['_n_generations'] = self._n_generations
+                 return results
+         
+             # Control of Entire Optimization Process
+             def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
+                 fitness = Optimizer.optimize(self, fitness_function)
+                 x = self.initialize()  # Initialization of Population
+                 y = self._evaluate_fitness(x, args)  # fitness of starting point
+                 while not self._check_terminations():
+                     self._print_verbose_info(fitness, y)  # Saving of Finess and  Control of Output Verbose Information
+                     x = self.iterate()  # Computation of Each Generation
+                     y = self._evaluate_fitness(x, args)  # to evaluate the new point
+                     self._n_generations += 1
+                 results = self._collect(fitness, y)  # Collection of Necessary Information 
+                 return results
+
+   
