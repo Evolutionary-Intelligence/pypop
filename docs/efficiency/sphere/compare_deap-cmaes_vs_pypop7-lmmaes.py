@@ -19,9 +19,9 @@ def read_pickle(s, ii):
 
 if __name__ == '__main__':
     n_trials = 10
-    algos = ['DEAP', 'PYPOP7LA']
-    labels = ['DEAP (CMA-ES)', 'PyPop7 (LMMAES)']
-    colors = ['blueviolet', 'springgreen']
+    algos = ['PYPOP7LA', 'DEAP']
+    labels = ['PyPop7 (LMMAES)', 'DEAP (CMA-ES)']
+    colors = ['springgreen', 'blueviolet']
     max_runtime, fitness_threshold = 3600*3 - 10*60, 1e-10
     time, fitness, fe = [], [], []
     for j in range(len(algos)):  # initialize
@@ -68,6 +68,40 @@ if __name__ == '__main__':
     plt.legend(labels, fontsize=18)
     plt.show()
 
+    algos = ['DEAP', 'PYPOP7LA']
+    labels = ['DEAP (CMA-ES)', 'PyPop7 (LMMAES)']
+    colors = ['blueviolet', 'springgreen']
+    max_runtime, fitness_threshold = 3600 * 3 - 10 * 60, 1e-10
+    time, fitness, fe = [], [], []
+    for j in range(len(algos)):  # initialize
+        time.append([])
+        fitness.append([])
+        fe.append([])
+        for i in range(n_trials):
+            time[j].append([])
+            fitness[j].append([])
+            fe[j].append([])
+    for i in range(n_trials):
+        for j, a in enumerate(algos):
+            results = read_pickle(a, str(i + 1))
+            time[j][i] = results['fitness'][:, 0] * results['runtime'] / results['n_function_evaluations']
+            fe[j][i] = results['fitness'][:, 0]
+            y = results['fitness'][:, 1]
+            fitness[j][i] = y
+            print(i + 1, ' * ', a, ':', results['n_function_evaluations'], results['best_so_far_y'])
+    top_fitness, top_order = [], []
+    for j, a in enumerate(algos):
+        run, fit, r_f = [], [], []
+        for i in range(len(time[j])):
+            run.append(time[j][i][-1] if time[j][i][-1] <= max_runtime else max_runtime)
+            fit.append(fitness[j][i][-1] if fitness[j][i][-1] >= fitness_threshold else fitness_threshold)
+            r_f.append([run[i], fit[i], i])
+        r_f.sort(key=lambda x: (x[0], x[1]))  # sort by first runtime then fitness
+        order = r_f[int(n_trials / 2)][2]  # for median (but non-standard for simplicity)
+        top_order.append(order)
+        top_fitness.append([run[order], fit[order], a])
+    top_fitness.sort(key=lambda x: (x[0], x[1]))
+    top_fitness = [t for t in [tr[2] for tr in top_fitness]]
     fig = plt.figure(figsize=(8.5, 8.5))
     plt.rcParams['font.family'] = 'Times New Roman'
     ax1 = fig.add_subplot(111)
