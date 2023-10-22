@@ -94,8 +94,8 @@ this function.
 Using Pure Random Search as an Illustrative Example
 ---------------------------------------------------
 
-In the following Python code, we use Pure Random Search, perhaps the simplest black-box optimizer, as an
-illustrative example.
+In the following Python code, we use Pure Random Search (PRS), perhaps the simplest black-box optimizer, as
+an illustrative example.
 
    .. code-block:: bash
 
@@ -152,9 +152,7 @@ illustrative example.
              ...            'seed_rng': 2022}
              >>> prs = PRS(problem, options)  # initialize the optimizer class
              >>> results = prs.optimize()  # run the optimization process
-             >>> # return the number of used function evaluations and found best-so-far fitness
-             >>> print(f"PRS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-             PRS: 5000, 0.11497678820610932
+             >>> print(results)
       
           For its correctness checking of coding, refer to `this code-based repeatability report
           <https://tinyurl.com/mrx2kffy>`_ for more details.
@@ -177,7 +175,7 @@ illustrative example.
           https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244
           """
           def __init__(self, problem, options):
-              """Initialize the PRS options."""
+              """Initialize the class with two inputs (problem arguments and optimizer options)."""
               Optimizer.__init__(self, problem, options)
               self.x = options.get('x')  # initial (starting) point
               self.verbose = options.get('verbose', 1000)
@@ -188,7 +186,7 @@ illustrative example.
               return x
       
           def initialize(self):
-              """Initialize the population"""
+              """Only for the initialization stage."""
               if self.x is None:
                   x = self._sample(self.rng_initialization)
               else:
@@ -197,7 +195,7 @@ illustrative example.
               return x
 
           def iterate(self):
-              """Computation of each generation"""
+              """Only for the iteration stage."""
               return self._sample(self.rng_optimization)
 
           def _print_verbose_info(self, fitness, y):
