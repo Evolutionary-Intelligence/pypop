@@ -162,3 +162,17 @@ illustrative example.
                   self._n_generations += 1
               results = self._collect(fitness, y)  # to collect all necessary output information 
               return results
+
+
+Repeatability Code/Reports
+--------------------------
+
+=========== ============================================================================================================================ =====================================================================================================
+ Optimizer   Repeatability Code                                                                                                          Genetated Figure(s)/Data                                                                          
+=========== ============================================================================================================================ =====================================================================================================
+ MMES          `_repeat_mmes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_mmes.py>`_       `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/mmes>`_  
+
+ FCMAES     `_repear_fcmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_fcmaes.py>`_   `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/fcmaes>`_
+
+ LMMAES     `_repeat_lmmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmmaes.py>`_   `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmmaes>`_
+=========== ============================================================================================================================ =====================================================================================================
