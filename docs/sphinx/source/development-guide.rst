@@ -163,6 +163,8 @@ illustrative example.
               results = self._collect(fitness, y)  # to collect all necessary output information 
               return results
 
+Note that from Oct. 22, 2023, we have decided to adopt the *active* development/maintenance mode, that is, **once
+new optimizers are added or serious bugs are fixed, we will release a new version right now**.
 
 Repeatability Code/Reports
 --------------------------
