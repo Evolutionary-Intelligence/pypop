@@ -88,7 +88,7 @@ widely acceptable criteria to select from them, as presented below in details:
 
   For each optimizer included in *PyPop7*, we expect to give its original/representative reference (sometimes also
   including its good implementations/improvements). If you find some important references missed, please do NOT hesitate
-  to contact us (and we will be happy to add it if necessary).
+  to contact us (and we will be happy to add it).
 
 .. note::
   *"It is both enjoyable and educational to hear the ideas directly from the creators".*---Hennessy, J.L. and Patterson,
@@ -97,12 +97,13 @@ widely acceptable criteria to select from them, as presented below in details:
 
 * Respect for **Repeatability**
 
-  For randomized search, properly controlling randomness is very crucial to repeat numerical experiments. Here we follow
-  the `Random Sampling <https://numpy.org/doc/stable/reference/random/generator.html>`_ suggestions from `NumPy
-  <https://numpy.org/doc/stable/reference/random/>`_. In other worlds, you must **explicitly** set the random seed for
+  For randomized search which is adopted by most population-based optimizers, properly controlling randomness is very
+  crucial to repeat numerical experiments. Here we follow the `Random Sampling
+  <https://numpy.org/doc/stable/reference/random/generator.html>`_ suggestions from `NumPy
+  <https://numpy.org/doc/stable/reference/random/>`_. In other worlds, you should **explicitly** set the random seed for
   each optimizer. For more discussions about **repeatability** from machine learning, evolutionary computation, and 
   metaheuristics communities, refer to the following papers, to name a few:
-    
+
   * López-Ibáñez, M., Branke, J. and Paquete, L., 2021. `Reproducibility in evolutionary computation
     <https://dl.acm.org/doi/abs/10.1145/3466624>`_. ACM Transactions on Evolutionary Learning and Optimization,
     1(4), pp.1-21.
