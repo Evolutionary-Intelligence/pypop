@@ -101,16 +101,16 @@ an illustrative example.
 
       import numpy as np
       
-      from pypop7.optimizers.core.optimizer import Optimizer  # base of all black-box optimizers
+      from pypop7.optimizers.core.optimizer import Optimizer  # base class of all black-box optimizers
  
       
-      class PRS(Optimizer):  # Inheritation of `Optimizer`
+      class PRS(Optimizer):
           """Pure Random Search (PRS).
 
           .. note:: `PRS` is one of the *simplest* and *earliest* black-box optimizers, dating back to at least
              `1950s <https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244>`_.
              Here we include it mainly for *benchmarking* purpose. As pointed out in `Probabilistic Machine Learning
-             <https://probml.github.io/pml-book/book2.html>`_, *"this should always be tried as a baseline"*.
+             <https://probml.github.io/pml-book/book2.html>`_, *this should always be tried as a baseline*.
       
           Parameters
           ----------
