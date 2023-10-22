@@ -141,9 +141,9 @@ illustrative example.
               if self.verbose and ((not self._n_generations % self.verbose) or (self.termination_signal > 0)):
                   info = '  * Generation {:d}: best_so_far_y {:7.5e}, min(y) {:7.5e} & Evaluations {:d}'
                   print(info.format(self._n_generations, self.best_so_far_y, np.min(y), self.n_function_evaluations))
-      
-          # Collection of Necessary Information 
+       
           def _collect(self, fitness, y=None):
+              """Collect necessary output information."""
               if y is not None:
                   self._print_verbose_info(fitness, y)
               results = Optimizer._collect(self, fitness)
@@ -151,11 +151,12 @@ illustrative example.
               return results
 
           def optimize(self, fitness_function=None, args=None):  # for all iterations (generations)
+              """For the entire optimization/evolution stage: initialization + iteration."""
               fitness = Optimizer.optimize(self, fitness_function)
               x = self.initialize()  # population initialization
               y = self._evaluate_fitness(x, args)  # to evaluate fitness of starting point
               while not self._check_terminations():
-                  self._print_verbose_info(fitness, y)  # finess saving and console verbose information controlling
+                  self._print_verbose_info(fitness, y)  # to save fitness and control console verbose information
                   x = self.iterate()
                   y = self._evaluate_fitness(x, args)  # to evaluate each new point
                   self._n_generations += 1
