@@ -21,17 +21,17 @@ we further use the docstring conventions from
 A Unified API
 -------------
 
-For `PyPop7`, we use the popular Object-Oriented Programming (OOP) to structure all optimizers, which
+For `PyPop7`, we use the popular Object-Oriented Programming (OOP) paradigm to structure all optimizers, which
 can provide consistency, flexibility, and simplicity. We did not adopt another popular
-Procedure-Oriented Programming. However, in the future versions, we may provide such an interface
+Procedure-Oriented Programming paradigm. However, in the future versions, we may provide such an interface
 only at the end-user level (rather than the developer level).
 
 For all optimizers, the abstract class called `Optimizer
 <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py>`_
-needs to be inherited implicitly or explicitly, in order to provide a unified API.
+needs to be inherited, in order to provide a unified API.
 
 * All members shared by all optimizers (e.g., `fitness_function`, `ndim_problem`, etc.) should be
-  defined in this class.
+  defined in the `__initialization__` function of this class.
 
 * All methods public to end-users should be defined in this class except special cases.
 
