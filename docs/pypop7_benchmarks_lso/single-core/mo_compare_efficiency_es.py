@@ -69,7 +69,12 @@ if __name__ == '__main__':
         plt.figure(figsize=(8.5, 8.5))
         plt.yscale('log')
         for j, a in enumerate(algos):
-            plt.plot(time[j][top_order[j]], fitness[j][top_order[j]], label=a)
+            if j < 10:
+                plt.plot(time[j][top_order[j]], fitness[j][top_order[j]], label=a)
+            elif j < 20:
+                plt.plot(time[j][top_order[j]], fitness[j][top_order[j]], '--', label=a)
+            else:
+                plt.plot(time[j][top_order[j]], fitness[j][top_order[j]], ':', label=a)
         plt.xlabel('Running Time (Seconds)', fontsize=24, fontweight='bold')
         plt.ylabel('Cost', fontsize=24, fontweight='bold')
         plt.title(f, fontsize=24, fontweight='bold')
