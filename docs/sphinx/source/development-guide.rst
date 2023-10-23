@@ -60,9 +60,9 @@ Initialization of Population
 ----------------------------
 
 We separate the initialization of *optimizer options* with that of *population* (a set of individuals),
-in order to obtain flexibility. To achieve this, the following function `initialize
-<https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L147>`_ should
-be modified:
+in order to obtain better flexibility. To achieve this, the following function `initialize
+<https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L147>`_
+should be modified:
 
     .. code-block:: bash
 
