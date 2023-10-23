@@ -236,12 +236,26 @@ new optimizers are added or serious bugs are fixed, we will release a new versio
 Repeatability Code/Reports
 --------------------------
 
-=========== ============================================================================================================================ =====================================================================================================
- Optimizer   Repeatability Code                                                                                                          Genetated Figure(s)/Data                                                                          
-=========== ============================================================================================================================ =====================================================================================================
- MMES          `_repeat_mmes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_mmes.py>`_       `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/mmes>`_  
+=========== ================================================================================================================================== ==============================================================================================================
+ Optimizer   Repeatability Code                                                                                                                Generated Figure(s)/Data                                                                          
+=========== ================================================================================================================================== ==============================================================================================================
+ MMES          `_repeat_mmes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_mmes.py>`_          `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/mmes>`_  
 
- FCMAES     `_repear_fcmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_fcmaes.py>`_   `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/fcmaes>`_
+ FCMAES     `_repear_fcmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_fcmaes.py>`_         `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/fcmaes>`_
 
- LMMAES     `_repeat_lmmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmmaes.py>`_   `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmmaes>`_
-=========== ============================================================================================================================ =====================================================================================================
+ LMMAES     `_repeat_lmmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmmaes.py>`_         `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmmaes>`_
+
+ LMCMA      `_repeat_lmcma.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcma.py>`_           `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmcma>`_
+
+ LMCMAES    `_repeat_lmcmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcmaes.py>`_       `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcmaes.py>`_
+
+ RMES       `_repeat_rmes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_rmes.py>`_             `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/rmes>`_
+
+ R1ES       `_repeat_r1es.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_r1es.py>`_             `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/r1es>`_
+
+ VKDCMA     `_repeat_vkdcma.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_vkdcma.py>`_         `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_vkdcma.py>`_
+
+ VDCMA      `_repeat_vdcma.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_vdcma.py>`_           `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_vdcma.py>`_
+
+ CCMAES2016 `_repeat_ccmaes2016.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ccmaes2016.py>`_ `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/ccmaes2016>`_
+=========== ================================================================================================================================== ==============================================================================================================
