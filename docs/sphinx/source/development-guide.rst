@@ -31,13 +31,12 @@ For all optimizers, the abstract class called `Optimizer
 needs to be inherited, in order to provide a unified API.
 
 * All members shared by all optimizers (e.g., `fitness_function`, `ndim_problem`, etc.) should be
-  defined in the `__initialization__` function of this class.
+  defined in the `__init__` function of this class.
 
 * All methods public to end-users should be defined in this class except special cases.
 
 * All settings related to fair benchmarking comparisons (e.g., `max_function_evaluations`,
-  `max_runtime`, and `fitness_threshold`) should be defined in the `__initialization__` function of
-  this class.
+  `max_runtime`, and `fitness_threshold`) should be defined in the `__init__` function of this class.
 
 Initialization of Optimizer Options
 -----------------------------------
