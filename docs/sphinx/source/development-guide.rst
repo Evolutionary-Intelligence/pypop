@@ -2,16 +2,18 @@ Development Guide
 =================
 
 .. note::
-   This `Development Guide` page is still actively updated.
+   This `Development Guide` page is still actively updated. We wish to make **adding new optimizers**
+   as easy as possible.
 
 Before reading this page, it is required to first read `User Guide
-<https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for some basic information. Note that
-since this topic is mainly for advanced developers, the end-users can skip this page freely.
+<https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for some basic information about this
+open-source Python library `PyPop7`. Note that since this topic is mainly for advanced developers,
+the end-users can skip this page freely.
 
 Docstring Conventions
 ---------------------
 
-For **docstring conventions**, `PEP 257 <https://peps.python.org/pep-0257/>`_ is used in this library.
+For **docstring conventions**, first `PEP 257 <https://peps.python.org/pep-0257/>`_ is used in this library.
 Since this library is built on the `NumPy <https://www.nature.com/articles/s41586-020-2649-2>`_ ecosystem,
 we further use the docstring conventions from
 `numpydoc <https://numpydoc.readthedocs.io/en/latest/format.html>`_.
@@ -19,22 +21,26 @@ we further use the docstring conventions from
 A Unified API
 -------------
 
-For `PyPop7`, we use the popular Object-Oriented Programming (OOP) to structure all optimizers, which
+For `PyPop7`, we use the popular Object-Oriented Programming (OOP) paradigm to structure all optimizers, which
 can provide consistency, flexibility, and simplicity. We did not adopt another popular
-Procedure-Oriented Programming. However, in the future versions, we may provide such an interface
+Procedure-Oriented Programming paradigm. However, in the future versions, we may provide such an interface
 only at the end-user level (rather than the developer level).
 
 For all optimizers, the abstract class called `Optimizer
 <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py>`_
-needs to be inherited implicitly or explicitly, in order to provide a unified API.
+needs to be inherited, in order to provide a unified API.
 
 * All members shared by all optimizers (e.g., `fitness_function`, `ndim_problem`, etc.) should be
-  defined in this class.
+  defined in the `__init__
+  <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L41>`_
+  method of this class.
 
-* All functions public to end-users should be defined in this class except special cases.
+* All methods public to end-users should be defined in this class except special cases.
 
 * All settings related to fair benchmarking comparisons (e.g., `max_function_evaluations`,
-  `max_runtime`, and `fitness_threshold`) should be defined in this class.
+  `max_runtime`, and `fitness_threshold`) should be defined in the `__init__
+  <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L41>`_
+  method of this class.
 
 Initialization of Optimizer Options
 -----------------------------------
@@ -48,15 +54,15 @@ of `Optimizer` should be inherited:
        def __init__(self, problem, options):
            # here all members will be inherited by any subclass of `Optimizer`
 
-The *exclusive* members of the subclass will be defined after inheriting the above function of `Optimizer`.
+All *exclusive* members of each subclass will be defined after inheriting the above function of `Optimizer`.
 
 Initialization of Population
 ----------------------------
 
 We separate the initialization of *optimizer options* with that of *population* (a set of individuals),
-in order to obtain flexibility. To achieve this, the following function `initialize
-<https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L147>`_ should
-be modified:
+in order to obtain better flexibility. To achieve this, the following function `initialize
+<https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L147>`_
+should be modified:
 
     .. code-block:: bash
 
@@ -101,16 +107,16 @@ an illustrative example.
 
       import numpy as np
       
-      from pypop7.optimizers.core.optimizer import Optimizer  # base of all black-box optimizers
+      from pypop7.optimizers.core.optimizer import Optimizer  # base class of all black-box optimizers
  
       
-      class PRS(Optimizer):  # Inheritation of `Optimizer`
+      class PRS(Optimizer):
           """Pure Random Search (PRS).
 
           .. note:: `PRS` is one of the *simplest* and *earliest* black-box optimizers, dating back to at least
              `1950s <https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244>`_.
              Here we include it mainly for *benchmarking* purpose. As pointed out in `Probabilistic Machine Learning
-             <https://probml.github.io/pml-book/book2.html>`_, *"this should always be tried as a baseline"*.
+             <https://probml.github.io/pml-book/book2.html>`_, *this should always be tried as a baseline*.
       
           Parameters
           ----------
@@ -236,12 +242,26 @@ new optimizers are added or serious bugs are fixed, we will release a new versio
 Repeatability Code/Reports
 --------------------------
 
-=========== ============================================================================================================================ =====================================================================================================
- Optimizer   Repeatability Code                                                                                                          Genetated Figure(s)/Data                                                                          
-=========== ============================================================================================================================ =====================================================================================================
- MMES          `_repeat_mmes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_mmes.py>`_       `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/mmes>`_  
+=========== ================================================================================================================================== ==============================================================================================================
+ Optimizer   Repeatability Code                                                                                                                Generated Figure(s)/Data                                                                          
+=========== ================================================================================================================================== ==============================================================================================================
+ MMES          `_repeat_mmes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_mmes.py>`_          `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/mmes>`_  
 
- FCMAES     `_repear_fcmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_fcmaes.py>`_   `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/fcmaes>`_
+ FCMAES     `_repear_fcmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_fcmaes.py>`_         `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/fcmaes>`_
 
- LMMAES     `_repeat_lmmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmmaes.py>`_   `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmmaes>`_
-=========== ============================================================================================================================ =====================================================================================================
+ LMMAES     `_repeat_lmmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmmaes.py>`_         `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmmaes>`_
+
+ LMCMA      `_repeat_lmcma.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcma.py>`_           `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/lmcma>`_
+
+ LMCMAES    `_repeat_lmcmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcmaes.py>`_       `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcmaes.py>`_
+
+ RMES       `_repeat_rmes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_rmes.py>`_             `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/rmes>`_
+
+ R1ES       `_repeat_r1es.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_r1es.py>`_             `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/r1es>`_
+
+ VKDCMA     `_repeat_vkdcma.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_vkdcma.py>`_         `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_vkdcma.py>`_
+
+ VDCMA      `_repeat_vdcma.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_vdcma.py>`_           `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_vdcma.py>`_
+
+ CCMAES2016 `_repeat_ccmaes2016.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ccmaes2016.py>`_ `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/ccmaes2016>`_
+=========== ================================================================================================================================== ==============================================================================================================

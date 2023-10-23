@@ -6,7 +6,7 @@
 import unittest
 import time
 
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
 from pypop7.optimizers.sa.esa import ESA as Solver
