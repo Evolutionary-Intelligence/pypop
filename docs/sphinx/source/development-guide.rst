@@ -5,8 +5,9 @@ Development Guide
    This `Development Guide` page is still actively updated.
 
 Before reading this page, it is required to first read `User Guide
-<https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for some basic information. Note that
-since this topic is mainly for advanced developers, the end-users can skip this page freely.
+<https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for some basic information about this
+open-source Python library `PyPop7`. Note that since this topic is mainly for advanced developers,
+the end-users can skip this page freely.
 
 Docstring Conventions
 ---------------------
