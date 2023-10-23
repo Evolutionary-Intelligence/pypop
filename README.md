@@ -67,7 +67,7 @@ For a list of **public use cases** of `PyPop7`, see [this online document](https
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/Summary-BBO.png" alt="drawing"/>
 </p>
 
-Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this open-source library, since they works mainly in *[discrete/combinatorial](https://github.com/airbus/discrete-optimization)* search spaces. Furthermore, brute-force search (exhaustive/grid search) is also excluded here, since it works only for *very low* (typically < 10) dimensions. In the near future version, we will consider to add [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this open-source library.
+Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this open-source library, since they work mainly in *[discrete/combinatorial](https://github.com/airbus/discrete-optimization)* search spaces. Furthermore, brute-force search (exhaustive/grid search) is also excluded here, since it works only for *very low* (typically < 10) dimensions. In the near future version, we will consider adding [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this open-source library.
 
 ******* *** *******
 * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific BBO version for LSO (dimension >= 1000).
@@ -181,7 +181,7 @@ Given a large number of (black-box) optimizers which keep increasing almost ever
 * Respect for **Diversity**
 
   Given the universality of **black-box optimization (BBO)** in science and engineering, different research communities have designed different optimizers/methods. The type and number of optimizers are continuing to increase as the more powerful optimizers are always desirable for new and more challenging applications. On the one hand, some of these methods may share *more or less* similarities. On the other hand, they may also show *significant* differences (w.r.t. motivations / objectives / implementations / communities / practitioners). Therefore, we hope to cover such a diversity from different research communities such as artificial intelligence (particularly machine learning [evolutionary computation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) and
-  zeroth-order optimization)), mathematical optimization/programming (particularly global optimization), operations research / management science, automatic control, electronic engineering, open-source software, physics, chemistry, and others.
+  zeroth-order optimization), mathematical optimization/programming (particularly global optimization), operations research / management science, automatic control, electronic engineering, open-source software, physics, chemistry, and others.
 
 * Respect for **Originality**
 
