@@ -2,7 +2,8 @@ Development Guide
 =================
 
 .. note::
-   This `Development Guide` page is still actively updated.
+   This `Development Guide` page is still actively updated. We wish to make **adding new optimizers**
+   as easy as possible.
 
 Before reading this page, it is required to first read `User Guide
 <https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for some basic information about this
@@ -12,7 +13,7 @@ the end-users can skip this page freely.
 Docstring Conventions
 ---------------------
 
-For **docstring conventions**, `PEP 257 <https://peps.python.org/pep-0257/>`_ is used in this library.
+For **docstring conventions**, first `PEP 257 <https://peps.python.org/pep-0257/>`_ is used in this library.
 Since this library is built on the `NumPy <https://www.nature.com/articles/s41586-020-2649-2>`_ ecosystem,
 we further use the docstring conventions from
 `numpydoc <https://numpydoc.readthedocs.io/en/latest/format.html>`_.
@@ -32,10 +33,11 @@ needs to be inherited implicitly or explicitly, in order to provide a unified AP
 * All members shared by all optimizers (e.g., `fitness_function`, `ndim_problem`, etc.) should be
   defined in this class.
 
-* All functions public to end-users should be defined in this class except special cases.
+* All methods public to end-users should be defined in this class except special cases.
 
 * All settings related to fair benchmarking comparisons (e.g., `max_function_evaluations`,
-  `max_runtime`, and `fitness_threshold`) should be defined in this class.
+  `max_runtime`, and `fitness_threshold`) should be defined in the `__initialization__` function of
+  this class.
 
 Initialization of Optimizer Options
 -----------------------------------
