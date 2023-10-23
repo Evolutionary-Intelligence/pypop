@@ -31,12 +31,16 @@ For all optimizers, the abstract class called `Optimizer
 needs to be inherited, in order to provide a unified API.
 
 * All members shared by all optimizers (e.g., `fitness_function`, `ndim_problem`, etc.) should be
-  defined in the `__init__` function of this class.
+  defined in the `__init__
+  <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L41>`_
+  method of this class.
 
 * All methods public to end-users should be defined in this class except special cases.
 
 * All settings related to fair benchmarking comparisons (e.g., `max_function_evaluations`,
-  `max_runtime`, and `fitness_threshold`) should be defined in the `__init__` function of this class.
+  `max_runtime`, and `fitness_threshold`) should be defined in the `__init__
+  <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L41>`_
+  method of this class.
 
 Initialization of Optimizer Options
 -----------------------------------
@@ -50,7 +54,7 @@ of `Optimizer` should be inherited:
        def __init__(self, problem, options):
            # here all members will be inherited by any subclass of `Optimizer`
 
-The *exclusive* members of the subclass will be defined after inheriting the above function of `Optimizer`.
+All *exclusive* members of each subclass will be defined after inheriting the above function of `Optimizer`.
 
 Initialization of Population
 ----------------------------
