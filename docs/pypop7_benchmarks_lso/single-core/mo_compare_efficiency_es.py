@@ -25,9 +25,11 @@ if __name__ == '__main__':
     sns.set_theme(style='darkgrid')
 
     n_trials = 4  # number of trials (independent experiments)
-    algos = ['DEAPCMAES', 'MMES', 'FCMAES', 'LMMAES', 'LMCMA', 'RMES', 'R1ES',
-             'VKDCMA', 'VDCMA', 'CCMAES2016', 'CCMAES2009', 'SEPCMAES', 'DDCMA', 'MAES',
-             'FMAES', 'CSAES', 'R1NES', 'ENES']
+    algos = ['DEAPCMAES', 'MMES', 'FCMAES', 'LMMAES', 'LMCMA',
+             'RMES', 'R1ES', 'VKDCMA', 'VDCMA', 'CCMAES2016',
+             'OPOA2015', 'OPOA2010', 'CCMAES2009', 'OPOC2009', 'OPOC2006',
+             'SEPCMAES', 'DDCMA', 'MAES', 'FMAES', 'SAES',
+             'CSAES', 'RES', 'R1NES']
     max_runtime, fitness_threshold = 3600*3 - 10*60, 1e-10
     funcs = ['griewank', 'ackley', 'rastrigin', 'levy_montalvo', 'michalewicz',
              'salomon', 'bohachevsky', 'scaled_rastrigin', 'skew_rastrigin', 'schaffer']
