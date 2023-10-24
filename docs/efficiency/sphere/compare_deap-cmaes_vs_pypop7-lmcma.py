@@ -57,23 +57,26 @@ if __name__ == '__main__':
     top_fitness = [t for t in [tr[2] for tr in top_fitness]]
     print('  #top fitness:', top_fitness)
     print('  #top order:', [(a, to + 1) for a, to in zip(algos, top_order)])
-    plt.figure()
+    plt.figure(figsize=(12, 12))
     plt.rcParams['font.family'] = 'Times New Roman'
     for j, a in enumerate(algos):
         plt.plot(fe[j][top_order[j]], fitness[j][top_order[j]], label=a, color=colors[j])
-    plt.xlabel('Number of Function Evaluations', fontsize=24, fontweight='bold')
-    plt.ylabel('Cost', fontsize=24, fontweight='bold')
-    plt.xticks(fontsize=24, fontweight='bold')
-    plt.yticks(fontsize=24, fontweight='bold')
+    plt.xlabel('Number of Function Evaluations', fontsize=30, fontweight='bold')
+    plt.ylabel('Cost', fontsize=30, fontweight='bold')
+    plt.xticks([0.0e8, 0.2e8, 0.4e8, 0.6e8, 0.8e8, 1.0e8, 1.2e8],
+               ['0.0e8', '0.2e8', '0.4e8', '0.6e8', '0.8e8', '1.0e8', '1.2e8'],
+               fontsize=30, fontweight='bold')
+    plt.yticks(fontsize=30, fontweight='bold')
     plt.yscale('log')
-    plt.title('Sphere', fontsize=24, fontweight='bold')
-    plt.legend(labels, fontsize=24)
+    plt.title('Sphere', fontsize=30, fontweight='bold')
+    plt.legend(labels, fontsize=30)
+    plt.savefig('compare_deap-cmaes_vs_pypop7-lmcma[cost].eps')
     plt.show()
 
     algos = ['DEAP', 'PYPOP7LM']
     labels = ['DEAP (CMA-ES)', 'PyPop7 (LMCMA)']
     colors = ['blueviolet', 'springgreen']
-    max_runtime, fitness_threshold = 3600 * 3 - 10 * 60, 1e-10
+    max_runtime, fitness_threshold = 3600*3 - 10*60, 1e-10
     time, fitness, fe = [], [], []
     for j in range(len(algos)):  # initialize
         time.append([])
@@ -112,16 +115,17 @@ if __name__ == '__main__':
     for j, a in enumerate(algos):
         ax1.bar([0.5 + j], [fe[j][top_order[j]][-1]], fc=colors[j])
         xticks.append(0.5 + j)
-    # ax1.set_xlabel('Open-Source Library', fontsize=24, fontweight='bold')
-    ax1.set_ylabel('Number of Function Evaluations', fontsize=24, fontweight='bold')
-    ax1.set_xticks(xticks, labels, fontsize=24, fontweight='bold')
+    # ax1.set_xlabel('Open-Source Library', fontsize=30, fontweight='bold')
+    ax1.set_ylabel('Number of Function Evaluations', fontsize=30, fontweight='bold')
+    ax1.set_xticks(xticks, labels, fontsize=30, fontweight='bold')
     ax1.set_yticks([0.0e8, 0.2e8, 0.4e8, 0.6e8, 0.8e8, 1.0e8, 1.2e8],
                    ['0.0e8', '0.2e8', '0.4e8', '0.6e8', '0.8e8', '1.0e8', '1.2e8'],
-                   fontsize=24, fontweight='bold')
+                   fontsize=30, fontweight='bold')
     ax1.set_xlim(0, len(xticks))
     ax2.plot(np.ones(len(xticks) + 1,)*fe[1][top_order[1]][-1]/fe[0][top_order[0]][-1], color='r', linewidth=3)
     ax2.tick_params(colors='r')
-    ax2.set_ylabel('Speedup (Function Evaluations)', fontsize=24, fontweight='bold', color='r')
-    ax2.set_yticks(np.arange(0, 901, 100), np.arange(0, 901, 100), fontsize=24, fontweight='bold')
-    plt.title('Sphere', fontsize=24, fontweight='bold')
+    ax2.set_ylabel('Speedup (Function Evaluations)', fontsize=30, fontweight='bold', color='r')
+    ax2.set_yticks(np.arange(0, 901, 100), np.arange(0, 901, 100), fontsize=30, fontweight='bold')
+    plt.title('Sphere', fontsize=30, fontweight='bold')
+    plt.savefig('compare_deap-cmaes_vs_pypop7-lmcma[fe].eps')
     plt.show()
