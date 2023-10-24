@@ -89,7 +89,7 @@ if __name__ == '__main__':
     for i in range(n_trials):
         for j, a in enumerate(algos):
             results = read_pickle(a, str(i + 1))
-            time[j][i] = results['fitness'][:, 0] * results['runtime'] / results['n_function_evaluations']
+            time[j][i] = results['fitness'][:, 0] * results['runtime']/results['n_function_evaluations']
             fe[j][i] = results['fitness'][:, 0]
             y = results['fitness'][:, 1]
             fitness[j][i] = y
@@ -107,7 +107,7 @@ if __name__ == '__main__':
         top_fitness.append([run[order], fit[order], a])
     top_fitness.sort(key=lambda x: (x[0], x[1]))
     top_fitness = [t for t in [tr[2] for tr in top_fitness]]
-    fig = plt.figure()
+    fig = plt.figure(figsize=(12, 12))
     plt.rcParams['font.family'] = 'Times New Roman'
     ax1 = fig.add_subplot(111)
     ax2 = ax1.twinx()
