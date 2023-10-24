@@ -55,17 +55,21 @@ if __name__ == '__main__':
     top_fitness = [t for t in [tr[2] for tr in top_fitness]]
     print('  #top fitness:', top_fitness)
     print('  #top order:', [(a, to + 1) for a, to in zip(algos, top_order)])
-    plt.figure(figsize=(8.5, 8.5))
+    plt.figure(figsize=(12, 12))
     plt.rcParams['font.family'] = 'Times New Roman'
     for j, a in enumerate(algos):
         plt.plot(fe[j][top_order[j]], fitness[j][top_order[j]], label=a, color=colors[j])
-    plt.xlabel('Number of Function Evaluations', fontsize=18, fontweight='bold')
-    plt.ylabel('Cost', fontsize=18, fontweight='bold')
-    plt.xticks(fontsize=18, fontweight='bold')
-    plt.yticks(fontsize=18, fontweight='bold')
+    plt.xticks([0e7, 1e7, 2e7, 3e7, 4e7, 5e7, 6e7, 7e7, 8e7],
+               ['0e7', '1e7', '2e7', '3e7', '4e7', '5e7', '6e7', '7e7', '8e7'],
+               fontsize=30, fontweight='bold')
+    plt.xlabel('Number of Function Evaluations', fontsize=30, fontweight='bold')
+    plt.ylabel('Cost', fontsize=30, fontweight='bold')
+    plt.xticks(fontsize=30, fontweight='bold')
+    plt.yticks(fontsize=30, fontweight='bold')
     plt.yscale('log')
-    plt.title('Sphere', fontsize=18, fontweight='bold')
-    plt.legend(labels, fontsize=18)
+    plt.title('Sphere', fontsize=30, fontweight='bold')
+    plt.legend(labels, fontsize=30)
+    plt.savefig('compare_deap-pso_vs_pypop7-spso[cost].eps')
     plt.show()
 
     algos = ['DEAP1', 'PYPOP7']
@@ -84,7 +88,7 @@ if __name__ == '__main__':
     for i in range(n_trials):
         for j, a in enumerate(algos):
             results = read_pickle(a, str(i + 1))
-            time[j][i] = results['fitness'][:, 0] * results['runtime'] / results['n_function_evaluations']
+            time[j][i] = results['fitness'][:, 0] * results['runtime']/results['n_function_evaluations']
             fe[j][i] = results['fitness'][:, 0]
             y = results['fitness'][:, 1]
             fitness[j][i] = y
@@ -97,12 +101,12 @@ if __name__ == '__main__':
             fit.append(fitness[j][i][-1] if fitness[j][i][-1] >= fitness_threshold else fitness_threshold)
             r_f.append([run[i], fit[i], i])
         r_f.sort(key=lambda x: (x[0], x[1]))  # sort by first runtime then fitness
-        order = r_f[int(n_trials / 2)][2]  # for median (but non-standard for simplicity)
+        order = r_f[int(n_trials/2)][2]  # for median (but non-standard for simplicity)
         top_order.append(order)
         top_fitness.append([run[order], fit[order], a])
     top_fitness.sort(key=lambda x: (x[0], x[1]))
     top_fitness = [t for t in [tr[2] for tr in top_fitness]]
-    fig = plt.figure(figsize=(8.5, 8.5))
+    fig = plt.figure(figsize=(12, 12))
     plt.rcParams['font.family'] = 'Times New Roman'
     ax1 = fig.add_subplot(111)
     ax2 = ax1.twinx()
@@ -110,13 +114,17 @@ if __name__ == '__main__':
     for j, a in enumerate(algos):
         ax1.bar([0.5 + j], [fe[j][top_order[j]][-1]], fc=colors[j])
         xticks.append(0.5 + j)
-    ax1.set_xlabel('Open-Source Library', fontsize=18, fontweight='bold')
-    ax1.set_ylabel('Number of Function Evaluations', fontsize=18, fontweight='bold')
-    ax1.set_xticks(xticks, labels, fontsize=18, fontweight='bold')
+    # ax1.set_xlabel('Open-Source Library', fontsize=30, fontweight='bold')
+    ax1.set_ylabel('Number of Function Evaluations', fontsize=30, fontweight='bold')
+    ax1.set_xticks(xticks, labels, fontsize=30, fontweight='bold')
+    ax1.set_yticks([0e7, 1e7, 2e7, 3e7, 4e7, 5e7, 6e7, 7e7, 8e7],
+                   ['0e7', '1e7', '2e7', '3e7', '4e7', '5e7', '6e7', '7e7', '8e7'],
+                   fontsize=30, fontweight='bold')
     ax1.set_xlim(0, len(xticks))
     ax2.plot(np.ones(len(xticks) + 1,)*fe[1][top_order[1]][-1]/fe[0][top_order[0]][-1], color='r', linewidth=3)
     ax2.tick_params(colors='r')
-    ax2.set_ylabel('Speedup (Function Evaluations)', fontsize=18, fontweight='bold', color='r')
-    ax2.set_yticks(np.arange(0, 20, 1))
-    plt.title('Sphere', fontsize=18, fontweight='bold')
+    ax2.set_ylabel('Speedup (Function Evaluations)', fontsize=30, fontweight='bold', color='r')
+    ax2.set_yticks(np.arange(0, 18, 2), np.arange(0, 18, 2), fontsize=30, fontweight='bold')
+    plt.title('Sphere', fontsize=30, fontweight='bold')
+    plt.savefig('compare_deap-pso_vs_pypop7-spso[fe].eps')
     plt.show()
