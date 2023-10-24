@@ -57,17 +57,17 @@ if __name__ == '__main__':
     top_fitness = [t for t in [tr[2] for tr in top_fitness]]
     print('  #top fitness:', top_fitness)
     print('  #top order:', [(a, to + 1) for a, to in zip(algos, top_order)])
-    plt.figure(figsize=(8.5, 8.5))
+    plt.figure()
     plt.rcParams['font.family'] = 'Times New Roman'
     for j, a in enumerate(algos):
         plt.plot(fe[j][top_order[j]], fitness[j][top_order[j]], label=a, color=colors[j])
-    plt.xlabel('Number of Function Evaluations', fontsize=18, fontweight='bold')
-    plt.ylabel('Cost', fontsize=18, fontweight='bold')
-    plt.xticks(fontsize=18, fontweight='bold')
-    plt.yticks(fontsize=18, fontweight='bold')
+    plt.xlabel('Number of Function Evaluations', fontsize=24, fontweight='bold')
+    plt.ylabel('Cost', fontsize=24, fontweight='bold')
+    plt.xticks(fontsize=24, fontweight='bold')
+    plt.yticks(fontsize=24, fontweight='bold')
     plt.yscale('log')
-    plt.title('Sphere', fontsize=18, fontweight='bold')
-    plt.legend(labels, fontsize=18)
+    plt.title('Sphere', fontsize=24, fontweight='bold')
+    plt.legend(labels, fontsize=24)
     plt.show()
 
     algos = ['DEAP', 'PYPOP7LM']
@@ -104,7 +104,7 @@ if __name__ == '__main__':
         top_fitness.append([run[order], fit[order], a])
     top_fitness.sort(key=lambda x: (x[0], x[1]))
     top_fitness = [t for t in [tr[2] for tr in top_fitness]]
-    fig = plt.figure(figsize=(8.5, 8.5))
+    fig = plt.figure()
     plt.rcParams['font.family'] = 'Times New Roman'
     ax1 = fig.add_subplot(111)
     ax2 = ax1.twinx()
@@ -112,13 +112,16 @@ if __name__ == '__main__':
     for j, a in enumerate(algos):
         ax1.bar([0.5 + j], [fe[j][top_order[j]][-1]], fc=colors[j])
         xticks.append(0.5 + j)
-    ax1.set_xlabel('Open-Source Library', fontsize=18, fontweight='bold')
-    ax1.set_ylabel('Number of Function Evaluations', fontsize=18, fontweight='bold')
-    ax1.set_xticks(xticks, labels, fontsize=18, fontweight='bold')
+    # ax1.set_xlabel('Open-Source Library', fontsize=24, fontweight='bold')
+    ax1.set_ylabel('Number of Function Evaluations', fontsize=24, fontweight='bold')
+    ax1.set_xticks(xticks, labels, fontsize=24, fontweight='bold')
+    ax1.set_yticks([0.0e8, 0.2e8, 0.4e8, 0.6e8, 0.8e8, 1.0e8, 1.2e8],
+                   ['0.0e8', '0.2e8', '0.4e8', '0.6e8', '0.8e8', '1.0e8', '1.2e8'],
+                   fontsize=24, fontweight='bold')
     ax1.set_xlim(0, len(xticks))
     ax2.plot(np.ones(len(xticks) + 1,)*fe[1][top_order[1]][-1]/fe[0][top_order[0]][-1], color='r', linewidth=3)
     ax2.tick_params(colors='r')
-    ax2.set_ylabel('Speedup (Function Evaluations)', fontsize=18, fontweight='bold', color='r')
-    ax2.set_yticks(np.arange(0, 901, 100))
-    plt.title('Sphere', fontsize=18, fontweight='bold')
+    ax2.set_ylabel('Speedup (Function Evaluations)', fontsize=24, fontweight='bold', color='r')
+    ax2.set_yticks(np.arange(0, 901, 100), np.arange(0, 901, 100), fontsize=24, fontweight='bold')
+    plt.title('Sphere', fontsize=24, fontweight='bold')
     plt.show()
