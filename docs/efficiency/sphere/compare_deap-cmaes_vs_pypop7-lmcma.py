@@ -22,7 +22,7 @@ def read_pickle(s, ii):
 if __name__ == '__main__':
     n_trials = 10
     algos = ['PYPOP7LM', 'DEAP']
-    labels = ['PyPop7 (LM-CMA)', 'DEAP (CMA-ES)']
+    labels = ['PyPop7 (LMCMA)', 'DEAP (CMA-ES)']
     colors = ['springgreen', 'blueviolet']
     max_runtime, fitness_threshold = 3600*3 - 10*60, 1e-10
     time, fitness, fe = [], [], []
@@ -71,7 +71,7 @@ if __name__ == '__main__':
     plt.show()
 
     algos = ['DEAP', 'PYPOP7LM']
-    labels = ['DEAP (CMA-ES)', 'PyPop7 (LM-CMA)']
+    labels = ['DEAP (CMA-ES)', 'PyPop7 (LMCMA)']
     colors = ['blueviolet', 'springgreen']
     max_runtime, fitness_threshold = 3600 * 3 - 10 * 60, 1e-10
     time, fitness, fe = [], [], []
