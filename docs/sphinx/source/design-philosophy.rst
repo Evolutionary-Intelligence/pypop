@@ -101,12 +101,15 @@ widely acceptable criteria to select from them, as presented below in details:
   crucial to repeat numerical experiments. Here we follow the `Random Sampling
   <https://numpy.org/doc/stable/reference/random/generator.html>`_ suggestions from `NumPy
   <https://numpy.org/doc/stable/reference/random/>`_. In other worlds, you should **explicitly** set the random seed for
-  each optimizer. For more discussions about **repeatability** from machine learning, evolutionary computation, and 
-  metaheuristics communities, refer to the following papers, to name a few:
+  each optimizer. For more discussions about **repeatability** from AI/ML, evolutionary computation, and  metaheuristics
+  communities, refer to the following papers, to name a few:
 
   * López-Ibáñez, M., Branke, J. and Paquete, L., 2021. `Reproducibility in evolutionary computation
     <https://dl.acm.org/doi/abs/10.1145/3466624>`_. ACM Transactions on Evolutionary Learning and Optimization,
     1(4), pp.1-21.
+
+  * Hutson, M., 2018. `Artificial intelligence faces reproducibility crisis
+    <https://www.science.org/doi/10.1126/science.359.6377.725>`_. Science, 359(6377), pp.725-726.
 
   * Sonnenburg, S., Braun, M.L., Ong, C.S., Bengio, S., Bottou, L., Holmes, G., LeCunn, Y., Muller, K.R., Pereira, F.,
     Rasmussen, C.E., Ratsch, G., et al., 2007. `The need for open source software in machine learning

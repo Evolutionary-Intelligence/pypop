@@ -19,14 +19,16 @@ repeatability, benchmarking of BBO, and also real-world applications.
 More specifically, for alleviating the notorious **curse of dimensionality** of BBO, the primary focus of `PyPop7
 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to cover their **State-Of-The-Art (SOTA) implementations
 for Large-Scale Optimization (LSO)**, though many of their *medium/small-scale* versions and variants are also included
-here (mainly for theoretical or benchmarking purposes).
+here (some mainly for *theoretical* purposes, some mainly for *benchmarking* purposes, and some mainly for
+*application* purposes on medium/low dimensions).
 
 .. image:: images/logo.png
    :width: 321px
    :align: center
 
 .. note::
-   This open-source Python library for **continuous** BBO is under active development and maintenance (from 2021 to now).
+   This `open-source <https://www.gnu.org/>`_ Python library for **continuous** BBO is under active development and
+   maintenance (from 2021 to now).
 
 **Quick Start**
 
