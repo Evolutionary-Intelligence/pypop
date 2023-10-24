@@ -27,7 +27,8 @@ here (some mainly for *theoretical* purposes, some mainly for *benchmarking* pur
    :align: center
 
 .. note::
-   This open-source Python library for **continuous** BBO is under active development and maintenance (from 2021 to now).
+   This `open-source <https://www.gnu.org/>`_ Python library for **continuous** BBO is under active development and
+   maintenance (from 2021 to now).
 
 **Quick Start**
 
