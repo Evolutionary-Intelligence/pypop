@@ -61,7 +61,9 @@ if __name__ == '__main__':
         plt.plot(fe[j][top_order[j]], fitness[j][top_order[j]], label=a, color=colors[j])
     plt.xlabel('Number of Function Evaluations', fontsize=30, fontweight='bold')
     plt.ylabel('Cost', fontsize=30, fontweight='bold')
-    plt.xticks(fontsize=30, fontweight='bold')
+    plt.xticks([0.0e7, 0.5e7, 1.0e7, 1.5e7, 2.0e7],
+               ['0.0e7', '0.5e7', '1.0e7', '1.5e7', '2.0e7'],
+               fontsize=30, fontweight='bold')
     plt.yticks(fontsize=30, fontweight='bold')
     plt.yscale('log')
     plt.title('Sphere', fontsize=30, fontweight='bold')
