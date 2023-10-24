@@ -102,7 +102,7 @@ if __name__ == '__main__':
             fit.append(fitness[j][i][-1] if fitness[j][i][-1] >= fitness_threshold else fitness_threshold)
             r_f.append([run[i], fit[i], i])
         r_f.sort(key=lambda x: (x[0], x[1]))  # sort by first runtime then fitness
-        order = r_f[int(n_trials / 2)][2]  # for median (but non-standard for simplicity)
+        order = r_f[int(n_trials/2)][2]  # for median (but non-standard for simplicity)
         top_order.append(order)
         top_fitness.append([run[order], fit[order], a])
     top_fitness.sort(key=lambda x: (x[0], x[1]))
@@ -125,7 +125,7 @@ if __name__ == '__main__':
     ax2.plot(np.ones(len(xticks) + 1,)*fe[1][top_order[1]][-1]/fe[0][top_order[0]][-1], color='r', linewidth=3)
     ax2.tick_params(colors='r')
     ax2.set_ylabel('Speedup (Function Evaluations)', fontsize=30, fontweight='bold', color='r')
-    ax2.set_yticks(np.arange(0, 901, 100), np.arange(0, 901, 100), fontsize=30, fontweight='bold')
+    ax2.set_yticks([0, 300, 600, 900], ['0', '300', '600', '900'], fontsize=30, fontweight='bold')
     plt.title('Sphere', fontsize=30, fontweight='bold')
     plt.savefig('compare_deap-cmaes_vs_pypop7-lmcma[fe].eps')
     plt.show()
