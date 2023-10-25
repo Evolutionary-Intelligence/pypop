@@ -59,7 +59,7 @@ if __name__ == '__main__':
     plt.rcParams['font.family'] = 'Times New Roman'
     for j, a in enumerate(algos):
         plt.plot(fe[j][top_order[j]], fitness[j][top_order[j]],
-                 linewidth=7, label=a, color=colors[j])
+                 linewidth=5, label=a, color=colors[j])
     plt.xlabel('Number of Function Evaluations', fontsize=30, fontweight='bold')
     plt.ylabel('Cost', fontsize=30, fontweight='bold')
     plt.xticks(fontsize=30, fontweight='bold')
