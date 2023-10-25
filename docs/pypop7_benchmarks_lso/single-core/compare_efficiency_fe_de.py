@@ -74,5 +74,5 @@ if __name__ == '__main__':
         plt.yticks(fontsize=22, fontweight='bold')
         plt.legend(loc=4, ncol=3, fontsize=14)
         plt.rcParams['font.family'] = 'Times New Roman'
-        plt.savefig('./figures/DEs-' + f + '-FEs.png', format='png')
+        plt.savefig('./figures/DEs-' + f + '-FEs.eps')
         plt.show()
