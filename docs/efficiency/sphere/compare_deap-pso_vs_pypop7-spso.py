@@ -58,7 +58,8 @@ if __name__ == '__main__':
     plt.figure(figsize=(12, 12))
     plt.rcParams['font.family'] = 'Times New Roman'
     for j, a in enumerate(algos):
-        plt.plot(fe[j][top_order[j]], fitness[j][top_order[j]], label=a, color=colors[j])
+        plt.plot(fe[j][top_order[j]], fitness[j][top_order[j]],
+                 linewidth=5, label=a, color=colors[j])
     plt.xticks([0e7, 1e7, 2e7, 3e7, 4e7, 5e7, 6e7, 7e7, 8e7],
                ['0e7', '1e7', '2e7', '3e7', '4e7', '5e7', '6e7', '7e7', '8e7'],
                fontsize=30, fontweight='bold')
