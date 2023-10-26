@@ -8,3 +8,4 @@ seaborn
 celluloid
 imageio
 sphinx-rtd-theme
+sphinx_copybutton
