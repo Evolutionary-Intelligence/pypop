@@ -32,7 +32,8 @@ release = '0.0.1'
 # ones.
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon',
-              'sphinx.ext.viewcode']
+              'sphinx.ext.viewcode',
+              'sphinx_copybutton']
 
 # Napoleon settings
 napoleon_google_docstring = False
