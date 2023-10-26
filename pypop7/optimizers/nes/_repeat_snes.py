@@ -11,7 +11,7 @@
     from pybrain.optimization.distributionbased.snes import SNES
 
 
-    def cigar(x):
+    def cigar(x):  # for maximum
         x = np.power(x, 2)
         y = x[0] + (10 ** 6) * np.sum(x[1:])
         return -y
@@ -21,7 +21,7 @@
     solver = SNES(cigar, 4*np.ones((1000,)), maxEvaluations=5e5, verbose=True)
     solver.x = 4*np.ones((1000,))
     solver.learn()
-    # ('Step:', 20832, 'best:', -0.000598354700108173)
+    # ('Step:', 20832, 'best:', 0.000598354700108173)  # for minimum
 """
 import time
 
