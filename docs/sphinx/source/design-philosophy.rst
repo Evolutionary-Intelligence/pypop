@@ -39,6 +39,9 @@ widely acceptable criteria to select from them, as presented below in details:
     <https://www.sciencedirect.com/science/article/pii/S0377221721004707>`_. European Journal of Operational Research,
     297(2), pp.393-406.
 
+  * Kudela, J., 2022. `A critical problem in benchmarking and analysis of evolutionary computation methods
+    <https://www.nature.com/articles/s42256-022-00579-0>`_. Nature Machine Intelligence, 4(12), pp.1238-1245.
+
   * Aranha, C., Camacho Villalón, C.L., Campelo, F., Dorigo, M., Ruiz, R., Sevaux, M., Sörensen, K. and Stützle, T., 2022.
     `Metaphor-based metaheuristics, a call for action: The elephant in the room
     <https://link.springer.com/article/10.1007/s11721-021-00202-9>`_. Swarm Intelligence, 16(1), pp.1-6.
