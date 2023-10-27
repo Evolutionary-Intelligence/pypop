@@ -479,7 +479,7 @@ Then, invoke multiple different optimizers from `PyPop7` on these (rotated and s
             assert isinstance(params['end'], int) and 0 <= params['end'] < 50  # from 0 to 49
             assert isinstance(params['optimizer'], str)
             assert isinstance(params['ndim_problem'], int) and params['ndim_problem'] > 0
-            if params['optimizer'] == 'PRS':
+            if params['optimizer'] == 'PRS':  # 1958
                 from pypop7.optimizers.rs.prs import PRS as Optimizer
             elif params['optimizer'] == 'SRS':
                 from pypop7.optimizers.rs.srs import SRS as Optimizer
