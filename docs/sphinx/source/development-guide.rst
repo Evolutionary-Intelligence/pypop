@@ -264,4 +264,136 @@ Repeatability Code/Reports
  VDCMA      `_repeat_vdcma.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_vdcma.py>`_           `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_vdcma.py>`_
 
  CCMAES2016 `_repeat_ccmaes2016.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ccmaes2016.py>`_ `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/ccmaes2016>`_
+
+ OPOA2015   `_repeat_opoa2015.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_opoa2015.py>`_     `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/opoa2015>`_
+
+ OPOA2010   `_repeat_opoa2010.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_opoa2010.py>`_     `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/opoa2010>`_
+
+ CCMAES2009 `_repeat_ccmaes2009.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ccmaes2009.py>`_ `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/ccmaes2009>`_
+
+ OPOC2009   `_repeat_opoc2009.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_opoc2009.py>`_     `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/opoc2009>`_
+
+ OPOC2006   `_repeat_opoc2006.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_opoc2006.py>`_     `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/opoc2006>`_
+
+ SEPCMAES   `_repeat_sepcmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_sepcmaes.py>`_     `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_sepcmaes.py>`_
+
+ DDCMA      `_repeat_ddcma.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ddcma.py>`_           `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ddcma.py>`_
+
+ MAES       `_repeat_maes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_maes.py>`_             `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/maes>`_
+
+ FMAES      `_repeat_fmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_fmaes.py>`_           `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/fmaes>`_
+
+ CMAES      `_repeat_cmaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_cmaes.py>`_           `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_cmaes.py>`_
+
+ SAMAES     `_repeat_samaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_samaes.py>`_         `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/samaes>`_
+
+ SAES       `_repeat_saes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_saes.py>`_             `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_saes.py>`_
+
+ CSAES      `_repeat_csaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_csaes.py>`_           `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/csaes>`_
+
+ DSAES      `_repeat_dsaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_dsaes.py>`_           `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/dsaes>`_
+
+ SSAES      `_repeat_ssaes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ssaes.py>`_           `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/ssaes>`_
+
+ RES        `_repeat_res.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_res.py>`_               `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/res>`_
+
+ R1NES      `_repeat_r1nes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_r1nes.py>`_          `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_r1nes.py>`_
+
+ SNES       `_repeat_snes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_snes.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_snes.py>`_
+
+ XNES       `_repeat_xnes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_xnes.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_xnes.py>`_
+
+ ENES       `_repeat_enes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_enes.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_enes.py>`_
+
+ ONES       `_repeat_ones.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_ones.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_ones.py>`_
+
+ SGES       `_repeat_sges.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_sges.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/_repeat_sges.py>`_
+
+ RPEDA      `_repeat_rpeda.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/_repeat_rpeda.py>`_          `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/_repeat_rpeda.py>`_
+ 
+ UMDA       `_repeat_umda.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/_repeat_umda.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/_repeat_umda.py>`_
+
+ AEMNA      `_repeat_aemna.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/_repeat_aemna.py>`_          `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/_repeat_aemna.py>`_
+
+ EMNA       `_repeat_emna.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/_repeat_emna.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/_repeat_emna.py>`_
+
+ DCEM       `_repeat_dcem.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/_repeat_dcem.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/_repeat_dcem.py>`_
+
+ DSCEM      `_repeat_dscem.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/_repeat_dscem.py>`_          `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/_repeat_dscem.py>`_
+
+ MRAS       `_repeat_mras.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/_repeat_mras.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/_repeat_mras.py>`_
+
+ SCEM       `_repeat_scem.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/_repeat_scem.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/_repeat_scem.py>`_
+
+ SHADE      `_repeat_shade.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_shade.py>`_           `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_shade.py>`_
+
+ JADE       `_repeat_jade.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_jade.py>`_             `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_jade.py>`_
+
+ CODE       `_repeat_code.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_code.py>`_             `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_code.py>`_
+
+ TDE        `_repeat_tde.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_tde.py>`_               `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/tde>`_
+
+ CDE        `_repeat_cde.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_cde.py>`_               `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_cde.py>`_
+
+ CCPSO2     `_repeat_ccpso2.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_ccpso2.py>`_        `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_ccpso2.py>`_
+
+ IPSO       `_repeat_ipso.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_ipso.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_ipso.py>`_
+
+ CLPSO      `_repeat_clpso.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_clpso.py>`_          `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_clpso.py>`_
+
+ CPSO       `_repeat_cpso.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_cpso.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_cpso.py>`_
+
+ SPSOL      `_repeat_spsol.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_spsol.py>`_          `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_spsol.py>`_
+
+ SPSO       `_repeat_spso.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_spso.py>`_            `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/_repeat_spso.py>`_
+
+ HCC          N/A                                                                                                                                  N/A
+
+ COCMA        N/A                                                                                                                                  N/A
+
+ COEA       `_repeat_coea.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/_repeat_coea.py>`_             `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/coea>`_
+
+ COSYNE     `_repeat_cosyne.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/_repeat_cosyne.py>`_         `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/_repeat_cosyne.py>`_
+
+ ESA        `_repeat_esa.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/_repeat_esa.py>`_               `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/_repeat_esa.py>`_
+
+ CSA        `_repeat_csa.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/_repeat_csa.py>`_               `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/_repeat_csa.py>`_
+
+ NSA          N/A                                                                                                                                  N/A
+
+ ASGA       `_repeat_asga.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/_repeat_asga.py>`_             `data <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/asga>`_
+
+ GL25       `_repeat_gl25.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/_repeat_gl25.py>`_             `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/_repeat_gl25.py>`_
+
+ G3PCX      `_repeat_g3pcx.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/_repeat_g3pcx.py>`_           `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/g3pcx>`_
+
+ GENITOR      N/A                                                                                                                                  N/A
+
+ LEP        `_repeat_lep.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/_repeat_lep.py>`_               `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/_repeat_lep.py>`_
+
+ FEP        `_repeat_fep.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/_repeat_fep.py>`_               `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/_repeat_fep.py>`_
+
+ CEP        `_repeat_cep.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/_repeat_cep.py>`_               `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/_repeat_cep.py>`_
+
+ POWELL     `_repeat_powell.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/_repeat_powell.py>`_         `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/_repeat_powell.py>`_
+
+ GPS          N/A                                                                                                                                  N/A
+
+ NM         `_repeat_nm.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/_repeat_nm.py>`_                 `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/_repeat_nm.py>`_
+
+ HJ         `_repeat_hj.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/_repeat_hj.py>`_                 `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ds/_repeat_hj.py>`_
+
+ CS           N/A                                                                                                                                  N/A
+
+ BES        `_repeat_bes.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/_repeat_bes.py>`_               `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/bes>`_
+
+ GS         `_repeat_gs.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/_repeat_gs.py>`_                 `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/gs>`_
+
+ SRS          N/A                                                                                                                                  N/A
+
+ ARHC       `_repeat_arhc.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/_repeat_arhc.py>`_             `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/_repeat_arhc.py>`_
+
+ RHC        `_repeat_rhc.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/_repeat_rhc.py>`_               `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/_repeat_rhc.py>`_
+
+ PRS        `_repeat_prs.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/_repeat_prs.py>`_               `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/prs>`_
 =========== ================================================================================================================================== ==============================================================================================================
