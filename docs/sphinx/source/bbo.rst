@@ -13,6 +13,10 @@ as shown in e.g. the classical book **<<Introduction to Derivative-Free Optimiza
 * an abundance of legacy or proprietary codes,
 * noisy function evaluations.
 
+.. note:: `"These methods have an evident advantage of a simple preparatory stage (the program of computation of the
+   function value is always much simpler than the program for computing the vector of the gradient)."---[Nesterov&Spokoiny,
+   2017, FoCM] <https://link.springer.com/article/10.1007/s10208-015-9296-2>`_
+
 Some common problem characteristics of BBO are presented below:
 
 * unavailability of gradient information in the black-box setting (even if the gradient information actually exists);
