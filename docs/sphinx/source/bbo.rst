@@ -6,11 +6,12 @@ Black-Box Optimization (BBO)
    Introduction to Derivative-Free Optimization] <https://epubs.siam.org/doi/book/10.1137/1.9780898718768>`_
 
 The **black-box** nature of many real-world optimization problems comes from one or more of the following factors,
-as shown in e.g. the classical book **<<Introduction to Derivative-Free Optimization>>**:
+as shown in e.g. the classical book **Introduction to Derivative-Free Optimization** or the seminal paper **Random
+Gradient-Free Minimization of Convex Functions**, just to name a few:
 
 * increasing complexity in mathematical modeling,
 * higher sophistication of scientific computing,
-* an abundance of legacy or proprietary codes,
+* an abundance of legacy or proprietary codes (modification is either too costly or impossible),
 * noisy function evaluations.
 
 .. note:: `"These methods have an evident advantage of a simple preparatory stage (the program of computation of the
