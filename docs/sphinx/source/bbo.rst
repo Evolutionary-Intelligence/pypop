@@ -15,7 +15,8 @@ Gradient-Free Minimization of Convex Functions**, just to name a few:
 * noisy function evaluations,
 * memory limitations as fast differentiation needs to all intermediate computations,
 * expensive working time (very often working time for computing partial derivatives is much more expensive than
-  the computational time).
+  the computational time),
+* a non-trivial extension of the gradient notion onto nonsmooth case is a non-trivial operation.
 
 .. note:: `"These methods have an evident advantage of a simple preparatory stage (the program of computation of the
    function value is always much simpler than the program for computing the vector of the gradient)."---[Nesterov&Spokoiny,
