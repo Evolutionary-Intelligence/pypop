@@ -21,6 +21,20 @@ Since this library is built on the `NumPy <https://www.nature.com/articles/s4158
 we further use the docstring conventions from
 `numpydoc <https://numpydoc.readthedocs.io/en/latest/format.html>`_.
 
+Library Dependencies
+--------------------
+
+This open-source library depends heavily on three core scientific computing (open-source) libraries, i.e.,
+`NumPy <https://www.nature.com/articles/s41586-020-2649-2>`_, `SciPy
+<https://www.nature.com/articles/s41592-019-0686-2>`_, and `Scikit-Learn
+<https://jmlr.org/papers/v12/pedregosa11a.html>`_. More specifically, for all optimizers the `numpy.array`
+data structure is chosen as the basic way to store and operate the population (e.g., sampling, updating,
+indexing, and sorting), which leads to significant speedup. Sometimes `Numba <https://numba.pydata.org/>`_
+is utilized to further accelerate the wall-clock time for large-scale black-box optimization, if possible.
+An obvious advantage of using `NumPy` as the core computing engine is that Pypop7 can be seamlessly
+integrated into the NumPy ecosystem, given the fact that `SciPy` covers a limited number of population-based
+BBOs till now.
+
 A Unified API
 -------------
 
@@ -44,16 +58,6 @@ needs to be inherited, in order to provide a unified API.
   `max_runtime`, and `fitness_threshold`) should be defined in the `__init__
   <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L41>`_
   method of this class.
-
-This open-source library depends heavily on three core scientific computing (open-source) libraries, i.e.,
-`NumPy <https://www.nature.com/articles/s41586-020-2649-2>`_, `SciPy
-<https://www.nature.com/articles/s41592-019-0686-2>`_, and `Scikit-Learn
-<https://jmlr.org/papers/v12/pedregosa11a.html>`_. More specifically, for all optimizers the `numpy.array`
-data structure is chosen as the basic way to store and operate the population (e.g., sampling, updating,
-indexing, and sorting), which leads to significant speedup. Sometimes `Numba` is utilized to further
-accelerate the wall-clock time for large-scale black-box optimization, if possible. An obvious advantage
-of using `NumPy` as the core computing engine is that Pypop7 can be seamlessly integrated into the NumPy
-ecosystem, given the fact that `SciPy` covers a limited number of population-based BBOs till now.
 
 Initialization of Optimizer Options
 -----------------------------------
