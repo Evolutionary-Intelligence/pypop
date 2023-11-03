@@ -39,3 +39,4 @@ Finally, we thank very much for all the following open-source code to make **rep
 * `Prof. Xiaoyu He <https://hxyokokok.github.io/>`_: `MATLAB code for MMES <https://github.com/hxyokokok/MMES>`_ (
   `forked <https://github.com/Evolutionary-Intelligence/MMES>`_ )
 * `Prof. Suganthan <https://github.com/P-N-Suganthan>`_: `MATLAB code for CLPSO <https://github.com/P-N-Suganthan/CODES>`_
+  ( `forked <https://github.com/Evolutionary-Intelligence/CODES>`_ )
