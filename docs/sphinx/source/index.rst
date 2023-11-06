@@ -12,7 +12,7 @@ Welcome to PyPop7's Documentation for Black-Box Optimization (BBO)!
 .. image:: https://img.shields.io/badge/Python-3-yellow.svg
 
 **PyPop7** is a *Pure-PYthon* library of *POPulation-based OPtimization* for single-objective, real-parameter,
-black-box problems. Its goal is to provide a *unified* interface and *elegant* implementations for
+black-box problems. Its design goal is to provide a *unified* interface and *elegant* implementations for
 **Black-Box Optimizers (BBO)**, *particularly population-based optimizers*, in order to facilitate research
 repeatability, benchmarking of BBO, and also real-world applications.
 
