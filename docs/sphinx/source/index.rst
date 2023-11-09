@@ -35,7 +35,7 @@ here (some mainly for *theoretical* purposes, some mainly for *benchmarking* pur
 In practice, three simple steps are enough to utilize the black-box optimization power of
 `PyPop7 <https://pypi.org/project/pypop7/>`_:
 
-1. Use `pip <https://pypi.org/project/pip/>`_ to automatically install `pypop7`:
+1. Use `pip <https://pypi.org/project/pip/>`_ to automatically install `pypop7` via `PyPI <https://pypi.org/>`_:
 
     .. code-block:: bash
 
