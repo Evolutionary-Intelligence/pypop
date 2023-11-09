@@ -59,7 +59,8 @@ installation ways.
        ...            'upper_boundary': 5.0*np.ones((ndim_problem,))}  # upper search boundary
 
 See `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for details about the problem
-definition.
+definition. Note that any *maximization* problem can be transformed into the *minimization* problem via simply negating
+it.
 
 3. Run one or more black-box optimizers from `pypop7` on the given optimization problem:
 
