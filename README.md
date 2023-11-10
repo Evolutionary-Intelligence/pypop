@@ -418,9 +418,9 @@ For each algorithm family, we provide several *representative* applications publ
   * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010. [PyBrain](https://jmlr.org/papers/v11/schaul10a.html). Journal of Machine Learning Research, 11(24), pp.743-746.
   * Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
 
-## Research Support for PyPop7
+## Sponsor for PyPop7
 
-This open-source Python library for black-box optimization is now supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to Prof. Y.H. Shi (CSE, SUSTech @ Shenzhen, China), and actively developed by three of his group members (e.g., *Q.Q. Duan*, *C. Shao*, *G.C. Zhou*).
+This open-source Python library for black-box optimization is now supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to Prof. Shi (CSE, SUSTech @ Shenzhen, China), and actively developed by three of his group members (e.g., *Q.Q. Duan*, *C. Shao*, *G.C. Zhou*).
 
 ## Citation for PyPop7
 
