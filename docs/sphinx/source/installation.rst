@@ -3,10 +3,10 @@ Installation of PyPop7
 
 In order to install *pypop7*, it is **highly recommended** to use the `Python3 <https://docs.python.org/3/>`_-based
 virtual environment via `venv <https://docs.python.org/3/library/venv.html>`_ or
-`conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_.
-
-`Anaconda <https://docs.anaconda.com/>`_ is a very popular `Python` programming platform of scientists and researchers
-especially for artificial intelligence (AI) / machine learning (ML) / data science (DS).
+`conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_. `Anaconda <https://docs.anaconda.com/>`_ (or
+its mini version `miniconda <https://docs.conda.io/projects/miniconda/en/latest/>`_) is a very popular `Python`
+programming platform of scientists and researchers especially for artificial intelligence (AI) / machine learning
+(ML) / data science (DS).
 
 Pip via Python Package Index (PyPI)
 -----------------------------------
