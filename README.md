@@ -398,10 +398,10 @@ For each algorithm family, we provide several *representative* applications publ
   * Schmidhuber, J., Hochreiter, S. and Bengio, Y., 2001. [Evaluating benchmark problems by random guessing](https://ml.jku.at/publications/older/ch9.pdf). A Field Guide to Dynamical Recurrent Networks, pp.231-235.
   * Rosenstein, M.T. and Barto, A.G., 2001, August. [Robot weightlifting by direct policy search](https://dl.acm.org/doi/abs/10.5555/1642194.1642206). In International Joint Conference on Artificial Intelligence (pp. 839-846).
   * Cvijović, D. and Klinowski, J., 1995. [Taboo search: An approach to the multiple minima problem](https://www.science.org/doi/abs/10.1126/science.267.5198.664). Science, 267(5198), pp.664-666.
-  * Rastrigin, L.A., 1986. [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129). In Stochastic Optimization.
+  * Dorea, C.C.Y., 1983. [Expected number of steps of a random optimization method](https://link.springer.com/article/10.1007/BF00934526). Journal of Optimization Theory and Applications, 39(2), pp.165-171.
   * Solis, F.J. and Wets, R.J.B., 1981. [Minimization by random search techniques](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19). Mathematics of Operations Research, 6(1), pp.19-30.
   * Schumer, M.A. and Steiglitz, K., 1968. [Adaptive step size random search](https://ieeexplore.ieee.org/abstract/document/1098903). IEEE Transactions on Automatic Control, 13(3), pp.270-276.
-  * Rastrigin, L.A., 1963. [The convergence of the random search method in the extremal control of a many parameter system](https://tinyurl.com/djfdnpx4). Automaton & Remote Control, 24, pp.1337-1342.
+  * Rastrigin, L.A., 1963. [The convergence of the random search method in the extremal control of a many parameter system](https://tinyurl.com/djfdnpx4). Automaton & Remote Control, 24, pp.1337-1342. [ Rastrigin, L.A., 1986. [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129). In Stochastic Optimization. ]
   * Brooks, S.H., 1958. [A discussion of random methods for seeking maxima](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244). Operations Research, 6(2), pp.244-251.
 * Bayesian Optimization (BO)
   * [https://bayesoptbook.com/](https://bayesoptbook.com/)
