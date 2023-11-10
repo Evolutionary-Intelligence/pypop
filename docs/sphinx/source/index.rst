@@ -72,13 +72,13 @@ it.
        ...            'max_runtime': 3600,  # terminate when the actual runtime exceeds 1 hour (i.e. 3600 seconds)
        ...            'seed_rng': 0,  # seed of random number generation (which must be set for repeatability)
        ...            'x': 4.0*np.ones((ndim_problem,)),  # initial mean of search/mutation distribution
-       ...            'sigma': 0.3,  # initial global step-size of search distribution (to be fine-tuned)
+       ...            'sigma': 3.0,  # initial global step-size of search distribution (to be fine-tuned)
        ...            'verbose': 500}
        >>> lmmaes = LMMAES(problem, options)  # initialize the optimizer (a unified interface for all optimizers)
        >>> results = lmmaes.optimize()  # run its (time-consuming) search process
        >>> # print the best-so-far fitness and used function evaluations returned by the used black-box optimizer
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
-       9.877e-11 3928055
+       9.948e-11 2973386
 
 See `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_ for
 details about the **optimizer setting**. Please refer to the following contents for all the BBO available in this
