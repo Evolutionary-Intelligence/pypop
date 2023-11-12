@@ -12,14 +12,14 @@ Pip via Python Package Index (PyPI)
 -----------------------------------
 
 Note that `pip <https://pip.pypa.io/en/stable/>`_ is the package installer for Python. You can use it to install
-various packages easily. For `pypop7`, please run the following shell command:
+various packages easily. For `pypop7`, please run the following **shell** command:
 
 .. code-block:: bash
 
     pip install pypop7
 
 For Chinese users, sometimes the following PyPI configuration can be used to speedup the installation process
-of `pypop7`:
+of `pypop7` owing to network blocking:
 
 .. code-block:: bash
 
