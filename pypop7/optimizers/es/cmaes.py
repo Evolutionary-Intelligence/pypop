@@ -163,7 +163,6 @@ class CMAES(ES):
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         d = np.empty((self.n_individuals, self.ndim_problem))
         self._list_initial_mean.append(np.copy(mean))
-        self._n_generations = self.n_generations = 0
         return x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d
 
     def iterate(self, x=None, mean=None, eig_ve=None, eig_va=None, y=None, d=None, args=None):
@@ -187,7 +186,7 @@ class CMAES(ES):
         p_s = self._p_s_1*p_s + self._p_s_2*np.dot(cm_minus_half, wd)
         self.sigma *= np.exp(self.c_s/self.d_sigma*(np.linalg.norm(p_s)/self._e_chi - 1.0))
         # update covariance matrix (CMA)
-        h_s = 1.0 if np.linalg.norm(p_s)/np.sqrt(1.0 - np.power(1.0 - self.c_s, 2*(self.n_generations + 1))) < (
+        h_s = 1.0 if np.linalg.norm(p_s)/np.sqrt(1.0 - np.power(1.0 - self.c_s, 2*(self._n_generations + 1))) < (
                 1.4 + 2.0/(self.ndim_problem + 1.0))*self._e_chi else 0.0
         p_c = self._p_c_1*p_c + h_s*self._p_c_2*wd
         w_o = self._w*np.where(self._w >= 0, 1.0, self.ndim_problem/(np.square(
@@ -222,8 +221,7 @@ class CMAES(ES):
             if self._check_terminations():
                 break
             self._print_verbose_info(fitness, y)
-            self.n_generations += 1
-            self._n_generations = self.n_generations
+            self._n_generations += 1
             mean, p_s, p_c, cm, eig_ve, eig_va = self.update_distribution(x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d)
             if self.is_restart:
                 x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d = self.restart_reinitialize(
