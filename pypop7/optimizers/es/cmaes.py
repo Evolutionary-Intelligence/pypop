@@ -162,23 +162,24 @@ class CMAES(ES):
         eig_ve = np.eye(self.ndim_problem)  # eigenvectors of `cm` (orthogonal matrix)
         eig_va = np.ones((self.ndim_problem,))  # square roots of eigenvalues of `cm` (in diagonal rather matrix form)
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
+        d = np.empty((self.n_individuals, self.ndim_problem))
         self._list_initial_mean.append(np.copy(mean))
         self._n_generations = self.n_generations = 0
-        return x, mean, p_s, p_c, cm, eig_ve, eig_va, y
+        return x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d
 
-    def iterate(self, x=None, mean=None, eig_ve=None, eig_va=None, y=None, args=None):
+    def iterate(self, x=None, mean=None, eig_ve=None, eig_va=None, y=None, d=None, args=None):
         for k in range(self.n_individuals):  # to sample offspring population
             if self._check_terminations():
-                return x, y
+                return x, y, d
             # produce a spherical (isotropic) Gaussian distribution (Nikolaus Hansen, 2023)
             z = self.rng_optimization.standard_normal((self.ndim_problem,))  # Gaussian noise for mutation
-            x[k] = mean + self.sigma*np.dot(eig_ve @ np.diag(eig_va), z)  # offspring individual
+            d[k] = np.dot(eig_ve @ np.diag(eig_va), z)
+            x[k] = mean + self.sigma*d[k]  # offspring individual
             y[k] = self._evaluate_fitness(x[k], args)  # fitness
-        return x, y
+        return x, y, d
 
-    def update_distribution(self, x=None, mean=None, p_s=None, p_c=None, cm=None, eig_ve=None, eig_va=None, y=None):
+    def update_distribution(self, x=None, mean=None, p_s=None, p_c=None, cm=None, eig_ve=None, eig_va=None, y=None, d=None):
         order = np.argsort(y)  # to rank all offspring individuals
-        d = (x - mean)/self.sigma
         wd = np.dot(self._w[:self.n_parents], d[order[:self.n_parents]])
         # update distribution mean via weighted recombination
         mean = np.dot(self._w[:self.n_parents], x[order[:self.n_parents]])
@@ -208,30 +209,29 @@ class CMAES(ES):
         return mean, p_s, p_c, cm, eig_ve, eig_va
 
     def restart_reinitialize(self, x=None, mean=None, p_s=None, p_c=None,
-                             cm=None, eig_ve=None, eig_va=None, y=None):
+                             cm=None, eig_ve=None, eig_va=None, y=None, d=None):
         if ES.restart_reinitialize(self, y):
-            x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.initialize(True)
-        return x, mean, p_s, p_c, cm, eig_ve, eig_va, y
+            x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d = self.initialize(True)
+        return x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
-        x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.initialize()
+        x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d = self.initialize()
         while True:
             # sample and evaluate offspring population
-            x, y = self.iterate(x, mean, eig_ve, eig_va, y, args)
+            x, y, d = self.iterate(x, mean, eig_ve, eig_va, y, d, args)
             if self._check_terminations():
                 break
             self._print_verbose_info(fitness, y)
             self.n_generations += 1
             self._n_generations = self.n_generations
-            mean, p_s, p_c, cm, eig_ve, eig_va = self.update_distribution(x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
+            mean, p_s, p_c, cm, eig_ve, eig_va = self.update_distribution(x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d)
             if self.is_restart:
-                x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.restart_reinitialize(
-                    x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
+                x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d = self.restart_reinitialize(
+                    x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d)
         results = self._collect(fitness, y, mean)
         results['p_s'] = p_s
         results['p_c'] = p_c
         results['eig_va'] = eig_va
-        # by default, do NOT save covariance matrix of search distribution in order to save memory,
-        # owing to its *quadratic* space complexity
+        # results['eig_ve'] = eig_ve  # do NOT save covariance matrix, owing to its *quadratic* space complexity
         return results
