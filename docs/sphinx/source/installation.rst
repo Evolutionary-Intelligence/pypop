@@ -86,7 +86,7 @@ for statistical computing and graphics.
 Uninstalling this Open-Source Library
 -------------------------------------
 
-If necessary, you could uninstall this open-source library *freely* with one simple command:
+If necessary, you could uninstall this open-source library *freely* with one **shell** command:
 
 .. code-block:: bash
 
