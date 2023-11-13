@@ -80,7 +80,8 @@ For R Users
 -----------
 
 For R (and S-Plus) users, `NumPy-for-R <https://mathesaurus.sourceforge.net/r-numpy.html>`_
-is highly recommended.
+is highly recommended. Note that `R <https://www.r-project.org/>`_ is a free and well-established software environment
+for statistical computing and graphics.
 
 Uninstalling this Open-Source Library
 -------------------------------------
