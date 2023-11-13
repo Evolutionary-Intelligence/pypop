@@ -133,7 +133,7 @@ class CMAES(ES):
                           (np.power(self.ndim_problem + 2.0, 2) + self._alpha_cov*self._mu_eff/2.0))
 
     def _set_d_sigma(self):
-        return 1.0 + self.c_s + 2.0*np.maximum(0.0, np.sqrt((self._mu_eff - 1.0)/(self.ndim_problem + 1.0)) - 1.0)
+        return 1.0 + 2.0*np.maximum(0.0, np.sqrt((self._mu_eff - 1.0)/(self.ndim_problem + 1.0)) - 1.0) + self.c_s
 
     def initialize(self, is_restart=False):
         w_apostrophe = np.log((self.n_individuals + 1.0)/2.0) - np.log(np.arange(self.n_individuals) + 1.0)
