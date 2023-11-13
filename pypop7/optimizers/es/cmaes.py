@@ -135,10 +135,9 @@ class CMAES(ES):
         return 1.0 + 2.0*np.maximum(0.0, np.sqrt((self._mu_eff - 1.0)/(self.ndim_problem + 1.0)) - 1.0) + self.c_s
 
     def initialize(self, is_restart=False):
-        w_apostrophe = np.log((self.n_individuals + 1.0)/2.0) - np.log(np.arange(self.n_individuals) + 1.0)
-        self._mu_eff = np.square(np.sum(w_apostrophe[:self.n_parents]))/np.sum(np.square(w_apostrophe[:self.n_parents]))
-        self._mu_eff_minus = np.power(np.sum(w_apostrophe[self.n_parents:]), 2)/np.sum(
-            np.power(w_apostrophe[self.n_parents:], 2))
+        w_a = np.log((self.n_individuals + 1.0)/2.0) - np.log(np.arange(self.n_individuals) + 1.0)  # w_apostrophe
+        self._mu_eff = np.square(np.sum(w_a[:self.n_parents]))/np.sum(np.square(w_a[:self.n_parents]))
+        self._mu_eff_minus = np.square(np.sum(w_a[self.n_parents:]))/np.sum(np.square(w_a[self.n_parents:]))
         self.c_s = self.options.get('c_s', (self._mu_eff + 2.0)/(self.ndim_problem + self._mu_eff + 5.0))
         self.d_sigma = self.options.get('d_sigma', self._set_d_sigma())
         self.c_c = self.options.get('c_c', self._set_c_c())
@@ -146,8 +145,7 @@ class CMAES(ES):
         self.c_w = self.options.get('c_w', self._set_c_w())
         w_min = np.min([1.0 + self.c_1/self.c_w, 1.0 + 2.0*self._mu_eff_minus/(self._mu_eff + 2.0),
                         (1.0 - self.c_1 - self.c_w)/(self.ndim_problem*self.c_w)])
-        self._w = np.where(w_apostrophe >= 0, 1.0/np.sum(w_apostrophe[w_apostrophe > 0])*w_apostrophe,
-                           w_min/(-np.sum(w_apostrophe[w_apostrophe < 0]))*w_apostrophe)
+        self._w = np.where(w_a >= 0, 1.0/np.sum(w_a[w_a > 0])*w_a, w_min/(-np.sum(w_a[w_a < 0]))*w_a)
         self._p_s_1 = 1.0 - self.c_s
         self._p_s_2 = np.sqrt(self.c_s*(2.0 - self.c_s)*self._mu_eff)
         self._p_c_1 = 1.0 - self.c_c
