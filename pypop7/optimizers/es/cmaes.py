@@ -197,7 +197,7 @@ class CMAES(ES):
         eig_va = np.sqrt(np.where(eig_va < 0.0, 1e-32, eig_va))  # to avoid negative eigenvalues
         # eig_va: squared root of eigenvalues -> interpreted as individual step-sizes and its diagonal entries are
         #   standard deviations of different components (Nikolaus Hansen, 2023)
-        cm = np.dot(np.dot(eig_ve, np.diag(np.square(eig_va))), np.transpose(eig_ve))
+        cm = eig_ve @ np.diag(np.square(eig_va)) @ np.transpose(eig_ve)  # to recover covariance matrix
         return mean, p_s, p_c, cm, eig_ve, eig_va
 
     def restart_reinitialize(self, x=None, mean=None, p_s=None, p_c=None,
