@@ -109,19 +109,11 @@ class CMAES(ES):
         self.options = options
         ES.__init__(self, problem, options)
         assert self.n_individuals >= 2
-        self._mu_eff = None  # effective sample size of selected samples / variance effective selection mass 
-        self._mu_eff_minus = None
-        self._w = None
-        self._alpha_cov = 2.0
-        self.c_s = None
-        self.d_sigma = None
-        self.c_c = None  # decay rate for cumulation (evolution) path for rank-one update of CMA
-        self.c_1 = None  # learning rate for rank-one update of CMA
-        self.c_w = None
-        self._p_s_1 = None  # for evolution path update of cumulative step-length adaptation (CSA)
-        self._p_s_2 = None
-        self._p_c_1 = None  # for evolution path update of CMA
-        self._p_c_2 = None
+        self._w, self._mu_eff, self._mu_eff_minus = None, None, None  # variance effective selection mass
+        self.c_s, self.d_sigma = None, None  # for cumulative step-length adaptation (CSA)
+        self._p_s_1, self._p_s_2 = None, None  # for evolution path update of CSA
+        self._p_c_1, self._p_c_2 = None, None  # for evolution path update of CMA
+        self.c_c, self.c_1, self.c_w, self._alpha_cov = None, None, None, 2.0  # for CMA
 
     def _set_c_c(self):  # to set decay rate for cumulation (evolution) path for rank-one update of CMA
         return (4.0 + self._mu_eff/self.ndim_problem)/(self.ndim_problem + 4.0 + 2.0*self._mu_eff/self.ndim_problem)
