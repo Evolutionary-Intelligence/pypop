@@ -157,7 +157,8 @@ class ES(Optimizer):
     def _compute_weights(self):
         # unify these following settings in the base class for *consistency* and *simplicity*
         w_base, w = np.log((self.n_individuals + 1.0)/2.0), np.log(np.arange(self.n_parents) + 1.0)
-        # positive weight coefficients for weighted multirecombination (Nikolaus Hansen, 2023)
+        # positive weight coefficients for weighted intermediate recombination (Nikolaus Hansen, 2023)
+        #   [assigning different weights should be interpreted as a selection mechanism]
         w = (w_base - w)/(self.n_parents*w_base - np.sum(w))
         # variance effective selection mass for distribution mean (Nikolaus Hansen, 2023)
         mu_eff = 1.0/np.sum(np.square(w))  # μ_eff (μ_w)
