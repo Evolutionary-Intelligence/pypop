@@ -21,6 +21,9 @@ Since this library is built on the `NumPy <https://www.nature.com/articles/s4158
 we further use the docstring conventions from
 `numpydoc <https://numpydoc.readthedocs.io/en/latest/format.html>`_.
 
+Furthermore, now `PEP 465 <https://peps.python.org/pep-0465/>`_ is used as a dedicated infix operator for
+**matrix multiplication**. We are modifying all existing Python code to simplify them under `PEP 465`.
+
 Library Dependencies
 --------------------
 
