@@ -85,6 +85,7 @@ class Optimizer(object):
         self.early_stopping_evaluations = options.get('early_stopping_evaluations', np.Inf)
         self.early_stopping_threshold = options.get('early_stopping_threshold', 0)
         self.early_stopping_counter = 0
+        self.early_stopping_best_so_far_y = self.best_so_far_y
 
     def _evaluate_fitness(self, x, args=None):
         self.start_function_evaluations = time.time()
@@ -95,14 +96,14 @@ class Optimizer(object):
         self.time_function_evaluations += time.time() - self.start_function_evaluations
         self.n_function_evaluations += 1
         # update best-so-far solution (x) and fitness (y)
-        if y < self.best_so_far_y:
-            if y >= self.best_so_far_y - self.early_stopping_threshold:
-                self.early_stopping_counter += 1
-            else:
-                self.early_stopping_counter = 0
-            self.best_so_far_x, self.best_so_far_y = np.copy(x), y
-        else:
+        if y >= self.early_stopping_best_so_far_y - self.early_stopping_threshold:
             self.early_stopping_counter += 1
+        else:
+            self.early_stopping_counter = 0
+            self.early_stopping_best_so_far_y = y
+
+        if y < self.best_so_far_y:
+            self.best_so_far_x, self.best_so_far_y = np.copy(x), y
 
         return float(y)
 
