@@ -102,7 +102,7 @@ class CMAES(ES):
     In Proceedings of IEEE International Conference on Evolutionary Computation (pp. 312-317). IEEE.
     https://ieeexplore.ieee.org/abstract/document/542381
 
-    See the lightweight implementation of CMA-ES from cyberagent.ai:
+    See one *lightweight* Python implementation of CMA-ES from `cyberagent.ai`:
     https://github.com/CyberAgentAILab/cmaes
     """
     def __init__(self, problem, options):
