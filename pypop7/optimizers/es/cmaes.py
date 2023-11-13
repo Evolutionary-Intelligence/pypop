@@ -191,8 +191,8 @@ class CMAES(ES):
         h_s = 1.0 if np.linalg.norm(p_s)/np.sqrt(1.0 - np.power(1.0 - self.c_s, 2*(self.n_generations + 1))) < (
                 1.4 + 2.0/(self.ndim_problem + 1.0))*self._e_chi else 0.0
         p_c = self._p_c_1*p_c + h_s*self._p_c_2*wd
-        w_o = self._w*np.where(self._w >= 0, 1.0, self.ndim_problem/(np.power(np.linalg.norm(
-            np.dot(cm_minus_half, np.transpose(d)), axis=0), 2) + 1e-8))
+        w_o = self._w*np.where(self._w >= 0, 1.0, self.ndim_problem/(np.square(
+            np.linalg.norm(cm_minus_half @ d.T), axis=0) + 1e-32))
         cm = ((1.0 + self.c_1*(1.0 - h_s)*self.c_c*(2.0 - self.c_c) - self.c_1 - self.c_w*np.sum(self._w))*cm +
               self.c_1*np.outer(p_c, p_c))  # rank-one update
         for i in range(self.n_individuals):  # rank-μ update (to estimate variances of sampled *steps*)
