@@ -119,6 +119,8 @@ class ES(Optimizer):
         if self.n_individuals is None:  # number of offspring (λ: lambda), offspring population size
             self.n_individuals = 4 + int(3*np.log(self.ndim_problem))  # only for small populations setting
         assert self.n_individuals > 0, f'`self.n_individuals` = {self.n_individuals}, but should > 0.'
+        # parent number, number of (positively) selected search points in the population,
+        #   number of strictly positive recombination weights (Nikolaus Hansen, 2023)
         if self.n_parents is None:  # number of parents (μ: mu), parental population size
             self.n_parents = int(self.n_individuals/2)
         assert self.n_parents <= self.n_individuals,\
