@@ -68,9 +68,13 @@ space, currently we do not add this library to `conda-forge <https://conda-forge
 For MATLAB Users
 ----------------
 
-For Matlab users, `MATLAB-to-Python Migration Guide
+For MATLAB users, `MATLAB-to-Python Migration Guide
 <https://www.enthought.com/wp-content/uploads/2019/08/Enthought-MATLAB-to-Python-White-Paper_.pdf>`_ or
 `NumPy for MATLAB Users <https://numpy.org/devdocs/user/numpy-for-matlab-users.html>`_ is highly recommended.
+Given the fact that the USA government `blocks
+<https://www.quora.com/Did-the-US-really-block-the-license-of-MATLAB-to-several-Chinese-universities>`_ the MATLAB
+license to several universities, we argue that well-designed open-source software is really a good alternative
+like Python/NumPy (just to name a few).
 
 For R Users
 -----------
