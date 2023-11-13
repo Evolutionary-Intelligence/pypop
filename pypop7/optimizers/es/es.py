@@ -133,7 +133,8 @@ class ES(Optimizer):
         self.mean = options.get('mean')  # mean of Gaussian search/sampling/mutation distribution
         if self.mean is None:  # `mean` overwrites `x` if both are set
             self.mean = options.get('x')
-        self.sigma = options.get('sigma')  # global step-size (σ), mutation strength
+        # "overall" standard deviation, mutation strength (Nikolaus Hansen, 2023; Hans-Georg Beyer, 2017)
+        self.sigma = options.get('sigma')  # global step-size (σ)
         assert self.sigma > 0, f'`self.sigma` = {self.sigma}, but should > 0.'
         self.lr_mean = options.get('lr_mean')  # learning rate of mean update
         assert self.lr_mean is None or self.lr_mean > 0,\
