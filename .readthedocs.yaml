@@ -9,8 +9,8 @@ build:
 sphinx:
    configuration: docs/sphinx/source/conf.py
 
-   - pdf
-   - epub
+   pdf
+   epub
 
 python:
    install:
