@@ -141,7 +141,7 @@ class CMAES(ES):
             np.power(w_apostrophe[:self.n_parents], 2))
         self._mu_eff_minus = np.power(np.sum(w_apostrophe[self.n_parents:]), 2)/np.sum(
             np.power(w_apostrophe[self.n_parents:], 2))
-        self.c_s = self.options.get('c_s', (self._mu_eff + 2.0)/(self._mu_eff + self.ndim_problem + 5.0))
+        self.c_s = self.options.get('c_s', (self._mu_eff + 2.0)/(self.ndim_problem + self._mu_eff + 5.0))
         self.d_sigma = self.options.get('d_sigma', self._set_d_sigma())
         self.c_c = self.options.get('c_c', self._set_c_c())
         self.c_1 = self.options.get('c_1', self._alpha_cov/(np.square(self.ndim_problem + 1.3) + self._mu_eff))
