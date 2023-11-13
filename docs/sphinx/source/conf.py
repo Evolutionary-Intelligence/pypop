@@ -33,7 +33,8 @@ release = '0.0.1'
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon',
               'sphinx.ext.viewcode',
-              'sphinx_copybutton']
+              'sphinx_copybutton',
+              'rst2pdf.pdfbuilder']
 
 # Napoleon settings
 napoleon_google_docstring = False
