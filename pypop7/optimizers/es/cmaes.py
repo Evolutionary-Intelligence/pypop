@@ -154,8 +154,8 @@ class CMAES(ES):
         p_s = np.zeros((self.ndim_problem,))  # evolution path for cumulative step-length adaptation (CSA)
         p_c = np.zeros((self.ndim_problem,))  # evolution path for covariance matrix adaptation (CMA)
         cm = np.eye(self.ndim_problem)  # covariance matrix of Gaussian search distribution
-        eig_ve = np.eye(self.ndim_problem)  # eigenvectors of covariance matrix
-        eig_va = np.ones((self.ndim_problem,))  # eigenvalues of covariance matrix
+        eig_ve = np.eye(self.ndim_problem)  # eigenvectors of `cm` (orthogonal matrix)
+        eig_va = np.ones((self.ndim_problem,))  # square roots of eigenvalues of `cm` (in diagonal rather matrix form)
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         self._list_initial_mean.append(np.copy(mean))
         self._n_generations = self.n_generations = 0
