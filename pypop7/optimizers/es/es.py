@@ -160,7 +160,8 @@ class ES(Optimizer):
         # positive weight coefficients for weighted intermediate recombination (Nikolaus Hansen, 2023)
         #   [assigning different weights should be interpreted as a selection mechanism]
         w = (w_base - w)/(self.n_parents*w_base - np.sum(w))
-        # variance effective selection mass for distribution mean (Nikolaus Hansen, 2023)
+        # variance effective selection mass (Nikolaus Hansen, 2023)
+        #   effective sample size of the selected samples
         mu_eff = 1.0/np.sum(np.square(w))  # μ_eff (μ_w)
         return w, mu_eff
 
