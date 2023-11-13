@@ -177,11 +177,11 @@ class CMAES(ES):
         return x, y
 
     def update_distribution(self, x=None, mean=None, p_s=None, p_c=None, cm=None, eig_ve=None, eig_va=None, y=None):
-        order = np.argsort(y)
+        order = np.argsort(y)  # to rank all offspring individuals
         d = (x - mean)/self.sigma
         wd = np.dot(self._w[:self.n_parents], d[order[:self.n_parents]])
-        # update mean via weighted recombination
-        mean += self.sigma*wd
+        # update distribution mean via weighted recombination
+        mean = np.dot(self._w[:self.n_parents], x[order[:self.n_parents]])
         # update global step-size (CSA)
         cm_minus_half = np.dot(np.dot(eig_ve, np.diag(1.0/eig_va)), np.transpose(eig_ve))
         p_s = self._p_s_1*p_s + self._p_s_2*np.dot(cm_minus_half, wd)
