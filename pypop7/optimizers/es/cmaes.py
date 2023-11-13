@@ -115,7 +115,7 @@ class CMAES(ES):
         self._p_c_1, self._p_c_2 = None, None  # for evolution path update of CMA
         self.c_c, self.c_1, self.c_w, self._alpha_cov = None, None, None, 2.0  # for CMA (c_w -> c_μ)
 
-    def _set_c_c(self):  # to set decay rate for cumulation (evolution) path for rank-one update of CMA
+    def _set_c_c(self):  # to set decay rate of evolution path for rank-one update of CMA
         return (4.0 + self._mu_eff/self.ndim_problem)/(self.ndim_problem + 4.0 + 2.0*self._mu_eff/self.ndim_problem)
 
     def _set_c_w(self):
@@ -139,36 +139,36 @@ class CMAES(ES):
         self._w = np.where(w_a >= 0, 1.0/np.sum(w_a[w_a > 0])*w_a, w_min/(-np.sum(w_a[w_a < 0]))*w_a)
         self._p_s_1, self._p_s_2 = 1.0 - self.c_s, np.sqrt(self.c_s*(2.0 - self.c_s)*self._mu_eff)
         self._p_c_1, self._p_c_2 = 1.0 - self.c_c, np.sqrt(self.c_c*(2.0 - self.c_c)*self._mu_eff)
-        x = np.empty((self.n_individuals, self.ndim_problem))  # a population of new search points (individuals, offspring)
+        x = np.empty((self.n_individuals, self.ndim_problem))  # a population of search points (individuals, offspring)
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         p_s = np.zeros((self.ndim_problem,))  # evolution path (p_σ) for cumulative step-length adaptation (CSA)
         p_c = np.zeros((self.ndim_problem,))  # evolution path for covariance matrix adaptation (CMA)
         cm = np.eye(self.ndim_problem)  # covariance matrix of Gaussian search distribution
-        eig_ve = np.eye(self.ndim_problem)  # eigenvectors of `cm` (orthogonal matrix)
-        eig_va = np.ones((self.ndim_problem,))  # square roots of eigenvalues of `cm` (in diagonal rather matrix form)
+        e_ve = np.eye(self.ndim_problem)  # eigenvectors of `cm` (orthogonal matrix)
+        e_va = np.ones((self.ndim_problem,))  # square roots of eigenvalues of `cm` (in diagonal rather matrix form)
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         d = np.empty((self.n_individuals, self.ndim_problem))
         self._list_initial_mean.append(np.copy(mean))
-        return x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d
+        return x, mean, p_s, p_c, cm, e_ve, e_va, y, d
 
-    def iterate(self, x=None, mean=None, eig_ve=None, eig_va=None, y=None, d=None, args=None):
+    def iterate(self, x=None, mean=None, e_ve=None, e_va=None, y=None, d=None, args=None):
         for k in range(self.n_individuals):  # to sample offspring population
             if self._check_terminations():
                 return x, y, d
             # produce a spherical (isotropic) Gaussian distribution (Nikolaus Hansen, 2023)
             z = self.rng_optimization.standard_normal((self.ndim_problem,))  # Gaussian noise for mutation
-            d[k] = np.dot(eig_ve @ np.diag(eig_va), z)
+            d[k] = np.dot(e_ve @ np.diag(e_va), z)
             x[k] = mean + self.sigma*d[k]  # offspring individual
             y[k] = self._evaluate_fitness(x[k], args)  # fitness
         return x, y, d
 
-    def update_distribution(self, x=None, mean=None, p_s=None, p_c=None, cm=None, eig_ve=None, eig_va=None, y=None, d=None):
+    def update_distribution(self, x=None, p_s=None, p_c=None, cm=None, e_ve=None, e_va=None, y=None, d=None):
         order = np.argsort(y)  # to rank all offspring individuals
         wd = np.dot(self._w[:self.n_parents], d[order[:self.n_parents]])
         # update distribution mean via weighted recombination
         mean = np.dot(self._w[:self.n_parents], x[order[:self.n_parents]])
         # update global step-size (CSA)
-        cm_minus_half = eig_ve @ np.diag(1.0/eig_va) @ eig_ve.T
+        cm_minus_half = e_ve @ np.diag(1.0/e_va) @ e_ve.T
         p_s = self._p_s_1*p_s + self._p_s_2*np.dot(cm_minus_half, wd)
         self.sigma *= np.exp(self.c_s/self.d_sigma*(np.linalg.norm(p_s)/self._e_chi - 1.0))
         # update covariance matrix (CMA)
@@ -176,7 +176,7 @@ class CMAES(ES):
                 1.4 + 2.0/(self.ndim_problem + 1.0))*self._e_chi else 0.0
         p_c = self._p_c_1*p_c + h_s*self._p_c_2*wd
         w_o = self._w*np.where(self._w >= 0, 1.0, self.ndim_problem/(np.square(
-            np.linalg.norm(cm_minus_half @ d.T, axis=0)) + 1e-32))
+            np.linalg.norm(cm_minus_half @ d.T, axis=0)) + 1e-8))
         cm = ((1.0 + self.c_1*(1.0 - h_s)*self.c_c*(2.0 - self.c_c) - self.c_1 - self.c_w*np.sum(self._w))*cm +
               self.c_1*np.outer(p_c, p_c))  # rank-one update
         for i in range(self.n_individuals):  # rank-μ update (to estimate variances of sampled *steps*)
@@ -185,36 +185,36 @@ class CMAES(ES):
         cm = (cm + np.transpose(cm))/2.0  # to ensure symmetry of covariance matrix
         # use `np.linalg.eigh` rather than `np.linalg.eig` according to
         #   https://stackoverflow.com/questions/45434989/numpy-difference-between-linalg-eig-and-linalg-eigh
-        eig_va, eig_ve = np.linalg.eigh(cm)  # eig_va -> eigenvalues, eig_ve -> eigenvectors
-        eig_va = np.sqrt(np.where(eig_va < 0.0, 1e-32, eig_va))  # to avoid negative eigenvalues
-        # eig_va: squared root of eigenvalues -> interpreted as individual step-sizes and its diagonal entries are
+        e_va, e_ve = np.linalg.eigh(cm)  # e_va -> eigenvalues, e_ve -> eigenvectors
+        e_va = np.sqrt(np.where(e_va < 0.0, 1e-8, e_va))  # to avoid negative eigenvalues
+        # e_va: squared root of eigenvalues -> interpreted as individual step-sizes and its diagonal entries are
         #   standard deviations of different components (Nikolaus Hansen, 2023)
-        cm = eig_ve @ np.diag(np.square(eig_va)) @ np.transpose(eig_ve)  # to recover covariance matrix
-        return mean, p_s, p_c, cm, eig_ve, eig_va
+        cm = e_ve @ np.diag(np.square(e_va)) @ np.transpose(e_ve)  # to recover covariance matrix
+        return mean, p_s, p_c, cm, e_ve, e_va
 
     def restart_reinitialize(self, x=None, mean=None, p_s=None, p_c=None,
-                             cm=None, eig_ve=None, eig_va=None, y=None, d=None):
+                             cm=None, e_ve=None, e_va=None, y=None, d=None):
         if ES.restart_reinitialize(self, y):
-            x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d = self.initialize(True)
-        return x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d
+            x, mean, p_s, p_c, cm, e_ve, e_va, y, d = self.initialize(True)
+        return x, mean, p_s, p_c, cm, e_ve, e_va, y, d
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
         fitness = ES.optimize(self, fitness_function)
-        x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d = self.initialize()
+        x, mean, p_s, p_c, cm, e_ve, e_va, y, d = self.initialize()
         while True:
             # sample and evaluate offspring population
-            x, y, d = self.iterate(x, mean, eig_ve, eig_va, y, d, args)
+            x, y, d = self.iterate(x, mean, e_ve, e_va, y, d, args)
             if self._check_terminations():
                 break
             self._print_verbose_info(fitness, y)
             self._n_generations += 1
-            mean, p_s, p_c, cm, eig_ve, eig_va = self.update_distribution(x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d)
+            mean, p_s, p_c, cm, e_ve, e_va = self.update_distribution(x, p_s, p_c, cm, e_ve, e_va, y, d)
             if self.is_restart:
-                x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d = self.restart_reinitialize(
-                    x, mean, p_s, p_c, cm, eig_ve, eig_va, y, d)
+                x, mean, p_s, p_c, cm, e_ve, e_va, y, d = self.restart_reinitialize(
+                    x, mean, p_s, p_c, cm, e_ve, e_va, y, d)
         results = self._collect(fitness, y, mean)
         results['p_s'] = p_s
         results['p_c'] = p_c
-        results['eig_va'] = eig_va
-        # results['eig_ve'] = eig_ve  # do NOT save covariance matrix, owing to its *quadratic* space complexity
+        results['e_va'] = e_va
+        # results['e_ve'] = e_ve  # do NOT save covariance matrix, owing to its *quadratic* space complexity
         return results
