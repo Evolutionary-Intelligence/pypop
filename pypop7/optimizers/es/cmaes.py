@@ -128,8 +128,7 @@ class CMAES(ES):
         return (4.0 + self._mu_eff/self.ndim_problem)/(self.ndim_problem + 4.0 + 2.0*self._mu_eff/self.ndim_problem)
 
     def _set_c_w(self):
-        # minus 1e-8 for large population size (according to https://github.com/CyberAgentAILab/cmaes)
-        return np.minimum(1.0 - self.c_1 - 1e-8, self._alpha_cov*(self._mu_eff + 1.0/self._mu_eff - 2.0) /
+        return np.minimum(1.0 - self.c_1, self._alpha_cov*(self._mu_eff + 1.0/self._mu_eff - 2.0) /
                           (np.power(self.ndim_problem + 2.0, 2) + self._alpha_cov*self._mu_eff/2.0))
 
     def _set_d_sigma(self):
@@ -192,7 +191,7 @@ class CMAES(ES):
                 1.4 + 2.0/(self.ndim_problem + 1.0))*self._e_chi else 0.0
         p_c = self._p_c_1*p_c + h_s*self._p_c_2*wd
         w_o = self._w*np.where(self._w >= 0, 1.0, self.ndim_problem/(np.square(
-            np.linalg.norm(cm_minus_half @ d.T), axis=0) + 1e-32))
+            np.linalg.norm(cm_minus_half @ d.T, axis=0)) + 1e-32))
         cm = ((1.0 + self.c_1*(1.0 - h_s)*self.c_c*(2.0 - self.c_c) - self.c_1 - self.c_w*np.sum(self._w))*cm +
               self.c_1*np.outer(p_c, p_c))  # rank-one update
         for i in range(self.n_individuals):  # rank-μ update (to estimate variances of sampled *steps*)
