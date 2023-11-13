@@ -156,7 +156,7 @@ class CMAES(ES):
         self._p_c_2 = np.sqrt(self._mu_eff*self.c_c*(2.0 - self.c_c))
         x = np.empty((self.n_individuals, self.ndim_problem))  # a population of new search points (individuals, offspring)
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
-        p_s = np.zeros((self.ndim_problem,))  # evolution path for cumulative step-length adaptation (CSA)
+        p_s = np.zeros((self.ndim_problem,))  # evolution path (p_σ) for cumulative step-length adaptation (CSA)
         p_c = np.zeros((self.ndim_problem,))  # evolution path for covariance matrix adaptation (CMA)
         cm = np.eye(self.ndim_problem)  # covariance matrix of Gaussian search distribution
         eig_ve = np.eye(self.ndim_problem)  # eigenvectors of `cm` (orthogonal matrix)
