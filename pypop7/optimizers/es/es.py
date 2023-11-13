@@ -115,6 +115,7 @@ class ES(Optimizer):
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
+        # population size, sample size, number of offspring (Nikolaus Hansen, 2023)
         if self.n_individuals is None:  # number of offspring (λ: lambda), offspring population size
             self.n_individuals = 4 + int(3*np.log(self.ndim_problem))  # only for small populations setting
         assert self.n_individuals > 0, f'`self.n_individuals` = {self.n_individuals}, but should > 0.'
