@@ -6,9 +6,9 @@ from pypop7.optimizers.es.es import ES
 class CMAES(ES):
     """Covariance Matrix Adaptation Evolution Strategy (CMAES).
 
-    .. note:: `CMAES` is widely recognized as one of the **State Of The Art (SOTA)** for black-box optimization,
-       according to the latest `Nature <https://www.nature.com/articles/nature14544>`_ review of Evolutionary
-       Computation.
+    .. note:: `CMAES` is widely recognized as one of **State Of The Art (SOTA)** evolutionary algorithms for black-box
+       optimization, according to the `Nature <https://www.nature.com/articles/nature14544>`_ review of Evolutionary
+       Computation. Currently, the standard `(µ/µ_W, λ)-CMA-ES` version is considered in our Python implementation.
 
     Parameters
     ----------
@@ -37,7 +37,7 @@ class CMAES(ES):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the optimizer `CMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -53,7 +53,7 @@ class CMAES(ES):
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
        ...            'is_restart': False,
-       ...            'mean': 3*numpy.ones((2,)),
+       ...            'mean': 3.0*numpy.ones((2,)),
        ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> cmaes = CMAES(problem, options)  # initialize the optimizer class
        >>> results = cmaes.optimize()  # run the optimization process
