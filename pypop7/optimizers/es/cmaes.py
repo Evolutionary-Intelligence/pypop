@@ -128,8 +128,8 @@ class CMAES(ES):
         return (4.0 + self._mu_eff/self.ndim_problem)/(self.ndim_problem + 4.0 + 2.0*self._mu_eff/self.ndim_problem)
 
     def _set_c_w(self):
-        return np.minimum(1.0 - self.c_1, self._alpha_cov*(self._mu_eff + 1.0/self._mu_eff - 2.0) /
-                          (np.power(self.ndim_problem + 2.0, 2) + self._alpha_cov*self._mu_eff/2.0))
+        return np.minimum(1.0 - self.c_1, self._alpha_cov*(1.0/4.0 + self._mu_eff + 1.0/self._mu_eff - 2.0) /
+                          (np.square(self.ndim_problem + 2.0) + self._alpha_cov*self._mu_eff/2.0))
 
     def _set_d_sigma(self):
         return 1.0 + 2.0*np.maximum(0.0, np.sqrt((self._mu_eff - 1.0)/(self.ndim_problem + 1.0)) - 1.0) + self.c_s
