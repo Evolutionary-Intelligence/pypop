@@ -172,7 +172,7 @@ class CMAES(ES):
                 return x, y
             # produce a spherical (isotropic) Gaussian distribution (Nikolaus Hansen, 2023)
             z = self.rng_optimization.standard_normal((self.ndim_problem,))  # Gaussian noise for mutation
-            x[k] = mean + self.sigma*np.dot(np.dot(eig_ve, np.diag(eig_va)), z)  # offspring individual
+            x[k] = mean + self.sigma*np.dot(eig_ve @ np.diag(eig_va), z)  # offspring individual
             y[k] = self._evaluate_fitness(x[k], args)  # fitness
         return x, y
 
