@@ -151,12 +151,13 @@ class ES(Optimizer):
         self.sigma_threshold = options.get('sigma_threshold', 1e-12)  # stopping threshold of sigma
         self.stagnation = options.get('stagnation', int(10 + np.ceil(30*self.ndim_problem/self.n_individuals)))
         self.fitness_diff = options.get('fitness_diff', 1e-12)  # stopping threshold of fitness difference
-        self._sigma_bak = np.copy(self.sigma)  # only for restart
+        self._sigma_bak = np.copy(self.sigma)  # initial global step-size -> only for restart
 
     def _compute_weights(self):
         # unify these settings in the base class for consistency and simplicity
         w_base, w = np.log((self.n_individuals + 1.0)/2.0), np.log(np.arange(self.n_parents) + 1.0)
         w = (w_base - w)/(self.n_parents*w_base - np.sum(w))
+        # variance effective selection mass for distribution mean (Nikolaus Hansen, 2023)
         mu_eff = 1.0/np.sum(np.square(w))  # μ_eff (μ_w)
         return w, mu_eff
 
