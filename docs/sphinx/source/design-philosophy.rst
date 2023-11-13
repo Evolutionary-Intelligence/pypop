@@ -13,9 +13,10 @@ optimization problem at hand. For the new problem, however, the best optimizer i
 available/well-known optimizers and finally choose the best one according to some predefined performance criteria.
 From the *academic research* perspective, however, we prefer so-called **beautiful** optimizers, though always
 keeping the `No Free Lunch Theorems <https://ieeexplore.ieee.org/document/585893>`_ in mind. Typically, the beauty
-of one optimizer comes from the following attractive features: **model novelty**, **competitive performance on
-at least one class of problems**, **theoretical insights (e.g., convergence)**, **clarity/simplicity for
-understanding and implementation**, and **repeatability**.
+of one optimizer comes from the following attractive features: **model novelty (e.g., useful logical concepts and
+design frameworks)**, **competitive performance on at least one class of problems**, **theoretical insights (e.g.,
+guarantee of global convergence and rate of convergence on some problem classes)**, **clarity/simplicity for
+understanding and implementations**, and **well-recognized repeatability**.
 
 If you find any to meet the above standard, welcome to launch
 `issues <https://github.com/Evolutionary-Intelligence/pypop/issues>`_ or
