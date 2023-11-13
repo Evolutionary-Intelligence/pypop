@@ -136,8 +136,7 @@ class CMAES(ES):
 
     def initialize(self, is_restart=False):
         w_apostrophe = np.log((self.n_individuals + 1.0)/2.0) - np.log(np.arange(self.n_individuals) + 1.0)
-        self._mu_eff = np.power(np.sum(w_apostrophe[:self.n_parents]), 2)/np.sum(
-            np.power(w_apostrophe[:self.n_parents], 2))
+        self._mu_eff = np.square(np.sum(w_apostrophe[:self.n_parents]))/np.sum(np.square(w_apostrophe[:self.n_parents]))
         self._mu_eff_minus = np.power(np.sum(w_apostrophe[self.n_parents:]), 2)/np.sum(
             np.power(w_apostrophe[self.n_parents:], 2))
         self.c_s = self.options.get('c_s', (self._mu_eff + 2.0)/(self.ndim_problem + self._mu_eff + 5.0))
