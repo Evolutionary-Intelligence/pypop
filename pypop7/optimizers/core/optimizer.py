@@ -10,6 +10,8 @@ class Terminations(IntEnum):
     MAX_FUNCTION_EVALUATIONS = 1  # maximum of function evaluations
     MAX_RUNTIME = 2  # maximal runtime to be allowed
     FITNESS_THRESHOLD = 3  # threshold of fitness (when the best-so-far fitness is below it, the optimizer will stop)
+    EARLY_STOPPING = 4  # early stopping (when the best-so-far fitness does not improve for a long time,
+    # the optimizer will stop)
 
 
 class Optimizer(object):
@@ -80,6 +82,9 @@ class Optimizer(object):
         self.termination_signal = 0  # NO_TERMINATION
         self.fitness = None
         self.is_restart = options.get('is_restart', True)
+        self.early_stopping_evaluations = options.get('early_stopping_evaluations', np.Inf)
+        self.early_stopping_threshold = options.get('early_stopping_threshold', 0)
+        self.early_stopping_counter = 0
 
     def _evaluate_fitness(self, x, args=None):
         self.start_function_evaluations = time.time()
@@ -91,7 +96,14 @@ class Optimizer(object):
         self.n_function_evaluations += 1
         # update best-so-far solution (x) and fitness (y)
         if y < self.best_so_far_y:
+            if y >= self.best_so_far_y - self.early_stopping_threshold:
+                self.early_stopping_counter += 1
+            else:
+                self.early_stopping_counter = 0
             self.best_so_far_x, self.best_so_far_y = np.copy(x), y
+        else:
+            self.early_stopping_counter += 1
+
         return float(y)
 
     def _check_terminations(self):
@@ -102,6 +114,8 @@ class Optimizer(object):
             termination_signal = True, Terminations.MAX_RUNTIME
         elif self.best_so_far_y <= self.fitness_threshold:
             termination_signal = True, Terminations.FITNESS_THRESHOLD
+        elif self.early_stopping_counter >= self.early_stopping_evaluations:
+            termination_signal = True, Terminations.EARLY_STOPPING
         else:
             termination_signal = False, Terminations.NO_TERMINATION
         self.termination_signal = termination_signal[1]
