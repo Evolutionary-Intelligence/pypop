@@ -191,10 +191,12 @@ class CMAES(ES):
               self.c_1*np.outer(p_c, p_c))  # rank-one update
         for i in range(self.n_individuals):  # rank-μ update (to estimate variances of sampled *steps*)
             cm += self.c_w*w_o[i]*np.outer(d[order[i]], d[order[i]])
-        # do eigen decomposition (SVD)
-        cm = (cm + np.transpose(cm))/2.0
-        eig_va, eig_ve = np.linalg.eigh(cm)
-        eig_va = np.sqrt(np.where(eig_va < 0, 1e-8, eig_va))
+        # do eigen-decomposition and return both eigenvalues and eigenvectors
+        cm = (cm + np.transpose(cm))/2.0  # to ensure symmetry of covariance matrix
+        eig_va, eig_ve = np.linalg.eig(cm)  # eig_va -> eigenvalues, eig_ve -> eigenvectors
+        eig_va = np.sqrt(np.where(eig_va < 0.0, 1e-32, eig_va))  # to avoid negative eigenvalues
+        # eig_va: squared root of eigenvalues -> interpreted as individual step-sizes and its diagonal entries are
+        #   standard deviations of different components (Nikolaus Hansen, 2023)
         cm = np.dot(np.dot(eig_ve, np.diag(np.power(eig_va, 2))), np.transpose(eig_ve))
         return mean, p_s, p_c, cm, eig_ve, eig_va
 
