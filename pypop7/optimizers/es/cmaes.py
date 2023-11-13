@@ -137,10 +137,8 @@ class CMAES(ES):
         w_min = np.min([1.0 + self.c_1/self.c_w, 1.0 + 2.0*self._mu_eff_minus/(self._mu_eff + 2.0),
                         (1.0 - self.c_1 - self.c_w)/(self.ndim_problem*self.c_w)])
         self._w = np.where(w_a >= 0, 1.0/np.sum(w_a[w_a > 0])*w_a, w_min/(-np.sum(w_a[w_a < 0]))*w_a)
-        self._p_s_1 = 1.0 - self.c_s
-        self._p_s_2 = np.sqrt(self.c_s*(2.0 - self.c_s)*self._mu_eff)
-        self._p_c_1 = 1.0 - self.c_c
-        self._p_c_2 = np.sqrt(self.c_c*(2.0 - self.c_c)*self._mu_eff)
+        self._p_s_1, self._p_s_2 = 1.0 - self.c_s, np.sqrt(self.c_s*(2.0 - self.c_s)*self._mu_eff)
+        self._p_c_1, self._p_c_2 = 1.0 - self.c_c, np.sqrt(self.c_c*(2.0 - self.c_c)*self._mu_eff)
         x = np.empty((self.n_individuals, self.ndim_problem))  # a population of new search points (individuals, offspring)
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         p_s = np.zeros((self.ndim_problem,))  # evolution path (p_σ) for cumulative step-length adaptation (CSA)
