@@ -193,6 +193,8 @@ class CMAES(ES):
             cm += self.c_w*w_o[i]*np.outer(d[order[i]], d[order[i]])
         # do eigen-decomposition and return both eigenvalues and eigenvectors
         cm = (cm + np.transpose(cm))/2.0  # to ensure symmetry of covariance matrix
+        # use `np.linalg.eigh` rather than `np.linalg.eig` according to
+        #   https://stackoverflow.com/questions/45434989/numpy-difference-between-linalg-eig-and-linalg-eigh
         eig_va, eig_ve = np.linalg.eigh(cm)  # eig_va -> eigenvalues, eig_ve -> eigenvectors
         eig_va = np.sqrt(np.where(eig_va < 0.0, 1e-32, eig_va))  # to avoid negative eigenvalues
         # eig_va: squared root of eigenvalues -> interpreted as individual step-sizes and its diagonal entries are
