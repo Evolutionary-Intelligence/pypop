@@ -9,6 +9,9 @@ build:
 sphinx:
    configuration: docs/sphinx/source/conf.py
 
+   - pdf
+   - epub
+
 python:
    install:
    - requirements: requirements.txt
