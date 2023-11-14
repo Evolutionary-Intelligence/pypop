@@ -1,6 +1,3 @@
-"""
-Test the common optimizer interface.
-"""
 import unittest
 
 import numpy as np
@@ -12,30 +9,36 @@ from pypop7.optimizers.es.fmaes import FMAES
 
 
 class TestOptimizer(unittest.TestCase):
-    def test_early_stopping(self):
+    def test_early_stopping_1(self):
         ndim_problem = 10
-        early_stopping_threshold = 1e-8
-        early_stopping_evaluations = 10000
+        problem = {'fitness_function': rosenbrock,
+                   'ndim_problem': ndim_problem,
+                   'lower_boundary': -5.0*np.ones((ndim_problem,)),
+                   'upper_boundary': 5.0*np.ones((ndim_problem,))}
+        options = {'seed_rng': 0,
+                   'early_stopping_threshold': 1e-7,
+                   'early_stopping_evaluations': 10000}
+        solver = CDE(problem, options)
+        results = solver.optimize()
+        self.assertTrue(results['termination_signal'], Terminations.EARLY_STOPPING)
+        # * Generation 840: best_so_far_y 5.02011e-08, min(y) 5.02011e-08 & Evaluations 84100
+        # * Generation 930: best_so_far_y 1.24183e-10, min(y) 1.24183e-10 & Evaluations 93100
 
-        # This function is needed to avoid the fitness_threshold condition
-        rosenbrock_plus_one = lambda x: rosenbrock(x) + 1
-
-        for Solver in [CDE, FMAES]:
-            problem = {'fitness_function': rosenbrock_plus_one,
-                       'ndim_problem': ndim_problem,
-                       'lower_boundary': -5 * np.ones((ndim_problem,)),
-                       'upper_boundary': 5 * np.ones((ndim_problem,))}
-            options = {'max_function_evaluations': 2e6,
-                       'fitness_threshold': 1e-10,
-                       'seed_rng': 0,
-                       'early_stopping_threshold': early_stopping_threshold,
-                       'early_stopping_evaluations': early_stopping_evaluations,
-                       'verbose': 200,
-                       'sigma': 1e-3,
-                       }
-            solver = Solver(problem, options)
-            results = solver.optimize()
-            self.assertTrue(results['termination_signal'], Terminations.EARLY_STOPPING)
+    def test_early_stopping_2(self):
+        ndim_problem = 10
+        problem = {'fitness_function': rosenbrock,
+                   'ndim_problem': ndim_problem,
+                   'lower_boundary': -5.0 * np.ones((ndim_problem,)),
+                   'upper_boundary': 5.0 * np.ones((ndim_problem,))}
+        options = {'seed_rng': 0,
+                   'sigma': 1e-3,
+                   'early_stopping_threshold': 1e-7,
+                   'early_stopping_evaluations': 10000}
+        solver = FMAES(problem, options)
+        results = solver.optimize()
+        self.assertTrue(results['termination_signal'], Terminations.EARLY_STOPPING)
+        # * Generation 810: best_so_far_y 2.37215e-08, min(y) 3.44843e-08 & Evaluations 8110
+        # * Generation 443: best_so_far_y 2.70942e-15, min(y) 3.98658e+00 & Evaluations 18033
 
 
 if __name__ == '__main__':
