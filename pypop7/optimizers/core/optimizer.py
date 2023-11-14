@@ -98,7 +98,7 @@ class Optimizer(object):
         if y < self.best_so_far_y:
             self.best_so_far_x, self.best_so_far_y = np.copy(x), y
         # update all settings related to early stopping
-        if y >= self._base_early_stopping - self.early_stopping_threshold:
+        if (self._base_early_stopping - y) <= self.early_stopping_threshold:
             self._counter_early_stopping += 1
         else:
             self._counter_early_stopping, self._base_early_stopping = 0, y
