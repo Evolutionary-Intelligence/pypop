@@ -4,8 +4,8 @@ Design Philosophy of PyPop7
 Given a large number of black-box optimizers (BBO) which still keep increasing almost every month, we need some
 (possibly) widely acceptable criteria to select from them, as presented below in details:
 
-Respect for **Beauty (Elegance)**
----------------------------------
+Respect for Beauty (Elegance)
+-----------------------------
 
 From the *problem-solving* perspective, we empirically prefer to choose the best optimizer for the black-box
 optimization problem at hand. For the new problem, however, the best optimizer is often *unknown* in advance
@@ -18,13 +18,13 @@ design frameworks)**, **competitive performance on at least one class of problem
 guarantee of global convergence and rate of convergence on some problem classes)**, **clarity/simplicity for
 understanding and implementations**, and **well-recognized repeatability**.
 
-If you find any to meet the above standard, welcome to launch
+If you find some BBO which is missed in this library to meet the above standard, welcome to launch
 `issues <https://github.com/Evolutionary-Intelligence/pypop/issues>`_ or
 `pulls <https://github.com/Evolutionary-Intelligence/pypop/pulls>`_. We will consider it to be included in the
-*pypop7* library as soon as possible, if possible. Note that any
+*PyPop7* library as soon as possible, if possible. Note that any
 `superficial <https://onlinelibrary.wiley.com/doi/full/10.1111/itor.13176>`_
 `imitation <https://dl.acm.org/doi/10.1145/3402220.3402221>`_ to well-established optimizers
-(i.e. `Old Wine in a New Bottle <https://link.springer.com/article/10.1007/s11721-021-00202-9>`_) will be
+(i.e., `Old Wine in a New Bottle <https://link.springer.com/article/10.1007/s11721-021-00202-9>`_) will be
 **NOT** considered here. Sometimes, several **very complex** optimizers could obtain the top rank on some
 competitions consisting of only *artificially-constructed* benchmark functions. However, these optimizers may become
 **over-skilled** on these artifacts. In our opinions, a good optimizer should be elegant (at least understandable)
@@ -69,8 +69,8 @@ to aovid the possible `repeatability <https://dl.acm.org/doi/full/10.1145/346662
   Flannery, B.P., 2007. `Numerical recipes: The art of scientific computing <http://numerical.recipes/>`_.
   Cambridge University Press.
 
-Respect for **Diversity**
--------------------------
+Respect for Diversity
+---------------------
 
 Given the universality of **black-box optimization** in science and engineering, different research communities
 have designed different optimizers/methods. The type and number of optimizers are continuing to increase as the more
@@ -90,8 +90,8 @@ electronic engineering, physics, chemistry, open-source software, and many other
    materialistically".*---`[Mayr, 2009, Scientific American]
    <https://www.scientificamerican.com/article/darwins-influence-on-modern-thought1/>`_.
 
-Respect for **Originality**
----------------------------
+Respect for Originality
+-----------------------
 
   For each optimizer included in *PyPop7*, we expect to give its original/representative reference (sometimes also
   including its good implementations/improvements). If you find some important references missed, please do NOT hesitate
@@ -102,8 +102,8 @@ Respect for **Originality**
   D.A., 2019. `Computer architecture: A quantitative approach (Sixth Edition)
   <https://shop.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1>`_. Elsevier.
 
-Respect for **Repeatability**
------------------------------
+Respect for Repeatability
+-------------------------
 
 For randomized search which is adopted by most population-based optimizers, properly controlling randomness is very
 crucial to repeat numerical experiments. Here we follow the `Random Sampling
