@@ -109,8 +109,12 @@ For randomized search which is adopted by most population-based optimizers, prop
 crucial to repeat numerical experiments. Here we follow the `Random Sampling
 <https://numpy.org/doc/stable/reference/random/generator.html>`_ suggestions from `NumPy
 <https://numpy.org/doc/stable/reference/random/>`_. In other worlds, you should **explicitly** set the random seed for
-each optimizer. For more discussions about **repeatability** from AI/ML, evolutionary computation, and  metaheuristics
-communities, refer to the following papers, to name a few:
+each optimizer. For more discussions about **repeatability/benchmarking** from AI/ML, evolutionary computation, and
+metaheuristics communities, please refer to the following papers, to name a few:
+
+  * Hansen, N., Auger, A., Brockhoff, D. and Tušar, T., 2022. `Anytime performance assessment in blackbox optimization
+    benchmarking <https://ieeexplore.ieee.org/abstract/document/9905722>`_. IEEE Transactions on Evolutionary Computation,
+    26(6), pp.1293-1305.
 
   * López-Ibáñez, M., Branke, J. and Paquete, L., 2021. `Reproducibility in evolutionary computation
     <https://dl.acm.org/doi/abs/10.1145/3466624>`_. ACM Transactions on Evolutionary Learning and Optimization,
