@@ -48,6 +48,10 @@ for it, we will not consider any **very complex** optimizer in this library, in 
     `Metaphor-based metaheuristics, a call for action: The elephant in the room
     <https://link.springer.com/article/10.1007/s11721-021-00202-9>`_. Swarm Intelligence, 16(1), pp.1-6.
 
+  * de Armas, J., Lalla-Ruiz, E., Tilahun, S.L. and Voß, S., 2022. `Similarity in metaheuristics: A gentle step towards a
+    comparison methodology <https://link.springer.com/article/10.1007/s11047-020-09837-9>`_. Natural Computing, 21(2),
+    pp.265-287.
+
   * Piotrowski, A.P. and Napiorkowski, J.J., 2018. `Some metaheuristics should be simplified
     <https://www.sciencedirect.com/science/article/abs/pii/S0020025517310332>`_. Information Sciences, 427, pp.32-62.
 
