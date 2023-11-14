@@ -127,6 +127,11 @@ metaheuristics communities, please refer to the following papers, to name a few:
   * Hutson, M., 2018. `Artificial intelligence faces reproducibility crisis
     <https://www.science.org/doi/10.1126/science.359.6377.725>`_. Science, 359(6377), pp.725-726.
 
+  * Swan, J., Adriaensen, S., Bishr, M., Burke, E.K., Clark, J.A., De Causmaecker, P., Durillo, J., Hammond, K., Hart, E.,
+    Johnson, C.G., Kocsis, Z.A., Kovitz, B., Krawiec, K., Martin, S., Merelo, J.J., Minku, L.L., Ozcan, E., Pappa, G.L.,
+    Pesch, E., Garcia-Sanchez, P., Schaerf, A., Sim, K., Smith, J.E., Stutzle, T., Voß, S., Wagner, S., Yao., X., 2015, June.
+    A research agenda for metaheuristic standardization. In Proceedings of International Conference on Metaheuristics (pp. 1-3).
+
   * Sonnenburg, S., Braun, M.L., Ong, C.S., Bengio, S., Bottou, L., Holmes, G., LeCunn, Y., Muller, K.R., Pereira, F.,
     Rasmussen, C.E., Ratsch, G., et al., 2007. `The need for open source software in machine learning
     <https://jmlr.csail.mit.edu/papers/volume8/sonnenburg07a/sonnenburg07a.pdf>`_. Journal of Machine Learning Research,
