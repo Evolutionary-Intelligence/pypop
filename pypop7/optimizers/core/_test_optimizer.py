@@ -22,7 +22,7 @@ class TestOptimizer(unittest.TestCase):
         results = solver.optimize()
         self.assertTrue(results['termination_signal'], Terminations.EARLY_STOPPING)
         # * Generation 840: best_so_far_y 5.02011e-08, min(y) 5.02011e-08 & Evaluations 84100
-        # * Generation 930: best_so_far_y 1.24183e-10, min(y) 1.24183e-10 & Evaluations 93100
+        # * Generation 935: best_so_far_y 1.24183e-10, min(y) 1.24183e-10 & Evaluations 93531
 
     def test_early_stopping_2(self):
         ndim_problem = 10
