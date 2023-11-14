@@ -28,8 +28,8 @@ class TestOptimizer(unittest.TestCase):
         ndim_problem = 10
         problem = {'fitness_function': rosenbrock,
                    'ndim_problem': ndim_problem,
-                   'lower_boundary': -5.0 * np.ones((ndim_problem,)),
-                   'upper_boundary': 5.0 * np.ones((ndim_problem,))}
+                   'lower_boundary': -5.0*np.ones((ndim_problem,)),
+                   'upper_boundary': 5.0*np.ones((ndim_problem,))}
         options = {'seed_rng': 0,
                    'sigma': 1e-3,
                    'early_stopping_threshold': 1e-7,
