@@ -1,7 +1,7 @@
 import time
 from enum import IntEnum
 
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 
 class Terminations(IntEnum):
@@ -9,9 +9,8 @@ class Terminations(IntEnum):
     NO_TERMINATION = 0
     MAX_FUNCTION_EVALUATIONS = 1  # maximum of function evaluations
     MAX_RUNTIME = 2  # maximal runtime to be allowed
-    FITNESS_THRESHOLD = 3  # threshold of fitness (when the best-so-far fitness is below it, the optimizer will stop)
-    EARLY_STOPPING = 4  # early stopping (when the best-so-far fitness does not improve for a long time,
-    # the optimizer will stop)
+    FITNESS_THRESHOLD = 3  # when the best-so-far fitness is below fitness threshold, the optimizer will stop
+    EARLY_STOPPING = 4  # when the best-so-far fitness does not improve for a long time, the optimizer will stop
 
 
 class Optimizer(object):
