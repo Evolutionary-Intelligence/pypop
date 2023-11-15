@@ -215,15 +215,15 @@ fourth termination signal. Please refer to `#issues/175
 Algorithm Selection and Configuration
 -------------------------------------
 
-For most real-world BBO, typically there is few *a prior* knowledge to serve as the base of algorithm selection.
-Perhaps the simplest way to algorithm selection is **trial-and-error**. However, here we still hope to provide a
-*rule of thumb* to guide algorithm selection according to algorithm classification. Refer to `our GitHub homepage
+For most real-world black-box optimization, typically there is **few** a prior knowledge to serve as the base of algorithm
+selection. Perhaps the simplest way to algorithm selection is **trial-and-error**. However, here we still hope to provide
+a *rule of thumb* to guide algorithm selection according to algorithm classification. Refer to `our GitHub homepage
 <https://github.com/Evolutionary-Intelligence/pypop>`_ for details about three different classification families
 (only based on the dimensionality). It is worthwhile noting that this classification is *just a very rough estimation*
 for algorithm selection. In practice, the algorithm selection should depend mainly on the final performance criteria
 (e.g., convergence rate / solution quality / runtime).
 
-In the future, we expect to add the **Automated Algorithm Selection and Configuration** techniques in this
+In the future, we expect to add the **Automated Algorithm Selection and Configuration** techniques into this open-source
 library, as shown below (just to name a few):
   * Lindauer, M., Eggensperger, K., Feurer, M., Biedenkapp, A., Deng, D., Benjamins, C., Ruhkopf, T., Sass, R. and
     Hutter, F., 2022. `SMAC3: A versatile Bayesian optimization package for hyperparameter optimization
