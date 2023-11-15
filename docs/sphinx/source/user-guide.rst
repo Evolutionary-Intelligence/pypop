@@ -51,9 +51,8 @@ When the fitness function itself involves other *input arguments* except the sam
        ...         self.arg = arg
        ...     def __call__(self, x):  # for fitness evaluation
        ...         return rosenbrock(x, self.arg)
-       >>> rosen = Rosenbrock(100.0)
        >>> ndim_problem = 1000  # define its settings
-       >>> problem = {'fitness_function': rosen,  # cost function
+       >>> problem = {'fitness_function': Rosenbrock(100.0),  # cost function
        ...            'ndim_problem': ndim_problem,  # dimension
        ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # search boundary
        ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}
