@@ -116,11 +116,11 @@ Respect for Repeatability
 -------------------------
 
 For randomized search which is adopted by most population-based optimizers, properly controlling randomness is very
-crucial to repeat numerical experiments. Here we follow the `Random Sampling
+crucial to repeat numerical experiments. Here we follow the official `Random Sampling
 <https://numpy.org/doc/stable/reference/random/generator.html>`_ suggestions from `NumPy
 <https://numpy.org/doc/stable/reference/random/>`_. In other worlds, you should **explicitly** set the random seed for
-each optimizer. For more discussions about **repeatability/benchmarking** from AI/ML, evolutionary computation, and
-metaheuristics communities, please refer to the following papers, to name a few:
+each optimizer. For more discussions about **repeatability/benchmarking** from AI/ML, evolutionary computation (EC), swarm
+intelligence (SI), and metaheuristics communities, please refer to the following papers, to name a few:
 
   * Hansen, N., Auger, A., Brockhoff, D. and Tušar, T., 2022. `Anytime performance assessment in blackbox optimization
     benchmarking <https://ieeexplore.ieee.org/abstract/document/9905722>`_. IEEE Transactions on Evolutionary Computation,
