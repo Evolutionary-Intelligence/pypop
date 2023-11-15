@@ -238,3 +238,6 @@ library, as shown below (just to name a few):
   * Hoos, H.H., Neumann, F. and Trautmann, H., 2017. `Automated algorithm selection and configuration (Dagstuhl Seminar
     16412) <https://www.dagstuhl.de/seminars/seminar-calendar/seminar-details/16412>`_.
     Dagstuhl Reports, 6(10), pp.33-74.
+  * Rice, J.R., 1976. `The algorithm selection problem
+    <https://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=1098&context=cstech>`_. In Advances in Computers (Vol. 15,
+    pp. 65-118). Elsevier.
