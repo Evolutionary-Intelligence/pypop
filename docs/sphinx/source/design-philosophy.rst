@@ -126,6 +126,10 @@ intelligence (SI), and metaheuristics communities, please refer to the following
     benchmarking <https://ieeexplore.ieee.org/abstract/document/9905722>`_. IEEE Transactions on Evolutionary Computation,
     26(6), pp.1293-1305.
 
+  * Bäck, T., Doerr, C., Sendhoff, B. and Stützle, T., 2022. `Guest editorial special issue on benchmarking sampling-based
+    optimization heuristics: Methodology and software <https://ieeexplore.ieee.org/abstract/document/9967395>`_. IEEE
+    Transactions on Evolutionary Computation, 26(6), pp.1202-1205.
+
   * López-Ibáñez, M., Branke, J. and Paquete, L., 2021. `Reproducibility in evolutionary computation
     <https://dl.acm.org/doi/abs/10.1145/3466624>`_. ACM Transactions on Evolutionary Learning and Optimization,
     1(4), pp.1-21.
