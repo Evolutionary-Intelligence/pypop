@@ -235,6 +235,9 @@ library, as shown below (just to name a few):
   * Kerschke, P., Hoos, H.H., Neumann, F. and Trautmann, H., 2019. `Automated algorithm selection: Survey and
     perspectives <https://direct.mit.edu/evco/article-abstract/27/1/3/1083/Automated-Algorithm-Selection-Survey-and>`_.
     Evolutionary Computation, 27(1), pp.3-45.
+  * Probst, P., Boulesteix, A.L. and Bischl, B., 2019. `Tunability: Importance of hyperparameters of machine learning
+    algorithms <https://www.jmlr.org/papers/volume20/18-444/18-444.pdf>`_. Journal of Machine Learning Research, 20(1),
+    pp.1934-1965.
   * Hoos, H.H., Neumann, F. and Trautmann, H., 2017. `Automated algorithm selection and configuration (Dagstuhl Seminar
     16412) <https://www.dagstuhl.de/seminars/seminar-calendar/seminar-details/16412>`_.
     Dagstuhl Reports, 6(10), pp.33-74.
