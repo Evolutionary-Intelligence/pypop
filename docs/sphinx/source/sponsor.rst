@@ -19,7 +19,7 @@ University).
     and test on MacOS X.
   * Now *Zonghan He* from SUSTech helps to test the installation process on Windows10 OS.
   * Now *Yajing Tan* from SUSTech is added as one of core developers in order to increase new black-box optimizers.
-  * Now *Jian Zeng* from Guangdong Police College helps to collect BBOs for data mining.
+  * Now *Jian Zeng* from Guangdong Police College/Harbin Institute of Technology helps to collect BBOs for data mining.
   * Now *XiangLong Chen* from SUSTech helps to proofread and standardize the documents.
 
 We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech) and recent (2022) discussions wih
