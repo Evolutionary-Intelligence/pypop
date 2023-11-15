@@ -94,6 +94,11 @@ electronic engineering, physics, chemistry, open-source software, and many other
    materialistically".*---`[Mayr, 2009, Scientific American]
    <https://www.scientificamerican.com/article/darwins-influence-on-modern-thought1/>`_.
 
+To cover recent advances on population-based BBO as widely as possible, We have actively maintained a `companion project
+<https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_ to collect related papers on
+some *top-tier* journals and conferences for more than 3 years. We wish that this open companion project could provide an
+increasingly reliable literature reference as the base of our library.
+
 Respect for Originality
 -----------------------
 
