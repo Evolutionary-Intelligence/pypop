@@ -86,8 +86,11 @@ When there are multiple (>=2) input arguments except the sampling point `x`, all
 a `function` or `class` wrapper with only one input argument except the sampling point `x` (in `dict` or `tuple`
 form).
 
-Typically,  `upper_boundary` and `lower_boundary` are enough for end-users to control the search range. However,
-sometimes for *benchmarking-of-optimizers* purpose (e.g., to avoid utilizing `symmetry and origin
+For Advanced Usage
+~~~~~~~~~~~~~~~~~~
+
+Typically,  two members `upper_boundary` and `lower_boundary` are enough for most end-users to control the search
+range. However, sometimes for *benchmarking-of-optimizers* purpose (e.g., to avoid utilizing `symmetry and origin
 <https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_ to possibly bias the search), we add
 two extra settings to control the initialization of the population/individual:
 
