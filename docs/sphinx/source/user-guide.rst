@@ -149,8 +149,9 @@ hyper-parameters):
 Result Analysis
 ---------------
 
-After the ending of optimization stage, all optimizers return at least the following common results (collected into
-a `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ data structure) in a **unified** way:
+After the ending of optimization stage, all black-box optimizers return at least the following common results
+(collected into a `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ data structure)
+in a **unified** way:
   * `best_so_far_x`: the best-so-far solution found during optimization,
   * `best_so_far_y`: the best-so-far fitness (aka objective value) found during optimization,
   * `n_function_evaluations`: the total number of function evaluations used during optimization (which never exceeds
@@ -164,7 +165,8 @@ a `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ 
 When the optimizer option `saving_fitness` is set to `False`, `fitness` will be `None`. When the optimizer option
 `saving_fitness` is set to an integer `n` (> 0), `fitness` will be a list of fitness generated every `n` function
 evaluations. Note that both the *first* and *last* fitness are always saved as the *beginning* and *ending* of
-optimization.
+optimization. In practice, setting `saving_fitness` properly could generate a **low-memory** data storage for final
+optimization results.
 
 Below is a simple example to visualize the *fitness convergence* procedure of Rechenberg’s (1+1)-Evolution
 Strategy on the classical `sphere` function (one of the simplest test functions):
