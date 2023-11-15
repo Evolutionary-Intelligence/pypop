@@ -102,9 +102,9 @@ increasingly reliable literature reference as the base of our library.
 Respect for Originality
 -----------------------
 
- For each optimizer included in *PyPop7*, we expect to give its original/representative reference (sometimes also
- including its good implementations/improvements). If you find some important references missed, please do NOT hesitate
- to contact us (and we will be happy to add it).
+For each black-box optimizer included in *PyPop7*, we expect to give its original/representative reference (sometimes also
+including its good implementations/improvements). If you find some important references missed here, please do NOT hesitate
+to contact us (and we will be happy to add it).
 
 .. note::
   *"It is both enjoyable and educational to hear the ideas directly from the creators".*---Hennessy, J.L. and Patterson,
