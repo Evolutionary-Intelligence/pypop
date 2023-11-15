@@ -77,7 +77,7 @@ Respect for Diversity
 ---------------------
 
 Given the universality of **black-box optimization** in science and engineering, different research communities
-have designed different optimizers/methods. The type and number of optimizers are continuing to increase as the more
+have designed different optimizers. The type and number of optimizers are continuing to increase as the more
 powerful optimizers are always desirable for new and more challenging applications. On the one hand, some of these
 methods may share *more or less* similarities. On the other hand, they may also show *significant* differences (w.r.t.
 motivations / objectives / implementations / communities / practitioners). Therefore, we hope to cover such a
