@@ -97,7 +97,7 @@ two extra settings to control the initialization of the population/individual:
   * `initial_upper_boundary`: upper boundary only for initialization (`array_like`),
   * `initial_lower_boundary`: lower boundary only for initialization (`array_like`).
 
-if *not* given, both `initial_upper_boundary` and `initial_lower_boundary` are set to `upper_boundary` and
+If *not* explicitly given, `initial_upper_boundary` and `initial_lower_boundary` are set to `upper_boundary` and
 `lower_boundary`, respectively. When `initial_upper_boundary` and `initial_lower_boundary` are explicitly given,
 the initialization of population/individual will be sampled from [`initial_lower_boundary`, `initial_upper_boundary`]
 rather than [`lower_boundary`, `upper_boundary`].
