@@ -1,5 +1,5 @@
-Tutorials
-=========
+Online Tutorials
+================
 
 Here we provide several *interesting* tutorials to help better use this `open-source <https://opensource.org/>`_
 library `PyPop7 <https://pypop.readthedocs.io/en/latest/installation.html>`_ for black-box optimization (BBO), as
