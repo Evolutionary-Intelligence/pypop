@@ -104,15 +104,15 @@ rather than [`lower_boundary`, `upper_boundary`].
 Optimizer Setting
 -----------------
 
-This library provides a *unified* API for hyper-parameter settings of all black-box optimizers. The following
+This open-source library provides a *unified* API for hyper-parameter settings of all black-box optimizers. The following
 algorithm options (all stored into a `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ format)
-are common for all optimizers:
+are common for all black-box optimizers:
 
   * `max_function_evaluations`: maximum of function evaluations (`int`, default: `np.Inf`),
   * `max_runtime`: maximal runtime to be allowed (`float`, default: `np.Inf`),
   * `seed_rng`: seed for random number generation needed to be *explicitly* set (`int`).
 
-At least one of two options (`max_function_evaluations` and `max_runtime`) should be set according to
+At least one of two algorithm options (`max_function_evaluations` and `max_runtime`) should be set according to
 the available computing resources or acceptable runtime (i.e., **problem-dependent**). For **repeatability**,
 `seed_rng` should be *explicitly* set for random number generation (`RNG
 <https://numpy.org/doc/stable/reference/random/>`_).
