@@ -115,7 +115,9 @@ are common for all black-box optimizers:
 At least one of two algorithm options (`max_function_evaluations` and `max_runtime`) should be set according to
 the available computing resources or acceptable runtime (i.e., **problem-dependent**). For **repeatability**,
 `seed_rng` should be *explicitly* set for random number generation (`RNG
-<https://numpy.org/doc/stable/reference/random/>`_).
+<https://numpy.org/doc/stable/reference/random/>`_). Note that as different `NumPy` verions may use `different
+<https://numpy.org/neps/nep-0019-rng-policy.html>`_ RNG implementations, **repeatability** is guaranteed mainly within
+the same `NumPy` version.
 
 Note that for any optimizer, its *specific* options/settings (see its API documentation for details) can be
 naturally added into the `dict` data structure. Take the well-known `Cross-Entropy Method (CEM)
