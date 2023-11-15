@@ -202,6 +202,14 @@ Strategy on the classical `sphere` function (one of the simplest test functions)
    :width: 321px
    :align: center
 
+For Advanced Usage
+~~~~~~~~~~~~~~~~~~
+
+Following the recent suggestion from one end-user, we add `EARLY_STOPPING
+<https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/core/optimizer.py#L13>`_ as the
+fourth termination signal. Please refer to `#issues/175
+<https://github.com/Evolutionary-Intelligence/pypop/issues/175>`_ for details.
+
 Algorithm Selection and Configuration
 -------------------------------------
 
