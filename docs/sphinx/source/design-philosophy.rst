@@ -16,7 +16,8 @@ keeping the `No Free Lunch Theorems <https://ieeexplore.ieee.org/document/585893
 of one optimizer comes from the following attractive features: **model novelty (e.g., useful logical concepts and
 design frameworks)**, **competitive performance on at least one class of problems**, **theoretical insights (e.g.,
 guarantee of global convergence and rate of convergence on some problem classes)**, **clarity/simplicity for
-understanding and implementations**, and **well-recognized repeatability**.
+understanding and implementations**, and **well-recognized** `repeatability/reproducibility
+<https://www.nature.com/articles/d41586-019-00067-3>`_.
 
 If you find some BBO which is missed in this library to meet the above standard, welcome to launch
 `issues <https://github.com/Evolutionary-Intelligence/pypop/issues>`_ or
