@@ -47,11 +47,11 @@ code <https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/len
         from matplotlib.path import Path  # for static plotting
         import matplotlib.patches as patches  # for static plotting
 
-        from pypop7.optimizers.es.es import ES  # abstract class for all ES
+        from pypop7.optimizers.es.es import ES  # abstract class for all evolution Strategies
         from pypop7.optimizers.es.maes import MAES  # Matrix Adaptation Evolution Strategy
 
 
-        # <1> - Set Parameters for Lens Shape Optimization (global)
+        # <1> - Set Parameters for Lens Shape Optimization
         weight = 0.9  # weight of focus function
         r = 7  # radius of lens
         h = 1  # trapezoidal slices of height
@@ -60,7 +60,7 @@ code <https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/len
         d_init = 3  # initialization
 
 
-        # <2> - Define Objective Function (aka Fitness Function) to be Minimized
+        # <2> - Define Objective Function (aka Fitness Function) to be *Minimized*
         def func_lens(x):  # refer to [Beyer, 2020, ACM-GECCO] for all mathematical details
             n = len(x)
             focus = r - ((h*np.arange(1, n) - 0.5) + b/h*(eps - 1)*np.transpose(np.abs(x[1:]) - np.abs(x[:(n-1)])))
