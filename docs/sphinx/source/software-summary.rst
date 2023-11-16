@@ -121,6 +121,8 @@ https://cran.r-project.org/web/views/Optimization.html
 `IOHanalyzer <https://github.com/IOHprofiler/IOHanalyzer>`_ is *a performance analyzer for
 Iterative Optimization Heuristics (IOHs)*.
 
+* https://iridia.ulb.ac.be/irace/
+
 Matlab
 ------
 
