@@ -130,8 +130,8 @@ code <https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/len
             ndim_problem = 15  # dimension of objective function
             problem = {'fitness_function': func_lens,  # objective (fitness) function
                        'ndim_problem': ndim_problem,  # number of dimensionality of objective function
-                       'lower_boundary': -5*np.ones((ndim_problem,)),  # lower boundary of search range
-                       'upper_boundary': 5*np.ones((ndim_problem,))}  # upper boundary of search range
+                       'lower_boundary': -5.0*np.ones((ndim_problem,)),  # lower boundary of search range
+                       'upper_boundary': 5.0*np.ones((ndim_problem,))}  # upper boundary of search range
             options = {'max_function_evaluations': 7e3,  # maximum of function evaluations
                        'seed_rng': 2022,  # seed of random number generation (for repeatability)
                        'x': d_init*np.ones((ndim_problem,)),  # initial mean of Gaussian search distribution
@@ -149,8 +149,7 @@ indeed proceed through many small steps from only the *optimization* (rather bio
 
 For more interesting applications of `ES <https://dl.acm.org/doi/10.1145/3583133.3595041>`_ /
 `CMA-ES <http://www.cmap.polytechnique.fr/~nikolaus.hansen/gecco-2022-cma-tutorial.pdf>`_ /
-`NES <https://jmlr.org/papers/v15/wierstra14a.html>`_ on
-challenging real-world problems, refer to e.g.,
+`NES <https://jmlr.org/papers/v15/wierstra14a.html>`_ on many challenging optimization problems, refer to e.g.,
 `[Lee et al., 2023, Science Robotics] <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_;
 `[Lange et al., 2023, ICLR] <https://openreview.net/pdf?id=mFDU0fP3EQH>`_;
 `[Yu et al., 2023, IJCAI] <https://www.ijcai.org/proceedings/2023/0187.pdf>`_;
