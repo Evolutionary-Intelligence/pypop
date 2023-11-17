@@ -10,6 +10,8 @@ Welcome to PyPop7's Online Documentation for Black-Box Optimization!
 .. image:: https://readthedocs.org/projects/pypop/badge/?version=latest
 .. image:: https://static.pepy.tech/badge/pypop7
 .. image:: https://img.shields.io/badge/Python-3-yellow.svg
+.. image:: https://img.shields.io/badge/arxiv-2212.05652-red
+   :target: https://arxiv.org/abs/2212.05652
 
 **PyPop7** is a *Pure-PYthon* library of *POPulation-based OPtimization* for single-objective, real-parameter,
 black-box problems. Its design goal is to provide a *unified* interface and *elegant* implementations for
