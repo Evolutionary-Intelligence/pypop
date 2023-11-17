@@ -9,6 +9,7 @@ Welcome to PyPop7's Online Documentation for Black-Box Optimization!
 .. image:: https://img.shields.io/badge/OS-Linux%20%7C%20Windows%20%7C%20MacOS%20X-orange.svg
 .. image:: https://readthedocs.org/projects/pypop/badge/?version=latest
 .. image:: https://static.pepy.tech/badge/pypop7
+   :target: https://www.pepy.tech/projects/pypop7
 .. image:: https://img.shields.io/badge/Python-3-yellow.svg
 .. image:: https://img.shields.io/badge/arxiv-2212.05652-red
    :target: https://arxiv.org/abs/2212.05652
