@@ -15,6 +15,7 @@ Welcome to PyPop7's Online Documentation for Black-Box Optimization!
 .. image:: https://static.pepy.tech/badge/pypop7
    :target: https://www.pepy.tech/projects/pypop7
 .. image:: https://img.shields.io/badge/Python-3-yellow.svg
+   :target: https://www.python.org/
 .. image:: https://img.shields.io/badge/arxiv-2212.05652-red
    :target: https://arxiv.org/abs/2212.05652
 
