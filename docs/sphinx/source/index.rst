@@ -112,3 +112,4 @@ open-source library.
    software-summary
    applications
    sponsor
+   changing-log
