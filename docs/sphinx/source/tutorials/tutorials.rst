@@ -251,7 +251,8 @@ inside-of-box solution **relatively slow**. Since *different* implementations of
 sometimes even result in *totally different* search behaviors, their **open-source** implementations play an important role
 for **repeatability**.
 
-For more interesting applications of `DE` on challenging real-world problems, refer to e.g.,
+For more interesting applications of `DE` on challenging problems, refer to e.g.,
+`[Higgins et al., 2023, Science] <https://www.science.org/doi/10.1126/science.add5190>`_;
 `[An et al., 2020, PNAS] <https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117>`_;
 `[Gagnon et al., 2017, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.053203>`_;
 `[Laganowsky et al., 2014, Nature] <https://www.nature.com/articles/nature13419>`_;
