@@ -98,7 +98,6 @@ class KMSVM(object):  # classification class based on K-Means and SVM
 
 
 class Node:  # basic class for recursive decomposition
-    _min_size = 3
     _next_id, _all_nodes, _all_leaves = count(), {}, set()
 
     @staticmethod
@@ -143,20 +142,15 @@ class Node:  # basic class for recursive decomposition
     def mean(self):
         return self._bag.mean
 
-    @property
     def n_d(self):
         c = len(self._children)
         for n in self._children:
-            c += Node._all_nodes[n].n_d
+            c += Node._all_nodes[n].n_d()
         return c
 
     @property
     def parent(self):
         return None if self._parent < 0 else Node._all_nodes[self._parent]
-
-    @property
-    def splittable(self):
-        return len(self._bag) >= self._leaf_size
 
     def _update_cb(self):
         self.cb = self._bag.best.y
@@ -186,13 +180,13 @@ class Node:  # basic class for recursive decomposition
 
     def classify(self):
         s = []
-        if self.splittable:
+        if len(self._bag) >= self._leaf_size:
             labels = self._classifier.classify(self._bag)
             unique_labels = np.unique(labels)
             if len(unique_labels) > 1:
                 for label in unique_labels:
                     choice = label == labels
-                    if choice.sum() < Node._min_size:
+                    if choice.sum() < 3:
                         s.clear()
                         break
                     s.append((label, choice))
@@ -271,15 +265,15 @@ class Sampler(object):  # for sampling in nodes
                        self.ev.max_function_evaluations - self.ev.n_function_evaluations}
         self.cmaes = CMAES(self.problem, options)
         self.cmaes.start_time = time.time()
-        x, mean, p_s, p_c, cm, eig_ve, eig_va, y = self.cmaes.initialize()
+        x, mean, p_s, p_c, cm, e_ve, e_va, y, d = self.cmaes.initialize()
         while len(bags) < n_samples:
-            x, y = self.cmaes.iterate(x, mean, eig_ve, eig_va, y)
+            x, y, d = self.cmaes.iterate(x, mean, e_ve, e_va, y, d)
             self.fitness.extend(y)
             if self.ev._check_terminations():
                 return bags
-            self.cmaes.n_generations += 1
-            mean, p_s, p_c, cm, eig_ve, eig_va = self.cmaes.update_distribution(
-                x, mean, p_s, p_c, cm, eig_ve, eig_va, y)
+            self.cmaes._n_generations += 1
+            mean, p_s, p_c, cm, e_ve, e_va = self.cmaes.update_distribution(
+                x, p_s, p_c, cm, e_ve, e_va, y, d)
             bags.extend(Bag(np.copy(x), np.copy(y)))
         return bags
 
@@ -377,7 +371,7 @@ class LAMCTS(BO):
             for leaf in leaves:
                 sizes.append(len(leaf._bag))
             sizes = np.array(sizes)
-            return self._root.n_d + 1, len(sizes), np.mean(sizes), np.median(sizes)
+            return self._root.n_d() + 1, len(sizes), np.mean(sizes), np.median(sizes)
         else:
             return 0, 0, 0.0, 0.0
 
