@@ -184,17 +184,19 @@ Note that the above figure (i.e., three clusters of atoms) is taken directly fro
 University <http://doye.chem.ox.ac.uk/jon/structures/LJ/pictures/LJ.new.gif>`_. In chemistry, `Lennard-Jones
 Cluster Optimization <https://tinyurl.com/4ukrspc9>`_ is a popular single-objective real-parameter (black-box)
 optimization problem, which is to minimize the energy of a cluster of atoms assuming a `Lennard-Jones
-<http://doye.chem.ox.ac.uk/jon/structures/LJ.html>`_ potential between each pair. Here, we use two different `DE
-<https://pypop.readthedocs.io/en/latest/de/de.html>`_ versions to solve this high-dimensional problem:
+<http://doye.chem.ox.ac.uk/jon/structures/LJ.html>`_ potential between each pair. Here, we use two different
+`Differential Evolution (DE) <https://pypop.readthedocs.io/en/latest/de/de.html>`_ versions to solve this
+high-dimensional optimization problem:
 
     .. code-block:: python
 
         # Written/Checked by Guochen Zhou, Yajing Tan, and *Qiqi Duan*
         import pygmo as pg  # need to be installed: https://esa.github.io/pygmo2/install.html
-        from pypop7.optimizers.de.cde import CDE  # https://pypop.readthedocs.io/en/latest/de/cde.html
-        from pypop7.optimizers.de.jade import JADE  # https://pypop.readthedocs.io/en/latest/de/jade.html
         import seaborn as sns
         import matplotlib.pyplot as plt
+
+        from pypop7.optimizers.de.cde import CDE  # https://pypop.readthedocs.io/en/latest/de/cde.html
+        from pypop7.optimizers.de.jade import JADE  # https://pypop.readthedocs.io/en/latest/de/jade.html
 
 
         # see https://esa.github.io/pagmo2/docs/cpp/problems/lennard_jones.html for the fitness function
