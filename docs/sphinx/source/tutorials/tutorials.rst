@@ -151,6 +151,7 @@ For more interesting applications of `ES <https://dl.acm.org/doi/10.1145/3583133
 `CMA-ES <http://www.cmap.polytechnique.fr/~nikolaus.hansen/gecco-2022-cma-tutorial.pdf>`_ /
 `NES <https://jmlr.org/papers/v15/wierstra14a.html>`_ on many challenging optimization problems, refer to e.g.,
 `[Lee et al., 2023, Science Robotics] <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_;
+`[Sun et al., 2023, ACL] <https://aclanthology.org/2023.acl-long.625.pdf>`_;
 `[Koginov et al., 2023, IEEE-TMRB] <https://ieeexplore.ieee.org/document/10302449>`_;
 `[Lange et al., 2023, ICLR] <https://openreview.net/pdf?id=mFDU0fP3EQH>`_;
 `[Yu et al., 2023, IJCAI] <https://www.ijcai.org/proceedings/2023/0187.pdf>`_;
