@@ -10,6 +10,7 @@ Welcome to PyPop7's Online Documentation for Black-Box Optimization!
 .. image:: https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg
    :target: https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE
 .. image:: https://img.shields.io/badge/OS-Linux%20%7C%20Windows%20%7C%20MacOS%20X-orange.svg
+   :target: https://www.usenix.org/conferences/byname/179
 .. image:: https://readthedocs.org/projects/pypop/badge/?version=latest
 .. image:: https://static.pepy.tech/badge/pypop7
    :target: https://www.pepy.tech/projects/pypop7
