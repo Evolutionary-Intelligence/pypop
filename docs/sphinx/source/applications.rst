@@ -28,3 +28,6 @@ For other introductions/coverage, refer to e.g.:
 * `medium <https://medium.com/@monocosmo77/how-black-box-optimization-works-part2-machine-learning-bb63b4c93557>`_
 * `机器之心: SOTA！模型 <https://sota.jiqizhixin.com/project/pypop7>`_
 * `微信公众号: 演化智能 <https://mp.weixin.qq.com/s/4JO2sYouiEvmq9XNUJkncA>`_
+* 中文博客网站CSDN - PyPop7中文示例
+
+  * https://blog.csdn.net/SH02280607/article/details/134388597 
