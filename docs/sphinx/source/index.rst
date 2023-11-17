@@ -6,6 +6,7 @@ Welcome to PyPop7's Online Documentation for Black-Box Optimization!
 .. image:: https://img.shields.io/badge/GitHub-PyPop7-red.svg
    :target: https://github.com/Evolutionary-Intelligence/pypop
 .. image:: https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg
+   :target: https://pypi.org/project/pypop7/
 .. image:: https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg
 .. image:: https://img.shields.io/badge/OS-Linux%20%7C%20Windows%20%7C%20MacOS%20X-orange.svg
 .. image:: https://readthedocs.org/projects/pypop/badge/?version=latest
