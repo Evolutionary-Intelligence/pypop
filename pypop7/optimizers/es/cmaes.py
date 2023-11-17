@@ -48,8 +48,8 @@ class CMAES(ES):
        >>> from pypop7.optimizers.es.cmaes import CMAES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
        ...            'is_restart': False,
@@ -110,6 +110,7 @@ class CMAES(ES):
         ES.__init__(self, problem, options)
         assert self.n_individuals >= 2
         self._w, self._mu_eff, self._mu_eff_minus = None, None, None  # variance effective selection mass
+        # c_s (c_σ) -> decay rate for the cumulation path for the step-size control
         self.c_s, self.d_sigma = None, None  # for cumulative step-length adaptation (CSA)
         self._p_s_1, self._p_s_2 = None, None  # for evolution path update of CSA
         self._p_c_1, self._p_c_2 = None, None  # for evolution path update of CMA
