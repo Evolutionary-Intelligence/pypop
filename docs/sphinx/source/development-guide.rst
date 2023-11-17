@@ -2,11 +2,11 @@ Development Guide
 =================
 
 .. note::
-   This `Development Guide` page is still actively updated. We wish to make **adding new optimizers**
+   This `Development Guide` page is still actively updated. We wish to make **adding new black-box optimizers**
    as easy as possible. Considering the relatively long runtime of black-box optimizers on high-dimensional
-   problems, at least two of the library authors will check the source code and run the testing code
-   **manually** when any new optimizer is added or the existing optimizer is modified, in order to check
-   its correctness.
+   problems, at least two core developers of this library will check the source code and run the testing code
+   **manually** when any new optimizer is added or the existing optimizer is significantly modified, in order to
+   check its correctness.
 
 Before reading this page, it is required to first read `User Guide
 <https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for some basic information about this
