@@ -113,6 +113,7 @@ class CMAES(ES):
         self.c_s, self.d_sigma = None, None  # for cumulative step-length adaptation (CSA)
         self._p_s_1, self._p_s_2 = None, None  # for evolution path update of CSA
         self._p_c_1, self._p_c_2 = None, None  # for evolution path update of CMA
+        # c_1 -> learning rate for the rank-one update of CMA
         self.c_c, self.c_1, self.c_w, self._alpha_cov = None, None, None, 2.0  # for CMA (c_w -> c_μ)
 
     def _set_c_c(self):  # to set decay rate of evolution path for rank-one update of CMA
