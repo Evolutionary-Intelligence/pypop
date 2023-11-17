@@ -230,21 +230,20 @@ high-dimensional optimization problem:
             sns.set_theme(style='darkgrid')
             plt.figure()
             for label, res in zip(['CDE', 'JADE'], results):
-                # starting from 250000 can avoid excessively high values generated during the early stage
-                #   to disrupt convergence curves
                 plt.plot(res['fitness'][250000:, 0], res['fitness'][250000:, 1], label=label)
 
             plt.legend()
             plt.show()
 
-The two convergence curves generated for `CDE` (without box constraints) and `JADE` (with box constraints) are
-presented in the following image:
+The two convergence curves generated for `CDE` (**without box constraints**) and `JADE` (**with box constraints**) are
+presented in the following image (starting from 250000-th generations can avoid excessively high fitness values generated
+during the early stage to disrupt convergence curves):
 
 .. image:: images/CDE_vs_JADE.png
    :width: 321px
    :align: center
 
-From the above figure, two different `DE` versions show different search performance: `CDE` does not limit samples into
+From the above figure, two different `DE` versions show **different** search performance: `CDE` does not limit samples into
 the given search boundaries during optimization and generate a out-of-box solution (which may be infeasible in practice)
 **very fast**, while `JADE` limits all samples into the given search boundaries during optimization and generate an
 inside-of-box solution **relatively slow**. Since *different* implementations of the same algorithm family details could
@@ -253,6 +252,7 @@ for **repeatability**.
 
 For more interesting applications of `DE` on challenging problems, refer to e.g.,
 `[Higgins et al., 2023, Science] <https://www.science.org/doi/10.1126/science.add5190>`_;
+`[McNulty et al., 2023, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.100801>`_;
 `[An et al., 2020, PNAS] <https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117>`_;
 `[Gagnon et al., 2017, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.053203>`_;
 `[Laganowsky et al., 2014, Nature] <https://www.nature.com/articles/nature13419>`_;
