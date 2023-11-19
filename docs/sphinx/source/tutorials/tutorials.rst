@@ -411,10 +411,11 @@ which is used to avoid possible bias against `center <https://www.nature.com/art
         if __name__ == '__main__':
             generate_sv_and_rm()
 
-Then, invoke multiple different optimizers from `PyPop7` on these (rotated and shifted) test functions:
+Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** and **shifted**) test functions:
 
     .. code-block:: python
 
+        # Written/Checked by Chang Shao, Mingyang Feng, and *Qiqi Duan*
         import os
         import time
         import pickle
@@ -492,7 +493,7 @@ Then, invoke multiple different optimizers from `PyPop7` on these (rotated and s
             assert isinstance(params['ndim_problem'], int) and params['ndim_problem'] > 0
             if params['optimizer'] == 'PRS':  # 1958
                 from pypop7.optimizers.rs.prs import PRS as Optimizer
-            elif params['optimizer'] == 'SRS':
+            elif params['optimizer'] == 'SRS':  # 2001
                 from pypop7.optimizers.rs.srs import SRS as Optimizer
             elif params['optimizer'] == 'GS':
                 from pypop7.optimizers.rs.gs import GS as Optimizer
@@ -570,8 +571,8 @@ Then, invoke multiple different optimizers from `PyPop7` on these (rotated and s
             experiments.run(Optimizer)
             print('Total runtime: {:7.5e}.'.format(time.time() - start_runtime))
 
-Please run the above script (named as `run_experiments.py`) in the background on a high-performing server, since it
-needs a very long runtime for LSBBO:
+Please run the above Python script (named as `run_experiments.py`) in the background on a high-performing server, since
+it needs a very long runtime for LSBBO:
 
     .. code-block:: bash
 
