@@ -422,6 +422,7 @@ Python IDE for Development
 --------------------------
 
 Although other Python IDEs (e.g., `Spyder`, `Visual Studio`) are possible to use for development, currently we
-mainly use the `PyCharm Community Edition <https://www.jetbrains.com/pycharm/>`_ to develop our open-source
-library. We thank very much for **jetbrains** providing this free development tool. Note that we do NOT exclude
-any other choices for development.
+mainly use the `PyCharm Community Edition <https://www.jetbrains.com/pycharm/>`_ and `Anaconda
+<https://docs.anaconda.com/free/anaconda/ide-tutorials/index.html>`_ to develop our open-source library. We
+thank very much for **jetbrains** and **anaconda** providing these two free development tools. Note that we do
+NOT exclude any other choices for development.
