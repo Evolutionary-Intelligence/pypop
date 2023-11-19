@@ -259,7 +259,9 @@ For more interesting applications of `DE` on challenging problems, refer to e.g.
 `[Gagnon et al., 2017, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.053203>`_;
 `[Laganowsky et al., 2014, Nature] <https://www.nature.com/articles/nature13419>`_;
 `[Lovett et al., 2013, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.110.220501>`_,
-just to name a few.
+just to name a few. For a systematical paper collection on some top-tier journals/conferences, please
+refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
+<https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_.
 
 Global Trajectory Optimization
 ------------------------------
