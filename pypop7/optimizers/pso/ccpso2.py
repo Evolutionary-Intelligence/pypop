@@ -88,7 +88,7 @@ class CCPSO2(PSO):
         self.p = options.get('p', 0.5)  # probability of using Cauchy sampling distribution
         assert 0.0 <= self.p <= 1.0
         self.group_sizes = options.get('group_sizes', [2, 5, 10, 50, 100, 250])
-        assert np.alltrue(np.array(self.group_sizes) <= self.ndim_problem)
+        assert np.all(np.array(self.group_sizes) <= self.ndim_problem)
         self._indices = np.arange(self.ndim_problem)  # indices of all dimensions
         self._s = self.rng_optimization.choice(self.group_sizes)  # dimension to be optimized by each swarm
         self._k = int(np.ceil(self.ndim_problem/self._s))  # number of swarms
