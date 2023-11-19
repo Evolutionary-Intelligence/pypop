@@ -343,7 +343,9 @@ For more applications of `PSO` on challenging problems, refer to e.g.,
 `[Tompson et al., 2014, TOG] <https://dl.acm.org/doi/abs/10.1145/2629500>`_;
 `[Baca et al., 2013, Cell] <https://www.cell.com/cell/fulltext/S0092-8674(13)00343-7>`_;
 `[Kim et al., 2012, Nature] <https://www.nature.com/articles/nature11546>`_;
-just to name a few.
+just to name a few. For a systematical paper collection on some top-tier journals/conferences, please
+refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
+<https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_.
 
 Benchmarking for Large-Scale Black-Box Optimization (LSBBO)
 -----------------------------------------------------------
