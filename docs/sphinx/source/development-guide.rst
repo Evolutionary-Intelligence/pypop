@@ -417,3 +417,11 @@ Repeatability Code/Reports
 
  PRS        `_repeat_prs.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/_repeat_prs.py>`_               `figures <https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/repeatability/prs>`_
 =========== ================================================================================================================================== ==============================================================================================================
+
+Python IDE for Development
+--------------------------
+
+Although other Python IDEs (e.g., `Spyder`, `Visual Studio`) are possible to use for development, currently we
+mainly use the `PyCharm Community Edition <https://www.jetbrains.com/pycharm/>`_ to develop our open-source
+library. We thank very much for **jetbrains** providing this free development tool. Note that we do NOT exclude
+any other choices for development.
