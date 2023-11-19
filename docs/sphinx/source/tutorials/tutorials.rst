@@ -262,13 +262,13 @@ just to name a few.
 Global Trajectory Optimization
 ------------------------------
 
-Six hard Global Trajectory Optimization problems have been given in `pykep <https://esa.github.io/pykep/index.html>`_,
-developed at `European Space Agency <https://sophia.estec.esa.int/gtoc_portal/>`_. Here we use the standard Particle
-Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_) as a baseline:
+Six hard global trajectory optimization problems have been given in `pykep <https://esa.github.io/pykep/index.html>`_,
+developed at `European Space Agency <https://sophia.estec.esa.int/gtoc_portal/>`_. Here we use the Standard Particle
+Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_) as an optimizer baseline:
 
     .. code-block:: python
 
-        """This is a simple demo that uses PSO to optimize 6 Global Trajectory Optimization problems provided by `pykep`:
+        """This is a simple demo that uses PSO to optimize 6 minimization problems provided by `pykep`:
             https://esa.github.io/pykep/
             https://esa.github.io/pykep/examples/ex13.html
         """
@@ -332,7 +332,7 @@ The convergence curves on six different instances obtained via `SPSO` are given 
    :width: 500px
    :align: center
 
-For more applications of `PSO` on challenging real-world problems, refer to e.g.,
+For more applications of `PSO` on challenging problems, refer to e.g.,
 `[Reddy et al., 2023, TC] <https://ieeexplore.ieee.org/document/10005787>`_;
 `[Guan et al., 2022, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.186001>`_;
 `[Weiel, et al., 2021, Nature Mach. Intell.] <https://www.nature.com/articles/s42256-021-00366-3>`_;
