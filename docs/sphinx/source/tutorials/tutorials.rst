@@ -171,7 +171,9 @@ For more interesting applications of `ES <https://dl.acm.org/doi/10.1145/3583133
 `[Agrawal et al., 2014, TVCG] <https://ieeexplore.ieee.org/abstract/document/6781622>`_,
 `[Koumoutsakos et al., 2001, AIAA] <https://arc.aiaa.org/doi/10.2514/2.1404>`_,
 `[Lipson&Pollack, 2000, Nature] <https://www.nature.com/articles/35023115>`_,
-just to name a few.
+just to name a few. For a systematical paper collection on some top-tier journals/conferences, please
+refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
+<https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_.
 
 Lennard-Jones Cluster Optimization
 ----------------------------------
