@@ -275,6 +275,8 @@ Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_)
         """This is a simple demo that uses PSO to optimize 6 minimization problems provided by `pykep`:
             https://esa.github.io/pykep/
             https://esa.github.io/pykep/examples/ex13.html
+
+            # Written/Checked by Guochen Zhou, Yajing Tan, and *Qiqi Duan*
         """
         import pygmo as pg  # it's better to use conda to install (and it's better to use pygmo==2.18)
         import pykep as pk  # it's better to use conda to install
