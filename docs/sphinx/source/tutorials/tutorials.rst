@@ -10,7 +10,7 @@ shown below:
   European Space Agency),
 * Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ (developed by
   European Space Agency),
-* Benchmarking for Large-Scale Black-Box Optimization (BBO),
+* Benchmarking for Large-Scale Black-Box Optimization (LBO),
 * Controller Design/Optimization (aka Direct Policy Search),
 * Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact Award
   Winner <https://dl.acm.org/doi/abs/10.1145/3447929.3447930>`_),
@@ -355,19 +355,19 @@ Benchmarking for Large-Scale Black-Box Optimization (LSBBO)
 -----------------------------------------------------------
 
 Benchmarking of optimization algorithms plays a very crucial role on understanding their search dynamics, comparative
-performance, analyzing their advantages and limitations, and also choosing state-of-the-art (SOTA) versions, usually
-before applying them to more challenging real-world problems.
+performance, analyzing their advantages/limitations, and also choosing state-of-the-art (SOTA) versions, usually
+before applying them to challenging real-world problems.
 
 .. note:: *“A biased benchmark, excluding large parts of the real-world needs, leads to biased conclusions, no matter
    how many experiments we perform.”* ---`[Meunier et al., 2022, TEVC]
    <https://ieeexplore.ieee.org/abstract/document/9524335>`_
 
 Here we show how to benchmark multiple black-box optimizers on a *relatively large* collection of LSBBO test functions,
-in order to mainly compare their *local search* capability:
+in order to mainly compare their search capabilities:
 
-First, generate shift vectors and rotation matrices needed in the experiments, which is used to avoid possible bias
-against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and `separability
-<https://www.sciencedirect.com/science/article/pii/0004370295001247>`_:
+First, as a standard benchmarking practice, generate shift vectors and rotation matrices needed in the experiments,
+which is used to avoid possible bias against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and
+`separability <https://www.sciencedirect.com/science/article/pii/0004370295001247>`_:
 
     .. code-block:: python
 
