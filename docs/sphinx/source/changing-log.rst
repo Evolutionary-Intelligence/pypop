@@ -1,10 +1,10 @@
 Changing Log
 ============
 
-Version: 0.0.77
+Version: 0.0.78
 ---------------
 
-* Update `np.alltrue` to `np.all` for optimizer class **CLPSO2**:
+* Update `np.alltrue` to `np.all` for optimizer class **CCPSO2**:
 
   * https://github.com/Evolutionary-Intelligence/pypop/pull/177/commits/900c87353ac78ab27bf0f75f12a1267eb915ef69
   * https://numpy.org/devdocs/release/1.25.0-notes.html
