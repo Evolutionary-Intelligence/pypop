@@ -15,6 +15,10 @@ Version: 0.0.78
 
     * `np.alltrue` is deprecated. Use `np.all` instead.
 
+* Add a new case for online documentation of applications:
+
+  * https://github.com/jeancroy/RP-fit
+
 Version: 0.0.77
 ---------------
 
