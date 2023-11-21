@@ -15,6 +15,7 @@ Till now, our library `PyPop7` has been used (at least) in the following project
 * https://github.com/BruthYU/BPT-VLM (2023)
 * https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
 * https://github.com/TUIlmenauAMS/BlackBoxOptimizerSPcomparison (2023)
+* https://github.com/jeancroy/RP-fit (2023)
 * https://github.com/moesio-f/py-abm-public (2023)
 * https://github.com/Evolutionary-Intelligence/M-DES (2023)
 * https://github.com/Evolutionary-Intelligence/dpop7 (2023): A **parallel/distributed** extension to `PyPop7`.
