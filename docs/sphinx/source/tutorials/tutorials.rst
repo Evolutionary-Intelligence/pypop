@@ -461,7 +461,6 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
             def __init__(self, start, end, ndim_problem):
                 self.start, self.end = start, end
                 self.ndim_problem = ndim_problem
-                # for testing the local search ability
                 self.functions = [cf.sphere, cf.cigar, cf.discus, cf.cigar_discus, cf.ellipsoid,
                                   cf.different_powers, cf.schwefel221, cf.step, cf.rosenbrock, cf.schwefel12]
                 self.seeds = np.random.default_rng(2022).integers(  # for repeatability
@@ -495,7 +494,7 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
                 from pypop7.optimizers.rs.prs import PRS as Optimizer
             elif params['optimizer'] == 'SRS':  # 2001
                 from pypop7.optimizers.rs.srs import SRS as Optimizer
-            elif params['optimizer'] == 'GS':
+            elif params['optimizer'] == 'GS':  # 2017
                 from pypop7.optimizers.rs.gs import GS as Optimizer
             elif params['optimizer'] == 'BES':
                 from pypop7.optimizers.rs.bes import BES as Optimizer
