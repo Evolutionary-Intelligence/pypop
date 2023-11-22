@@ -1,5 +1,7 @@
 # README
 
+If run on different machines, please run the following `BASH` commands:
+
 ```bash
 nohup python run_experiments.py -s=1 -e=1 -o=CCMAES2009 >CCMAES2009_1_1.out 2>&1 &
 nohup python run_experiments.py -s=2 -e=2 -o=CCMAES2009 >CCMAES2009_2_2.out 2>&1 &
@@ -15,4 +17,10 @@ nohup python run_experiments.py -s=11 -e=11 -o=CCMAES2009 >CCMAES2009_11_11.out 
 nohup python run_experiments.py -s=12 -e=12 -o=CCMAES2009 >CCMAES2009_12_12.out 2>&1 &
 nohup python run_experiments.py -s=13 -e=13 -o=CCMAES2009 >CCMAES2009_13_13.out 2>&1 &
 nohup python run_experiments.py -s=14 -e=14 -o=CCMAES2009 >CCMAES2009_14_14.out 2>&1 &
+```
+
+If run on only one machine, please run the following `BASH` command:
+
+```bash
+nohup python run_experiments.py -s=1 -e=10 -o=CCMAES2009 >CCMAES2009_1_10.out 2>&1 &
 ```
