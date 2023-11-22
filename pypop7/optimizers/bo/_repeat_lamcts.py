@@ -33,9 +33,9 @@ if __name__ == '__main__':
     ndim_problem = 100
     problem = {'fitness_function': Levy(ndim_problem),
                'ndim_problem': ndim_problem,
-               'lower_boundary': -10*np.ones((ndim_problem,)),
-               'upper_boundary': 10*np.ones((ndim_problem,))}
-    options = {'seed_rng': 3,
+               'lower_boundary': -10.0*np.ones((ndim_problem,)),
+               'upper_boundary': 10.0*np.ones((ndim_problem,))}
+    options = {'seed_rng': 4,
                'verbose': 1,
                'saving_fitness': 10,
                'max_function_evaluations': 15000}
@@ -43,4 +43,4 @@ if __name__ == '__main__':
     results = solver.optimize()
     print(results)
     print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
-    # n_function_evaluations 15000: best_so_far_y 45.292
+    # n_function_evaluations 15000: best_so_far_y 49.066
