@@ -447,6 +447,7 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
                            'sigma': 20.0/3.0,
                            'saving_fitness': 2000,
                            'verbose': 0}
+                options['temperature'] = 100.0  # for simulated annealing (SA)
                 solver = optimizer(problem, options)
                 results = solver.optimize()
                 file = self._file.format(solver.__class__.__name__,
@@ -494,6 +495,8 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
                 from pypop7.optimizers.rs.prs import PRS as Optimizer
             elif params['optimizer'] == 'SRS':  # 2001
                 from pypop7.optimizers.rs.srs import SRS as Optimizer
+            elif params['optimizer'] == 'ARHC':  # 2008
+                from pypop7.optimizers.rs.arhc import ARHC as Optimizer
             elif params['optimizer'] == 'GS':  # 2017
                 from pypop7.optimizers.rs.gs import GS as Optimizer
             elif params['optimizer'] == 'BES':
