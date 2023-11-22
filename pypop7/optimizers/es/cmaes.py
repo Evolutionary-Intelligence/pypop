@@ -171,7 +171,8 @@ class CMAES(ES):
         wd = np.dot(self._w[:self.n_parents], d[order[:self.n_parents]])
         # update distribution mean via weighted recombination
         mean = np.dot(self._w[:self.n_parents], x[order[:self.n_parents]])
-        # update global step-size (CSA)
+        # update global step-size: cumulative path length control / cumulative step-size control /
+        #   cumulative step length adaptation (CSA)
         cm_minus_half = e_ve @ np.diag(1.0/e_va) @ e_ve.T
         p_s = self._p_s_1*p_s + self._p_s_2*np.dot(cm_minus_half, wd)
         self.sigma *= np.exp(self.c_s/self.d_sigma*(np.linalg.norm(p_s)/self._e_chi - 1.0))

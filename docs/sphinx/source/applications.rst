@@ -1,7 +1,7 @@
 Applications
 ============
 
-Up to now, this library `PyPop7` has been used (at least) in the following papers:
+Up to now, this open-source Python library `PyPop7` has been used (at least) in the following papers:
 
 * Yu, L., Chen, Q., Lin, J. and He, L., 2023. `Black-box Prompt Tuning for Vision-Language Model as a Service <https://www.ijcai.org/proceedings/2023/0187.pdf>`_. Proceedings of International Joint Conference on Artificial Intelligence (pp. 1686-1694). IJCAI.
 * Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
@@ -10,20 +10,21 @@ Up to now, this library `PyPop7` has been used (at least) in the following paper
 * Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022. `Collective Learning of Low-Memory Matrix Adaptation for Large-Scale Black-Box Optimization <https://link.springer.com/chapter/10.1007/978-3-031-14721-0_20>`_. In International Conference on Parallel Problem Solving from Nature (pp. 281-294). Springer, Cham.
 * Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022, July. `Distributed Evolution Strategies for Large-Scale Optimization <https://dl.acm.org/doi/abs/10.1145/3520304.3528784>`_. In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion (pp. 395-398). ACM.
 
-Till now, our library `PyPop7` has been used (at least) in the following projects:
+Till now, our library `PyPop7` has been used (at least) in the following open-source projects:
 
 * https://github.com/BruthYU/BPT-VLM (2023)
 * https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
 * https://github.com/TUIlmenauAMS/BlackBoxOptimizerSPcomparison (2023)
+* https://github.com/jeancroy/RP-fit (2023)
 * https://github.com/moesio-f/py-abm-public (2023)
 * https://github.com/Evolutionary-Intelligence/M-DES (2023)
 * https://github.com/Evolutionary-Intelligence/dpop7 (2023): A **parallel/distributed** extension to `PyPop7`.
 
-Till now, our paper about this library `PyPop7` has been cited (at least) in the following papers:
+Till now, our paper about this open-source library `PyPop7` has been cited (at least) in the following papers:
 
 * Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
 
-For other introductions/coverage, refer to e.g.:
+For other introductions/coverage to this open-source library `PyPop7`, refer to e.g.:
 
 * `medium <https://medium.com/@monocosmo77/how-black-box-optimization-works-part2-machine-learning-bb63b4c93557>`_
 * `机器之心: SOTA！模型 <https://sota.jiqizhixin.com/project/pypop7>`_

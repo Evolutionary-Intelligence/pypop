@@ -1,6 +1,24 @@
 Changing Log
 ============
 
+Version: 0.0.78
+---------------
+
+* Add reference for online documentation of tutorials:
+
+  * https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
+
+* Update `np.alltrue` to `np.all` for optimizer class **CCPSO2**:
+
+  * https://github.com/Evolutionary-Intelligence/pypop/pull/177/commits/900c87353ac78ab27bf0f75f12a1267eb915ef69
+  * https://numpy.org/devdocs/release/1.25.0-notes.html
+
+    * `np.alltrue` is deprecated. Use `np.all` instead.
+
+* Add a new case for online documentation of applications:
+
+  * https://github.com/jeancroy/RP-fit
+
 Version: 0.0.77
 ---------------
 

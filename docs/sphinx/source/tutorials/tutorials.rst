@@ -10,7 +10,7 @@ shown below:
   European Space Agency),
 * Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ (developed by
   European Space Agency),
-* Benchmarking for Large-Scale Black-Box Optimization (BBO),
+* Benchmarking for Large-Scale Black-Box Optimization (LBO),
 * Controller Design/Optimization (aka Direct Policy Search),
 * Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact Award
   Winner <https://dl.acm.org/doi/abs/10.1145/3447929.3447930>`_),
@@ -171,7 +171,9 @@ For more interesting applications of `ES <https://dl.acm.org/doi/10.1145/3583133
 `[Agrawal et al., 2014, TVCG] <https://ieeexplore.ieee.org/abstract/document/6781622>`_,
 `[Koumoutsakos et al., 2001, AIAA] <https://arc.aiaa.org/doi/10.2514/2.1404>`_,
 `[Lipson&Pollack, 2000, Nature] <https://www.nature.com/articles/35023115>`_,
-just to name a few.
+just to name a few. For a systematical paper collection on some top-tier journals/conferences, please
+refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
+<https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_.
 
 Lennard-Jones Cluster Optimization
 ----------------------------------
@@ -230,46 +232,51 @@ high-dimensional optimization problem:
             sns.set_theme(style='darkgrid')
             plt.figure()
             for label, res in zip(['CDE', 'JADE'], results):
-                # starting from 250000 can avoid excessively high values generated during the early stage
-                #   to disrupt convergence curves
                 plt.plot(res['fitness'][250000:, 0], res['fitness'][250000:, 1], label=label)
 
             plt.legend()
             plt.show()
 
-The two convergence curves generated for `CDE` (without box constraints) and `JADE` (with box constraints) are
-presented in the following image:
+The two convergence curves generated for `CDE` (**without box constraints**) and `JADE` (**with box constraints**) are
+presented in the following image (starting from 250000-th generations can avoid excessively high fitness values generated
+during the early stage to disrupt convergence curves):
 
 .. image:: images/CDE_vs_JADE.png
    :width: 321px
    :align: center
 
-From the above figure, two different `DE` versions show different search performance: `CDE` does not limit samples into
+From the above figure, two different `DE` versions show **different** search performance: `CDE` does not limit samples into
 the given search boundaries during optimization and generate a out-of-box solution (which may be infeasible in practice)
 **very fast**, while `JADE` limits all samples into the given search boundaries during optimization and generate an
 inside-of-box solution **relatively slow**. Since *different* implementations of the same algorithm family details could
 sometimes even result in *totally different* search behaviors, their **open-source** implementations play an important role
 for **repeatability**.
 
-For more interesting applications of `DE` on challenging real-world problems, refer to e.g.,
+For more interesting applications of `DE` on challenging problems, refer to e.g.,
+`[Higgins et al., 2023, Science] <https://www.science.org/doi/10.1126/science.add5190>`_;
+`[McNulty et al., 2023, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.100801>`_;
 `[An et al., 2020, PNAS] <https://www.pnas.org/doi/suppl/10.1073/pnas.1920338117>`_;
 `[Gagnon et al., 2017, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.053203>`_;
 `[Laganowsky et al., 2014, Nature] <https://www.nature.com/articles/nature13419>`_;
 `[Lovett et al., 2013, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.110.220501>`_,
-just to name a few.
+just to name a few. For a systematical paper collection on some top-tier journals/conferences, please
+refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
+<https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_.
 
 Global Trajectory Optimization
 ------------------------------
 
-Six hard Global Trajectory Optimization problems have been given in `pykep <https://esa.github.io/pykep/index.html>`_,
-developed at `European Space Agency <https://sophia.estec.esa.int/gtoc_portal/>`_. Here we use the standard Particle
-Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_) as a baseline:
+Six hard global trajectory optimization problems have been given in `pykep <https://esa.github.io/pykep/index.html>`_,
+developed at `European Space Agency <https://sophia.estec.esa.int/gtoc_portal/>`_. Here we use the Standard Particle
+Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_) as an optimizer baseline:
 
     .. code-block:: python
 
-        """This is a simple demo that uses PSO to optimize 6 Global Trajectory Optimization problems provided by `pykep`:
+        """This is a simple demo that uses PSO to optimize 6 minimization problems provided by `pykep`:
             https://esa.github.io/pykep/
             https://esa.github.io/pykep/examples/ex13.html
+
+            # Written/Checked by Guochen Zhou, Yajing Tan, and *Qiqi Duan*
         """
         import pygmo as pg  # it's better to use conda to install (and it's better to use pygmo==2.18)
         import pykep as pk  # it's better to use conda to install
@@ -331,7 +338,7 @@ The convergence curves on six different instances obtained via `SPSO` are given 
    :width: 500px
    :align: center
 
-For more applications of `PSO` on challenging real-world problems, refer to e.g.,
+For more applications of `PSO` on challenging problems, refer to e.g.,
 `[Reddy et al., 2023, TC] <https://ieeexplore.ieee.org/document/10005787>`_;
 `[Guan et al., 2022, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.186001>`_;
 `[Weiel, et al., 2021, Nature Mach. Intell.] <https://www.nature.com/articles/s42256-021-00366-3>`_;
@@ -342,25 +349,27 @@ For more applications of `PSO` on challenging real-world problems, refer to e.g.
 `[Tompson et al., 2014, TOG] <https://dl.acm.org/doi/abs/10.1145/2629500>`_;
 `[Baca et al., 2013, Cell] <https://www.cell.com/cell/fulltext/S0092-8674(13)00343-7>`_;
 `[Kim et al., 2012, Nature] <https://www.nature.com/articles/nature11546>`_;
-just to name a few.
+just to name a few. For a systematical paper collection on some top-tier journals/conferences, please
+refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
+<https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_.
 
 Benchmarking for Large-Scale Black-Box Optimization (LSBBO)
 -----------------------------------------------------------
 
 Benchmarking of optimization algorithms plays a very crucial role on understanding their search dynamics, comparative
-performance, analyzing their advantages and limitations, and also choosing state-of-the-art (SOTA) versions, usually
-before applying them to more challenging real-world problems.
+performance, analyzing their advantages/limitations, and also choosing state-of-the-art (SOTA) versions, usually
+before applying them to challenging real-world problems.
 
 .. note:: *“A biased benchmark, excluding large parts of the real-world needs, leads to biased conclusions, no matter
    how many experiments we perform.”* ---`[Meunier et al., 2022, TEVC]
    <https://ieeexplore.ieee.org/abstract/document/9524335>`_
 
 Here we show how to benchmark multiple black-box optimizers on a *relatively large* collection of LSBBO test functions,
-in order to mainly compare their *local search* capability:
+in order to mainly compare their search capabilities:
 
-First, generate shift vectors and rotation matrices needed in the experiments, which is used to avoid possible bias
-against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and `separability
-<https://www.sciencedirect.com/science/article/pii/0004370295001247>`_:
+First, as a standard benchmarking practice, generate shift vectors and rotation matrices needed in the experiments,
+which is used to avoid possible bias against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and
+`separability <https://www.sciencedirect.com/science/article/pii/0004370295001247>`_:
 
     .. code-block:: python
 
@@ -402,10 +411,11 @@ against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and `sepa
         if __name__ == '__main__':
             generate_sv_and_rm()
 
-Then, invoke multiple different optimizers from `PyPop7` on these (rotated and shifted) test functions:
+Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** and **shifted**) test functions:
 
     .. code-block:: python
 
+        # Written/Checked by Chang Shao, Mingyang Feng, and *Qiqi Duan*
         import os
         import time
         import pickle
@@ -483,7 +493,7 @@ Then, invoke multiple different optimizers from `PyPop7` on these (rotated and s
             assert isinstance(params['ndim_problem'], int) and params['ndim_problem'] > 0
             if params['optimizer'] == 'PRS':  # 1958
                 from pypop7.optimizers.rs.prs import PRS as Optimizer
-            elif params['optimizer'] == 'SRS':
+            elif params['optimizer'] == 'SRS':  # 2001
                 from pypop7.optimizers.rs.srs import SRS as Optimizer
             elif params['optimizer'] == 'GS':
                 from pypop7.optimizers.rs.gs import GS as Optimizer
@@ -561,8 +571,8 @@ Then, invoke multiple different optimizers from `PyPop7` on these (rotated and s
             experiments.run(Optimizer)
             print('Total runtime: {:7.5e}.'.format(time.time() - start_runtime))
 
-Please run the above script (named as `run_experiments.py`) in the background on a high-performing server, since it
-needs a very long runtime for LSBBO:
+Please run the above Python script (named as `run_experiments.py`) in the background on a high-performing server, since
+it needs a very long runtime for LSBBO:
 
     .. code-block:: bash
 
