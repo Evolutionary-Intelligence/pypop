@@ -13,7 +13,7 @@ University).
   * Now *Mingyang Feng* from University of Birmingham (UoB)/University of Electronic Science and Technology of China helps
     to search papers involved in this library and test on MacOS X.
   * Now *Yijun Yang* from UTS/Beihang University helps to suggest papers about Bayesian Optimization (BO).
-  * Now *Qi Zhao* from SUSTech helps to proofread all the documents.
+  * Now *Qi Zhao* from SUSTech helps to proofread the documents.
   * Now *Haobin Yang* from SUSTech helps to proofread and standardize the documents.
   * Now *Minghan Zhang* from University of Warwick/Imperial College London helps to search papers involved in this library
     and test on MacOS X.
@@ -22,8 +22,8 @@ University).
   * Now *Jian Zeng* from Guangdong Police College/Harbin Institute of Technology helps to collect BBOs for data mining.
   * Now *XiangLong Chen* from SUSTech helps to proofread and standardize the documents.
 
-We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech) and recent (2022) discussions wih
-Changwu Huang (at SUSTech).
+We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech, now at UoB) and recent (2022) discussions
+wih Changwu Huang (at SUSTech).
 
 Finally, we thank very much for all the following open-source code to make **repeatability** much easier (still updated):
 
