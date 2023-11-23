@@ -22,8 +22,8 @@ University).
   * Now *Jian Zeng* from Guangdong Police College/Harbin Institute of Technology helps to collect BBOs for data mining.
   * Now *XiangLong Chen* from SUSTech helps to proofread and standardize the documents.
 
-We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech) and recent (2022) discussions wih
-Changwu Huang (at SUSTech).
+We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech, now at UoB) and recent (2022) discussions
+wih Changwu Huang (at SUSTech).
 
 Finally, we thank very much for all the following open-source code to make **repeatability** much easier (still updated):
 
