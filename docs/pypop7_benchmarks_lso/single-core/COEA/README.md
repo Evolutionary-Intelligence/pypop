@@ -13,6 +13,10 @@ nohup python run_experiments.py -s=7 -e=7 -o=COEA >COEA_7_7.out 2>&1 &
 nohup python run_experiments.py -s=8 -e=8 -o=COEA >COEA_8_8.out 2>&1 &
 nohup python run_experiments.py -s=9 -e=9 -o=COEA >COEA_9_9.out 2>&1 &
 nohup python run_experiments.py -s=10 -e=10 -o=COEA >COEA_10_10.out 2>&1 &
+nohup python run_experiments.py -s=11 -e=11 -o=COEA >COEA_11_11.out 2>&1 &
+nohup python run_experiments.py -s=12 -e=12 -o=COEA >COEA_12_12.out 2>&1 &
+nohup python run_experiments.py -s=13 -e=13 -o=COEA >COEA_13_13.out 2>&1 &
+nohup python run_experiments.py -s=14 -e=14 -o=COEA >COEA_14_14.out 2>&1 &
 ```
 
 If run on only one machine, please run the following `BASH` command:
