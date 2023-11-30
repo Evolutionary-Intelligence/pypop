@@ -65,6 +65,7 @@ BO
 * Liu, S., Feng, Q., Eriksson, D., Letham, B. and Bakshy, E., 2023, April. Sparse Bayesian optimization. In International Conference on Artificial Intelligence and Statistics (pp. 3754-3774). PMLR.
 * Kandasamy, K., Krishnamurthy, A., Schneider, J. and Póczos, B., 2018, March. Parallelised Bayesian optimisation via Thompson sampling. In International Conference on Artificial Intelligence and Statistics (pp. 133-142). PMLR.
 * Hernández-Lobato, J.M., Requeima, J., Pyzer-Knapp, E.O. and Aspuru-Guzik, A., 2017, July. Parallel and distributed Thompson sampling for large-scale accelerated exploration of chemical space. In International Conference on Machine Learning (pp. 1470-1479). PMLR.
+* Snoek, J., Larochelle, H. and Adams, R.P., 2012. Practical Bayesian optimization of machine learning algorithms. Advances in Neural Information Processing Systems, 25.
 * Jones, D.R., Schonlau, M. and Welch, W.J., 1998. Efficient global optimization of expensive black-box functions. Journal of Global Optimization, 13, pp.455-492.
 
 RS
