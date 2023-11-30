@@ -66,6 +66,7 @@ BO
 * Kandasamy, K., Krishnamurthy, A., Schneider, J. and Póczos, B., 2018, March. Parallelised Bayesian optimisation via Thompson sampling. In International Conference on Artificial Intelligence and Statistics (pp. 133-142). PMLR.
 * Hernández-Lobato, J.M., Requeima, J., Pyzer-Knapp, E.O. and Aspuru-Guzik, A., 2017, July. Parallel and distributed Thompson sampling for large-scale accelerated exploration of chemical space. In International Conference on Machine Learning (pp. 1470-1479). PMLR.
 * Snoek, J., Larochelle, H. and Adams, R.P., 2012. Practical Bayesian optimization of machine learning algorithms. Advances in Neural Information Processing Systems, 25.
+* Ginsbourger, D., Le Riche, R. and Carraro, L., 2010. Kriging is well-suited to parallelize optimization. In Computational Intelligence in Expensive Optimization Problems (pp. 131-162). Berlin, Heidelberg: Springer Berlin Heidelberg.
 * Jones, D.R., Schonlau, M. and Welch, W.J., 1998. Efficient global optimization of expensive black-box functions. Journal of Global Optimization, 13, pp.455-492.
 
 RS
