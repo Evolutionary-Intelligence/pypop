@@ -35,7 +35,7 @@ class COCMA(CC):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the optimizer `COCMA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -46,16 +46,15 @@ class COCMA(CC):
        >>> from pypop7.optimizers.cc.cocma import COCMA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
-       ...            'seed_rng': 2022,
-       ...            'x': 3*numpy.ones((2,))}
+       ...            'seed_rng': 2022}
        >>> cocma = COCMA(problem, options)  # initialize the optimizer class
        >>> results = cocma.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"COCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       COCMA: 5000, 5.610179991025547e-09
+       COCMA: 5000, 0.00041717244099826557
 
     For its correctness checking of coding, we cannot provide the code-based repeatability report, since this
     implementation combines different papers. To our knowledge, few well-designed open-source code of `CC` is
@@ -115,7 +114,7 @@ class COCMA(CC):
     def optimize(self, fitness_function=None, args=None):
         fitness, is_initialization = CC.optimize(self, fitness_function), True
         sub_optimizers, y = self.initialize(args)
-        x_s, mean_s, ps_s, pc_s, cm_s, ee_s, ea_s, y_s = [], [], [], [], [], [], [], []
+        x_s, mean_s, ps_s, pc_s, cm_s, ee_s, ea_s, y_s, d_s = [], [], [], [], [], [], [], [], []
         while not self._check_terminations():
             self._print_verbose_info(fitness, y)
             if is_initialization:
@@ -124,15 +123,16 @@ class COCMA(CC):
                     if self._check_terminations():
                         break
 
-                    x, mean, p_s, p_c, cm, eig_ve, eig_va, yy = opt.initialize()
+                    x, mean, p_s, p_c, cm, e_ve, e_va, yy, d = opt.initialize()
                     x_s.append(x)
                     mean_s.append(mean)
                     ps_s.append(p_s)
                     pc_s.append(p_c)
                     cm_s.append(cm)
-                    ee_s.append(eig_ve)
-                    ea_s.append(eig_va)
+                    ee_s.append(e_ve)
+                    ea_s.append(e_va)
                     y_s.append(yy)
+                    d_s.append(d)
             else:
                 y = []
                 for i, opt in enumerate(sub_optimizers):
@@ -145,12 +145,12 @@ class COCMA(CC):
                     opt.fitness_function = sub_function
                     opt.max_function_evaluations = (opt.n_function_evaluations +
                                                     self.max_function_evaluations - self.n_function_evaluations)
-                    x_s[i], y_s[i] = opt.iterate(x_s[i], mean_s[i], ee_s[i], ea_s[i], y_s[i], args)
+                    x_s[i], y_s[i], d_s[i] = opt.iterate(x_s[i], mean_s[i], ee_s[i], ea_s[i], y_s[i], d_s[i], args)
                     y.extend(y_s[i])
                     if self._check_terminations():
                         break
-                    opt.n_generations += 1
+                    opt._n_generations += 1
                     mean_s[i], ps_s[i], pc_s[i], cm_s[i], ee_s[i], ea_s[i] = opt.update_distribution(
-                        x_s[i], mean_s[i], ps_s[i], pc_s[i], cm_s[i], ee_s[i], ea_s[i], y_s[i])
+                        x_s[i], ps_s[i], pc_s[i], cm_s[i], ee_s[i], ea_s[i], y_s[i], d_s[i])
                 self._n_generations += 1
         return self._collect(fitness, y)
