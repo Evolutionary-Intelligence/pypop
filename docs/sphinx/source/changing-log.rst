@@ -4,6 +4,11 @@ Changing Log
 Version: 0.0.78
 ---------------
 
+* Fix errors of both optimizer classes (**HCC** and **COCMA**) owing to recent update of optimizer class **CMAES**:
+
+  * https://github.com/Evolutionary-Intelligence/pypop/commit/0ffa8e0671f40a714f9294d85490b6b654bf4b16  (for **HCC**)
+  * https://github.com/Evolutionary-Intelligence/pypop/commit/95d9c53dc0c4898cc73b13b229f8072825f78a24  (for **COCMA**)
+
 * Add reference for online documentation of tutorials:
 
   * https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
