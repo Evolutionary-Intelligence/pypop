@@ -28,7 +28,9 @@ Gradient-Free Minimization of Convex Functions**, just to name a few:
 Some common problem characteristics of BBO are presented below:
 
 * unavailability of gradient information in the black-box setting (even if the gradient information actually exists);
-* without a precise model (e.g., owing to complex simulation);
+* without a precise mathematical model (e.g., owing to complex simulation), such as
+
+  * `[Robbins, 1952, BAMS] <https://community.ams.org/journals/bull/1952-58-05/S0002-9904-1952-09620-8/S0002-9904-1952-09620-8.pdf>`_.
 * non-differentiability;
 * non-linearity, such as
 
