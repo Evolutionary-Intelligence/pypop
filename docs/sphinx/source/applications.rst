@@ -32,4 +32,4 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 * `微信公众号: 演化智能 <https://mp.weixin.qq.com/s/4JO2sYouiEvmq9XNUJkncA>`_
 * 中文博客网站CSDN - PyPop7中文示例
 
-  * https://blog.csdn.net/SH02280607/article/details/134388597 
+  * https://blog.csdn.net/2301_81205034/category_12502462.html
