@@ -9,3 +9,4 @@ celluloid
 imageio
 sphinx-rtd-theme
 sphinx_copybutton
+rst2pdf
