@@ -1,0 +1,12 @@
+* experiment: 1 ***:
+  * function: square_loss_lr_pdc:
+    runtime: 1.08015e+04.
+  * function: square_loss_lr_shd:
+    runtime: 1.08006e+04.
+  * function: square_loss_lr_c:
+    runtime: 1.04111e+03.
+  * function: square_loss_lr_m:
+    runtime: 1.08006e+04.
+  * function: square_loss_lr_qar:
+    runtime: 1.08007e+04.
+*** Total runtime: 4.42477e+04 ***.
