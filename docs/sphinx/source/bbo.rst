@@ -47,6 +47,10 @@ Some common problem characteristics of BBO are presented below:
   * `[Bollapragada&Wild, 2023, MPC] <https://link.springer.com/article/10.1007/s12532-023-00233-9>`_,
   * `[Yi et al., 2022, Automatica] <https://www.sciencedirect.com/science/article/pii/S0005109822002035>`_.
 
+* sometimes even `discountinuity`, such as
+
+  * `[Li et al., 2023, NeurIPS] <https://openreview.net/forum?id=VhbV56AJNt>`_.
+
 For black-box problems, the only information accessible to the algorithm is *function evaluations*, which can be freely
 selected by the algorithm, leading to Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO) or
 Gradient-Free Optimization (GFO).
