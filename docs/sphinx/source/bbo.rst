@@ -31,7 +31,10 @@ Some common problem characteristics of BBO are presented below:
 * without a precise mathematical model (e.g., owing to complex simulation), such as
 
   * `[Robbins, 1952, BAMS] <https://community.ams.org/journals/bull/1952-58-05/S0002-9904-1952-09620-8/S0002-9904-1952-09620-8.pdf>`_.
-* non-differentiability;
+* non-differentiability, such as
+
+  * when automatic differentiation is not possible (gives noninformative gradients) `[Li et al., 2023, NeurIPS]
+    <https://openreview.net/forum?id=VhbV56AJNt>`_;
 * non-linearity, such as
 
   * `nonlinear metamaterials <https://arxiv.org/abs/2307.07606>`_.
