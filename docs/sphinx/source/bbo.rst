@@ -31,7 +31,10 @@ Some common problem characteristics of BBO are presented below:
 * without a precise mathematical model (e.g., owing to complex simulation), such as
 
   * `[Robbins, 1952, BAMS] <https://community.ams.org/journals/bull/1952-58-05/S0002-9904-1952-09620-8/S0002-9904-1952-09620-8.pdf>`_.
-* non-differentiability;
+* non-differentiability, such as
+
+  * when automatic differentiation is not possible (gives noninformative gradients) `[Li et al., 2023, NeurIPS]
+    <https://openreview.net/forum?id=VhbV56AJNt>`_;
 * non-linearity, such as
 
   * `nonlinear metamaterials <https://arxiv.org/abs/2307.07606>`_.
@@ -46,6 +49,10 @@ Some common problem characteristics of BBO are presented below:
   * `[Mhanna&Assaad, 2023, ICML] <https://proceedings.mlr.press/v202/mhanna23a/mhanna23a.pdf>`_,
   * `[Bollapragada&Wild, 2023, MPC] <https://link.springer.com/article/10.1007/s12532-023-00233-9>`_,
   * `[Yi et al., 2022, Automatica] <https://www.sciencedirect.com/science/article/pii/S0005109822002035>`_.
+
+* sometimes even `discountinuity`, such as
+
+  * `[Li et al., 2023, NeurIPS] <https://openreview.net/forum?id=VhbV56AJNt>`_.
 
 For black-box problems, the only information accessible to the algorithm is *function evaluations*, which can be freely
 selected by the algorithm, leading to Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO) or
