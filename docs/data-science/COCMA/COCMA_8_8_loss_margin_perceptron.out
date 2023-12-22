@@ -1,0 +1,13 @@
+nohup: ignoring input
+* experiment: 8 ***:
+  * function: loss_margin_perceptron_pdc:
+    runtime: 3.02149e+03.
+  * function: loss_margin_perceptron_shd:
+    runtime: 8.12284e+01.
+  * function: loss_margin_perceptron_c:
+    runtime: 6.76169e+01.
+  * function: loss_margin_perceptron_m:
+    runtime: 1.08008e+04.
+  * function: loss_margin_perceptron_qar:
+    runtime: 1.08006e+04.
+*** Total runtime: 2.47746e+04 ***.

@@ -1,0 +1,15 @@
+nohup: ignoring input
+/home/duanqq/PyProjects/tpds2022/env_tpds2022/lib/python3.8/site-packages/pypop7/benchmarks/data_science.py:106: RuntimeWarning: overflow encountered in exp
+  loss[i] = np.square(2.0/(1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:])))) - 1.0 - y[i])
+* experiment: 8 ***:
+  * function: tanh_loss_lr_pdc:
+    runtime: 1.08011e+04.
+  * function: tanh_loss_lr_shd:
+    runtime: 1.08006e+04.
+  * function: tanh_loss_lr_c:
+    runtime: 1.08007e+04.
+  * function: tanh_loss_lr_m:
+    runtime: 1.08006e+04.
+  * function: tanh_loss_lr_qar:
+    runtime: 1.08007e+04.
+*** Total runtime: 5.40070e+04 ***.
