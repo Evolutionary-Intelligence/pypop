@@ -418,7 +418,7 @@ For each algorithm family, we provide several *representative* applications publ
 
 ## Sponsor for PyPop7
 
-This open-source Python library for black-box optimization is now supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to Prof. Shi (CSE, SUSTech @ Shenzhen, China), and actively developed by three of his group members (e.g., *Q.Q. Duan*, *C. Shao*, *G.C. Zhou*).
+This open-source Python library for BBO is now supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to Prof. Shi (CSE, SUSTech@Shenzhen, China).
 
 ## Citation for PyPop7
 
