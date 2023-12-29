@@ -15,6 +15,7 @@ Till now, our library `PyPop7` has been used (at least) in the following open-so
 
 * https://github.com/BruthYU/BPT-VLM (2023)
 * https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
+* https://github.com/pyanno4rt/pyanno4rt [online documentation: https://pyanno4rt.readthedocs.io/en/latest/] (2023)
 * https://github.com/TUIlmenauAMS/BlackBoxOptimizerSPcomparison (2023)
 * https://github.com/Anoxxx/SynCMA-official (2023)
 * https://github.com/jeancroy/RP-fit (2023)
