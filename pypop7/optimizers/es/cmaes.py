@@ -83,10 +83,10 @@ class CMAES(ES):
     https://arxiv.org/abs/1604.00772
 
     Ollivier, Y., Arnold, L., Auger, A. and Hansen, N., 2017.
-    Information-geometric optimization algorithms: A unifying picture via invariance principles.
+    `Information-geometric optimization algorithms: A unifying picture via invariance principles.
+    <https://jmlr.org/papers/v18/14-467.html>`_
     Journal of Machine Learning Research, 18(18), pp.1-65.
-    https://jmlr.org/papers/v18/14-467.html
-
+    
     Hansen, N., Müller, S.D. and Koumoutsakos, P., 2003.
     Reducing the time complexity of the derandomized evolution strategy with covariance matrix adaptation (CMA-ES).
     Evolutionary Computation, 11(1), pp.1-18.
