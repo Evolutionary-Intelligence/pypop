@@ -78,9 +78,9 @@ class CMAES(ES):
     References
     ----------
     Hansen, N., 2023.
-    The CMA evolution strategy: A tutorial.
+    `The CMA evolution strategy: A tutorial.
+    <https://arxiv.org/abs/1604.00772>`_
     arXiv preprint arXiv:1604.00772.
-    https://arxiv.org/abs/1604.00772
 
     Ollivier, Y., Arnold, L., Auger, A. and Hansen, N., 2017.
     `Information-geometric optimization algorithms: A unifying picture via invariance principles.
