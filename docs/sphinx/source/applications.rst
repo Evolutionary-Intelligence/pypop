@@ -3,13 +3,13 @@ Applications
 
 Up to now, this open-source Python library `PyPop7` has been used (at least) in the following papers:
 
-* Zhang, Z., Wei, Y. and Sui, Y., 2024. `An Invariant Information Geometric Method for High-Dimensional Online Optimization <https://arxiv.org/abs/2401.01579>`_. arXiv preprint arXiv:2401.01579.
-* Yu, L., Chen, Q., Lin, J. and He, L., 2023. `Black-box Prompt Tuning for Vision-Language Model as a Service <https://www.ijcai.org/proceedings/2023/0187.pdf>`_. Proceedings of International Joint Conference on Artificial Intelligence (pp. 1686-1694). IJCAI.
-* Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
-* Duan, Q., Shao, C., Zhou, G., Zhao, Q. and Shi, Y., 2023. `Distributed Evolution Strategies with Multi-Level Learning for Large-Scale Black-Box Optimization <https://arxiv.org/abs/2310.05377>`_. arXiv preprint arXiv:2310.05377.
-* Duan, Q., Shao, C., Zhou, G., Yang, H., Zhao, Q. and Shi, Y., 2023. `Cooperative Coevolution for Non-Separable Large-Scale Black-Box Optimization: Convergence Analyses and Distributed Accelerations <https://arxiv.org/abs/2304.05020>`_. arXiv preprint arXiv:2304.05020.
-* Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022. `Collective Learning of Low-Memory Matrix Adaptation for Large-Scale Black-Box Optimization <https://link.springer.com/chapter/10.1007/978-3-031-14721-0_20>`_. In International Conference on Parallel Problem Solving from Nature (pp. 281-294). Springer, Cham.
-* Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022, July. `Distributed Evolution Strategies for Large-Scale Optimization <https://dl.acm.org/doi/abs/10.1145/3520304.3528784>`_. In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion (pp. 395-398). ACM.
+* 7: Zhang, Z., Wei, Y. and Sui, Y., 2024. `An Invariant Information Geometric Method for High-Dimensional Online Optimization <https://arxiv.org/abs/2401.01579>`_. arXiv preprint arXiv:2401.01579.
+* 6: Yu, L., Chen, Q., Lin, J. and He, L., 2023. `Black-box Prompt Tuning for Vision-Language Model as a Service <https://www.ijcai.org/proceedings/2023/0187.pdf>`_. Proceedings of International Joint Conference on Artificial Intelligence (pp. 1686-1694). IJCAI.
+* 5: Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
+* 4: Duan, Q., Shao, C., Zhou, G., Zhao, Q. and Shi, Y., 2023. `Distributed Evolution Strategies with Multi-Level Learning for Large-Scale Black-Box Optimization <https://arxiv.org/abs/2310.05377>`_. arXiv preprint arXiv:2310.05377.
+* 3: Duan, Q., Shao, C., Zhou, G., Yang, H., Zhao, Q. and Shi, Y., 2023. `Cooperative Coevolution for Non-Separable Large-Scale Black-Box Optimization: Convergence Analyses and Distributed Accelerations <https://arxiv.org/abs/2304.05020>`_. arXiv preprint arXiv:2304.05020.
+* 2: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022. `Collective Learning of Low-Memory Matrix Adaptation for Large-Scale Black-Box Optimization <https://link.springer.com/chapter/10.1007/978-3-031-14721-0_20>`_. In International Conference on Parallel Problem Solving from Nature (pp. 281-294). Springer, Cham.
+* 1: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022, July. `Distributed Evolution Strategies for Large-Scale Optimization <https://dl.acm.org/doi/abs/10.1145/3520304.3528784>`_. In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion (pp. 395-398). ACM.
 
 Till now, our library `PyPop7` has been used (at least) in the following open-source projects:
 
