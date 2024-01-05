@@ -89,17 +89,17 @@ class CMAES(ES):
     
     Hansen, N., Müller, S.D. and Koumoutsakos, P., 2003.
     `Reducing the time complexity of the derandomized evolution strategy with covariance matrix adaptation (CMA-ES).
-    https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized>`_
+    <https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized>`_
     Evolutionary Computation, 11(1), pp.1-18.
 
     Hansen, N. and Ostermeier, A., 2001.
     `Completely derandomized self-adaptation in evolution strategies.
-    https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in>`_
+    <https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in>`_
     Evolutionary Computation, 9(2), pp.159-195.
 
     Hansen, N. and Ostermeier, A., 1996, May.
     `Adapting arbitrary normal mutation distributions in evolution strategies: The covariance matrix adaptation.
-    https://ieeexplore.ieee.org/abstract/document/542381>`_
+    <https://ieeexplore.ieee.org/abstract/document/542381>`_
     In Proceedings of IEEE International Conference on Evolutionary Computation (pp. 312-317). IEEE.
 
     See one *lightweight* Python implementation of **CMA-ES** from `cyberagent.ai <cyberagent.ai>`_:
