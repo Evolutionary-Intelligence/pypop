@@ -8,7 +8,6 @@ Up to now, this open-source Python library `PyPop7` has been used (at least) in 
 * Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
 * Duan, Q., Shao, C., Zhou, G., Zhao, Q. and Shi, Y., 2023. `Distributed Evolution Strategies with Multi-Level Learning for Large-Scale Black-Box Optimization <https://arxiv.org/abs/2310.05377>`_. arXiv preprint arXiv:2310.05377.
 * Duan, Q., Shao, C., Zhou, G., Yang, H., Zhao, Q. and Shi, Y., 2023. `Cooperative Coevolution for Non-Separable Large-Scale Black-Box Optimization: Convergence Analyses and Distributed Accelerations <https://arxiv.org/abs/2304.05020>`_. arXiv preprint arXiv:2304.05020.
-* https://openreview.net/forum?id=eQerjHehcM
 * Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022. `Collective Learning of Low-Memory Matrix Adaptation for Large-Scale Black-Box Optimization <https://link.springer.com/chapter/10.1007/978-3-031-14721-0_20>`_. In International Conference on Parallel Problem Solving from Nature (pp. 281-294). Springer, Cham.
 * Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022, July. `Distributed Evolution Strategies for Large-Scale Optimization <https://dl.acm.org/doi/abs/10.1145/3520304.3528784>`_. In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion (pp. 395-398). ACM.
 
@@ -26,6 +25,7 @@ Till now, our library `PyPop7` has been used (at least) in the following open-so
 
 Till now, our paper about this open-source library `PyPop7` has been cited (at least) in the following papers:
 
+* Zhang, Z., Wei, Y. and Sui, Y., 2024. `An Invariant Information Geometric Method for High-Dimensional Online Optimization <https://arxiv.org/abs/2401.01579>`_. arXiv preprint arXiv:2401.01579.
 * Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
 
 For other introductions/coverage to this open-source library `PyPop7`, refer to e.g.:
