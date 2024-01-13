@@ -117,7 +117,7 @@ class MMES(ES):
         # set minimal distance of updating evolution paths (T)
         self.distance = options.get('distance', int(np.ceil(1.0/self.c_c)))
         # set success probability of geometric distribution (different from 4/n in the original paper)
-        self.c_a = options.get('c_a', 3.8/self.ndim_problem)  # same as Matlab code
+        self.c_a = options.get('c_a', 3.8/self.ndim_problem)  # same as the official Matlab code
         self.gamma = options.get('gamma', 1.0 - np.power(1.0 - self.c_a, self.m))
         self._n_mirror_sampling = None
         self._z_1 = np.sqrt(1.0 - self.gamma)
