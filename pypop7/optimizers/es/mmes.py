@@ -106,6 +106,7 @@ class MMES(ES):
         ES.__init__(self, problem, options)
         # set number of candidate direction vectors
         self.m = options.get('m', 2*int(np.ceil(np.sqrt(self.ndim_problem))))
+        assert self.m > 0
         # set learning rate of evolution path
         self.c_c = options.get('c_c', 0.4/np.sqrt(self.ndim_problem))
         self.ms = options.get('ms', 4)  # mixing strength (l)
