@@ -110,6 +110,7 @@ class MMES(ES):
         # set learning rate of evolution path
         self.c_c = options.get('c_c', 0.4/np.sqrt(self.ndim_problem))
         self.ms = options.get('ms', 4)  # mixing strength (l)
+        assert self.ms > 0
         # set for paired test adaptation (PTA)
         self.c_s = options.get('c_s', 0.3)  # learning rate of global step-size adaptation
         self.a_z = options.get('a_z', 0.05)  # target significance level
