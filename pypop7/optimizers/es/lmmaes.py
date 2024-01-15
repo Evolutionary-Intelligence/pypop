@@ -113,7 +113,7 @@ class LMMAES(ES):
         d = np.empty((self.n_individuals, self.ndim_problem))  # search directions
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
         s = np.zeros((self.ndim_problem,))  # evolution path
-        tm = np.zeros((self.n_evolution_paths, self.ndim_problem))  # transformation matrix M
+        tm = np.zeros((self.n_evolution_paths, self.ndim_problem))  # transformation matrix (M)
         y = np.empty((self.n_individuals,))  # fitness (no evaluation)
         self._list_initial_mean.append(np.copy(mean))
         return z, d, mean, s, tm, y
