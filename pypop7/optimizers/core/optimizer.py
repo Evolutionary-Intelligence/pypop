@@ -53,6 +53,7 @@ class Optimizer(object):
             self.problem_name = self.fitness_function.__name__
 
         # optimizer-related options
+        self.options = options
         self.max_function_evaluations = options.get('max_function_evaluations', np.Inf)
         self.max_runtime = options.get('max_runtime', np.Inf)
         self.fitness_threshold = options.get('fitness_threshold', -np.Inf)
