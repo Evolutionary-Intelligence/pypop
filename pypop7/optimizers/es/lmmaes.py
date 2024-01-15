@@ -94,11 +94,9 @@ class LMMAES(ES):
         ES.__init__(self, problem, options)
         n_evolution_paths = 4 + int(3*np.log(self.ndim_problem))
         self.n_evolution_paths = options.get('n_evolution_paths', n_evolution_paths)
-        self.c_s = None
-        self._s_1 = None
-        self._s_2 = None
+        self.c_s, self._c_c = None, None
+        self._s_1, self._s_2 = None, None
         self._c_d = 1.0/(self.ndim_problem*np.power(1.5, np.arange(self.n_evolution_paths)))
-        self._c_c = None
 
     def initialize(self, is_restart=False):
         self.c_s = self.options.get('c_s', 2.0*self.n_individuals/self.ndim_problem)
