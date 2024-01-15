@@ -49,11 +49,11 @@ class LMMAES(ES):
        >>> from pypop7.optimizers.es.lmmaes import LMMAES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 200,
-       ...            'lower_boundary': -5*numpy.ones((200,)),
-       ...            'upper_boundary': 5*numpy.ones((200,))}
+       ...            'lower_boundary': -5.0*numpy.ones((200,)),
+       ...            'upper_boundary': 5.0*numpy.ones((200,))}
        >>> options = {'max_function_evaluations': 500000,  # set optimizer options
        ...            'seed_rng': 0,
-       ...            'mean': 3*numpy.ones((200,)),
+       ...            'mean': 3.0*numpy.ones((200,)),
        ...            'sigma': 0.1,  # the global step-size may need to be tuned for better performance
        ...            'is_restart': False}
        >>> lmmaes = LMMAES(problem, options)  # initialize the optimizer class
@@ -83,9 +83,9 @@ class LMMAES(ES):
     References
     ----------
     Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2019.
-    Large scale black-box optimization by limited-memory matrix adaptation.
+    `Large scale black-box optimization by limited-memory matrix adaptation.
+    <https://ieeexplore.ieee.org/abstract/document/8410043>`_
     IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
-    https://ieeexplore.ieee.org/abstract/document/8410043
 
     See the official Python version from Prof. Glasmachers:
     https://www.ini.rub.de/upload/editor/file/1604950981_dc3a4459a4160b48d51e/lmmaes.py
