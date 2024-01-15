@@ -92,7 +92,6 @@ class LMMAES(ES):
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
-        self.options = options
         n_evolution_paths = 4 + int(3*np.log(self.ndim_problem))
         self.n_evolution_paths = options.get('n_evolution_paths', n_evolution_paths)
         self.c_s = None
