@@ -96,5 +96,5 @@ class FMAES(MAES):
     https://homepages.fhv.at/hgb/downloads/ForDistributionFastMAES.tar
     """
     def __init__(self, problem, options):
-        options['_fast_version'] = True  # mandatory setting
+        options['_fast_version'] = True  # mandatory setting for only FMAES
         MAES.__init__(self, problem, options)
