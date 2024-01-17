@@ -84,7 +84,7 @@ class MAES(ES):
     Beyer, H.G., 2020, July.
     `Design principles for matrix adaptation evolution strategies.
     <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_
-    In Proceedings of Annual Conference on Genetic and Evolutionary Computation Companion (pp. 682-700).
+    In Proceedings of ACM Conference on Genetic and Evolutionary Computation Companion (pp. 682-700).
 
     Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2019.
     `Large scale black-box optimization by limited-memory matrix adaptation.
