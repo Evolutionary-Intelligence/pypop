@@ -53,11 +53,11 @@ class MAES(ES):
        >>> from pypop7.optimizers.es.maes import MAES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
+       ...            'mean': 3.0*numpy.ones((2,)),
        ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
        >>> maes = MAES(problem, options)  # initialize the optimizer class
        >>> results = maes.optimize()  # run the optimization process
