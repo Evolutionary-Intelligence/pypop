@@ -76,10 +76,10 @@ class DDCMA(ES):
     References
     ----------
     Akimoto, Y. and Hansen, N., 2020.
-    Diagonal acceleration for covariance matrix adaptation evolution strategies.
+    `Diagonal acceleration for covariance matrix adaptation evolution strategies.
+    <https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix>`_
     Evolutionary Computation, 28(3), pp.405-435.
-    https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix
-
+    
     See its official Python implementation from Prof. Akimoto:
     https://gist.github.com/youheiakimoto/1180b67b5a0b1265c204cba991fa8518
     """
