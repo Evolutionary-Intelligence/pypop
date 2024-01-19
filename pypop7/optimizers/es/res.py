@@ -81,45 +81,45 @@ class RES(ES):
     References
     ----------
     Auger, A., Hansen, N., López-Ibáñez, M. and Rudolph, G., 2022.
-    Tributes to Ingo Rechenberg (1934--2021).
+    `Tributes to Ingo Rechenberg (1934--2021).
+    <https://dl.acm.org/doi/10.1145/3511282.3511283>`_
     ACM SIGEVOlution, 14(4), pp.1-4.
-    https://dl.acm.org/doi/10.1145/3511282.3511283
     
     Agapie, A., Solomon, O. and Giuclea, M., 2021.
-    Theory of (1+1) ES on the RIDGE.
+    `Theory of (1+1) ES on the RIDGE.
+    <https://ieeexplore.ieee.org/abstract/document/9531957>`_
     IEEE Transactions on Evolutionary Computation, 26(3), pp.501-511.
-    https://ieeexplore.ieee.org/abstract/document/9531957
-
+    
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
-    Evolution strategies.
+    `Evolution strategies.
+    <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
-
+    
     Kern, S., Müller, S.D., Hansen, N., Büche, D., Ocenasek, J. and Koumoutsakos, P., 2004.
-    Learning probability distributions in continuous evolutionary algorithms–a comparative review.
+    `Learning probability distributions in continuous evolutionary algorithms–a comparative review.
+    <https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e>`_
     Natural Computing, 3, pp.77-112.
-    https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e
-
+    
     Beyer, H.G. and Schwefel, H.P., 2002.
-    Evolution strategies–A comprehensive introduction.
+    `Evolution strategies–A comprehensive introduction.
+    <https://link.springer.com/article/10.1023/A:1015059928466>`_
     Natural Computing, 1(1), pp.3-52.
-    https://link.springer.com/article/10.1023/A:1015059928466
-
+    
     Rechenberg, I., 2000.
-    Case studies in evolutionary experimentation and computation.
+    `Case studies in evolutionary experimentation and computation.
+    <https://www.sciencedirect.com/science/article/pii/S0045782599003813>`_
     Computer Methods in Applied Mechanics and Engineering, 186(2-4), pp.125-140.
-    https://www.sciencedirect.com/science/article/pii/S0045782599003813
-
+    
     Rechenberg, I., 1989.
-    Evolution strategy: Nature’s way of optimization.
+    `Evolution strategy: Nature’s way of optimization.
+    <https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6>`_
     In Optimization: Methods and Applications, Possibilities and Limitations (pp. 106-126).
     Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6
-
+    
     Rechenberg, I., 1984.
-    The evolution strategy. A mathematical model of darwinian evolution.
+    `The evolution strategy. A mathematical model of darwinian evolution.
+    <https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13>`_
     In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13
     """
     def __init__(self, problem, options):
         options['n_parents'] = 1  # mandatory setting
