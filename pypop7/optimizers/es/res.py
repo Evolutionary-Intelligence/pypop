@@ -79,7 +79,7 @@ class RES(ES):
     mean          : `array_like`
                     initial (starting) point, aka mean of Gaussian search distribution.
     sigma         : `float`
-                    final global step-size, aka mutation strength.
+                    final global step-size, aka mutation strength (updated during optimization).
 
     References
     ----------
