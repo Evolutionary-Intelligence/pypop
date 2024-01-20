@@ -14,7 +14,7 @@ class RES(ES):
 
        Since there is only one parent and only one offspring for each generation (iteration), `RES` generally
        shows limited *exploration* ability for large-scale black-box optimization (LBO). Therefore, it is
-       recommended to first attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for LBO. Here we include
+       recommended to first attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for LBO. Here we include
        `RES` (AKA two-membered ES) mainly for *benchmarking* and *theoretical* purposes.
 
     Parameters
