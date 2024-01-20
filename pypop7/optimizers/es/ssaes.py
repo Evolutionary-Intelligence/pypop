@@ -47,7 +47,7 @@ class SSAES(ES):
 
     Examples
     --------
-    Use the optimizer `SSAES` to minimize the well-known test function
+    Use the black-box optimizer `SSAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -56,19 +56,19 @@ class SSAES(ES):
        >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.ssaes import SSAES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> ssaes = SSAES(problem, options)  # initialize the optimizer class
-       >>> results = ssaes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be tuned
+       >>> ssaes = SSAES(problem, options)  # to initialize the black-box optimizer class
+       >>> results = ssaes.optimize()  # to run the optimization/evolution process
+       >>> # to return the number of function evaluations and the best-so-far fitness
        >>> print(f"SSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SSAES: 5000, 0.13131869620062903
+       SSAES: 5000, 0.00023558230456829403
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/zsmsyh2x>`_ for more details.
@@ -88,7 +88,7 @@ class SSAES(ES):
     sigma          : `float`
                      initial global step-size, aka mutation strength.
     _axis_sigmas   : `array_like`
-                    final individuals step-sizes.
+                     final individuals step-sizes (updated during optimization).
 
     References
     ----------
