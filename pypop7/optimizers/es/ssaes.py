@@ -93,25 +93,25 @@ class SSAES(ES):
     References
     ----------
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
-    Evolution strategies.
+    `Evolution strategies.
+    <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
 
     Beyer, H.G. and Schwefel, H.P., 2002.
-    Evolution strategies–A comprehensive introduction.
+    `Evolution strategies–A comprehensive introduction.
+    <https://link.springer.com/article/10.1023/A:1015059928466>`_
     Natural Computing, 1(1), pp.3-52.
-    https://link.springer.com/article/10.1023/A:1015059928466
 
     Schwefel, H.P., 1988.
-    Collective intelligence in evolving systems.
+    `Collective intelligence in evolving systems.
+    <https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8>`_
     In Ecodynamics (pp. 95-100). Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8
 
     Schwefel, H.P., 1984.
-    Evolution strategies: A family of non-linear optimization techniques based on imitating
+    `Evolution strategies: A family of non-linear optimization techniques based on imitating
     some principles of organic evolution.
+    <https://link.springer.com/article/10.1007/BF01876146>`_
     Annals of Operations Research, 1(2), pp.165-167.
-    https://link.springer.com/article/10.1007/BF01876146
     """
     def __init__(self, problem, options):
         if options.get('n_individuals') is None:
