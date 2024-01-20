@@ -6,14 +6,15 @@ from pypop7.optimizers.es.es import ES
 class SSAES(ES):
     """Schwefel's Self-Adaptation Evolution Strategy (SSAES).
 
-    .. note:: `SSAES` adapts all the *individual* step-sizes on-the-fly, proposed by Schwefel, one
-       recipient of `IEEE Evolutionary Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_. Since it needs
-       a *relatively large* population (e.g. larger than number of dimensionality) for **reliable self-adaptation**,
-       `SSAES` easily suffers from *very slow* convergence for large-scale black-box optimization (LSBBO). Therefore,
-       it is **highly recommended** to first attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for
-       LSBBO. Here we include it mainly for *benchmarking* and *theoretical* purpose.
+    .. note:: `SSAES` adapts all the **individual** step-sizes on-the-fly, proposed by Schwefel (one
+       recipient of `IEEE Evolutionary Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_).
+       Since it often needs a *relatively large* population (e.g. larger than number of dimensionality)
+       for reliable self-adaptation, `SSAES` suffers easily from *slow* convergence for large-scale
+       black-box optimization (LBO). Therefore, it is recommended to first attempt more advanced ES
+       variants (e.g. `LMCMA`, `LMMAES`) for LBO. Here we include `SSAES` mainly for *benchmarking* and
+       *theoretical* purpose.
 
-       Note that the `restart` process is not implemented owing to typically slow convergence of `SSAES`.
+       Note that the `restart` process is not implemented owing to its typically slow convergence.
 
     Parameters
     ----------
