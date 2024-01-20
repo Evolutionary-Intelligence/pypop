@@ -6,18 +6,16 @@ from pypop7.optimizers.es.es import ES
 class RES(ES):
     """Rechenberg's (1+1)-Evolution Strategy with 1/5th success rule (RES).
 
-    .. note:: `RES` is the *first* ES with self-adaptation of the **global** step-size, designed by Rechenberg,
-       one recipient of `IEEE Evolutionary Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_. As
-       **theoretically** investigated in his **seminal** PhD dissertation at Technical University of Berlin,
-       the existence of narrow **evolution window** explains the necessarity of *global* step-size adaptation
-       to maximize the local convergence progress, if possible.
+    .. note:: `RES` is the first evolution strategy with self-adaptation of the *global* step-size (designed
+       by Rechenberg, one recipient of `IEEE Evolutionary Computation Pioneer Award 2002
+       <https://tinyurl.com/456as566>`_). As theoretically investigated in his *seminal* Ph.D. dissertation
+       at Technical University of Berlin, the existence of narrow **evolution window** explains the necessarity
+       of *global* step-size adaptation to maximize the local convergence progress, if possible.
 
-       Since there is only one parent and only one offspring for each generation, `RES` generally shows very
-       limited *exploration* ability for large-scale black-box optimization (LSBBO). Therefore, it is **highly
-       recommended** to first attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for LSBBO. Here we
-       include it mainly for *benchmarking* and *theoretical* purpose.
-
-       AKA two-membered ES.
+       Since there is only one parent and only one offspring for each generation (iteration), `RES` generally
+       shows limited *exploration* ability for large-scale black-box optimization (LBO). Therefore, it is
+       recommended to first attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for LBO. Here we include
+       `RES` (AKA two-membered ES) mainly for *benchmarking* and *theoretical* purposes.
 
     Parameters
     ----------
