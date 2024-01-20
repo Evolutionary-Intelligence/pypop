@@ -42,7 +42,7 @@ class RES(ES):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer `RES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -53,29 +53,33 @@ class RES(ES):
        >>> from pypop7.optimizers.es.res import RES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # the global step-size may need to be tuned for better performance
        >>> res = RES(problem, options)  # initialize the optimizer class
        >>> results = res.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"RES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       RES: 5000, 0.06701744137207027
+       RES: 5000, 0.00011689296624022443
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/5n6ndrn7>`_ for more details.
 
     Attributes
     ----------
-    lr_sigma : `float`
-               learning rate of global step-size self-adaptation.
-    mean     : `array_like`
-               initial (starting) point, aka mean of Gaussian search distribution.
-    sigma    : `float`
-               final global step-size, aka mutation strength.
+    best_so_far_x : `array_like`
+                    final best-so-far solution found during entire optimization.
+    best_so_far_y : `array_like`
+                    final best-so-far fitness found during entire optimization.
+    lr_sigma      : `float`
+                    learning rate of global step-size self-adaptation.
+    mean          : `array_like`
+                    initial (starting) point, aka mean of Gaussian search distribution.
+    sigma         : `float`
+                    final global step-size, aka mutation strength.
 
     References
     ----------
