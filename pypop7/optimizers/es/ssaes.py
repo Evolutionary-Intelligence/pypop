@@ -75,6 +75,10 @@ class SSAES(ES):
 
     Attributes
     ----------
+    best_so_far_x  : `array_like`
+                     final best-so-far solution found during entire optimization.
+    best_so_far_y  : `array_like`
+                     final best-so-far fitness found during entire optimization.
     lr_axis_sigmas : `float`
                      learning rate of individual step-sizes self-adaptation.
     lr_sigma       : `float`
