@@ -4,7 +4,7 @@ from pypop7.optimizers.ep.cep import CEP
 
 
 class FEP(CEP):
-    """Fast Evolutionary Programming with self-adaptive mutation (FEP).
+    """Fast Evolutionary Programming with self-adaptive mutation of individual step-sizes (FEP).
 
     .. note:: `FEP` was proposed mainly by Yao et al. in 1999, the recipient of `IEEE Evolutionary Computation Pioneer
        Award 2013 <https://tinyurl.com/456as566>`_ and `IEEE Frank Rosenblatt Award 2020 <https://tinyurl.com/yj28zxfa>`_,
