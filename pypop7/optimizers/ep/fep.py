@@ -6,10 +6,10 @@ from pypop7.optimizers.ep.cep import CEP
 class FEP(CEP):
     """Fast Evolutionary Programming with self-adaptive mutation (FEP).
 
-    .. note:: `FEP` was proposed mainly by Yao in 1999, the recipient of `IEEE Evolutionary Computation Pioneer Award
-       2013 <https://tinyurl.com/456as566>`_ and `IEEE Frank Rosenblatt Award 2020 <https://tinyurl.com/yj28zxfa>`_,
+    .. note:: `FEP` was proposed mainly by Yao et al. in 1999, the recipient of `IEEE Evolutionary Computation Pioneer
+       Award 2013 <https://tinyurl.com/456as566>`_ and `IEEE Frank Rosenblatt Award 2020 <https://tinyurl.com/yj28zxfa>`_,
        where the classical Gaussian sampling distribution is replaced by the heavy-tailed Cachy distribution for better
-       exploration on multi-modal black-box problems.
+       exploration on multi-modal black-box optimization problems.
 
     Parameters
     ----------
@@ -35,7 +35,7 @@ class FEP(CEP):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the optimizer `FEP` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -44,24 +44,28 @@ class FEP(CEP):
        >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.ep.fep import FEP
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'sigma': 0.1}
-       >>> fep = FEP(problem, options)  # initialize the optimizer class
-       >>> results = fep.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'sigma': 3.0}  # global step-size may need to be tuned
+       >>> fep = FEP(problem, options)  # to initialize the optimizer class
+       >>> results = fep.optimize()  # to run its optimization/evolution process
+       >>> # to return the number of function evaluations and the best-so-far fitness
        >>> print(f"FEP: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       FEP: 5000, 0.20127155821817022
+       FEP: 5000, 0.005781004466936902
 
     For its correctness checking, refer to `this code-based repeatability report
     <https://tinyurl.com/bdh7epah>`_ for more details.
 
     Attributes
     ----------
+    best_so_far_x  : `array_like`
+                     final best-so-far solution found during entire optimization.
+    best_so_far_y  : `array_like`
+                     final best-so-far fitness found during entire optimization.
     n_individuals  : `int`
                      number of offspring, aka offspring population size.
     q              : `int`
@@ -69,21 +73,21 @@ class FEP(CEP):
     sigma          : `float`
                      initial global step-size, aka mutation strength.
     tau            : `float`
-                     learning rate of individual step-sizes self-adaptation.
+                     self-adaptation learning rate of individual step-sizes.
     tau_apostrophe : `float`
-                     learning rate of individual step-sizes self-adaptation.
+                     self-adaptation learning rate of individual step-sizes.
 
     References
     ----------
     Yao, X., Liu, Y. and Lin, G., 1999.
-    Evolutionary programming made faster.
+    `Evolutionary programming made faster.
+    <https://ieeexplore.ieee.org/abstract/document/771163>`_
     IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
-    https://ieeexplore.ieee.org/abstract/document/771163
 
     Bäck, T. and Schwefel, H.P., 1993.
-    An overview of evolutionary algorithms for parameter optimization.
+    `An overview of evolutionary algorithms for parameter optimization.
+    <https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for>`_
     Evolutionary Computation, 1(1), pp.1-23.
-    https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for
     """
     def __init__(self, problem, options):
         CEP.__init__(self, problem, options)
