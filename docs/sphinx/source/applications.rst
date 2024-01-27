@@ -13,15 +13,15 @@ Up to now, this open-source Python library `PyPop7` has been used (at least) in 
 
 Till now, our library `PyPop7` has been used (at least) in the following open-source projects:
 
-* https://github.com/BruthYU/BPT-VLM (2023)
-* https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
-* https://github.com/pyanno4rt/pyanno4rt [online documentation: https://pyanno4rt.readthedocs.io/en/latest/] (2023)
-* https://github.com/TUIlmenauAMS/BlackBoxOptimizerSPcomparison (2023)
-* https://github.com/Anoxxx/SynCMA-official (2023)
-* https://github.com/jeancroy/RP-fit (2023)
-* https://github.com/moesio-f/py-abm-public (2023)
-* https://github.com/Evolutionary-Intelligence/M-DES (2023)
-* https://github.com/Evolutionary-Intelligence/dpop7 (2023): A **parallel/distributed** extension to `PyPop7`.
+* 9: https://github.com/BruthYU/BPT-VLM (2023)
+* 8: https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
+* 7: https://github.com/pyanno4rt/pyanno4rt [online documentation: https://pyanno4rt.readthedocs.io/en/latest/] (2023)
+* 6: https://github.com/TUIlmenauAMS/BlackBoxOptimizerSPcomparison (2023)
+* 5: https://github.com/Anoxxx/SynCMA-official (2023)
+* 4: https://github.com/jeancroy/RP-fit (2023)
+* 3: https://github.com/moesio-f/py-abm-public (2023)
+* 2: https://github.com/Evolutionary-Intelligence/M-DES (2023)
+* 1: https://github.com/Evolutionary-Intelligence/dpop7 (2023): A **parallel/distributed** extension to `PyPop7` (now actively developed).
 
 Till now, our paper about this open-source library `PyPop7` has been cited (at least) in the following papers:
 
