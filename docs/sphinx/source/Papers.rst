@@ -53,6 +53,7 @@ MA
 GA
 --
 
+* Kumar, A., Liu, B., Miikkulainen, R. and Stone, P., 2022, July. Effective mutation rate adaptation through group elite selection. In Proceedings of ACM Genetic and Evolutionary Computation Conference (pp. 721-729).
 * Drugan, M. M., & Thierens, D. (2010). Geometrical recombination operators for real-coded evolutionary mcmcs. Evolutionary Computation, 18(2), 157-198.
 
 NM
