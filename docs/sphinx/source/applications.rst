@@ -13,6 +13,7 @@ Up to now, this open-source Python library `PyPop7` has been used (at least) in 
 
 Till now, our library `PyPop7` has been used (at least) in the following open-source projects:
 
+* 10: https://github.com/Echozqn/llm [https://github.com/Echozqn/llm/tree/main/collie/examples/alpaca/eda] (2024)
 * 9: https://github.com/BruthYU/BPT-VLM (2023)
 * 8: https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
 * 7: https://github.com/pyanno4rt/pyanno4rt [online documentation: https://pyanno4rt.readthedocs.io/en/latest/] (2023)
