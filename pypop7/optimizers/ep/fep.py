@@ -84,6 +84,11 @@ class FEP(CEP):
     <https://ieeexplore.ieee.org/abstract/document/771163>`_
     IEEE Transactions on Evolutionary Computation, 3(2), pp.82-102.
 
+    Chellapilla, K. and Fogel, D.B., 1999.
+    `Evolution, neural networks, games, and intelligence.
+    <https://ieeexplore.ieee.org/abstract/document/784222>`_
+    Proceedings of the IEEE, 87(9), pp.1471-1496.
+
     Bäck, T. and Schwefel, H.P., 1993.
     `An overview of evolutionary algorithms for parameter optimization.
     <https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for>`_
