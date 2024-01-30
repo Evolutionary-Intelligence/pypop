@@ -7,14 +7,14 @@ class SSAES(ES):
     """Schwefel's Self-Adaptation Evolution Strategy (SSAES).
 
     .. note:: `SSAES` adapts all the **individual** step-sizes on-the-fly, proposed by Schwefel (one
-       recipient of `IEEE Evolutionary Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_).
+       recipient of `IEEE Evolutionary Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_
+       and `IEEE Frank Rosenblatt Award 2011 <https://tinyurl.com/yj28zxfa>`_).
        Since it often needs a *relatively large* population (e.g., larger than number of dimensionality)
        for reliable self-adaptation, `SSAES` suffers easily from *slow* convergence for large-scale
        black-box optimization (LBO). Therefore, it is recommended to first attempt more advanced ES
        variants (e.g., `LMCMA`, `LMMAES`) for LBO. Here we include `SSAES` mainly for *benchmarking* and
-       *theoretical* purpose.
-
-       Currently the `restart` process is not implemented owing to its typically slow convergence.
+       *theoretical* purpose. Currently the `restart` process is not implemented owing to its typically
+       slow convergence.
 
     Parameters
     ----------
