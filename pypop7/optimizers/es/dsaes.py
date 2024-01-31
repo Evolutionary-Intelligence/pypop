@@ -8,7 +8,9 @@ class DSAES(ES):
 
     .. note:: `DSAES` adapts all the *individual* step-sizes on-the-fly with a *relatively small* population.
        The default setting (i.e., using a `small` population) may result in *relatively fast* (local) convergence,
-       but with the risk of getting trapped in suboptima on multi-modal fitness landscape.
+       but perhaps with the risk of getting trapped in suboptima on multi-modal fitness landscape. Therefore, it is
+       recommended to first attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale black-box
+       optimization. Here we include `DSAES` mainly for *benchmarking* and *theoretical* purpose.
 
     Parameters
     ----------
@@ -44,47 +46,51 @@ class DSAES(ES):
        >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.dsaes import DSAES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> dsaes = DSAES(problem, options)  # initialize the optimizer class
-       >>> results = dsaes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be tuned
+       >>> dsaes = DSAES(problem, options)  # to initialize the optimizer class
+       >>> results = dsaes.optimize()  # to run the optimization/evolution process
+       >>> # to return the number of function evaluations and the best-so-far fitness
        >>> print(f"DSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       DSAES: 5000, 0.04805047881994932
+       DSAES: 5000, 1.9916050765897666e-07
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/2c8e89kj>`_ for more details.
 
     Attributes
     ----------
-    lr_sigma      : `float`
-                    learning rate of global step-size self-adaptation.
-    mean          : `array_like`
-                    initial (starting) point, aka mean of Gaussian search distribution.
-    n_individuals : `int`
-                    number of offspring, aka offspring population size.
-    sigma         : `float`
-                    initial global step-size, aka mutation strength.
-    _axis_sigmas  : `array_like`
-                    final individuals step-sizes from the elitist.
+    best_so_far_x  : `array_like`
+                     final best-so-far solution found during entire optimization.
+    best_so_far_y  : `array_like`
+                     final best-so-far fitness found during entire optimization.
+    lr_sigma       : `float`
+                     learning rate of global step-size self-adaptation.
+    mean           : `array_like`
+                     initial (starting) point, aka mean of Gaussian search distribution.
+    n_individuals  : `int`
+                     number of offspring, aka offspring population size.
+    sigma          : `float`
+                     initial global step-size, aka mutation strength.
+    _axis_sigmas   : `array_like`
+                     final individuals step-sizes from the elitist.
 
     References
     ----------
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
-    Evolution strategies.
+    `Evolution strategies.
+    <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
 
     Ostermeier, A., Gawelczyk, A. and Hansen, N., 1994.
-    A derandomized approach to self-adaptation of evolution strategies.
+    `A derandomized approach to self-adaptation of evolution strategies.
+    <https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of>`_
     Evolutionary Computation, 2(4), pp.369-380.
-    https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of
     """
     def __init__(self, problem, options):
         if options.get('n_individuals') is None:
