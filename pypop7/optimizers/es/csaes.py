@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.es.es import ES
 from pypop7.optimizers.es.dsaes import DSAES
@@ -9,11 +9,11 @@ class CSAES(DSAES):
 
     .. note:: `CSAES` adapts all the *individual* step-sizes on-the-fly with a *relatively small* population,
        according to the well-known `CSA <http://link.springer.com/chapter/10.1007/3-540-58484-6_263>`_ rule
-       from the Evolutionary Computation community. The default setting (i.e., using a `small` population)
-       may result in *relatively fast* (local) convergence, but with the risk of getting trapped in suboptima
-       on multi-modal fitness landscape (which can be alleviated via *restart*).
-
-       AKA cumulative (evolution) path-length control.
+       (a.k.a. cumulative (evolution) path-length control) from the Evolutionary Computation community. The
+       default setting (i.e., using a `small` population) can result in *relatively fast* (local) convergence,
+       but perhaps with the risk of getting trapped in suboptima on multi-modal fitness landscape. Therefore,
+       it is recommended to first attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale
+       black-box optimization. Here we include `CSAES` mainly for *benchmarking* and *theoretical* purpose.
 
     Parameters
     ----------
@@ -50,20 +50,20 @@ class CSAES(DSAES):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.csaes import CSAES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> csaes = CSAES(problem, options)  # initialize the optimizer class
-       >>> results = csaes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 0.1}  # global step-size may need to be tuned
+       >>> csaes = CSAES(problem, options)  # to initialize the optimizer class
+       >>> results = csaes.optimize()  # to run the optimization/evolution process
+       >>> # to return the number of function evaluations and best-so-far fitness
        >>> print(f"CSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        CSAES: 5000, 0.010143683086819875
 
@@ -72,34 +72,38 @@ class CSAES(DSAES):
 
     Attributes
     ----------
-    lr_sigma      : `float`
-                    learning rate of global step-size adaptation.
-    mean          : `array_like`
-                    initial (starting) point, aka mean of Gaussian search distribution.
-    n_individuals : `int`
-                    number of offspring, aka offspring population size.
-    n_parents     : `int`
-                    number of parents, aka parental population size.
-    sigma         : `float`
-                    initial global step-size, aka mutation strength.
+    best_so_far_x  : `array_like`
+                     final best-so-far solution found during entire optimization.
+    best_so_far_y  : `array_like`
+                     final best-so-far fitness found during entire optimization.
+    lr_sigma       : `float`
+                     learning rate of global step-size adaptation.
+    mean           : `array_like`
+                     initial (starting) point, aka mean of Gaussian search distribution.
+    n_individuals  : `int`
+                     number of offspring, aka offspring population size.
+    n_parents      : `int`
+                     number of parents, aka parental population size.
+    sigma          : `float`
+                     initial global step-size, aka mutation strength.
 
     References
     ----------
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
-    Evolution strategies.
+    `Evolution strategies.
+    <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
 
     Kern, S., Müller, S.D., Hansen, N., Büche, D., Ocenasek, J. and Koumoutsakos, P., 2004.
-    Learning probability distributions in continuous evolutionary algorithms–a comparative review.
+    `Learning probability distributions in continuous evolutionary algorithms–a comparative review.
+    <https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e>`_
     Natural Computing, 3, pp.77-112.
-    https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e
 
     Ostermeier, A., Gawelczyk, A. and Hansen, N., 1994, October.
-    Step-size adaptation based on non-local use of selection information
+    `Step-size adaptation based on non-local use of selection information
+    <http://link.springer.com/chapter/10.1007/3-540-58484-6_263>`_
     In International Conference on Parallel Problem Solving from Nature (pp. 189-198).
     Springer, Berlin, Heidelberg.
-    http://link.springer.com/chapter/10.1007/3-540-58484-6_263
     """
     def __init__(self, problem, options):
         if options.get('n_individuals') is None:  # number of offspring, aka offspring population size
