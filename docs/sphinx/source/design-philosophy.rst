@@ -143,11 +143,10 @@ intelligence (SI), and metaheuristics communities, please refer to the following
     Pesch, E., Garcia-Sanchez, P., Schaerf, A., Sim, K., Smith, J.E., Stutzle, T., Voß, S., Wagner, S., Yao., X., 2015, June.
     A research agenda for metaheuristic standardization. In Proceedings of International Conference on Metaheuristics (pp. 1-3).
 
-  * Sonnenburg, S., Braun, M.L., Ong, C.S., Bengio, S., Bottou, L., Holmes, G., LeCunn, Y., Muller, K.R., Pereira, F.,
-    Rasmussen, C.E., Ratsch, G., et al., 2007. `The need for open source software in machine learning
+  * Sonnenburg, S., Braun, M.L., Ong, C.S., et al., 2007. `The need for open source software in machine learning
     <https://jmlr.csail.mit.edu/papers/volume8/sonnenburg07a/sonnenburg07a.pdf>`_. Journal of Machine Learning Research,
     8, pp.2443-2466.
 
-We expect to see more interesting discussions about the **Beauty of Black-Box Optimizers**! For **new/missed** BBO, we
-provide a *unified* API interface to freely add them if they satisfy the above design philosophy (see
-`development-guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for details).
+Finally, we expect to see more interesting discussions about the **beauty** of BBO. For any **new/missed** BBO,
+we provide a *unified* API interface to help freely add them if they satisfy the above design philosophy well.
+See the `development guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for more details).
