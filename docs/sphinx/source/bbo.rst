@@ -72,12 +72,14 @@ This may in part explain why there exist a large number of optimization algorith
 in practice. However, unfortunately **not** all optimizers are well-designed and widely-acceptable. Refer to the `Design
 Philosophy <https://pypop.readthedocs.io/en/latest/design-philosophy.html>`_ section for discussions.
 
-Curse of Dimensionality for Large-Scale BBO (LSBBO)
----------------------------------------------------
+Curse of Dimensionality for Large-Scale BBO (LBO)
+-------------------------------------------------
 
-Arguably for all black-box optimizers, they can suffer from the famous "Curse of Dimensionality", since the essence
-of nearly all black-box optimizers are based on limited sampling. Refer to e.g., `[Nesterov&Spokoiny, 2017, FoCM]
-<https://link.springer.com/article/10.1007/s10208-015-9296-2>`_ for a deep theoretical analysis.
+Arguably all black-box optimizers have a possible risk of sufferring from the notorious "Curse of Dimensionality" (also
+called `Combinatorial Explosion <https://dl.acm.org/doi/pdf/10.1145/1283920.1283930>`_ in the combinatorial optimization
+scenario), since the essence (driving force) of all black-box optimizers are based on **limited sampling** in practice.
+Please refer to e.g., `[Nesterov&Spokoiny, 2017, FoCM] <https://link.springer.com/article/10.1007/s10208-015-9296-2>`_
+for theoretical analyses.
 
 Luckily, for some real-world applications, there may exist some structures to be available. If such a structure can be
 efficiently exploited in an automatic fashion (via well-designed optimization strategies), the convergence rate may be
