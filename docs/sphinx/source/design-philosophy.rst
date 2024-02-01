@@ -149,4 +149,4 @@ intelligence (SI), and metaheuristics communities, please refer to the following
 
 Finally, we expect to see more interesting discussions about the **beauty** of BBO. For any **new/missed** BBO,
 we provide a *unified* API interface to help freely add them if they satisfy the above design philosophy well.
-See the `development guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for more details).
+See the `development guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for more details.
