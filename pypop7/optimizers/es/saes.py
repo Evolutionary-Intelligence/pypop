@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.es.es import ES
 
@@ -7,10 +7,10 @@ class SAES(ES):
     """Self-Adaptation Evolution Strategy (SAES).
 
     .. note:: `SAES` adapts only the *global* step-size on-the-fly with a *relatively small* population, often
-       resulting in *slow* (and even *premature*) convergence for large-scale black-box optimization (LSBBO),
-       especially on *ill-conditioned* fitness landscape. Therefore, it is **highly recommended** to first
-       attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for LSBBO. Here we include it only for
-       *benchmarking* and *theoretical* purpose.
+       resulting in *slow* (and even *premature*) convergence for large-scale black-box optimization (LBO),
+       especially on *ill-conditioned* fitness landscapes. Therefore, it is recommended to first attempt more
+       advanced ES variants (e.g. `LMCMA`, `LMMAES`) for LBO. Here we include `SAES` mainly for *benchmarking*
+       and *theoretical* purpose.
 
     Parameters
     ----------
@@ -41,55 +41,59 @@ class SAES(ES):
 
     Examples
     --------
-    Use the optimizer `SAES` to minimize the well-known test function
+    Use the black-box optimizer `SAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.saes import SAES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> saes = SAES(problem, options)  # initialize the optimizer class
-       >>> results = saes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be tuned
+       >>> saes = SAES(problem, options)  # to initialize the optimizer class
+       >>> results = saes.optimize()  # to run the optimization/evolution process
+       >>> # to return the number of function evaluations and the best-so-far fitness
        >>> print(f"SAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SAES: 5000, 0.07968852575335955
+       SAES: 5000, 0.012622712890954227
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/mvkspst4>`_ for more details.
 
     Attributes
     ----------
-    lr_sigma      : `float`
-                    learning rate of global step-size.
-    mean          : `array_like`
-                    initial (starting) point, aka mean of Gaussian search distribution.
-    n_individuals : `int`
-                    number of offspring, aka offspring population size.
-    n_parents     : `int`
-                    number of parents, aka parental population size.
-    sigma         : `float`
-                    final global step-size, aka mutation strength.
+    best_so_far_x  : `array_like`
+                     final best-so-far solution found during entire optimization.
+    best_so_far_y  : `array_like`
+                     final best-so-far fitness found during entire optimization.
+    lr_sigma       : `float`
+                     learning rate of global step-size adaptation.
+    mean           : `array_like`
+                     initial (starting) point, aka mean of Gaussian search distribution.
+    n_individuals  : `int`
+                     number of offspring, aka offspring population size.
+    n_parents      : `int`
+                     number of parents, aka parental population size.
+    sigma          : `float`
+                     final global step-size, aka mutation strength (changed during optimization).
 
     References
     ----------
     Beyer, H.G., 2020, July.
-    Design principles for matrix adaptation evolution strategies.
-    In Proceedings of Annual Conference on Genetic and Evolutionary Computation Companion (pp. 682-700). ACM.
-    https://dl.acm.org/doi/abs/10.1145/3377929.3389870
+    `Design principles for matrix adaptation evolution strategies.
+    <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_
+    In Proceedings of ACM Conference on Genetic and Evolutionary Computation Companion (pp. 682-700). ACM.
 
     http://www.scholarpedia.org/article/Evolution_strategies
 
-    See its official Matlab/Octave version from Prof. Beyer:
+    See its official Matlab/Octave version from `Prof. Beyer <https://homepages.fhv.at/hgb/>`_:
     https://homepages.fhv.at/hgb/downloads/mu_mu_I_lambda-ES.oct
     """
     def __init__(self, problem, options):
