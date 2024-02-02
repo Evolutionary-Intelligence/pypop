@@ -44,7 +44,7 @@ class CSAES(DSAES):
 
     Examples
     --------
-    Use the optimizer `CSAES` to minimize the well-known test function
+    Use the black-box optimizer `CSAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
