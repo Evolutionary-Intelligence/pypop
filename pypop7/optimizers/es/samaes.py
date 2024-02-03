@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.es.es import ES
 from pypop7.optimizers.es.saes import SAES
@@ -7,8 +7,9 @@ from pypop7.optimizers.es.saes import SAES
 class SAMAES(SAES):
     """Self-Adaptation Matrix Adaptation Evolution Strategy (SAMAES).
 
-    .. note:: It is **highly recommended** to first attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for
-       large-scale black-box optimization. Here we include it only for *benchmarking* and *theoretical* purpose.
+    .. note:: It is recommended to first attempt more advanced ES variants (e.g. `LMCMA`, `LMMAES`) for
+       large-scale black-box optimization. Here we include it mainly for *benchmarking* and *theoretical*
+       purpose.
 
     Parameters
     ----------
@@ -41,34 +42,38 @@ class SAMAES(SAES):
 
     Examples
     --------
-    Use the optimizer `SAMAES` to minimize the well-known test function
+    Use the black-box optimizer `SAMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.samaes import SAMAES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> samaes = SAMAES(problem, options)  # initialize the optimizer class
-       >>> results = samaes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be tuned
+       >>> samaes = SAMAES(problem, options)  # to initialize the optimizer class
+       >>> results = samaes.optimize()  # to run the optimization/evolution process
+       >>> # to return the number of function evaluations and the best-so-far fitness
        >>> print(f"SAMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SAMAES: 5000, 5.674972930091687e-17
+       SAMAES: 5000, 3.002228687821483e-18
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/56k42a2n>`_ for more details.
 
     Attributes
     ----------
+    best_so_far_x : `array_like`
+                    final best-so-far solution found during entire optimization.
+    best_so_far_y : `array_like`
+                    final best-so-far fitness found during entire optimization.
     lr_sigma      : `float`
                     learning rate of global step-size adaptation.
     mean          : `array_like`
@@ -78,16 +83,16 @@ class SAMAES(SAES):
     n_parents     : `int`
                     number of parents, aka parental population size.
     sigma         : `float`
-                    final global step-size, aka mutation strength.
+                    final global step-size, aka mutation strength (changed during optimization).
     lr_matrix     : `float`
                     learning rate of matrix adaptation.
 
     References
     ----------
-    Beyer, H.G., 2020, July.
-    Design principles for matrix adaptation evolution strategies.
-    In Proceedings of Annual Conference on Genetic and Evolutionary Computation Companion (pp. 682-700). ACM.
-    https://dl.acm.org/doi/abs/10.1145/3377929.3389870
+    `Beyer, H.G. <https://homepages.fhv.at/hgb/>`_, 2020, July.
+    `Design principles for matrix adaptation evolution strategies.
+    <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_
+    In Proceedings of ACM Conference on Genetic and Evolutionary Computation Companion (pp. 682-700). ACM.
     """
     def __init__(self, problem, options):
         SAES.__init__(self, problem, options)
