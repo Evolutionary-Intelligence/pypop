@@ -32,7 +32,8 @@ Some of common problem characteristics of BBO are presented below:
   * `[Cowen-Rivers, 2022, Doctoral Thesis] <https://tuprints.ulb.tu-darmstadt.de/24178/1/Pushing%20The%20Limits%20Of%20Sample-Efficent%20Optimisation.pdf>`_
     from the `AutoML <https://www.automl.org/automl/>`_ community;
   * `[Schumer and Steiglitz, 1968, TAC] <https://ieeexplore.ieee.org/abstract/document/1098903>`_,
-    `[Karnopp, 1963, Automatica] <https://www.sciencedirect.com/science/article/abs/pii/0005109863900189>`_ from the `Adaptive Control
+    `[Karnopp, 1963, Automatica] <https://www.sciencedirect.com/science/article/abs/pii/0005109863900189>`_,
+    `[Ashby, 1952] <https://psycnet.apa.org/record/1953-03189-000>`_ from the `Adaptive Control
     <https://www.cds.caltech.edu/archive/help/uploads/wiki/files/140/IEEE_WorkShop_Slides_Lavretsky.pdf>`_ community;
   * `[Brooks, 1958, OR] <https://pubsonline.informs.org/doi/10.1287/opre.6.2.244>`_ from the Operations Research community;
 * without a precise mathematical model (e.g., owing to complex simulation), such as
