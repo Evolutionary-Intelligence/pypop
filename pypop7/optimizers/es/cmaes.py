@@ -6,9 +6,9 @@ from pypop7.optimizers.es.es import ES
 class CMAES(ES):
     """Covariance Matrix Adaptation Evolution Strategy (CMAES).
 
-    .. note:: `CMAES` is widely recognized as one of **State Of The Art (SOTA)** evolutionary algorithms for black-box
-       optimization, according to the `Nature <https://www.nature.com/articles/nature14544>`_ review of Evolutionary
-       Computation. Currently, the standard `(µ/µ_W, λ)-CMA-ES` version is considered in our Python implementation.
+    .. note:: `CMAES` is widely recognized as one of **State Of The Art (SOTA)** evolutionary algorithms for continuous
+       black-box optimization, according to the well-recognized `Nature <https://www.nature.com/articles/nature14544>`_
+       review of Evolutionary Computation.
 
     Parameters
     ----------
@@ -37,7 +37,7 @@ class CMAES(ES):
 
     Examples
     --------
-    Use the optimizer `CMAES` to minimize the well-known test function
+    Use the black-box optimizer `CMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -46,26 +46,29 @@ class CMAES(ES):
        >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.cmaes import CMAES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5.0*numpy.ones((2,)),
        ...            'upper_boundary': 5.0*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'is_restart': False,
        ...            'mean': 3.0*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> cmaes = CMAES(problem, options)  # initialize the optimizer class
-       >>> results = cmaes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'sigma': 3.0}  # global step-size may need to be tuned
+       >>> cmaes = CMAES(problem, options)  # to initialize the optimizer class
+       >>> results = cmaes.optimize()  # to run the optimization/evolution process
+       >>> # to return the number of function evaluations and the best-so-far fitness
        >>> print(f"CMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CMAES: 5000, 9.11305771685916e-09
+       CMAES: 5000, 0.0017836312093795592
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/4mysrjwe>`_ for more details.
 
     Attributes
     ----------
+    best_so_far_x : `array_like`
+                    final best-so-far solution found during entire optimization.
+    best_so_far_y : `array_like`
+                    final best-so-far fitness found during entire optimization.
     mean          : `array_like`
                     initial (starting) point, aka mean of Gaussian search distribution.
     n_individuals : `int`
@@ -73,11 +76,11 @@ class CMAES(ES):
     n_parents     : `int`
                     number of parents, aka parental population size / number of positively selected search points.
     sigma         : `float`
-                    final global step-size, aka mutation strength.
+                    final global step-size, aka mutation strength (updated during optimization).
 
     References
     ----------
-    Hansen, N., 2023.
+    `Hansen, N. <http://www.cmap.polytechnique.fr/~nikolaus.hansen/>`_, 2023.
     `The CMA evolution strategy: A tutorial.
     <https://arxiv.org/abs/1604.00772>`_
     arXiv preprint arXiv:1604.00772.
@@ -105,7 +108,8 @@ class CMAES(ES):
     See one *lightweight* Python implementation of **CMA-ES** from `cyberagent.ai <https://cyberagent.ai/>`_:
     https://github.com/CyberAgentAILab/cmaes
 
-    Refer to the *official* Python implementation of **CMA-ES** from Hansen:
+    Refer to the *official* Python implementation of **CMA-ES** from `Hansen, N.
+    <http://www.cmap.polytechnique.fr/~nikolaus.hansen/>`_:
     https://github.com/CMA-ES/pycma
     """
     def __init__(self, problem, options):
