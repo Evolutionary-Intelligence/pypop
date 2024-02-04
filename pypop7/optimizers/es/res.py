@@ -123,6 +123,11 @@ class RES(ES):
     `The evolution strategy. A mathematical model of darwinian evolution.
     <https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13>`_
     In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer, Berlin, Heidelberg.
+    
+    Schumer, M.A. and `Steiglitz, K. <https://www.cs.princeton.edu/~ken/>`_, 1968.
+    `Adaptive step size random search.
+    <https://ieeexplore.ieee.org/abstract/document/1098903>`_
+    IEEE Transactions on Automatic Control, 13(3), pp.270-276.
     """
     def __init__(self, problem, options):
         options['n_parents'] = 1  # mandatory setting
