@@ -29,8 +29,8 @@ Some of common problem characteristics of BBO are presented below:
 
 * Unavailability of the gradient information in various black-box settings, such as
 
-  * `[Cowen-Rivers, 2022, Doctoral Thesis] <https://tuprints.ulb.tu-darmstadt.de/24178/1/Pushing%20The%20Limits%20Of%20Sample-Efficent%20Optimisation.pdf>`_;
-  * `[Schumer and Steiglitz, 1968, TAC] <https://ieeexplore.ieee.org/abstract/document/1098903>`_;
+  * `[Cowen-Rivers, 2022, Doctoral Thesis] <https://tuprints.ulb.tu-darmstadt.de/24178/1/Pushing%20The%20Limits%20Of%20Sample-Efficent%20Optimisation.pdf>`_ from the AutoML community;
+  * `[Schumer and Steiglitz, 1968, TAC] <https://ieeexplore.ieee.org/abstract/document/1098903>`_ from the Adaptive Control community;
 * without a precise mathematical model (e.g., owing to complex simulation), such as
 
   * `[Robbins, 1952, BAMS] <https://community.ams.org/journals/bull/1952-58-05/S0002-9904-1952-09620-8/S0002-9904-1952-09620-8.pdf>`_.
