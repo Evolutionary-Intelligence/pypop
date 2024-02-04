@@ -29,6 +29,7 @@ Some common problem characteristics of BBO are presented below:
 
 * Unavailability of the gradient information in various black-box settings, such as
 
+  * `[Cowen-Rivers, 2022, Doctoral Thesis] <https://tuprints.ulb.tu-darmstadt.de/24178/1/Pushing%20The%20Limits%20Of%20Sample-Efficent%20Optimisation.pdf>`_;
   * `[Schumer and Steiglitz, 1968, TAC] <https://ieeexplore.ieee.org/abstract/document/1098903>`_;
 * without a precise mathematical model (e.g., owing to complex simulation), such as
 
