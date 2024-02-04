@@ -25,7 +25,7 @@ Gradient-Free Minimization of Convex Functions**, just to name a few:
    function value is always much simpler than the program for computing the vector of the gradient)."---[Nesterov&Spokoiny,
    2017, FoCM] <https://link.springer.com/article/10.1007/s10208-015-9296-2>`_
 
-Some common problem characteristics of BBO are presented below:
+Some of common problem characteristics of BBO are presented below:
 
 * Unavailability of the gradient information in various black-box settings, such as
 
