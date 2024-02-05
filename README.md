@@ -402,7 +402,7 @@ For each algorithm family, we provide several *representative* applications publ
   * Schumer, M.A. and Steiglitz, K., 1968. [Adaptive step size random search](https://ieeexplore.ieee.org/abstract/document/1098903). IEEE Transactions on Automatic Control, 13(3), pp.270-276.
   * Rastrigin, L.A., 1963. [The convergence of the random search method in the extremal control of a many parameter system](https://tinyurl.com/djfdnpx4). Automaton & Remote Control, 24, pp.1337-1342. [ Rastrigin, L.A., 1986. [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129). In Stochastic Optimization. ]
   * Brooks, S.H., 1958. [A discussion of random methods for seeking maxima](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244). Operations Research, 6(2), pp.244-251.
-  * Some interesting applications of RS: e.g., [[Moon et al., Nature Medicine]](https://www.nature.com/articles/s41591-023-02482-6).
+  * Some interesting applications of RS: e.g., [[Moon et al., Nature Medicine]](https://www.nature.com/articles/s41591-023-02482-6); [Mathis et al., 2023, Nature Biotechnology]https://www.nature.com/articles/s41587-022-01613-7).
 * Bayesian Optimization (BO)
   * [https://bayesoptbook.com/](https://bayesoptbook.com/)
   * [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
