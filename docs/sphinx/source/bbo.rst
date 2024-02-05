@@ -32,6 +32,7 @@ Some of common problem characteristics of BBO are presented below:
   * `[Moon et al., 2023, Nature Medicine] <https://www.nature.com/articles/s41591-023-02482-6>`_,
     `[Mathis et al., 2023, Nature Biotechnology] <https://www.nature.com/articles/s41587-022-01613-7>`_,
     `[Cowen-Rivers, 2022, Doctoral Thesis] <https://tuprints.ulb.tu-darmstadt.de/24178/1/Pushing%20The%20Limits%20Of%20Sample-Efficent%20Optimisation.pdf>`_,
+    `[Beucler et al., 2021, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.098302>`_,
     `[Gonatopoulos-Pournatzis et al., 2020, Nature Biotechnology] <https://www.nature.com/articles/s41587-020-0437-z>`_
     from the `AutoML <https://www.automl.org/automl/>`_ community;
   * `[Schumer and Steiglitz, 1968, TAC] <https://ieeexplore.ieee.org/abstract/document/1098903>`_,
