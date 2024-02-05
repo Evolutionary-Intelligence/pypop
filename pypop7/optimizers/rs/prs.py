@@ -60,20 +60,26 @@ class PRS(RS):
 
     References
     ----------
-    Bergstra, J. and Bengio, Y., 2012.
-    Random search for hyper-parameter optimization.
+    Bergstra, J. and `Bengio, Y. <https://yoshuabengio.org/>`_, 2012.
+    `Random search for hyper-parameter optimization.
+    <https://www.jmlr.org/papers/v13/bergstra12a.html>`_
     Journal of Machine Learning Research, 13(2).
-    https://www.jmlr.org/papers/v13/bergstra12a.html
 
-    Schmidhuber, J., Hochreiter, S. and Bengio, Y., 2001.
-    Evaluating benchmark problems by random guessing.
+    `Schmidhuber, J. <https://people.idsia.ch/~juergen/>`_, Hochreiter, S. and
+    `Bengio, Y. <https://yoshuabengio.org/>`_, 2001.
+    `Evaluating benchmark problems by random guessing.
+    <https://ml.jku.at/publications/older/ch9.pdf>`_
     A Field Guide to Dynamical Recurrent Networks, pp.231-235.
-    https://ml.jku.at/publications/older/ch9.pdf
+
+    Karnopp, D.C., 1963.
+    `Random search techniques for optimization problems.
+    <https://www.sciencedirect.com/science/article/abs/pii/0005109863900189>`_
+    Automatica, 1(2-3), pp.111-121.
 
     Brooks, S.H., 1958.
-    A discussion of random methods for seeking maxima.
+    `A discussion of random methods for seeking maxima.
+    <https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244>`_
     Operations Research, 6(2), pp.244-251.
-    https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244
     """
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
