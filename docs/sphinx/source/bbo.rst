@@ -36,7 +36,8 @@ Some of common problem characteristics of BBO are presented below:
     `[Gonatopoulos-Pournatzis et al., 2020, Nature Biotechnology] <https://www.nature.com/articles/s41587-020-0437-z>`_,
     `[Valeri et al., 2020, Nature Communications] <https://www.nature.com/articles/s41467-020-18676-2>`_,
     and so on from the `AutoML <https://www.automl.org/automl/>`_ community;
-  * `[Schumer and Steiglitz, 1968, TAC] <https://ieeexplore.ieee.org/abstract/document/1098903>`_,
+  * `[Chen et al., 2020, Science Robotics] <https://www.science.org/doi/full/10.1126/scirobotics.abb6938>`_,
+    `[Schumer and Steiglitz, 1968, TAC] <https://ieeexplore.ieee.org/abstract/document/1098903>`_,
     `[Karnopp, 1963, Automatica] <https://www.sciencedirect.com/science/article/abs/pii/0005109863900189>`_,
     `[Ashby, 1952] <https://psycnet.apa.org/record/1953-03189-000>`_ from the `Adaptive Control
     <https://www.cds.caltech.edu/archive/help/uploads/wiki/files/140/IEEE_WorkShop_Slides_Lavretsky.pdf>`_ community;
