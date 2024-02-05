@@ -76,6 +76,11 @@ class PRS(RS):
     <https://www.sciencedirect.com/science/article/abs/pii/0005109863900189>`_
     Automatica, 1(2-3), pp.111-121.
 
+    Brooks, S.H., 1959.
+    `A comparison of maximum-seeking methods.
+    <https://pubsonline.informs.org/doi/abs/10.1287/opre.7.4.430>`_
+    Operations Research, 7(4), pp.430-457.
+
     Brooks, S.H., 1958.
     `A discussion of random methods for seeking maxima.
     <https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244>`_
