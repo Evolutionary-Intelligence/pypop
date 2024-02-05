@@ -63,7 +63,7 @@ class PRS(RS):
     Bergstra, J. and `Bengio, Y. <https://yoshuabengio.org/>`_, 2012.
     `Random search for hyper-parameter optimization.
     <https://www.jmlr.org/papers/v13/bergstra12a.html>`_
-    Journal of Machine Learning Research, 13(2).
+    Journal of Machine Learning Research, 13(10), pp.281-305.
 
     `Schmidhuber, J. <https://people.idsia.ch/~juergen/>`_, Hochreiter, S. and
     `Bengio, Y. <https://yoshuabengio.org/>`_, 2001.
