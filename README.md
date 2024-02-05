@@ -418,7 +418,7 @@ For each algorithm family, we provide several *representative* applications publ
 
 ## Sponsor for PyPop7
 
-This open-source Python library for BBO is now supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000 from 2021 to 2023), granted to Prof. Shi (CSE, SUSTech@Shenzhen, China).
+From 2021 to 2023, this open-source library was supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000).
 
 ## Citation for PyPop7
 
