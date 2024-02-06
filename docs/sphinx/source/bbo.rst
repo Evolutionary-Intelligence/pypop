@@ -50,6 +50,7 @@ Some of common problem characteristics of BBO are presented below:
     `[Brooks, 1958, OR] <https://pubsonline.informs.org/doi/10.1287/opre.6.2.244>`_ from the Operations Research (OR) community;
 * without a precise mathematical model (e.g., owing to complex simulation), such as
 
+  * `[Pickard&Needs, 2006, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.97.045504>`_,
   * `[Robbins, 1952, BAMS] <https://community.ams.org/journals/bull/1952-58-05/S0002-9904-1952-09620-8/S0002-9904-1952-09620-8.pdf>`_.
 * non-differentiability, such as
 
