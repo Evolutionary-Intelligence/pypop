@@ -10,7 +10,7 @@
 
 More specifically, for alleviating their **curse of dimensionality**, the primary focus of ```PyPop7``` is to cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their small/medium-scaled versions and variants are also included here (mainly for theoretical or benchmarking purposes).
 
-## How to Quickly Use PyPop7
+## How to Quickly Use
 
 The following three steps are enough to utilize the optimization power of this library [PyPop7](https://pypi.org/project/pypop7/):
 
@@ -417,12 +417,10 @@ For each algorithm family, we provide several *representative* applications publ
   * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010. [PyBrain](https://jmlr.org/papers/v11/schaul10a.html). Journal of Machine Learning Research, 11(24), pp.743-746.
   * Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
 
-## Sponsor for PyPop7
+## Sponsor
 
 From 2021 to 2023, this open-source library was supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000).
 
-## Citation for PyPop7
+## Citation
 
-If this open-source pure-Python library is used in your paper or project, it is highly welcomed to cite the following arXiv [preprint](https://arxiv.org/abs/2212.05652) paper:
-
-**Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y., Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.**
+If this open-source library is used in your paper/project, it is highly welcomed to cite the following arXiv [preprint](https://arxiv.org/abs/2212.05652) paper: **Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y., Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.**
