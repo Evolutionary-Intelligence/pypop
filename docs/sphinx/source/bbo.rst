@@ -30,6 +30,7 @@ Some of common problem characteristics of BBO are presented below:
 * Unavailability of the gradient information in various black-box settings, such as
 
   * `[Moon et al., 2023, Nature Medicine] <https://www.nature.com/articles/s41591-023-02482-6>`_,
+    `[Wang et al., 2023, Nature Mental Health] <https://www.nature.com/articles/s44220-023-00110-3>`_,
     `[Xie et al., 2023, Nature Communications] <https://www.nature.com/articles/s41467-023-41951-x>`_,
     `[Mathis et al., 2023, Nature Biotechnology] <https://www.nature.com/articles/s41587-022-01613-7>`_,
     `[Cowen-Rivers, 2022, Doctoral Thesis] <https://tuprints.ulb.tu-darmstadt.de/24178/1/Pushing%20The%20Limits%20Of%20Sample-Efficent%20Optimisation.pdf>`_,
