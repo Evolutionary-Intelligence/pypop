@@ -33,6 +33,7 @@ Some of common problem characteristics of BBO are presented below:
     `[Wang et al., 2023, Nature Mental Health] <https://www.nature.com/articles/s44220-023-00110-3>`_,
     `[Xie et al., 2023, Nature Communications] <https://www.nature.com/articles/s41467-023-41951-x>`_,
     `[Mathis et al., 2023, Nature Biotechnology] <https://www.nature.com/articles/s41587-022-01613-7>`_,
+    `[Muller et al., 2023, ICML] <https://proceedings.mlr.press/v202/muller23a/muller23a.pdf>`_,
     `[Tian et al., 2023, KDD] <https://dl.acm.org/doi/pdf/10.1145/3580305.3599882>`_,
     `[Cowen-Rivers, 2022, Doctoral Thesis] <https://tuprints.ulb.tu-darmstadt.de/24178/1/Pushing%20The%20Limits%20Of%20Sample-Efficent%20Optimisation.pdf>`_,
     `[Flam-Shepherd et al., 2022, Nature Communications] <https://www.nature.com/articles/s41467-022-30839-x>`_,
