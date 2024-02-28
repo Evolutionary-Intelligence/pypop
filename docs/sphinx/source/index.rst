@@ -36,7 +36,8 @@ here (some mainly for *theoretical* purposes, some mainly for *benchmarking* pur
 
 .. note::
    This `open-source <https://www.gnu.org/>`_ Python library for **continuous** BBO is under active maintenance (from 2023).
-   In the future, we plan to add some NEW BBO and some SOTA versions of existing BBO, to make this library as fresh as possible.
+   In the future, we plan to add some NEW BBO and some SOTA versions of existing BBO, to make this open-source library as
+   fresh as possible.
 
 **Quick Start**
 
