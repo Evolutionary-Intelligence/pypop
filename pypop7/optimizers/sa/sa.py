@@ -66,6 +66,11 @@ class SA(RS):
     https://dl.acm.org/doi/abs/10.1145/29380.29864
     https://dl.acm.org/doi/10.1145/66888.356281
 
+    Szu, H.H. and Hartley, R.L., 1987.
+    `Nonconvex optimization by fast simulated annealing.
+    <https://ieeexplore.ieee.org/abstract/document/1458183>`_
+    Proceedings of the IEEE, 75(11), pp.1538-1540.
+
     Kirkpatrick, S., Gelatt, C.D. and Vecchi, M.P., 1983.
     Optimization by simulated annealing.
     Science, 220(4598), pp.671-680.
