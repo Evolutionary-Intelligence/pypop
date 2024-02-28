@@ -26,9 +26,9 @@ repeatability, benchmarking of BBO, and also real-world applications.
 
 Specifically, for alleviating the notorious **curse of dimensionality** of BBO, the primary focus of `PyPop7
 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to cover their **State-Of-The-Art (SOTA) implementations
-for Large-Scale Optimization (LSO)**, though many of their *medium/small-scale* versions and variants are also included
-here (some mainly for *theoretical* purposes, some mainly for *benchmarking* purposes, and some mainly for
-*application* purposes on medium/low dimensions).
+for Large-Scale Optimization (LSO)** as much as possible, though many of their *medium/small-scale* versions and
+variants are also included here (some mainly for *theoretical* purposes, some mainly for *benchmarking* purposes,
+and some mainly for *application* purposes on medium/low dimensions).
 
 .. image:: images/logo.png
    :width: 321px
