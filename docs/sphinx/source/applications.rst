@@ -3,6 +3,7 @@ Applications
 
 Up to now, this open-source Python library `PyPop7` has been used (at least) in the following papers:
 
+* 8: Ma, Z., Guo, H., Chen, J., Peng, G., Cao, Z., Ma, Y. and Gong, Y.J., 2024. `LLaMoCo: Instruction Tuning of Large Language Models for Optimization Code Generation <https://arxiv.org/abs/2403.01131>`_. arXiv preprint arXiv:2403.01131.
 * 7: Zhang, Z., Wei, Y. and Sui, Y., 2024. `An Invariant Information Geometric Method for High-Dimensional Online Optimization <https://arxiv.org/abs/2401.01579>`_. arXiv preprint arXiv:2401.01579.
 * 6: Yu, L., Chen, Q., Lin, J. and He, L., 2023. `Black-box Prompt Tuning for Vision-Language Model as a Service <https://www.ijcai.org/proceedings/2023/0187.pdf>`_. Proceedings of International Joint Conference on Artificial Intelligence (pp. 1686-1694). IJCAI.
 * 5: Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
