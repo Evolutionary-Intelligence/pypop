@@ -1,7 +1,7 @@
-.. This is the official documentation of PyPop7 (a Pure-PYthon library of POPulation-based black-box OPtimization).
+.. This is the official documentation of PyPop7.
 
-Welcome to PyPop7's Online Documentation for Black-Box Optimization!
-====================================================================
+PyPop7's Online Documentation for Black-Box Optimization (BBO)
+==============================================================
 
 .. image:: https://img.shields.io/badge/GitHub-PyPop7-red.svg
    :target: https://github.com/Evolutionary-Intelligence/pypop
