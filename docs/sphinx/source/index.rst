@@ -24,7 +24,7 @@ black-box problems. Its design goal is to provide a *unified* interface and *ele
 **Black-Box Optimizers (BBO)**, *particularly population-based optimizers*, in order to facilitate research
 repeatability, benchmarking of BBO, and also real-world applications.
 
-Specifically, for alleviating the notorious **curse of dimensionality** of BBO, the primary focus of `PyPop7
+Specifically, for alleviating the **curse of dimensionality** of BBO, the primary focus of `PyPop7
 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to cover their **State-Of-The-Art (SOTA) implementations
 for Large-Scale Optimization (LSO)** as much as possible, though many of their *medium/small-scale* versions and
 variants are also included here (some mainly for *theoretical* purposes, some mainly for *benchmarking* purposes,
@@ -35,9 +35,9 @@ and some mainly for *application* purposes on medium/low dimensions).
    :align: center
 
 .. note::
-   This `open-source <https://www.gnu.org/>`_ Python library for **continuous** BBO is under active maintenance (from 2023).
-   In the future, we plan to add some NEW BBO and some SOTA versions of existing BBO, to make this open-source library as
-   fresh as possible.
+   This `open-source <https://www.gnu.org/>`_ Python library for **continuous** BBO is still under active maintenance.
+   In the future, we plan to add some NEW BBO and some SOTA versions of existing BBO families, in order to make this
+   library as fresh as possible.
 
 **Quick Start**
 
