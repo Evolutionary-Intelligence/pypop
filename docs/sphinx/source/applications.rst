@@ -29,7 +29,7 @@ Till now, our library `PyPop7` has been used (at least) in the following open-so
 
 Till now, our paper about this open-source library `PyPop7` has been cited (at least) in the following papers:
 
-* 4: https://github.com/PdIPS/CBX/blob/main/paper.md
+* 4: Bailo, R., Barbaro, A., Gomes, S.N., Riedl, K., Roith, T., Totzeck, C. and Vaes, U., 2024. `CBX: Python and Julia packages for consensus-based interacting particle methods <https://github.com/PdIPS/CBX/blob/main/paper.md>`_. arXiv preprint arXiv:2403.14470.
 * 3: Ma, Z., Guo, H., Chen, J., Peng, G., Cao, Z., Ma, Y. and Gong, Y.J., 2024. `LLaMoCo: Instruction Tuning of Large Language Models for Optimization Code Generation <https://arxiv.org/abs/2403.01131>`_. arXiv preprint arXiv:2403.01131.
 * 2: Zhang, Z., Wei, Y. and Sui, Y., 2024. `An Invariant Information Geometric Method for High-Dimensional Online Optimization <https://arxiv.org/abs/2401.01579>`_. arXiv preprint arXiv:2401.01579.
 * 1: Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
