@@ -1,11 +1,12 @@
 Applications
 ============
 
-Up to now, this open-source Python library `PyPop7` has been used (at least) in the following papers:
+Up to now, this open-source Python library `PyPop7` has been **used/cited** (at least) in the following papers:
 
-* 8: Ma, Z., Guo, H., Chen, J., Peng, G., Cao, Z., Ma, Y. and Gong, Y.J., 2024. `LLaMoCo: Instruction Tuning of Large Language Models for Optimization Code Generation <https://arxiv.org/abs/2403.01131>`_. arXiv preprint arXiv:2403.01131.
-* 7: Zhang, Z., Wei, Y. and Sui, Y., 2024. `An Invariant Information Geometric Method for High-Dimensional Online Optimization <https://arxiv.org/abs/2401.01579>`_. arXiv preprint arXiv:2401.01579.
-* 6: Yu, L., Chen, Q., Lin, J. and He, L., 2023. `Black-box Prompt Tuning for Vision-Language Model as a Service <https://www.ijcai.org/proceedings/2023/0187.pdf>`_. Proceedings of International Joint Conference on Artificial Intelligence (pp. 1686-1694). IJCAI.
+* 9: Bailo, R., Barbaro, A., Gomes, S.N., Riedl, K., Roith, T., Totzeck, C. and Vaes, U., 2024. `CBX: Python and Julia Packages for Consensus-based Interacting Particle Methods <https://github.com/PdIPS/CBX/blob/main/paper.md>`_. arXiv preprint arXiv:2403.14470. [**cited**]
+* 8: Ma, Z., Guo, H., Chen, J., Peng, G., Cao, Z., Ma, Y. and Gong, Y.J., 2024. `LLaMoCo: Instruction Tuning of Large Language Models for Optimization Code Generation <https://arxiv.org/abs/2403.01131>`_. arXiv preprint arXiv:2403.01131. [**used&cited**]
+* 7: Zhang, Z., Wei, Y. and Sui, Y., 2024. `An Invariant Information Geometric Method for High-Dimensional Online Optimization <https://arxiv.org/abs/2401.01579>`_. arXiv preprint arXiv:2401.01579. [**used&cited**]
+* 6: Yu, L., Chen, Q., Lin, J. and He, L., 2023. `Black-box Prompt Tuning for Vision-Language Model as a Service <https://www.ijcai.org/proceedings/2023/0187.pdf>`_. Proceedings of International Joint Conference on Artificial Intelligence (pp. 1686-1694). IJCAI. [**used**]
 * 5: Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
 * 4: Duan, Q., Shao, C., Zhou, G., Zhao, Q. and Shi, Y., 2023. `Distributed Evolution Strategies with Multi-Level Learning for Large-Scale Black-Box Optimization <https://arxiv.org/abs/2310.05377>`_. arXiv preprint arXiv:2310.05377.
 * 3: Duan, Q., Shao, C., Zhou, G., Yang, H., Zhao, Q. and Shi, Y., 2023. `Cooperative Coevolution for Non-Separable Large-Scale Black-Box Optimization: Convergence Analyses and Distributed Accelerations <https://arxiv.org/abs/2304.05020>`_. arXiv preprint arXiv:2304.05020.
@@ -26,13 +27,6 @@ Till now, our library `PyPop7` has been used (at least) in the following open-so
 * 3: https://github.com/moesio-f/py-abm-public (2023)
 * 2: https://github.com/Evolutionary-Intelligence/M-DES (2023)
 * 1: https://github.com/Evolutionary-Intelligence/dpop7 (2023): A **parallel/distributed** extension to `PyPop7` (now actively developed).
-
-Till now, our paper about this open-source library `PyPop7` has been cited (at least) in the following papers:
-
-* 4: Bailo, R., Barbaro, A., Gomes, S.N., Riedl, K., Roith, T., Totzeck, C. and Vaes, U., 2024. `CBX: Python and Julia packages for consensus-based interacting particle methods <https://github.com/PdIPS/CBX/blob/main/paper.md>`_. arXiv preprint arXiv:2403.14470.
-* 3: Ma, Z., Guo, H., Chen, J., Peng, G., Cao, Z., Ma, Y. and Gong, Y.J., 2024. `LLaMoCo: Instruction Tuning of Large Language Models for Optimization Code Generation <https://arxiv.org/abs/2403.01131>`_. arXiv preprint arXiv:2403.01131.
-* 2: Zhang, Z., Wei, Y. and Sui, Y., 2024. `An Invariant Information Geometric Method for High-Dimensional Online Optimization <https://arxiv.org/abs/2401.01579>`_. arXiv preprint arXiv:2401.01579.
-* 1: Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768.
 
 For other introductions/coverage to this open-source library `PyPop7`, refer to e.g.:
 
