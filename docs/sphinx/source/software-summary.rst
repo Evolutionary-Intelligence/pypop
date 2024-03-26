@@ -43,6 +43,7 @@ Python
 * https://github.com/hyperopt/hyperopt ( **RS** )
 * https://github.com/ljvmiranda921/pyswarms (**PSO**)
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
+* https://github.com/qingquan63/FairEMOL (`FairEMOL <https://ieeexplore.ieee.org/document/9902997>`_ is for mitigating unfairness via Evolutionary Multiobjective Optimisation Learning.)
 * https://github.com/RobertTLange/evosax (`evosax <https://arxiv.org/abs/2212.04180>`_ is **well-designed** Python library of Evolutionary Algorithms (EAs) and NeuroEvolution (NE) run on **GPU**.)
 * https://github.com/uber-research/poet (Only for **Paired Open-Ended Trailblazer (POET)**)
 * https://pymoo.org/ (`pymoo <https://pymoo.org/>`_ offers **multi-objective** black-box optimization algorithms.)
