@@ -37,7 +37,7 @@ Python
   * https://github.com/NiMlr/High-Dim-ES-RL ( **CMA-ES** )
   * https://github.com/optuna/optuna ( **CMA-ES** )
 * https://github.com/deephyper/deephyper (**BO**)
-* https://github.com/google/evojax ( **NeuroEvolution** )
+* https://github.com/google/evojax (**EvoJAX** is a scalable, general-purpose, hardware-accelerated neuroevolution toolkit based on JAX.)
 * https://github.com/google/vizier ( **Hyperparameter Optimization** | **AutoML** )
 * https://github.com/fmfn/BayesianOptimization ( **BO** )
 * https://github.com/hyperopt/hyperopt ( **RS** )
