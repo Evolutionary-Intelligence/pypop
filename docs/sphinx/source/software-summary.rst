@@ -43,7 +43,7 @@ Python
 * https://github.com/hyperopt/hyperopt ( **RS** )
 * https://github.com/ljvmiranda921/pyswarms (**PSO**)
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
-* https://github.com/RobertTLange/evosax (**evosax** is **well-designed** Python library of evolutionary algorithms (EAs) and NeuroEvolution (NE) run on **GPU**.)
+* https://github.com/RobertTLange/evosax (`evosax <https://arxiv.org/abs/2212.04180>`_ is **well-designed** Python library of Evolutionary Algorithms (EAs) and NeuroEvolution (NE) run on **GPU**.)
 * https://github.com/uber-research/poet (Only for **Paired Open-Ended Trailblazer (POET)**)
 * https://pymoo.org/ (`pymoo <https://pymoo.org/>`_ offers **multi-objective** black-box optimization algorithms.)
 
@@ -77,7 +77,8 @@ Some interesting code snapshots involving population-based methods are shown bel
 * https://github.com/huawei-noah/vega (AutoML)
 * https://github.com/SimonBlanke/Gradient-Free-Optimizers (Discrete Optimization)
 
-The below libraries seem to be not *actively* maintained (according to the last update time):
+The below open-source libraries seem to be not *actively* maintained (according to the last update time).
+Here we still add them for historical records and respect to previous works:
 
 * https://github.com/blaa/PyGene (Now it is not actively maintained: Last update - Jan 31, 2017.)
 * https://github.com/hardmaru/estool (Now it is not actively maintained: Last update - Jan 20, 2022.)
