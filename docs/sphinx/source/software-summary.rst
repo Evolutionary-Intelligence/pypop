@@ -42,8 +42,8 @@ Python
 * https://github.com/ljvmiranda921/pyswarms (**PSO**)
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
 * https://github.com/RobertTLange/evosax (**evosax** is **well-designed** Python library of evolutionary algorithms (EAs) and NeuroEvolution (NE) run on **GPU**.)
-* https://github.com/uber-research/poet (Only for **POET** )
-* https://pymoo.org/ (`pymoo <https://pymoo.org/>`_ *offers state of the art single- and multi-objective optimization algorithms*.)
+* https://github.com/uber-research/poet (Only for **Paired Open-Ended Trailblazer (POET)**)
+* https://pymoo.org/ (`pymoo <https://pymoo.org/>`_ offers **multi-objective** black-box optimization algorithms.)
 
   * https://pymoo.org/algorithms/soo/cmaes.html
   * https://pymoo.org/algorithms/soo/de.html
