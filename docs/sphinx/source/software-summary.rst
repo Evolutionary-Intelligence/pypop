@@ -1,8 +1,10 @@
 Software Summary
 ================
 
-.. note:: This page is **actively** updated now, since many open-source software and code for black-box optimization
-   are still missed here. We will happy to add it if you find some *important* work omitted here.
+.. note:: This page is **actively** updated now, since some **open-source** software and code for black-box optimization (BBO)
+   may be still missed here. We will happy to add it if you find some *important* work omitted here. Please do NOT hesitate to
+   commit an `issue <https://github.com/Evolutionary-Intelligence/pypop/issues>`_ or a `pull request
+   <https://github.com/Evolutionary-Intelligence/pypop/pulls>`_.
 
 Python
 ------
