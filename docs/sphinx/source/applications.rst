@@ -15,6 +15,7 @@ Up to now, this open-source Python library `PyPop7` has been **used/cited** (at 
 
 Till now, our library `PyPop7` has been used (at least) in the following open-source projects:
 
+* 11: https://github.com/aiboxlab/evolutionary-abm-calibration (2024)
 * 10: https://github.com/Echozqn/llm [https://github.com/Echozqn/llm/tree/main/collie/examples/alpaca/eda] (2024)
 * 9: https://github.com/BruthYU/BPT-VLM (2023)
 * 8: https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
