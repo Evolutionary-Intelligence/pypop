@@ -215,6 +215,10 @@ fourth termination signal. Please refer to `#issues/175
 Algorithm Selection and Configuration
 -------------------------------------
 
+.. note:: "It is the long-term expectation that a theoretical framework will provide guidance to those faced with an
+   optimization problem and the associated difficult choice of selecting a suitable method."---`[Spall et al., 2006]
+   <https://link.springer.com/chapter/10.1007/1-84628-095-8_3>`_
+
 For most real-world black-box optimization, typically there is **few** a prior knowledge to serve as the base of algorithm
 selection. Perhaps the simplest way to algorithm selection is **trial-and-error**. However, here we still hope to provide
 a *rule of thumb* to guide algorithm selection according to algorithm classification. Refer to `our GitHub homepage
