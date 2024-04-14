@@ -215,8 +215,9 @@ fourth termination signal. Please refer to `#issues/175
 Algorithm Selection and Configuration
 -------------------------------------
 
-.. note:: "It is the long-term expectation that a theoretical framework will provide guidance to those faced with an
-   optimization problem and the associated difficult choice of selecting a suitable method."---`[Spall et al., 2006]
+.. note:: `"It is the long-term expectation that a theoretical framework will provide guidance to those faced with an
+   optimization problem and the associated difficult choice of selecting a suitable method. ...In practice, algorithm
+   parameters are typically tuned for each new problem."---[Spall et al., 2006]
    <https://link.springer.com/chapter/10.1007/1-84628-095-8_3>`_
 
 For most real-world black-box optimization, typically there is **few** a prior knowledge to serve as the base of algorithm
