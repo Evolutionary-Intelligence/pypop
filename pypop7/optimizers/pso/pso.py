@@ -17,6 +17,9 @@ class PSO(Optimizer):
        form of *emergence* or *self-organization*. Recently, PSO-type swarm optimizers are theoretically analyzed
        under the `Consensus-Based Optimization (CBO) <https://jmlr.csail.mit.edu/papers/v22/21-0259.html>`_ framework.
 
+       For some interesting applications of `PSO`, refer to `[Melis et al., 2024, Nature]
+       <https://www.nature.com/articles/s41586-024-07293-4>`_, just to name a few.
+
     Parameters
     ----------
     problem : dict
