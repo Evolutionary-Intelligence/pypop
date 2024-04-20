@@ -10,15 +10,16 @@ class PSO(Optimizer):
     optimize the black-box problem at hand. The unique goal of this abstract class is to unify the common
     interfaces of all its subsclases (different algorithm versions).
 
-    .. note:: `PSO` is a very popular family of **swarm**-based search algorithms, proposed by an electrical engineer
-       (Russell C. Eberhart) and a psychologist (James Kennedy), two recipients of `IEEE Evolutionary Computation
-       Pioneer Award 2012 <https://tinyurl.com/456as566>`_. Its underlying motivation comes from very interesting
-       collective behaviors (e.g. `flocking <https://dl.acm.org/doi/10.1145/37402.37406>`_) observed from social
-       animals (such as `birds <https://dl.acm.org/doi/10.1145/2629613>`_), which are often regarded as a particular
-       form of *emergence* or *self-organization*. Recently, PSO-type swarm optimizers are theoretically analyzed
-       under the `Consensus-Based Optimization (CBO) <https://jmlr.csail.mit.edu/papers/v22/21-0259.html>`_ framework.
+    .. note:: `PSO` is a very popular family of **swarm**-based search algorithms, originally proposed by an
+       electrical engineer (Russell C. Eberhart) and a psychologist (James Kennedy), two recipients of `IEEE
+       Evolutionary Computation Pioneer Award 2012 <https://tinyurl.com/456as566>`_. Its underlying motivation
+       comes from interesting collective behaviors (e.g. `flocking <https://dl.acm.org/doi/10.1145/37402.37406>`_)
+       observed in social animals (such as `birds <https://dl.acm.org/doi/10.1145/2629613>`_), which are often
+       regarded as a particular form of *emergence* or *self-organization*. Recently, PSO-type swarm optimizers
+       have been theoretically analyzed under the `Consensus-Based Optimization (CBO)
+       <https://jmlr.csail.mit.edu/papers/v22/21-0259.html>`_ framework, with more or less modifications.
 
-       For some interesting applications of `PSO`, refer to `[Melis et al., 2024, Nature]
+       For some interesting applications of `PSO`/`CBO`, refer to `[Melis et al., 2024, Nature]
        <https://www.nature.com/articles/s41586-024-07293-4>`_, just to name a few.
 
     Parameters
