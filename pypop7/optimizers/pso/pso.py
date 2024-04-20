@@ -118,9 +118,9 @@ class PSO(Optimizer):
     https://ieeexplore.ieee.org/abstract/document/699146
 
     Kennedy, J. and Eberhart, R., 1995, November.
-    Particle swarm optimization.
+    `Particle swarm optimization.
+    <https://ieeexplore.ieee.org/document/488968>`_
     In Proceedings of International Conference on Neural Networks (pp. 1942-1948). IEEE.
-    https://ieeexplore.ieee.org/document/488968
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
