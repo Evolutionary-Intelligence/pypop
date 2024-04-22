@@ -113,9 +113,9 @@ class PSO(Optimizer):
     https://www.elsevier.com/books/swarm-intelligence/eberhart/978-1-55860-595-4
 
     Shi, Y. and Eberhart, R., 1998, May.
-    A modified particle swarm optimizer.
+    `A modified particle swarm optimizer.
+    <https://ieeexplore.ieee.org/abstract/document/699146>`_
     In IEEE World Congress on Computational Intelligence (pp. 69-73). IEEE.
-    https://ieeexplore.ieee.org/abstract/document/699146
 
     Kennedy, J. and Eberhart, R., 1995, November.
     `Particle swarm optimization.
