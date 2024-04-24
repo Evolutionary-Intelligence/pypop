@@ -83,7 +83,11 @@ class RHC(PRS):
 
     References
     ----------
-    https://probml.github.io/pml-book/book2.html    (See CHAPTER 6.7 Derivative-free optimization)
+    The following code from PyBrain directly inspired the coding of `RHC`:
+    https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/hillclimber.py
+
+    For the following book, Chapter 6.7 (DFO) gives an introduction of `RHC`:
+    https://probml.github.io/pml-book/book2.html
 
     Russell, S. and Norvig P., 2021.
     Artificial intelligence: A modern approach (Global Edition).
@@ -95,7 +99,10 @@ class RHC(PRS):
     Elsevier.
     https://www.elsevier.com/books/stochastic-local-search/hoos/978-1-55860-872-6
 
-    https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/hillclimber.py
+    Juels, A. and Wattenberg, M., 1995.
+    `Stochastic hillclimbing as a baseline method for evaluating genetic algorithms.
+    <https://proceedings.neurips.cc/paper/1995/hash/36a1694bce9815b7e38a9dad05ad42e0-Abstract.html>`_
+    In Advances in Neural Information Processing Systems (pp. 430-436). MIT Press.
     """
     def __init__(self, problem, options):
         # only support normally-distributed random sampling during optimization
