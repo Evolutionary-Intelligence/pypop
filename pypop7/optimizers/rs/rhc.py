@@ -89,15 +89,16 @@ class RHC(PRS):
     For the following book, Chapter 6.7 (DFO) gives an introduction of `RHC`:
     https://probml.github.io/pml-book/book2.html
 
+    For the following book, Chapter 4 (SEARCH IN COMPLEX ENVIRONMENTS) gives an introduction of `RHC`:
     Russell, S. and Norvig P., 2021.
-    Artificial intelligence: A modern approach (Global Edition).
+    `Artificial intelligence: A modern approach (Global Edition).
+    <http://aima.cs.berkeley.edu/>`_
     Pearson Education.
-    http://aima.cs.berkeley.edu/    (See CHAPTER 4: SEARCH IN COMPLEX ENVIRONMENTS)
 
     Hoos, H.H. and Stützle, T., 2004.
-    Stochastic local search: Foundations and applications.
+    `Stochastic local search: Foundations and applications.
+    <https://www.elsevier.com/books/stochastic-local-search/hoos/978-1-55860-872-6>`_
     Elsevier.
-    https://www.elsevier.com/books/stochastic-local-search/hoos/978-1-55860-872-6
 
     Baluja, S., 1996.
     `Genetic algorithms and explicit search statistics.
