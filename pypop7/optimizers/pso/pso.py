@@ -20,7 +20,8 @@ class PSO(Optimizer):
        <https://jmlr.csail.mit.edu/papers/v22/21-0259.html>`_ framework, with more or less modifications.
 
        For some interesting applications of `PSO`/`CBO`, refer to `[Melis et al., 2024, Nature]
-       <https://www.nature.com/articles/s41586-024-07293-4>`_, just to name a few.
+       <https://www.nature.com/articles/s41586-024-07293-4>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
+       <https://arc.aiaa.org/doi/abs/10.2514/2.2111>`_, just to name a few.
 
     Parameters
     ----------
@@ -96,11 +97,6 @@ class PSO(Optimizer):
     Particle swarm optimization.
     Swarm Intelligence, 1(1), pp.33-57.
     https://link.springer.com/article/10.1007/s11721-007-0002-0
-
-    Venter, G. and Sobieszczanski-Sobieski, J., 2003.
-    Particle swarm optimization.
-    AIAA Journal, 41(8), pp.1583-1589.
-    https://arc.aiaa.org/doi/abs/10.2514/2.2111
 
     Clerc, M. and Kennedy, J., 2002.
     The particle swarm-explosion, stability, and convergence in a multidimensional complex space.
