@@ -108,9 +108,9 @@ class PSO(Optimizer):
     https://ieeexplore.ieee.org/abstract/document/985692
 
     Eberhart, R.C., Shi, Y. and Kennedy, J., 2001.
-    Swarm intelligence.
+    `Swarm intelligence.
+    <https://www.elsevier.com/books/swarm-intelligence/eberhart/978-1-55860-595-4>`_
     Elsevier.
-    https://www.elsevier.com/books/swarm-intelligence/eberhart/978-1-55860-595-4
 
     Shi, Y. and Eberhart, R., 1998, May.
     `A modified particle swarm optimizer.
