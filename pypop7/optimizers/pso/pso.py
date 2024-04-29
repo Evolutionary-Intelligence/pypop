@@ -17,7 +17,9 @@ class PSO(Optimizer):
        observed in social animals (such as `birds <https://dl.acm.org/doi/10.1145/2629613>`_), which are often
        regarded as a particular form of *emergence* or *self-organization*. Recently, PSO-type swarm optimizers
        have been theoretically analyzed under the `Consensus-Based Optimization (CBO)
-       <https://jmlr.csail.mit.edu/papers/v22/21-0259.html>`_ framework, with more or less modifications.
+       <https://jmlr.csail.mit.edu/papers/v22/21-0259.html>`_ or `Swarm Gradient Dynamics
+       <https://link.springer.com/article/10.1007/s10107-023-01988-8>`_ framework, with more or less
+       modifications to the standard `PSO` implementation for mathematical tractability.
 
        For some interesting applications of `PSO`/`CBO`, refer to `[Melis et al., 2024, Nature]
        <https://www.nature.com/articles/s41586-024-07293-4>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
@@ -58,6 +60,11 @@ class PSO(Optimizer):
 
     References
     ----------
+    Bolte, J., Miclo, L. and Villeneuve, S., 2024.
+    `Swarm gradient dynamics for global optimization: The mean-field limit case.
+    <https://link.springer.com/article/10.1007/s10107-023-01988-8>`_
+    Mathematical Programming, 205(1), pp.661-701.
+
     Cipriani, C., Huang, H. and Qiu, J., 2022.
     Zero-inertia limit: From particle swarm optimization to consensus-based optimization.
     SIAM Journal on Mathematical Analysis, 54(3), pp.3091-3121.
