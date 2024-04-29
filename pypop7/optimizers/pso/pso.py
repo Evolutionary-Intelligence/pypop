@@ -99,9 +99,9 @@ class PSO(Optimizer):
     https://link.springer.com/article/10.1007/s11721-007-0002-0
 
     Clerc, M. and Kennedy, J., 2002.
-    The particle swarm-explosion, stability, and convergence in a multidimensional complex space.
+    `The particle swarm-explosion, stability, and convergence in a multidimensional complex space.
+    <https://ieeexplore.ieee.org/abstract/document/985692>`_
     IEEE Transactions on Evolutionary Computation, 6(1), pp.58-73.
-    https://ieeexplore.ieee.org/abstract/document/985692
 
     Eberhart, R.C., Shi, Y. and Kennedy, J., 2001.
     `Swarm intelligence.
