@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath('../../../'))
 # -- Project information -----------------------------------------------------
 
 project = 'pypop7'
-copyright = '2024, Evolutionary-Intelligence'
-author = 'Evolutionary-Intelligence'
+copyright = '2024, Evolutionary-Intelligence @ HIT & SUSTech'
+author = 'Evolutionary-Intelligence @ HIT & SUSTech'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
