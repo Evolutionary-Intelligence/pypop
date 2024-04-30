@@ -42,8 +42,8 @@ and some mainly for *application* purposes on medium/low dimensions).
 
 **Quick Start**
 
-In practice, three simple steps are enough to utilize the black-box optimization power of
-`PyPop7 <https://pypi.org/project/pypop7/>`_:
+In practice, three simple steps are enough to utilize the potential of
+`PyPop7 <https://pypi.org/project/pypop7/>`_ for black-box optimization (BBO):
 
 1. Use `pip <https://pypi.org/project/pip/>`_ to automatically install `pypop7` via `PyPI <https://pypi.org/>`_:
 
