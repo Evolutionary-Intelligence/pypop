@@ -57,7 +57,7 @@ a virtual environment (e.g., named as `env_pypop7`):
 
 .. code-block:: bash
 
-    conda deactivate  # close exiting virtual env
+    conda deactivate  # close exiting virtual env, if exists
     conda create -y --prefix env_pypop7  # free to change name of virtual env
     conda activate ./env_pypop7  # on Windows OS
     conda activate env_pypop7/  # on Linux
@@ -71,7 +71,7 @@ Note that the above Python version (`3.8.12`) can be changed to meet your person
 
 Although we strongly recommend to use the the `conda` package manager to build the virtual environment as your working
 space, currently we do not add this library to `conda-forge <https://conda-forge.org/>`_ and leave it for the future
-(maybe 2024). As a result, you can only use `pip install pypop7` for `conda`.
+(maybe 2025). As a result, currently you can only use `pip install pypop7` for `conda`.
 
 For MATLAB Users
 ----------------
@@ -81,8 +81,9 @@ For MATLAB users, `MATLAB-to-Python Migration Guide
 `NumPy for MATLAB Users <https://numpy.org/devdocs/user/numpy-for-matlab-users.html>`_ is highly recommended.
 Given the fact that the USA government `blocks
 <https://www.quora.com/Did-the-US-really-block-the-license-of-MATLAB-to-several-Chinese-universities>`_ the MATLAB
-license to several universities, we argue that well-designed open-source software is really a good alternative
-like Python/NumPy (just to name a few).
+license to several Chinese universities (including *HIT*, the affiliation of one core developer), we argue that
+well-designed open-source software like Python and NumPy (to name a few) is really a good alternative to MATLAB
+in many cases.
 
 For R Users
 -----------
