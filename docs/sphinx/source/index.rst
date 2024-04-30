@@ -37,7 +37,8 @@ and some mainly for *application* purposes on medium/low dimensions).
 .. note::
    This `open-source <https://www.gnu.org/>`_ Python library for **continuous** BBO is still under active maintenance.
    In the future, we plan to add some NEW BBO and some SOTA versions of existing BBO families, in order to make this
-   library as fresh as possible.
+   library as fresh as possible. Any suggestions, extensions, improvements, usages, and tests to this open-source
+   Python library are highly welcomed!
 
 **Quick Start**
 
