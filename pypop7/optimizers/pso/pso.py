@@ -66,10 +66,10 @@ class PSO(Optimizer):
     Mathematical Programming, 205(1), pp.661-701.
 
     Cipriani, C., Huang, H. and Qiu, J., 2022.
-    Zero-inertia limit: From particle swarm optimization to consensus-based optimization.
+    `Zero-inertia limit: From particle swarm optimization to consensus-based optimization.
+    <https://epubs.siam.org/doi/10.1137/21M1412323>`_
     SIAM Journal on Mathematical Analysis, 54(3), pp.3091-3121.
-    https://epubs.siam.org/doi/10.1137/21M1412323
- 
+
     Fornasier, M., Huang, H., Pareschi, L. and Sünnen, P., 2022.
     Anisotropic diffusion in consensus-based optimization on the sphere.
     SIAM Journal on Optimization, 32(3), pp.1984-2012.
