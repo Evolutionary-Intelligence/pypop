@@ -22,6 +22,7 @@ University).
   * Now *Jian Zeng* from Guangdong Police College/Harbin Institute of Technology helps to collect BBOs for data mining.
   * Now *XiangLong Chen* from SUSTech helps to proofread and standardize the documents.
   * Now *Yuwei Huang* from SUSTech is added as one of core developers in order to increase new black-box optimizers.
+  * Now *Xingyu Zhou* from SUSTech is added as one of core developers in order to check new black-box optimizers.
 
 We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech, now at UoB) and recent (2022) discussions
 wih Changwu Huang (at SUSTech).
