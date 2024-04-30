@@ -15,8 +15,6 @@ University).
   * Now *Yijun Yang* from UTS/Beihang University helps to suggest papers about Bayesian Optimization (BO).
   * Now *Qi Zhao* from SUSTech helps to proofread the documents.
   * Now *Haobin Yang* from SUSTech helps to proofread and standardize the documents.
-  * Now *Minghan Zhang* from University of Warwick/Imperial College London helps to search papers involved in this library
-    and test on MacOS X.
   * Now *Zonghan He* from SUSTech helps to test the installation process on Windows10 OS (before 2024).
   * Now *Yajing Tan* from SUSTech is added as one of core developers in order to increase new black-box optimizers.
   * Now *Jian Zeng* from Guangdong Police College/Harbin Institute of Technology helps to collect BBOs for data mining.
@@ -24,6 +22,8 @@ University).
   * Now *Yuwei Huang* from SUSTech is added as one of core developers in order to increase new black-box optimizers.
   * From 2024/5/1, *Xingyu Zhou* from SUSTech is added as one of **core developers** in order to code and check new
     black-box optimizers from the machine learning (ML) community.
+  * In 2023, *Minghan Zhang* from University of Warwick/Imperial College London helped to search some papers involved in
+    this library and test some code on MacOS X.
 
 We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech, now at UoB) and recent (2022) discussions
 wih Changwu Huang (at SUSTech).
