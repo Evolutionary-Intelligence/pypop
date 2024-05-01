@@ -7,6 +7,13 @@ Given a large number of black-box optimizers (BBO) which still keep increasing a
 Respect for Beauty (Elegance)
 -----------------------------
 
+.. note::
+
+   *"If there is a single dominant theme in this ..., it is that practical methods of numerical computation can be
+   simultaneously efficient, clever, and --important-- clear."*---Press, W.H., Teukolsky, S.A., Vetterling, W.T. and
+   Flannery, B.P., 2007. `Numerical recipes: The art of scientific computing <http://numerical.recipes/>`_.
+   Cambridge University Press.
+
 From the *problem-solving* perspective, we empirically prefer to choose the best optimizer for the black-box
 optimization problem at hand. For the new problem, however, the best optimizer is often *unknown* in advance
 (when without *a prior* knowledge). As a rule of thumb, we need to compare a (often small) set of
@@ -66,13 +73,6 @@ for it, we will not consider any **very complex** optimizer in this library, in 
   * Auger, A., Hansen, N. and Schoenauer, M., 2012. `Benchmarking of continuous black box optimization algorithms
     <https://direct.mit.edu/evco/article-abstract/20/4/481/956/Benchmarking-of-Continuous-Black-Box-Optimization>`_.
     Evolutionary Computation, 20(4), pp.481-481.
-
-.. note::
-
-  *"If there is a single dominant theme in this ..., it is that practical methods of numerical computation can be
-  simultaneously efficient, clever, and --important-- clear."*---Press, W.H., Teukolsky, S.A., Vetterling, W.T. and
-  Flannery, B.P., 2007. `Numerical recipes: The art of scientific computing <http://numerical.recipes/>`_.
-  Cambridge University Press.
 
 Respect for Diversity
 ---------------------
