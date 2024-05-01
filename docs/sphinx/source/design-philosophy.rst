@@ -104,9 +104,10 @@ Respect for Originality
 -----------------------
 
 For each black-box optimizer included in *PyPop7*, we expect to give its original/representative reference (sometimes also
-including its good implementations/improvements). If you find some important references missed here, please do NOT hesitate
-to contact us (and we will be happy to add it). Furthermore, if you identify some mistake regarding originality, we first
-apologize for our (possible) mistake and will correct it *timely* within this open-source project.
+including some of its good implementations/improvements). If you find some important references missed here, please do NOT
+hesitate to contact us (and we will be happy to add it). Furthermore, if you identify some mistake regarding originality,
+we first apologize for our (possible) mistake and will correct it *timely* within this open-source project. We believe that
+the self-correcting power of open source could significantly improve the quality of this library. 
 
 .. note::
   *"It is both enjoyable and educational to hear the ideas directly from the creators".*---Hennessy, J.L. and Patterson,
