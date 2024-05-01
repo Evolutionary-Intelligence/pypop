@@ -35,7 +35,7 @@ for it, we will not consider any **very complex** optimizer in this library, in 
 <http://incompleteideas.net/IncIdeas/BitterLesson.html>`_ issues.
 
   * Campelo, F. and Aranha, C., 2023. `Lessons from the evolutionary computation Bestiary
-    <https://publications.aston.ac.uk/id/eprint/44574/1/ALIFE_LLCS.pdf>`_. Artificial Life. Early Access.
+    <https://publications.aston.ac.uk/id/eprint/44574/1/ALIFE_LLCS.pdf>`_. Artificial Life, 29(4), pp.421-432.
 
   * Swan, J., Adriaensen, S., Brownlee, A.E., Hammond, K., Johnson, C.G., Kheiri, A., Krawiec, F., Merelo, J.J.,
     Minku, L.L., Özcan, E., Pappa, G.L., et al., 2022. `Metaheuristics “in the large”
