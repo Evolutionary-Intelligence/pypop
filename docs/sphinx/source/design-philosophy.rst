@@ -78,9 +78,9 @@ Respect for Diversity
 ---------------------
 
 Given the universality of **black-box optimization** in science and engineering, different research communities
-have designed different optimizers. The type and number of optimizers are continuing to increase as the more
+have designed different kinds of optimizers. The type and number of optimizers are continuing to increase as the more
 powerful optimizers are always desirable for new and more challenging applications. On the one hand, some of these
-methods may share *more or less* similarities. On the other hand, they may also show *significant* differences (w.r.t.
+optimizers may share *more or less* similarities. On the other hand, they may also show *significant* differences (w.r.t.
 motivations / objectives / implementations / communities / practitioners). Therefore, we hope to cover such a
 diversity from different research communities such as artificial intelligence/machine learning (particularly 
 `evolutionary computation <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_, swarm
@@ -99,6 +99,12 @@ To cover recent advances on population-based BBO as widely as possible, We have 
 <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_ to collect related papers on
 some *top-tier* journals and conferences for more than 3 years. We wish that this open companion project could provide an
 increasingly reliable literature reference as the base of our library.
+
+.. note::
+
+   `DistributedEvolutionaryComputation <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_
+   provides a (still growing) paper list of Evolutionary Computation (EC) published in some (rather all) top-tier and also
+   EC-focused journals and conferences.
 
 Respect for Originality
 -----------------------
