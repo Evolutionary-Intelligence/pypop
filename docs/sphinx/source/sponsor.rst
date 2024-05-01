@@ -8,11 +8,8 @@ JCYJ20200109141235597 (2000000 Yuan granted to Prof. Shi from Southern Universit
 Institute of Technology, *Chang Shao* also in University of Technology Sydney, and *Guochen Zhou* also in Zhejiang
 University).
 
-  * Now *Zhuowei Wang* from University of Technology Sydney (UTS) takes part in this library as one core developer (for
-    testing before 2024).
-  * Now *Mingyang Feng* from University of Birmingham (UoB)/University of Electronic Science and Technology of China helps
-    to search papers involved in this library and test on MacOS X.
-  * Now *Yijun Yang* from UTS/Beihang University helps to suggest papers about Bayesian Optimization (BO).
+  * Now *Yijun Yang* from Tencent/University of Technology Sydney (UTS)/Beihang University helps to suggest papers about
+    Bayesian Optimization (BO).
   * Now *Qi Zhao* from SUSTech helps to proofread the documents.
   * Now *Haobin Yang* from SUSTech helps to proofread and standardize the documents.
   * Now *Zonghan He* from SUSTech helps to test the installation process on Windows10 OS (before 2024).
@@ -22,6 +19,9 @@ University).
   * Now *Yuwei Huang* from SUSTech is added as one of core developers in order to increase new black-box optimizers.
   * From 2024/5/1, *Xingyu Zhou* from SUSTech is added as one of **core developers** in order to code and check new
     black-box optimizers from the machine learning (ML) community.
+  * From 2021 to 2023, *Mingyang Feng* from University of Birmingham (UoB)/University of Electronic Science and Technology
+    of China helped to search a number of papers involved in this library and test some code on MacOS X.
+  * From 2022 to 2023, *Zhuowei Wang* from UTS helped to test some code on Linux and proofread some documents.
   * In 2023, *Minghan Zhang* from University of Warwick/Imperial College London helped to search some papers involved in
     this library and test some code on MacOS X.
 
