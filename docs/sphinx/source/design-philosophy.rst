@@ -123,6 +123,10 @@ crucial to repeat numerical experiments. Here we follow the official `Random Sam
 each optimizer. For more discussions about **repeatability/benchmarking** from AI/ML, evolutionary computation (EC), swarm
 intelligence (SI), and metaheuristics communities, please refer to the following papers, to name a few:
 
+  * López-Ibáñez, M., Paquete, L. and Preuss, M., 2024. `Editorial for the special issue on reproducibility
+    <https://direct.mit.edu/evco/article-abstract/32/1/1/119437/Editorial-for-the-Special-Issue-on-Reproducibility>`_.
+    Evolutionary Computation, 32(1), pp.1-2.
+
   * Hansen, N., Auger, A., Brockhoff, D. and Tušar, T., 2022. `Anytime performance assessment in blackbox optimization
     benchmarking <https://ieeexplore.ieee.org/abstract/document/9905722>`_. IEEE Transactions on Evolutionary Computation,
     26(6), pp.1293-1305.
