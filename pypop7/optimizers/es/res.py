@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies
+from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
 
 
 class RES(ES):
@@ -13,9 +13,11 @@ class RES(ES):
        of *global* step-size adaptation to maximize the local convergence progress, if possible.
 
        Since there is only one parent and only one offspring for each generation (iteration), `RES` generally
-       shows limited *exploration* ability for large-scale black-box optimization (LBO). Therefore, it is
-       recommended to first attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for LBO. Here we include
-       `RES` (AKA two-membered ES) mainly for *benchmarking* and *theoretical* purposes.
+       shows limited *exploration* ability for large-scale black-box optimization. Therefore, it is recommended
+       to first attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale black-box optimization.
+       Here we include `RES` (AKA two-membered ES) mainly for *benchmarking* and *theoretical* purposes. Interestingly,
+       owing to its popularity, sometimes `RES` is still used now, such as, `[Williams&Li, 2024, NeurIPS]
+       <https://tinyurl.com/4vdphufe>`_.
 
     Parameters
     ----------
@@ -65,7 +67,7 @@ class RES(ES):
        >>> print(f"RES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        RES: 5000, 0.00011689296624022443
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
+    For its correctness checking of Python-based coding, refer to `this code-based repeatability report
     <https://tinyurl.com/5n6ndrn7>`_ for more details.
 
     Attributes
