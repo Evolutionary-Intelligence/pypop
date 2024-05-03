@@ -95,9 +95,9 @@ class R1ES(ES):
     References
     ----------
     Li, Z. and Zhang, Q., 2018.
-    A simple yet efficient evolution strategy for large-scale black-box optimization.
+    `A simple yet efficient evolution strategy for large-scale black-box optimization.
+    <https://ieeexplore.ieee.org/abstract/document/8080257>`_
     IEEE Transactions on Evolutionary Computation, 22(5), pp.637-646.
-    https://ieeexplore.ieee.org/abstract/document/8080257
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
