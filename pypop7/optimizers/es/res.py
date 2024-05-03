@@ -36,7 +36,7 @@ class RES(ES):
                 * 'sigma'    - initial global step-size, aka mutation strength (`float`),
                 * 'mean'     - initial (starting) point, aka mean of Gaussian search distribution (`array_like`),
 
-                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                  * If not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'lr_sigma' - learning rate of global step-size self-adaptation (`float`, default:
