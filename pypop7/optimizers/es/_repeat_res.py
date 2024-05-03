@@ -1,4 +1,6 @@
-"""Repeat the following paper for `RES`:
+"""Repeat the following paper for `RES` (its source code is available at
+   https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/res.py):
+
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
     Evolution strategies.
     In Springer Handbook of Computational Intelligence (pp. 871-898).
@@ -6,10 +8,10 @@
     https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
 
     All generated figures can be accessed via the following link:
-    https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/repeatability/prs/_repeat_res.png
+    https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/repeatability/res/_repeat_res.png
 
-    Luckily our Python code could repeat the data reported in the paper *well*.
-    Therefore, we argue that its repeatability could be **well-documented**.
+    Luckily our Python code could repeat the data reported in the above paper *well*.
+    Therefore, we argue that its repeatability could be **well-documented** more or less.
 """
 import numpy as np
 import seaborn as sns
