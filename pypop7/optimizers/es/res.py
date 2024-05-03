@@ -10,7 +10,9 @@ class RES(ES):
        by Rechenberg, one recipient of `IEEE Evolutionary Computation Pioneer Award 2002
        <https://tinyurl.com/456as566>`_). As theoretically investigated in his *seminal* Ph.D. dissertation
        at Technical University of Berlin, the existence of narrow **evolution window** explains the necessarity
-       of *global* step-size adaptation to maximize the local convergence progress, if possible.
+       of *global* step-size adaptation to maximize the local convergence progress, if possible. Note that
+       a similar theoretical study was independently conducted in the automatic control community (that is,
+       `[Schumer&Steiglitz, 1968, IEEE-TAC] <https://ieeexplore.ieee.org/abstract/document/1098903>`_).
 
        Since there is only one parent and only one offspring for each generation (iteration), `RES` generally
        shows limited *exploration* ability for large-scale black-box optimization. Therefore, it is recommended
