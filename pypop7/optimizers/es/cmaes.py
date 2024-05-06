@@ -10,6 +10,9 @@ class CMAES(ES):
        black-box optimization, according to the well-recognized `Nature <https://www.nature.com/articles/nature14544>`_
        review of Evolutionary Computation.
 
+       For some interesting applications of `CMAES`, please refer to e.g., `[Wang et al., 2024, ICLR]
+       <https://arxiv.org/abs/2404.00451>`_, just to name a few.
+
     Parameters
     ----------
     problem : dict
