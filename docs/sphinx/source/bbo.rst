@@ -184,12 +184,10 @@ Limitations of BBO
 ------------------
 
 .. note:: *"If you can obtain clean derivatives (even if it requires considerable effort) and the functions defining
-   your problem are smooth and free of noise you should not use derivative-free methods.."*---`[Conn et al., 2009,
+   your problem are smooth and free of noise you should not use derivative-free methods."*---`[Conn et al., 2009,
    Introduction to Derivative-Free Optimization] <https://epubs.siam.org/doi/book/10.1137/1.9780898718768>`_
 
-Very importantly, **not all** optimization problems can fit well in black-box optimizers. In fact, its *arbitrary abuse*
-in science and engineering has resulted in wide criticism. Although not always, black-box optimizers are often seen as
-**"the last choice of search methods"**.
-
-Of course, "first-order methods that require knowledge of the gradient are not always possible in practice."
-(`[Mhanna&Assaad, 2023, ICML] <https://proceedings.mlr.press/v202/mhanna23a/mhanna23a.pdf>`_)
+Very importantly, **not all** optimization problems can fit well in black-box optimizers. In fact, their *arbitrary abuses*
+in science and engineering have resulted in wide criticism. Although not always, black-box optimizers are often seen as
+**"the last choice of search methods"**. Of course, "first-order methods that require knowledge of the gradient are not
+always possible in practice." (from `[Mhanna&Assaad, 2023, ICML] <https://proceedings.mlr.press/v202/mhanna23a/mhanna23a.pdf>`_)
