@@ -12,7 +12,8 @@ class CMAES(ES):
 
        For some interesting applications of `CMAES`, please refer to e.g., `[Wang et al., 2024, ICLR]
        <https://arxiv.org/abs/2404.00451>`_, `[Slade et al., 2022, Nature]
-       <https://www.nature.com/articles/s41586-022-05191-1>`_, just to name a few.
+       <https://www.nature.com/articles/s41586-022-05191-1>`_, `[Croon et al., 2022, Nature]
+       <https://www.nature.com/articles/s41586-022-05182-2>`_, just to name a few.
 
     Parameters
     ----------
