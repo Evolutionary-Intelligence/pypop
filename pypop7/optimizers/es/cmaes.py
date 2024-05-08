@@ -6,7 +6,7 @@ from pypop7.optimizers.es.es import ES  # abstract class of all evolution strate
 class CMAES(ES):
     """Covariance Matrix Adaptation Evolution Strategy (CMAES).
 
-    .. note:: `CMAES` is widely recognized as one of **State Of The Art (SOTA)** evolutionary algorithms for continuous
+    .. note:: `CMAES` is widely recognized as one of **State-Of-The-Art (SOTA)** evolutionary algorithms for continuous
        black-box optimization, according to the well-recognized `Nature <https://www.nature.com/articles/nature14544>`_
        review of Evolutionary Computation.
 
