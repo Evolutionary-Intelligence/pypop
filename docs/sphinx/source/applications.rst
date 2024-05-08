@@ -13,8 +13,9 @@ Up to now, this open-source Python library `PyPop7` has been **used/cited** (at 
 * 2: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022. `Collective Learning of Low-Memory Matrix Adaptation for Large-Scale Black-Box Optimization <https://link.springer.com/chapter/10.1007/978-3-031-14721-0_20>`_. In International Conference on Parallel Problem Solving from Nature (pp. 281-294). Springer, Cham.  [**used**, this research paper entered the nomination list of the Best Paper Award on PPSN-2022]
 * 1: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022, July. `Distributed Evolution Strategies for Large-Scale Optimization <https://dl.acm.org/doi/abs/10.1145/3520304.3528784>`_. In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion (pp. 395-398). ACM. [**used**]
 
-Till now, our library `PyPop7` has been used (at least) in the following open-source projects:
+Till now, our open-source library `PyPop7` has been used (at least) in the following open-source projects:
 
+* 12: https://pypi.org/project/advanced-global-optimizers/ (2024)
 * 11: https://github.com/aiboxlab/evolutionary-abm-calibration (2024)
 * 10: https://github.com/Echozqn/llm [https://github.com/Echozqn/llm/tree/main/collie/examples/alpaca/eda] (2024)
 * 9: https://github.com/BruthYU/BPT-VLM (2023)
