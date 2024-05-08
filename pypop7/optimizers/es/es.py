@@ -17,8 +17,8 @@ class ES(Optimizer):
        the `Information-Geometric Optimization (IGO) <https://www.jmlr.org/papers/v18/14-467.html>`_ framework via
        **invariance** principles (inspired by `NES <https://jmlr.org/papers/v15/wierstra14a.html>`_).
 
-       According to the latest `Nature <https://www.nature.com/articles/nature14544.>`_ review, **"the CMA-ES algorithm
-       is widely regarded as the state of the art in numerical optimization"**.
+       For some interesting applications of `ES`, please refer to `[Yang et al., 2024, CVPR]
+       <https://diffusion-es.github.io/>`_, just to name a few.
 
     Parameters
     ----------
