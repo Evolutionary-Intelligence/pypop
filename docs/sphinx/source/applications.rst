@@ -18,6 +18,8 @@ Till now, our open-source library `PyPop7` has been used (at least) in the follo
 * 12: https://pypi.org/project/advanced-global-optimizers/ (2024)
 * 11: https://github.com/aiboxlab/evolutionary-abm-calibration (2024)
 * 10: https://github.com/Echozqn/llm [https://github.com/Echozqn/llm/tree/main/collie/examples/alpaca/eda] (2024)
+
+  * Unfortunately, this open-source project is not openly accessible now.
 * 9: https://github.com/BruthYU/BPT-VLM (2023)
 * 8: https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
 
@@ -27,8 +29,12 @@ Till now, our open-source library `PyPop7` has been used (at least) in the follo
 * 5: https://github.com/Anoxxx/SynCMA-official (2023)
 * 4: https://github.com/jeancroy/RP-fit (2023)
 * 3: https://github.com/moesio-f/py-abm-public (2023)
+
+  * Unfortunately, this open-source project is not openly accessible now.
 * 2: https://github.com/Evolutionary-Intelligence/M-DES (2023)
-* 1: https://github.com/Evolutionary-Intelligence/dpop7 (2023): A **parallel/distributed** extension to `PyPop7` (now actively developed).
+* 1: https://github.com/Evolutionary-Intelligence/dpop7 (2023)
+
+  * This is a **parallel/distributed** extension to `PyPop7` (now actively developed).
 
 For other introductions/coverage to this open-source library `PyPop7`, refer to e.g.:
 
