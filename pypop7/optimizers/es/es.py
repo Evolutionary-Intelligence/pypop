@@ -1,6 +1,6 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.core.optimizer import Optimizer
+from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all black-box optimizers (BBO)
 
 
 class ES(Optimizer):
@@ -12,8 +12,8 @@ class ES(Optimizer):
     .. note:: `ES` are a well-established family of randomized **population-based** search algorithms, proposed by two
        German computer scientists Ingo Rechenberg and Hans-Paul Schwefel (two recipients of `IEEE Evolutionary
        Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_). One key property of `ES` is **adaptability of
-       strategy parameters**, which generally can *significantly* accelerate the (local) convergence rate. Recently, the
-       **theoretical foundation** of its most representative (modern) version called **CMA-ES** has been well built on
+       strategy parameters**, which can *significantly* accelerate the (local) convergence rate in many cases. Recently,
+       the **theoretical foundation** of its most representative (modern) version **CMA-ES** has been in part built on
        the `Information-Geometric Optimization (IGO) <https://www.jmlr.org/papers/v18/14-467.html>`_ framework via
        **invariance** principles (inspired by `NES <https://jmlr.org/papers/v15/wierstra14a.html>`_).
 
