@@ -138,7 +138,7 @@ class RES(ES):
         options['n_individuals'] = 1  # mandatory setting
         ES.__init__(self, problem, options)
         if self.lr_sigma is None:
-            self.lr_sigma = 1.0/np.sqrt(self.ndim_problem + 1.0)
+            self.lr_sigma = 1.0 / np.sqrt(self.ndim_problem + 1.0)
         assert self.lr_sigma > 0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.'
 
     def initialize(self, args=None, is_restart=False):
