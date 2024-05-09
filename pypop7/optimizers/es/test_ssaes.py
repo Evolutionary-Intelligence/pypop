@@ -9,7 +9,7 @@ def test_optimize():
     options = {'max_function_evaluations': 5000,  # to set optimizer options
                'seed_rng': 2022,
                'mean': 3.0 * numpy.ones((2,)),
-               'sigma': 3.0}  # global step-size may need to be tuned
+               'sigma': 3.0}  # global step-size may need to be tuned for optimality
     ssaes = SSAES(problem, options)  # to initialize the black-box optimizer class
     results = ssaes.optimize()  # to run the optimization/evolution process
     assert results['n_function_evaluations'] == 5000
