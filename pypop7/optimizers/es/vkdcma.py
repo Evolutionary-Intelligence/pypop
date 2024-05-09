@@ -1,14 +1,6 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.es import ES
-
-
-class EMA(object):  # exponential moving average
-    def __init__(self, ndim):
-        self.m = np.zeros((ndim,))
-
-    def update(self, d):
-        self.m = d
+from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
 
 
 class VKDCMA(ES):
@@ -122,9 +114,9 @@ class VKDCMA(ES):
         self.l_s = np.log(self.sigma)
         self.l_d = 2.0*np.log(np.ones((self.ndim_problem,)))
         self.l_c = np.zeros((self.ndim_problem,))
-        self.e_s = EMA(1)
-        self.e_d = EMA(self.ndim_problem)
-        self.e_c = EMA(self.ndim_problem)
+        self.e_s = np.zeros((1,))
+        self.e_d = np.zeros((self.ndim_problem,))
+        self.e_c = np.zeros((self.ndim_problem,))
         self.c_1, self.c_mu, self.c_c = self._get_lr(self.k)
         self.c_s, self.d_s = 0.3, np.sqrt(self.ndim_problem) 
         self._injection = False
@@ -205,14 +197,14 @@ class VKDCMA(ES):
         e = np.exp(self._get_det(d, s)/self.ndim_problem/2.0)
         d, p_c = d/e, p_c/e
         self.k_i += 1
-        self.e_s.update(np.log(self.sigma) - self.l_s)
-        l_s_c = self.e_s.m/(0.5*min(1.0, self.n_individuals/self.ndim_problem)/3.0)
+        self.e_s = np.log(self.sigma) - self.l_s
+        l_s_c = self.e_s/(0.5*min(1.0, self.n_individuals/self.ndim_problem)/3.0)
         self.l_s = np.log(self.sigma)
-        self.e_d.update(2.0*np.log(d) + np.log(1.0 + np.dot(s[:self.k], v[:self.k]**2)) - self.l_d)
-        l_d_c = self.e_d.m/(self.c_mu + self.c_1)
+        self.e_d = 2.0*np.log(d) + np.log(1.0 + np.dot(s[:self.k], v[:self.k]**2)) - self.l_d
+        l_d_c = self.e_d/(self.c_mu + self.c_1)
         self.l_d = 2.0*np.log(d) + np.log(1.0 + np.dot(s[:self.k], v[:self.k]**2))
-        self.e_c.update(np.log(1.0 + s) - self.l_c)
-        l_l_c = self.e_c.m/(self.c_mu + self.c_1)
+        self.e_c = np.log(1.0 + s) - self.l_c
+        l_l_c = self.e_c/(self.c_mu + self.c_1)
         self.l_c = np.log(1.0 + s)
         k_i = (self.k_i > (2.0*self.ndim_problem - 1.0))*(self.k < (self.ndim_problem - 1.0))*np.all(
             (1.0 + s[:self.k]) > 30.0)*(np.abs(l_s_c) < 0.1)*np.all(np.abs(l_d_c) < 1.0)
