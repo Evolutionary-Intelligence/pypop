@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
 from pypop7.optimizers.es.saes import SAES
 
 
@@ -120,7 +120,7 @@ class SAMAES(SAES):
         return x, sigmas, y, m, z, d
 
     def restart_initialize(self, x=None, mean=None, sigmas=None, y=None, m=None):
-        if self.is_restart and self._restart_initialize(y):
+        if self.is_restart and self.restart_reinitialize(y):
             x, mean, sigmas, y, m = self.initialize(True)
         return x, mean, sigmas, y, m
 
