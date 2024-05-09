@@ -14,7 +14,8 @@ class CMAES(ES):
        <https://arxiv.org/abs/2404.00451>`_, `[Falk et al., 2023, PNAS]
        <https://www.pnas.org/doi/abs/10.1073/pnas.2219558120>`_, `[Slade et al., 2022, Nature]
        <https://www.nature.com/articles/s41586-022-05191-1>`_, `[Croon et al., 2022, Nature]
-       <https://www.nature.com/articles/s41586-022-05182-2>`_, `[Zhang et al., 2017, Science]
+       <https://www.nature.com/articles/s41586-022-05182-2>`_, `[Yuan et al., 2021, MNRAS]
+       <https://academic.oup.com/mnras/article/502/3/3582/6122578>`_, `[Zhang et al., 2017, Science]
        <https://www.science.org/doi/full/10.1126/science.aal5054>`_, just to name a few.
 
     Parameters
