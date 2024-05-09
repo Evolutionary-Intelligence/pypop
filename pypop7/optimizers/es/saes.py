@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
 
 
 class SAES(ES):
@@ -118,7 +118,7 @@ class SAES(ES):
             y[k] = self._evaluate_fitness(x[k], args)
         return x, sigmas, y
 
-    def _restart_initialize(self, y):
+    def restart_reinitialize(self, y):
         min_y = np.min(y)
         if min_y < self._list_fitness[-1]:
             self._list_fitness.append(min_y)
@@ -141,7 +141,7 @@ class SAES(ES):
         return is_restart
 
     def restart_initialize(self, x=None, mean=None, sigmas=None, y=None):
-        if self._restart_initialize(y):
+        if self.restart_reinitialize(y):
             self.sigma = np.copy(self._sigma_bak)
             x, mean, sigmas, y = self.initialize(True)
         return x, mean, sigmas, y
