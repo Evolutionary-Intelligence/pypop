@@ -1,5 +1,5 @@
-from pypop7.optimizers.es.es import ES  # abstract class for all ES classes
-from pypop7.optimizers.es.res import RES
+from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
+from pypop7.optimizers.es.res import RES  # Rechenberg’s (1+1)-Evolution Strategy with 1/5th success rule [1973]
 from pypop7.optimizers.es.ssaes import SSAES
 from pypop7.optimizers.es.dsaes import DSAES
 from pypop7.optimizers.es.csaes import CSAES
@@ -27,8 +27,8 @@ from pypop7.optimizers.es.ddcma import DDCMA
 from pypop7.optimizers.es.mmes import MMES
 
 
-__all__ = [ES,  # Evolution Strategies
-           RES,  # Rechenberg’s (1+1)-Evolution Strategy with 1/5th success rule
+__all__ = [ES,  # Evolution Strategies [1964-1965]
+           RES,  # Rechenberg’s (1+1)-Evolution Strategy with 1/5th success rule [1973]
            SSAES,  # Schwefel's Self-Adaptation Evolution Strategy
            DSAES,  # Derandomized Self-Adaptation Evolution Strategy
            CSAES,  # Cumulative Step-size self-Adaptation Evolution Strategy
