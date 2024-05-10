@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
 from pypop7.optimizers.es.dsaes import DSAES
 
 
