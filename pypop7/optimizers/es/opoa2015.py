@@ -1,7 +1,7 @@
-import numpy as np
-import numba as nb
+import numpy as np  # engine for numerical computing
+import numba as nb  # high-performance Python compiler
 
-from pypop7.optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
 
 
 @nb.jit(nopython=True)
