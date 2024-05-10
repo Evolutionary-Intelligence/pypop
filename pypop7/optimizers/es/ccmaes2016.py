@@ -1,7 +1,7 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 from scipy.linalg import solve_triangular
 
-from pypop7.optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
 from pypop7.optimizers.es.opoa2015 import cholesky_update
 
 
