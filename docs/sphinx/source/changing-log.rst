@@ -1,12 +1,19 @@
 Changing Log
 ============
 
-Version: 0.0.79
+Version: 0.0.80
 ---------------
 
 * Add a new optimizer class called Simultaneous Perturbation Stochastic Approximation (**SPSA**):
 
   * https://github.com/jgomezdans/spsa
+
+Version: 0.0.79
+---------------
+
+* Remove the installation dependency on `torch` according to suggestion of `TimOrtkamp <https://github.com/TimOrtkamp>`_:
+
+  * https://github.com/Evolutionary-Intelligence/pypop/discussions/181
 
 * Add a new case for online documentation of applications:
 
