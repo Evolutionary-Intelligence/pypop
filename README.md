@@ -391,7 +391,7 @@ For each algorithm family, we provide several *representative* applications publ
 
 ## Sponsor
 
-From 2021 to 2023, this open-source library was supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000).
+From 2021 to 2023, this open-source Python library was supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000).
 
 ## Citation
 
