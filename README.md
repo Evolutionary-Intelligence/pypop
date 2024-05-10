@@ -170,7 +170,7 @@ is trial-and-error or to try more advanced [Automated Algorithm Selection](https
 
 ## Computational Efficiency
 
-For LSO, computational efficiency is an indispensable performance criterion of DFO [in the post-Moore era](https://www.science.org/doi/10.1126/science.aam9744). To obtain high-performance computation as much as possible, [NumPy](https://www.nature.com/articles/s41586-020-2649-2) is heavily used in this library as the base of numerical computation along with [SciPy](https://www.nature.com/articles/s41592-019-0686-2). Sometimes, [Numba](https://numba.pydata.org/) is also utilized, in order to further accelerate the wall-clock time.
+For LSO, computational efficiency is an indispensable performance criterion of BBO/DFO/ZOO [in the post-Moore era](https://www.science.org/doi/10.1126/science.aam9744). To obtain high-performance computation as much as possible, [NumPy](https://www.nature.com/articles/s41586-020-2649-2) is heavily used in this library as the base of numerical computation along with [SciPy](https://www.nature.com/articles/s41592-019-0686-2). Sometimes [Numba](https://numba.pydata.org/) is also utilized, in order to further accelerate the wall-clock time.
 
 ## References
 
