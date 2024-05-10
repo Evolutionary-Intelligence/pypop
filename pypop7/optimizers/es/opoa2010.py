@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.es.opoc2009 import OPOC2009
 
