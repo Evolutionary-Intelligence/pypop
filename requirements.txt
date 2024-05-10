@@ -10,4 +10,4 @@ imageio
 sphinx-rtd-theme
 sphinx_copybutton
 rst2pdf
-pytest
+pytest  # only for testing and not available in setup.cfg
