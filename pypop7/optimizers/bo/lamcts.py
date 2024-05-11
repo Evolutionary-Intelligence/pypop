@@ -3,13 +3,13 @@ from itertools import count
 from collections import deque
 import time
 
-import numpy as np
+import numpy as np  # engine for numerical computing
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.svm import SVC
 
-from pypop7.optimizers.bo.bo import BO
-from pypop7.optimizers.es.cmaes import CMAES
+from pypop7.optimizers.bo.bo import BO  # abstract class of all Bayesian optimization (BO) classes
+from pypop7.optimizers.es.cmaes import CMAES  # covariance matrix adaptation evolution strategy
 
 
 class Sample(NamedTuple):  # basic data class for classification
