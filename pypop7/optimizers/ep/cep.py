@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.ep.ep import EP
+from pypop7.optimizers.ep.ep import EP  # abstract class of all evolutionary programming (EP) classes
 
 
 class CEP(EP):
