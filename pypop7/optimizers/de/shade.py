@@ -1,7 +1,7 @@
-import numpy as np
-from scipy.stats import cauchy
+import numpy as np  # engine for numerical computing
+from scipy.stats import cauchy  # Cauchy continuous random variable
 
-from pypop7.optimizers.de.jade import JADE
+from pypop7.optimizers.de.jade import JADE  # adaptive differential evolution (JADE)
 
 
 class SHADE(JADE):
