@@ -1,7 +1,7 @@
 from pypop7.optimizers.de.de import DE
 
 
-class TestDE(DE):
+class TDE(DE):
     def __init__(self, problem, options):
         DE.__init__(self, problem, options)
 
@@ -33,7 +33,7 @@ def test_initialize():
                'upper_boundary': 5.0 * np.ones((2,))}
     options = {'max_function_evaluations': 5000,  # to set optimizer options
                'n_individuals': 200}
-    test_de = TestDE(problem, options)
+    test_de = TDE(problem, options)
     assert test_de.fitness_function == rosenbrock
     assert test_de.problem_name == 'rosenbrock'
     assert test_de.ndim_problem == 2
