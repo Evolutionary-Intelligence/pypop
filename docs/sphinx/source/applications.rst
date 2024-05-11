@@ -38,9 +38,19 @@ Till now, our open-source library `PyPop7` has been used (at least) in the follo
 
 For other introductions/coverage to this open-source library `PyPop7`, refer to e.g.:
 
-* `medium <https://medium.com/@monocosmo77/how-black-box-optimization-works-part2-machine-learning-bb63b4c93557>`_
-* `机器之心: SOTA！模型 <https://sota.jiqizhixin.com/project/pypop7>`_
-* `微信公众号: 演化智能 <https://mp.weixin.qq.com/s/4JO2sYouiEvmq9XNUJkncA>`_
-* 中文博客网站CSDN - PyPop7中文示例
+* `huggingface <https://huggingface.co/>`_:
+
+  * https://huggingface.co/papers/2212.05652
+  * https://huggingface.co/collections/stereoplegic/optimizer-654bfd6ddde5f3d6c23abc00
+* `medium <https://medium.com>`_
+
+  * https://medium.com/@monocosmo77/how-black-box-optimization-works-part2-machine-learning-bb63b4c93557
+* `机器之心: SOTA！模型 <https://sota.jiqizhixin.com>`_:
+
+  * https://sota.jiqizhixin.com/project/pypop7
+* `微信公众号: 演化智能 <https://mp.weixin.qq.com>`_:
+
+  * https://mp.weixin.qq.com/s/4JO2sYouiEvmq9XNUJkncA
+* `中文博客网站CSDN <https://blog.csdn.net>`_:
 
   * https://blog.csdn.net/2301_81205034/category_12502462.html
