@@ -1,6 +1,6 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.de.de import DE
+from pypop7.optimizers.de.de import DE  # abstract class of all differential evolution (DE)
 
 
 class TDE(DE):
