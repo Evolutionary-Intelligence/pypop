@@ -1,11 +1,11 @@
 import numpy as np  # engine for numerical computing
-from scipy.stats import levy_stable
+from scipy.stats import levy_stable  # Levy-stable continuous random variable
 
 from pypop7.optimizers.ep.cep import CEP
 
 
 class LEP(CEP):
-    """Lévy distribution based Evolutionary Programming (LEP).
+    """Lévy-distribution based Evolutionary Programming (LEP).
 
     Parameters
     ----------
