@@ -1,7 +1,7 @@
 from pypop7.optimizers.es.es import ES
 
 
-class TestES(ES):
+class TES(ES):
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
 
@@ -24,7 +24,7 @@ def test_initialize():
                'upper_boundary': 5.0 * np.ones((2,))}
     options = {'max_function_evaluations': 5000,  # to set optimizer options
                'sigma': 3.0}
-    test_es = TestES(problem, options)
+    test_es = TES(problem, options)
     assert test_es.fitness_function == rosenbrock
     assert test_es.problem_name == 'rosenbrock'
     assert test_es.ndim_problem == 2
