@@ -1,6 +1,6 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.de.de import DE
+from pypop7.optimizers.de.de import DE  # abstract class of all differential evolution (DE)
 from pypop7.optimizers.de.cde import CDE
 
 
@@ -75,7 +75,7 @@ class CODE(CDE):
                 x[k][idx] = np.maximum(self.lower_boundary, 2.0*self.upper_boundary - x[k])[idx]
         return x
 
-    def mutate(self, x=None):
+    def mutate(self, x=None, v=None):
         x1 = np.empty((self.n_individuals, self.ndim_problem))
         x2 = np.empty((self.n_individuals, self.ndim_problem))
         x3 = np.empty((self.n_individuals, self.ndim_problem))
@@ -114,7 +114,7 @@ class CODE(CDE):
                 x[k], y[k] = x_cr[k], yy
         return x, y, yyy
 
-    def iterate(self, x=None, y=None, args=None):
+    def iterate(self, x=None, y=None, v=None, args=None):
         yy = []  # to store all fitnesses
         x1, x2, x3, f_p = self.mutate(x)
         x1 = self.bound(self.crossover(x1, x, f_p[:, 0, 1]))
@@ -135,5 +135,5 @@ class CODE(CDE):
         yy = y
         while not self._check_terminations():
             self._print_verbose_info(fitness, yy)
-            x, y, yy = self.iterate(x, y, args)
+            x, y, yy = self.iterate(x, y, None, args)
         return self._collect(fitness, yy)
