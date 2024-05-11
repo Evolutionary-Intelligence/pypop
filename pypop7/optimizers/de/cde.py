@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.de.de import DE  # abstract class of all black-box optimizers (BBO)
+from pypop7.optimizers.de.de import DE  # abstract class of all differential evolution (DE)
 
 
 class CDE(DE):
@@ -23,7 +23,7 @@ class CDE(DE):
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
                 * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
-                * 'seed_rng'                 - seed for random number generation (RNG) needed to be *explicitly* set (`int`);
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `100`),
                 * 'f'             - mutation factor (`float`, default: `0.5`),
