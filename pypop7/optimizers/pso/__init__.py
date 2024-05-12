@@ -1,4 +1,4 @@
-from pypop7.optimizers.pso.pso import PSO  # abstract class for all PSO classes
+from pypop7.optimizers.pso.pso import PSO  # abstract class for all particle swarm optimizer (PSO) classes [1995]
 from pypop7.optimizers.pso.spso import SPSO
 from pypop7.optimizers.pso.spsol import SPSOL
 from pypop7.optimizers.pso.cpso import CPSO
@@ -7,7 +7,7 @@ from pypop7.optimizers.pso.ipso import IPSO
 from pypop7.optimizers.pso.ccpso2 import CCPSO2
 
 
-__all__ = [PSO,  # Particle Swarm Optimizer (PSO)
+__all__ = [PSO,  # Particle Swarm Optimizer [1995]
            SPSO,  # Standard Particle Swarm Optimizer with a global topology (SPSO)
            SPSOL,  # Standard Particle Swarm Optimizer with a Local (ring) topology (SPSOL)
            CPSO,  # Cooperative Particle Swarm Optimizer (CPSO)
