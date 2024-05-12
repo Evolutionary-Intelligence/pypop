@@ -1,4 +1,4 @@
-import numpy as np  # https://numpy.org/
+import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.core.optimizer import Optimizer  # abstract class for all black-box optimizers (BBO)
 
@@ -8,7 +8,7 @@ class PSO(Optimizer):
 
     This is the **abstract** class of all `PSO` classes. Please use any of its instantiated subclasses to
     optimize the black-box problem at hand. The unique goal of this abstract class is to unify the common
-    interfaces of all its subsclases (different algorithm versions).
+    interfaces of all its subclasses (different algorithm versions).
 
     .. note:: `PSO` is a very popular family of **swarm**-based search algorithms, originally proposed by an
        electrical engineer (Russell C. Eberhart) and a psychologist (James Kennedy), two recipients of `IEEE
