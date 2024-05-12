@@ -1,7 +1,7 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.core.optimizer import Optimizer
-from pypop7.optimizers.pso.spso import PSO
+from pypop7.optimizers.pso.spso import PSO  # abstract class of all particle swarm optimizer (PSO) classes
 
 
 class CPSO(PSO):
