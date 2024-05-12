@@ -1,9 +1,9 @@
 import time
 
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.ga.genitor import GENITOR
-from pypop7.optimizers.cc import CC
+from pypop7.optimizers.cc import CC  # abstract class of all cooperative coevolution (CC) classes
 
 
 class COEA(CC):
