@@ -1,8 +1,8 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 from scipy.stats import cauchy
 
 from pypop7.optimizers.core.optimizer import Optimizer
-from pypop7.optimizers.pso.pso import PSO
+from pypop7.optimizers.pso.pso import PSO  # abstract class of all particle swarm optimizer (PSO) classes
 
 
 class CCPSO2(PSO):
@@ -133,7 +133,7 @@ class CCPSO2(PSO):
                     if self._check_terminations():
                         return x, y, p_x, p_y, n_x
                     cv = np.copy(self.best_so_far_x)  # context vector
-                    indices = self._indices[np.arange(j*self._s, (j + 1)*self._s)]
+                    indices = self._indices[np.arange(j*self._s, min(self.ndim_problem, (j + 1)*self._s))]
                     cv[indices] = x[i, indices]
                     y[j, i] = self._evaluate_fitness(cv, args)
             if self.saving_fitness:
@@ -145,7 +145,7 @@ class CCPSO2(PSO):
                 if self._check_terminations():
                     return x, y, p_x, p_y, n_x
                 cv = np.copy(self.best_so_far_x)  # context vector
-                indices = self._indices[np.arange(j*self._s, (j + 1)*self._s)]
+                indices = self._indices[np.arange(j*self._s, min(self.ndim_problem, (j + 1)*self._s))]
                 cv[indices] = x[i, indices]
                 y[j, i] = self._evaluate_fitness(cv, args)
                 if y[j, i] < p_y[j, i]:
@@ -153,11 +153,11 @@ class CCPSO2(PSO):
                 if y[j, i] < self._best_so_far_y:
                     self._improved, self._best_so_far_y = True, y[j, i]
             for i in range(self.n_individuals):
-                indices = self._indices[np.arange(j*self._s, (j + 1)*self._s)]
+                indices = self._indices[np.arange(j*self._s, min(self.ndim_problem, (j + 1)*self._s))]
                 n_x[i, indices] = self._ring_topology(p_x, p_y, j, i, indices)
         for j in range(self._k):  # for each swarm
             for i in range(self.n_individuals):  # for each individual
-                indices = self._indices[np.arange(j*self._s, (j + 1)*self._s)]
+                indices = self._indices[np.arange(j*self._s, min(self.ndim_problem, (j + 1)*self._s))]
                 std = np.abs(p_x[i, indices] - n_x[i, indices])
                 for jj, ii in enumerate(indices):
                     if self.rng_optimization.random() <= self.p:  # sampling from Cauchy distribution
