@@ -19,10 +19,10 @@ class ES(Optimizer):
 
        `"Their two most prominent design principles are unbiasedness and adaptive control of parameters of the sample
        distribution. Parameter control is not always directly inspired by biological evolution, but is an indispensable
-       and central feature of ES. For recombination, using a single parental centroid has become the most popular
-       approach, because such algorithms are simpler to formalize, easier to analyze, and even perform better in various
-       circumstances as they allow for maximum genetic repair."---[Hansen et al., 2015]
-       <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
+       and central feature of ES. The result of selection and recombination is often deterministic. For recombination,
+       using a single parental centroid has become the most popular approach, because such algorithms are simpler to
+       formalize, easier to analyze, and even perform better in various circumstances as they allow for maximum genetic
+       repair."---[Hansen et al., 2015] <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
 
        For some interesting applications of `ES`, please refer to `[Yang et al., 2024, CVPR]
        <https://diffusion-es.github.io/>`_, just to name a few.
