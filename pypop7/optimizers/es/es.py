@@ -17,6 +17,9 @@ class ES(Optimizer):
        the `Information-Geometric Optimization (IGO) <https://www.jmlr.org/papers/v18/14-467.html>`_ framework via
        **invariance** principles (inspired by `NES <https://jmlr.org/papers/v15/wierstra14a.html>`_).
 
+       `Their two most prominent design principles are unbiasedness and adaptive control of parameters of the sample
+       distribution. <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
+
        For some interesting applications of `ES`, please refer to `[Yang et al., 2024, CVPR]
        <https://diffusion-es.github.io/>`_, just to name a few.
 
@@ -69,10 +72,10 @@ class ES(Optimizer):
     https://blog.otoro.net/2017/10/29/visual-evolution-strategies/
 
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
-    Evolution strategies.
+    `Evolution strategies.
+    <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
     In Springer Handbook of Computational Intelligence (pp. 871-898).
     Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44
 
     Bäck, T., Foussette, C., & Krause, P. (2013).
     Contemporary evolution strategies.
