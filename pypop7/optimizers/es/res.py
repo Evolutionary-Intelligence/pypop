@@ -21,6 +21,10 @@ class RES(ES):
        owing to its popularity, sometimes `RES` is still used now, such as, `[Williams&Li, 2024, NeurIPS]
        <https://tinyurl.com/4vdphufe>`_.
 
+       `"As a control mechanism in practice, the 1/5th success rule has been mostly superseded by more sophisticated
+       methods. However, its conceptual insight remains remarkably valuable."---[Hansen et al., 2015]
+       <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
+
     Parameters
     ----------
     problem : dict
