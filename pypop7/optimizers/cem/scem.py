@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.cem.cem import CEM
+from pypop7.optimizers.cem.cem import CEM  # abstract class of all cross-entropy method (CEM) classes
 
 
 class SCEM(CEM):
