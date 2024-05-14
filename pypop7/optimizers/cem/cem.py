@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.core.optimizer import Optimizer
+from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all black-box optimizers (BBO)
 
 
 class CEM(Optimizer):
