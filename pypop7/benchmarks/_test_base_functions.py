@@ -1,7 +1,7 @@
 import unittest
 
 from pypop7.benchmarks.base_functions import *
-from test_cases import *
+from cases import *
 
 
 class TestBaseFunctions(unittest.TestCase):
@@ -21,14 +21,14 @@ class TestBaseFunctions(unittest.TestCase):
             squeeze_and_check([])
 
     def test_sphere(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [sphere, Sphere()]:
             for ndim in range(1, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_sphere(ndim - 1)))
             self.assertTrue(sample.check_origin(func))
 
     def test_cigar(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [cigar, Cigar()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_cigar(ndim - 2)))
@@ -37,7 +37,7 @@ class TestBaseFunctions(unittest.TestCase):
             self.assertTrue(sample.check_origin(func))
 
     def test_discus(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [discus, Discus()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_discus(ndim - 2)))
@@ -46,7 +46,7 @@ class TestBaseFunctions(unittest.TestCase):
             self.assertTrue(sample.check_origin(func))
 
     def test_cigar_discus(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [cigar_discus, CigarDiscus()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_cigar_discus(ndim - 2)))
@@ -55,7 +55,7 @@ class TestBaseFunctions(unittest.TestCase):
             self.assertTrue(sample.check_origin(func))
 
     def test_ellipsoid(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [ellipsoid, Ellipsoid()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_ellipsoid(ndim - 2)))
@@ -64,7 +64,7 @@ class TestBaseFunctions(unittest.TestCase):
             self.assertTrue(sample.check_origin(func))
 
     def test_different_powers(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [different_powers, DifferentPowers()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_different_powers(ndim - 2), atol=0.1))
@@ -73,28 +73,28 @@ class TestBaseFunctions(unittest.TestCase):
             self.assertTrue(sample.check_origin(func))
 
     def test_schwefel221(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [schwefel221, Schwefel221()]:
             for ndim in range(1, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_schwefel221(ndim - 1)))
             self.assertTrue(sample.check_origin(func))
 
     def test_step(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [step, Step()]:
             for ndim in range(1, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_step(ndim - 1)))
             self.assertTrue(sample.check_origin(func))
 
     def test_schwefel222(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [schwefel222, Schwefel222()]:
             for ndim in range(1, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_schwefel222(ndim - 1)))
             self.assertTrue(sample.check_origin(func))
 
     def test_rosenbrock(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [rosenbrock, Rosenbrock()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_rosenbrock(ndim - 2)))
@@ -102,7 +102,7 @@ class TestBaseFunctions(unittest.TestCase):
                 sample.compare(func, 1, np.empty((5,)))
 
     def test_schwefel12(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [schwefel12, Schwefel12()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_schwefel12(ndim - 2)))
@@ -116,28 +116,28 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(np.abs(func(np.zeros((ndim,))) + 1) < 1e-9)
 
     def test_griewank(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [griewank, Griewank()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_griewank(ndim - 2), atol=0.001))
             self.assertTrue(sample.check_origin(func))
 
     def test_bohachevsky(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [bohachevsky, Bohachevsky()]:
             for ndim in range(1, 5):
                 self.assertTrue(sample.compare(func, ndim, get_y_bohachevsky(ndim - 1), atol=0.1))
             self.assertTrue(sample.check_origin(func))
 
     def test_ackley(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [ackley, Ackley()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_ackley(ndim - 2), atol=0.001))
             self.assertTrue(sample.check_origin(func))
 
     def test_rastrigin(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [rastrigin, Rastrigin()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
@@ -149,12 +149,12 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(np.abs(func(-np.ones((ndim,)))) < 1e-9)
 
     def test_michalewicz(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [michalewicz, Michalewicz()]:
             self.assertTrue(sample.check_origin(func))
 
     def test_salomon(self):
-        sample = TestCases()
+        sample = Cases()
         for func in [salomon, Salomon()]:
             self.assertTrue(sample.check_origin(func))
 
