@@ -10,7 +10,7 @@ def test_optimize():
                'seed_rng': 2022,
                'mean': 3.0 * numpy.ones((2,)),
                'sigma': 3.0}  # global step-size may need to be tuned for optimality
-    scem = DSCEM(problem, options)  # to initialize the black-box optimizer class
-    results = scem.optimize()  # to run its optimization/evolution process
+    dscem = DSCEM(problem, options)  # to initialize the black-box optimizer class
+    results = dscem.optimize()  # to run its optimization/evolution process
     assert results['n_function_evaluations'] == 5000
     assert results['best_so_far_y'] < 1.0
