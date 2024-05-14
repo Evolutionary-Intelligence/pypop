@@ -8,22 +8,23 @@ class RES(ES):
 
     .. note:: `RES` is the first evolution strategy with self-adaptation of the *global* step-size (designed
        by Rechenberg, one recipient of `IEEE Evolutionary Computation Pioneer Award 2002
-       <https://tinyurl.com/456as566>`_). As theoretically investigated in his *seminal* Ph.D. dissertation
-       at Technical University of Berlin, the existence of narrow **evolution window** explains the necessarity
-       of *global* step-size adaptation to maximize the local convergence progress, if possible. Note that
-       a similar theoretical study was independently conducted in the automatic control community (that is,
-       `[Schumer&Steiglitz, 1968, IEEE-TAC] <https://ieeexplore.ieee.org/abstract/document/1098903>`_).
+       <https://tinyurl.com/456as566>`_), originally proposed for experimental optimization. As theoretically
+       investigated in his *seminal* Ph.D. dissertation at Technical University of Berlin, the existence of
+       narrow **evolution window** explains the necessarity of *global* step-size adaptation to maximize the
+       local convergence progress, if possible. Note that a similar theoretical study was independently
+       conducted in the automatic control community (that is, `[Schumer&Steiglitz, 1968, IEEE-TAC]
+       <https://ieeexplore.ieee.org/abstract/document/1098903>`_).
 
        Since there is only one parent and only one offspring for each generation (iteration), `RES` generally
-       shows limited *exploration* ability for large-scale black-box optimization. Therefore, it is recommended
-       to first attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale black-box optimization.
-       Here we include `RES` (AKA two-membered ES) mainly for *benchmarking* and *theoretical* purposes. Interestingly,
-       owing to its popularity, sometimes `RES` is still used now, such as, `[Williams&Li, 2024, NeurIPS]
-       <https://tinyurl.com/4vdphufe>`_.
+       shows limited *exploration* ability for large-scale black-box optimization. Therefore, it is
+       recommended to first attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale
+       black-box optimization. Here we include `RES` (AKA two-membered ES) mainly for *benchmarking* and
+       *theoretical* purposes. Interestingly, owing to its popularity, sometimes `RES` is still used now,
+       such as, `[Williams&Li, 2024, NeurIPS] <https://tinyurl.com/4vdphufe>`_.
 
-       `"As a control mechanism in practice, the 1/5th success rule has been mostly superseded by more sophisticated
-       methods. However, its conceptual insight remains remarkably valuable."---[Hansen et al., 2015]
-       <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
+       `"As a control mechanism in practice, the 1/5th success rule has been mostly superseded by more
+       sophisticated methods. However, its conceptual insight remains remarkably valuable."---[Hansen et al.,
+       2015] <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
 
     Parameters
     ----------
