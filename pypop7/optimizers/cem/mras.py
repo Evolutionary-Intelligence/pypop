@@ -1,7 +1,7 @@
 import numpy as np  # engine for numerical computing
 from scipy.stats import multivariate_normal as mn
 
-from pypop7.optimizers.cem import CEM
+from pypop7.optimizers.cem import CEM  # abstract class of all cross-entropy method (CEM) classes
 
 
 class MRAS(CEM):
