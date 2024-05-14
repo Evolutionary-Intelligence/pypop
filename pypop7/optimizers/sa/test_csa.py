@@ -9,7 +9,7 @@ def test_optimize():
     options = {'max_function_evaluations': 5000,  # set optimizer options
                'seed_rng': 2022,
                'x': 3 * numpy.ones((2,)),
-               'sigma': 1.0,
+               'sigma': 3.0,
                'temperature': 100}
     csa = CSA(problem, options)  # initialize the optimizer class
     results = csa.optimize()  # run the optimization process
