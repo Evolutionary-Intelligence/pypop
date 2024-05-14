@@ -135,9 +135,9 @@ class RES(ES):
     Rechenberg, I., 1973.
     Evolutionsstrategie: Optimierung technischer systeme nach prinzipien der biologischen evolution.
     Frommann-Holzboog Verlag, Stuttgart.
-    (Note that this seminal Ph.D. dissertation is not read by us since it was originally written in
-    German. Here we still add it owing to its historically significant contributions to evolutionary
-    computation.)
+    (Note that this **seminal** Ph.D. dissertation is not read by us since it was originally written
+    in German. Here we still add it owing to its historically significant contributions to
+    evolutionary computation and black-box optimization.)
     
     Schumer, M.A. and `Steiglitz, K. <https://www.cs.princeton.edu/~ken/>`_, 1968.
     `Adaptive step size random search.
