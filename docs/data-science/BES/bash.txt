@@ -14,3 +14,18 @@ nohup python run_experiments_loss_svm.py -s=11 -e=11 -o=BES >BES_11_11_loss_svm.
 nohup python run_experiments_loss_svm.py -s=12 -e=12 -o=BES >BES_12_12_loss_svm.out 2>&1 &
 nohup python run_experiments_loss_svm.py -s=13 -e=13 -o=BES >BES_13_13_loss_svm.out 2>&1 &
 nohup python run_experiments_loss_svm.py -s=14 -e=14 -o=BES >BES_14_14_loss_svm.out 2>&1 &
+
+nohup python run_experiments_loss_margin_perceptron.py -s=1 -e=1 -o=BES >BES_1_1_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=2 -e=2 -o=BES >BES_2_2_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=3 -e=3 -o=BES >BES_3_3_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=4 -e=4 -o=BES >BES_4_4_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=5 -e=5 -o=BES >BES_5_5_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=6 -e=6 -o=BES >BES_6_6_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=7 -e=7 -o=BES >BES_7_7_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=8 -e=8 -o=BES >BES_8_8_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=9 -e=9 -o=BES >BES_9_9_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=10 -e=10 -o=BES >BES_10_10_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=11 -e=11 -o=BES >BES_11_11_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=12 -e=12 -o=BES >BES_12_12_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=13 -e=13 -o=BES >BES_13_13_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=14 -e=14 -o=BES >BES_14_14_loss_margin_perceptron.out 2>&1 &
