@@ -1,3 +1,4 @@
+import pypop7.benchmarks.cases
 import pypop7.benchmarks.utils
 import pypop7.benchmarks.base_functions
 import pypop7.benchmarks.shifted_functions
