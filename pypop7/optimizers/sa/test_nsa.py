@@ -8,7 +8,7 @@ def test_optimize():
                'upper_boundary': 5.0 * numpy.ones((2,))}
     options = {'max_function_evaluations': 5000,  # to set optimizer options
                'seed_rng': 2022,
-               'temperature': 100,
+               'temperature': 100.0,
                'mean': 3.0 * numpy.ones((2,)),
                'sigma': 3.0}  # global step-size may need to be tuned for optimality
     nsa = NSA(problem, options)  # to initialize the black-box optimizer class
