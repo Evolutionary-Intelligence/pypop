@@ -25,7 +25,7 @@ class ES(Optimizer):
        repair."---[Hansen et al., 2015] <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
 
        In 2017, `OpenAI <https://openai.com/>`_ designed a **scalable** `ES` version without CMA (now called `OpenAI-ES
-       <https://openai.com/index/evolution-strategies/>`_) but with competitive performance for high-dimensional
+       <https://openai.com/index/evolution-strategies/>`_) but obtaining competitive performance for high-dimensional
        (deep neural network-based) policy search in reinforcement learning.
 
        For some interesting applications of `ES`, please refer to `[Yang et al., 2024, CVPR]
