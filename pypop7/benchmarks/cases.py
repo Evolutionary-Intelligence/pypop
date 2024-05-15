@@ -4,7 +4,7 @@ from pypop7.benchmarks.shifted_functions import generate_shift_vector, load_shif
 from pypop7.benchmarks.rotated_functions import generate_rotation_matrix, load_rotation_matrix
 
 
-class TestCases(object):
+class Cases(object):
     """Test correctness of benchmark functions via sampling (test cases).
     """
     def __init__(self, is_shifted=False, is_rotated=False):
@@ -123,7 +123,7 @@ class TestCases(object):
         return is_zero
 
 
-# expected (true) function values for test cases given in class TestCases
+# expected (true) function values for test cases given in class Cases
 def get_y_sphere(ndim):
     y = [[4, 1, 0, 1, 4],
          [8, 2, 0, 2, 8],
