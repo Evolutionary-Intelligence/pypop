@@ -1,7 +1,7 @@
 import unittest
 
 from pypop7.benchmarks.base_functions import *
-from cases import *
+from pypop7.benchmarks.cases import *
 
 
 class TestBaseFunctions(unittest.TestCase):
