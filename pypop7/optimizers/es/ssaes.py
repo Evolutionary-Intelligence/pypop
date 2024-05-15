@@ -9,12 +9,12 @@ class SSAES(ES):
     .. note:: `SSAES` adapts all the **individual** step-sizes (aka coordinate-wise standard deviations)
        on-the-fly, proposed by Schwefel (one recipient of `IEEE Evolutionary Computation Pioneer Award
        2002 <https://tinyurl.com/456as566>`_ and `IEEE Frank Rosenblatt Award 2011
-       <https://tinyurl.com/yj28zxfa>`_). Since it often needs a *relatively large* population (e.g.,
-       larger than number of dimensionality) for reliable self-adaptation, `SSAES` suffers easily from
-       *slow* convergence for large-scale black-box optimization. Therefore, it is recommended to first
-       attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale black-box optimization.
-       Here we include `SSAES` mainly for *benchmarking* and *theoretical* purpose. Currently the `restart`
-       process is not implemented owing to its typically slow convergence.
+       <https://en.wikipedia.org/wiki/IEEE_Frank_Rosenblatt_Award>`_). Since it often needs a *relatively
+       large* population (e.g., larger than number of dimensionality) for reliable self-adaptation, `SSAES`
+       suffers easily from *slow* convergence for large-scale black-box optimization. Therefore, it is
+       recommended to first attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale
+       black-box optimization. Here we include `SSAES` mainly for *benchmarking* and *theoretical* purpose.
+       Currently the `restart` process is not implemented owing to its typically slow convergence.
 
     Parameters
     ----------
