@@ -98,7 +98,7 @@ class CLPSO(PSO):
                         n_x[i, d], exemplars[d] = p_x[right, d], right
                 else:  # inherit from its own best position
                     n_x[i, d] = p_x[i, d]
-            if all(exemplars == i):  # learning from other when all exemplars are itself
+            if np.all(exemplars == i):  # learning from other when all exemplars are itself
                 ndim = self.rng_optimization.integers(self.ndim_problem)  # randomly selected dimension
                 exemplar = self.rng_optimization.choice([k for k in range(self.n_individuals) if k != i])
                 n_x[i, ndim] = p_x[exemplar, ndim]
