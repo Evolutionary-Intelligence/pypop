@@ -27,6 +27,8 @@ Till now, our open-source library `PyPop7` has been used (at least) in the follo
 
   * Unfortunately, this open-source project is not openly accessible now.
 * 9: https://github.com/BruthYU/BPT-VLM (2023)
+
+  * https://github.com/ECNU-ICALK/BPT-VLM
 * 8: https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
 
   * https://github.com/annart167/opof
