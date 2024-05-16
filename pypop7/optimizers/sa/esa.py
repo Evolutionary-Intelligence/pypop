@@ -1,7 +1,7 @@
 import numpy as np  # engine for numerical computing
 
 from pypop7.optimizers.core.optimizer import Optimizer
-from pypop7.optimizers.sa.sa import SA
+from pypop7.optimizers.sa.sa import SA  # abstract class for all simulated annealing (SA) subclasses
 
 
 class ESA(SA):
