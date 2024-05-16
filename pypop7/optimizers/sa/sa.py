@@ -1,4 +1,4 @@
-from pypop7.optimizers.rs import RS
+from pypop7.optimizers.rs import RS  # abstract class for all random search (RS) subclasses
 
 
 class SA(RS):
