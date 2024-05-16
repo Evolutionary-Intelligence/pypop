@@ -11,4 +11,4 @@ def test_optimize():
     esa = ESA(problem, options)  # initialize the optimizer class
     results = esa.optimize()  # run the optimization process
     # return the number of function evaluations and best-so-far fitness
-    print(f"CSA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+    print(f"ESA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
