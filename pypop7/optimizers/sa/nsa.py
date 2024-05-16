@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.core.optimizer import Optimizer
+from pypop7.optimizers.core.optimizer import Optimizer  # abstract class for all black-box optimizers (BBO)
 from pypop7.optimizers.sa.sa import SA  # abstract class for all simulated annealing (SA) subclasses
 
 
