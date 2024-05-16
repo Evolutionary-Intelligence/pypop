@@ -8,7 +8,7 @@ def test_optimize():
                'upper_boundary': 5.0 * numpy.ones((2,))}
     options = {'max_function_evaluations': 5000,  # set optimizer options
                'seed_rng': 2022,
-               'x': 3*numpy.ones((2,)),
+               'x': 3.0 * numpy.ones((2,)),
                'sigma': 3.0}
     srs = SRS(problem, options)  # initialize the optimizer class
     results = srs.optimize()  # run the optimization process
