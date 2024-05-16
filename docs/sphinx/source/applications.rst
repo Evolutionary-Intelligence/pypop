@@ -1,6 +1,9 @@
 Applications
 ============
 
+Paper Cases
+-----------
+
 Up to now, this open-source Python library `PyPop7` has been **used/cited** (at least) in the following papers:
 
 * 9: Bailo, R., Barbaro, A., Gomes, S.N., Riedl, K., Roith, T., Totzeck, C. and Vaes, U., 2024. `CBX: Python and Julia Packages for Consensus-based Interacting Particle Methods <https://github.com/PdIPS/CBX/blob/main/paper.md>`_. arXiv preprint arXiv:2403.14470. [**cited**]
@@ -12,6 +15,9 @@ Up to now, this open-source Python library `PyPop7` has been **used/cited** (at 
 * 3: Duan, Q., Shao, C., Zhou, G., Yang, H., Zhao, Q. and Shi, Y., 2023. `Cooperative Coevolution for Non-Separable Large-Scale Black-Box Optimization: Convergence Analyses and Distributed Accelerations <https://arxiv.org/abs/2304.05020>`_. arXiv preprint arXiv:2304.05020. [**used**]
 * 2: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022. `Collective Learning of Low-Memory Matrix Adaptation for Large-Scale Black-Box Optimization <https://link.springer.com/chapter/10.1007/978-3-031-14721-0_20>`_. In International Conference on Parallel Problem Solving from Nature (pp. 281-294). Springer, Cham.  [**used**, this research paper entered the nomination list of the Best Paper Award on PPSN-2022]
 * 1: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022, July. `Distributed Evolution Strategies for Large-Scale Optimization <https://dl.acm.org/doi/abs/10.1145/3520304.3528784>`_. In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion (pp. 395-398). ACM. [**used**]
+
+Open-Source Cases
+-----------------
 
 Till now, our open-source library `PyPop7` has been used (at least) in the following open-source projects:
 
@@ -36,6 +42,9 @@ Till now, our open-source library `PyPop7` has been used (at least) in the follo
 
   * This is a **parallel/distributed** extension to `PyPop7` (now actively developed).
 
+Introduction Cases
+------------------
+
 For other introductions/coverage to this open-source library `PyPop7`, refer to e.g.:
 
 * `huggingface <https://huggingface.co/>`_:
@@ -54,3 +63,8 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 * `中文博客网站CSDN <https://blog.csdn.net>`_:
 
   * https://blog.csdn.net/2301_81205034/category_12502462.html
+
+Praises
+-------
+
+  * `the excellent work <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
