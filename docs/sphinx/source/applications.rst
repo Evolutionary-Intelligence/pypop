@@ -68,3 +68,4 @@ Praises
 -------
 
   * `"the excellent work" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
+  * `"an invaluable collection" <https://github.com/Evolutionary-Intelligence/pypop/issues/89>`_
