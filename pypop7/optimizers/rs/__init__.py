@@ -1,4 +1,4 @@
-from pypop7.optimizers.rs.rs import RS  # abstract class for all RS subclasses
+from pypop7.optimizers.rs.rs import RS  # abstract class for all random search (RS) subclasses
 from pypop7.optimizers.rs.prs import PRS
 from pypop7.optimizers.rs.rhc import RHC
 from pypop7.optimizers.rs.arhc import ARHC
@@ -7,7 +7,7 @@ from pypop7.optimizers.rs.gs import GS
 from pypop7.optimizers.rs.bes import BES
 
 
-__all__ = [RS,  # Random (stochastic) Search (optimization) (RS)
+__all__ = [RS,  # Random (stochastic) Search (optimization)
            PRS,  # Pure Random Search (PRS)
            RHC,  # Random (stochastic) Hill Climber (RHC)
            ARHC,  # Annealed Random Hill Climber (ARHC)
