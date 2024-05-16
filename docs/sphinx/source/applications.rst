@@ -67,4 +67,4 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 Praises
 -------
 
-  * `the excellent work <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
+  * `"the excellent work" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
