@@ -59,3 +59,18 @@ nohup python run_experiments_mpc2023_nonsmooth.py -s=11 -e=11 -o=BES >BES_11_11_
 nohup python run_experiments_mpc2023_nonsmooth.py -s=12 -e=12 -o=BES >BES_12_12_mpc2023_nonsmooth.out 2>&1 &
 nohup python run_experiments_mpc2023_nonsmooth.py -s=13 -e=13 -o=BES >BES_13_13_mpc2023_nonsmooth.out 2>&1 &
 nohup python run_experiments_mpc2023_nonsmooth.py -s=14 -e=14 -o=BES >BES_14_14_mpc2023_nonsmooth.out 2>&1 &
+
+nohup python run_experiments_square_loss_lr.py -s=1 -e=1 -o=BES >BES_1_1_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=2 -e=2 -o=BES >BES_2_2_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=3 -e=3 -o=BES >BES_3_3_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=4 -e=4 -o=BES >BES_4_4_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=5 -e=5 -o=BES >BES_5_5_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=6 -e=6 -o=BES >BES_6_6_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=7 -e=7 -o=BES >BES_7_7_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=8 -e=8 -o=BES >BES_8_8_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=9 -e=9 -o=BES >BES_9_9_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=10 -e=10 -o=BES >BES_10_10_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=11 -e=11 -o=BES >BES_11_11_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=12 -e=12 -o=BES >BES_12_12_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=13 -e=13 -o=BES >BES_13_13_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=14 -e=14 -o=BES >BES_14_14_square_loss_lr.out 2>&1 &
