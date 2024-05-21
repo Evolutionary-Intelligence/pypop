@@ -7,3 +7,4 @@
 ## All Data of Optimization Results Generated via Different Black-Box Optimizers (BBO)
 
 * [BES](https://pypop.readthedocs.io/en/latest/rs/bes.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/BES
+* [LAMCTS](https://pypop.readthedocs.io/en/latest/bo/lamcts.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/LAMCTS
