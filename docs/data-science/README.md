@@ -9,5 +9,5 @@
 * [BES](https://pypop.readthedocs.io/en/latest/rs/bes.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/BES
 * [LAMCTS](https://pypop.readthedocs.io/en/latest/bo/lamcts.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/LAMCTS
 * [RPEDA](https://pypop.readthedocs.io/en/latest/eda/rpeda.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/RPEDA
-* [SHADE](https://pypop.readthedocs.io/en/latest/cem/scem.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/SHADE
+* [SHADE](https://pypop.readthedocs.io/en/latest/de/shade.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/SHADE
 * [VKDCMA](https://pypop.readthedocs.io/en/latest/es/vkdcma.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/VKDCMA
