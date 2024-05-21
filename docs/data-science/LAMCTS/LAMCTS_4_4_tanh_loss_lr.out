@@ -1,0 +1,12 @@
+* experiment: 4 ***:
+  * function: tanh_loss_lr_pdc:
+    runtime: 1.09361e+04.
+  * function: tanh_loss_lr_shd:
+    runtime: 1.08093e+04.
+  * function: tanh_loss_lr_c:
+    runtime: 1.08383e+04.
+  * function: tanh_loss_lr_m:
+    runtime: 1.08398e+04.
+  * function: tanh_loss_lr_qar:
+    runtime: 1.08004e+04.
+*** Total runtime: 5.42271e+04 ***.

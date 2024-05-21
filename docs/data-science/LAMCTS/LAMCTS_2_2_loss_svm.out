@@ -1,0 +1,12 @@
+* experiment: 2 ***:
+  * function: loss_svm_pdc:
+    runtime: 1.08704e+04.
+  * function: loss_svm_shd:
+    runtime: 1.08050e+04.
+  * function: loss_svm_c:
+    runtime: 1.08260e+04.
+  * function: loss_svm_m:
+    runtime: 1.08178e+04.
+  * function: loss_svm_qar:
+    runtime: 1.08483e+04.
+*** Total runtime: 5.41708e+04 ***.

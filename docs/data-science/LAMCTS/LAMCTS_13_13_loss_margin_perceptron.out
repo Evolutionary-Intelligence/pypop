@@ -1,0 +1,12 @@
+* experiment: 13 ***:
+  * function: loss_margin_perceptron_pdc:
+    runtime: 1.08085e+04.
+  * function: loss_margin_perceptron_shd:
+    runtime: 1.08076e+04.
+  * function: loss_margin_perceptron_c:
+    runtime: 1.09262e+04.
+  * function: loss_margin_perceptron_m:
+    runtime: 1.08376e+04.
+  * function: loss_margin_perceptron_qar:
+    runtime: 1.08633e+04.
+*** Total runtime: 5.42460e+04 ***.

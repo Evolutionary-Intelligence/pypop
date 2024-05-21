@@ -1,0 +1,12 @@
+* experiment: 13 ***:
+  * function: mpc2023_nonsmooth_pdc:
+    runtime: 1.09265e+04.
+  * function: mpc2023_nonsmooth_shd:
+    runtime: 1.08948e+04.
+  * function: mpc2023_nonsmooth_c:
+    runtime: 1.08365e+04.
+  * function: mpc2023_nonsmooth_m:
+    runtime: 1.08571e+04.
+  * function: mpc2023_nonsmooth_qar:
+    runtime: 1.08086e+04.
+*** Total runtime: 5.43263e+04 ***.
