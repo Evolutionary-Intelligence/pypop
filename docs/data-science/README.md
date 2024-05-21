@@ -8,6 +8,7 @@
 
 * [BES](https://pypop.readthedocs.io/en/latest/rs/bes.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/BES
 * [LAMCTS](https://pypop.readthedocs.io/en/latest/bo/lamcts.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/LAMCTS
+* [LMCMA](https://pypop.readthedocs.io/en/latest/es/lmcma.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/LMCMA
 * [R1NES](https://pypop.readthedocs.io/en/latest/nes/r1nes.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/R1NES
 * [RPEDA](https://pypop.readthedocs.io/en/latest/eda/rpeda.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/RPEDA
 * [SCEM](https://pypop.readthedocs.io/en/latest/cem/scem.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/SCEM
