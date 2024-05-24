@@ -35,7 +35,7 @@ class CSA(SA):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer `CSA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -60,7 +60,7 @@ class CSA(SA):
        CSA: 5000, 0.0023146719686626344
 
     For its correctness checking of coding, please refer to `this code-based repeatability report
-    <https://tinyurl.com/bdd62drw>`_ for more details.
+    <https://tinyurl.com/bdd62drw>`_ for details.
 
     For its `pytest <https://docs.pytest.org/>`_ based testing, please refer to `this Python code
     <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/test_csa.py>`_.
