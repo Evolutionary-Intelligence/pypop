@@ -21,7 +21,8 @@ class DE(Optimizer):
        the search space."---[Storn&Price, 1997, JGO] <https://doi.org/10.1023/A:1008202821328>`_
 
     For some interesting applications of `DE`, please refer to `[Barbosa et al., 2021, PAAP]
-    <https://link.springer.com/chapter/10.1007/978-981-16-0010-4_15>`_, just to name a few.
+    <https://link.springer.com/chapter/10.1007/978-981-16-0010-4_15>`_, `[Lawson et al., 2020, AJ]
+    <https://doi.org/10.3847/1538-3881/ababa6>`_, just to name a few.
 
     Parameters
     ----------
