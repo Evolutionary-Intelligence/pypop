@@ -60,7 +60,7 @@ class SA(RS):
 
     Bertsimas, D. and Tsitsiklis, J., 1993.
     `Simulated annealing.
-    <https://tinyurl.com/yknunnpt>`_
+    <https://doi.org/10.1214/ss/1177011077>`_
     Statistical Science, 8(1), pp.10-15.
 
     Corana, A., Marchesi, M., Martini, C. and Ridella, S., 1987.
