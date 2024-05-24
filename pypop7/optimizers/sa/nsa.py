@@ -35,7 +35,7 @@ class NSA(SA):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer `NSA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -61,6 +61,9 @@ class NSA(SA):
 
     For its correctness checking of coding, the *code-based repeatability report* cannot be provided owing to
     the lack of some details of its experiments in the original paper.
+
+    For its `pytest <https://docs.pytest.org/>`_ based testing, please refer to `this Python code
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/test_nsa.py>`_.
 
     Attributes
     ----------
