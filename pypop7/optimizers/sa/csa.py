@@ -59,8 +59,11 @@ class CSA(SA):
        >>> print(f"CSA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        CSA: 5000, 0.0023146719686626344
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
+    For its correctness checking of coding, please refer to `this code-based repeatability report
     <https://tinyurl.com/bdd62drw>`_ for more details.
+
+    For its `pytest <https://docs.pytest.org/>`_ based testing, please refer to `this Python code
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/test_csa.py>`_.
 
     Attributes
     ----------
