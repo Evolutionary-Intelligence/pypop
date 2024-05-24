@@ -17,7 +17,7 @@ class SA(RS):
        <https://doi.org/10.1214/ss/1177011077>`_
 
     For its `pytest <https://docs.pytest.org/>`_ based testing, please refer to `this Python code
-    <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers/sa>`_.
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/test_sa.py>`_.
 
     Parameters
     ----------
