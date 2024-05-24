@@ -83,9 +83,9 @@ class NSA(SA):
     References
     ----------
     Bouttier, C. and Gavra, I., 2019.
-    Convergence rate of a simulated annealing algorithm with noisy observations.
+    `Convergence rate of a simulated annealing algorithm with noisy observations.
+    <https://www.jmlr.org/papers/v20/16-588.html>`_
     Journal of Machine Learning Research, 20(1), pp.127-171.
-    https://www.jmlr.org/papers/v20/16-588.html
     """
     def __init__(self, problem, options):
         SA.__init__(self, problem, options)
