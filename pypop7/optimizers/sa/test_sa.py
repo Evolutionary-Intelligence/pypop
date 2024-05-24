@@ -29,3 +29,9 @@ def test_initialize():
     assert np.all(test_sa.upper_boundary == 5.0 * np.ones((2,)))
     assert test_sa.max_function_evaluations == 5000
     assert test_sa.temperature is None
+    # test the setting of `temperature`
+    options = {'max_function_evaluations': 5000,  # to set optimizer options
+               'sigma': 3.0,
+               'temperature': 77.0}
+    test_sa = TSA(problem, options)
+    assert test_sa.temperature == 77.0
