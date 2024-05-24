@@ -59,8 +59,8 @@ class NSA(SA):
        >>> print(f"NSA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        NSA: 5000, 0.006086567926462302
 
-    For its correctness checking of coding, the *code-based repeatability report* cannot be provided owing to
-    the lack of some details of its experiments in the original paper.
+    For its correctness checking of coding, the *code-based repeatability report* cannot be provided
+    owing to the lack of some details of its experiments in the original paper.
 
     For its `pytest <https://docs.pytest.org/>`_ based testing, please refer to `this Python code
     <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/test_nsa.py>`_.
