@@ -16,6 +16,9 @@ class SA(RS):
        from local minima."---[Bertsimas&Tsitsiklis, 1993, Statistical Science]
        <https://doi.org/10.1214/ss/1177011077>`_
 
+    For its `pytest <https://docs.pytest.org/>`_ based testing, please refer to `this Python code
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/test_sa.py>`_.
+
     Parameters
     ----------
     problem : dict
@@ -32,9 +35,6 @@ class SA(RS):
               and with the following particular settings (`keys`):
                 * 'temperature' - annealing temperature (`float`),
                 * 'x'           - initial (starting) point (`array_like`).
-
-    For its `pytest <https://docs.pytest.org/>`_ based testing, please refer to `this Python code
-    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/test_sa.py>`_.
 
     Attributes
     ----------
