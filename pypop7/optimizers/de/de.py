@@ -15,7 +15,7 @@ class DE(Optimizer):
        in practice**, owing to its often attractive search performance on many multimodal black-box functions.
 
        The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ library has provided an
-       open-source Python implementation for `DE`.
+       open-source Python implementation for `DE` with wide applications.
 
        `"DE borrows the idea from Nelder&Mead of employing information from within the vector population to alter
        the search space."---[Storn&Price, 1997, JGO] <https://doi.org/10.1023/A:1008202821328>`_
