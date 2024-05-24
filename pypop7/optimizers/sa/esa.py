@@ -69,9 +69,9 @@ class ESA(SA):
     References
     ----------
     Siarry, P., Berthiau, G., Durdin, F. and Haussy, J., 1997.
-    Enhanced simulated annealing for globally minimizing functions of many-continuous variables.
+    `Enhanced simulated annealing for globally minimizing functions of many-continuous variables.
+    <https://dl.acm.org/doi/abs/10.1145/264029.264043>`_
     ACM Transactions on Mathematical Software, 23(2), pp.209-228.
-    https://dl.acm.org/doi/abs/10.1145/264029.264043
     """
     def __init__(self, problem, options):
         SA.__init__(self, problem, options)
