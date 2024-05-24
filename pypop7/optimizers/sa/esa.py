@@ -32,7 +32,7 @@ class ESA(SA):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer `ESA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -55,7 +55,10 @@ class ESA(SA):
        ESA: 5000, 6.481109148014023
 
     For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/3e2k39z2>`_ for more details.
+    <https://tinyurl.com/3e2k39z2>`_ for details.
+
+    For its `pytest <https://docs.pytest.org/>`_ based testing, please refer to `this Python code
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/test_esa.py>`_.
 
     Attributes
     ----------
