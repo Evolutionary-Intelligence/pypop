@@ -30,7 +30,7 @@ def test_optimize():
     options = {'max_function_evaluations': 5000,  # to set optimizer options
                'seed_rng': 2022,
                'temperature': 100.0,
-               'mean': 3.0 * numpy.ones((2,)),
+               'x': 3.0 * numpy.ones((2,)),
                'sigma': 3.0}  # global step-size may need to be tuned for optimality
     nsa = NSA(problem, options)  # to initialize the black-box optimizer class
     results = nsa.optimize()  # to run its optimization/evolution process
