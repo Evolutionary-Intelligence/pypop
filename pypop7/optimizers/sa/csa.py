@@ -8,7 +8,8 @@ class CSA(SA):
     """Corana et al.' Simulated Annealing (CSA).
 
     .. note:: `"The algorithm is essentially an iterative random search procedure with adaptive moves along
-       the coordinate directions."---[Corana et al., 1987, ACM-TOMS] <https://dl.acm.org/doi/abs/10.1145/29380.29864>`_
+       the coordinate directions."---[Corana et al., 1987, ACM-TOMS]
+       <https://dl.acm.org/doi/abs/10.1145/29380.29864>`_
 
     Parameters
     ----------
