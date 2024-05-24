@@ -12,13 +12,12 @@ class DE(Optimizer):
     .. note:: Originally `DE` was proposed to solve some challenging real-world black-box problems by Kenneth Price and
        Rainer Storn, `recipients of IEEE Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_.
        Although there is *few* significant theoretical advance till now (to our knowledge), it is **still widely used
-       in practice**, owing to its often attractive search performance on many multimodal black-box functions.
+       in practice**, owing to its often attractive search performance on many multimodal black-box functions. `"DE
+       borrows the idea from Nelder&Mead of employing information from within the vector population to alter the search
+       space."---[Storn&Price, 1997, JGO] <https://doi.org/10.1023/A:1008202821328>`_
 
        The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ library has provided an
        open-source Python implementation for `DE` with wide applications.
-
-       `"DE borrows the idea from Nelder&Mead of employing information from within the vector population to alter
-       the search space."---[Storn&Price, 1997, JGO] <https://doi.org/10.1023/A:1008202821328>`_
 
     For some interesting applications of `DE`, please refer to `[Barbosa et al., 2021, PAAP]
     <https://link.springer.com/chapter/10.1007/978-981-16-0010-4_15>`_, `[Lawson et al., 2020, AJ]
