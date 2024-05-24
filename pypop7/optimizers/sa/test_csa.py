@@ -1,3 +1,25 @@
+import numpy as np
+
+
+def test_initialize():
+    import numpy  # engine for numerical computing
+    from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+    from pypop7.optimizers.sa.csa import CSA
+    problem = {'fitness_function': rosenbrock,  # to define problem arguments
+               'ndim_problem': 2,
+               'lower_boundary': -5.0 * numpy.ones((2,)),
+               'upper_boundary': 5.0 * numpy.ones((2,))}
+    options = {'max_function_evaluations': 5000,  # to set optimizer options
+               'seed_rng': 2022,
+               'temperature': 100.0,
+               'x': 3.0 * numpy.ones((2,)),
+               'sigma': 3.0}  # global step-size may need to be tuned for optimality
+    csa = CSA(problem, options)  # to initialize the black-box optimizer class
+    assert csa.temperature == 100.0
+    assert np.all(csa.x == 3.0 * numpy.ones((2,)))
+    assert csa.sigma == 3.0
+
+
 def test_optimize():
     import numpy  # engine for numerical computing
     from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
@@ -9,7 +31,7 @@ def test_optimize():
     options = {'max_function_evaluations': 5000,  # to set optimizer options
                'seed_rng': 2022,
                'temperature': 100.0,
-               'mean': 3.0 * numpy.ones((2,)),
+               'x': 3.0 * numpy.ones((2,)),
                'sigma': 3.0}  # global step-size may need to be tuned for optimality
     csa = CSA(problem, options)  # to initialize the black-box optimizer class
     results = csa.optimize()  # to run its optimization/evolution process
