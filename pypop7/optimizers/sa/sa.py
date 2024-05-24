@@ -55,8 +55,8 @@ class SA(RS):
 
     Siarry, P., Berthiau, G., Durdin, F. and Haussy, J., 1997.
     `Enhanced simulated annealing for globally minimizing functions of many-continuous variables.
-    <ACM Transactions on Mathematical Software, 23(2), pp.209-228.
-    https://dl.acm.org/doi/abs/10.1145/264029.264043>`_
+    <https://dl.acm.org/doi/abs/10.1145/264029.264043>`_
+    ACM Transactions on Mathematical Software, 23(2), pp.209-228.
 
     Bertsimas, D. and Tsitsiklis, J., 1993.
     `Simulated annealing.
