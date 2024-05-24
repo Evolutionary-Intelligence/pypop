@@ -6,8 +6,8 @@ from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all 
 class DE(Optimizer):
     """Differential Evolution (DE).
 
-    This is the **abstract** class for all `DE` classes. Please use any of its instantiated subclasses to
-    optimize the black-box problem at hand.
+    This is the **abstract** class for all Differential Evolution (`DE`) classes. Please use any of its instantiated
+    subclasses to optimize the black-box problem at hand.
 
     .. note:: Originally `DE` was proposed to solve some challenging real-world black-box problems by Kenneth Price and
        Rainer Storn, `recipients of IEEE Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_.
@@ -15,10 +15,14 @@ class DE(Optimizer):
        in practice**, owing to its often attractive search performance on many multimodal black-box functions.
 
        The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ library has provided an
-       open-source Python implementation for `DE`.
+       open-source Python implementation for `DE` with wide applications.
 
        `"DE borrows the idea from Nelder&Mead of employing information from within the vector population to alter
        the search space."---[Storn&Price, 1997, JGO] <https://doi.org/10.1023/A:1008202821328>`_
+
+    For some interesting applications of `DE`, please refer to `[Barbosa et al., 2021, PAAP]
+    <https://link.springer.com/chapter/10.1007/978-981-16-0010-4_15>`_, `[Lawson et al., 2020, AJ]
+    <https://doi.org/10.3847/1538-3881/ababa6>`_, just to name a few.
 
     Parameters
     ----------
