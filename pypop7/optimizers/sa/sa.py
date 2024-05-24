@@ -49,24 +49,24 @@ class SA(RS):
     References
     ----------
     Bouttier, C. and Gavra, I., 2019.
-    Convergence rate of a simulated annealing algorithm with noisy observations.
+    `Convergence rate of a simulated annealing algorithm with noisy observations.
+    <https://www.jmlr.org/papers/v20/16-588.html>`_
     Journal of Machine Learning Research, 20(1), pp.127-171.
-    https://www.jmlr.org/papers/v20/16-588.html
 
     Siarry, P., Berthiau, G., Durdin, F. and Haussy, J., 1997.
-    Enhanced simulated annealing for globally minimizing functions of many-continuous variables.
+    `Enhanced simulated annealing for globally minimizing functions of many-continuous variables.
+    <https://dl.acm.org/doi/abs/10.1145/264029.264043>`_
     ACM Transactions on Mathematical Software, 23(2), pp.209-228.
-    https://dl.acm.org/doi/abs/10.1145/264029.264043
 
     Bertsimas, D. and Tsitsiklis, J., 1993.
-    Simulated annealing.
+    `Simulated annealing.
+    <https://tinyurl.com/yknunnpt>`_
     Statistical Science, 8(1), pp.10-15.
-    https://tinyurl.com/yknunnpt
 
     Corana, A., Marchesi, M., Martini, C. and Ridella, S., 1987.
-    Minimizing multimodal functions of continuous variables with the "simulated annealing" algorithm.
+    `Minimizing multimodal functions of continuous variables with the "simulated annealing" algorithm.
+    <https://dl.acm.org/doi/abs/10.1145/29380.29864>`_
     ACM Transactions on Mathematical Software, 13(3), pp.262-280.
-    https://dl.acm.org/doi/abs/10.1145/29380.29864
     https://dl.acm.org/doi/10.1145/66888.356281
 
     Szu, H.H. and Hartley, R.L., 1987.
@@ -75,19 +75,19 @@ class SA(RS):
     Proceedings of the IEEE, 75(11), pp.1538-1540.
 
     Kirkpatrick, S., Gelatt, C.D. and Vecchi, M.P., 1983.
-    Optimization by simulated annealing.
+    `Optimization by simulated annealing.
+    <https://science.sciencemag.org/content/220/4598/671>`_
     Science, 220(4598), pp.671-680.
-    https://science.sciencemag.org/content/220/4598/671
 
     Hastings, W.K., 1970.
-    Monte Carlo sampling methods using Markov chains and their applications.
+    `Monte Carlo sampling methods using Markov chains and their applications.
+    <https://academic.oup.com/biomet/article/57/1/97/284580>`_
     Biometrika, 57(1), pp.97-109.
-    https://academic.oup.com/biomet/article/57/1/97/284580
 
     Metropolis, N., Rosenbluth, A.W., Rosenbluth, M.N., Teller, A.H. and Teller, E., 1953.
-    Equation of state calculations by fast computing machines.
+    `Equation of state calculations by fast computing machines.
+    <https://aip.scitation.org/doi/abs/10.1063/1.1699114>`_
     Journal of Chemical Physics, 21(6), pp.1087-1092.
-    https://aip.scitation.org/doi/abs/10.1063/1.1699114
     """
     def __init__(self, problem, options):
         RS.__init__(self, problem, options)
