@@ -79,15 +79,15 @@ class CSA(SA):
     References
     ----------
     Corana, A., Marchesi, M., Martini, C. and Ridella, S., 1987.
-    Minimizing multimodal functions of continuous variables with the "simulated annealing" algorithm.
+    `Minimizing multimodal functions of continuous variables with the "simulated annealing" algorithm.
+    <https://dl.acm.org/doi/abs/10.1145/29380.29864>`_
     ACM Transactions on Mathematical Software, 13(3), pp.262-280.
-    https://dl.acm.org/doi/abs/10.1145/29380.29864
     https://dl.acm.org/doi/10.1145/66888.356281
 
     Kirkpatrick, S., Gelatt, C.D. and Vecchi, M.P., 1983.
-    Optimization by simulated annealing.
+    `Optimization by simulated annealing.
+    <https://science.sciencemag.org/content/220/4598/671>`_
     Science, 220(4598), pp.671-680.
-    https://science.sciencemag.org/content/220/4598/671
     """
     def __init__(self, problem, options):
         SA.__init__(self, problem, options)
