@@ -17,7 +17,7 @@ class SA(RS):
        <https://doi.org/10.1214/ss/1177011077>`_
 
     For its `pytest <https://docs.pytest.org/>`_ based testing, please refer to `this Python code
-    <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers/sa>`_.
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/test_sa.py>`_.
 
     Parameters
     ----------
@@ -60,7 +60,7 @@ class SA(RS):
 
     Bertsimas, D. and Tsitsiklis, J., 1993.
     `Simulated annealing.
-    <https://tinyurl.com/yknunnpt>`_
+    <https://doi.org/10.1214/ss/1177011077>`_
     Statistical Science, 8(1), pp.10-15.
 
     Corana, A., Marchesi, M., Martini, C. and Ridella, S., 1987.
