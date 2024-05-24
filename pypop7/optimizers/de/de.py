@@ -53,15 +53,18 @@ class DE(Optimizer):
     References
     ----------
     Price, K.V., 2013.
-    `Differential evolution. <https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8>`_
+    `Differential evolution.
+    <https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8>`_
     In Handbook of Optimization (pp. 187-214). Springer, Berlin, Heidelberg.
 
     Price, K.V., Storn, R.M. and Lampinen, J.A., 2005.
-    `Differential evolution: A practical approach to global optimization. <https://link.springer.com/book/10.1007/3-540-31306-0>`_
+    `Differential evolution: A practical approach to global optimization.
+    <https://link.springer.com/book/10.1007/3-540-31306-0>`_
     Springer Science & Business Media.
 
     Storn, R.M. and Price, K.V. 1997.
-    `Differential evolution – a simple and efficient heuristic for global optimization over continuous spaces. <https://doi.org/10.1023/A:1008202821328>`_
+    `Differential evolution – a simple and efficient heuristic for global optimization over continuous spaces.
+    <https://doi.org/10.1023/A:1008202821328>`_
     Journal of Global Optimization, 11(4), pp.341–359.
     
     """
