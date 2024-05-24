@@ -16,8 +16,8 @@ class SA(RS):
        from local minima."---[Bertsimas&Tsitsiklis, 1993, Statistical Science]
        <https://doi.org/10.1214/ss/1177011077>`_
 
-    For its `pytest <https://docs.pytest.org/`_ based testing, please refer to `this Python code
-    <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers/sa>`.
+    For its `pytest <https://docs.pytest.org/>`_ based testing, please refer to `this Python code
+    <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers/sa>`_.
 
     Parameters
     ----------
