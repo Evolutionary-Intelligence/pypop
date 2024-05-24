@@ -21,7 +21,8 @@ class DE(Optimizer):
 
     For some interesting applications of `DE`, please refer to `[Barbosa et al., 2021, PAAP]
     <https://link.springer.com/chapter/10.1007/978-981-16-0010-4_15>`_, `[Lawson et al., 2020, AJ]
-    <https://doi.org/10.3847/1538-3881/ababa6>`_, just to name a few.
+    <https://doi.org/10.3847/1538-3881/ababa6>`_, `[Lawson et al., 2019, AJ]
+    <https://doi.org/10.3847/1538-3881/ab3461>`_, just to name a few.
 
     Parameters
     ----------
