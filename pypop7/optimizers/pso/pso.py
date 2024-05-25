@@ -22,7 +22,8 @@ class PSO(Optimizer):
        modifications to the standard `PSO` implementation for mathematical tractability.
 
        For some interesting applications of `PSO`/`CBO`, refer to `[Melis et al., 2024, Nature]
-       <https://www.nature.com/articles/s41586-024-07293-4>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
+       <https://www.nature.com/articles/s41586-024-07293-4>`_, `[Elijošius et al., 2024]
+       <https://arxiv.org/abs/2402.08708>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
        <https://arc.aiaa.org/doi/abs/10.2514/2.2111>`_, just to name a few.
 
     Parameters
