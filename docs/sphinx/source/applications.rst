@@ -70,5 +70,6 @@ Praises
 -------
 
   * `"the excellent work" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
+  * `"one of the very best BBO libraries around" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
   * `"an invaluable collection" <https://github.com/Evolutionary-Intelligence/pypop/issues/89>`_
   * `"quite excellent (detailed and professional)" <https://github.com/Evolutionary-Intelligence/EC-A-Modern-Perspective/issues/2>`_
