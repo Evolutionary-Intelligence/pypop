@@ -21,10 +21,11 @@ class PSO(Optimizer):
        <https://link.springer.com/article/10.1007/s10107-023-01988-8>`_ framework, with more or less
        modifications to the standard `PSO` implementation for mathematical tractability.
 
-       For some interesting applications of `PSO`/`CBO`, refer to `[Melis et al., 2024, Nature]
-       <https://www.nature.com/articles/s41586-024-07293-4>`_, `[Elijošius et al., 2024]
-       <https://arxiv.org/abs/2402.08708>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
-       <https://arc.aiaa.org/doi/abs/10.2514/2.2111>`_, just to name a few.
+    For some interesting applications of `PSO`/`CBO`, refer to `[Melis et al., 2024, Nature]
+    <https://www.nature.com/articles/s41586-024-07293-4>`_, `[Elijošius et al., 2024]
+    <https://arxiv.org/abs/2402.08708>`_, [Lugagne et al., 2024, Nature Communications]
+    <https://doi.org/10.1038/s41467-024-46361-1>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
+    <https://arc.aiaa.org/doi/abs/10.2514/2.2111>`_, just to name a few.
 
     Parameters
     ----------
