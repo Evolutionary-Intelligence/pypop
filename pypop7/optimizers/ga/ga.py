@@ -6,8 +6,11 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class GA(Optimizer):
     """Genetic Algorithm (GA).
 
-    This is the **abstract** class for all `GA` classes. Please use any of its instantiated subclasses to
-    optimize the black-box problem at hand.
+    This is the **abstract** class for all Genetic Algorithm (`GA`) classes. Please use any of its instantiated
+    subclasses to optimize the black-box problem at hand.
+
+    For some interesting applications on diverse areas, please refer to `[Truong-Quoc et al., 2024, Nature Materials]
+    <https://www.nature.com/articles/s41563-024-01846-8>`_, just to name a few.
 
     Parameters
     ----------
