@@ -9,8 +9,8 @@ class GA(Optimizer):
     This is the **abstract** class for all Genetic Algorithm (`GA`) classes. Please use any of its instantiated
     subclasses to optimize the black-box problem at hand.
 
-    For some interesting applications on diverse areas, please refer to `[Truong-Quoc et al., 2024, Nature Materials]
-    <https://www.nature.com/articles/s41563-024-01846-8>`_, just to name a few.
+    For some interesting applications of `GA` on diverse areas, please refer to `[Truong-Quoc et al., 2024,
+    Nature Materials] <https://www.nature.com/articles/s41563-024-01846-8>`_, just to name a few.
 
     Parameters
     ----------
