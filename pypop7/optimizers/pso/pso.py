@@ -67,52 +67,52 @@ class PSO(Optimizer):
     ----------
     Bolte, J., Miclo, L. and Villeneuve, S., 2024.
     `Swarm gradient dynamics for global optimization: The mean-field limit case.
-    <https://link.springer.com/article/10.1007/s10107-023-01988-8>`_
+    <https://doi.org/10.1007/s10107-023-01988-8>`_
     Mathematical Programming, 205(1), pp.661-701.
 
     Cipriani, C., Huang, H. and Qiu, J., 2022.
     `Zero-inertia limit: From particle swarm optimization to consensus-based optimization.
-    <https://epubs.siam.org/doi/10.1137/21M1412323>`_
+    <https://doi.org/10.1137/21M1412323>`_
     SIAM Journal on Mathematical Analysis, 54(3), pp.3091-3121.
 
     Fornasier, M., Huang, H., Pareschi, L. and Sünnen, P., 2022.
-    Anisotropic diffusion in consensus-based optimization on the sphere.
+    `Anisotropic diffusion in consensus-based optimization on the sphere.
+    <https://doi.org/10.1137/21M140941X>`_
     SIAM Journal on Optimization, 32(3), pp.1984-2012.
-    https://epubs.siam.org/doi/abs/10.1137/21M140941X
  
     Fornasier, M., Huang, H., Pareschi, L. and Sünnen, P., 2021.
-    Consensus-based optimization on the sphere: Convergence to global minimizers and machine learning.
+    `Consensus-based optimization on the sphere: Convergence to global minimizers and machine learning.
+    <https://jmlr.csail.mit.edu/papers/v22/21-0259.html>`_
     Journal of Machine Learning Research, 22(1), pp.10722-10776.
-    https://jmlr.csail.mit.edu/papers/v22/21-0259.html
  
     Blackwell, T. and Kennedy, J., 2018.
-    Impact of communication topology in particle swarm optimization.
+    `Impact of communication topology in particle swarm optimization.
+    <https://doi.org/10.1109/TEVC.2018.2880894>`_
     IEEE Transactions on Evolutionary Computation, 23(4), pp.689-702.
-    https://ieeexplore.ieee.org/abstract/document/8531770
 
     Bonyadi, M.R. and Michalewicz, Z., 2017.
-    Particle swarm optimization for single objective continuous space problems: A review.
+    `Particle swarm optimization for single objective continuous space problems: A review.
+    <https://doi.org/10.1162/EVCO_r_00180>`_
     Evolutionary Computation, 25(1), pp.1-54.
-    https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective
 
     https://www.cs.cmu.edu/~arielpro/15381f16/c_slides/781f16-26.pdf
 
     Floreano, D. and Mattiussi, C., 2008.
-    Bio-inspired artificial intelligence: Theories, methods, and technologies.
+    `Bio-inspired artificial intelligence: Theories, methods, and technologies.
+    <https://mitpress.mit.edu/9780262062718/bio-inspired-artificial-intelligence/>`_
     MIT Press.
-    https://mitpress.mit.edu/9780262062718/bio-inspired-artificial-intelligence/
     (See [Chapter 7.2 Particle Swarm Optimization] for details.)
 
     http://www.scholarpedia.org/article/Particle_swarm_optimization
 
     Poli, R., Kennedy, J. and Blackwell, T., 2007.
-    Particle swarm optimization.
+    `Particle swarm optimization.
+    <https://doi.org/10.1007/s11721-007-0002-0>`_
     Swarm Intelligence, 1(1), pp.33-57.
-    https://link.springer.com/article/10.1007/s11721-007-0002-0
 
     Clerc, M. and Kennedy, J., 2002.
     `The particle swarm-explosion, stability, and convergence in a multidimensional complex space.
-    <https://ieeexplore.ieee.org/abstract/document/985692>`_
+    <https://doi.org/10.1109/4235.985692>`_
     IEEE Transactions on Evolutionary Computation, 6(1), pp.58-73.
 
     Eberhart, R.C., Shi, Y. and Kennedy, J., 2001.
@@ -122,12 +122,12 @@ class PSO(Optimizer):
 
     Shi, Y. and Eberhart, R., 1998, May.
     `A modified particle swarm optimizer.
-    <https://ieeexplore.ieee.org/abstract/document/699146>`_
+    <https://doi.org/10.1109/ICEC.1998.699146>`_
     In IEEE World Congress on Computational Intelligence (pp. 69-73). IEEE.
 
     Kennedy, J. and Eberhart, R., 1995, November.
     `Particle swarm optimization.
-    <https://ieeexplore.ieee.org/document/488968>`_
+    <https://doi.org/10.1109/ICNN.1995.488968>`_
     In Proceedings of International Conference on Neural Networks (pp. 1942-1948). IEEE.
     """
     def __init__(self, problem, options):
