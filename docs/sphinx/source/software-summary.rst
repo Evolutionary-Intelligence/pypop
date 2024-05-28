@@ -77,8 +77,8 @@ Some interesting code snapshots involving population-based methods are shown bel
 * https://github.com/huawei-noah/vega (AutoML)
 * https://github.com/SimonBlanke/Gradient-Free-Optimizers (Discrete Optimization)
 
-The below open-source libraries seem to be not *actively* maintained (according to the last update time).
-Here we still add them for historical records and respect to previous works:
+The below open-source Python libraries seem to be *not* actively maintained (mainly according to the *last update time*).
+Here we still add them as a set of historical records for our respect to previous open-source libraries:
 
 * https://github.com/blaa/PyGene (Now it is not actively maintained: Last update - Jan 31, 2017.)
 * https://github.com/hardmaru/estool (Now it is not actively maintained: Last update - Jan 20, 2022.)
@@ -88,15 +88,9 @@ Here we still add them for historical records and respect to previous works:
 * https://github.com/ljvmiranda921/pyswarms
 
   * Now this open-source Python library for **PSO** is not actively maintained (Last update - Jun 6, 2023).
-* https://github.com/pybrain/pybrain (Now it is not actively maintained: Last update - Dec 18, 2017.)
+* https://github.com/pybrain/pybrain (https://github.com/chanshing/xnes)
 
-  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/fem.py
-  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/nes.py
-  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/rank1.py
-  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/snes.py
-  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
-  * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/xnes.py
-  * https://github.com/chanshing/xnes
+  * Now this open-source Python library mainly for **NES** is not actively maintained (Last update - Dec 18, 2017).
 * https://github.com/scikit-optimize/scikit-optimize (Now it is not actively maintained: Last update - Oct 12, 2021.)
 * https://github.com/strongio/evolutionary-optimization (Now it is not actively maintained: Last update - Jan 22, 2020.)
 * https://github.com/uber/fiber ( Now it is not actively maintained: Last update - Mar 15, 2021.)
