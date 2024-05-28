@@ -80,6 +80,9 @@ Some interesting code snapshots involving population-based methods are shown bel
 The below open-source Python libraries seem to be *not* actively maintained (mainly according to the *last update time*).
 Here we still add them as a set of historical records for our respect to previous open-source libraries:
 
+* https://github.com/Akavall/AntColonyOptimization
+
+  * Now this open-source Python library for **ACO** is not actively maintained (Last update - Feb 28, 2021).
 * https://github.com/blaa/PyGene (Now it is not actively maintained: Last update - Jan 31, 2017.)
 * https://github.com/hardmaru/estool (Now it is not actively maintained: Last update - Jan 20, 2022.)
 * https://github.com/HIPS/Spearmint (Now it is not actively maintained: Last update - Apr 3, 2019.)
