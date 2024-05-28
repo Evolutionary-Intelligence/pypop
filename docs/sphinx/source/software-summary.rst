@@ -41,7 +41,6 @@ Python
 * https://github.com/google/vizier ( **Hyperparameter Optimization** | **AutoML** )
 * https://github.com/fmfn/BayesianOptimization ( **BO** )
 * https://github.com/hyperopt/hyperopt ( **RS** )
-* https://github.com/ljvmiranda921/pyswarms (**PSO**)
 * https://github.com/nnaisense/evotorch (https://evotorch.ai/)
 * https://github.com/qingquan63/FairEMOL (`FairEMOL <https://ieeexplore.ieee.org/document/9902997>`_ is for mitigating unfairness via Evolutionary Multiobjective Optimisation Learning.)
 * https://github.com/RobertTLange/evosax (`evosax <https://arxiv.org/abs/2212.04180>`_ is **well-designed** JAX-based Python library of Evolutionary Algorithms (EAs) and NeuroEvolution (NE) run on **GPU**.)
@@ -86,6 +85,9 @@ Here we still add them for historical records and respect to previous works:
 * https://github.com/HIPS/Spearmint (Now it is not actively maintained: Last update - Apr 3, 2019.)
 * https://github.com/hpparvi/PyDE (Now it is not actively maintained: Last update - Apr 2, 2019.)
 * https://github.com/LDNN97/Evolutionary-Optimization-Algorithms (Now it is not actively maintained: Last update - Apr 14, 2019.)
+* https://github.com/ljvmiranda921/pyswarms
+
+  * Now this open-source Python library for **PSO** is not actively maintained (Last update - Jun 6, 2023).
 * https://github.com/pybrain/pybrain (Now it is not actively maintained: Last update - Dec 18, 2017.)
 
   * https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/fem.py
