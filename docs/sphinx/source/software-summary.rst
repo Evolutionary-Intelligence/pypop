@@ -96,6 +96,9 @@ Here we still add them as a set of historical records for our respect to previou
   * Now this open-source Python library mainly for **NES** is not actively maintained (Last update - Dec 18, 2017).
 * https://github.com/scikit-optimize/scikit-optimize (Now it is not actively maintained: Last update - Oct 12, 2021.)
 * https://github.com/strongio/evolutionary-optimization (Now it is not actively maintained: Last update - Jan 22, 2020.)
+* https://github.com/tisimst/pyswarm
+
+  * Now this open-source Python library for **PSO** is not actively maintained (Last update - Sep 22, 2015).
 * https://github.com/uber/fiber ( Now it is not actively maintained: Last update - Mar 15, 2021.)
 
 R
