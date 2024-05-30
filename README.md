@@ -63,10 +63,6 @@ For a (growing) list of **public use cases** of `PyPop7`, see [this online docum
 
 ## A Large Number of Black-Box Optimizers (BBO)
 
-<p align="center">
-<img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/Summary-BBO.png" alt="drawing"/>
-</p>
-
 Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this open-source library, since they work mainly in *[discrete/combinatorial](https://github.com/airbus/discrete-optimization)* search spaces. Furthermore, brute-force search (exhaustive/grid search) is also excluded here, since it works only for *very low* (typically < 10) dimensions. In the near future version, we will consider adding [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this open-source library.
 
 ******* *** *******
@@ -396,3 +392,7 @@ From 2021 to 2023, this open-source Python library was supported by Shenzhen Fun
 ## Citation
 
 If this open-source library is used in your paper/project, it is highly welcomed to cite the following arXiv [preprint](https://arxiv.org/abs/2212.05652) paper: **Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y., Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.**
+
+## Star History
+
+[![PyPop7-Star-Data](https://api.star-history.com/svg?repos=Evolutionary-Intelligence/pypop&type=Date)](https://star-history.com/#Evolutionary-Intelligence/pypop&Date)
