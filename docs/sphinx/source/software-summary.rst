@@ -157,8 +157,8 @@ C++
 * https://github.com/chgagne/beagle (Now it is not actively maintained.)
 * https://github.com/CMA-ES/libcmaes (CMA-ES)
 * https://github.com/kthohr/optim
-  * **DE**
-  * **PSO**
+  * `DE <>`_
+  * `PSO <>`_
 
 * https://github.com/Shark-ML/Shark (Now it is not actively maintained.)
   * https://github.com/Shark-ML/Shark/blob/master/include/shark/Algorithms/DirectSearch/VDCMA.h (VD-CMA)
