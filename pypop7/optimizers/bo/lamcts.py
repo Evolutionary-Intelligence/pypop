@@ -301,7 +301,7 @@ class LAMCTS(BO):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -312,15 +312,15 @@ class LAMCTS(BO):
        >>> from pypop7.optimizers.bo.lamcts import LAMCTS
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 1}
        >>> lamcts = LAMCTS(problem, options)  # initialize the optimizer class
        >>> results = lamcts.optimize()  # run the optimization process
        >>> # return the number of used function evaluations and found best-so-far fitness
        >>> print(f"LAMCTS: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       LAMCTS: 5000, 0.00011439953866179555
+       LAMCTS: 5000, 0.0001144
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/5f827dwh>`_ for more details.
