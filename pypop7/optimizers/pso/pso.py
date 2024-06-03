@@ -25,7 +25,8 @@ class PSO(Optimizer):
     <https://doi.org/10.1038/s41586-024-07293-4>`_, `[Wang et al., 2024, Nature Materials]
     <https://doi.org/10.1038/s41563-024-01830-2>`_, `[Elijošius et al., 2024]
     <https://doi.org/10.48550/arXiv.2402.08708>`_, `[Lugagne et al., 2024, Nature Communications]
-    <https://doi.org/10.1038/s41467-024-46361-1>`_, `[Chen et al., 2023, Nature Communications]
+    <https://doi.org/10.1038/s41467-024-46361-1>`_, `[Bottrell et al., MNRAS, 2024]
+    <https://academic.oup.com/mnras/article/527/3/6506/7286659>`, `[Chen et al., 2023, Nature Communications]
     <https://doi.org/10.1038/s41467-023-38185-2>`_, `[Liu et al., 2022, Nature Communications]
     <https://doi.org/10.1038/s41467-022-28083-4>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
     <https://doi.org/10.2514/2.2111>`_, just to name a few.
