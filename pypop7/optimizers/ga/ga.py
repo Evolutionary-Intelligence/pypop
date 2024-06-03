@@ -1,6 +1,6 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.core.optimizer import Optimizer
+from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all Black-Box Optimizers (BBO)
 
 
 class GA(Optimizer):
@@ -9,7 +9,8 @@ class GA(Optimizer):
     This is the **abstract** class for all Genetic Algorithm (`GA`) classes. Please use any of its instantiated
     subclasses to optimize the black-box problem at hand.
 
-    For some interesting applications of `GA` on diverse areas, please refer to `[Truong-Quoc et al., 2024,
+    For some interesting applications of `GA` on diverse areas, please refer to `[Lyu et al., 2024, Science]
+    <https://www.science.org/doi/10.1126/science.adn6354>`_, `[Truong-Quoc et al., 2024,
     Nature Materials] <https://www.nature.com/articles/s41563-024-01846-8>`_, just to name a few.
 
     Parameters
