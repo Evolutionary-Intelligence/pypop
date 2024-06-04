@@ -28,7 +28,8 @@ class PSO(Optimizer):
     <https://doi.org/10.1038/s41467-024-46361-1>`_, `[Bottrell et al., MNRAS, 2024]
     <https://academic.oup.com/mnras/article/527/3/6506/7286659>`_, `[Chen et al., 2023, Nature Communications]
     <https://doi.org/10.1038/s41467-023-38185-2>`_, `[Guo et al., 2023, ISSTA]
-    <https://dl.acm.org/doi/10.1145/3597926.3598058>`_, `[Liu et al., 2022, Nature Communications]
+    <https://dl.acm.org/doi/10.1145/3597926.3598058>`_, `[Yang et al., 2023, IEEE-TIP]
+    <https://ieeexplore.ieee.org/abstract/document/10048578>`_, `[Liu et al., 2022, Nature Communications]
     <https://doi.org/10.1038/s41467-022-28083-4>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
     <https://doi.org/10.2514/2.2111>`_, just to name a few.
 
