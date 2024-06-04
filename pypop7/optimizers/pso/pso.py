@@ -34,7 +34,7 @@ class PSO(Optimizer):
     <https://onlinelibrary.wiley.com/doi/10.1111/cgf.14904>`_, `[Liu et al., 2022, Nature Communications]
     <https://doi.org/10.1038/s41467-022-28083-4>`_, `[Benedetti et al., 2019]
     <https://www.nature.com/articles/s41534-019-0157-8>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
-    <https://doi.org/10.2514/2.2111>`_, just to name a few.
+    <https://doi.org/10.2514/2.2111>`_, to name a few.
 
     Parameters
     ----------
