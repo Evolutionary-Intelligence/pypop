@@ -10,9 +10,9 @@ class COCMA(CC):
     """CoOperative CO-evolutionary Covariance Matrix Adaptation (COCMA).
 
     .. note:: For `COCMA`, `CMA-ES <https://pypop.readthedocs.io/en/latest/es/cmaes.html>`_ is used as the suboptimizer,
-       since it could learn the variable dependencies in each subsapce to accelerate convergence. The simplest *cyclic*
-       decomposition is employed to tackle **non-separable** objective functions, argurably a common feature of most
-       real-world applications.
+       since it could learn the variable dependencies in each subspace to accelerate convergence. Here, the simplest
+       *cyclic* decomposition is employed to tackle **non-separable** objective functions, argurably the common feature
+       of most real-world applications.
 
     Parameters
     ----------
