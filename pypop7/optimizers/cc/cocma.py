@@ -2,8 +2,8 @@ import time
 
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.cmaes import CMAES  # covariance matrix adaptation evolution strategy
-from pypop7.optimizers.cc import CC  # abstract class of all cooperative coevolution (CC) classes
+from pypop7.optimizers.es.cmaes import CMAES  # Covariance Matrix Adaptation Evolution Strategy
+from pypop7.optimizers.cc import CC  # abstract class of all Cooperative Coevolution (CC) classes
 
 
 class COCMA(CC):
