@@ -18,7 +18,8 @@ class GA(Optimizer):
     <https://www.science.org/doi/10.1126/science.adn6354>`_, `[Truong-Quoc et al., 2024, Nature Materials]
     <https://www.nature.com/articles/s41563-024-01846-8>`_, `[Castanha et al., 2024, PNAS]
     <https://www.pnas.org/doi/abs/10.1073/pnas.2312755121>`_, `[Lucas et al., 2023, Nature Photonics]
-    <https://www.nature.com/articles/s41566-023-01252-7>`_, to name a few.
+    <https://www.nature.com/articles/s41566-023-01252-7>`_, `[Villard et al., 2023, JCTC]
+    <https://pubs.acs.org/doi/full/10.1021/acs.jctc.2c01078>`_, to name a few.
 
     Parameters
     ----------
