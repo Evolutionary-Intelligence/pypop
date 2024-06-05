@@ -1,4 +1,4 @@
-# PyPop7 (a Pure-PYthon library of POPulation-based black-box OPtimization)
+# PyPop7 (a Pure-PYthon open-source library of POPulation-based black-box OPtimization)
 
 [![GNU General Public License v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE) [![PyPI for pypop7](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/) [![Documentation Status](https://readthedocs.org/projects/pypop/badge/?version=latest)](https://pypop.readthedocs.io/en/latest/?badge=latest) [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7) [![Python](https://img.shields.io/badge/Python-3-yellow.svg)](https://www.python.org/) [![arxiv](https://img.shields.io/badge/arxiv-2212.05652-red)](https://arxiv.org/abs/2212.05652)
 
