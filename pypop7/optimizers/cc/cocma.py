@@ -10,7 +10,7 @@ class COCMA(CC):
     """CoOperative CO-evolutionary Covariance Matrix Adaptation (COCMA).
 
     .. note:: For `COCMA`, `CMA-ES <https://pypop.readthedocs.io/en/latest/es/cmaes.html>`_ is used as the suboptimizer,
-       since it could learn the variable dependencies in each subspace to accelerate convergence. Here, the simplest
+       since it could learn the variable dependencies in each subspace to accelerate local convergence. Here, the simplest
        *cyclic* decomposition is employed to tackle **non-separable** objective functions, argurably the common feature
        of most real-world applications.
 
@@ -51,13 +51,13 @@ class COCMA(CC):
        >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022}
        >>> cocma = COCMA(problem, options)  # to initialize the optimizer class
-       >>> results = cocma.optimize()  # to run the optimization process
+       >>> results = cocma.optimize()  # to run the optimization/evolution process
        >>> print(f"COCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        COCMA: 5000, 0.0004
 
     For its correctness checking of coding, we cannot provide the code-based repeatability report, since this
-    implementation combines different papers. To our knowledge, few well-designed open-source code of `CC` is
-    available for non-separable black-box optimization.
+    implementation combines different papers. To our knowledge, few well-designed Python code of `CC` is
+    openly available for **non-separable** black-box optimization.
 
     Attributes
     ----------
