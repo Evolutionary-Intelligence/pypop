@@ -31,7 +31,7 @@ class COEA(CC):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer `COEA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -40,18 +40,17 @@ class COEA(CC):
        >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.cc.coea import COEA
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'x': 3*numpy.ones((2,))}
-       >>> coea = COEA(problem, options)  # initialize the optimizer class
-       >>> results = coea.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'x': 3.0*numpy.ones((2,))}
+       >>> coea = COEA(problem, options)  # to initialize the optimizer class
+       >>> results = coea.optimize()  # to run the optimization process
        >>> print(f"COEA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       COEA: 5000, 0.43081941641866195
+       COEA: 5000, 0.4308
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/ap7n389u>`_ for more details.
