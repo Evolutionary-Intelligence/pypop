@@ -6,8 +6,8 @@ from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all 
 class GA(Optimizer):
     """Genetic Algorithm (GA).
 
-    This is the **abstract** class for all Genetic Algorithm (`GA`) classes. Please use any of its instantiated
-    subclasses to optimize the black-box problem at hand.
+    This is the **abstract** class for all `GA` classes. Please use any of its instantiated subclasses to
+    optimize the **black-box** problem at hand.
 
     For some interesting applications of `GA` on diverse areas, please refer to `[Lyu et al., 2024, Science]
     <https://www.science.org/doi/10.1126/science.adn6354>`_, `[Truong-Quoc et al., 2024,
