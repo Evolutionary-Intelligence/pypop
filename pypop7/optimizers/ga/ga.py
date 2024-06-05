@@ -10,8 +10,8 @@ class GA(Optimizer):
     optimize the **black-box** problem at hand.
 
     For some interesting applications of `GA` on diverse areas, please refer to `[Lyu et al., 2024, Science]
-    <https://www.science.org/doi/10.1126/science.adn6354>`_, `[Truong-Quoc et al., 2024,
-    Nature Materials] <https://www.nature.com/articles/s41563-024-01846-8>`_, `[Lucas et al., 2023, Nature Photonics]
+    <https://www.science.org/doi/10.1126/science.adn6354>`_, `[Truong-Quoc et al., 2024, Nature Materials]
+    <https://www.nature.com/articles/s41563-024-01846-8>`_, `[Lucas et al., 2023, Nature Photonics]
     <https://www.nature.com/articles/s41566-023-01252-7>`_, to name a few.
 
     Parameters
