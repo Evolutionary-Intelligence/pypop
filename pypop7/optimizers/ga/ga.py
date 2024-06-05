@@ -9,6 +9,10 @@ class GA(Optimizer):
     This is the **abstract** class for all `GA` classes. Please use any of its instantiated subclasses to
     optimize the **black-box** problem at hand.
 
+    .. note:: `GA` is one of three earliest versions of evolutionary algorithms along with *evolutionary programming*
+       and *evolution strategies*. Its original history can data back to Holland's JACM paperin 1962 called *outline
+       for a logical theory of adaptive systems*.
+
     For some interesting applications of `GA` on diverse areas, please refer to `[Lyu et al., 2024, Science]
     <https://www.science.org/doi/10.1126/science.adn6354>`_, `[Truong-Quoc et al., 2024, Nature Materials]
     <https://www.nature.com/articles/s41563-024-01846-8>`_, `[Castanha et al., 2024, PNAS]
@@ -108,9 +112,9 @@ class GA(Optimizer):
     https://epubs.siam.org/doi/10.1137/0202009
 
     Holland, J.H., 1962.
-    Outline for a logical theory of adaptive systems.
+    `Outline for a logical theory of adaptive systems.
+    <https://dl.acm.org/doi/10.1145/321127.321128>`_
     Journal of the ACM, 9(3), pp.297-314.
-    https://dl.acm.org/doi/10.1145/321127.321128
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
