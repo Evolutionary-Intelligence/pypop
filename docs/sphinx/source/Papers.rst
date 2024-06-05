@@ -96,6 +96,11 @@ RS
 * Rastrigin, L.A., 1963. The convergence of the random search method in the extremal control of a many parameter system. Automaton & Remote Control, 24, pp.1337-1342. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 * Brooks, S.H., 1958. A discussion of random methods for seeking maxima. Operations Research, 6(2), pp.244-251. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 
+SA
+--
+
+* Correia, A.H., Worrall, D.E. and Bondesan, R., 2023, April. Neural simulated annealing. In International Conference on Artificial Intelligence and Statistics (pp. 4946-4962). PMLR.
+
 BBO/DFO/ZOO
 -----------
 
