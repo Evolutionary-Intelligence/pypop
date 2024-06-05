@@ -11,8 +11,8 @@ class GA(Optimizer):
 
     .. note:: `GA` is one of three *earliest* versions of evolutionary algorithms along with *evolutionary programming*
        and *evolution strategies*. Its original history can data back to Holland's JACM paper in 1962 called *outline
-       for a logical theory of adaptive systems*. **John H. Holland**, the father of `GA`, was the recipient of `IEEE
-       Evolutionary Computation Pioneer Award 2003 <https://tinyurl.com/456as566>`_.
+       for a logical theory of adaptive systems*. **John H. Holland**, the father of `GA`, was the 2003 recipient of
+       `IEEE Evolutionary Computation Pioneer Award <https://tinyurl.com/456as566>`_.
 
     For some interesting applications of `GA` on diverse areas, please refer to `[Lyu et al., 2024, Science]
     <https://www.science.org/doi/10.1126/science.adn6354>`_, `[Truong-Quoc et al., 2024, Nature Materials]
