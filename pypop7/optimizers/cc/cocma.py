@@ -35,7 +35,7 @@ class COCMA(CC):
 
     Examples
     --------
-    Use the optimizer `COCMA` to minimize the well-known test function
+    Use the black-box optimizer `COCMA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -44,17 +44,16 @@ class COCMA(CC):
        >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.cc.cocma import COCMA
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5.0*numpy.ones((2,)),
        ...            'upper_boundary': 5.0*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022}
-       >>> cocma = COCMA(problem, options)  # initialize the optimizer class
-       >>> results = cocma.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       >>> cocma = COCMA(problem, options)  # to initialize the optimizer class
+       >>> results = cocma.optimize()  # to run the optimization process
        >>> print(f"COCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       COCMA: 5000, 0.00041717244099826557
+       COCMA: 5000, 0.0004
 
     For its correctness checking of coding, we cannot provide the code-based repeatability report, since this
     implementation combines different papers. To our knowledge, few well-designed open-source code of `CC` is
