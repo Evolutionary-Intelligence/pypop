@@ -172,13 +172,14 @@ reviews or books (just to name a few):
 * De Jong, K.A., Fogel, D.B. and Schwefel, H.P., 1997. A history of evolutionary computation. Handbook of Evolutionary Computation. Oxford University Press.
 * Forrest, S., 1993. Genetic algorithms: Principles of natural selection applied to computation. Science, 261(5123), pp.872-878.
 
-For **principled design of continuous stochastic search**, refer to e.g.
+For **principled design of continuous stochastic search**, refer to e.g.,
 `[Nikolaus&Auger, 2014] <https://link.springer.com/chapter/10.1007/978-3-642-33206-7_8>`_;
-`[Wierstra et al., 2014] <https://jmlr.org/papers/v15/wierstra14a.html>`_.
+`[Wierstra et al., 2014, JMLR] <https://jmlr.org/papers/v15/wierstra14a.html>`_, just to name a few.
 
-For each algorithm family, we also provide some of *wide-recognized* references on its own API documentations. You can also see `this GitHub website
-<https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_ for a (still growing) paper list of Evolutionary Computation (EC)
-published in many *top-tier* and also EC-focused journals and conferences.
+For each algorithm family, we try our best to provide some of *wide-recognized* references on its own API documentations.
+You can also see `this online project <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_
+for a (growing) paper list of Evolutionary Computation (EC) and Swarm Intelligence (SI) published in many (*though not all*)
+*top-tier* and also EC/SI-focused journals and conferences.
 
 Limitations of BBO
 ------------------
