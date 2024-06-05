@@ -11,7 +11,8 @@ class GA(Optimizer):
 
     For some interesting applications of `GA` on diverse areas, please refer to `[Lyu et al., 2024, Science]
     <https://www.science.org/doi/10.1126/science.adn6354>`_, `[Truong-Quoc et al., 2024,
-    Nature Materials] <https://www.nature.com/articles/s41563-024-01846-8>`_, just to name a few.
+    Nature Materials] <https://www.nature.com/articles/s41563-024-01846-8>`_, `[Lucas et al., 2023, Nature Photonics]
+    <https://www.nature.com/articles/s41566-023-01252-7>`_, to name a few.
 
     Parameters
     ----------
