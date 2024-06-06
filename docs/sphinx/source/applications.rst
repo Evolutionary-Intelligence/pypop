@@ -54,7 +54,7 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 
   * https://huggingface.co/papers/2212.05652
   * https://huggingface.co/collections/stereoplegic/optimizer-654bfd6ddde5f3d6c23abc00
-* `medium <https://medium.com>`_
+* `medium <https://medium.com>`_:
 
   * https://medium.com/@monocosmo77/how-black-box-optimization-works-part2-machine-learning-bb63b4c93557
 * `机器之心: SOTA！模型 <https://sota.jiqizhixin.com>`_:
@@ -70,7 +70,7 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 Praises
 -------
 
-  * `"the excellent work" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
-  * `"one of the very best BBO libraries around" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
   * `"an invaluable collection" <https://github.com/Evolutionary-Intelligence/pypop/issues/89>`_
+  * `"one of the very best BBO libraries around" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
   * `"quite excellent (detailed and professional)" <https://github.com/Evolutionary-Intelligence/EC-A-Modern-Perspective/issues/2>`_
+  * `"the excellent work" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
