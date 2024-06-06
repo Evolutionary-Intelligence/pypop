@@ -28,19 +28,18 @@ import numpy as np  # for numerical computation, which is also the computing eng
 # the below example is Rosenbrock, one notorious test function from the optimization community
 def rosenbrock(x):
     return 100.0*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
-```
 
-3. Run one or more black-box optimizers on this optimization problem:
-
-```Python
 # define the fitness (cost) function and also its settings
 ndim_problem = 1000
 problem = {'fitness_function': rosenbrock,  # cost function
            'ndim_problem': ndim_problem,  # dimension
            'lower_boundary': -5.0*np.ones((ndim_problem,)),  # search boundary
            'upper_boundary': 5.0*np.ones((ndim_problem,))}
+```
 
-# 3. Run one or more black-box optimizers on the given optimization problem:
+3. Run one or more black-box optimizers on this optimization problem:
+
+```Python
 #   here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO
 #   https://pypop.readthedocs.io/en/latest/es/lmmaes.html
 from pypop7.optimizers.es.lmmaes import LMMAES
