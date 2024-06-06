@@ -43,7 +43,7 @@ problem = {'fitness_function': rosenbrock,  # cost function
 # here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO
 # https://pypop.readthedocs.io/en/latest/es/lmmaes.html
 from pypop7.optimizers.es.lmmaes import LMMAES
-# define all the necessary algorithm options (which differ among different optimizers)
+# define all the necessary algorithm options (which may differ among different optimizers)
 options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than this threshold
            'max_runtime': 3600,  # 1 hours (terminate when the actual runtime exceeds it)
            'seed_rng': 0,  # seed of random number generation (which must be explicitly set for repeatability)
