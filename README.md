@@ -168,13 +168,13 @@ For LSO, computational efficiency is an indispensable performance criterion of B
 For each algorithm family, we try to provide several *representative* applications published on some [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) journals and conferences (such as, Nature, Science, PNAS, PRL, JACS, PIEEE, etc.), systematically reported in the paper list called [DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) openly accessible via GitHub.
 
 * Derivative-Free Optimization (DFO)
-  * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). Foundations of Computational Mathematics, 22(2), pp.507-560.
-  * Porcelli, M. and Toint, P.L., 2022. [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054). ACM Transactions on Mathematical Software, 48(1), pp.1-25.
-  * Gao, K. and Sener, O., 2022, June. [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html). In International Conference on Machine Learning (pp. 7077-7101). PMLR.
+  * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). FoCM, 22(2), pp.507-560.
+  * Porcelli, M. and Toint, P.L., 2022. [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054). ACM TOMS, 48(1), pp.1-25.
+  * Gao, K. and Sener, O., 2022, June. [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html). In ICML (pp. 7077-7101). PMLR.
   * Kochenderfer, M.J. and Wheeler, T.A., 2019. [Algorithms for optimization](https://algorithmsbook.com/optimization/). MIT Press.
   * Larson, J., Menickelly, M. and Wild, S.M., 2019. [Derivative-free optimization methods](https://www.cambridge.org/core/journals/acta-numerica/article/abs/derivativefree-optimization-methods/84479E2B03A9BFFE0F9CD46CF9FCD289). Acta Numerica, 28, pp.287-404.
-  * Nesterov, Y. and Spokoiny, V., 2017. [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2). Foundations of Computational Mathematics, 17(2), pp.527-566.
-  * Conn, A.R., Scheinberg, K. and Vicente, L.N., 2009. [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768). Society for Industrial and Applied Mathematics.
+  * Nesterov, Y. and Spokoiny, V., 2017. [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2). FoCM, 17(2), pp.527-566.
+  * Conn, A.R., Scheinberg, K. and Vicente, L.N., 2009. [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768). SIAM.
 * Evolutionary Computation (EC) [ [[Box, 1957]](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505) ]
   * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482. [ [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/) ]
   * Miikkulainen, R. and Forrest, S., 2021. [A biological perspective on evolutionary computation](https://www.nature.com/articles/s42256-020-00278-8). Nature Machine Intelligence, 3(1), pp.9-15.
