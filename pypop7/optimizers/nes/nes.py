@@ -14,6 +14,9 @@ class NES(ES):
        <https://direct.mit.edu/neco/article-abstract/10/2/251/6143/Natural-Gradient-Works-Efficiently-in-Learning>`_.
        In this library, we have converted it to the *minimization* problem, in accordance with other modules.
 
+    For some interesting applications of `NES`, please refer to `[Xu et al., 2024, ICLR]
+    <https://openreview.net/pdf?id=6PbvbLyqT6>`_, to name a few.
+
     Parameters
     ----------
     problem : dict
