@@ -62,12 +62,11 @@ Note that for ```PyPop7```, the number ```7``` is added just because ```pypop```
 For new/missed black-box optimizers, we provide a *unified* API to freely add them if they satisfy our [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html) (see [development-guide](https://pypop.readthedocs.io/en/latest/development-guide.html) for details). Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this open-source library, since they work well mainly in *[discrete/combinatorial](https://github.com/airbus/discrete-optimization)* search spaces. Furthermore, brute-force search (exhaustive/grid search) is also excluded here, since it works only for *very low* (typically << 10) dimensions. In the near future version, we will consider adding [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this open-source Python library.
 
 ******* *** *******
-* ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific BBO version for LSO (dimension >= 1000).
+* ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific BBO version for LSO (dimension >> 1000).
 * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) BBO version for *small/medium-dimensional* problems (though it may work well under certain LSO circumstances).
-* ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline BBO version mainly for *theoretical* interest, owing to its simplicity (relatively ease to mathematical analysis).
+* ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline BBO version mainly for *theoretical* interest, owing to its simplicity (relative ease to mathematical analysis).
 
-Note that this classification based on only the dimension of objective function is just a rough estimation for algorithm selection. In practice, perhaps the simplest way to algorithm selection
-is trial-and-error or to try more advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
+Note that this classification based on only the dimension of objective function is just a rough estimation for algorithm selection. In practice, perhaps the simplest way to algorithm selection is trial-and-error or to try more advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
 
 ******* *** *******
 
