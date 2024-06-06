@@ -7,7 +7,7 @@ class SGES(NES):
     """Search Gradient-based Evolution Strategy (SGES).
 
     .. note:: Here we include `SGES` **only** for *theoretical* and/or *educational* purpose, since in practice
-       more advanced versions (such as `ENES`, `XNES`, `SNES`, and `R1NES`) are preferred than `SGES`.
+       more advanced versions (e.g., `ENES`, `XNES`, `SNES`, and `R1NES`) are preferred than `SGES`.
 
     Parameters
     ----------
