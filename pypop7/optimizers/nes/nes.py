@@ -1,13 +1,13 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.es import ES
+from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strategies (ES) classes
 
 
 class NES(ES):
     """Natural Evolution Strategies (NES).
 
     This is the **abstract** class for all `NES` classes. Please use any of its instantiated subclasses to
-    optimize the black-box problem at hand.
+    optimize the **black-box** problem at hand.
 
     .. note:: `NES` is a family of **principled** population-based randomized search methods, which maximize
        the expected fitness along with (estimated) `natural gradients
