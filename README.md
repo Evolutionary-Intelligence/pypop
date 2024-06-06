@@ -14,7 +14,7 @@ More specifically, for alleviating their **curse of dimensionality**, the focus 
 
 The following three steps are enough to utilize the black-box optimization power of this library [PyPop7](https://pypi.org/project/pypop7/):
 
-1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) (*a strong suggestion*):
+1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html):
 
 ```bash
 $ pip install pypop7
