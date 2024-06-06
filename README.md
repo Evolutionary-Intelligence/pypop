@@ -173,7 +173,6 @@ For each algorithm family, we try to provide several *representative* applicatio
   * Gao, K. and Sener, O., 2022, June. [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html). In International Conference on Machine Learning (pp. 7077-7101). PMLR.
   * Kochenderfer, M.J. and Wheeler, T.A., 2019. [Algorithms for optimization](https://algorithmsbook.com/optimization/). MIT Press.
   * Larson, J., Menickelly, M. and Wild, S.M., 2019. [Derivative-free optimization methods](https://www.cambridge.org/core/journals/acta-numerica/article/abs/derivativefree-optimization-methods/84479E2B03A9BFFE0F9CD46CF9FCD289). Acta Numerica, 28, pp.287-404.
-  * Nesterov, Y., 2018. [Lectures on convex optimization](https://link.springer.com/book/10.1007/978-3-319-91578-4). Berlin: Springer International Publishing.
   * Nesterov, Y. and Spokoiny, V., 2017. [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2). Foundations of Computational Mathematics, 17(2), pp.527-566.
   * Conn, A.R., Scheinberg, K. and Vicente, L.N., 2009. [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768). Society for Industrial and Applied Mathematics.
 * Evolutionary Computation (EC) [ [[Box, 1957]](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505) ]
