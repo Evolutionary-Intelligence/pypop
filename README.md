@@ -20,8 +20,6 @@ The following three steps are enough to utilize the black-box optimization power
 $ pip install pypop7
 ```
 
-For simplicity, all required library dependencies (except special cases) are *automatically* installed according to [setup.cfg](https://github.com/Evolutionary-Intelligence/pypop/blob/main/setup.cfg).
-
 2. Define the objective/cost function (called *fitness function* in this library) for the optimization problem at hand,
 
 3. Run one or more black-box optimizers on this optimization problem:
