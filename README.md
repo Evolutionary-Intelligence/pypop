@@ -20,18 +20,19 @@ The following three steps are enough to utilize the black-box optimization power
 $ pip install pypop7
 ```
 
-2. Define the objective/cost function (called *fitness function* in this library) for the optimization problem at hand,
-
-3. Run one or more black-box optimizers on this optimization problem:
+2. Define the objective/cost/fitness function to be minimized for the optimization problem at hand,
 
 ```Python
 import numpy as np  # for numerical computation, which is also the computing engine of pypop7
 
-# 2. Define your own objective/cost function for the optimization problem at hand:
-#   the below example is Rosenbrock, the notorious test function from the optimization community
+# the below example is Rosenbrock, one notorious test function from the optimization community
 def rosenbrock(x):
     return 100.0*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
+```
 
+3. Run one or more black-box optimizers on this optimization problem:
+
+```Python
 # define the fitness (cost) function and also its settings
 ndim_problem = 1000
 problem = {'fitness_function': rosenbrock,  # cost function
