@@ -6,7 +6,8 @@ from pypop7.optimizers.nes.nes import NES
 class SGES(NES):
     """Search Gradient-based Evolution Strategy (SGES).
 
-    .. note:: Here we include it **only** for *theoretical* and/or *educational* purpose.
+    .. note:: Here we include `SGES` **only** for *theoretical* and/or *educational* purpose, since in practice
+       more advanced versions (such as `ENES`, `XNES`, `SNES`, and `R1NES`) are preferred than `SGES`.
 
     Parameters
     ----------
