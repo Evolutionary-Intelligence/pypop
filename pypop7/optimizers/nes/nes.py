@@ -53,6 +53,10 @@ class NES(ES):
 
     References
     ----------
+    Hüttenrauch, M. and Neumann, G., 2024.
+    Robust black-box optimization for stochastic search and episodic reinforcement learning.
+    Journal of Machine Learning Research, 25(153), pp.1-44.
+    
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
     Natural evolution strategies.
     Journal of Machine Learning Research, 15(1), pp.949-980.
