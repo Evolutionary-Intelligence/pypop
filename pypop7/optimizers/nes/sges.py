@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.nes.nes import NES
+from pypop7.optimizers.nes.nes import NES  # abstract class of Natural Evolution Strategies (NES) classes
 
 
 class SGES(NES):
