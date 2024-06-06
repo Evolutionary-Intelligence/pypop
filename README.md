@@ -40,8 +40,8 @@ problem = {'fitness_function': rosenbrock,  # cost function
 3. Run one or more black-box optimizers on this optimization problem:
 
 ```Python
-#   here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO
-#   https://pypop.readthedocs.io/en/latest/es/lmmaes.html
+# here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO
+# https://pypop.readthedocs.io/en/latest/es/lmmaes.html
 from pypop7.optimizers.es.lmmaes import LMMAES
 # define all the necessary algorithm options (which differ among different optimizers)
 options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than this threshold
