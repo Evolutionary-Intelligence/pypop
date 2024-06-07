@@ -89,6 +89,8 @@ class SGES(NES):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
     """
     def __init__(self, problem, options):
+        """Initialize all the hyper-parameters and also auxiliary class members.
+        """
         options['n_individuals'] = options.get('n_individuals', 100)
         options['sigma'] = np.Inf  # but not used for `SGES` here
         NES.__init__(self, problem, options)
@@ -115,7 +117,7 @@ class SGES(NES):
         return x, y, mean, cv
 
     def iterate(self, x=None, y=None, mean=None, args=None):
-        """Iterate the generation and fitness evaluation process of the offspring population
+        """Iterate the generation and fitness evaluation process of the offspring population.
         """
         for k in range(self.n_individuals):  # for each offspring individual
             if self._check_terminations():
