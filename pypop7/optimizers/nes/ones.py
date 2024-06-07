@@ -112,7 +112,7 @@ class ONES(SGES):
         inv_cv = np.linalg.inv(cv)
         # calculate all derivatives w.r.t. both mean and covariance matrix (`+ 1` is a trick)
         phi = np.ones((self.n_individuals, self._n_distribution + 1))
-        for k in range(self.n_individuals):
+        for k in range(self.n_individuals):  # for each offspring individual
             diff = x[k] - mean
             phi[k, :self.ndim_problem] = np.dot(inv_cv, diff)
             _grad_cv = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
