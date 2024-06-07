@@ -126,8 +126,10 @@ class ONES(SGES):
         self._n_generations += 1
         return x, y, mean, cv
 
-    def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        fitness = NES.optimize(self, fitness_function)
+    def optimize(self, fitness_function=None, args=None):
+        """Run the optimization/evolution process for all generations (iterations).
+        """
+        fitness = NES.optimize(self, fitness_function)  # to store all fitness generated during optimization
         x, y, mean, cv = self.initialize()
         while True:
             x, y = self.iterate(x, y, mean, args)
