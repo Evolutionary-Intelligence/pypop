@@ -156,17 +156,17 @@ class SGES(NES):
         inv_cv = np.linalg.inv(cv)
         phi = np.zeros((self.n_individuals, self._n_distribution))
         phi[:, :self.ndim_problem] = np.dot(inv_cv, (x - mean).T).T
-        grad_cv = np.empty((self.n_individuals, int(self.ndim_problem*(self.ndim_problem + 1)/2)))
+        grad_cv = np.empty((self.n_individuals, self._n_distribution - self.ndim_problem))
         for k in range(self.n_individuals):
             diff = x[k] - mean
-            _grad_cv = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
+            _grad_cv = 0.5 * (np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
             grad_cv[k] = self._triu2flat(np.dot(self._d_cv, (_grad_cv + _grad_cv.T)))
         phi[:, self.ndim_problem:] = grad_cv
-        phi_square = phi*phi
-        grad = np.sum(phi*(np.outer(u, np.ones((self._n_distribution,))) - np.dot(
-            u, phi_square)/np.dot(np.ones((self.n_individuals,)), phi_square)), 0)
-        mean += self.lr_mean*grad[:self.ndim_problem]
-        self._d_cv += self.lr_sigma*self._flat2triu(grad[self.ndim_problem:])
+        phi_square = phi * phi
+        grad = np.sum(phi * (np.outer(u, np.ones((self._n_distribution,))) - np.dot(
+            u, phi_square) / np.dot(np.ones((self.n_individuals,)), phi_square)), 0)
+        mean += self.lr_mean * grad[:self.ndim_problem]
+        self._d_cv += self.lr_sigma * self._flat2triu(grad[self.ndim_problem:])
         cv = np.dot(self._d_cv.T, self._d_cv)
         self._n_generations += 1
         return mean, cv
