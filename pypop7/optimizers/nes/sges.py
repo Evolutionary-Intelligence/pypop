@@ -129,7 +129,7 @@ class SGES(NES):
         return x, y
 
     def _triu2flat(self, cv):
-        """convert the upper-triangular matrix to an entirely flat vector.
+        """Convert the upper-triangular matrix to an entirely flat vector.
         """
         v = np.zeros((self._n_distribution - self.ndim_problem,))
         s, e = 0, self.ndim_problem  # starting and ending index
@@ -139,7 +139,7 @@ class SGES(NES):
         return v
 
     def _flat2triu(self, g):
-        """convert the entirely flat vector to an upper-triangular matrix.
+        """Convert the entirely flat vector to an upper-triangular matrix.
         """
         cv = np.zeros((self.ndim_problem, self.ndim_problem))
         s, e = 0, self.ndim_problem  # starting and ending index
