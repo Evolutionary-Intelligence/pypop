@@ -29,7 +29,6 @@ class ONES(SGES):
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
-
                 * 'lr_mean'       - learning rate of distribution mean update (`float`, default: `1.0`),
                 * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default: `1.0`).
 
