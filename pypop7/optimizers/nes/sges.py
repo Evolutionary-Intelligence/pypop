@@ -165,9 +165,11 @@ class SGES(NES):
         phi_square = phi * phi
         grad = np.sum(phi * (np.outer(u, np.ones((self._n_distribution,))) - np.dot(
             u, phi_square) / np.dot(np.ones((self.n_individuals,)), phi_square)), 0)
+        # update the mean of Gaussian search/sampling/mutation distribution
         mean += self.lr_mean * grad[:self.ndim_problem]
+        # update the covariance matrix of Gaussian search/sampling/mutation distribution
         self._d_cv += self.lr_sigma * self._flat2triu(grad[self.ndim_problem:])
-        cv = np.dot(self._d_cv.T, self._d_cv)
+        cv = np.dot(self._d_cv.T, self._d_cv)  # to recover covariance matrix
         self._n_generations += 1
         return mean, cv
 
