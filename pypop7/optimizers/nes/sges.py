@@ -98,17 +98,20 @@ class SGES(NES):
         if self.lr_sigma is None:
             self.lr_sigma = 0.01
         assert self.lr_sigma > 0.0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.0.'
-        # set parameter number of search/sampling/mutation distribution
+        # set parameter number of Gaussian search/sampling/mutation distribution
         self._n_distribution = int(self.ndim_problem + self.ndim_problem * (self.ndim_problem + 1) / 2)
-        self._d_cv = None  # all derivatives w.r.t. covariance matrix
+        self._d_cv = None  # all derivatives w.r.t. both mean and covariance matrix
 
     def initialize(self, is_restart=False):
+        """Initialize all offspring population, their fitness, mean and covariance matrix of Gaussian
+           search/sampling/mutation distribution.
+        """
         NES.initialize(self)
         x = np.empty((self.n_individuals, self.ndim_problem))  # offspring population
-        y = np.empty((self.n_individuals,))  # fitness (no evaluation)
-        mean = self._initialize_mean(is_restart)  # mean of Gaussian search distribution
-        cv = np.eye(self.ndim_problem)  # covariance matrix of Gaussian search distribution
-        self._d_cv = np.eye(self.ndim_problem)
+        y = np.empty((self.n_individuals,))  # fitness (no evaluation when initialization)
+        mean = self._initialize_mean(is_restart)  # mean of Gaussian search/sampling/mutation distribution
+        cv = np.eye(self.ndim_problem)  # covariance matrix of Gaussian search/sampling/mutation distribution
+        self._d_cv = np.eye(self.ndim_problem)  # all derivatives w.r.t. both mean and covariance matrix
         return x, y, mean, cv
 
     def iterate(self, x=None, y=None, mean=None, args=None):
