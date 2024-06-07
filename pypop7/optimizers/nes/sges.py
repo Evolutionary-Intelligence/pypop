@@ -129,8 +129,8 @@ class SGES(NES):
         return x, y
 
     def _triu2flat(self, cv):
-        g = np.zeros((int(self.ndim_problem*(self.ndim_problem+1)/2),))
-        s, e = 0, self.ndim_problem
+        g = np.zeros((self._n_distribution - self.ndim_problem,))
+        s, e = 0, self.ndim_problem  # starting and ending index
         for r in range(self.ndim_problem):
             g[s:e] = cv[r, r:]
             s = e
