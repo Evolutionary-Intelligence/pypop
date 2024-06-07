@@ -103,7 +103,7 @@ class SGES(NES):
         self._d_cv = None  # all derivatives w.r.t. both mean and covariance matrix
 
     def initialize(self, is_restart=False):
-        """Initialize all offspring population, their fitness, mean and covariance matrix of Gaussian
+        """Initialize the offspring population, their fitness, mean and covariance matrix of Gaussian
            search/sampling/mutation distribution.
         """
         NES.initialize(self)
@@ -115,10 +115,14 @@ class SGES(NES):
         return x, y, mean, cv
 
     def iterate(self, x=None, y=None, mean=None, args=None):
-        for k in range(self.n_individuals):
+        """Iterate the generation and fitness evaluation process of the offspring population
+        """
+        for k in range(self.n_individuals):  # for each offspring individual
             if self._check_terminations():
                 return x, y
+            # generate each offspring individual according to Gaussian search/sampling/mutation distribution
             x[k] = mean + np.dot(self._d_cv.T, self.rng_optimization.standard_normal((self.ndim_problem,)))
+            # evaluate the fitness of each offspring individual according to objective function
             y[k] = self._evaluate_fitness(x[k], args)
         return x, y
 
