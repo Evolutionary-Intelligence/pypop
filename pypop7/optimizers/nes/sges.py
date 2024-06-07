@@ -98,7 +98,7 @@ class SGES(NES):
         if self.lr_sigma is None:
             self.lr_sigma = 0.01
         assert self.lr_sigma > 0.0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.0.'
-        # set parameter number of search distribution
+        # set parameter number of search/sampling/mutation distribution
         self._n_distribution = int(self.ndim_problem + self.ndim_problem * (self.ndim_problem + 1) / 2)
         self._d_cv = None
 
