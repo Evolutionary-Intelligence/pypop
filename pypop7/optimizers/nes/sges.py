@@ -165,7 +165,7 @@ class SGES(NES):
         phi[:, :self.ndim_problem] = np.dot(inv_cv, (x - mean).T).T
         # calculate all derivatives w.r.t. covariance matrix for all offspring
         grad_cv = np.empty((self.n_individuals, self._n_distribution - self.ndim_problem))
-        for k in range(self.n_individuals):
+        for k in range(self.n_individuals):  # for each offspring individual
             diff = x[k] - mean
             _grad_cv = 0.5 * (np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
             grad_cv[k] = self._triu2flat(np.dot(self._d_cv, (_grad_cv + _grad_cv.T)))
