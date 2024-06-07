@@ -151,9 +151,8 @@ class SGES(NES):
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
         # sort the offspring population for *maximization* rather than *minimization*
         order = np.argsort(-y)
-        u = np.empty((self.n_individuals,))
-        for i, o in enumerate(order):
-            u[o] = self._u[i]
+        # ensure that the better an offspring, the larger its weight
+        u = self._u[order]
         inv_cv = np.linalg.inv(cv)
         # calculate all derivatives w.r.t. both mean and covariance matrix
         phi = np.zeros((self.n_individuals, self._n_distribution))
