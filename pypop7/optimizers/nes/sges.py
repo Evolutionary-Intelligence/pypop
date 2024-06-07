@@ -172,6 +172,8 @@ class SGES(NES):
         return mean, cv
 
     def restart_reinitialize(self, x=None, y=None, mean=None, cv=None):
+        """Restart and re-initialize the optimization/evolution process, if needed.
+        """
         if self.is_restart and NES.restart_reinitialize(self, y):
             x, y, mean, cv = self.initialize(True)
         return x, y, mean, cv
