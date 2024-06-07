@@ -168,6 +168,7 @@ class SGES(NES):
         mean += self.lr_mean*grad[:self.ndim_problem]
         self._d_cv += self.lr_sigma*self._flat2triu(grad[self.ndim_problem:])
         cv = np.dot(self._d_cv.T, self._d_cv)
+        self._n_generations += 1
         return mean, cv
 
     def restart_reinitialize(self, x=None, y=None, mean=None, cv=None):
@@ -175,8 +176,10 @@ class SGES(NES):
             x, y, mean, cv = self.initialize(True)
         return x, y, mean, cv
 
-    def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        fitness = NES.optimize(self, fitness_function)
+    def optimize(self, fitness_function=None, args=None):
+        """Run the optimization/evolution process for all generations (iterations).
+        """
+        fitness = NES.optimize(self, fitness_function)  # to store all fitness generated during optimization
         x, y, mean, cv = self.initialize()
         while True:
             x, y = self.iterate(x, y, mean, args)
@@ -184,6 +187,5 @@ class SGES(NES):
                 break
             self._print_verbose_info(fitness, y)
             mean, cv = self._update_distribution(x, y, mean, cv)
-            self._n_generations += 1
             x, y, mean, cv = self.restart_reinitialize(x, y, mean, cv)
         return self._collect(fitness, y, mean)
