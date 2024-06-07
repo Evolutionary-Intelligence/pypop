@@ -115,7 +115,7 @@ class ONES(SGES):
         for k in range(self.n_individuals):  # for each offspring individual
             diff = x[k] - mean
             phi[k, :self.ndim_problem] = np.dot(inv_cv, diff)
-            _grad_cv = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
+            _grad_cv = 0.5 * (np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
             phi[k, self.ndim_problem:-1] = self._triu2flat(np.dot(self._d_cv, _grad_cv + _grad_cv.T))
         grad = np.dot(np.linalg.pinv(phi), u)[:-1]
         # update the mean of Gaussian search/sampling/mutation distribution
