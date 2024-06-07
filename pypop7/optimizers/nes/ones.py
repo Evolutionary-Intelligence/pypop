@@ -120,7 +120,7 @@ class ONES(SGES):
         grad = np.dot(np.linalg.pinv(phi), u)[:-1]
         mean += self.lr_mean*grad[:self.ndim_problem]
         self._d_cv += self.lr_sigma*self._flat2triu(grad[self.ndim_problem:])
-        cv = np.dot(self._d_cv.T, self._d_cv)
+        cv = np.dot(self._d_cv.T, self._d_cv)  # to recover covariance matrix
         self._n_generations += 1
         return x, y, mean, cv
 
