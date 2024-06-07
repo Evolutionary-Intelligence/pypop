@@ -161,7 +161,9 @@ class SGES(NES):
         inv_cv = np.linalg.inv(cv)
         # calculate all derivatives w.r.t. both mean and covariance matrix
         phi = np.zeros((self.n_individuals, self._n_distribution))
+        # calculate all derivatives w.r.t. mean for all offspring
         phi[:, :self.ndim_problem] = np.dot(inv_cv, (x - mean).T).T
+        # calculate all derivatives w.r.t. covariance matrix for all offspring
         grad_cv = np.empty((self.n_individuals, self._n_distribution - self.ndim_problem))
         for k in range(self.n_individuals):
             diff = x[k] - mean
