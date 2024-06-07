@@ -172,7 +172,7 @@ class SGES(NES):
         phi[:, self.ndim_problem:] = grad_cv
         # use *fitness baseline* to reduce estimation variance rather than directly using
         # grad = np.sum(phi * (np.outer(u, np.ones((self._n_distribution,)))), 0)
-        phi_square = phi * phi
+        phi_square = phi * phi  # dynamic base
         grad = np.sum(phi * (np.outer(u, np.ones((self._n_distribution,))) - np.dot(
             u, phi_square) / np.dot(np.ones((self.n_individuals,)), phi_square)), 0)
         # update the mean of Gaussian search/sampling/mutation distribution
