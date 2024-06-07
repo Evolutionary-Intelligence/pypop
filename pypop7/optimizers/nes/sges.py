@@ -113,7 +113,7 @@ class SGES(NES):
         y = np.empty((self.n_individuals,))  # fitness (no evaluation when initialization)
         mean = self._initialize_mean(is_restart)  # mean of Gaussian search/sampling/mutation distribution
         cv = np.eye(self.ndim_problem)  # covariance matrix of Gaussian search/sampling/mutation distribution
-        self._d_cv = np.eye(self.ndim_problem)  # all derivatives w.r.t. both mean and covariance matrix
+        self._d_cv = np.eye(self.ndim_problem)  # all derivatives w.r.t. covariance matrix
         return x, y, mean, cv
 
     def iterate(self, x=None, y=None, mean=None, args=None):
