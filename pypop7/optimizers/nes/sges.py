@@ -149,6 +149,7 @@ class SGES(NES):
         return cv
 
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
+        # sort the offspring population for *maximization* rather than *minimization*
         order = np.argsort(-y)
         u = np.empty((self.n_individuals,))
         for i, o in enumerate(order):
