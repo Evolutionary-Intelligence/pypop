@@ -129,13 +129,14 @@ class SGES(NES):
         return x, y
 
     def _triu2flat(self, cv):
-        g = np.zeros((self._n_distribution - self.ndim_problem,))
+        """convert the upper-triangular matrix to a float vector.
+        """
+        v = np.zeros((self._n_distribution - self.ndim_problem,))
         s, e = 0, self.ndim_problem  # starting and ending index
         for r in range(self.ndim_problem):
-            g[s:e] = cv[r, r:]
-            s = e
-            e += (self.ndim_problem - (r + 1))
-        return g
+            v[s:e] = cv[r, r:]
+            s, e = e, e + (self.ndim_problem - (r + 1))
+        return v
 
     def _flat2triu(self, g):
         cv = np.zeros((self.ndim_problem, self.ndim_problem))
