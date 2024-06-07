@@ -7,9 +7,7 @@ from pypop7.optimizers.nes.sges import SGES
 class ONES(SGES):
     """Original Natural Evolution Strategy (ONES).
 
-    .. note:: `NES` constitutes a **well-principled** approach to real-valued black box function optimization with
-       a relatively clean derivation **from first principles**. Here we include `ONES` **mainly** for *benchmarking*
-       and *theoretical* purpose.
+    .. note:: Here we include `ONES` **mainly** for *benchmarking* and/or *theoretical* purpose.
 
     Parameters
     ----------
@@ -32,7 +30,6 @@ class ONES(SGES):
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
-                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
                 * 'lr_mean'       - learning rate of distribution mean update (`float`, default: `1.0`),
                 * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default: `1.0`).
 
@@ -64,17 +61,18 @@ class ONES(SGES):
     Attributes
     ----------
     lr_mean       : `float`
-                    learning rate of distribution mean update.
+                    learning rate of distribution mean update (should `> 0.0`).
     lr_sigma      : `float`
-                    learning rate of global step-size adaptation.
+                    learning rate of global step-size adaptation (should `> 0.0`).
     mean          : `array_like`
                     initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
+                    If not given, it will draw a random sample from the uniform distribution whose search
+                    range is bounded by `problem['lower_boundary']` and `problem['upper_boundary']`, by
+                    default.
     n_individuals : `int`
-                    number of offspring/descendants, aka offspring population size.
+                    number of offspring/descendants, aka offspring population size (should `> 0`).
     n_parents     : `int`
-                    number of parents/ancestors, aka parental population size.
-    sigma         : `float`
-                    global step-size, aka mutation strength (i.e., overall std of Gaussian search distribution).
+                    number of parents/ancestors, aka parental population size (should `> 0`).
 
     References
     ----------
