@@ -92,7 +92,7 @@ class SGES(NES):
         """Initialize all the hyper-parameters and also auxiliary class members.
         """
         options['n_individuals'] = options.get('n_individuals', 100)
-        options['sigma'] = np.Inf  # but not used for `SGES` here
+        options['sigma'] = np.Inf  # but not used here (only to avoid raise an error in superclass `ES`)
         NES.__init__(self, problem, options)
         if self.lr_mean is None:
             self.lr_mean = 0.01
