@@ -102,7 +102,7 @@ class SGES(NES):
         assert self.lr_sigma > 0.0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.0.'
         # set parameter number of Gaussian search/sampling/mutation distribution
         self._n_distribution = int(self.ndim_problem + self.ndim_problem * (self.ndim_problem + 1) / 2)
-        self._d_cv = None  # all derivatives w.r.t. both mean and covariance matrix
+        self._d_cv = None  # all derivatives w.r.t. covariance matrix
 
     def initialize(self, is_restart=False):
         """Initialize the offspring population, their fitness, mean and covariance matrix of Gaussian
