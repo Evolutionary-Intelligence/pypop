@@ -139,12 +139,13 @@ class SGES(NES):
         return v
 
     def _flat2triu(self, g):
+        """convert the entirely flat vector to an upper-triangular matrix.
+        """
         cv = np.zeros((self.ndim_problem, self.ndim_problem))
-        s, e = 0, self.ndim_problem
+        s, e = 0, self.ndim_problem  # starting and ending index
         for r in range(self.ndim_problem):
             cv[r, r:] = g[s:e]
-            s = e
-            e += (self.ndim_problem - (r + 1))
+            s, e = e, e + (self.ndim_problem - (r + 1))
         return cv
 
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
