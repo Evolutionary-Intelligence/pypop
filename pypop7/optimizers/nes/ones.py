@@ -117,7 +117,7 @@ class ONES(SGES):
             phi[k, :self.ndim_problem] = np.dot(inv_cv, diff)
             _grad_cv = 0.5 * (np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
             phi[k, self.ndim_problem:-1] = self._triu2flat(np.dot(self._d_cv, _grad_cv + _grad_cv.T))
-        grad = np.dot(np.linalg.pinv(phi), u)[:-1]
+        grad = np.dot(np.linalg.pinv(phi), u)[:-1]  # `pinv` -> compute the (Moore-Penrose) pseudo-inverse
         # update the mean of Gaussian search/sampling/mutation distribution
         mean += self.lr_mean * grad[:self.ndim_problem]
         # update the covariance matrix of Gaussian search/sampling/mutation distribution
