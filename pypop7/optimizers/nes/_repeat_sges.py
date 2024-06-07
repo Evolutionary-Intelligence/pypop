@@ -16,11 +16,12 @@
 
 
     np.random.seed(5)
-    solver = VGES(sphere, 4*np.ones((10,)), maxEvaluations=5e5, verbose=True, importanceMixing=False)
-    solver.x = 4*np.ones((10,))
+    solver = VGES(sphere, 4 * np.ones((10,)), maxEvaluations=5e5, verbose=True, importanceMixing=False)
+    solver.x = 4.0 * np.ones((10,))
     solver.learn()
     # ('Evals:', 500000)
     # ('Step:', 4999, 'best:', -2.375081667889928)
+    # = 2.375081667889928 for minimization
 """
 import time
 
@@ -31,19 +32,19 @@ from pypop7.optimizers.nes.sges import SGES as Solver
 
 
 if __name__ == '__main__':
-    start_run = time.time()
+    start_time = time.time()
     ndim_problem = 10
     for f in [sphere]:
         print('*' * 7 + ' ' + f.__name__ + ' ' + '*' * 7)
         problem = {'fitness_function': f,
                    'ndim_problem': ndim_problem}
         options = {'max_function_evaluations': 5e5,
-                   'seed_rng': 1,
-                   'x': 4*np.ones((ndim_problem,)),
-                   'saving_fitness': 1,
+                   'seed_rng': 7,
+                   'x': 4.0 * np.ones((ndim_problem,)),
+                   'saving_fitness': 2,
                    'is_restart': False}
         solver = Solver(problem, options)
         results = solver.optimize()
         print(results)
-        print(results['best_so_far_y'])  # 2.52480970e+00
-        print('*** Runtime: {:7.5e}'.format(time.time() - start_run))
+        print(results['best_so_far_y'])  # 1.779400885848081 (for minimization)
+        print('*** Runtime: {:7.5e}'.format(time.time() - start_time))
