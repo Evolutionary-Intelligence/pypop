@@ -100,11 +100,17 @@ class ONES(SGES):
             self.lr_sigma = 1.0
 
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
+        """Update the mean and covariance matrix of Gaussian search/sampling/mutation distribution.
+        """
+        # sort the offspring population for *maximization* (`-y`) rather than *minimization*
         order = np.argsort(-y)
+        # ensure that the better an offspring, the larger its weight
         u = np.empty((self.n_individuals,))
         for i, o in enumerate(order):
             u[o] = self._u[i]
+        # calculate the inverse of covariance matrix
         inv_cv = np.linalg.inv(cv)
+        # calculate all derivatives w.r.t. both mean and covariance matrix (`+ 1` is a trick)
         phi = np.ones((self.n_individuals, self._n_distribution + 1))
         for k in range(self.n_individuals):
             diff = x[k] - mean
