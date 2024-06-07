@@ -91,6 +91,8 @@ class ONES(SGES):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/nes.py
     """
     def __init__(self, problem, options):
+        """Initialize all the hyper-parameters and also auxiliary class members.
+        """
         SGES.__init__(self, problem, options)
         if options.get('lr_mean') is None:
             self.lr_mean = 1.0
