@@ -168,6 +168,8 @@ class SGES(NES):
             _grad_cv = 0.5 * (np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
             grad_cv[k] = self._triu2flat(np.dot(self._d_cv, (_grad_cv + _grad_cv.T)))
         phi[:, self.ndim_problem:] = grad_cv
+        # use *fitness baseline* to reduce estimation variance rather than directly using
+        # grad = np.sum(phi * (np.outer(u, np.ones((self._n_distribution,)))), 0)
         phi_square = phi * phi
         grad = np.sum(phi * (np.outer(u, np.ones((self._n_distribution,))) - np.dot(
             u, phi_square) / np.dot(np.ones((self.n_individuals,)), phi_square)), 0)
