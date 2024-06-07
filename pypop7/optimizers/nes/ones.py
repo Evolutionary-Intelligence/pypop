@@ -7,7 +7,9 @@ from pypop7.optimizers.nes.sges import SGES  # Search Gradient-based Evolution S
 class ONES(SGES):
     """Original Natural Evolution Strategy (ONES).
 
-    .. note:: Here we include `ONES` **mainly** for *benchmarking* and/or *theoretical* purpose.
+    .. note:: Here we include `ONES` **mainly** for *benchmarking* and/or *theoretical* purpose. In practice,
+       more advanced versions (e.g., `ENES`, `XNES`, `SNES`, and `R1NES`) should be first considered rather
+       than the original version.
 
     Parameters
     ----------
