@@ -149,10 +149,11 @@ class SGES(NES):
         return cv
 
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
-        # sort the offspring population for *maximization* rather than *minimization*
-        order = np.argsort(-y)
-        # ensure that the better an offspring, the larger its weight
-        u = self._u[order]
+        """Update the mean and covariance matrix of Gaussian search/sampling/mutation distribution.
+        """
+        # sort the offspring population for *maximization* rather than *minimization* and
+        #   ensure that the better an offspring, the larger its weight
+        u = self._u[np.argsort(-y)]
         inv_cv = np.linalg.inv(cv)
         # calculate all derivatives w.r.t. both mean and covariance matrix
         phi = np.zeros((self.n_individuals, self._n_distribution))
