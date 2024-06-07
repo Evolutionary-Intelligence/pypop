@@ -68,7 +68,7 @@ class SGES(NES):
                     learning rate of global step-size adaptation (should `> 0.0`).
     mean          : `array_like`
                     initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
-                    if not given, it will draw a random sample from the uniform distribution whose search
+                    If not given, it will draw a random sample from the uniform distribution whose search
                     range is bounded by `problem['lower_boundary']` and `problem['upper_boundary']`, by
                     default.
     n_individuals : `int`
@@ -91,7 +91,7 @@ class SGES(NES):
     <https://people.idsia.ch/~schaul/publications/thesis.pdf>`_
     Doctoral Dissertation, Technische Universität München.
 
-    Please refer to the *official* Python source code from `PyBrain` (not actively maintained):
+    Please refer to the *official* Python source code from `PyBrain` (now not actively maintained):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/ves.py
     """
     def __init__(self, problem, options):
