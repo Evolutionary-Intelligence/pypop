@@ -6,11 +6,12 @@ from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strate
 class NES(ES):
     """Natural Evolution Strategies (NES).
 
-    This is the **abstract** class for all `NES` classes. Please use any of its instantiated subclasses to
-    optimize the **black-box** problem at hand.
+    This is the **abstract** class for all `NES` classes. Please use any of its instantiated subclasses to optimize
+    the **black-box** problem at hand.
 
-    .. note:: `NES` is a family of **principled** population-based randomized search methods, which maximize
-       the expected fitness along with (estimated) `natural gradients
+    .. note:: `NES` is a family of **well-principled** population-based randomized search methods `with a relatively
+       clean derivation from first principles <https://ieeexplore.ieee.org/abstract/document/4631255>`_, which
+       maximize the expected fitness along with (estimated) `natural gradients
        <https://direct.mit.edu/neco/article-abstract/10/2/251/6143/Natural-Gradient-Works-Efficiently-in-Learning>`_.
        In this library, we have converted it to the *minimization* problem, in accordance with other modules.
 
