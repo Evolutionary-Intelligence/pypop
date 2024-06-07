@@ -151,7 +151,7 @@ class SGES(NES):
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
         """Update the mean and covariance matrix of Gaussian search/sampling/mutation distribution.
         """
-        # sort the offspring population for *maximization* rather than *minimization* and
+        # sort the offspring population for *maximization* rather than *minimization*
         order = np.argsort(-y)
         # ensure that the better an offspring, the larger its weight
         u = np.empty((self.n_individuals,))
