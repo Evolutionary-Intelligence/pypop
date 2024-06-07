@@ -152,8 +152,12 @@ class SGES(NES):
         """Update the mean and covariance matrix of Gaussian search/sampling/mutation distribution.
         """
         # sort the offspring population for *maximization* rather than *minimization* and
-        #   ensure that the better an offspring, the larger its weight
-        u = self._u[np.argsort(-y)]
+        order = np.argsort(-y)
+        # ensure that the better an offspring, the larger its weight
+        u = np.empty((self.n_individuals,))
+        for i, o in enumerate(order):
+            u[o] = self._u[i]
+        # calculate the inverse of covariance matrix
         inv_cv = np.linalg.inv(cv)
         # calculate all derivatives w.r.t. both mean and covariance matrix
         phi = np.zeros((self.n_individuals, self._n_distribution))
