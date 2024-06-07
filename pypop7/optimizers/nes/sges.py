@@ -30,8 +30,6 @@ class SGES(NES):
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
-
-                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
                 * 'lr_mean'       - learning rate of distribution mean update (`float`, default: `0.01`),
                 * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default: `0.01`).
 
@@ -43,7 +41,7 @@ class SGES(NES):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy  # engine for numerical computing
+       >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.nes.sges import SGES
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
@@ -52,8 +50,7 @@ class SGES(NES):
        ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       ...            'mean': 3*numpy.ones((2,))}
        >>> sges = SGES(problem, options)  # initialize the optimizer class
        >>> results = sges.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -75,9 +72,6 @@ class SGES(NES):
                     number of offspring/descendants, aka offspring population size (should `> 0`).
     n_parents     : `int`
                     number of parents/ancestors, aka parental population size (should `> 0`).
-    sigma         : `float`
-                    global step-size, aka mutation strength, which is the overall std of Gaussian search
-                    distribution (should `> 0.0`).
 
     References
     ----------
@@ -96,7 +90,7 @@ class SGES(NES):
     """
     def __init__(self, problem, options):
         options['n_individuals'] = options.get('n_individuals', 100)
-        options['sigma'] = np.Inf  # not used for `SGES`
+        options['sigma'] = np.Inf  # but not used for `SGES` here
         NES.__init__(self, problem, options)
         if self.lr_mean is None:
             self.lr_mean = 0.01
@@ -104,7 +98,8 @@ class SGES(NES):
         if self.lr_sigma is None:
             self.lr_sigma = 0.01
         assert self.lr_sigma > 0.0, f'`self.lr_sigma` = {self.lr_sigma}, but should > 0.0.'
-        self._n_distribution = int(self.ndim_problem + self.ndim_problem*(self.ndim_problem+1)/2)
+        # set parameter number of search distribution
+        self._n_distribution = int(self.ndim_problem + self.ndim_problem * (self.ndim_problem + 1) / 2)
         self._d_cv = None
 
     def initialize(self, is_restart=False):
