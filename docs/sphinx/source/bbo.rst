@@ -158,8 +158,8 @@ POPulation-based OPtimization (POP)
    are motivated from different ideas. However, they are closely related."*---`[Ye&Zhang, 2019]
    <https://arxiv.org/abs/1910.11490>`_
 
-Population-based (particularly evolutionary) optimizers (POP) usually have the following advantages for black-box problems,
-when particularly compared to individual-based counterparts:
+Population-based (particularly evolution- and swarm-based) optimizers (POP) usually have the following advantages for
+black-box problems, when particularly compared to individual-based counterparts:
 
 * few *a priori* assumptions (e.g. with a limited knowledge bias),
 * flexible framework (easy integration with problem-specific knowledge via e.g. memetic algorithms),
