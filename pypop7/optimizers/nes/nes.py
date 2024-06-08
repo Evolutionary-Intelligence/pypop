@@ -59,28 +59,29 @@ class NES(ES):
     References
     ----------
     Hüttenrauch, M. and Neumann, G., 2024.
-    Robust black-box optimization for stochastic search and episodic reinforcement learning.
+    `Robust black-box optimization for stochastic search and episodic reinforcement learning.
+    <https://www.jmlr.org/papers/v25/22-0564.html>`_
     Journal of Machine Learning Research, 25(153), pp.1-44.
     
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
-    Natural evolution strategies.
+    `Natural evolution strategies.
+    <https://jmlr.org/papers/v15/wierstra14a.html>`_
     Journal of Machine Learning Research, 15(1), pp.949-980.
-    https://jmlr.org/papers/v15/wierstra14a.html
 
     Schaul, T., 2011.
-    Studies in continuous black-box optimization.
+    `Studies in continuous black-box optimization.
+    <https://people.idsia.ch/~schaul/publications/thesis.pdf>`_
     Doctoral Dissertation, Technische Universität München.
-    https://people.idsia.ch/~schaul/publications/thesis.pdf
 
     Yi, S., Wierstra, D., Schaul, T. and Schmidhuber, J., 2009, June.
-    Stochastic search using the natural gradient.
+    `Stochastic search using the natural gradient.
+    <https://doi.org/10.1145/1553374.1553522>`_
     In Proceedings of International Conference on Machine Learning (pp. 1161-1168).
-    https://dl.acm.org/doi/10.1145/1553374.1553522
 
     Wierstra, D., Schaul, T., Peters, J. and Schmidhuber, J., 2008, June.
-    Natural evolution strategies.
+    `Natural evolution strategies.
+    <https://doi.org/10.1109/CEC.2008.4631255>`_
     In IEEE Congress on Evolutionary Computation (pp. 3381-3387). IEEE.
-    https://ieeexplore.ieee.org/abstract/document/4631255
 
     Please refer to the *official* Python source code from `PyBrain` (now not actively maintained):
     https://github.com/pybrain/pybrain
