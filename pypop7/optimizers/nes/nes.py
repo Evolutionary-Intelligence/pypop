@@ -17,7 +17,8 @@ class NES(ES):
 
     For some interesting applications of `NES`, please refer to `[Xu et al., 2024, ICLR]
     <https://openreview.net/pdf?id=6PbvbLyqT6>`_, `[Xuan Zhang et al., 2024, IEEE-LRA]
-    <https://ieeexplore.ieee.org/document/10382561>`_, to name a few.
+    <https://ieeexplore.ieee.org/document/10382561>`_, `[Conti et al., 2018, NeurIPS]
+    <https://proceedings.neurips.cc/paper/2018/file/b1301141feffabac455e1f90a7de2054-Paper.pdf>`_, to name a few.
 
     Parameters
     ----------
