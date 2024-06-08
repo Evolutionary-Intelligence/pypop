@@ -9,7 +9,9 @@ class ONES(SGES):
 
     .. note:: Here we include `ONES` **mainly** for *benchmarking* and/or *theoretical* purpose. In practice,
        more advanced versions (e.g., `ENES`, `XNES`, `SNES`, and `R1NES`) should be first considered rather
-       than the original version, which was first published in IEEE CEC-2008 by Schmidhuber's team.
+       than the original version, which was first published in IEEE CEC-2008 by Schmidhuber's team. Simply
+       speaking, the **parameterized** search distribution makes the mathematical derivation of the complex
+       population update/evolution process possible and tractable, under mild assumptions. 
 
     Parameters
     ----------
