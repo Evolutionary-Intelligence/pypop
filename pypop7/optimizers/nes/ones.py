@@ -97,7 +97,7 @@ class ONES(SGES):
     Doctoral Dissertation, Technische Universität München.
     https://people.idsia.ch/~schaul/publications/thesis.pdf
 
-    See the official Python source code from PyBrain:
+    Please refer to the *official* Python source code from `PyBrain` (now not actively maintained):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/nes.py
     """
     def __init__(self, problem, options):
