@@ -154,6 +154,10 @@ POPulation-based OPtimization (POP)
    in a population, and to introduce a notion of fitness on the basis of solution quality."*---`[Eiben&Smith, 2015,
    Nature] <https://www.nature.com/articles/nature14544>`_
 
+   *"It seems that derivative free algorithms and evolution strategies are totally different algorithms since they
+   are motivated from different ideas. However, they are closely related."*---`[Ye&Zhang, 2019]
+   <https://arxiv.org/abs/1910.11490>`_
+
 Population-based (particularly evolutionary) optimizers (POP) usually have the following advantages for black-box problems,
 when particularly compared to individual-based counterparts:
 
