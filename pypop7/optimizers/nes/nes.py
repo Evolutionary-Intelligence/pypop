@@ -16,7 +16,8 @@ class NES(ES):
        In this library, we have converted it to the *minimization* problem, in accordance with other modules.
 
     For some interesting applications of `NES`, please refer to `[Xu et al., 2024, ICLR]
-    <https://openreview.net/pdf?id=6PbvbLyqT6>`_, to name a few.
+    <https://openreview.net/pdf?id=6PbvbLyqT6>`_, `[Xuan Zhang et al., 2024, IEEE-LRA]
+    <https://ieeexplore.ieee.org/document/10382561>`_, to name a few.
 
     Parameters
     ----------
