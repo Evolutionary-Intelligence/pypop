@@ -80,7 +80,11 @@ class ONES(SGES):
     Beyer, H.G., 2023, July.
     What you always wanted to know about evolution strategies, but never dared to ask.
     In Proceedings of Companion Conference on Genetic and Evolutionary Computation (pp. 878-894). ACM.
-    
+
+    Beyer, H.G., 2014.
+    Convergence analysis of evolutionary algorithms that are based on the paradigm of information geometry.
+    Evolutionary Computation, 22(4), pp.679-709.
+
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
     Natural evolution strategies.
     Journal of Machine Learning Research, 15(1), pp.949-980.
