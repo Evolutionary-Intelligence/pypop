@@ -77,6 +77,10 @@ class ONES(SGES):
 
     References
     ----------
+    Beyer, H.G., 2023, July.
+    What you always wanted to know about evolution strategies, but never dared to ask.
+    In Proceedings of Companion Conference on Genetic and Evolutionary Computation (pp. 878-894). ACM.
+    
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
     Natural evolution strategies.
     Journal of Machine Learning Research, 15(1), pp.949-980.
