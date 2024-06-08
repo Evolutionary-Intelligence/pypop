@@ -77,6 +77,10 @@ class VDCMA(ES):
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 373-380). ACM.
     https://dl.acm.org/doi/abs/10.1145/2576768.2598258
 
+    Akimoto, Y., Nagata, Y., Ono, I. and Kobayashi, S., 2010.
+    Bidirectional relation between CMA evolution strategies and natural evolution strategies.
+    In International Conference on Parallel Problem Solving from Nature (pp. 154-163). Springer Berlin Heidelberg.
+
     See the official Python version from Prof. Akimoto:
     https://gist.github.com/youheiakimoto/08b95b52dfbf8832afc71dfff3aed6c8
     """
