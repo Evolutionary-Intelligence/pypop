@@ -82,6 +82,7 @@ class NES(ES):
     In IEEE Congress on Evolutionary Computation (pp. 3381-3387). IEEE.
     https://ieeexplore.ieee.org/abstract/document/4631255
 
+    Please refer to the *official* Python source code from `PyBrain` (now not actively maintained):
     https://github.com/pybrain/pybrain
     """
     def __init__(self, problem, options):
