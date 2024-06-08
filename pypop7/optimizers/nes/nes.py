@@ -47,6 +47,9 @@ class NES(ES):
     ----------
     mean          : `array_like`
                     initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
+                    If not given, it will draw a random sample from the uniform distribution whose search
+                    range is bounded by `problem['lower_boundary']` and `problem['upper_boundary']`, by
+                    default.
     n_individuals : `int`
                     number of offspring/descendants, aka offspring population size.
     n_parents     : `int`
