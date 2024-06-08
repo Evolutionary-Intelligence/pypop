@@ -9,7 +9,7 @@ class ONES(SGES):
 
     .. note:: Here we include `ONES` **mainly** for *benchmarking* and/or *theoretical* purpose. In practice,
        more advanced versions (e.g., `ENES`, `XNES`, `SNES`, and `R1NES`) should be first considered rather
-       than the original version.
+       than the original version, which was first published in IEEE CEC-2008 by Schmidhuber's team.
 
     Parameters
     ----------
