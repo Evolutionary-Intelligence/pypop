@@ -21,7 +21,8 @@ class CMAES(ES):
        <https://www.nature.com/articles/s41467-023-43908-6>`_, `[Franks et al., 2021]
        <https://www.biorxiv.org/content/10.1101/2021.09.13.460170v1.abstract>`_, `[Yuan et al., 2021, MNRAS]
        <https://academic.oup.com/mnras/article/502/3/3582/6122578>`_, `[Löffler et al., 2021, Nature Communications]
-       <https://www.nature.com/articles/s41467-021-22017-2>`_, `[Zhang et al., 2017, Science]
+       <https://www.nature.com/articles/s41467-021-22017-2>`_, `[Lei, 2020, Ph.D. Dissertation (University of Oxford)]
+       <https://tinyurl.com/yzkjwr34>`_, `[Zhang et al., 2017, Science]
        <https://www.science.org/doi/full/10.1126/science.aal5054>`_, `[Loshchilov&Hutter, 2016]
        <https://arxiv.org/abs/1604.07269>`_, to name a few.
 
