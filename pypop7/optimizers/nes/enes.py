@@ -62,8 +62,7 @@ class ENES(ONES):
        ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       ...            'mean': 3*numpy.ones((2,))}
        >>> enes = ENES(problem, options)  # initialize the optimizer class
        >>> results = enes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -73,17 +72,18 @@ class ENES(ONES):
     Attributes
     ----------
     lr_mean       : `float`
-                    learning rate of distribution mean update.
+                    learning rate of distribution mean update (should `> 0.0`).
     lr_sigma      : `float`
-                    learning rate of global step-size adaptation.
+                    learning rate of global step-size adaptation (should `> 0.0`).
     mean          : `array_like`
                     initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
+                    If not given, it will draw a random sample from the uniform distribution whose search
+                    range is bounded by `problem['lower_boundary']` and `problem['upper_boundary']`, by
+                    default.
     n_individuals : `int`
-                    number of offspring/descendants, aka offspring population size.
+                    number of offspring/descendants, aka offspring population size (should `> 0`).
     n_parents     : `int`
-                    number of parents/ancestors, aka parental population size.
-    sigma         : `float`
-                    global step-size, aka mutation strength (i.e., overall std of Gaussian search distribution).
+                    number of parents/ancestors, aka parental population size (should `> 0`).
 
     References
     ----------
