@@ -109,6 +109,8 @@ class ENES(ONES):
         ONES.__init__(self, problem, options)
 
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
+        """Update the mean and covariance matrix of Gaussian search/sampling/mutation distribution.
+        """
         order = np.argsort(-y)
         u = np.empty((self.n_individuals,))
         for i, o in enumerate(order):
