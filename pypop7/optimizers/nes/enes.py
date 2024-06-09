@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.nes.ones import ONES
+from pypop7.optimizers.nes.ones import ONES  # Original Natural Evolution Strategy (ONES) class
 
 
 def _combine_block(ll):
@@ -106,11 +106,9 @@ class ENES(ONES):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/nes.py
     """
     def __init__(self, problem, options):
+        """Initialize all the hyper-parameters and also auxiliary class members.
+        """
         ONES.__init__(self, problem, options)
-        if options.get('lr_mean') is None:
-            self.lr_mean = 1.0
-        if options.get('lr_sigma') is None:
-            self.lr_sigma = 1.0
 
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
         order = np.argsort(-y)
