@@ -51,11 +51,12 @@ class NES(ES):
                     range is bounded by `problem['lower_boundary']` and `problem['upper_boundary']`, by
                     default.
     n_individuals : `int`
-                    number of offspring/descendants, aka offspring population size.
+                    number of offspring/descendants, aka offspring population size (should `> 0`).
     n_parents     : `int`
-                    number of parents/ancestors, aka parental population size.
+                    number of parents/ancestors, aka parental population size (should `> 0`).
     sigma         : `float`
-                    global step-size, aka mutation strength (i.e., overall std of Gaussian search distribution).
+                    final global step-size, aka mutation strength or overall std of Gaussian search
+                    distribution (should `> 0.0`).
 
     Methods
     -------
@@ -91,15 +92,22 @@ class NES(ES):
     https://github.com/pybrain/pybrain
     """
     def __init__(self, problem, options):
+        """Initialize all the hyper-parameters and also auxiliary class members.
+        """
         ES.__init__(self, problem, options)
         self._u = None  # for fitness shaping
 
     def initialize(self):
+        """Initialize the offspring population, their fitness, mean and covariance matrix of Gaussian
+           search/sampling/mutation distribution.
+        """
         r, _u = np.arange(self.n_individuals), np.zeros((self.n_individuals,))
         for i in range(self.n_individuals):
-            if r[i] >= self.n_individuals*0.5:
-                _u[i] = r[i] - self.n_individuals*0.5
-        self._u = _u/np.max(_u)
+            if r[i] >= self.n_individuals * 0.5:
+                _u[i] = r[i] - self.n_individuals * 0.5
+        self._u = _u / np.max(_u)
 
     def iterate(self):
+        """Iterate the generation and fitness evaluation process of the offspring population.
+        """
         raise NotImplementedError
