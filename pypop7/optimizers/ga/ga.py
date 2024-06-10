@@ -4,30 +4,30 @@ from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all 
 
 
 class GA(Optimizer):
-    """Genetic Algorithm (GA).
+    """Genetic Algorithms (GA).
 
     This is the **abstract** class for all `GA` classes. Please use any of its instantiated subclasses to
     optimize the **black-box** problem at hand.
 
-    .. note:: `GA` is one of three *earliest* versions of evolutionary algorithms along with *evolutionary programming*
-       and *evolution strategies*. Its original history can date back to Holland's JACM paper in 1962 called *outline
+    .. note:: `GA` are one of three *earliest* versions of evolutionary algorithms along with *evolutionary programming*
+       and *evolution strategies*. GA' original history can date back to Holland's JACM paper in 1962 called *outline
        for a logical theory of adaptive systems*. **John H. Holland**, the father of `GA`, was the 2003 recipient of
        `IEEE Evolutionary Computation Pioneer Award <https://tinyurl.com/456as566>`_. Note that both Hans Bremermann
        (professor emeritus at University of California at Berkeley) and Woody Bledsoe (chairman in IJCAI-1977 / 
        president-elect in AAAI-1983) did independent works closest to the modern notion of `GA`, as pointed out by
        Goldberg (1989).
 
-       "Just to give you a flavor of these problems: GAs have been used at the General Electric Company for automating
+       *"Just to give you a flavor of these problems: GA have been used at the General Electric Company for automating
        parts of aircraft design, Los Alamos National Lab for analyzing satellite images, the John Deere company for
-       automating assembly line scheduling, and Texas Instruments for computer chip design. GAs were used for generating
+       automating assembly line scheduling, and Texas Instruments for computer chip design. GA were used for generating
        realistic computer-animated horses in the 2003 movie The Lord of the Rings: The Return of the King, and realistic
-       computer-animated stunt doubles for actors in the movie Troy. A number of pharmaceutical companies are using GAs
-       to aid in the discovery of new drugs. GAs have been used by several financial organizations for various tasks:
+       computer-animated stunt doubles for actors in the movie Troy. A number of pharmaceutical companies are using GA
+       to aid in the discovery of new drugs. GA have been used by several financial organizations for various tasks:
        detecting fraudulent trades (London Stock Exchange), analysis of credit card data (Capital One), and forecasting
        financial markets and portfolio optimization (First Quadrant). In the 1990s, collections of artwork created by an
-       interactive genetic algorithm were exhibited at several museums, including the Georges Pompidou Center in Paris.
-       These examples are just a small sampling of ways in which GAs are being used."---`[Mitchell, 2009, 《Complexity:
-       A Guided Tour》--winner of the 2010 Phi Beta Kappa Book Award in Science]
+       interactive GA were exhibited at several museums, including the Georges Pompidou Center in Paris. These examples
+       are just a small sampling of ways in which GA are being used."*---`[Mitchell, 2009, 《Complexity: A Guided Tour》
+       --winner of the 2010 Phi Beta Kappa Book Award in Science]
        <https://www.amazon.com/Complexity-Guided-Tour-Melanie-Mitchell/dp/0199798109>`_
 
     For some interesting applications of `GA` on diverse areas, please refer to `[Lyu et al., 2024, Science]
