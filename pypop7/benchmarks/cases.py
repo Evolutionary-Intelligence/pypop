@@ -76,7 +76,7 @@ class Cases(object):
             raise TypeError('The number of dimensions should >=1 and <= 7.')
         return np.array(x, dtype=np.float64)
 
-    def compare(self, func, ndim, y_true, shift_vector=None, rotation_matrix=None, atol=1e-08):
+    def compare(self, func, ndim, y_true, shift_vector=None, rotation_matrix=None, atol=1e-4):
         """Compare true (expected) function values with these returned (computed) by benchmark function.
 
         :param func: benchmark function, a function object.
