@@ -38,7 +38,7 @@ class NES(ES):
                 * 'n_parents'     - number of parents/ancestors, aka parental population size (`int`),
                 * 'mean'          - initial (starting) point (`array_like`),
 
-                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                  * If not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
 
                 * 'sigma'         - initial global step-size, aka mutation strength (`float`).
