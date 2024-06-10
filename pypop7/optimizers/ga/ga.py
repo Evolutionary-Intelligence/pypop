@@ -10,12 +10,12 @@ class GA(Optimizer):
     optimize the **black-box** problem at hand.
 
     .. note:: `GA` are one of three *earliest* versions of evolutionary algorithms along with *evolutionary programming*
-       and *evolution strategies*. GA' original history can date back to Holland's JACM paper in 1962 called *outline
-       for a logical theory of adaptive systems*. **John H. Holland**, the father of `GA`, was the 2003 recipient of
-       `IEEE Evolutionary Computation Pioneer Award <https://tinyurl.com/456as566>`_. Note that both Hans Bremermann
-       (professor emeritus at University of California at Berkeley) and Woody Bledsoe (chairman in IJCAI-1977 / 
-       president-elect in AAAI-1983) did independent works closest to the modern notion of `GA`, as pointed out by
-       Goldberg (1989).
+       (`EP`) and *evolution strategies* (`ES`). GA' original history dated back to Holland's **JACM** paper in 1962
+       called *outline for a logical theory of adaptive systems*. **John H. Holland**, "GA's father", was the 2003
+       recipient of `IEEE Evolutionary Computation Pioneer Award <https://tinyurl.com/456as566>`_. Note that both Hans
+       Bremermann (professor emeritus at University of California at Berkeley) and Woody Bledsoe (chairman in IJCAI-1977
+       / president-elect in AAAI-1983) did independent works closest to the modern notion of `GA`, as pointed out by
+       `[Goldberg, 1989] <https://www.goodreads.com/en/book/show/142613>`_.
 
        *"Just to give you a flavor of these problems: GA have been used at the General Electric Company for automating
        parts of aircraft design, Los Alamos National Lab for analyzing satellite images, the John Deere company for
