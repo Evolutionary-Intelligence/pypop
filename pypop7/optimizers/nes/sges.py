@@ -53,7 +53,6 @@ class SGES(NES):
        ...            'mean': 3.0*numpy.ones((2,))}
        >>> sges = SGES(problem, options)  # to initialize the optimizer class
        >>> results = sges.optimize()  # to run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SGES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SGES: 5000, 0.0190
 
