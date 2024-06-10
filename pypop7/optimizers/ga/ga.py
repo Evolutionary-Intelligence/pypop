@@ -90,7 +90,7 @@ class GA(Optimizer):
 
     De Jong, K.A., 1993.
     `Are genetic algorithms function optimizer?.
-    https://www.sciencedirect.com/science/article/pii/B9780080948324500064>`_
+    <https://www.sciencedirect.com/science/article/pii/B9780080948324500064>`_
     Foundations of Genetic Algorithms, pp.5-17.
 
     Forrest, S., 1993.
