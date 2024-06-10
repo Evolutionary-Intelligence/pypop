@@ -149,7 +149,10 @@ class ENES(ONES):
         base = np.sum(v_2[:j + 1, :], 0)
         grad[:j + 1] = np.dot(v[:j + 1, :], (u - np.dot(base, u)/np.sum(base)))
         grad /= self.n_individuals
+        # update the mean of Gaussian search/sampling/mutation distribution
         mean += self.lr_mean*grad[:self.ndim_problem]
-        self._d_cv += self.lr_sigma*self._flat2triu(grad[self.ndim_problem:])
-        cv = np.dot(self._d_cv.T, self._d_cv)
+        # update the covariance matrix of Gaussian search/sampling/mutation distribution
+        self._d_cv += self.lr_sigma * self._flat2triu(grad[self.ndim_problem:])
+        cv = np.dot(self._d_cv.T, self._d_cv)  # to recover covariance matrix
+        self._n_generations += 1
         return x, y, mean, cv
