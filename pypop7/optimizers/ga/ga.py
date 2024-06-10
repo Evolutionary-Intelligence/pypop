@@ -17,6 +17,19 @@ class GA(Optimizer):
        president-elect in AAAI-1983) did independent works closest to the modern notion of `GA`, as pointed out by
        Goldberg (1989).
 
+       "Just to give you a flavor of these problems: GAs have been used at the General Electric Company for automating
+       parts of aircraft design, Los Alamos National Lab for analyzing satellite images, the John Deere company for
+       automating assembly line scheduling, and Texas Instruments for computer chip design. GAs were used for generating
+       realistic computer-animated horses in the 2003 movie The Lord of the Rings: The Return of the King, and realistic
+       computer-animated stunt doubles for actors in the movie Troy. A number of pharmaceutical companies are using GAs
+       to aid in the discovery of new drugs. GAs have been used by several financial organizations for various tasks:
+       detecting fraudulent trades (London Stock Exchange), analysis of credit card data (Capital One), and forecasting
+       financial markets and portfolio optimization (First Quadrant). In the 1990s, collections of artwork created by an
+       interactive genetic algorithm were exhibited at several museums, including the Georges Pompidou Center in Paris.
+       These examples are just a small sampling of ways in which GAs are being used."---`[Mitchell, 2009, 《Complexity:
+       A Guided Tour》--winner of the 2010 Phi Beta Kappa Book Award in Science]
+       <https://www.amazon.com/Complexity-Guided-Tour-Melanie-Mitchell/dp/0199798109>`_
+
     For some interesting applications of `GA` on diverse areas, please refer to `[Lyu et al., 2024, Science]
     <https://www.science.org/doi/10.1126/science.adn6354>`_, `[Truong-Quoc et al., 2024, Nature Materials]
     <https://www.nature.com/articles/s41563-024-01846-8>`_, `[Castanha et al., 2024, PNAS]
