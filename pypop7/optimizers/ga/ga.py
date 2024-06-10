@@ -64,70 +64,70 @@ class GA(Optimizer):
     References
     ----------
     Whitley, D., 2019.
-    Next generation genetic algorithms: A user’s guide and tutorial.
+    `Next generation genetic algorithms: A user’s guide and tutorial.
+    <https://link.springer.com/chapter/10.1007/978-3-319-91086-4_8>`_
     In Handbook of Metaheuristics (pp. 245-274). Springer, Cham.
-    https://link.springer.com/chapter/10.1007/978-3-319-91086-4_8
 
     De Jong, K.A., 2006.
-    Evolutionary computation: A unified approach.
+    `Evolutionary computation: A unified approach.
+    <https://mitpress.mit.edu/9780262041942/evolutionary-computation/>`_
     MIT Press.
-    https://mitpress.mit.edu/9780262041942/evolutionary-computation/
 
     Mitchell, M., 1998.
-    An introduction to genetic algorithms.
+    `An introduction to genetic algorithms.
+    <https://mitpress.mit.edu/9780262631853/an-introduction-to-genetic-algorithms/>`_
     MIT Press.
-    https://mitpress.mit.edu/9780262631853/an-introduction-to-genetic-algorithms/
 
     Levine, D., 1997.
-    Commentary—Genetic algorithms: A practitioner's view.
+    `Commentary—Genetic algorithms: A practitioner's view.
+    <https://pubsonline.informs.org/doi/10.1287/ijoc.9.3.256>`_
     INFORMS Journal on Computing, 9(3), pp.256-259.
-    https://pubsonline.informs.org/doi/10.1287/ijoc.9.3.256
 
     Goldberg, D.E., 1994.
-    Genetic and evolutionary algorithms come of age.
+    `Genetic and evolutionary algorithms come of age.
+    <https://dl.acm.org/doi/10.1145/175247.175259>`_
     Communications of the ACM, 37(3), pp.113-120.
-    https://dl.acm.org/doi/10.1145/175247.175259
 
     De Jong, K.A., 1993.
-    Are genetic algorithms function optimizer?.
+    `Are genetic algorithms function optimizer?.
+    https://www.sciencedirect.com/science/article/pii/B9780080948324500064>`_
     Foundations of Genetic Algorithms, pp.5-17.
-    https://www.sciencedirect.com/science/article/pii/B9780080948324500064
 
     Forrest, S., 1993.
-    Genetic algorithms: Principles of natural selection applied to computation.
+    `Genetic algorithms: Principles of natural selection applied to computation.
+    <https://www.science.org/doi/10.1126/science.8346439>`_
     Science, 261(5123), pp.872-878.
-    https://www.science.org/doi/10.1126/science.8346439
 
     Mitchell, M., Holland, J. and Forrest, S., 1993.
-    When will a genetic algorithm outperform hill climbing.
+    `When will a genetic algorithm outperform hill climbing.
+    <https://proceedings.neurips.cc/paper/1993/hash/ab88b15733f543179858600245108dd8-Abstract.html>`_
     Advances in Neural Information Processing Systems (pp. 51-58).
-    https://proceedings.neurips.cc/paper/1993/hash/ab88b15733f543179858600245108dd8-Abstract.html
 
     Holland, J.H., 1992.
-    Adaptation in natural and artificial systems: An introductory analysis with applications to
+    `Adaptation in natural and artificial systems: An introductory analysis with applications to
     biology, control, and artificial intelligence.
+    <https://direct.mit.edu/books/book/2574/Adaptation-in-Natural-and-Artificial-SystemsAn>`_
     MIT press.
-    https://direct.mit.edu/books/book/2574/Adaptation-in-Natural-and-Artificial-SystemsAn
     
     Holland, J.H., 1992.
-    Genetic algorithms.
+    `Genetic algorithms.
+    <https://www.scientificamerican.com/article/genetic-algorithms/>`_
     Scientific American, 267(1), pp.66-73.
-    https://www.scientificamerican.com/article/genetic-algorithms/
 
     Goldberg, D.E., 1989.
-    Genetic algorithms in search, optimization and machine learning.
+    `Genetic algorithms in search, optimization and machine learning.
+    <https://www.goodreads.com/en/book/show/142613>`_
     Reading: Addison-Wesley.
-    https://www.goodreads.com/en/book/show/142613
  
     Goldberg, D.E. and Holland, J.H., 1988.
-    Genetic algorithms and machine learning.
+    `Genetic algorithms and machine learning.
+    <https://link.springer.com/article/10.1023/A:1022602019183>`_
     Machine Learning, 3(2), pp.95-99.
-    https://link.springer.com/article/10.1023/A:1022602019183
 
     Holland, J.H., 1973.
-    Genetic algorithms and the optimal allocation of trials.
+    `Genetic algorithms and the optimal allocation of trials.
+    <https://epubs.siam.org/doi/10.1137/0202009>`_    
     SIAM Journal on Computing, 2(2), pp.88-105.
-    https://epubs.siam.org/doi/10.1137/0202009
 
     Holland, J.H., 1962.
     `Outline for a logical theory of adaptive systems.
