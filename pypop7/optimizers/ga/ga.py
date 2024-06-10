@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all Black-Box Optimizers (BBO)
+from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all Black-Box Optimizers (BBO) classes
 
 
 class GA(Optimizer):
