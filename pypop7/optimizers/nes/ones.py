@@ -1,15 +1,17 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.nes.nes import NES
-from pypop7.optimizers.nes.sges import SGES
+from pypop7.optimizers.nes.nes import NES  # abstract class of Natural Evolution Strategies (NES) classes
+from pypop7.optimizers.nes.sges import SGES  # Search Gradient-based Evolution Strategy (SGES) class
 
 
 class ONES(SGES):
     """Original Natural Evolution Strategy (ONES).
 
-    .. note:: `NES` constitutes a **well-principled** approach to real-valued black box function optimization with
-       a relatively clean derivation **from first principles**. Here we include `ONES` **mainly** for *benchmarking*
-       and *theoretical* purpose.
+    .. note:: Here we include `ONES` **mainly** for *benchmarking* and/or *theoretical* purpose. In practice,
+       more advanced versions (e.g., `ENES`, `XNES`, `SNES`, and `R1NES`) should be first considered rather
+       than the original version, which was first published in IEEE CEC-2008 by Schmidhuber's team. Simply
+       speaking, the **parameterized** search distribution makes the mathematical derivation of the complex
+       population update/evolution process possible and tractable, under mild assumptions. 
 
     Parameters
     ----------
@@ -31,8 +33,6 @@ class ONES(SGES):
 
                   * if not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
-
-                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
                 * 'lr_mean'       - learning rate of distribution mean update (`float`, default: `1.0`),
                 * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default: `1.0`).
 
@@ -64,20 +64,29 @@ class ONES(SGES):
     Attributes
     ----------
     lr_mean       : `float`
-                    learning rate of distribution mean update.
+                    learning rate of distribution mean update (should `> 0.0`).
     lr_sigma      : `float`
-                    learning rate of global step-size adaptation.
+                    learning rate of global step-size adaptation (should `> 0.0`).
     mean          : `array_like`
                     initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
+                    If not given, it will draw a random sample from the uniform distribution whose search
+                    range is bounded by `problem['lower_boundary']` and `problem['upper_boundary']`, by
+                    default.
     n_individuals : `int`
-                    number of offspring/descendants, aka offspring population size.
+                    number of offspring/descendants, aka offspring population size (should `> 0`).
     n_parents     : `int`
-                    number of parents/ancestors, aka parental population size.
-    sigma         : `float`
-                    global step-size, aka mutation strength (i.e., overall std of Gaussian search distribution).
+                    number of parents/ancestors, aka parental population size (should `> 0`).
 
     References
     ----------
+    Beyer, H.G., 2023, July.
+    What you always wanted to know about evolution strategies, but never dared to ask.
+    In Proceedings of Companion Conference on Genetic and Evolutionary Computation (pp. 878-894). ACM.
+
+    Beyer, H.G., 2014.
+    Convergence analysis of evolutionary algorithms that are based on the paradigm of information geometry.
+    Evolutionary Computation, 22(4), pp.679-709.
+
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
     Natural evolution strategies.
     Journal of Machine Learning Research, 15(1), pp.949-980.
@@ -88,10 +97,12 @@ class ONES(SGES):
     Doctoral Dissertation, Technische Universität München.
     https://people.idsia.ch/~schaul/publications/thesis.pdf
 
-    See the official Python source code from PyBrain:
+    Please refer to the *official* Python source code from `PyBrain` (now not actively maintained):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/nes.py
     """
     def __init__(self, problem, options):
+        """Initialize all the hyper-parameters and also auxiliary class members.
+        """
         SGES.__init__(self, problem, options)
         if options.get('lr_mean') is None:
             self.lr_mean = 1.0
@@ -99,26 +110,36 @@ class ONES(SGES):
             self.lr_sigma = 1.0
 
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
+        """Update the mean and covariance matrix of Gaussian search/sampling/mutation distribution.
+        """
+        # sort the offspring population for *maximization* (`-y`) rather than *minimization*
         order = np.argsort(-y)
+        # ensure that the better an offspring, the larger its weight
         u = np.empty((self.n_individuals,))
         for i, o in enumerate(order):
             u[o] = self._u[i]
+        # calculate the inverse of covariance matrix
         inv_cv = np.linalg.inv(cv)
+        # calculate all derivatives w.r.t. both mean and covariance matrix (`+ 1` is a trick)
         phi = np.ones((self.n_individuals, self._n_distribution + 1))
-        for k in range(self.n_individuals):
+        for k in range(self.n_individuals):  # for each offspring individual
             diff = x[k] - mean
             phi[k, :self.ndim_problem] = np.dot(inv_cv, diff)
-            _grad_cv = 0.5*(np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
+            _grad_cv = 0.5 * (np.dot(np.dot(inv_cv, np.outer(diff, diff)), inv_cv) - inv_cv)
             phi[k, self.ndim_problem:-1] = self._triu2flat(np.dot(self._d_cv, _grad_cv + _grad_cv.T))
-        grad = np.dot(np.linalg.pinv(phi), u)[:-1]
-        mean += self.lr_mean*grad[:self.ndim_problem]
-        self._d_cv += self.lr_sigma*self._flat2triu(grad[self.ndim_problem:])
-        cv = np.dot(self._d_cv.T, self._d_cv)
+        grad = np.dot(np.linalg.pinv(phi), u)[:-1]  # `pinv` -> compute the (Moore-Penrose) pseudo-inverse
+        # update the mean of Gaussian search/sampling/mutation distribution
+        mean += self.lr_mean * grad[:self.ndim_problem]
+        # update the covariance matrix of Gaussian search/sampling/mutation distribution
+        self._d_cv += self.lr_sigma * self._flat2triu(grad[self.ndim_problem:])
+        cv = np.dot(self._d_cv.T, self._d_cv)  # to recover covariance matrix
         self._n_generations += 1
         return x, y, mean, cv
 
-    def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        fitness = NES.optimize(self, fitness_function)
+    def optimize(self, fitness_function=None, args=None):
+        """Run the optimization/evolution process for all generations (iterations).
+        """
+        fitness = NES.optimize(self, fitness_function)  # to store all fitness generated during optimization
         x, y, mean, cv = self.initialize()
         while True:
             x, y = self.iterate(x, y, mean, args)

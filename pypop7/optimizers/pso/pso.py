@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.core.optimizer import Optimizer  # abstract class for all black-box optimizers (BBO)
+from pypop7.optimizers.core.optimizer import Optimizer  # abstract class for all Black-Box Optimizers (BBO)
 
 
 class PSO(Optimizer):
@@ -25,10 +25,17 @@ class PSO(Optimizer):
     <https://doi.org/10.1038/s41586-024-07293-4>`_, `[Wang et al., 2024, Nature Materials]
     <https://doi.org/10.1038/s41563-024-01830-2>`_, `[Elijošius et al., 2024]
     <https://doi.org/10.48550/arXiv.2402.08708>`_, `[Lugagne et al., 2024, Nature Communications]
-    <https://doi.org/10.1038/s41467-024-46361-1>`_, `[Chen et al., 2023, Nature Communications]
-    <https://doi.org/10.1038/s41467-023-38185-2>`_, `[Liu et al., 2022, Nature Communications]
-    <https://doi.org/10.1038/s41467-022-28083-4>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
-    <https://doi.org/10.2514/2.2111>`_, just to name a few.
+    <https://doi.org/10.1038/s41467-024-46361-1>`_, `[Bottrell et al., MNRAS, 2024]
+    <https://academic.oup.com/mnras/article/527/3/6506/7286659>`_, `[Xie et al., 2024, JGCD]
+    <https://arc.aiaa.org/doi/10.2514/1.G007932>`_, `[Chen et al., 2023, Nature Communications]
+    <https://doi.org/10.1038/s41467-023-38185-2>`_, `[Guo et al., 2023, ISSTA]
+    <https://dl.acm.org/doi/10.1145/3597926.3598058>`_, `[Yang et al., 2023, IEEE-TSP]
+    <https://ieeexplore.ieee.org/abstract/document/10048578>`_, `[Weiss et al., 2023, CGF]
+    <https://onlinelibrary.wiley.com/doi/10.1111/cgf.14904>`_, `[Zhang et al., 2023]
+    <https://arxiv.org/abs/2312.08885>`_, `[Liu et al., 2022, Nature Communications]
+    <https://doi.org/10.1038/s41467-022-28083-4>`_, `[Benedetti et al., 2019]
+    <https://www.nature.com/articles/s41534-019-0157-8>`_, `[Venter&Sobieszczanski-Sobieski, 2003, AIAAJ]
+    <https://doi.org/10.2514/2.2111>`_, to name a few.
 
     Parameters
     ----------

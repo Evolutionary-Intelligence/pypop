@@ -2,17 +2,17 @@ import time
 
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.cmaes import CMAES  # covariance matrix adaptation evolution strategy
-from pypop7.optimizers.cc import CC  # abstract class of all cooperative coevolution (CC) classes
+from pypop7.optimizers.es.cmaes import CMAES  # Covariance Matrix Adaptation Evolution Strategy
+from pypop7.optimizers.cc import CC  # abstract class of all Cooperative Coevolution (CC) classes
 
 
 class COCMA(CC):
     """CoOperative CO-evolutionary Covariance Matrix Adaptation (COCMA).
 
     .. note:: For `COCMA`, `CMA-ES <https://pypop.readthedocs.io/en/latest/es/cmaes.html>`_ is used as the suboptimizer,
-       since it could learn the variable dependencies in each subsapce to accelerate convergence. The simplest *cyclic*
-       decomposition is employed to tackle **non-separable** objective functions, argurably a common feature of most
-       real-world applications.
+       since it could learn the variable dependencies in each subspace to accelerate local convergence. Here, the simplest
+       *cyclic* decomposition is employed to tackle **non-separable** objective functions, argurably the common feature
+       of most real-world applications.
 
     Parameters
     ----------
@@ -51,13 +51,13 @@ class COCMA(CC):
        >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022}
        >>> cocma = COCMA(problem, options)  # to initialize the optimizer class
-       >>> results = cocma.optimize()  # to run the optimization process
+       >>> results = cocma.optimize()  # to run the optimization/evolution process
        >>> print(f"COCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        COCMA: 5000, 0.0004
 
     For its correctness checking of coding, we cannot provide the code-based repeatability report, since this
-    implementation combines different papers. To our knowledge, few well-designed open-source code of `CC` is
-    available for non-separable black-box optimization.
+    implementation combines different papers. To our knowledge, few well-designed Python code of `CC` is
+    openly available for **non-separable** black-box optimization.
 
     Attributes
     ----------

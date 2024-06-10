@@ -82,6 +82,14 @@ class VKDCMA(ES):
     In Proceedings of Annual Genetic and Evolutionary Computation Conference 2016 (pp. 197-204). ACM.
     https://dl.acm.org/doi/abs/10.1145/2908812.2908863
 
+    Akimoto, Y., Nagata, Y., Ono, I. and Kobayashi, S., 2012.
+    Theoretical foundation for CMA-ES from information geometry perspective.
+    Algorithmica, 64, pp.698-716.
+
+    Akimoto, Y., Nagata, Y., Ono, I. and Kobayashi, S., 2010.
+    Bidirectional relation between CMA evolution strategies and natural evolution strategies.
+    In International Conference on Parallel Problem Solving from Nature (pp. 154-163). Springer Berlin Heidelberg.
+
     See the official Python version from Prof. Akimoto:
     https://gist.github.com/youheiakimoto/2fb26c0ace43c22b8f19c7796e69e108
     """

@@ -21,6 +21,7 @@ Open-Source Cases
 
 Till now, our open-source library `PyPop7` has been used (at least) in the following open-source projects:
 
+* 13: https://github.com/AmitDIRTYC0W/neuronveil-mnist-train (2024)
 * 12: https://pypi.org/project/advanced-global-optimizers/ (2024)
 * 11: https://github.com/aiboxlab/evolutionary-abm-calibration (2024)
 * 10: https://github.com/Echozqn/llm [https://github.com/Echozqn/llm/tree/main/collie/examples/alpaca/eda] (2024)
@@ -53,7 +54,7 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 
   * https://huggingface.co/papers/2212.05652
   * https://huggingface.co/collections/stereoplegic/optimizer-654bfd6ddde5f3d6c23abc00
-* `medium <https://medium.com>`_
+* `medium <https://medium.com>`_:
 
   * https://medium.com/@monocosmo77/how-black-box-optimization-works-part2-machine-learning-bb63b4c93557
 * `机器之心: SOTA！模型 <https://sota.jiqizhixin.com>`_:
@@ -69,7 +70,7 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 Praises
 -------
 
-  * `"the excellent work" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
-  * `"one of the very best BBO libraries around" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
   * `"an invaluable collection" <https://github.com/Evolutionary-Intelligence/pypop/issues/89>`_
+  * `"one of the very best BBO libraries around" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
   * `"quite excellent (detailed and professional)" <https://github.com/Evolutionary-Intelligence/EC-A-Modern-Perspective/issues/2>`_
+  * `"the excellent work" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_

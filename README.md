@@ -1,36 +1,31 @@
-# PyPop7 (a Pure-PYthon library of POPulation-based black-box OPtimization)
+# PyPop7 (a Pure-PYthon open-source library of POPulation-based black-box OPtimization)
 
 [![GNU General Public License v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE) [![PyPI for pypop7](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/) [![Documentation Status](https://readthedocs.org/projects/pypop/badge/?version=latest)](https://pypop.readthedocs.io/en/latest/?badge=latest) [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7) [![Python](https://img.shields.io/badge/Python-3-yellow.svg)](https://www.python.org/) [![arxiv](https://img.shields.io/badge/arxiv-2212.05652-red)](https://arxiv.org/abs/2212.05652)
 
-```PyPop7``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for single-objective, real-parameter, black-box problems (currently actively maintained). Its goal is to provide a *unified* interface and *elegant* implementations for **Black-Box Optimization (BBO)**, *particularly population-based optimizers*, in order to facilitate research repeatability, benchmarking of BBO, and real-world applications.
+```PyPop7``` is a *Pure-PYthon* open-source library of **POPulation-based OPtimization** for single-objective, real-parameter, black-box problems (*currently actively maintained*). Its goal is to provide a *unified* interface and *elegant* implementations for **Black-Box Optimization (BBO)**, *particularly population-based optimizers*, in order to facilitate research repeatability, benchmarking of BBO, and especially real-world applications.
 
 <p align="center">
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/PyPop-Logo-Small-0.png" alt="drawing" width="321"/>
 </p>
 
-More specifically, for alleviating their **curse of dimensionality**, the primary focus of ```PyPop7``` is to cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their small/medium-scaled versions and variants are also included here (mainly for theoretical or benchmarking purposes).
+More specifically, for alleviating their **curse of dimensionality**, the focus of ```PyPop7``` is to cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their small/medium-scaled versions and variants are also included here (mainly for theoretical or benchmarking purposes). For a list of **public use cases** of `PyPop7`, please refer to [this online document](https://pypop.readthedocs.io/en/latest/applications.html) for details. Although we choose *GPL-3.0 license*, anyone could use and modify this library **entirely freely** for any purpose.
 
 ## How to Quickly Use
 
-The following three steps are enough to utilize the optimization power of this library [PyPop7](https://pypi.org/project/pypop7/):
+The following three steps are enough to utilize the black-box optimization power of this library [PyPop7](https://pypi.org/project/pypop7/):
 
-1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) (*a strong suggestion*):
+1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html):
 
 ```bash
 $ pip install pypop7
 ```
 
-For simplicity, all required library dependencies (except special cases) are *automatically* installed according to [setup.cfg](https://github.com/Evolutionary-Intelligence/pypop/blob/main/setup.cfg).
-
-2. Define the objective/cost function (called *fitness function* in this library) for the optimization problem at hand,
-
-3. Run one or more black-box optimizers on this optimization problem:
+2. Define the objective/cost/fitness function to be minimized for the optimization problem at hand,
 
 ```Python
 import numpy as np  # for numerical computation, which is also the computing engine of pypop7
 
-# 2. Define your own objective/cost function for the optimization problem at hand:
-#   the below example is Rosenbrock, the notorious test function from the optimization community
+# the below example is Rosenbrock, one notorious test function from the optimization community
 def rosenbrock(x):
     return 100.0*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
 
@@ -40,12 +35,15 @@ problem = {'fitness_function': rosenbrock,  # cost function
            'ndim_problem': ndim_problem,  # dimension
            'lower_boundary': -5.0*np.ones((ndim_problem,)),  # search boundary
            'upper_boundary': 5.0*np.ones((ndim_problem,))}
+```
 
-# 3. Run one or more black-box optimizers on the given optimization problem:
-#   here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO
-#   https://pypop.readthedocs.io/en/latest/es/lmmaes.html
+3. Run one or more black-box optimizers on this optimization problem:
+
+```Python
+# here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO:
+#     https://pypop.readthedocs.io/en/latest/es/lmmaes.html
 from pypop7.optimizers.es.lmmaes import LMMAES
-# define all the necessary algorithm options (which differ among different optimizers)
+# define all the necessary algorithm options (which may differ among different optimizers)
 options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than this threshold
            'max_runtime': 3600,  # 1 hours (terminate when the actual runtime exceeds it)
            'seed_rng': 0,  # seed of random number generation (which must be explicitly set for repeatability)
@@ -59,19 +57,16 @@ print(results)
 
 Note that for ```PyPop7```, the number ```7``` is added just because ```pypop``` has been registered by [other](http://pypop.org/) in [PyPI](https://pypi.org/). The icon *butterfly* for `PyPop7` is used to respect to the book (a complete variorum edition) of **Fisher**, ["the greatest of Darwin's successors"](https://link.springer.com/article/10.1007/s00265-010-1122-x): [The Genetical Theory of Natural Selection](https://global.oup.com/academic/product/the-genetical-theory-of-natural-selection-9780198504405?cc=gb&lang=en&) (where four butterflies were drawn in its cover), which inspired the proposal of [Genetic Algorithms (GA)](https://dl.acm.org/doi/10.1145/321127.321128).
 
-For a (growing) list of **public use cases** of `PyPop7`, see [this online document](https://pypop.readthedocs.io/en/latest/applications.html) for more details. For new/missed black-box optimizers, we provide a *unified* API to freely add them if they satisfy our [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html) (see [development-guide](https://pypop.readthedocs.io/en/latest/development-guide.html) for details).
+## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
-## A Large Number of Black-Box Optimizers (BBO)
-
-Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this open-source library, since they work mainly in *[discrete/combinatorial](https://github.com/airbus/discrete-optimization)* search spaces. Furthermore, brute-force search (exhaustive/grid search) is also excluded here, since it works only for *very low* (typically < 10) dimensions. In the near future version, we will consider adding [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this open-source library.
+For new/missed black-box optimizers, we provide a *unified* API to freely add them if they satisfy our [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html) (see [development-guide](https://pypop.readthedocs.io/en/latest/development-guide.html) for details). Note that Ant Colony Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this open-source library, since they work well mainly in *[discrete/combinatorial](https://github.com/airbus/discrete-optimization)* search spaces. Furthermore, brute-force search (exhaustive/grid search) is also excluded here, since it works only for *very low* (typically << 10) dimensions. In the near future version, we will consider adding [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this open-source Python library.
 
 ******* *** *******
-* ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific BBO version for LSO (dimension >= 1000).
+* ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg): indicates the specific BBO version for LSO (dimension >> 1000).
 * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) BBO version for *small/medium-dimensional* problems (though it may work well under certain LSO circumstances).
-* ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline BBO version mainly for *theoretical* interest, owing to its simplicity (relatively ease to mathematical analysis).
+* ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline BBO version mainly for *theoretical* interest, owing to its simplicity (relative ease to mathematical analysis).
 
-Note that this classification based on only the dimension of objective function is just a rough estimation for algorithm selection. **In practice**, perhaps the simplest way to algorithm selection
-is trial-and-error or to try more advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
+Note that this classification based on only the dimension of objective function is just a rough estimation for algorithm selection. In practice, perhaps the simplest way to algorithm selection is trial-and-error or to try more advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
 
 ******* *** *******
 
@@ -102,13 +97,13 @@ is trial-and-error or to try more advanced [Automated Algorithm Selection](https
     * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Derandomized Self-Adaptation Evolution Strategy (**[DSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/dsaes.py)**) [e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Ostermeier et al., 1994, ECJ](https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of)]
     * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Schwefel's Self-Adaptation Evolution Strategy (**[SSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ssaes.py)**) [e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466); [Schwefel, 1988](https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8); [Schwefel, 1984, AOR](https://link.springer.com/article/10.1007/BF01876146)]
     * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Rechenberg's (1+1)-Evolution Strategy with 1/5th success rule (**[RES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/res.py)**) [e.g. [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Kern et al., 2004](https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e); [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6); [Rechenberg, 1984](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13); [Schumer&Steiglitz, 1968, TAC](https://ieeexplore.ieee.org/abstract/document/1098903)]
-* **Natural Evolution Strategies ([NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/nes.py))** [e.g. [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html); [Yi et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522); [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/document/4631255)]
-  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-One Natural Evolution Strategy (**[R1NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/r1nes.py)**) [[Sun et al., 2013, GECCO](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
-  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Separable Natural Evolution Strategy (**[SNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/snes.py)**) [[Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
-  * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Exponential Natural Evolution Strategies (**[XNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/xnes.py)**) [e.g. [Glasmachers et al., 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830557)]
+* **Natural Evolution Strategies ([NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/nes.py))** [e.g., [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html); [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html); [Yi et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522); [Wierstra et al., 2008, IEEE-CEC](https://ieeexplore.ieee.org/document/4631255)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Rank-One Natural Evolution Strategy (**[R1NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/r1nes.py)**) [[Sun et al., 2013, ACM-GECCO](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
+  * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Separable Natural Evolution Strategy (**[SNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/snes.py)**) [[Schaul et al., 2011, ACM-GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
+  * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Exponential Natural Evolution Strategies (**[XNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/xnes.py)**) [e.g. [Glasmachers et al., 2010, ACM-GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830557)]
   * ![competitor](https://img.shields.io/badge/**-competitor-blue.svg) Exact Natural Evolution Strategy (**[ENES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/enes.py)**) [e.g. [Sun et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522)]
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Original Natural Evolution Strategy (**[ONES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/ones.py)**) [e.g. [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
-  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Search Gradient-based Evolution Strategy (**[SGES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/sges.py)**) [e.g. [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Original Natural Evolution Strategy (**[ONES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/ones.py)**) [e.g. [Wierstra et al., 2008, IEEE-CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
+  * ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg) Search Gradient-based Evolution Strategy (**[SGES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/sges.py)**) [e.g. [Wierstra et al., 2008, IEEE-CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
 * **Estimation of Distribution Algorithms ([EDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/eda.py))** [e.g. [Brookes et al., 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389938); [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5); [Pelikan et al., 2002](https://link.springer.com/article/10.1023/A:1013500812258); [Mühlenbein&Paaß, 1996, PPSN](https://link.springer.com/chapter/10.1007/3-540-61723-X_982); [Baluja&Caruana, 1995, ICML](https://www.sciencedirect.com/science/article/pii/B9781558603776500141)]
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Random-Projection Estimation of Distribution Algorithm (**[RPEDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/rpeda.py)**) [[Kabán et al., 2016, ECJ](https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix)]
   * ![large--scale--optimization](https://img.shields.io/badge/***-large--scale--optimization-orange.svg) Univariate Marginal Distribution Algorithm (**[UMDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/umda.py)**) [e.g. [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5); [Mühlenbein, 1997, ECJ](https://tinyurl.com/yt78c786)]
@@ -170,17 +165,16 @@ For LSO, computational efficiency is an indispensable performance criterion of B
 
 ## References
 
-For each algorithm family, we provide several *representative* applications published on some [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) journals and conferences (such as, Nature, Science, PNAS, PRL, JACS, PIEEE, etc.).
+For each algorithm family, we try to provide several *representative* applications published on some [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) journals and conferences (such as, Nature, Science, PNAS, PRL, JACS, JACM, PIEEE, JMLR, etc.), systematically reported in the paper list called [DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) openly accessible via GitHub.
 
-* Derivative-Free Optimization (DFO)
-  * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). Foundations of Computational Mathematics, 22(2), pp.507-560.
-  * Porcelli, M. and Toint, P.L., 2022. [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054). ACM Transactions on Mathematical Software, 48(1), pp.1-25.
-  * Gao, K. and Sener, O., 2022, June. [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html). In International Conference on Machine Learning (pp. 7077-7101). PMLR.
+* Derivative-Free Optimization (DFO) / Zeroth-Order Optimization (ZOO)
+  * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). FoCM, 22(2), pp.507-560.
+  * Porcelli, M. and Toint, P.L., 2022. [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054). ACM TOMS, 48(1), pp.1-25.
+  * Gao, K. and Sener, O., 2022, June. [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html). In ICML (pp. 7077-7101). PMLR.
   * Kochenderfer, M.J. and Wheeler, T.A., 2019. [Algorithms for optimization](https://algorithmsbook.com/optimization/). MIT Press.
   * Larson, J., Menickelly, M. and Wild, S.M., 2019. [Derivative-free optimization methods](https://www.cambridge.org/core/journals/acta-numerica/article/abs/derivativefree-optimization-methods/84479E2B03A9BFFE0F9CD46CF9FCD289). Acta Numerica, 28, pp.287-404.
-  * Nesterov, Y., 2018. [Lectures on convex optimization](https://link.springer.com/book/10.1007/978-3-319-91578-4). Berlin: Springer International Publishing.
-  * Nesterov, Y. and Spokoiny, V., 2017. [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2). Foundations of Computational Mathematics, 17(2), pp.527-566.
-  * Conn, A.R., Scheinberg, K. and Vicente, L.N., 2009. [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768). Society for Industrial and Applied Mathematics.
+  * Nesterov, Y. and Spokoiny, V., 2017. [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2). FoCM, 17(2), pp.527-566.
+  * Conn, A.R., Scheinberg, K. and Vicente, L.N., 2009. [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768). SIAM.
 * Evolutionary Computation (EC) [ [[Box, 1957]](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505) ]
   * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482. [ [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/) ]
   * Miikkulainen, R. and Forrest, S., 2021. [A biological perspective on evolutionary computation](https://www.nature.com/articles/s42256-020-00278-8). Nature Machine Intelligence, 3(1), pp.9-15.
@@ -307,6 +301,7 @@ For each algorithm family, we provide several *representative* applications publ
   * Moriarty, D.E. and Miikkulainen, R., 1995. [Efficient learning from delayed rewards through symbiotic evolution](https://www.sciencedirect.com/science/article/pii/B9781558603776500566). In International Conference on Machine Learning (pp. 396-404). Morgan Kaufmann.
   * Potter, M.A. and De Jong, K.A., 1994, October. [A cooperative coevolutionary approach to function optimization](https://link.springer.com/chapter/10.1007/3-540-58484-6_269). In International Conference on Parallel Problem Solving from Nature (pp. 249-257). Springer, Berlin, Heidelberg.
 * Simultaneous Perturbation Stochastic Approximation (SPSA) [ [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/) ]
+  * Spall, J.C., 2005. Introduction to stochastic search and optimization: Estimation, simulation, and control. John Wiley & Sons.
 * Simulated Annealing (SA)
   * Bouttier, C. and Gavra, I., 2019. [Convergence rate of a simulated annealing algorithm with noisy observations](https://www.jmlr.org/papers/v20/16-588.html). Journal of Machine Learning Research, 20(1), pp.127-171.
   * Gerber, M. and Bornn, L., 2017. [Improving simulated annealing through derandomization](https://link.springer.com/article/10.1007/s10898-016-0461-1). Journal of Global Optimization, 68(1), pp.189-217.

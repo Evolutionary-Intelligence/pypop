@@ -1,16 +1,28 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.core.optimizer import Optimizer
+from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all Black-Box Optimizers (BBO)
 
 
 class GA(Optimizer):
     """Genetic Algorithm (GA).
 
-    This is the **abstract** class for all Genetic Algorithm (`GA`) classes. Please use any of its instantiated
-    subclasses to optimize the black-box problem at hand.
+    This is the **abstract** class for all `GA` classes. Please use any of its instantiated subclasses to
+    optimize the **black-box** problem at hand.
 
-    For some interesting applications of `GA` on diverse areas, please refer to `[Truong-Quoc et al., 2024,
-    Nature Materials] <https://www.nature.com/articles/s41563-024-01846-8>`_, just to name a few.
+    .. note:: `GA` is one of three *earliest* versions of evolutionary algorithms along with *evolutionary programming*
+       and *evolution strategies*. Its original history can data back to Holland's JACM paper in 1962 called *outline
+       for a logical theory of adaptive systems*. **John H. Holland**, the father of `GA`, was the 2003 recipient of
+       `IEEE Evolutionary Computation Pioneer Award <https://tinyurl.com/456as566>`_. Note that both Hans Bremermann
+       (professor emeritus at University of California at Berkeley) and Woody Bledsoe (chairman in IJCAI-1977 / 
+       president-elect in AAAI-1983) did independent works closest to the modern notion of `GA`, as pointed out by
+       Goldberg (1989).
+
+    For some interesting applications of `GA` on diverse areas, please refer to `[Lyu et al., 2024, Science]
+    <https://www.science.org/doi/10.1126/science.adn6354>`_, `[Truong-Quoc et al., 2024, Nature Materials]
+    <https://www.nature.com/articles/s41563-024-01846-8>`_, `[Castanha et al., 2024, PNAS]
+    <https://www.pnas.org/doi/abs/10.1073/pnas.2312755121>`_, `[Lucas et al., 2023, Nature Photonics]
+    <https://www.nature.com/articles/s41566-023-01252-7>`_, `[Villard et al., 2023, JCTC]
+    <https://pubs.acs.org/doi/full/10.1021/acs.jctc.2c01078>`_, to name a few.
 
     Parameters
     ----------
@@ -105,9 +117,9 @@ class GA(Optimizer):
     https://epubs.siam.org/doi/10.1137/0202009
 
     Holland, J.H., 1962.
-    Outline for a logical theory of adaptive systems.
+    `Outline for a logical theory of adaptive systems.
+    <https://dl.acm.org/doi/10.1145/321127.321128>`_
     Journal of the ACM, 9(3), pp.297-314.
-    https://dl.acm.org/doi/10.1145/321127.321128
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)

@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.nes.ones import ONES
+from pypop7.optimizers.nes.ones import ONES  # Original Natural Evolution Strategy (ONES) class
 
 
 def _combine_block(ll):
@@ -38,10 +38,8 @@ class ENES(ONES):
                 * 'n_parents'     - number of parents/ancestors, aka parental population size (`int`),
                 * 'mean'          - initial (starting) point (`array_like`),
 
-                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                  * If not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
-
-                * 'sigma'         - initial global step-size, aka mutation strength (`float`),
                 * 'lr_mean'       - learning rate of distribution mean update (`float`, default: `1.0`),
                 * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default: `1.0`).
 
@@ -62,8 +60,7 @@ class ENES(ONES):
        ...            'upper_boundary': 5*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+       ...            'mean': 3*numpy.ones((2,))}
        >>> enes = ENES(problem, options)  # initialize the optimizer class
        >>> results = enes.optimize()  # run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
@@ -73,46 +70,47 @@ class ENES(ONES):
     Attributes
     ----------
     lr_mean       : `float`
-                    learning rate of distribution mean update.
+                    learning rate of distribution mean update (should `> 0.0`).
     lr_sigma      : `float`
-                    learning rate of global step-size adaptation.
+                    learning rate of global step-size adaptation (should `> 0.0`).
     mean          : `array_like`
                     initial (starting) point, aka mean of Gaussian search/sampling/mutation distribution.
+                    If not given, it will draw a random sample from the uniform distribution whose search
+                    range is bounded by `problem['lower_boundary']` and `problem['upper_boundary']`, by
+                    default.
     n_individuals : `int`
-                    number of offspring/descendants, aka offspring population size.
+                    number of offspring/descendants, aka offspring population size (should `> 0`).
     n_parents     : `int`
-                    number of parents/ancestors, aka parental population size.
-    sigma         : `float`
-                    global step-size, aka mutation strength (i.e., overall std of Gaussian search distribution).
+                    number of parents/ancestors, aka parental population size (should `> 0`).
 
     References
     ----------
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
-    Natural evolution strategies.
+    `Natural evolution strategies.
+    <https://jmlr.org/papers/v15/wierstra14a.html>`_
     Journal of Machine Learning Research, 15(1), pp.949-980.
-    https://jmlr.org/papers/v15/wierstra14a.html
 
     Schaul, T., 2011.
-    Studies in continuous black-box optimization.
+    `Studies in continuous black-box optimization.
+    <https://people.idsia.ch/~schaul/publications/thesis.pdf>`_
     Doctoral Dissertation, Technische Universität München.
-    https://people.idsia.ch/~schaul/publications/thesis.pdf
 
     Yi, S., Wierstra, D., Schaul, T. and Schmidhuber, J., 2009, June.
-    Stochastic search using the natural gradient.
+    `Stochastic search using the natural gradient.
+    <https://dl.acm.org/doi/abs/10.1145/1553374.1553522>`_
     In International Conference on Machine Learning (pp. 1161-1168). ACM.
-    https://dl.acm.org/doi/abs/10.1145/1553374.1553522
 
-    See the official Python source code from PyBrain:
+    Please refer to the *official* Python source code from `PyBrain` (now not actively maintained):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/nes.py
     """
     def __init__(self, problem, options):
+        """Initialize all the hyper-parameters and also auxiliary class members.
+        """
         ONES.__init__(self, problem, options)
-        if options.get('lr_mean') is None:
-            self.lr_mean = 1.0
-        if options.get('lr_sigma') is None:
-            self.lr_sigma = 1.0
 
     def _update_distribution(self, x=None, y=None, mean=None, cv=None):
+        """Update the mean and covariance matrix of Gaussian search/sampling/mutation distribution.
+        """
         order = np.argsort(-y)
         u = np.empty((self.n_individuals,))
         for i, o in enumerate(order):
@@ -151,7 +149,10 @@ class ENES(ONES):
         base = np.sum(v_2[:j + 1, :], 0)
         grad[:j + 1] = np.dot(v[:j + 1, :], (u - np.dot(base, u)/np.sum(base)))
         grad /= self.n_individuals
+        # update the mean of Gaussian search/sampling/mutation distribution
         mean += self.lr_mean*grad[:self.ndim_problem]
-        self._d_cv += self.lr_sigma*self._flat2triu(grad[self.ndim_problem:])
-        cv = np.dot(self._d_cv.T, self._d_cv)
+        # update the covariance matrix of Gaussian search/sampling/mutation distribution
+        self._d_cv += self.lr_sigma * self._flat2triu(grad[self.ndim_problem:])
+        cv = np.dot(self._d_cv.T, self._d_cv)  # to recover covariance matrix
+        self._n_generations += 1
         return x, y, mean, cv
