@@ -35,7 +35,7 @@ class SGES(NES):
 
     Examples
     --------
-    Use the optimizer `SGES` to minimize the well-known test function
+    Use the black-box optimizer `SGES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -44,18 +44,18 @@ class SGES(NES):
        >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.nes.sges import SGES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,))}
-       >>> sges = SGES(problem, options)  # initialize the optimizer class
-       >>> results = sges.optimize()  # run the optimization process
+       ...            'mean': 3.0*numpy.ones((2,))}
+       >>> sges = SGES(problem, options)  # to initialize the optimizer class
+       >>> results = sges.optimize()  # to run the optimization process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"SGES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SGES: 5000, 0.01906602832229609
+       SGES: 5000, 0.0190
 
     Attributes
     ----------
