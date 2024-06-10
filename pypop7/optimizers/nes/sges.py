@@ -28,7 +28,7 @@ class SGES(NES):
                 * 'n_parents'     - number of parents/ancestors, aka parental population size (`int`),
                 * 'mean'          - initial (starting) point (`array_like`),
 
-                  * if not given, it will draw a random sample from the uniform distribution whose search range is
+                  * If not given, it will draw a random sample from the uniform distribution whose search range is
                     bounded by `problem['lower_boundary']` and `problem['upper_boundary']`.
                 * 'lr_mean'       - learning rate of distribution mean update (`float`, default: `0.01`),
                 * 'lr_sigma'      - learning rate of global step-size adaptation (`float`, default: `0.01`).
