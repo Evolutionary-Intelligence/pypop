@@ -70,19 +70,19 @@ class SNES(NES):
     References
     ----------
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
-    Natural evolution strategies.
+    `Natural evolution strategies.
+    <https://jmlr.org/papers/v15/wierstra14a.html>`_
     Journal of Machine Learning Research, 15(1), pp.949-980.
-    https://jmlr.org/papers/v15/wierstra14a.html
-
+    
     Schaul, T., 2011.
-    Studies in continuous black-box optimization.
+    `Studies in continuous black-box optimization.
+    <https://people.idsia.ch/~schaul/publications/thesis.pdf>`_ 
     Doctoral Dissertation, Technische Universität München.
-    https://people.idsia.ch/~schaul/publications/thesis.pdf
 
     Schaul, T., Glasmachers, T. and Schmidhuber, J., 2011, July.
-    High dimensions and heavy tails for natural evolution strategies.
+    `High dimensions and heavy tails for natural evolution strategies.
+    <https://dl.acm.org/doi/abs/10.1145/2001576.2001692>`_
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 845-852). ACM.
-    https://dl.acm.org/doi/abs/10.1145/2001576.2001692
 
     See the official Python source code from PyBrain:
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/snes.py
