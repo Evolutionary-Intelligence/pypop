@@ -80,22 +80,24 @@ class ONES(SGES):
     References
     ----------
     Beyer, H.G., 2023, July.
-    What you always wanted to know about evolution strategies, but never dared to ask.
+    `What you always wanted to know about evolution strategies, but never dared to ask.
+    <https://doi.org/10.1145/3583133.3595041>`_
     In Proceedings of Companion Conference on Genetic and Evolutionary Computation (pp. 878-894). ACM.
 
     Beyer, H.G., 2014.
-    Convergence analysis of evolutionary algorithms that are based on the paradigm of information geometry.
+    `Convergence analysis of evolutionary algorithms that are based on the paradigm of information geometry.
+    <https://doi.org/10.1162/EVCO_a_00132>`_
     Evolutionary Computation, 22(4), pp.679-709.
 
     Wierstra, D., Schaul, T., Glasmachers, T., Sun, Y., Peters, J. and Schmidhuber, J., 2014.
-    Natural evolution strategies.
+    `Natural evolution strategies.
+    <https://jmlr.org/papers/v15/wierstra14a.html>`_
     Journal of Machine Learning Research, 15(1), pp.949-980.
-    https://jmlr.org/papers/v15/wierstra14a.html
 
     Schaul, T., 2011.
-    Studies in continuous black-box optimization.
+    `Studies in continuous black-box optimization.
+    <https://people.idsia.ch/~schaul/publications/thesis.pdf>`_
     Doctoral Dissertation, Technische Universität München.
-    https://people.idsia.ch/~schaul/publications/thesis.pdf
 
     Please refer to the *official* Python source code from `PyBrain` (now not actively maintained):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/nes.py
