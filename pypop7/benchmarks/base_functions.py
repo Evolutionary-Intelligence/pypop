@@ -28,6 +28,8 @@ class BaseFunction(object):
 
 
 def sphere(x):
+    """Sphere test function.
+    """
     y = np.sum(np.power(squeeze_and_check(x), 2))
     return y
 
