@@ -27,7 +27,7 @@ Furthermore, now `PEP 465 <https://peps.python.org/pep-0465/>`_ is used as a ded
 Library Dependencies
 --------------------
 
-This open-source library depends heavily on three core scientific computing (open-source) libraries, i.e.,
+This open-source Python library depends heavily on three core scientific-computing Python libraries, i.e.,
 `NumPy <https://www.nature.com/articles/s41586-020-2649-2>`_, `SciPy
 <https://www.nature.com/articles/s41592-019-0686-2>`_, and `Scikit-Learn
 <https://jmlr.org/papers/v12/pedregosa11a.html>`_. More specifically, for all optimizers the `numpy.array`
@@ -37,6 +37,12 @@ is utilized to further accelerate the wall-clock time for large-scale black-box 
 An obvious advantage of using `NumPy` as the core computing engine is that Pypop7 can be seamlessly
 integrated into the NumPy ecosystem, given the fact that `SciPy` covers a limited number of population-based
 BBOs till now.
+
+* For the **PyPI installation** of this Python library, `setup.cfg
+  <https://github.com/Evolutionary-Intelligence/pypop/blob/main/setup.cfg>`_ is used,
+
+* For the **development** of this Python library, `requirements.txt
+  <https://github.com/Evolutionary-Intelligence/pypop/blob/main/requirements.txt>`_ is used.
 
 A Unified API
 -------------
