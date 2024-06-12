@@ -1,5 +1,27 @@
-Papers
-======
+Some (Rather All) Papers on Black-Box Optimization (BBO)
+========================================================
+
+RS
+--
+
+* Li, L. and Talwalkar, A., 2020. Random search and reproducibility for neural architecture search. In Uncertainty in Artificial Intelligence (pp. 367-377). PMLR.
+* Sener, O., & Koltun, V., 2019. `Learning to guide random search <https://openreview.net/forum?id=B1gHokBKwS>`_. In International Conference on Learning Representations.
+* Chechkin, A. and Sokolov, I., 2018. Random search with resetting: A unified renewal approach. Physical Review Letters, 121(5), p.050601.
+* Falcón-Cortés, A., Boyer, D., Giuggioli, L. and Majumdar, S.N., 2017. Localization transition induced by learning in random searches. Physical Review Letters, 119(14), p.140603.
+* Chupeau, M., Bénichou, O. and Voituriez, R., 2015. Cover times of random searches. Nature Physics, 11(10), pp.844-847.
+* Qi, Y., Mao, X., Lei, Y., Dai, Z. and Wang, C., 2014, May. The strength of random search on automated program repair. In Proceedings of International Conference on Software Engineering (pp. 254-265). IEEE.
+* Hein, A.M. and McKinley, S.A., 2012. Sensing and decision-making in random search. Proceedings of the National Academy of Sciences, 109(30), pp.12070-12074.
+* Tejedor, V., Voituriez, R. and Bénichou, O., 2012. Optimizing persistent random searches. Physical Review Letters, 108(8), p.088103.
+* Zabinsky, Z.B., 2003. Stochastic adaptive search for global optimization. Springer Science & Business Media.
+* Viswanathan, G.M., Buldyrev, S.V., Havlin, S., Da Luz, M.G.E., Raposo, E.P. and Stanley, H.E., 1999. Optimizing the success of random searches. Nature, 401(6756), pp.911-914.
+* Yakowitz, S. and Lugosi, E., 1990. Random search in the presence of noise, with application to machine learning. SIAM Journal on Scientific and Statistical Computing, 11(4), pp.702-712.
+* Devroye, L.P., 1978. Progressive global random search of continuous functions. Mathematical Programming, 15(1), pp.330-342.
+* Schrack, G. and Choit, M., 1976. Optimized relative step size random searches. Mathematical Programming, 10(1), pp.230-244. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
+* Schumer, M.A. and Steiglitz, K., 1968. Adaptive step size random search. IEEE Transactions on Automatic Control, 13(3), pp.270-276. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
+* Matyas, J., 1965. Random optimization. Automation and Remote control, 26(2), pp.246-253. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
+* Karnopp, D.C., 1963. Random search techniques for optimization problems. Automatica, 1(2-3), pp.111-121.
+* Rastrigin, L.A., 1963. The convergence of the random search method in the extremal control of a many parameter system. Automaton & Remote Control, 24, pp.1337-1342. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
+* Brooks, S.H., 1958. A discussion of random methods for seeking maxima. Operations Research, 6(2), pp.244-251. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 
 Mathematical Optimization
 -------------------------
@@ -73,28 +95,6 @@ BO
 * Snoek, J., Larochelle, H. and Adams, R.P., 2012. Practical Bayesian optimization of machine learning algorithms. Advances in Neural Information Processing Systems, 25.
 * Ginsbourger, D., Le Riche, R. and Carraro, L., 2010. Kriging is well-suited to parallelize optimization. In Computational Intelligence in Expensive Optimization Problems (pp. 131-162). Berlin, Heidelberg: Springer Berlin Heidelberg.
 * Jones, D.R., Schonlau, M. and Welch, W.J., 1998. Efficient global optimization of expensive black-box functions. Journal of Global Optimization, 13, pp.455-492.
-
-RS
---
-
-* Li, L. and Talwalkar, A., 2020. Random search and reproducibility for neural architecture search. In Uncertainty in Artificial Intelligence (pp. 367-377). PMLR.
-* Sener, O., & Koltun, V., 2019. Learning to guide random search. In International Conference on Learning Representations.
-* Chechkin, A. and Sokolov, I., 2018. Random search with resetting: A unified renewal approach. Physical Review Letters, 121(5), p.050601.
-* Falcón-Cortés, A., Boyer, D., Giuggioli, L. and Majumdar, S.N., 2017. Localization transition induced by learning in random searches. Physical Review Letters, 119(14), p.140603.
-* Chupeau, M., Bénichou, O. and Voituriez, R., 2015. Cover times of random searches. Nature Physics, 11(10), pp.844-847.
-* Qi, Y., Mao, X., Lei, Y., Dai, Z. and Wang, C., 2014, May. The strength of random search on automated program repair. In Proceedings of International Conference on Software Engineering (pp. 254-265). IEEE.
-* Hein, A.M. and McKinley, S.A., 2012. Sensing and decision-making in random search. Proceedings of the National Academy of Sciences, 109(30), pp.12070-12074.
-* Tejedor, V., Voituriez, R. and Bénichou, O., 2012. Optimizing persistent random searches. Physical Review Letters, 108(8), p.088103.
-* Zabinsky, Z.B., 2003. Stochastic adaptive search for global optimization. Springer Science & Business Media.
-* Viswanathan, G.M., Buldyrev, S.V., Havlin, S., Da Luz, M.G.E., Raposo, E.P. and Stanley, H.E., 1999. Optimizing the success of random searches. Nature, 401(6756), pp.911-914.
-* Yakowitz, S. and Lugosi, E., 1990. Random search in the presence of noise, with application to machine learning. SIAM Journal on Scientific and Statistical Computing, 11(4), pp.702-712.
-* Devroye, L.P., 1978. Progressive global random search of continuous functions. Mathematical Programming, 15(1), pp.330-342.
-* Schrack, G. and Choit, M., 1976. Optimized relative step size random searches. Mathematical Programming, 10(1), pp.230-244. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
-* Schumer, M.A. and Steiglitz, K., 1968. Adaptive step size random search. IEEE Transactions on Automatic Control, 13(3), pp.270-276. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
-* Matyas, J., 1965. Random optimization. Automation and Remote control, 26(2), pp.246-253. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
-* Karnopp, D.C., 1963. Random search techniques for optimization problems. Automatica, 1(2-3), pp.111-121.
-* Rastrigin, L.A., 1963. The convergence of the random search method in the extremal control of a many parameter system. Automaton & Remote Control, 24, pp.1337-1342. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
-* Brooks, S.H., 1958. A discussion of random methods for seeking maxima. Operations Research, 6(2), pp.244-251. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 
 SA
 --
