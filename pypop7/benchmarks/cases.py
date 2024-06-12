@@ -5,12 +5,17 @@ from pypop7.benchmarks.rotated_functions import generate_rotation_matrix, load_r
 
 
 class Cases(object):
-    """Test correctness of benchmark functions via sampling (test cases).
+    """Test the correctness of benchmark functions via sampling (test cases).
     """
     def __init__(self, is_shifted=False, is_rotated=False):
-        self.is_shifted = is_shifted
-        self.is_rotated = is_rotated
-        self.ndim = None
+        """Initialize the settings of test cases for benchmark function with or without
+           the shift and/or rotation operation.
+        :param is_shifted: whether or not to generate data for shift, `bool`.
+        :param is_rotated: whether or not to generate data for rotation, `bool`.
+        """
+        self.is_shifted = is_shifted  # whether or not to generate data for shift
+        self.is_rotated = is_rotated  # whether or not to generate data for rotation
+        self.ndim = None  # number of dimensionality of the fitness function
 
     def make_test_cases(self, ndim=None):
         """Make multiple test cases for a specific dimension ranged in [1, 7].
