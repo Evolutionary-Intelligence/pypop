@@ -59,8 +59,13 @@ class Cigar(BaseFunction):
 
 
 def discus(x):  # also called tablet
-    x = np.power(squeeze_and_check(x, True), 2)
-    y = (10 ** 6) * x[0] + np.sum(x[1:])
+    """**Discus** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+        
+    """
+    x = np.square(squeeze_and_check(x, True))
+    y = (10.0 ** 6) * x[0] + np.sum(x[1:])
     return y
 
 
