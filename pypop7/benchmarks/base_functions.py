@@ -23,7 +23,7 @@ def squeeze_and_check(x, size_gt_1=False):
 class BaseFunction(object):
     """Class for all base functions.
     """
-    def __init__(self, x):
+    def __init__(self):
         pass
 
 
@@ -33,7 +33,7 @@ def sphere(x):
        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
         
     """
-    y = np.sum(np.power(squeeze_and_check(x), 2))
+    y = np.sum(np.square(squeeze_and_check(x)))
     return y
 
 
