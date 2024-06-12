@@ -40,11 +40,6 @@ class RS(Optimizer):
 
     References
     ----------
-    Gao, K. and Sener, O., 2022, June.
-    Generalizing Gaussian smoothing for random search.
-    In International Conference on Machine Learning (pp. 7077-7101). PMLR.
-    https://proceedings.mlr.press/v162/gao22f.html
-
     Nesterov, Y. and Spokoiny, V., 2017.
     Random gradient-free minimization of convex functions.
     Foundations of Computational Mathematics, 17(2), pp.527-566.
