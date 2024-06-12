@@ -97,6 +97,11 @@ class RS(Optimizer):
     (*Since it was written originally in Russian, we cannot read it. However, owing to its historical position,
     we still choose to include it here, which causes a nonstandard citation.*)
 
+    Karnopp, D.C., 1963.
+    Random search techniques for optimization problems.
+    Automatica, 1(2-3), pp.111-121.
+    https://www.sciencedirect.com/science/article/abs/pii/0005109863900189
+
     Rastrigin, L.A., 1963.
     The convergence of the random search method in the extremal control of a many parameter system.
     Automaton & Remote Control, 24, pp.1337-1342.
