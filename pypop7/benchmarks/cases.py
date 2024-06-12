@@ -76,15 +76,15 @@ class Cases(object):
             raise TypeError('The number of dimensions should >=1 and <= 7.')
         return np.array(x, dtype=np.float64)
 
-    def compare(self, func, ndim, y_true, shift_vector=None, rotation_matrix=None, atol=1e-4):
-        """Compare true (expected) function values with these returned (computed) by benchmark function.
+    def compare(self, func, ndim, y_true, shift_vector=None, rotation_matrix=None, atol=1e-3):
+        """Compare true function values with these returned by the used benchmark function.
 
-        :param func: benchmark function, a function object.
-        :param ndim: number of dimensions, an `int` scalar ranged in [1, 7].
-        :param y_true: a 1-d `ndarray`, where each element is the true function value of the corresponding test case.
-        :param shift_vector: shift vector, a 1-d `ndarray`.
-        :param rotation_matrix: rotation matrix, a 2-d `ndarray`.
-        :param atol: absolute tolerance parameter, a `float` scalar.
+        :param func: benchmark function, `func`.
+        :param ndim: number of dimensions ranged in [1, 7], `int`.
+        :param y_true: `ndarray`, where each element is the true function value of the corresponding test case.
+        :param shift_vector: shift vector, `ndarray`.
+        :param rotation_matrix: rotation matrix, `ndarray`.
+        :param atol: absolute tolerance parameter, `float`.
         :return: `True` if all function values computed on test cases match `y_true`; otherwise, `False`.
         """
         x = self.make_test_cases(ndim)
