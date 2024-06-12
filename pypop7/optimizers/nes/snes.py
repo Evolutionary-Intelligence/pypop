@@ -84,7 +84,7 @@ class SNES(NES):
     <https://dl.acm.org/doi/abs/10.1145/2001576.2001692>`_
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 845-852). ACM.
 
-    See the official Python source code from PyBrain:
+    Please refer to the *official* Python source code from `PyBrain` (now not actively maintained):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/snes.py
     """
     def __init__(self, problem, options):
