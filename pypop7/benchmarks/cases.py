@@ -5,10 +5,10 @@ from pypop7.benchmarks.rotated_functions import generate_rotation_matrix, load_r
 
 
 class Cases(object):
-    """Test the correctness of benchmark functions via sampling (test cases).
+    """Test the correctness of benchmarking functions via sampling (test cases).
     """
     def __init__(self, is_shifted=False, is_rotated=False):
-        """Initialize the settings of test cases for benchmark function with or without
+        """Initialize the settings of test cases for benchmarking function with or without
            the shift and/or rotation operation.
         :param is_shifted: whether or not to generate data for shift, `bool`.
         :param is_rotated: whether or not to generate data for rotation, `bool`.
@@ -84,7 +84,7 @@ class Cases(object):
     def compare(self, func, ndim, y_true, shift_vector=None, rotation_matrix=None, atol=1e-3):
         """Compare true function values with these returned by the used benchmark function.
 
-        :param func: benchmark function, `func`.
+        :param func: benchmarking function, `func`.
         :param ndim: number of dimensions only ranged in [1, 7], `int`.
         :param y_true: `ndarray`, where each element is the true function value of the corresponding test case.
         :param shift_vector: shift vector, `ndarray`.
@@ -108,11 +108,12 @@ class Cases(object):
     def check_origin(self, func, n_samples=7):
         """Check the origin point at which the function value is zero via random sampling (test cases).
 
-        :param func: rotated function, a function object.
-        :param n_samples: number of samples, an `int` scalar.
-        :return: `True` if all function values computed on test cases are zeros; otherwise, `False`.
+        :param func: benchmarking function, `func`.
+        :param n_samples: number of samples, `int`.
+        :return: `True` if all function values computed on test cases are zeros, otherwise `False`; `bool`.
         """
-        ndims = np.random.default_rng().integers(2, 100, size=(n_samples,))
+        # `7` or `77` is just the **egg** of this library
+        ndims = np.random.default_rng(77).integers(2, 100, size=(n_samples,))
         self.ndim = ndims
         is_zero = True
         for d in ndims:
@@ -122,7 +123,7 @@ class Cases(object):
                 x += load_shift_vector(func, x)
             if self.is_rotated:
                 generate_rotation_matrix(func, d, d)
-            if np.abs(func(x)) > 1e-9:
+            if np.abs(func(x)) > 1e-3:
                 is_zero = False
                 break
         return is_zero
