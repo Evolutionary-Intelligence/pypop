@@ -30,7 +30,7 @@ class BaseFunction(object):
 def sphere(x):
     """**Sphere** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
         
     """
     y = np.sum(np.power(squeeze_and_check(x), 2))
