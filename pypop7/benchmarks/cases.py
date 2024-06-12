@@ -18,11 +18,11 @@ class Cases(object):
         self.ndim = None  # number of dimensionality of the test cases
 
     def make_test_cases(self, ndim=None):
-        """Make multiple test cases for a specific dimension ranged in [1, 7].
+        """Make multiple test cases for a specific dimension only ranged in [1, 7].
 
         .. note:: The number of test cases may be different on different dimensions.
 
-        :param ndim: number of dimensions ranged in only [1, 7], `int`.
+        :param ndim: number of dimensions only ranged in [1, 7], `int`.
         :return: `ndarray` of dtype `np.float64`, where each row is a test case.
         """
         self.ndim = ndim
@@ -85,7 +85,7 @@ class Cases(object):
         """Compare true function values with these returned by the used benchmark function.
 
         :param func: benchmark function, `func`.
-        :param ndim: number of dimensions ranged in [1, 7], `int`.
+        :param ndim: number of dimensions only ranged in [1, 7], `int`.
         :param y_true: `ndarray`, where each element is the true function value of the corresponding test case.
         :param shift_vector: shift vector, `ndarray`.
         :param rotation_matrix: rotation matrix, `ndarray`.
@@ -100,7 +100,7 @@ class Cases(object):
                 rotation_matrix = load_rotation_matrix(func, x[i], rotation_matrix)
                 x[i] = np.dot(np.linalg.inv(rotation_matrix), x[i])
             if self.is_shifted:
-                generate_shift_vector(func, ndim, -10 * np.ones((ndim,)), 7 * np.ones((ndim,)), 2021 + ndim)
+                generate_shift_vector(func, ndim, -10.0 * np.ones((ndim,)), 7.0 * np.ones((ndim,)), 2021 + ndim)
                 x[i] = x[i] + load_shift_vector(func, x[i], shift_vector)
             y[i] = func(x[i])
         return np.allclose(y, y_true, atol=atol)
