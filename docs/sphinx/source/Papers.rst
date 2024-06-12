@@ -50,6 +50,7 @@ ES
 * Beyer, H.G., 2014. Convergence analysis of evolutionary algorithms that are based on the paradigm of information geometry. Evolutionary Computation, 22(4), pp.679-709.
 * Pošík, P., Huyer, W. and Pál, L., 2012. A comparison of global search algorithms for continuous black box optimization. Evolutionary Computation, 20(4), pp.509-541.
 * Arnold, D.V. and Salomon, R., 2007. Evolutionary gradient search revisited. IEEE Transactions on Evolutionary Computation, 11(4), pp.480-495.
+* Ulmer, H., Streichert, F. and Zell, A., 2005. Model assisted evolution strategies. In Knowledge Incorporation in Evolutionary Computation (pp. 333-355). Springer Berlin Heidelberg.
 * Arnold, D.V. and Beyer, H.G., 2004. Performance analysis of evolutionary optimization with cumulative step length adaptation. IEEE Transactions on Automatic Control, 49(4), pp.617-622.
 * Beyer, H.G. and Arnold, D.V., 2003. Qualms regarding the optimality of cumulative path length control in CSA/CMA-evolution strategies. Evolutionary Computation, 11(1), pp.19-28.
 
