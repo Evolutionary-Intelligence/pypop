@@ -15,15 +15,15 @@ class Cases(object):
         """
         self.is_shifted = is_shifted  # whether or not to generate data for shift
         self.is_rotated = is_rotated  # whether or not to generate data for rotation
-        self.ndim = None  # number of dimensionality of the fitness function
+        self.ndim = None  # number of dimensionality of the test cases
 
     def make_test_cases(self, ndim=None):
         """Make multiple test cases for a specific dimension ranged in [1, 7].
 
-        Note that the number of test cases may be different for different dimensions.
+        .. note:: The number of test cases may be different on different dimensions.
 
-        :param ndim: number of dimensions, an `int` scalar ranged in [1, 7].
-        :return: a 2-d `ndarray` of dtype `np.float64`, where each row is a test case.
+        :param ndim: number of dimensions ranged in only [1, 7], `int`.
+        :return: `ndarray` of dtype `np.float64`, where each row is a test case.
         """
         self.ndim = ndim
         if ndim == 1:
@@ -78,8 +78,8 @@ class Cases(object):
                  [-7, 6, 5, 4, 3, 2, -1],
                  [0, 1, 2, 3, 4, 5, 6]]
         else:
-            raise TypeError('The number of dimensions should >=1 and <= 7.')
-        return np.array(x, dtype=np.float64)
+            raise TypeError('The number of dimensions should >= 1 and <= 7.')
+        return np.array(x, dtype=np.float64)  # `ndarray` should be of dtype `np.float64`
 
     def compare(self, func, ndim, y_true, shift_vector=None, rotation_matrix=None, atol=1e-3):
         """Compare true function values with these returned by the used benchmark function.
