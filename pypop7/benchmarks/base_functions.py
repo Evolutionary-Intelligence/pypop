@@ -21,7 +21,9 @@ def squeeze_and_check(x, size_gt_1=False):
 
 # helper class
 class BaseFunction(object):
-    def __init__(self):
+    """Class for all base functions.
+    """
+    def __init__(self, x):
         pass
 
 
