@@ -5,7 +5,7 @@ RS
 --
 
 * Li, L. and Talwalkar, A., 2020. Random search and reproducibility for neural architecture search. In Uncertainty in Artificial Intelligence (pp. 367-377). PMLR.
-* Sener, O., & Koltun, V., 2019. `Learning to guide random search <https://openreview.net/forum?id=B1gHokBKwS>`_. In International Conference on Learning Representations (ICLR).
+* Sener, O. and Koltun, V., 2019, September. `Learning to guide random search <https://openreview.net/forum?id=B1gHokBKwS>`_. In International Conference on Learning Representations (ICLR).
 * Chechkin, A. and Sokolov, I., 2018. Random search with resetting: A unified renewal approach. Physical Review Letters, 121(5), p.050601.
 * Falcón-Cortés, A., Boyer, D., Giuggioli, L. and Majumdar, S.N., 2017. Localization transition induced by learning in random searches. Physical Review Letters, 119(14), p.140603.
 * Chupeau, M., Bénichou, O. and Voituriez, R., 2015. Cover times of random searches. Nature Physics, 11(10), pp.844-847.
