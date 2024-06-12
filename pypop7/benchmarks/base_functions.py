@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 
 # helper function
