@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.benchmarks.shifted_functions import generate_shift_vector, load_shift_vector
 from pypop7.benchmarks.rotated_functions import generate_rotation_matrix, load_rotation_matrix
