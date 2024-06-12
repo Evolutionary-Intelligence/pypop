@@ -22,7 +22,7 @@ Random Search (RS)
 * Matyas, J., 1965. Random optimization. Automation and Remote control, 26(2), pp.246-253. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 * Karnopp, D.C., 1963. Random search techniques for optimization problems. Automatica, 1(2-3), pp.111-121.
 * Rastrigin, L.A., 1963. The convergence of the random search method in the extremal control of a many parameter system. Automaton & Remote Control, 24, pp.1337-1342. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
-* Brooks, S.H., 1958. A discussion of random methods for seeking maxima. Operations Research, 6(2), pp.244-251. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
+* Brooks, S.H., 1958. `A discussion of random methods for seeking maxima <https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244>`_. Operations Research, 6(2), pp.244-251. [ https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rs.py ]
 
 Mathematical Optimization
 -------------------------
