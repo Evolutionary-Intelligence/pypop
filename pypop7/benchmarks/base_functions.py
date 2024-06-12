@@ -43,8 +43,13 @@ class Sphere(BaseFunction):
 
 
 def cigar(x):
-    x = np.power(squeeze_and_check(x, True), 2)
-    y = x[0] + (10 ** 6) * np.sum(x[1:])
+    """**Cigar** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+        
+    """
+    x = np.square(squeeze_and_check(x, True))
+    y = x[0] + (10.0 ** 6) * np.sum(x[1:])
     return y
 
 
