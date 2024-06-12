@@ -118,6 +118,7 @@ in this *increasingly popular* open-source Python library.
    rs/rs
    bo/bo
    bbo
+   benchmarks
    development-guide
    software-summary
    applications
