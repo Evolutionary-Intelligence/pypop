@@ -28,7 +28,10 @@ class BaseFunction(object):
 
 
 def sphere(x):
-    """Sphere test function.
+    """**Sphere** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+        
     """
     y = np.sum(np.power(squeeze_and_check(x), 2))
     return y
