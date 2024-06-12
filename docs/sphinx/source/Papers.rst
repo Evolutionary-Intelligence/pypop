@@ -1,6 +1,11 @@
 Some (Rather All) Papers on Black-Box Optimization (BBO)
 ========================================================
 
+Theories for BBO
+----------------
+
+* Agarwal, A., Bartlett, P.L., Ravikumar, P. and Wainwright, M.J., 2012. Information-theoretic lower bounds on the oracle complexity of stochastic convex optimization. IEEE Transactions on Information Theory, 58(5), pp.3235-3249.
+
 Random Search (RS)
 ------------------
 
