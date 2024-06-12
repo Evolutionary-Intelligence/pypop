@@ -86,11 +86,9 @@ class RS(Optimizer):
     https://ieeexplore.ieee.org/abstract/document/1098903
 
     Matyas, J., 1965.
-    Random optimization.
+    `Random optimization.
+    <https://tinyurl.com/yj398bs5>`_
     Automation and Remote control, 26(2), pp.246-253.
-    https://tinyurl.com/25339c4x
-    (*Since it was written originally in Russian, we cannot read it. However, owing to its historical position,
-    we still choose to include it here, which causes a nonstandard citation.*)
 
     Karnopp, D.C., 1963.
     Random search techniques for optimization problems.
