@@ -6,3 +6,5 @@ Benchmarking Functions
 .. autofunction:: pypop7.benchmarks.base_functions.cigar
 
 .. autofunction:: pypop7.benchmarks.base_functions.discus
+
+.. autofunction:: pypop7.benchmarks.base_functions.cigar_discus
