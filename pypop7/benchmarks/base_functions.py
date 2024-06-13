@@ -75,11 +75,16 @@ class Discus(BaseFunction):  # also called Tablet
 
 
 def cigar_discus(x):
-    x = np.power(squeeze_and_check(x, True), 2)
+    """**Cigar-Discus** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+        
+    """
+    x = np.square(squeeze_and_check(x, True))
     if x.size == 2:
-        y = x[0] + (10 ** 4) * np.sum(x) + (10 ** 6) * x[-1]
+        y = x[0] + (10.0 ** 4) * np.sum(x) + (10.0 ** 6) * x[-1]
     else:
-        y = x[0] + (10 ** 4) * np.sum(x[1:-1]) + (10 ** 6) * x[-1]
+        y = x[0] + (10.0 ** 4) * np.sum(x[1:-1]) + (10.0 ** 6) * x[-1]
     return y
 
 
