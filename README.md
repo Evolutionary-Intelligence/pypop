@@ -19,18 +19,18 @@ $ pip install pypop7
 2. Define the objective/cost/fitness function to be **minimized** for the optimization problem at hand,
 
 ```Python
-import numpy as np  # for numerical computation, which is also the computing engine of pypop7
+import numpy as np  # for numerical computation, which is also the *computing engine* of pypop7
 
 # the below example is Rosenbrock, one notorious test function from the optimization community
 def rosenbrock(x):
     return 100.0*np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
 
-# define the fitness (cost) function and also its settings
+# define the fitness (cost) function to be minimized and also its settings
 ndim_problem = 1000
 problem = {'fitness_function': rosenbrock,  # cost function
            'ndim_problem': ndim_problem,  # dimension
-           'lower_boundary': -5.0*np.ones((ndim_problem,)),  # search boundary
-           'upper_boundary': 5.0*np.ones((ndim_problem,))}
+           'lower_boundary': -5.0*np.ones((ndim_problem,)),  # lower search boundary
+           'upper_boundary': 5.0*np.ones((ndim_problem,))}  # lower search boundary
 ```
 
 3. Run one or more black-box optimizers on this optimization problem:
