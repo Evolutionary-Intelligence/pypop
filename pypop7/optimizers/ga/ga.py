@@ -35,7 +35,8 @@ class GA(Optimizer):
     <https://www.nature.com/articles/s41563-024-01846-8>`_, `[Castanha et al., 2024, PNAS]
     <https://www.pnas.org/doi/abs/10.1073/pnas.2312755121>`_, `[Lucas et al., 2023, Nature Photonics]
     <https://www.nature.com/articles/s41566-023-01252-7>`_, `[Villard et al., 2023, JCTC]
-    <https://pubs.acs.org/doi/full/10.1021/acs.jctc.2c01078>`_, `[Groenendaal et al., 2015, PLoS Computational Biology]
+    <https://pubs.acs.org/doi/full/10.1021/acs.jctc.2c01078>`_, `[Kanal&Hutchison, 2017]
+    <https://arxiv.org/abs/1707.02949>`_, `[Groenendaal et al., 2015, PLoS Computational Biology]
     <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004242>`_, to name a few.
 
     Parameters
