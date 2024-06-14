@@ -1,7 +1,7 @@
 import numpy as np  # engine for numerical computing
 from scipy.stats import norm  # normal continuous random variable
 
-from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
+from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strategies (ES) classes
 
 
 class MMES(ES):
