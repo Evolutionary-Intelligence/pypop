@@ -62,8 +62,8 @@ For new/missed BBO, we provide a *unified* API to freely add them if they satisf
 
 ******* *** *******
 * ![large--scale--optimization](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version for LSO (dimension >> 1000).
-* ![competitor](https://img.shields.io/badge/**-competitor-blue.svg): indicates the competitive (or *de facto*) BBO version for *small/medium-dimensional* problems (though it may work well under certain LSO circumstances).
-* ![baseline](https://img.shields.io/badge/*-baseline-lightgrey.svg): indicates the baseline BBO version mainly for *theoretical* interest, owing to its simplicity (relative ease to mathematical analysis).
+* ![competitor](https://img.shields.io/badge/**-c-blue.svg): indicates the competitive (or *de facto*) BBO version for *small/medium-dimensional* problems (though it may work well under certain LSO circumstances).
+* ![baseline](https://img.shields.io/badge/*-b-lightgrey.svg): indicates the baseline BBO version mainly for *theoretical* interest, owing to its simplicity (relative ease to mathematical analysis).
 
 Note that this classification based on only the dimension of objective function is just a rough estimation for algorithm selection. In practice, perhaps the simplest way to algorithm selection is trial-and-error or to try more advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
 ******* *** *******
