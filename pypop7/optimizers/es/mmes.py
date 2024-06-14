@@ -43,7 +43,7 @@ class MMES(ES):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer `MMES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -52,19 +52,18 @@ class MMES(ES):
        >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.mmes import MMES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 200,
-       ...            'lower_boundary': -5*numpy.ones((200,)),
-       ...            'upper_boundary': 5*numpy.ones((200,))}
-       >>> options = {'max_function_evaluations': 500000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((200,)),
+       ...            'upper_boundary': 5.0*numpy.ones((200,))}
+       >>> options = {'max_function_evaluations': 500000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((200,)),
+       ...            'mean': 3.0*numpy.ones((200,)),
        ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> mmes = MMES(problem, options)  # initialize the optimizer class
-       >>> results = mmes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       >>> mmes = MMES(problem, options)  # to initialize the optimizer class
+       >>> results = mmes.optimize()  # to run the optimization process
        >>> print(f"MMES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       MMES: 500000, 7.350414979801825
+       MMES: 500000, 7.3504
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/3ym72w5m>`_ for more details.
