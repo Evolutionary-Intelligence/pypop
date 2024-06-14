@@ -23,7 +23,7 @@ import numpy as np  # for numerical computation, which is also the computing eng
 
 # the below example is Rosenbrock, one notorious test function from the optimization community
 def rosenbrock(x):
-    return 100.0*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
+    return 100.0*np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
 
 # define the fitness (cost) function and also its settings
 ndim_problem = 1000
