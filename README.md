@@ -33,6 +33,9 @@ problem = {'fitness_function': rosenbrock,  # cost function
            'upper_boundary': 5.0*np.ones((ndim_problem,))}  # lower search boundary
 ```
 
+Note that without loss of generality, only the minimization process is considered in this library, since **maximization**
+can be easily transferred to minimization by negating it.
+
 3. Run one or more black-box optimizers on this optimization problem:
 
 ```Python
