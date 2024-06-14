@@ -99,7 +99,7 @@ class MMES(ES):
     <https://ieeexplore.ieee.org/abstract/document/9244595>`_
     IEEE Transactions on Evolutionary Computation, 25(2), pp.320-333.
 
-    See the official Matlab version from He:
+    Please refer to the *official* Matlab version from Prof. He:
     https://github.com/hxyokokok/MMES
     """
     def __init__(self, problem, options):
