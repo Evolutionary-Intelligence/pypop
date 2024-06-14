@@ -95,9 +95,9 @@ class MMES(ES):
     References
     ----------
     He, X., Zheng, Z. and Zhou, Y., 2021.
-    MMES: Mixture model-based evolution strategy for large-scale optimization.
+    `MMES: Mixture model-based evolution strategy for large-scale optimization.
+    <https://ieeexplore.ieee.org/abstract/document/9244595>`_
     IEEE Transactions on Evolutionary Computation, 25(2), pp.320-333.
-    https://ieeexplore.ieee.org/abstract/document/9244595
 
     See the official Matlab version from He:
     https://github.com/hxyokokok/MMES
