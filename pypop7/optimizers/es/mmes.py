@@ -63,7 +63,7 @@ class MMES(ES):
        >>> mmes = MMES(problem, options)  # to initialize the optimizer class
        >>> results = mmes.optimize()  # to run the optimization/evolution process
        >>> print(f"MMES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       MMES: 500000, 7.3504
+       MMES: 500000, 2.6018
 
     For its correctness checking of coding, please refer to `this code-based repeatability report
     <https://tinyurl.com/3ym72w5m>`_ for all details.
