@@ -16,7 +16,7 @@ The following three steps are enough to utilize the black-box optimization power
 $ pip install pypop7
 ```
 
-2. Define the objective/cost/fitness function to be minimized for the optimization problem at hand,
+2. Define the objective/cost/fitness function to be **minimized** for the optimization problem at hand,
 
 ```Python
 import numpy as np  # for numerical computation, which is also the computing engine of pypop7
