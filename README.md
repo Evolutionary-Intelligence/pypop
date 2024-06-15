@@ -381,11 +381,11 @@ For each algorithm family, we try to provide several *representative* applicatio
 
 ## Sponsor
 
-From 2021 to 2023, this open-source Python library was supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000).
+From 2021 to 2023, this open-source pure-Python library was supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000). Now Qiqi Duan is seeking new sponsors (e.g., from any enterprises).
 
 ## Citation
 
-If this open-source library is used in your paper/project, it is highly welcomed to cite the following arXiv [preprint](https://arxiv.org/abs/2212.05652) paper: **Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y., Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.**
+If this open-source Python library is used in your paper/project, it is highly welcomed to cite the following arXiv [preprint](https://arxiv.org/abs/2212.05652) paper: **Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y., Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.**
 
 ## Star History
 
