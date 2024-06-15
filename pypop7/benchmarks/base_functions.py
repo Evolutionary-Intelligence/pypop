@@ -100,7 +100,7 @@ def ellipsoid(x):
         
     """
     x = np.square(squeeze_and_check(x, True))
-    y = np.dot(np.power(10.0, 6.0 * np.linspace(0, 1, x.size)), x)
+    y = np.dot(np.power(10.0, 6.0 * np.linspace(0.0, 1.0, x.size)), x)
     return y
 
 
@@ -110,8 +110,13 @@ class Ellipsoid(BaseFunction):
 
 
 def different_powers(x):
+    """**Different-Powers** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+        
+    """
     x = np.abs(squeeze_and_check(x, True))
-    y = np.sum(np.power(x, 2 + 4 * np.linspace(0, 1, x.size)))
+    y = np.sum(np.power(x, 2.0 + 4.0 * np.linspace(0.0, 1.0, x.size)))
     return y
 
 
