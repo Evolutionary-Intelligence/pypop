@@ -94,8 +94,13 @@ class CigarDiscus(BaseFunction):
 
 
 def ellipsoid(x):
-    x = np.power(squeeze_and_check(x, True), 2)
-    y = np.dot(np.power(10, 6 * np.linspace(0, 1, x.size)), x)
+    """**Ellipsoid** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+        
+    """
+    x = np.square(squeeze_and_check(x, True))
+    y = np.dot(np.power(10.0, 6.0 * np.linspace(0, 1, x.size)), x)
     return y
 
 
