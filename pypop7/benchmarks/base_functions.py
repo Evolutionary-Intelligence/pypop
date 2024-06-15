@@ -96,8 +96,8 @@ class CigarDiscus(BaseFunction):
 def ellipsoid(x):
     """**Ellipsoid** test function.
 
-       .. note:: It's LaTeX formulation is ``.
-        
+       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+
     """
     x = np.square(squeeze_and_check(x, True))
     y = np.dot(np.power(10.0, 6.0 * np.linspace(0.0, 1.0, x.size)), x)
@@ -112,8 +112,8 @@ class Ellipsoid(BaseFunction):
 def different_powers(x):
     """**Different-Powers** test function.
 
-       .. note:: It's LaTeX formulation is ``.
-        
+       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+
     """
     x = np.abs(squeeze_and_check(x, True))
     y = np.sum(np.power(x, 2.0 + 4.0 * np.linspace(0.0, 1.0, x.size)))
@@ -126,6 +126,11 @@ class DifferentPowers(BaseFunction):
 
 
 def schwefel221(x):
+    """**Different-Powers** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
     y = np.max(np.abs(squeeze_and_check(x)))
     return y
 
