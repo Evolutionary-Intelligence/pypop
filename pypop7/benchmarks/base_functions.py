@@ -45,7 +45,7 @@ class Sphere(BaseFunction):
 def cigar(x):
     """**Cigar** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
         
     """
     x = np.square(squeeze_and_check(x, True))
@@ -61,7 +61,7 @@ class Cigar(BaseFunction):
 def discus(x):  # also called tablet
     """**Discus** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
         
     """
     x = np.square(squeeze_and_check(x, True))
@@ -77,7 +77,7 @@ class Discus(BaseFunction):  # also called Tablet
 def cigar_discus(x):
     """**Cigar-Discus** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
         
     """
     x = np.square(squeeze_and_check(x, True))
