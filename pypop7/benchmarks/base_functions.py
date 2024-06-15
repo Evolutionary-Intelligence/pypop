@@ -126,7 +126,7 @@ class DifferentPowers(BaseFunction):
 
 
 def schwefel221(x):
-    """**Different-Powers** test function.
+    """**Schwefel221** test function.
 
        .. note:: It's LaTeX formulation is ``.
 
