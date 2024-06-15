@@ -12,7 +12,6 @@ Technology Sydney, and *Guochen Zhou* also in Zhejiang University).
   * Now *Qi Zhao* from SUSTech/University of New South Wales/Beijing University of Technology helps to proofread most
     online documents.
   * Now *Haobin Yang* from SUSTech helps to proofread and standardize the documents.
-  * Now *Zonghan He* from SUSTech helps to test the installation process on Windows10 OS (before 2024).
   * Now *Yajing Tan* from SUSTech is added as one of core developers in order to increase new black-box optimizers.
   * Now *Jian Zeng* from Guangdong Police College/Harbin Institute of Technology helps to collect BBOs for data mining.
   * Now *XiangLong Chen* from SUSTech helps to proofread and standardize the documents.
@@ -24,6 +23,7 @@ Technology Sydney, and *Guochen Zhou* also in Zhejiang University).
   * From 2022 to 2023, *Zhuowei Wang* from UTS helped to test some code on Linux and proofread some documents.
   * In 2023, *Minghan Zhang* from University of Warwick/Imperial College London helped to search some papers involved in
     this library and test some code on MacOS X.
+  * In 2023, *Zonghan He* from SUSTech helped to test the installation process on Windows10 OS.
 
 We also acknowledge the initial (2017) discussions with Hao Tong (when at SUSTech, now at UoB) and recent (2022) discussions
 wih Changwu Huang (at SUSTech).
