@@ -10,3 +10,5 @@ Benchmarking Functions
 .. autofunction:: pypop7.benchmarks.base_functions.cigar_discus
 
 .. autofunction:: pypop7.benchmarks.base_functions.ellipsoid
+
+.. autofunction:: pypop7.benchmarks.base_functions.different_powers
