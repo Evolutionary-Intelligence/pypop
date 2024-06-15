@@ -12,3 +12,5 @@ Benchmarking Functions
 .. autofunction:: pypop7.benchmarks.base_functions.ellipsoid
 
 .. autofunction:: pypop7.benchmarks.base_functions.different_powers
+
+.. autofunction:: pypop7.benchmarks.base_functions.schwefel221
