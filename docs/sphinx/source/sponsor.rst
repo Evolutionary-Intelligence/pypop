@@ -9,7 +9,8 @@ Technology Sydney, and *Guochen Zhou* also in Zhejiang University).
 
   * Now *Yijun Yang* from Tencent/University of Technology Sydney (UTS)/Beihang University helps to suggest papers
     about Bayesian Optimization (BO) and other new/advanced black-box optimizers (BBO).
-  * Now *Qi Zhao* from SUSTech helps to proofread the documents.
+  * Now *Qi Zhao* from SUSTech/University of New South Wales/Beijing University of Technology helps to proofread most
+    online documents.
   * Now *Haobin Yang* from SUSTech helps to proofread and standardize the documents.
   * Now *Zonghan He* from SUSTech helps to test the installation process on Windows10 OS (before 2024).
   * Now *Yajing Tan* from SUSTech is added as one of core developers in order to increase new black-box optimizers.
