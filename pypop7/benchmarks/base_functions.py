@@ -141,7 +141,12 @@ class Schwefel221(BaseFunction):
 
 
 def step(x):
-    y = np.sum(np.power(np.floor(squeeze_and_check(x) + 0.5), 2))
+    """**Step** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
+    y = np.sum(np.square(np.floor(squeeze_and_check(x) + 0.5)))
     return y
 
 
