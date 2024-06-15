@@ -1,12 +1,11 @@
 Sponsor
 =======
 
-This `open-source <https://twitter.com/ID_AA_Carmack/status/1711737838889242880>`_ Python library for **large-scale
-black-box optimization** (PyPop7) was supported by Shenzhen Fundamental Research Program under Grant No.
-JCYJ20200109141235597 (2000000 Yuan granted to Prof. Shi from Southern University of Science and Technology (SUSTech)
-@Shenzhen, China from 2021 to 2023), and actively developed by three of his group members (*Qiqi Duan* also in Harbin
-Institute of Technology, *Chang Shao* also in University of Technology Sydney, and *Guochen Zhou* also in Zhejiang
-University).
+This `open-source <https://twitter.com/ID_AA_Carmack/status/1711737838889242880>`_ Python library for large-scale
+black-box optimization (**PyPop7**) was supported by **Shenzhen Fundamental Research Program** (2000000 Yuan granted to
+Prof. Shi from Southern University of Science and Technology (SUSTech) @Shenzhen, China from 2021 to 2023), and actively
+developed by his group members (*Qiqi Duan* also in Harbin Institute of Technology, *Chang Shao* also in University of
+Technology Sydney, and *Guochen Zhou* also in Zhejiang University).
 
   * Now *Yijun Yang* from Tencent/University of Technology Sydney (UTS)/Beihang University helps to suggest papers about
     Bayesian Optimization (BO).
