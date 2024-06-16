@@ -19,3 +19,5 @@ Base Functions
 .. autofunction:: pypop7.benchmarks.base_functions.schwefel221
 
 .. autofunction:: pypop7.benchmarks.base_functions.step
+
+.. autofunction:: pypop7.benchmarks.base_functions.schwefel222
