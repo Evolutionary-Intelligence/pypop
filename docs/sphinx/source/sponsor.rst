@@ -12,14 +12,15 @@ Technology Sydney, and *Guochen Zhou* also in Zhejiang University).
   * Now *Qi Zhao* from SUSTech/University of New South Wales/Beijing University of Technology helps to proofread most
     online documents.
   * Now *Haobin Yang* from SUSTech helps to proofread and standardize the documents.
-  * Now *Yajing Tan* from SUSTech is added as one of core developers in order to increase new black-box optimizers.
   * Now *Jian Zeng* from Guangdong Police College/Harbin Institute of Technology helps to collect BBOs for data mining.
   * Now *XiangLong Chen* from SUSTech helps to proofread and standardize the documents.
   * Now *Yuwei Huang* from SUSTech is added as one of core developers in order to increase new black-box optimizers.
   * From 2024/5/1, *Xingyu Zhou* from SUSTech is added as one of **core developers** in order to code and check new
-    black-box optimizers from the machine learning (ML) community.
-  * From 2021 to 2023, *Mingyang Feng* from University of Birmingham (UoB)/University of Electronic Science and Technology
-    of China helped to search a number of papers involved in this library and test some code on MacOS X.
+    BBO from the machine learning (ML) community.
+  * From 2024, *Yajing Tan* from SUSTech has been added as one of **core developers** in order to increase new BBO
+    (e.g., **SPSA**).
+  * From 2021, *Mingyang Feng* from University of Birmingham (UoB)/University of Electronic Science and Technology of
+    China helped to search a number of papers involved in this library and test some code on MacOS X.
   * From 2022 to 2023, *Zhuowei Wang* from UTS helped to test some code on Linux and proofread some documents.
   * In 2023, *Minghan Zhang* from University of Warwick/Imperial College London helped to search some papers involved in
     this library and test some code on MacOS X.
