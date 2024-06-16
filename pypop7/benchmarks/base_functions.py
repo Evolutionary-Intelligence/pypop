@@ -172,8 +172,13 @@ class Schwefel222(BaseFunction):
 
 
 def rosenbrock(x):
+    """**Rosenbrock** test function.
+
+       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+
+    """
     x = squeeze_and_check(x, True)
-    y = 100 * np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
+    y = 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
     return y
 
 
