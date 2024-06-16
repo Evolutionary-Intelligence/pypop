@@ -156,6 +156,11 @@ class Step(BaseFunction):
 
 
 def schwefel222(x):
+    """**Schwefel222** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
     x = np.abs(squeeze_and_check(x))
     y = np.sum(x) + np.prod(x)
     return y
