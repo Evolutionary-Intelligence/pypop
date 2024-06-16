@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES) classes
+from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strategies (ES) classes
 
 
 class LMCMAES(ES):
