@@ -111,9 +111,9 @@ class LMCMA(ES):
     References
     ----------
     Loshchilov, I., 2017.
-    LM-CMA: An alternative to L-BFGS for large-scale black box optimization.
+    `LM-CMA: An alternative to L-BFGS for large-scale black box optimization.
+    <https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale>`_
     Evolutionary Computation, 25(1), pp.143-171.
-    https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale
     (See Algorithm 7 for details.)
 
     See the official C++ version from Loshchilov, which provides an interface for Matlab users:
