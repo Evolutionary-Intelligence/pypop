@@ -1,4 +1,4 @@
-.. This is the official documentation of PyPop7.
+.. This is the *official* online documentation of PyPop7.
 
 PyPop7's Online Documentation for Black-Box Optimization (BBO)
 ==============================================================
@@ -14,8 +14,6 @@ PyPop7's Online Documentation for Black-Box Optimization (BBO)
 .. image:: https://readthedocs.org/projects/pypop/badge/?version=latest
 .. image:: https://static.pepy.tech/badge/pypop7
    :target: https://www.pepy.tech/projects/pypop7
-.. image:: https://img.shields.io/badge/Python-3-yellow.svg
-   :target: https://www.python.org/
 .. image:: https://img.shields.io/badge/arxiv-2212.05652-red
    :target: https://arxiv.org/abs/2212.05652
 
