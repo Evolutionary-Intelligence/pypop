@@ -114,11 +114,10 @@ class LMCMA(ES):
     `LM-CMA: An alternative to L-BFGS for large-scale black box optimization.
     <https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale>`_
     Evolutionary Computation, 25(1), pp.143-171.
-    (See Algorithm 7 for details.)
 
-    See the official C++ version from Loshchilov, which provides an interface for Matlab users:
+    Please refer to the official C++ version from Loshchilov, which also provides an interface for Matlab:
     https://sites.google.com/site/ecjlmcma/
-    (Unfortunately, this website link appears to be not available now.)
+    (Unfortunately, this online link appears to be not openly available now.)
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
