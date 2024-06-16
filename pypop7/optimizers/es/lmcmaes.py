@@ -99,9 +99,9 @@ class LMCMAES(ES):
     References
     ----------
     Loshchilov, I., 2014, July.
-    A computationally efficient limited memory CMA-ES for large scale optimization.
+    `A computationally efficient limited memory CMA-ES for large scale optimization.
+    <https://dl.acm.org/doi/abs/10.1145/2576768.2598294>`_
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 397-404). ACM.
-    https://dl.acm.org/doi/abs/10.1145/2576768.2598294
 
     See the official C++ version from Loshchilov:
     https://sites.google.com/site/lmcmaeses/
