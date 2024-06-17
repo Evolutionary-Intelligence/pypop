@@ -35,3 +35,5 @@ Base Functions
 .. autofunction:: pypop7.benchmarks.base_functions.ackley
 
 .. autofunction:: pypop7.benchmarks.base_functions.rastrigin
+
+.. autofunction:: pypop7.benchmarks.base_functions.scaled_rastrigin
