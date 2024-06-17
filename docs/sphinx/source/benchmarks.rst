@@ -33,3 +33,5 @@ Base Functions
 .. autofunction:: pypop7.benchmarks.base_functions.bohachevsky
 
 .. autofunction:: pypop7.benchmarks.base_functions.ackley
+
+.. autofunction:: pypop7.benchmarks.base_functions.rastrigin
