@@ -359,9 +359,13 @@ class Michalewicz(BaseFunction):
 
 
 def salomon(x):
-    x = np.sqrt(np.sum(np.power(squeeze_and_check(x), 2)))
-    y = 1 - np.cos(2 * np.pi * x) + 0.1 * x
-    return y
+    """**Salomon** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
+    x = np.sqrt(np.sum(np.square(squeeze_and_check(x))))
+    return 1.0 - np.cos(2.0 * np.pi * x) + 0.1 * x
 
 
 class Salomon(BaseFunction):
