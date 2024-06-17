@@ -324,10 +324,15 @@ class SkewRastrigin(BaseFunction):
 
 
 def levy_montalvo(x):
-    x, y = 1 + (1 / 4) * (squeeze_and_check(x) + 1), 0
+    """**Levy-Montalvo** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
+    x, y = 1.0 + 0.25 * (squeeze_and_check(x) + 1.0), 0.0
     for i in range(x.size - 1):
-        y += np.power(x[i] - 1, 2) * (1 + 10 * np.power(np.sin(np.pi * x[i + 1]), 2))
-    y += 10 * np.power(np.sin(np.pi * x[0]), 2) + np.power(x[-1] - 1, 2)
+        y += np.square(x[i] - 1.0) * (1.0 + 10.0 * np.square(np.sin(np.pi * x[i + 1])))
+    y += 10.0 * np.square(np.sin(np.pi * x[0])) + np.square(x[-1] - 1.0)
     return (np.pi / x.size) * y
 
 
