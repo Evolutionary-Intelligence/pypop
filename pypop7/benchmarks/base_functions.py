@@ -342,9 +342,14 @@ class LevyMontalvo(BaseFunction):
 
 
 def michalewicz(x):
-    x, y = squeeze_and_check(x), 0
+    """**Michalewicz** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
+    x, y = squeeze_and_check(x), 0.0
     for i in range(x.size):
-        y -= np.sin(x[i]) * np.power(np.sin((i + 1) * np.power(x[i], 2) / np.pi), 20)
+        y -= np.sin(x[i]) * np.power(np.sin((i + 1) * np.square(x[i]) / np.pi), 20)
     return y
 
 
