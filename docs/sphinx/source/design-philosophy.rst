@@ -60,9 +60,6 @@ for it, we will not consider any **very complex** optimizer in this library, in 
     comparison methodology <https://link.springer.com/article/10.1007/s11047-020-09837-9>`_. Natural Computing, 21(2),
     pp.265-287.
 
-  * Piotrowski, A.P. and Napiorkowski, J.J., 2018. `Some metaheuristics should be simplified
-    <https://www.sciencedirect.com/science/article/abs/pii/S0020025517310332>`_. Information Sciences, 427, pp.32-62.
-
   * Sörensen, K., Sevaux, M. and Glover, F., 2018. `A history of metaheuristics
     <https://link.springer.com/referenceworkentry/10.1007/978-3-319-07124-4_4>`_. In Handbook of Heuristics (pp. 791-808).
     Springer, Cham.
