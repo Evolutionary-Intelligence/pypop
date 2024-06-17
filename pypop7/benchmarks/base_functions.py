@@ -255,9 +255,14 @@ class Bohachevsky(BaseFunction):
 
 
 def ackley(x):
+    """**Ackley** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
     x = squeeze_and_check(x)
-    y = -20 * np.exp(-0.2 * np.sqrt(np.sum(np.power(x, 2)) / x.size)) - \
-        np.exp(np.sum(np.cos(2 * np.pi * x)) / x.size) + 20 + np.exp(1)
+    y = -20.0 * np.exp(-0.2 * np.sqrt(np.sum(np.square(x)) / x.size)) - \
+        np.exp(np.sum(np.cos(2.0 * np.pi * x)) / x.size) + 20.0 + np.exp(1)
     return y
 
 
