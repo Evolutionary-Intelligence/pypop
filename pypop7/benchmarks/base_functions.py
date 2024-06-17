@@ -32,6 +32,13 @@ def sphere(x):
 
        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
 
+    Parameters
+    ----------
+    x : input vector, `ndarray`.
+
+    Returns
+    -------
+    y : scalar, `float`.
     """
     y = np.sum(np.square(squeeze_and_check(x)))
     return y
