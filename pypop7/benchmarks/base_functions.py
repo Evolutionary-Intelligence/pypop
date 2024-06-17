@@ -205,8 +205,13 @@ class Schwefel12(BaseFunction):
 
 
 def exponential(x):
+    """**Exponential** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
     x = squeeze_and_check(x)
-    y = -np.exp(-0.5 * np.sum(np.power(x, 2)))
+    y = -np.exp(-0.5 * np.sum(np.square(x)))
     return y
 
 
