@@ -242,7 +242,7 @@ def bohachevsky(x):
        .. note:: It's LaTeX formulation is ``.
 
     """
-    x, y = squeeze_and_check(x), 0
+    x, y = squeeze_and_check(x), 0.0
     for i in range(x.size - 1):
         y += np.square(x[i]) + 2.0 * np.square(x[i + 1]) - 0.3 * np.cos(3.0 * np.pi * x[i]) - \
              0.4 * np.cos(4.0 * np.pi * x[i + 1]) + 0.7
@@ -305,10 +305,15 @@ class ScaledRastrigin(BaseFunction):
 
 
 def skew_rastrigin(x):
+    """**Skew-Rastrigin** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
     x = squeeze_and_check(x)
     for i in range(x.size):
-        if x[i] > 0:
-            x[i] *= 10
+        if x[i] > 0.0:
+            x[i] *= 10.0
     y = rastrigin(x)
     return y
 
