@@ -43,3 +43,5 @@ Base Functions
 .. autofunction:: pypop7.benchmarks.base_functions.levy_montalvo
 
 .. autofunction:: pypop7.benchmarks.base_functions.michalewicz
+
+.. autofunction:: pypop7.benchmarks.base_functions.salomon
