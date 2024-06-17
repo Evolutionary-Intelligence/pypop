@@ -37,3 +37,5 @@ Base Functions
 .. autofunction:: pypop7.benchmarks.base_functions.rastrigin
 
 .. autofunction:: pypop7.benchmarks.base_functions.scaled_rastrigin
+
+.. autofunction:: pypop7.benchmarks.base_functions.skew_rastrigin
