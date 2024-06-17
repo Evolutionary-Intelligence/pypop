@@ -31,3 +31,5 @@ Base Functions
 .. autofunction:: pypop7.benchmarks.base_functions.griewank
 
 .. autofunction:: pypop7.benchmarks.base_functions.bohachevsky
+
+.. autofunction:: pypop7.benchmarks.base_functions.ackley
