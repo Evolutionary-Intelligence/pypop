@@ -188,9 +188,14 @@ class Rosenbrock(BaseFunction):
 
 
 def schwefel12(x):
+    """**Schwefel12** test function.
+
+       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+
+    """
     x = squeeze_and_check(x, True)
     x = [np.sum(x[:i + 1]) for i in range(x.size)]
-    y = np.sum(np.power(x, 2))
+    y = np.sum(np.square(x))
     return y
 
 
