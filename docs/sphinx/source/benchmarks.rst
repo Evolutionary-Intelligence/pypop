@@ -29,3 +29,5 @@ Base Functions
 .. autofunction:: pypop7.benchmarks.base_functions.exponential
 
 .. autofunction:: pypop7.benchmarks.base_functions.griewank
+
+.. autofunction:: pypop7.benchmarks.base_functions.bohachevsky
