@@ -45,3 +45,5 @@ Base Functions
 .. autofunction:: pypop7.benchmarks.base_functions.michalewicz
 
 .. autofunction:: pypop7.benchmarks.base_functions.salomon
+
+.. autofunction:: pypop7.benchmarks.base_functions.shubert
