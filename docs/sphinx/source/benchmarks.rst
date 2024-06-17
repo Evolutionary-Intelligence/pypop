@@ -41,3 +41,5 @@ Base Functions
 .. autofunction:: pypop7.benchmarks.base_functions.skew_rastrigin
 
 .. autofunction:: pypop7.benchmarks.base_functions.levy_montalvo
+
+.. autofunction:: pypop7.benchmarks.base_functions.michalewicz
