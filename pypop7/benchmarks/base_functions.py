@@ -272,8 +272,13 @@ class Ackley(BaseFunction):
 
 
 def rastrigin(x):
+    """**Rastrigin** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
     x = squeeze_and_check(x)
-    y = 10 * x.size + np.sum(np.power(x, 2) - 10 * np.cos(2 * np.pi * x))
+    y = 10.0 * x.size + np.sum(np.square(x) - 10.0 * np.cos(2.0 * np.pi * x))
     return y
 
 
