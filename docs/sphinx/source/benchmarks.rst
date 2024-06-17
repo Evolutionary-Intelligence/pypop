@@ -27,3 +27,5 @@ Base Functions
 .. autofunction:: pypop7.benchmarks.base_functions.schwefel12
 
 .. autofunction:: pypop7.benchmarks.base_functions.exponential
+
+.. autofunction:: pypop7.benchmarks.base_functions.griewank
