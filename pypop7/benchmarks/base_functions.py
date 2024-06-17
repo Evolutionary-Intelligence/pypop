@@ -374,9 +374,14 @@ class Salomon(BaseFunction):
 
 
 def shubert(x):
-    x, y = squeeze_and_check(x), 1
+    """**Shubert** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
+    x, y = squeeze_and_check(x), 1.0
     for i in range(x.size):
-        yy = 0
+        yy = 0.0
         for j in range(1, 6):
             yy += j * np.cos((j + 1) * x[i] + j)
         y *= yy
