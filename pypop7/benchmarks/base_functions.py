@@ -394,6 +394,18 @@ class Shubert(BaseFunction):
 
 
 def schaffer(x):
+    """**Schaffer** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    Parameters
+    ----------
+    x : input vector, `ndarray`.
+
+    Returns
+    -------
+    y : scalar, `float`.
+    """
     x, y = squeeze_and_check(x), 0
     for i in range(x.size - 1):
         xx = np.power(x[i], 2) + np.power(x[i + 1], 2)
@@ -403,4 +415,14 @@ def schaffer(x):
 
 class Schaffer(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return schaffer(x)
