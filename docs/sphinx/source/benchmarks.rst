@@ -1,5 +1,13 @@
-Benchmarking Functions
-======================
+Benchmarking Functions for BBO
+==============================
+
+In this open-source module, we provide a set of benchmarking/test functions which have been commonly used
+in the **black-box/zeroth-order/gradient-free optimization** community.
+
+For a set of 23 benchmarking/test functions, their **base** forms, **shifted/transformed** forms,
+**rotated** forms, and **rotated-shifted** forms have been coded and well-tested. Typically, their
+**rotated-shifted** forms should be employed in **Comparision Experiments** for BBO, in order to
+avoid possible biasness towards certain search points (e.g., the origin) or separability.
 
 Base Functions
 --------------
