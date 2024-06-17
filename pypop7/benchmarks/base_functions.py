@@ -31,7 +31,7 @@ def sphere(x):
     """**Sphere** test function.
 
        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-        
+
     """
     y = np.sum(np.square(squeeze_and_check(x)))
     return y
@@ -46,7 +46,7 @@ def cigar(x):
     """**Cigar** test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
-        
+
     """
     x = np.square(squeeze_and_check(x, True))
     y = x[0] + (10.0 ** 6) * np.sum(x[1:])
@@ -62,7 +62,7 @@ def discus(x):  # also called tablet
     """**Discus** test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
-        
+
     """
     x = np.square(squeeze_and_check(x, True))
     y = (10.0 ** 6) * x[0] + np.sum(x[1:])
@@ -78,7 +78,7 @@ def cigar_discus(x):
     """**Cigar-Discus** test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
-        
+
     """
     x = np.square(squeeze_and_check(x, True))
     if x.size == 2:
@@ -244,8 +244,8 @@ def bohachevsky(x):
     """
     x, y = squeeze_and_check(x), 0
     for i in range(x.size - 1):
-        y += np.square(x[i]) + 2.0 * np.square(x[i + 1]) - 0.3 * np.cos(3.0 * np.pi * x[i]) -\
-            0.4 * np.cos(4.0 * np.pi * x[i + 1]) + 0.7
+        y += np.square(x[i]) + 2.0 * np.square(x[i + 1]) - 0.3 * np.cos(3.0 * np.pi * x[i]) - \
+             0.4 * np.cos(4.0 * np.pi * x[i + 1]) + 0.7
     return y
 
 
@@ -256,9 +256,8 @@ class Bohachevsky(BaseFunction):
 
 def ackley(x):
     x = squeeze_and_check(x)
-    y = -20 * np.exp(-0.2 * np.sqrt(np.sum(np.power(x, 2)) / x.size)) -\
-        np.exp(np.sum(np.cos(2 * np.pi * x)) / x.size) +\
-        20 + np.exp(1)
+    y = -20 * np.exp(-0.2 * np.sqrt(np.sum(np.power(x, 2)) / x.size)) - \
+        np.exp(np.sum(np.cos(2 * np.pi * x)) / x.size) + 20 + np.exp(1)
     return y
 
 
