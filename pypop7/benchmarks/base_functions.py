@@ -237,10 +237,15 @@ class Griewank(BaseFunction):
 
 
 def bohachevsky(x):
+    """**Bohachevsky** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
     x, y = squeeze_and_check(x), 0
     for i in range(x.size - 1):
-        y += np.power(x[i], 2) + 2 * np.power(x[i + 1], 2) -\
-             0.3 * np.cos(3 * np.pi * x[i]) - 0.4 * np.cos(4 * np.pi * x[i + 1]) + 0.7
+        y += np.square(x[i]) + 2.0 * np.square(x[i + 1]) - 0.3 * np.cos(3.0 * np.pi * x[i]) -\
+            0.4 * np.cos(4.0 * np.pi * x[i + 1]) + 0.7
     return y
 
 
