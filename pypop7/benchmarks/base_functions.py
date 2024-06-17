@@ -288,9 +288,14 @@ class Rastrigin(BaseFunction):
 
 
 def scaled_rastrigin(x):
-    x, w = squeeze_and_check(x), np.power(10, np.linspace(0, 1, x.size))
+    """**Scaled-Rastrigin** test function.
+
+       .. note:: It's LaTeX formulation is ``.
+
+    """
+    x, w = squeeze_and_check(x), np.power(10.0, np.linspace(0.0, 1.0, x.size))
     x *= w
-    y = 10 * x.size + np.sum(np.power(x, 2) - 10 * np.cos(2 * np.pi * x))
+    y = 10.0 * x.size + np.sum(np.square(x) - 10.0 * np.cos(2.0 * np.pi * x))
     return y
 
 
