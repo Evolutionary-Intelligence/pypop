@@ -49,6 +49,16 @@ def sphere(x):
 
 class Sphere(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return sphere(x)
 
 
@@ -72,6 +82,16 @@ def cigar(x):
 
 class Cigar(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return cigar(x)
 
 
@@ -95,6 +115,16 @@ def discus(x):  # also called tablet
 
 class Discus(BaseFunction):  # also called Tablet
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return discus(x)
 
 
@@ -121,6 +151,16 @@ def cigar_discus(x):
 
 class CigarDiscus(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return cigar_discus(x)
 
 
@@ -144,6 +184,16 @@ def ellipsoid(x):
 
 class Ellipsoid(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return ellipsoid(x)
 
 
@@ -167,6 +217,16 @@ def different_powers(x):
 
 class DifferentPowers(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return different_powers(x)
 
 
@@ -189,6 +249,16 @@ def schwefel221(x):
 
 class Schwefel221(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return schwefel221(x)
 
 
@@ -211,6 +281,16 @@ def step(x):
 
 class Step(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return step(x)
 
 
@@ -234,6 +314,16 @@ def schwefel222(x):
 
 class Schwefel222(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return schwefel222(x)
 
 
@@ -257,6 +347,16 @@ def rosenbrock(x):
 
 class Rosenbrock(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return rosenbrock(x)
 
 
@@ -281,6 +381,16 @@ def schwefel12(x):
 
 class Schwefel12(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return schwefel12(x)
 
 
@@ -304,6 +414,16 @@ def exponential(x):
 
 class Exponential(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return exponential(x)
 
 
@@ -327,6 +447,16 @@ def griewank(x):
 
 class Griewank(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return griewank(x)
 
 
@@ -352,6 +482,16 @@ def bohachevsky(x):
 
 class Bohachevsky(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return bohachevsky(x)
 
 
@@ -376,6 +516,16 @@ def ackley(x):
 
 class Ackley(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return ackley(x)
 
 
@@ -399,6 +549,16 @@ def rastrigin(x):
 
 class Rastrigin(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return rastrigin(x)
 
 
@@ -423,6 +583,16 @@ def scaled_rastrigin(x):
 
 class ScaledRastrigin(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return scaled_rastrigin(x)
 
 
@@ -449,6 +619,16 @@ def skew_rastrigin(x):
 
 class SkewRastrigin(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return skew_rastrigin(x)
 
 
@@ -474,6 +654,16 @@ def levy_montalvo(x):
 
 class LevyMontalvo(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return levy_montalvo(x)
 
 
@@ -498,6 +688,16 @@ def michalewicz(x):
 
 class Michalewicz(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return michalewicz(x)
 
 
@@ -520,6 +720,16 @@ def salomon(x):
 
 class Salomon(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return salomon(x)
 
 
@@ -547,6 +757,16 @@ def shubert(x):
 
 class Shubert(BaseFunction):
     def __call__(self, x):
+        """
+
+        Parameters
+        ----------
+        x : input vector, `ndarray`.
+
+        Returns
+        -------
+        y : scalar, `float`.
+        """
         return shubert(x)
 
 
