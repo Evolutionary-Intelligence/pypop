@@ -8,10 +8,14 @@ def generate_xyz(func, x, y, num=200):
 
     Parameters
     ----------
-    func : benchmarking function, `func`.
-    x    : x-axis range, `list`.
-    y    : y-axis range, `list`.
-    num  : number of samples in each of x- and y-axis range.
+    func : func
+           benchmarking function.
+    x    : list
+           x-axis range.
+    y    : list
+           y-axis range.
+    num  : int
+           number of samples in each of x- and y-axis range.
 
     Returns
     -------
