@@ -20,11 +20,11 @@ class Cases(object):
         self.ndim = None  # number of dimensionality of all test cases
 
     def make_test_cases(self, ndim=None):
-        """Make multiple test cases for a specific dimension only ranged in [1, 7].
+        """Make multiple test cases for a specific dimension (only ranged in [1, 7]).
 
         .. note:: The number of test cases may be different on different dimensions.
 
-        :param ndim: number of dimensions only ranged in [1, 7], `int`.
+        :param ndim: number of dimensions (only ranged in [1, 7]), `int`.
         :return: `ndarray` of dtype `np.float64`, where each row is a test case.
         """
         self.ndim = ndim
@@ -80,14 +80,14 @@ class Cases(object):
                  [-7, 6, 5, 4, 3, 2, -1],
                  [0, 1, 2, 3, 4, 5, 6]]
         else:
-            raise TypeError('The number of dimensions should >= 1 and <= 7.')
+            raise TypeError('Number of dimensions should >= 1 and <= 7.')
         return np.array(x, dtype=np.float64)  # `ndarray` should be of dtype `np.float64`
 
     def compare(self, func, ndim, y_true, shift_vector=None, rotation_matrix=None, atol=1e-3):
         """Compare true function values with these returned by the used benchmark function.
 
         :param func: benchmarking function, `func`.
-        :param ndim: number of dimensions only ranged in [1, 7], `int`.
+        :param ndim: number of dimensions (only ranged in [1, 7]), `int`.
         :param y_true: `ndarray`, where each element is the true function value of the corresponding test case.
         :param shift_vector: shift vector, `ndarray`.
         :param rotation_matrix: rotation matrix, `ndarray`.
@@ -108,13 +108,13 @@ class Cases(object):
         return np.allclose(y, y_true, atol=atol)
 
     def check_origin(self, func, n_samples=7):
-        """Check the origin point at which the function value is zero via random sampling (test cases).
+        """Check the origin point of which the function value is zero via random sampling (test cases).
 
         :param func: benchmarking function, `func`.
         :param n_samples: number of samples, `int`.
         :return: `True` if all function values computed on test cases are zeros, otherwise `False`; `bool`.
         """
-        # `7` or `77` is just the **egg** of this library
+        # note that here `7` or `77` is just the **egg** of this open-source Python library
         ndims = np.random.default_rng(77).integers(2, 100, size=(n_samples,))
         self.ndim = ndims
         is_zero = True
@@ -131,7 +131,7 @@ class Cases(object):
         return is_zero
 
 
-# expected (true) function values for test cases given in class Cases
+# expected (true) function values for test cases given in Cases class
 def get_y_sphere(ndim):
     y = [[4, 1, 0, 1, 4],
          [8, 2, 0, 2, 8],
