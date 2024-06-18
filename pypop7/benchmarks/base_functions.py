@@ -55,11 +55,13 @@ class Sphere(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return sphere(x)
 
@@ -71,11 +73,13 @@ def cigar(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = np.square(squeeze_and_check(x, True))
     y = x[0] + (10.0 ** 6) * np.sum(x[1:])
@@ -88,11 +92,13 @@ class Cigar(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return cigar(x)
 
@@ -104,11 +110,13 @@ def discus(x):  # also called tablet
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = np.square(squeeze_and_check(x, True))
     y = (10.0 ** 6) * x[0] + np.sum(x[1:])
@@ -121,11 +129,13 @@ class Discus(BaseFunction):  # also called Tablet
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return discus(x)
 
@@ -137,11 +147,13 @@ def cigar_discus(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = np.square(squeeze_and_check(x, True))
     if x.size == 2:
@@ -157,11 +169,13 @@ class CigarDiscus(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return cigar_discus(x)
 
@@ -173,11 +187,13 @@ def ellipsoid(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = np.square(squeeze_and_check(x, True))
     y = np.dot(np.power(10.0, 6.0 * np.linspace(0.0, 1.0, x.size)), x)
@@ -190,11 +206,13 @@ class Ellipsoid(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return ellipsoid(x)
 
@@ -206,11 +224,13 @@ def different_powers(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = np.abs(squeeze_and_check(x, True))
     y = np.sum(np.power(x, 2.0 + 4.0 * np.linspace(0.0, 1.0, x.size)))
@@ -223,11 +243,13 @@ class DifferentPowers(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return different_powers(x)
 
@@ -239,11 +261,13 @@ def schwefel221(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     y = np.max(np.abs(squeeze_and_check(x)))
     return y
@@ -255,11 +279,13 @@ class Schwefel221(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return schwefel221(x)
 
@@ -271,11 +297,13 @@ def step(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     y = np.sum(np.square(np.floor(squeeze_and_check(x) + 0.5)))
     return y
@@ -287,11 +315,13 @@ class Step(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return step(x)
 
@@ -303,11 +333,13 @@ def schwefel222(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = np.abs(squeeze_and_check(x))
     y = np.sum(x) + np.prod(x)
@@ -320,11 +352,13 @@ class Schwefel222(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return schwefel222(x)
 
@@ -336,11 +370,13 @@ def rosenbrock(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = squeeze_and_check(x, True)
     y = 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
@@ -353,11 +389,13 @@ class Rosenbrock(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return rosenbrock(x)
 
@@ -369,11 +407,13 @@ def schwefel12(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = squeeze_and_check(x, True)
     x = [np.sum(x[:i + 1]) for i in range(x.size)]
@@ -387,11 +427,13 @@ class Schwefel12(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return schwefel12(x)
 
@@ -403,11 +445,13 @@ def exponential(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = squeeze_and_check(x)
     y = -np.exp(-0.5 * np.sum(np.square(x)))
@@ -420,11 +464,13 @@ class Exponential(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return exponential(x)
 
@@ -436,11 +482,13 @@ def griewank(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = squeeze_and_check(x)
     y = np.sum(np.square(x)) / 4000.0 - np.prod(np.cos(x / np.sqrt(np.arange(1, x.size + 1)))) + 1.0
@@ -453,11 +501,13 @@ class Griewank(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return griewank(x)
 
@@ -469,11 +519,13 @@ def bohachevsky(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x, y = squeeze_and_check(x), 0.0
     for i in range(x.size - 1):
@@ -488,11 +540,13 @@ class Bohachevsky(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return bohachevsky(x)
 
@@ -504,11 +558,13 @@ def ackley(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = squeeze_and_check(x)
     y = -20.0 * np.exp(-0.2 * np.sqrt(np.sum(np.square(x)) / x.size)) - \
@@ -522,11 +578,13 @@ class Ackley(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return ackley(x)
 
@@ -538,11 +596,13 @@ def rastrigin(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = squeeze_and_check(x)
     y = 10.0 * x.size + np.sum(np.square(x) - 10.0 * np.cos(2.0 * np.pi * x))
@@ -555,11 +615,13 @@ class Rastrigin(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return rastrigin(x)
 
@@ -571,11 +633,13 @@ def scaled_rastrigin(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x, w = squeeze_and_check(x), np.power(10.0, np.linspace(0.0, 1.0, x.size))
     x *= w
@@ -589,11 +653,13 @@ class ScaledRastrigin(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return scaled_rastrigin(x)
 
@@ -605,11 +671,13 @@ def skew_rastrigin(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = squeeze_and_check(x)
     for i in range(x.size):
@@ -625,11 +693,13 @@ class SkewRastrigin(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return skew_rastrigin(x)
 
@@ -641,11 +711,13 @@ def levy_montalvo(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x, y = 1.0 + 0.25 * (squeeze_and_check(x) + 1.0), 0.0
     for i in range(x.size - 1):
@@ -660,11 +732,13 @@ class LevyMontalvo(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return levy_montalvo(x)
 
@@ -676,11 +750,13 @@ def michalewicz(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x, y = squeeze_and_check(x), 0.0
     for i in range(x.size):
@@ -694,11 +770,13 @@ class Michalewicz(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return michalewicz(x)
 
@@ -710,11 +788,13 @@ def salomon(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x = np.sqrt(np.sum(np.square(squeeze_and_check(x))))
     return 1.0 - np.cos(2.0 * np.pi * x) + 0.1 * x
@@ -726,11 +806,13 @@ class Salomon(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return salomon(x)
 
@@ -742,11 +824,13 @@ def shubert(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x, y = squeeze_and_check(x), 1.0
     for i in range(x.size):
@@ -763,11 +847,13 @@ class Shubert(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return shubert(x)
 
@@ -779,11 +865,13 @@ def schaffer(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        scalar fitness.
     """
     x, y = squeeze_and_check(x), 0
     for i in range(x.size - 1):
@@ -798,10 +886,12 @@ class Schaffer(BaseFunction):
 
         Parameters
         ----------
-        x : input vector, `ndarray`.
-
+        x : ndarray
+            input vector.
+    
         Returns
         -------
-        y : scalar, `float`.
+        y : float
+            scalar fitness.
         """
         return schaffer(x)
