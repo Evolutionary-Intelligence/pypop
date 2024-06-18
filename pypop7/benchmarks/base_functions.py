@@ -43,7 +43,7 @@ def sphere(x):
     Returns
     -------
     y : float
-        scalar.
+        scalar fitness.
     """
     y = np.sum(np.square(squeeze_and_check(x)))
     return y
