@@ -79,8 +79,11 @@ Rotated Forms
 Rotated-Shifted Forms
 ---------------------
 
-Test Classes
-------------
+Test Classes and Data
+---------------------
+
+Here we provide a set of test classes and test data for benchmarking functions.
+Note that these are used only for the *testing* purpose.
 
 .. autoclass:: pypop7.benchmarks.cases.Cases
    :members:
