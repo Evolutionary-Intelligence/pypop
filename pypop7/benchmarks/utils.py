@@ -1,9 +1,23 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 import matplotlib.pyplot as plt
 
 
-# helper function
+# helper function for 2D-plotting
 def generate_xyz(func, x, y, num=200):
+    """
+
+    Parameters
+    ----------
+    func : benchmarking function, `func`.
+    x    : x-axis range, `list`.
+    y    : y-axis range, `list`.
+    num  : number of samples in each of x- and y-axis range.
+
+    Returns
+    -------
+    A (x, y, z) tuple where x, y, and z are data points in
+    x-axis, y-axis, and function values, respectively.
+    """
     x, y = np.array(x), np.array(y)
     if x.size == 2:
         x = np.linspace(x[0], x[1], num)
@@ -17,7 +31,23 @@ def generate_xyz(func, x, y, num=200):
     return x, y, z
 
 
+# helper function for 2D-plotting
 def plot_contour(func, x, y, levels=None, num=200, is_save=False):
+    """
+
+    Parameters
+    ----------
+    func
+    x
+    y
+    levels
+    num
+    is_save
+
+    Returns
+    -------
+
+    """
     x, y, z = generate_xyz(func, x, y, num)
     if levels is None:
         plt.contourf(x, y, z, cmap='cool')
