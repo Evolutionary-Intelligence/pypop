@@ -72,3 +72,9 @@ Base Functions
 
 Shifted/Transformed Forms
 -------------------------
+
+Rotated Forms
+-------------
+
+Rotated-Shifted Forms
+---------------------
