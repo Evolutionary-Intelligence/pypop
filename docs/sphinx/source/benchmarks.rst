@@ -78,3 +78,8 @@ Rotated Forms
 
 Rotated-Shifted Forms
 ---------------------
+
+Test Classes
+------------
+
+.. autoclass:: pypop7.benchmarks.cases.Cases
