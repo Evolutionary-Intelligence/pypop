@@ -117,6 +117,7 @@ in this *increasingly popular* open-source Python library.
    bo/bo
    bbo
    benchmarks
+   utils
    development-guide
    software-summary
    applications
