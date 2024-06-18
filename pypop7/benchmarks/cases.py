@@ -1,3 +1,5 @@
+"""Only for the testing purpose.
+"""
 import numpy as np  # engine for numerical computing
 
 from pypop7.benchmarks.shifted_functions import generate_shift_vector, load_shift_vector
