@@ -133,6 +133,7 @@ class Cases(object):
 
 # expected (true) function values for test cases given in Cases class
 def get_y_sphere(ndim):
+    """Get test data for **Sphere** test function."""
     y = [[4, 1, 0, 1, 4],
          [8, 2, 0, 2, 8],
          [12, 3, 0, 3, 12],
