@@ -38,41 +38,41 @@ class LMMAES(ES):
 
     Examples
     --------
-    Use the optimizer `LMMAES` to minimize the well-known test function
+    Use the black-box optimizer `LMMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.lmmaes import LMMAES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 200,
        ...            'lower_boundary': -5.0*numpy.ones((200,)),
        ...            'upper_boundary': 5.0*numpy.ones((200,))}
-       >>> options = {'max_function_evaluations': 500000,  # set optimizer options
+       >>> options = {'max_function_evaluations': 500000,  # to set optimizer options
        ...            'seed_rng': 0,
        ...            'mean': 3.0*numpy.ones((200,)),
-       ...            'sigma': 0.1,  # the global step-size may need to be tuned for better performance
-       ...            'is_restart': False}
-       >>> lmmaes = LMMAES(problem, options)  # initialize the optimizer class
-       >>> results = lmmaes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       >>> lmmaes = LMMAES(problem, options)  # to initialize the optimizer class
+       >>> results = lmmaes.optimize()  # to run the optimization/evolution process
        >>> print(f"LMMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       LMMAES: 500000, 1.0745854362945823e-06
+       LMMAES: 500000, 78.4967
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/4pttkpmc>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmmaes.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_lmmaes.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_lmmaes.py>`_.
 
     Attributes
     ----------
     c_s               : `float`
-                        learning rate of evolution path update.
+                        learning rate of evolution-path update (should `> 0.0`).
     mean              : `array_like`
                         initial (starting) point, aka mean of Gaussian search distribution.
     n_evolution_paths : `int`
-                        number of evolution paths.
+                        number of evolution paths (should `> 1`).
     n_individuals     : `int`
                         number of offspring, aka offspring population size.
     n_parents         : `int`
@@ -87,7 +87,7 @@ class LMMAES(ES):
     <https://ieeexplore.ieee.org/abstract/document/8410043>`_
     IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
 
-    See the official Python version from Prof. Glasmachers:
+    Please refer to the *official* Python version from Prof. Glasmachers:
     https://www.ini.rub.de/upload/editor/file/1604950981_dc3a4459a4160b48d51e/lmmaes.py
     """
     def __init__(self, problem, options):
