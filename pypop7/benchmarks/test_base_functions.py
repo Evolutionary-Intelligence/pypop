@@ -1,6 +1,10 @@
+"""Online documentation:
+    https://pypop.readthedocs.io/en/latest/benchmarks.html
+"""
 import unittest
 
 from pypop7.benchmarks.base_functions import *
+# test the correctness of benchmarking functions via sampling (test cases)
 from pypop7.benchmarks.cases import *
 
 
