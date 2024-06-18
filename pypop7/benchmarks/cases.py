@@ -10,14 +10,14 @@ class Cases(object):
     """Test the correctness of benchmarking functions via sampling (test cases).
     """
     def __init__(self, is_shifted=False, is_rotated=False):
-        """Initialize the settings of test cases for benchmarking function with or without
-           the shift and/or rotation operation.
-        :param is_shifted: whether or not to generate data for shift, `bool`.
+        """Initialize the settings of test cases for the benchmarking function with or
+           without the shift and/or rotation operation.
+        :param is_shifted: whether or not to generate data for shift/transform, `bool`.
         :param is_rotated: whether or not to generate data for rotation, `bool`.
         """
         self.is_shifted = is_shifted  # whether or not to generate data for shift
         self.is_rotated = is_rotated  # whether or not to generate data for rotation
-        self.ndim = None  # number of dimensionality of the test cases
+        self.ndim = None  # number of dimensionality of all test cases
 
     def make_test_cases(self, ndim=None):
         """Make multiple test cases for a specific dimension only ranged in [1, 7].
