@@ -83,3 +83,4 @@ Test Classes
 ------------
 
 .. autoclass:: pypop7.benchmarks.cases.Cases
+   :members:
