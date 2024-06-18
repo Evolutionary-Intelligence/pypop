@@ -56,7 +56,7 @@ def cigar(x):
     """**Cigar** test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -64,7 +64,6 @@ def cigar(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = np.square(squeeze_and_check(x, True))
     y = x[0] + (10.0 ** 6) * np.sum(x[1:])
@@ -80,7 +79,7 @@ def discus(x):  # also called tablet
     """**Discus** test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -88,7 +87,6 @@ def discus(x):  # also called tablet
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = np.square(squeeze_and_check(x, True))
     y = (10.0 ** 6) * x[0] + np.sum(x[1:])
@@ -104,7 +102,7 @@ def cigar_discus(x):
     """**Cigar-Discus** test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -112,7 +110,6 @@ def cigar_discus(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = np.square(squeeze_and_check(x, True))
     if x.size == 2:
@@ -131,7 +128,7 @@ def ellipsoid(x):
     """**Ellipsoid** test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -139,7 +136,6 @@ def ellipsoid(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = np.square(squeeze_and_check(x, True))
     y = np.dot(np.power(10.0, 6.0 * np.linspace(0.0, 1.0, x.size)), x)
@@ -155,7 +151,7 @@ def different_powers(x):
     """**Different-Powers** test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -163,7 +159,6 @@ def different_powers(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = np.abs(squeeze_and_check(x, True))
     y = np.sum(np.power(x, 2.0 + 4.0 * np.linspace(0.0, 1.0, x.size)))
@@ -179,7 +174,7 @@ def schwefel221(x):
     """**Schwefel221** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -187,7 +182,6 @@ def schwefel221(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     y = np.max(np.abs(squeeze_and_check(x)))
     return y
@@ -203,6 +197,13 @@ def step(x):
 
        .. note:: It's LaTeX formulation is ``.
 
+    Parameters
+    ----------
+    x : input vector, `ndarray`.
+
+    Returns
+    -------
+    y : scalar, `float`.
     """
     y = np.sum(np.square(np.floor(squeeze_and_check(x) + 0.5)))
     return y
@@ -217,7 +218,7 @@ def schwefel222(x):
     """**Schwefel222** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -225,7 +226,6 @@ def schwefel222(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = np.abs(squeeze_and_check(x))
     y = np.sum(x) + np.prod(x)
@@ -241,7 +241,7 @@ def rosenbrock(x):
     """**Rosenbrock** test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -249,7 +249,6 @@ def rosenbrock(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = squeeze_and_check(x, True)
     y = 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
@@ -265,7 +264,7 @@ def schwefel12(x):
     """**Schwefel12** test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -273,7 +272,6 @@ def schwefel12(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = squeeze_and_check(x, True)
     x = [np.sum(x[:i + 1]) for i in range(x.size)]
@@ -290,7 +288,7 @@ def exponential(x):
     """**Exponential** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -298,7 +296,6 @@ def exponential(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = squeeze_and_check(x)
     y = -np.exp(-0.5 * np.sum(np.square(x)))
@@ -314,7 +311,7 @@ def griewank(x):
     """**Griewank** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -322,7 +319,6 @@ def griewank(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = squeeze_and_check(x)
     y = np.sum(np.square(x)) / 4000.0 - np.prod(np.cos(x / np.sqrt(np.arange(1, x.size + 1)))) + 1.0
@@ -338,7 +334,7 @@ def bohachevsky(x):
     """**Bohachevsky** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -346,7 +342,6 @@ def bohachevsky(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x, y = squeeze_and_check(x), 0.0
     for i in range(x.size - 1):
@@ -364,7 +359,7 @@ def ackley(x):
     """**Ackley** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -372,7 +367,6 @@ def ackley(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = squeeze_and_check(x)
     y = -20.0 * np.exp(-0.2 * np.sqrt(np.sum(np.square(x)) / x.size)) - \
@@ -389,7 +383,7 @@ def rastrigin(x):
     """**Rastrigin** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -397,7 +391,6 @@ def rastrigin(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = squeeze_and_check(x)
     y = 10.0 * x.size + np.sum(np.square(x) - 10.0 * np.cos(2.0 * np.pi * x))
@@ -413,7 +406,7 @@ def scaled_rastrigin(x):
     """**Scaled-Rastrigin** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -421,7 +414,6 @@ def scaled_rastrigin(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x, w = squeeze_and_check(x), np.power(10.0, np.linspace(0.0, 1.0, x.size))
     x *= w
@@ -438,7 +430,7 @@ def skew_rastrigin(x):
     """**Skew-Rastrigin** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -446,7 +438,6 @@ def skew_rastrigin(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = squeeze_and_check(x)
     for i in range(x.size):
@@ -465,7 +456,7 @@ def levy_montalvo(x):
     """**Levy-Montalvo** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -473,7 +464,6 @@ def levy_montalvo(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x, y = 1.0 + 0.25 * (squeeze_and_check(x) + 1.0), 0.0
     for i in range(x.size - 1):
@@ -491,7 +481,7 @@ def michalewicz(x):
     """**Michalewicz** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -499,7 +489,6 @@ def michalewicz(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x, y = squeeze_and_check(x), 0.0
     for i in range(x.size):
@@ -516,7 +505,7 @@ def salomon(x):
     """**Salomon** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -524,7 +513,6 @@ def salomon(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x = np.sqrt(np.sum(np.square(squeeze_and_check(x))))
     return 1.0 - np.cos(2.0 * np.pi * x) + 0.1 * x
@@ -539,7 +527,7 @@ def shubert(x):
     """**Shubert** test function.
 
        .. note:: It's LaTeX formulation is ``.
-       
+
     Parameters
     ----------
     x : input vector, `ndarray`.
@@ -547,7 +535,6 @@ def shubert(x):
     Returns
     -------
     y : scalar, `float`.
-    
     """
     x, y = squeeze_and_check(x), 1.0
     for i in range(x.size):
