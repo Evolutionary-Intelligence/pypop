@@ -1,4 +1,4 @@
-"""Online documentation:
+"""Only for the testing purpose. Online documentation:
     https://pypop.readthedocs.io/en/latest/benchmarks.html
 """
 import unittest
