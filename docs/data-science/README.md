@@ -4,6 +4,7 @@
 
 * **README.md**: Base information for this subfolder
 * **CNAE-9.data**: An open-access dataset downloaded from https://doi.org/10.24432/C51G7P
+* **madelon_train.data**: An open-access dataset downloaded from https://doi.org/10.24432/C5602H
 
 ## All Data of Optimization Results on Black-Box Classification
 
