@@ -11,6 +11,9 @@ For a set of 23 benchmarking/test functions, their **base** forms, **shifted/tra
 **rotated-shifted** forms should be employed in **Comparision Experiments** for BBO, in order to
 avoid possible biasness towards certain search points (e.g., the origin) or separability.
 
+Checking of Coding Correctness
+------------------------------
+
 For all testing code, please refer to the following links for all details:
 
 * `for base forms <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/benchmarks/test_base_functions.py>`_
