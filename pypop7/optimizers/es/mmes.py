@@ -65,8 +65,10 @@ class MMES(ES):
        >>> print(f"MMES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        MMES: 500000, 2.6018
 
-    For its correctness checking of coding, please refer to `this code-based repeatability report
-    <https://tinyurl.com/3ym72w5m>`_ for all details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_mmes.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_mmes.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_mmes.py>`_.
 
     Attributes
     ----------
