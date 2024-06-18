@@ -6,10 +6,11 @@ from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strate
 class LMCMA(ES):
     """Limited-Memory Covariance Matrix Adaptation (LMCMA).
 
-    .. note:: Currently `LMCMA` is a **State-Of-The-Art (SOTA)** variant of `CMA-ES` designed especially for large-scale
-       black-box optimization. Inspired by `L-BFGS` (a well-established *second-order* gradient-based optimizer),
-       it stores only *m* direction vectors to reconstruct the covariance matirx on-the-fly, resulting in **O(mn)**
-       time complexity w.r.t. each sampling, where *m=O(log(n))* and *n* is the dimensionality of objective function.
+    .. note:: Currently `LMCMA` is one of **State-Of-The-Art (SOTA)** variants of `CMA-ES` designed especially for
+       large-scale black-box optimization. Inspired by `L-BFGS` (a well-established *second-order* gradient-based
+       optimizer), it stores only *m* direction vectors to reconstruct the covariance matirx on-the-fly, resulting
+       in **O(mn)** time complexity w.r.t. each sampling, where often *m=O(log(n))* and *n* is the dimensionality
+       of objective function.
 
     Parameters
     ----------
