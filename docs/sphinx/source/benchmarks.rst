@@ -89,3 +89,5 @@ Note that these are used only for the *testing* purpose.
    :members:
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_sphere
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_cigar
