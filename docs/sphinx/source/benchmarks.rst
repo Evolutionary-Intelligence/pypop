@@ -87,3 +87,5 @@ Note that these are used only for the *testing* purpose.
 
 .. autoclass:: pypop7.benchmarks.cases.Cases
    :members:
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_sphere
