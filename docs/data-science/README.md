@@ -3,8 +3,11 @@
 ## Organization Structure of All Files/Folders
 
 * **README.md**: Base information for this subfolder
-* **CNAE-9.data**: An open-access dataset downloaded from https://doi.org/10.24432/C51G7P
-* **madelon_train.data**: An open-access dataset downloaded from https://doi.org/10.24432/C5602H
+* **CNAE-9.data**: An open-access dataset downloaded from [https://doi.org/10.24432/C51G7P](https://doi.org/10.24432/C51G7P)
+* **madelon_train.data** + **madelon_train.labels**: An open-access dataset downloaded from [https://doi.org/10.24432/C5602H](https://doi.org/10.24432/C5602H)
+* **pd_speech_features.csv**: An open-access dataset downloaded from [https://doi.org/10.24432/C5MS4X](https://doi.org/10.24432/C5MS4X)
+* **qsar_androgen_receptor.csv**: An open-access dataset downloaded from [https://doi.org/10.24432/C53317](https://doi.org/10.24432/C53317)
+* **semeion.data**: An open-access dataset downloaded from [https://doi.org/10.24432/C5SC8V](https://doi.org/10.24432/C5SC8V)
 
 ## All Data of Optimization Results on Black-Box Classification
 
