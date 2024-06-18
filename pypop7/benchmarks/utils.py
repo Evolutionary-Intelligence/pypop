@@ -15,8 +15,9 @@ def generate_xyz(func, x, y, num=200):
 
     Returns
     -------
-    A (x, y, z) tuple where x, y, and z are data points in
-    x-axis, y-axis, and function values, respectively.
+    tuple
+        A (x, y, z) tuple where x, y, and z are data points in
+        x-axis, y-axis, and function values, respectively.
     """
     x, y = np.array(x), np.array(y)
     if x.size == 2:
