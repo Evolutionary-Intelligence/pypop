@@ -103,7 +103,7 @@ class LMCMAES(ES):
     <https://dl.acm.org/doi/abs/10.1145/2576768.2598294>`_
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 397-404). ACM.
 
-    Please refer to the official C++ version from Loshchilov:
+    Please refer to the *official* C++ version from Loshchilov:
     https://sites.google.com/site/lmcmaeses/
     """
     def __init__(self, problem, options):
