@@ -37,11 +37,13 @@ def sphere(x):
 
     Parameters
     ----------
-    x : input vector, `ndarray`.
+    x : ndarray
+        input vector.
 
     Returns
     -------
-    y : scalar, `float`.
+    y : float
+        A scalar.
     """
     y = np.sum(np.square(squeeze_and_check(x)))
     return y
