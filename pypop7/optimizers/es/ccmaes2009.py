@@ -33,7 +33,7 @@ class CCMAES2009(ES):
 
     Examples
     --------
-    Use the optimizer `CCMAES2009` to minimize the well-known test function
+    Use the black-box optimizer `CCMAES2009` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
