@@ -57,9 +57,9 @@ class OPOA2010(OPOC2009):
     References
     ----------
     Arnold, D.V. and Hansen, N., 2010, July.
-    Active covariance matrix adaptation for the (1+1)-CMA-ES.
+    `Active covariance matrix adaptation for the (1+1)-CMA-ES.
+    <https://dl.acm.org/doi/abs/10.1145/1830483.1830556>`_
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 385-392). ACM.
-    https://dl.acm.org/doi/abs/10.1145/1830483.1830556
     """
     def __init__(self, problem, options):
         OPOC2009.__init__(self, problem, options)
