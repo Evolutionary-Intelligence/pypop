@@ -57,4 +57,4 @@ __all__ = [ES,  # Evolution Strategies [1964-1965]
            RMES,  # Rank-M Evolution Strategy
            LMMAES,  # Limited-Memory Matrix Adaptation Evolution Strategy
            FCMAES,  # Fast Covariance Matrix Adaptation Evolution Strategy
-           MMES]  # Mixture Model-based Evolution Strategy
+           MMES]  # Mixture Model-based Evolution Strategy [2021]
