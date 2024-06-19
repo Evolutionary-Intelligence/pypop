@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.opoc2009 import OPOC2009
+from pypop7.optimizers.es.opoc2009 import OPOC2009  # (1+1)-Cholesky-CMA-ES 2009
 
 
 class OPOA2010(OPOC2009):
