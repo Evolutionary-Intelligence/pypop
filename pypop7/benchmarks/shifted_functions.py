@@ -61,7 +61,7 @@ def load_shift_vector(func, x, shift_vector=None):
 def sphere(x, shift_vector=None):
     """**Sphere** test function.
 
-           .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
 
     Parameters
     ----------
