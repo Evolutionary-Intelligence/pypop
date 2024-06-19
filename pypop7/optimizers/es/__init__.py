@@ -54,5 +54,5 @@ __all__ = [ES,  # Evolution Strategies [1964-1965]
            LMCMA,  # Limited-Memory Covariance Matrix Adaptation
            R1ES,  # Rank-One Evolution Strategy
            RMES,  # Rank-M Evolution Strategy
-           LMMAES,  # Limited-Memory Matrix Adaptation Evolution Strategy
+           LMMAES,  # Limited-Memory Matrix Adaptation Evolution Strategy [2019]
            MMES]  # Mixture Model-based Evolution Strategy [2021]
