@@ -73,21 +73,23 @@ class VKDCMA(ES):
     References
     ----------
     Akimoto, Y. and Hansen, N., 2016, September.
-    Online model selection for restricted covariance matrix adaptation.
+    `Online model selection for restricted covariance matrix adaptation.
+    <https://link.springer.com/chapter/10.1007/978-3-319-45823-6_1>`_
     In Parallel Problem Solving from Nature. Springer International Publishing.
-    https://link.springer.com/chapter/10.1007/978-3-319-45823-6_1
 
     Akimoto, Y. and Hansen, N., 2016, July.
-    Projection-based restricted covariance matrix adaptation for high dimension.
+    `Projection-based restricted covariance matrix adaptation for high dimension.
+    <https://dl.acm.org/doi/abs/10.1145/2908812.2908863>`_
     In Proceedings of Annual Genetic and Evolutionary Computation Conference 2016 (pp. 197-204). ACM.
-    https://dl.acm.org/doi/abs/10.1145/2908812.2908863
 
     Akimoto, Y., Nagata, Y., Ono, I. and Kobayashi, S., 2012.
-    Theoretical foundation for CMA-ES from information geometry perspective.
+    `Theoretical foundation for CMA-ES from information geometry perspective.
+    <https://doi.org/10.1007/s00453-011-9564-8>`_
     Algorithmica, 64, pp.698-716.
 
     Akimoto, Y., Nagata, Y., Ono, I. and Kobayashi, S., 2010.
-    Bidirectional relation between CMA evolution strategies and natural evolution strategies.
+    `Bidirectional relation between CMA evolution strategies and natural evolution strategies.
+    <https://doi.org/10.1007/978-3-642-15844-5_16>`_
     In International Conference on Parallel Problem Solving from Nature (pp. 154-163). Springer Berlin Heidelberg.
 
     See the official Python version from Prof. Akimoto:
