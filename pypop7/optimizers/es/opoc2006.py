@@ -6,6 +6,11 @@ from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strate
 class OPOC2006(ES):
     """(1+1)-Cholesky-CMA-ES 2006 (OPOC2006).
 
+       .. note:: To avoid the computationally expensive eigen-decomposition operation, `OPOC2006` uses the
+          **Cholesky decomposition** with a *quadratic* time complexity as an alternative. It is **highly
+          recommended** to first attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale
+          black-box optimization.
+
     Parameters
     ----------
     problem : `dict`
@@ -48,7 +53,7 @@ class OPOC2006(ES):
        >>> opoc2006 = OPOC2006(problem, options)  # to initialize the optimizer class
        >>> results = opoc2006.optimize()  # to run the optimization/evolution process
        >>> print(f"OPOC2006: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       OPOC2006: 5000, 8.91507e-17
+       OPOC2006: 5000, 8.9150e-17
 
     For its correctness checking of Python coding, please refer to `this code-based repeatability report
     <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_opoc2006.py>`_
