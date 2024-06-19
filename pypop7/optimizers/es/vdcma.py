@@ -73,16 +73,18 @@ class VDCMA(ES):
     References
     ----------
     Akimoto, Y., Auger, A. and Hansen, N., 2014, July.
-    Comparison-based natural gradient optimization in high dimension.
+    `Comparison-based natural gradient optimization in high dimension.
+    <https://dl.acm.org/doi/abs/10.1145/2576768.2598258>`_
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 373-380). ACM.
-    https://dl.acm.org/doi/abs/10.1145/2576768.2598258
 
     Akimoto, Y., Nagata, Y., Ono, I. and Kobayashi, S., 2012.
-    Theoretical foundation for CMA-ES from information geometry perspective.
+    `Theoretical foundation for CMA-ES from information geometry perspective.
+    <https://doi.org/10.1007/s00453-011-9564-8>`_
     Algorithmica, 64, pp.698-716.
     
     Akimoto, Y., Nagata, Y., Ono, I. and Kobayashi, S., 2010.
-    Bidirectional relation between CMA evolution strategies and natural evolution strategies.
+    `Bidirectional relation between CMA evolution strategies and natural evolution strategies.
+    <https://doi.org/10.1007/978-3-642-15844-5_16>`_
     In International Conference on Parallel Problem Solving from Nature (pp. 154-163). Springer Berlin Heidelberg.
 
     See the official Python version from Prof. Akimoto:
