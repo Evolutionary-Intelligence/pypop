@@ -46,12 +46,12 @@ class CCMAES2016(ES):
        >>> from pypop7.optimizers.es.ccmaes2016 import CCMAES2016
        >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # global step-size may need to be fine-tuned for better performance
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
        >>> ccmaes2016 = CCMAES2016(problem, options)  # to initialize the optimizer class
        >>> results = ccmaes2016.optimize()  # to run the optimization/evolution process
        >>> print(f"CCMAES2016: {results['n_function_evaluations']}, {results['best_so_far_y']}")
