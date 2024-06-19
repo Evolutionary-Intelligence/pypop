@@ -7,10 +7,10 @@ class LMCMA(ES):
     """Limited-Memory Covariance Matrix Adaptation (LMCMA).
 
     .. note:: Currently `LMCMA` is one of **State-Of-The-Art (SOTA)** variants of `CMA-ES` designed especially for
-       large-scale black-box optimization. Inspired by `L-BFGS` (a well-established *second-order* gradient-based
-       optimizer), it stores only *m* direction vectors to reconstruct the covariance matirx on-the-fly, resulting
-       in **O(mn)** time complexity w.r.t. each sampling, where often *m=O(log(n))* and *n* is the dimensionality
-       of objective function.
+       large-scale black-box optimization. Inspired by a well-established gradient-based optimizer called `L-BFGS
+       <https://link.springer.com/article/10.1007/BF01589116>`_, it stores only *m* direction vectors to reconstruct
+       the covariance matirx on-the-fly, resulting in **O(mn)** time complexity w.r.t. each sampling, where often
+       *m=O(log(n))* and *n* is the dimensionality of objective function.
 
     Parameters
     ----------
@@ -59,26 +59,27 @@ class LMCMA(ES):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.lmcma import LMCMA
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 1000,
-       ...            'lower_boundary': -5*numpy.ones((1000,)),
-       ...            'upper_boundary': 5*numpy.ones((1000,))}
-       >>> options = {'max_function_evaluations': 1e5*1000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((1000,)),
+       ...            'upper_boundary': 5.0*numpy.ones((1000,))}
+       >>> options = {'max_function_evaluations': 1e5*1000,  # to set optimizer options
        ...            'fitness_threshold': 1e-8,
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((1000,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> lmcma = LMCMA(problem, options)  # initialize the optimizer class
-       >>> results = lmcma.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((1000,)),
+       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       >>> lmcma = LMCMA(problem, options)  # to initialize the optimizer class
+       >>> results = lmcma.optimize()  # to run the optimization/evolution process
        >>> print(f"LMCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       LMCMA: 2482983, 9.998653039116044e-09
+       
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/24jnfhbs>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcma.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_lmcma.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_test_lmcma.py>`_.
 
     Attributes
     ----------
