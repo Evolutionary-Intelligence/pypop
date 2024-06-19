@@ -39,20 +39,19 @@ class CCMAES2009(ES):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.ccmaes2009 import CCMAES2009
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> ccmaes2009 = CCMAES2009(problem, options)  # initialize the optimizer class
-       >>> results = ccmaes2009.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       >>> ccmaes2009 = CCMAES2009(problem, options)  # to initialize the optimizer class
+       >>> results = ccmaes2009.optimize()  # to run the optimization/evolution process
        >>> print(f"CCMAES2009: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        CCMAES2009: 5000, 5.74495131488279e-17
 
