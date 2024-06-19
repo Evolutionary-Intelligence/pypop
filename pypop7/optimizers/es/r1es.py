@@ -6,10 +6,11 @@ from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strate
 class R1ES(ES):
     """Rank-One Evolution Strategy (R1ES).
 
-    .. note:: `R1ES` is a **low-rank** version of `CMA-ES` specifically designed for large-scale black-box optimization
-       (LSBBO) by Li and `Zhang <https://tinyurl.com/32hsbx28>`_. It often works well when there is a *dominated* search
-       direction embedded in a subspace. For more complex landscapes (e.g., there are multiple promising search
-       directions), other LSBBO variants (e.g., `RMES`, `LMCMA`, `LMMAES`) of `CMA-ES` may be more preferred.
+    .. note:: `R1ES` is a **low-rank** version of `CMA-ES` specifically designed for large-scale black-box
+       optimization by Li&`Zhang <https://tinyurl.com/32hsbx28>`_. It often works well when there is a
+       *dominated* search direction embedded in a subspace. For more complex landscapes (e.g., there are
+       multiple promising search directions), other variants (e.g., `RMES`, `LMCMA`, `LMMAES`) of `CMA-ES`
+       may be more preferred.
 
     Parameters
     ----------
