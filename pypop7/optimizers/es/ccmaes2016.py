@@ -35,31 +35,32 @@ class CCMAES2016(ES):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer `CCMAES2016` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.ccmaes2016 import CCMAES2016
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5*numpy.ones((2,)),
        ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
        ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> ccmaes2016 = CCMAES2016(problem, options)  # initialize the optimizer class
-       >>> results = ccmaes2016.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'sigma': 0.1}  # global step-size may need to be fine-tuned for better performance
+       >>> ccmaes2016 = CCMAES2016(problem, options)  # to initialize the optimizer class
+       >>> results = ccmaes2016.optimize()  # to run the optimization/evolution process
        >>> print(f"CCMAES2016: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CCMAES2016: 5000, 2.614231350522262e-21
+       CCMAES2016: 5000, 9.9367e-21
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/3kbet9tn>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ccmaes2016.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_ccmaes2016.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_ccmaes2016.py>`_.
 
     References
     ----------
