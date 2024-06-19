@@ -47,7 +47,7 @@ class SEPCMAES(ES):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.sepcmaes import SEPCMAES
        >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
@@ -61,7 +61,7 @@ class SEPCMAES(ES):
        >>> sepcmaes = SEPCMAES(problem, options)  # to initialize the optimizer class
        >>> results = sepcmaes.optimize()  # to run the optimization/evolution process
        >>> print(f"SEPCMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SEPCMAES: 5000, 0.009
+       SEPCMAES: 5000, 0.0093
 
     For its correctness checking of Python coding, please refer to `this code-based repeatability report
     <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_sepcmaes.py>`_
