@@ -46,31 +46,32 @@ class OPOA2015(ES):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer `OPOA2015` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.opoa2015 import OPOA2015
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> opoa2015 = OPOA2015(problem, options)  # initialize the optimizer class
-       >>> results = opoa2015.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       >>> opoa2015 = OPOA2015(problem, options)  # to initialize the optimizer class
+       >>> results = opoa2015.optimize()  # to run the optimization/evolution process
        >>> print(f"OPOA2015: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       OPOA2015: 5000, 5.955151843487958e-17
+       OPOA2015: 5000, 4.5792e-19
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/mrxu4suj>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_opoa2015.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_opoa2015.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_opoa2015.py>`_.
 
     References
     ----------
