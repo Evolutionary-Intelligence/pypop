@@ -6,22 +6,27 @@ import sys
 import pickle  # for data storage
 
 import numpy as np
+import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib import colors
 
 from pypop7.optimizers.core import optimizer
 sys.modules['optimizer'] = optimizer  # for `pickle`
 
 
 def read_pickle(s, ii):
-    with open(os.path.join('./', s + '-DE_' + ii + '.pickle'), 'rb') as handle:
+    with open(os.path.join('./docs/efficiency/sphere', s + '-DE_' + ii + '.pickle'), 'rb') as handle:
         return pickle.load(handle)
 
 
 if __name__ == '__main__':
+    plt.rcParams['font.size'] = '12'
+    sns.set_theme(style='darkgrid')
+
     n_trials = 10
     algos = ['PYPOP7', 'DEAP']
     labels = ['PyPop7 (CDE)', 'DEAP (DE)']
-    colors = ['springgreen', 'blueviolet']
+    colors = ["#F08C55", "#6EC8C8"]
     max_runtime, fitness_threshold = 3600*3 - 10*60, 1e-10
     time, fitness, fe = [], [], []
     for j in range(len(algos)):  # initialize
@@ -57,6 +62,7 @@ if __name__ == '__main__':
     print('  #top order:', [(a, to + 1) for a, to in zip(algos, top_order)])
     plt.figure(figsize=(12, 12))
     plt.rcParams['font.family'] = 'Times New Roman'
+    plt.rcParams['font.size'] = '12'
     plt.ylim([6.3e4, 6.7e4])
     plt.yticks([6.3e4, 6.4e4, 6.5e4, 6.6e4, 6.7e4],
                ['6.3e4', '6.4e4', '6.5e4', '6.6e4', '6.7e4'],
@@ -71,12 +77,13 @@ if __name__ == '__main__':
                fontsize=30, fontweight='bold')
     plt.title('Sphere', fontsize=30, fontweight='bold')
     plt.legend(labels, fontsize=30)
-    plt.savefig('compare_deap-de_vs_pypop7-cde[cost].eps')
-    plt.show()
+    plt.savefig('./figs/compare_deap-de_vs_pypop7-cde[cost].eps')
+    # plt.show()
 
+    sns.set_theme(style='dark')
     algos = ['DEAP', 'PYPOP7']
     labels = ['DEAP (DE)', 'PyPop7 (CDE)']
-    colors = ['blueviolet', 'springgreen']
+    colors = ["#F08C55", "#6EC8C8"]
     max_runtime, fitness_threshold = 3600*3 - 10*60, 1e-10
     time, fitness, fe = [], [], []
     for j in range(len(algos)):  # initialize
@@ -110,6 +117,7 @@ if __name__ == '__main__':
     top_fitness = [t for t in [tr[2] for tr in top_fitness]]
     fig = plt.figure(figsize=(12, 12))
     plt.rcParams['font.family'] = 'Times New Roman'
+    plt.rcParams['font.size'] = '12'
     ax1 = fig.add_subplot(111)
     ax2 = ax1.twinx()
     xticks = []
@@ -128,5 +136,5 @@ if __name__ == '__main__':
     ax2.set_ylabel('Speedup (Function Evaluations)', fontsize=30, fontweight='bold', color='r')
     ax2.set_yticks(np.arange(0, 11, 1), np.arange(0, 11, 1), fontsize=30, fontweight='bold')
     plt.title('Sphere', fontsize=30, fontweight='bold')
-    plt.savefig('compare_deap-de_vs_pypop7-cde[fe].eps')
-    plt.show()
+    plt.savefig('./figs/compare_deap-de_vs_pypop7-cde[fe].eps')
+    # plt.show()
