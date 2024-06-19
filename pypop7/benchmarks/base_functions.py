@@ -103,8 +103,8 @@ class Cigar(BaseFunction):
         return cigar(x)
 
 
-def discus(x):  # also called tablet
-    """**Discus** test function.
+def discus(x):
+    """**Discus** (also called **Tablet**) test function.
 
        .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
 
