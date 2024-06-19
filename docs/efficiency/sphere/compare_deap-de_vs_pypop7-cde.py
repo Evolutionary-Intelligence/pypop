@@ -15,7 +15,7 @@ sys.modules['optimizer'] = optimizer  # for `pickle`
 
 
 def read_pickle(s, ii):
-    with open(os.path.join('./docs/efficiency/sphere', s + '-DE_' + ii + '.pickle'), 'rb') as handle:
+    with open(os.path.join('./', s + '-DE_' + ii + '.pickle'), 'rb') as handle:
         return pickle.load(handle)
 
 
@@ -77,8 +77,8 @@ if __name__ == '__main__':
                fontsize=30, fontweight='bold')
     plt.title('Sphere', fontsize=30, fontweight='bold')
     plt.legend(labels, fontsize=30)
-    plt.savefig('./figs/compare_deap-de_vs_pypop7-cde[cost].eps')
-    # plt.show()
+    plt.savefig('compare_deap-de_vs_pypop7-cde[cost].eps')
+    plt.show()
 
     sns.set_theme(style='dark')
     algos = ['DEAP', 'PYPOP7']
@@ -136,5 +136,5 @@ if __name__ == '__main__':
     ax2.set_ylabel('Speedup (Function Evaluations)', fontsize=30, fontweight='bold', color='r')
     ax2.set_yticks(np.arange(0, 11, 1), np.arange(0, 11, 1), fontsize=30, fontweight='bold')
     plt.title('Sphere', fontsize=30, fontweight='bold')
-    plt.savefig('./figs/compare_deap-de_vs_pypop7-cde[fe].eps')
-    # plt.show()
+    plt.savefig('compare_deap-de_vs_pypop7-cde[fe].eps')
+    plt.show()

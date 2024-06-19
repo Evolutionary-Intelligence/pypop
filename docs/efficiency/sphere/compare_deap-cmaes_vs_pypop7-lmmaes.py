@@ -15,7 +15,7 @@ sys.modules['optimizer'] = optimizer  # for `pickle`
 
 
 def read_pickle(s, ii):
-    with open(os.path.join('./docs/efficiency/sphere', s + '-CMAES_' + ii + '.pickle'), 'rb') as handle:
+    with open(os.path.join('./', s + '-CMAES_' + ii + '.pickle'), 'rb') as handle:
         return pickle.load(handle)
 
 
@@ -75,8 +75,8 @@ if __name__ == '__main__':
     plt.yscale('log')
     plt.title('Sphere', fontsize=30, fontweight='bold')
     plt.legend(labels, fontsize=30)
-    plt.savefig('./figs/compare_deap-cmaes_vs_pypop7-lmmaes[cost].eps')
-    # plt.show()
+    plt.savefig('compare_deap-cmaes_vs_pypop7-lmmaes[cost].eps')
+    plt.show()
 
     sns.set_theme(style='dark')
     algos = ['DEAP', 'PYPOP7LA']
@@ -134,5 +134,5 @@ if __name__ == '__main__':
     ax2.set_ylabel('Speedup (Function Evaluations)', fontsize=30, fontweight='bold', color='r')
     ax2.set_yticks(np.arange(0, 200, 20), np.arange(0, 200, 20), fontsize=30, fontweight='bold')
     plt.title('Sphere', fontsize=30, fontweight='bold')
-    plt.savefig('./figs/compare_deap-cmaes_vs_pypop7-lmmaes[fe].eps')
-    # plt.show()
+    plt.savefig('compare_deap-cmaes_vs_pypop7-lmmaes[fe].eps')
+    plt.show()
