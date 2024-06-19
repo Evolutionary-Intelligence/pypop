@@ -75,9 +75,9 @@ class OPOA2015(ES):
     References
     ----------
     Krause, O. and Igel, C., 2015, January.
-    A more efficient rank-one covariance matrix update for evolution strategies.
+    `A more efficient rank-one covariance matrix update for evolution strategies.
+    <https://dl.acm.org/doi/abs/10.1145/2725494.2725496>`_
     In Proceedings of ACM Conference on Foundations of Genetic Algorithms (pp. 129-136).
-    https://dl.acm.org/doi/abs/10.1145/2725494.2725496
     """
     def __init__(self, problem, options):
         options['n_individuals'] = 1  # mandatory setting
