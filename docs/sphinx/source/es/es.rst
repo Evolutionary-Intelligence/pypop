@@ -15,8 +15,6 @@ Evolution Strategies (ES)
    lmmaes
    rmes
    r1es
-   vkdcma
-   vdcma
    lmcmaes
    fmaes
    maes
