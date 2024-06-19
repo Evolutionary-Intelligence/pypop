@@ -28,7 +28,6 @@ from pypop7.optimizers.es.r1es import R1ES
 from pypop7.optimizers.es.rmes import RMES
 from pypop7.optimizers.es.lmmaes import LMMAES
 from pypop7.optimizers.es.fmaes import FMAES
-from pypop7.optimizers.es.fcmaes import FCMAES
 from pypop7.optimizers.es.ddcma import DDCMA
 from pypop7.optimizers.es.mmes import MMES
 
@@ -56,5 +55,4 @@ __all__ = [ES,  # Evolution Strategies [1964-1965]
            R1ES,  # Rank-One Evolution Strategy
            RMES,  # Rank-M Evolution Strategy
            LMMAES,  # Limited-Memory Matrix Adaptation Evolution Strategy
-           FCMAES,  # Fast Covariance Matrix Adaptation Evolution Strategy
            MMES]  # Mixture Model-based Evolution Strategy [2021]
