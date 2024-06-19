@@ -50,22 +50,23 @@ class SEPCMAES(ES):
        >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.sepcmaes import SEPCMAES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> sepcmaes = SEPCMAES(problem, options)  # initialize the optimizer class
-       >>> results = sepcmaes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       >>> sepcmaes = SEPCMAES(problem, options)  # to initialize the optimizer class
+       >>> results = sepcmaes.optimize()  # to run the optimization/evolution process
        >>> print(f"SEPCMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SEPCMAES: 5000, 0.0028541286223351006
+       SEPCMAES: 5000, 0.009
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/mpjzv8yh>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_sepcmaes.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_sepcmaes.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_sepcmaes.py>`_.
 
     Attributes
     ----------
@@ -83,10 +84,10 @@ class SEPCMAES(ES):
     References
     ----------
     Ros, R. and Hansen, N., 2008, September.
-    A simple modification in CMA-ES achieving linear time and space complexity.
+    `A simple modification in CMA-ES achieving linear time and space complexity.
+    <https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30>`_
     In International Conference on Parallel Problem Solving from Nature (pp. 296-305).
     Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
