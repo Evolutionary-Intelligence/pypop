@@ -26,10 +26,10 @@ from pypop7.optimizers.es.lmcma import LMCMA
 from pypop7.optimizers.es.maes import MAES
 from pypop7.optimizers.es.r1es import R1ES
 from pypop7.optimizers.es.rmes import RMES
-from pypop7.optimizers.es.lmmaes import LMMAES
 from pypop7.optimizers.es.fmaes import FMAES
 from pypop7.optimizers.es.ddcma import DDCMA
-from pypop7.optimizers.es.mmes import MMES
+from pypop7.optimizers.es.lmmaes import LMMAES  # Limited-Memory Matrix Adaptation Evolution Strategy [2019]
+from pypop7.optimizers.es.mmes import MMES  # Mixture Model-based Evolution Strategy [2021]
 
 
 __all__ = [ES,  # Evolution Strategies [1964-1965]
@@ -45,12 +45,12 @@ __all__ = [ES,  # Evolution Strategies [1964-1965]
            CCMAES2009,  # Cholesky-CMA-ES (2009)
            OPOA2010,  # (1+1)-Active-CMA-ES (2010)
            OPOA2015,  # (1+1)-Active-CMA-ES (2015)
-           CCMAES2016,  # Cholesky-CMA-ES (2016)
            MAES,  # Matrix Adaptation Evolution Strategy
            FMAES,  # Fast Matrix Adaptation Evolution Strategy
            DDCMA,  # Diagonal Decoding Covariance Matrix Adaptation
            SEPCMAES,  # Separable Covariance Matrix Adaptation Evolution Strategy
            LMCMAES,  # Limited-Memory CMA-ES [2014]
+           CCMAES2016,  # Cholesky-CMA-ES [2016]
            LMCMA,  # Limited-Memory Covariance Matrix Adaptation [2017]
            R1ES,  # Rank-One Evolution Strategy [2018]
            RMES,  # Rank-M Evolution Strategy [2018]
