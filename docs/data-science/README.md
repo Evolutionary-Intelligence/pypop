@@ -22,3 +22,4 @@
 * [SCEM](https://pypop.readthedocs.io/en/latest/cem/scem.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/SCEM
 * [SHADE](https://pypop.readthedocs.io/en/latest/de/shade.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/SHADE
 * [VKDCMA](https://pypop.readthedocs.io/en/latest/es/vkdcma.html): https://github.com/Evolutionary-Intelligence/pypop/tree/main/docs/data-science/VKDCMA
+  * [Bash.txt](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/data-science/VKDCMA/Bash.txt)
