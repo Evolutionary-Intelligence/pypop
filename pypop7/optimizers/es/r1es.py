@@ -46,31 +46,33 @@ class R1ES(ES):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer `R1ES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.r1es import R1ES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> r1es = R1ES(problem, options)  # initialize the optimizer class
-       >>> results = r1es.optimize()  # run the optimization process
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       >>> r1es = R1ES(problem, options)  # to initialize the optimizer class
+       >>> results = r1es.optimize()  # to run the optimization/evolution process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"R1ES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       R1ES: 5000, 8.942371004351231e-10
+       RMES: 5000, 0.0104
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/2aywpp2p>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_r1es.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_r1es.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_r1es.py>`_.
 
     Attributes
     ----------
