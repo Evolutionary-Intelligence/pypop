@@ -53,10 +53,12 @@ class CCMAES2009(ES):
        >>> ccmaes2009 = CCMAES2009(problem, options)  # to initialize the optimizer class
        >>> results = ccmaes2009.optimize()  # to run the optimization/evolution process
        >>> print(f"CCMAES2009: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CCMAES2009: 5000, 5.74495131488279e-17
+       CCMAES2009: 5000, 2.1572e-16
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/c5hreha9>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ccmaes2009.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_ccmaes2009.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_ccmaes2009.py>`_.
 
     References
     ----------
