@@ -9,8 +9,8 @@ class SEPCMAES(ES):
     .. note:: `SEPCMAES` learns only the **diagonal** elements of the full covariance matrix explicitly, leading
        to a *linear* time complexity (w.r.t. each sampling) for large-scale black-box optimization. It is **highly
        recommended** to first attempt more advanced ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale black-box
-       optimization, since typically the performance of `SEPCMAES` deteriorates significantly on nonseparable,
-       ill-conditioned fitness landscape.
+       optimization, since typically the performance of `SEPCMAES` deteriorates significantly on **non-separable,
+       ill-conditioned** fitness landscape.
 
     Parameters
     ----------
