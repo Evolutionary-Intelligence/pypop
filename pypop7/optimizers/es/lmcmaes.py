@@ -66,6 +66,7 @@ class LMCMAES(ES):
        >>> lmcmaes = LMCMAES(problem, options)  # to initialize the optimizer class
        >>> results = lmcmaes.optimize()  # to run the optimization/evolution process
        >>> print(f"LMCMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
+       LMCMAES: 5000, 7.8681e-12
 
     For its correctness checking of Python coding, please refer to `this code-based repeatability report
     <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcmaes.py>`_
