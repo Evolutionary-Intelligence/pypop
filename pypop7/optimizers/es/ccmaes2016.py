@@ -64,9 +64,9 @@ class CCMAES2016(ES):
     References
     ----------
     Krause, O., Arbonès, D.R. and Igel, C., 2016.
-    CMA-ES with optimal covariance update and storage complexity.
+    `CMA-ES with optimal covariance update and storage complexity.
+    <https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html>`_
     Advances in Neural Information Processing Systems, 29, pp.370-378.
-    https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html
     """
     def __init__(self, problem, options):
         ES.__init__(self, problem, options)
