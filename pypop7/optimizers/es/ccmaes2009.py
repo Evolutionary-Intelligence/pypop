@@ -63,10 +63,9 @@ class CCMAES2009(ES):
     References
     ----------
     Suttorp, T., Hansen, N. and Igel, C., 2009.
-    Efficient covariance matrix update for variable metric evolution strategies.
+    `Efficient covariance matrix update for variable metric evolution strategies.
+    <https://link.springer.com/article/10.1007/s10994-009-5102-1>`_
     Machine Learning, 75(2), pp.167-197.
-    https://link.springer.com/article/10.1007/s10994-009-5102-1
-    (See Algorithm 4 for details.)
     """
     def __init__(self, problem, options):
         self.options = options
