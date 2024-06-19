@@ -79,7 +79,7 @@ class LMCMA(ES):
     For its correctness checking of Python coding, please refer to `this code-based repeatability report
     <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcma.py>`_
     for all details. For *pytest*-based automatic testing, please see `test_lmcma.py
-    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_test_lmcma.py>`_.
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_lmcma.py>`_.
 
     Attributes
     ----------
