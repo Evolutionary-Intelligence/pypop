@@ -6,7 +6,9 @@ import sys
 import pickle  # for data storage
 
 import numpy as np
+import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib import colors
 
 from pypop7.optimizers.core import optimizer
 sys.modules['optimizer'] = optimizer  # for `pickle`
@@ -18,10 +20,13 @@ def read_pickle(s, ii):
 
 
 if __name__ == '__main__':
+    plt.rcParams['font.size'] = '12'
+    sns.set_theme(style='darkgrid')
+
     n_trials = 10
     algos = ['DEAP', 'PYPOP7']
     labels = ['DEAP (PSO with np)', 'PyPop7 (SPSO)']
-    colors = ['blueviolet', 'springgreen']
+    colors = ["#F08C55", "#6EC8C8"]
     max_runtime, fitness_threshold = 3600*3 - 10*60, 1e-10
     time, fitness, fe = [], [], []
     for j in range(len(algos)):  # initialize
@@ -57,6 +62,7 @@ if __name__ == '__main__':
     print('  #top order:', [(a, to + 1) for a, to in zip(algos, top_order)])
     plt.figure(figsize=(8.5, 8.5))
     plt.rcParams['font.family'] = 'Times New Roman'
+    plt.rcParams['font.size'] = '12'
     for j, a in enumerate(algos):
         plt.plot(fe[j][top_order[j]], fitness[j][top_order[j]], label=a, color=colors[j])
     plt.xlabel('Number of Function Evaluations', fontsize=18, fontweight='bold')
@@ -70,6 +76,7 @@ if __name__ == '__main__':
 
     fig = plt.figure(figsize=(8.5, 8.5))
     plt.rcParams['font.family'] = 'Times New Roman'
+    plt.rcParams['font.size'] = '12'
     ax1 = fig.add_subplot(111)
     ax2 = ax1.twinx()
     xticks = []
