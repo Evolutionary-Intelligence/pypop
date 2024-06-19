@@ -7,7 +7,7 @@ Evolution Strategies (ES)
 
 .. toctree::
    :maxdepth: 2
-   :caption: ESs:
+   :caption: A large set of ES developed during history:
 
    lmcma
    mmes
