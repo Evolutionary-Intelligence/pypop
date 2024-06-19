@@ -53,7 +53,7 @@ class LMCMA(ES):
 
     Examples
     --------
-    Use the optimizer `LMCMA` to minimize the well-known test function
+    Use the black-box optimizer `LMCMA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -74,7 +74,7 @@ class LMCMA(ES):
        >>> lmcma = LMCMA(problem, options)  # to initialize the optimizer class
        >>> results = lmcma.optimize()  # to run the optimization/evolution process
        >>> print(f"LMCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       
+       LMCMA: 2186953, 9.9927e-09
 
     For its correctness checking of Python coding, please refer to `this code-based repeatability report
     <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcma.py>`_
@@ -117,7 +117,7 @@ class LMCMA(ES):
     <https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale>`_
     Evolutionary Computation, 25(1), pp.143-171.
 
-    Please refer to the official C++ version from Loshchilov, which also provides an interface for Matlab:
+    Please refer to the *official* C++ version from Loshchilov, which also provides an interface for Matlab:
     https://sites.google.com/site/ecjlmcma/
     (Unfortunately, this online link appears to be not openly available now.)
     """
