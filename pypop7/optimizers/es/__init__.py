@@ -13,12 +13,12 @@ from pypop7.optimizers.es.saes import SAES
 from pypop7.optimizers.es.samaes import SAMAES
 from pypop7.optimizers.es.cmaes import CMAES
 from pypop7.optimizers.es.opoc2006 import OPOC2006
-from pypop7.optimizers.es.sepcmaes import SEPCMAES
 from pypop7.optimizers.es.vdcma import VDCMA
 from pypop7.optimizers.es.vkdcma import VKDCMA
 from pypop7.optimizers.es.maes import MAES
 from pypop7.optimizers.es.fmaes import FMAES
 from pypop7.optimizers.es.ddcma import DDCMA
+from pypop7.optimizers.es.sepcmaes import SEPCMAES  # Separable Covariance Matrix Adaptation Evolution Strategy [2008]
 from pypop7.optimizers.es.opoc2009 import OPOC2009  # (1+1)-Cholesky-CMA-ES [2009]
 from pypop7.optimizers.es.ccmaes2009 import CCMAES2009  # Cholesky-CMA-ES [2009]
 from pypop7.optimizers.es.opoa2010 import OPOA2010  # (1+1)-Active-CMA-ES [2010]
@@ -44,7 +44,7 @@ __all__ = [ES,  # Evolution Strategies [1964-1965]
            MAES,  # Matrix Adaptation Evolution Strategy
            FMAES,  # Fast Matrix Adaptation Evolution Strategy
            DDCMA,  # Diagonal Decoding Covariance Matrix Adaptation
-           SEPCMAES,  # Separable Covariance Matrix Adaptation Evolution Strategy
+           SEPCMAES,  # Separable Covariance Matrix Adaptation Evolution Strategy [2008]
            OPOC2009,  # (1+1)-Cholesky-CMA-ES [2009]
            CCMAES2009,  # Cholesky-CMA-ES [2009]
            OPOA2010,  # (1+1)-Active-CMA-ES [2010]
