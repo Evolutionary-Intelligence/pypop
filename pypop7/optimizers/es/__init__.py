@@ -1,3 +1,9 @@
+"""This open-source Python module provides a set of Evolution Strategies (ES) classes:
+    https://pypop.readthedocs.io/en/latest/es/es.html
+
+   For Natural Evolution Strategies (NES), please refer to:
+    https://pypop.readthedocs.io/en/latest/nes/nes.html
+"""
 from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
 from pypop7.optimizers.es.res import RES  # Rechenberg’s (1+1)-Evolution Strategy with 1/5th success rule [1973]
 from pypop7.optimizers.es.ssaes import SSAES
