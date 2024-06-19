@@ -6,8 +6,9 @@ from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strate
 class LMCMAES(ES):
     """Limited-Memory Covariance Matrix Adaptation Evolution Strategy (LMCMAES).
 
-    .. note:: For perhaps better performance, please use its lateset version called `LMCMA
-       <https://tinyurl.com/mry5dw36>`_. Here we include it mainly for *benchmarking* purpose.
+    .. note:: For perhaps better performance, please first use its lateset version called `LMCMA
+       <https://pypop.readthedocs.io/en/latest/es/lmcma.html>`_. Here we include it mainly for a
+       *benchmarking* purpose.
 
     Parameters
     ----------
