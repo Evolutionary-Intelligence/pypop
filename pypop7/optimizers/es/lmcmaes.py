@@ -6,8 +6,9 @@ from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strate
 class LMCMAES(ES):
     """Limited-Memory Covariance Matrix Adaptation Evolution Strategy (LMCMAES).
 
-    .. note:: For perhaps better performance, please use its lateset version called `LMCMA
-       <https://tinyurl.com/mry5dw36>`_. Here we include it mainly for *benchmarking* purpose.
+    .. note:: For perhaps better performance, please first use its lateset version called `LMCMA
+       <https://pypop.readthedocs.io/en/latest/es/lmcma.html>`_. Here we include it mainly for a
+       *benchmarking* purpose.
 
     Parameters
     ----------
@@ -45,31 +46,32 @@ class LMCMAES(ES):
 
     Examples
     --------
-    Use the optimizer to minimize the well-known test function
+    Use the black-box optimizer `LMCMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.lmcmaes import LMCMAES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> lmcmaes = LMCMAES(problem, options)  # initialize the optimizer class
-       >>> results = lmcmaes.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       >>> lmcmaes = LMCMAES(problem, options)  # to initialize the optimizer class
+       >>> results = lmcmaes.optimize()  # to run the optimization/evolution process
        >>> print(f"LMCMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       LMCMAES: 5000, 4.590739937885748e-16
+       LMCMAES: 5000, 7.8681e-12
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/yc7wyew4>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_lmcmaes.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_lmcmaes.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_test_lmcmaes.py>`_.
 
     Attributes
     ----------
@@ -103,7 +105,7 @@ class LMCMAES(ES):
     <https://dl.acm.org/doi/abs/10.1145/2576768.2598294>`_
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 397-404). ACM.
 
-    Please refer to the *official* C++ version from Loshchilov:
+    Please refer to the *official* C++ version from Loshchilov (now at NVIDIA):
     https://sites.google.com/site/lmcmaeses/
     """
     def __init__(self, problem, options):
