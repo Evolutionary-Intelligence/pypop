@@ -45,9 +45,7 @@ __all__ = [ES,  # Evolution Strategies [1964-1965]
            FMAES,  # Fast Matrix Adaptation Evolution Strategy
            DDCMA,  # Diagonal Decoding Covariance Matrix Adaptation
            SEPCMAES,  # Separable Covariance Matrix Adaptation Evolution Strategy
-           VDCMA,  # Linear Covariance Matrix Adaptation
            LMCMAES,  # Limited-Memory CMA-ES
-           VKDCMA,  # Restricted Covariance Matrix Adaptation
            LMCMA,  # Limited-Memory Covariance Matrix Adaptation
            R1ES,  # Rank-One Evolution Strategy
            RMES,  # Rank-M Evolution Strategy
