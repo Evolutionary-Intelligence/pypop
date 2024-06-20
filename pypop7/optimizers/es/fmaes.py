@@ -92,7 +92,7 @@ class FMAES(MAES):
     <https://ieeexplore.ieee.org/document/7875115>`_
     IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
 
-    See the official Matlab version from Prof. Beyer:
+    Please refer to the *official* Matlab version from Prof. Beyer:
     https://homepages.fhv.at/hgb/downloads/ForDistributionFastMAES.tar
     """
     def __init__(self, problem, options):
