@@ -24,6 +24,9 @@ For all testing Python code, please refer to the following links for all details
 Base Functions
 --------------
 
+In the following, we will introduce **base** forms of common benchmarking functions,
+as presented below:
+
 .. autofunction:: pypop7.benchmarks.base_functions.sphere
 
 * Jastrebski, G.A. and Arnold, D.V., 2006, July. Improving evolution strategies through active covariance matrix adaptation. In IEEE International Conference on Evolutionary Computation (pp. 2814-2821). IEEE.
