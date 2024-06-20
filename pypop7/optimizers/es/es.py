@@ -30,7 +30,8 @@ class ES(Optimizer):
 
        For some interesting applications of `ES`, please refer to `[Yang et al., 2024, CVPR]
        <https://diffusion-es.github.io/>`_, `[Lee et al., 2023, Science Robotics]
-       <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_, just to name a few.
+       <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_, `[Koginov et al., 2023, TMRB]
+       <https://ieeexplore.ieee.org/document/10302449>`_, just to name a few.
 
     Parameters
     ----------
