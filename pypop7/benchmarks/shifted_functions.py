@@ -114,6 +114,20 @@ class Cigar(BaseFunction):
 
 
 def discus(x, shift_vector=None):  # also called tablet
+    """**Discus** test function.
+
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+
+    Parameters
+    ----------
+    x : ndarray
+        input vector.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     shift_vector = load_shift_vector(discus, x, shift_vector)
     y = base_functions.discus(x - shift_vector)
     return y
@@ -140,7 +154,7 @@ class Discus(BaseFunction):  # also called Tablet
 
 
 def cigar_discus(x, shift_vector=None):
-    """
+    """**Cigar_discus** test function.
     Parameters
     ----------
     x : ndarray
@@ -177,7 +191,7 @@ class CigarDiscus(BaseFunction):
 
 
 def ellipsoid(x, shift_vector=None):
-    """
+    """**Ellipsoid** test function.
     Parameters
     ----------
     x : ndarray
@@ -214,7 +228,7 @@ class Ellipsoid(BaseFunction):
 
 
 def different_powers(x, shift_vector=None):
-    """
+    """**Different_powers** test function.
     Parameters
     ----------
     x : ndarray
@@ -251,7 +265,7 @@ class DifferentPowers(BaseFunction):
 
 
 def schwefel221(x, shift_vector=None):
-    """
+    """**Schwefel221** test function.
     Parameters
     ----------
     x : ndarray
@@ -288,7 +302,7 @@ class Schwefel221(BaseFunction):
 
 
 def step(x, shift_vector=None):
-    """
+    """**Step** test function.
     Parameters
     ----------
     x : ndarray
@@ -325,7 +339,7 @@ class Step(BaseFunction):
 
 
 def schwefel222(x, shift_vector=None):
-    """
+    """**Schwefel222** test function.
     Parameters
     ----------
     x : ndarray
@@ -362,7 +376,7 @@ class Schwefel222(BaseFunction):
 
 
 def rosenbrock(x, shift_vector=None):
-    """
+    """**Rosenbrock** test function.
     Parameters
     ----------
     x : ndarray
@@ -399,7 +413,7 @@ class Rosenbrock(BaseFunction):
 
 
 def schwefel12(x, shift_vector=None):
-    """
+    """**Schwefel12** test function.
     Parameters
     ----------
     x : ndarray
@@ -436,7 +450,7 @@ class Schwefel12(BaseFunction):
 
 
 def exponential(x, shift_vector=None):
-    """
+    """**Exponential** test function.
     Parameters
     ----------
     x : ndarray
@@ -473,7 +487,7 @@ class Exponential(BaseFunction):
 
 
 def griewank(x, shift_vector=None):
-    """
+    """**Griewank** test function.
     Parameters
     ----------
     x : ndarray
@@ -510,7 +524,7 @@ class Griewank(BaseFunction):
 
 
 def bohachevsky(x, shift_vector=None):
-    """
+    """**Bohachevsky** test function.
     Parameters
     ----------
     x : ndarray
@@ -547,7 +561,7 @@ class Bohachevsky(BaseFunction):
 
 
 def ackley(x, shift_vector=None):
-    """
+    """**Ackley** test function.
     Parameters
     ----------
     x : ndarray
@@ -584,7 +598,7 @@ class Ackley(BaseFunction):
 
 
 def rastrigin(x, shift_vector=None):
-    """
+    """**Rastrigin** test function.
     Parameters
     ----------
     x : ndarray
@@ -621,7 +635,7 @@ class Rastrigin(BaseFunction):
 
 
 def scaled_rastrigin(x, shift_vector=None):
-    """
+    """**Scaled_rastrigin** test function.
     Parameters
     ----------
     x : ndarray
@@ -658,7 +672,7 @@ class ScaledRastrigin(BaseFunction):
 
 
 def skew_rastrigin(x, shift_vector=None):
-    """
+    """**Skew_rastrigin** test function.
     Parameters
     ----------
     x : ndarray
@@ -695,7 +709,7 @@ class SkewRastrigin(BaseFunction):
 
 
 def levy_montalvo(x, shift_vector=None):
-    """
+    """**Levy_montalvo** test function.
     Parameters
     ----------
     x : ndarray
@@ -732,7 +746,7 @@ class LevyMontalvo(BaseFunction):
 
 
 def michalewicz(x, shift_vector=None):
-    """
+    """**Michalewicz** test function.
     Parameters
     ----------
     x : ndarray
@@ -769,7 +783,7 @@ class Michalewicz(BaseFunction):
 
 
 def salomon(x, shift_vector=None):
-    """
+    """**Salomon** test function.
     Parameters
     ----------
     x : ndarray
@@ -806,7 +820,7 @@ class Salomon(BaseFunction):
 
 
 def shubert(x, shift_vector=None):
-    """
+    """**Shubert** test function.
     Parameters
     ----------
     x : ndarray
@@ -843,7 +857,7 @@ class Shubert(BaseFunction):
 
 
 def schaffer(x, shift_vector=None):
-    """
+    """**Schaffert** test function.
     Parameters
     ----------
     x : ndarray
