@@ -8,7 +8,7 @@ class MAES(ES):
 
     .. note:: `MAES` is a powerful *simplified* version of the well-established `CMA-ES` algorithm nearly without
        significant performance loss, designed in 2017 by `Beyer <https://homepages.fhv.at/hgb/>`_ and `Sendhoff
-       <https://tinyurl.com/26szwuaa>`_. One obvious advantage of such a simplification is to help better understand
+       (IEEE Fellow)`_. One obvious advantage of such a simplification is to help better understand
        the underlying working principles (e.g., **invariance** and **unbias**) of `CMA-ES`, which are often thought to
        be rather complex for newcomers. It is **highly recommended** to first attempt more advanced ES variants (e.g.,
        `LMCMA`, `LMMAES`) for large-scale black-box optimization, since `MAES` has a *cubic* time complexity (w.r.t.
