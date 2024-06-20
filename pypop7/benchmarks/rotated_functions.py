@@ -20,7 +20,7 @@ def generate_rotation_matrix(func, ndim, seed):
     func : str or func
            function name.
     ndim : int
-           number of dimensions of the shift vector.
+           number of dimensions of the rotation matrix.
     seed : int
            a scalar seed for random number generator (RNG).
 
