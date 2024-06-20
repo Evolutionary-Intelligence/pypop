@@ -77,6 +77,9 @@ Base Functions
 Shifted/Transformed Forms
 -------------------------
 
+In the following, we will introduce **shifted/transformed** forms of the above base functions,
+as presented below:
+
 .. autofunction:: pypop7.benchmarks.shifted_functions.generate_shift_vector
 
 .. autofunction:: pypop7.benchmarks.shifted_functions.load_shift_vector
@@ -84,8 +87,14 @@ Shifted/Transformed Forms
 Rotated Forms
 -------------
 
+In the following, we will introduce **rotated** forms of the above base functions,
+as presented below:
+
 Rotated-Shifted Forms
 ---------------------
+
+In the following, we will introduce **rotated-shifted** forms of the above base functions,
+as presented below:
 
 Test Classes and Data
 ---------------------
