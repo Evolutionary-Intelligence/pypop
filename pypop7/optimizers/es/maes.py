@@ -62,7 +62,7 @@ class MAES(ES):
        >>> maes = MAES(problem, options)  # to initialize the optimizer class
        >>> results = maes.optimize()  # to run the optimization/evolution process
        >>> print(f"MAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       MAES: 5000, 2.129367016460251e-19
+       MAES: 5000, 1.3259e-17
 
     For its correctness checking of Python coding, please refer to `this code-based repeatability report
     <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_maes.py>`_
