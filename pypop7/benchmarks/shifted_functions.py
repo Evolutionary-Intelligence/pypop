@@ -31,7 +31,7 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
 
     Returns
     -------
-    shift vector : ndarray (of dtype np.float64)
+    shift_vector : ndarray (of dtype np.float64)
                    a vector sampled uniformly in [`low`, `high`) of size `ndim`.
     """
     low, high = squeeze_and_check(low), squeeze_and_check(high)
@@ -64,7 +64,7 @@ def load_shift_vector(func, x, shift_vector=None):
 
     Returns
     -------
-    shift vector : ndarray (of dtype np.float64)
+    shift_vector : ndarray (of dtype np.float64)
                    a vector with the same size as `x`.
     """
     x = squeeze_and_check(x)
