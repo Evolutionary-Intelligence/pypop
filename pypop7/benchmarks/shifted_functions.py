@@ -1,3 +1,6 @@
+"""Online documentation:
+    https://pypop.readthedocs.io/en/latest/benchmarks.html
+"""
 import os
 
 import numpy as np  # engine for numerical computing
