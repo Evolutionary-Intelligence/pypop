@@ -7,19 +7,28 @@ from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
 
 # helper functions
 def generate_shift_vector(func, ndim, low, high, seed=None):
-    """Generate a random shift vector of dimension `ndim`, sampled uniformly between
+    """Generate a *random* shift vector of dimension `ndim`, sampled uniformly between
         `low` (inclusive) and `high` (exclusive).
 
-    Note that the generated shift vector will be automatically stored in txt form for further use.
+       .. note:: The generated shift vector will be automatically stored in *txt* form for further use.
 
-    :param func: function name, a `str` or `function` object.
-    :param ndim: number of dimensions of the shift vector, an `int` scalar.
-    :param low: lower boundary of the shift vector, a `float` scalar or array_like of floats.
-    :param high: upper boundary of the shift vector, a `float` scalar or array_like of floats.
-    :param seed: seed for random number generator, a `int` scalar.
-    :return: shift vector, a `ndim`-d vector sampled uniformly in [`low`, `high`).
+    Parameters
+    ----------
+    func : str or func.
+           function name.
+    ndim : int
+           number of dimensions of the shift vector.
+    low  : float or array_like
+           lower boundary of the shift vector.
+    high : float or array_like
+           upper boundary of the shift vector.
+    seed : int
+           a scalar seed for random number generator (RNG).
 
-    https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html
+    Returns
+    -------
+    shift vector : ndarray
+                   a vector sampled uniformly in [`low`, `high`) of size `ndim`.
     """
     low, high = squeeze_and_check(low), squeeze_and_check(high)
     if hasattr(func, '__call__'):
