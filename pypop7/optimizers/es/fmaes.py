@@ -1,4 +1,4 @@
-from pypop7.optimizers.es.maes import MAES
+from pypop7.optimizers.es.maes import MAES  # Matrix Adaptation Evolution Strategy
 
 
 class FMAES(MAES):
