@@ -47,12 +47,23 @@ def generate_rotation_matrix(func, ndim, seed):
 # helper function
 def load_rotation_matrix(func, x, rotation_matrix=None):
     """Load the rotation matrix which needs to be generated in advance.
-        When `None`, the rotation matrix should have been generated and stored in txt form in advance.
 
-    :param func: function name, a `function` object.
-    :param x: decision vector, array_like of floats.
-    :param rotation_matrix: rotation matrix, array_like of floats.
-    :return: rotation matrix, a 2-d `ndarray` of `dtype` `np.float64`, whose shape is `(x.size, x.size)`.
+       .. note:: When `None`, the rotation matrix should have been generated and stored in *txt* form
+                 in advance.
+
+    Parameters
+    ----------
+    func            : str or func
+                      function name.
+    x               : array_like
+                      decision vector.
+    rotation_matrix : ndarray
+                      a matrix of size [`len(x)` * `len(x)`].
+
+    Returns
+    -------
+    rotation_matrix : ndarray
+                      a matrix of size [`len(x)` * `len(x)`].
     """
     x = squeeze_and_check(x)
     if rotation_matrix is None:
