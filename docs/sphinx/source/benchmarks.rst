@@ -14,7 +14,7 @@ avoid possible biases towards certain search points (e.g., the origin) or separa
 Checking of Coding Correctness
 ------------------------------
 
-For all testing code, please refer to the following links for all details:
+For all testing Python code, please refer to the following links for all details:
 
 * `for base forms <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/benchmarks/test_base_functions.py>`_
 * `for shifted/transformed forms <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/benchmarks/test_shifted_functions.py>`_
