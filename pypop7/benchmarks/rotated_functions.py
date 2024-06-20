@@ -1,11 +1,12 @@
 import os
-import numpy as np
+
+import numpy as np  # engine for numerical computing
 
 from pypop7.benchmarks import base_functions
 from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
 
 
-# helper functions
+# helper function
 def generate_rotation_matrix(func, ndim, seed):
     """Generate a random rotation matrix of dimension [`ndim` * `ndim`], sampled normally.
 
@@ -31,6 +32,7 @@ def generate_rotation_matrix(func, ndim, seed):
     return rotation_matrix
 
 
+# helper function
 def load_rotation_matrix(func, x, rotation_matrix=None):
     """Load the rotation matrix which needs to be generated in advance.
         When `None`, the rotation matrix should have been generated and stored in txt form in advance.
