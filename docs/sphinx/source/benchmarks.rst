@@ -79,6 +79,8 @@ Shifted/Transformed Forms
 
 .. autofunction:: pypop7.benchmarks.shifted_functions.generate_shift_vector
 
+.. autofunction:: pypop7.benchmarks.shifted_functions.load_shift_vector
+
 Rotated Forms
 -------------
 
