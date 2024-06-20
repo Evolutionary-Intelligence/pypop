@@ -8,7 +8,7 @@ from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
 # helper functions
 def generate_shift_vector(func, ndim, low, high, seed=None):
     """Generate a *random* shift vector of dimension `ndim`, sampled uniformly between
-        `low` (inclusive) and `high` (exclusive).
+       `low` (inclusive) and `high` (exclusive).
 
        .. note:: The generated shift vector will be automatically stored in *txt* form for further use.
 
@@ -27,7 +27,7 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
 
     Returns
     -------
-    shift vector : ndarray
+    shift vector : ndarray (of dtype np.float64)
                    a vector sampled uniformly in [`low`, `high`) of size `ndim`.
     """
     low, high = squeeze_and_check(low), squeeze_and_check(high)
@@ -44,12 +44,23 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
 
 def load_shift_vector(func, x, shift_vector=None):
     """Load the shift vector which needs to be generated in advance.
-        When `None`, the shift vector should have been generated and stored in txt form in advance.
 
-    :param func: function name, a `function` object.
-    :param x: decision vector, array_like of floats.
-    :param shift_vector: shift vector, array_like of floats.
-    :return: shift vector, a 1-d `ndarray` of `dtype` `np.float64` with the same size as `x`.
+       .. note:: When `None`, the shift vector should have been generated and stored in *txt* form
+                 in advance.
+
+    Parameters
+    ----------
+    func         : func
+                   function name.
+    x            : array_like
+                   decision vector.
+    shift_vector : array_like
+                   a vector with the same size as `x`.
+
+    Returns
+    -------
+    shift vector : ndarray (of dtype np.float64)
+                   a vector with the same size as `x`.
     """
     x = squeeze_and_check(x)
     if shift_vector is None:
