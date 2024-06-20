@@ -6,7 +6,7 @@ from pypop7.benchmarks import base_functions
 from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
 
 
-# helper functions
+# helper function
 def generate_shift_vector(func, ndim, low, high, seed=None):
     """Generate a *random* shift vector of dimension `ndim`, sampled uniformly between
     `low` (inclusive) and `high` (exclusive).
@@ -43,6 +43,7 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
     return shift_vector
 
 
+# helper function
 def load_shift_vector(func, x, shift_vector=None):
     """Load the shift vector which needs to be generated in advance.
 
