@@ -1,5 +1,6 @@
 import os
-import numpy as np
+
+import numpy as np  # engine for numerical computing
 
 from pypop7.benchmarks import base_functions
 from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
@@ -85,8 +86,10 @@ def sphere(x, shift_vector=None):
 
     Parameters
     ----------
-    x : ndarray
-        input vector.
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`
 
     Returns
     -------
