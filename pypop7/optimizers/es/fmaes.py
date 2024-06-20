@@ -38,31 +38,33 @@ class FMAES(MAES):
 
     Examples
     --------
-    Use the optimizer `FMAES` to minimize the well-known test function
+    Use the black-box optimizer `FMAES` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.fmaes import FMAES
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5.0*numpy.ones((2,)),
        ...            'upper_boundary': 5.0*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
        ...            'mean': 3.0*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> fmaes = FMAES(problem, options)  # initialize the optimizer class
-       >>> results = fmaes.optimize()  # run the optimization process
+       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       >>> fmaes = FMAES(problem, options)  # to initialize the optimizer class
+       >>> results = fmaes.optimize()  # to run the optimization/evolution process
        >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"FMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       FMAES: 5000, 2.1296244414852865e-19
+       FMAES: 5000, 1.3259e-17
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/37ews6h4>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_fmaes.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_fmaes.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_fmaes.py>`_.
 
     Attributes
     ----------
