@@ -7,9 +7,9 @@ class FMAES(MAES):
     .. note:: `FMAES` is a *more efficient* implementation of `MAES` with *quadractic* time complexity w.r.t. each
        sampling, which replaces the computationally expensive matrix-matrix multiplication (*cubic time complexity*)
        with the combination of matrix-matrix addition and matrix-vector multiplication (*quadractic time complexity*)
-       for transformation matrix adaptation. It is **highly recommended** to first attempt more advanced ES variants
+       for transformation matrix adaptation. It is **highly recommended** to first attempt more advanced `ES` variants
        (e.g., `LMCMA`, `LMMAES`) for large-scale black-box optimization, since `FMAES` still has a computationally
-       intensive *quadratic* time complexity (w.r.t. each sampling).
+       intensive *quadratic* time complexity.
 
     Parameters
     ----------
