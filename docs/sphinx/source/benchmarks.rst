@@ -84,6 +84,8 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.shifted_functions.load_shift_vector
 
+.. autofunction:: pypop7.benchmarks.shifted_functions.sphere
+
 Rotated Forms
 -------------
 
