@@ -75,9 +75,9 @@ class ES(Optimizer):
     https://homepages.fhv.at/hgb/downloads/ES-Is-Not-Gradient-Follower.pdf
 
     Ollivier, Y., Arnold, L., Auger, A. and Hansen, N., 2017.
-    Information-geometric optimization algorithms: A unifying picture via invariance principles.
+    `Information-geometric optimization algorithms: A unifying picture via invariance principles.
+    <https://www.jmlr.org/papers/v18/14-467.html>`_
     Journal of Machine Learning Research, 18(18), pp.1-65.
-    https://www.jmlr.org/papers/v18/14-467.html
 
     https://blog.otoro.net/2017/10/29/visual-evolution-strategies/
 
@@ -88,43 +88,43 @@ class ES(Optimizer):
     Springer, Berlin, Heidelberg.
 
     Bäck, T., Foussette, C., & Krause, P. (2013).
-    Contemporary evolution strategies.
+    `Contemporary evolution strategies.
+    <https://link.springer.com/book/10.1007/978-3-642-40137-4>`_
     Berlin: Springer.
-    https://link.springer.com/book/10.1007/978-3-642-40137-4
 
     http://www.scholarpedia.org/article/Evolution_strategies
 
     Beyer, H.G. and Schwefel, H.P., 2002.
-    Evolution strategies–A comprehensive introduction.
+    `Evolution strategies–A comprehensive introduction.
+    <https://link.springer.com/article/10.1023/A:1015059928466>`_
     Natural Computing, 1(1), pp.3-52.
-    https://link.springer.com/article/10.1023/A:1015059928466
 
     Rechenberg, I., 2000.
-    Case studies in evolutionary experimentation and computation.
+    `Case studies in evolutionary experimentation and computation.
+    <https://www.sciencedirect.com/science/article/abs/pii/S0045782599003813>`_
     Computer Methods in Applied Mechanics and Engineering, 186(2-4), pp.125-140.
-    https://www.sciencedirect.com/science/article/abs/pii/S0045782599003813
 
     Rechenberg, I., 1989.
-    Evolution strategy: Nature’s way of optimization.
+    `Evolution strategy: Nature’s way of optimization.
+    <https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6>`_
     In Optimization: Methods and Applications, Possibilities and Limitations (pp. 106-126).
     Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6
 
     Schwefel, H.P., 1988.
-    Collective intelligence in evolving systems.
+    `Collective intelligence in evolving systems.
+    <https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8>`_
     In Ecodynamics (pp. 95-100). Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8
 
     Schwefel, H.P., 1984.
-    Evolution strategies: A family of non-linear optimization techniques based on imitating
+    `Evolution strategies: A family of non-linear optimization techniques based on imitating
     some principles of organic evolution.
+    <https://link.springer.com/article/10.1007/BF01876146>`_
     Annals of Operations Research, 1(2), pp.165-167.
-    https://link.springer.com/article/10.1007/BF01876146
 
     Rechenberg, I., 1984.
-    The evolution strategy. A mathematical model of darwinian evolution.
+    `The evolution strategy. A mathematical model of darwinian evolution.
+    <https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13>`_
     In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
