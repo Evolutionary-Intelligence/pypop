@@ -8,13 +8,13 @@ from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
 # helper functions
 def generate_shift_vector(func, ndim, low, high, seed=None):
     """Generate a *random* shift vector of dimension `ndim`, sampled uniformly between
-       `low` (inclusive) and `high` (exclusive).
+    `low` (inclusive) and `high` (exclusive).
 
        .. note:: The generated shift vector will be automatically stored in *txt* form for further use.
 
     Parameters
     ----------
-    func : str or func.
+    func : str or func
            function name.
     ndim : int
            number of dimensions of the shift vector.
