@@ -57,7 +57,7 @@ class DDCMA(ES):
        >>> ddcma = DDCMA(problem, options)  # to initialize the optimizer class
        >>> results = ddcma.optimize()  # to run the optimization/evolution process
        >>> print(f"DDCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       DDCMA: 5000, 0.0
+       DDCMA: 5000, 3.0714e-19
 
     For its correctness checking of Python coding, please refer to `this code-based repeatability report
     <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ddcma.py>`_
