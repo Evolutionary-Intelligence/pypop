@@ -105,6 +105,8 @@ Rotated Forms
 In the following, we will introduce **rotated** forms of the above base functions,
 as presented below:
 
+.. autofunction:: pypop7.benchmarks.rotated_functions.generate_rotation_matrix
+
 Rotated-Shifted Forms
 ---------------------
 
