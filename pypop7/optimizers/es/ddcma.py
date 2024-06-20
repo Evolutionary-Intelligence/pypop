@@ -37,7 +37,7 @@ class DDCMA(ES):
 
     Examples
     --------
-    Use the optimizer `DDCMA` to minimize the well-known test function
+    Use the black-box optimizer `DDCMA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
@@ -46,23 +46,23 @@ class DDCMA(ES):
        >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.ddcma import DDCMA
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
-       ...            'lower_boundary': -5*numpy.ones((2,)),
-       ...            'upper_boundary': 5*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
-       ...            'is_restart': False,
-       ...            'mean': 3*numpy.ones((2,)),
-       ...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
-       >>> ddcma = DDCMA(problem, options)  # initialize the optimizer class
-       >>> results = ddcma.optimize()  # run the optimization process
-       >>> # return the number of function evaluations and best-so-far fitness
+       ...            'mean': 3.0*numpy.ones((2,)),
+       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       >>> ddcma = DDCMA(problem, options)  # to initialize the optimizer class
+       >>> results = ddcma.optimize()  # to run the optimization/evolution process
        >>> print(f"DDCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        DDCMA: 5000, 0.0
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/mc34kkmn>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_ddcma.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_ddcma.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_ddcma.py>`_.
 
     Attributes
     ----------
@@ -79,8 +79,8 @@ class DDCMA(ES):
     `Diagonal acceleration for covariance matrix adaptation evolution strategies.
     <https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix>`_
     Evolutionary Computation, 28(3), pp.405-435.
-    
-    See its official Python implementation from Prof. Akimoto:
+
+    Please refer to its *official* Python implementation from Prof. Akimoto:
     https://gist.github.com/youheiakimoto/1180b67b5a0b1265c204cba991fa8518
     """
     def __init__(self, problem, options):
