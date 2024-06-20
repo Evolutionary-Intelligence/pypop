@@ -57,7 +57,6 @@ class FMAES(MAES):
        ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
        >>> fmaes = FMAES(problem, options)  # to initialize the optimizer class
        >>> results = fmaes.optimize()  # to run the optimization/evolution process
-       >>> # return the number of function evaluations and best-so-far fitness
        >>> print(f"FMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        FMAES: 5000, 1.3259e-17
 
