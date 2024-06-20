@@ -7,7 +7,7 @@ class DDCMA(ES):
     """Diagonal Decoding Covariance Matrix Adaptation (DDCMA).
 
     .. note:: `DDCMA` is a latest improvement version of the well-designed `CMA-ES` algorithm, which enjoys
-       both two worlds of `SEP-CMA-ES` (faster adaptation on nearly separable problems) and `CMA-ES` (more
+       both two worlds of `SEP-CMA-ES` (faster adaptation on nearly-separable problems) and `CMA-ES` (more
        robust adaptation on ill-conditioned non-separable problems) via **adaptive diagonal decoding**. It
        is **highly recommended** to first attempt other ES variants (e.g., `LMCMA`, `LMMAES`) for large-scale
        black-box optimization, since it has a *quadratic* time complexity (w.r.t. each sampling).
