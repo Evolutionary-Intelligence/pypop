@@ -43,7 +43,7 @@ class DDCMA(ES):
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.es.ddcma import DDCMA
        >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
