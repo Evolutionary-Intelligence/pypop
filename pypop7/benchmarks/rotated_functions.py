@@ -11,14 +11,23 @@ from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
 
 # helper function
 def generate_rotation_matrix(func, ndim, seed):
-    """Generate a random rotation matrix of dimension [`ndim` * `ndim`], sampled normally.
+    """Generate a *random* rotation matrix of dimension [`ndim` * `ndim`], sampled normally.
 
-        Note that the generated rotation matrix will be automatically stored in txt form for further use.
+        .. note:: The generated rotation matrix will be automatically stored in *txt* form for further use.
 
-    :param func: function name, a `str` or `function` object.
-    :param ndim: number of dimensions of the rotation matrix, an `int` scalar.
-    :param seed: seed for random number generator, a `int` scalar.
-    :return: rotation matrix, a [`ndim` * `ndim`] ndarray.
+    Parameters
+    ----------
+    func : str or func
+           function name.
+    ndim : int
+           number of dimensions of the shift vector.
+    seed : int
+           a scalar seed for random number generator (RNG).
+
+    Returns
+    -------
+    rotation_matrix : ndarray
+                      a matrix of size [`ndim` * `ndim`].
     """
     if hasattr(func, '__call__'):
         func = func.__name__
