@@ -26,6 +26,8 @@ Base Functions
 
 .. autofunction:: pypop7.benchmarks.base_functions.sphere
 
+* Jastrebski, G.A. and Arnold, D.V., 2006, July. Improving evolution strategies through active covariance matrix adaptation. In IEEE International Conference on Evolutionary Computation (pp. 2814-2821). IEEE.
+
 .. autofunction:: pypop7.benchmarks.base_functions.cigar
 
 .. autofunction:: pypop7.benchmarks.base_functions.discus
