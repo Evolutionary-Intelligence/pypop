@@ -78,19 +78,19 @@ class FMAES(MAES):
     References
     ----------
     Beyer, H.G., 2020, July.
-    Design principles for matrix adaptation evolution strategies.
+    `Design principles for matrix adaptation evolution strategies.
+    <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_
     In Proceedings of Annual Conference on Genetic and Evolutionary Computation Companion (pp. 682-700).
-    https://dl.acm.org/doi/abs/10.1145/3377929.3389870
 
     Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2019.
-    Large scale black-box optimization by limited-memory matrix adaptation.
+    `Large scale black-box optimization by limited-memory matrix adaptation.
+    <https://ieeexplore.ieee.org/abstract/document/8410043>`_
     IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
-    https://ieeexplore.ieee.org/abstract/document/8410043
 
     Beyer, H.G. and Sendhoff, B., 2017.
-    Simplify your covariance matrix adaptation evolution strategy.
+    `Simplify your covariance matrix adaptation evolution strategy.
+    <https://ieeexplore.ieee.org/document/7875115>`_
     IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
-    https://ieeexplore.ieee.org/document/7875115
 
     See the official Matlab version from Prof. Beyer:
     https://homepages.fhv.at/hgb/downloads/ForDistributionFastMAES.tar
