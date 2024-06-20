@@ -89,7 +89,7 @@ def sphere(x, shift_vector=None):
     x            : ndarray
                    input vector.
     shift_vector : ndarray
-                   a vector with the same size as `x`
+                   a vector with the same size as `x`.
 
     Returns
     -------
