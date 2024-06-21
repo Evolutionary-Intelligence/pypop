@@ -110,6 +110,11 @@ class CMAES(ES):
     <https://jmlr.org/papers/v18/14-467.html>`_
     Journal of Machine Learning Research, 18(18), pp.1-65.
 
+    Hansen, N., Atamna, A. and Auger, A., 2014, September.
+    `How to assess step-size adaptation mechanisms in randomised search.
+    <https://link.springer.com/chapter/10.1007/978-3-319-10762-2_6>`_
+    In International Conference on Parallel Problem Solving From Nature (pp. 60-69). Springer, Cham.
+
     Kern, S., Müller, S.D., Hansen, N., Büche, D., Ocenasek, J. and Koumoutsakos, P., 2004.
     `Learning probability distributions in continuous evolutionary algorithms–a comparative review.
     <https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e>`_
