@@ -21,6 +21,7 @@ Open-Source Cases
 
 Till now, our open-source library `PyPop7` has been used (at least) in the following open-source projects:
 
+* 14: https://github.com/nikivanstein/LLaMEA (2024)
 * 13: https://github.com/AmitDIRTYC0W/neuronveil-mnist-train (2024)
 * 12: https://pypi.org/project/advanced-global-optimizers/ (2024)
 * 11: https://github.com/aiboxlab/evolutionary-abm-calibration (2024)
