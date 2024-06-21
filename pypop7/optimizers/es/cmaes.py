@@ -158,8 +158,11 @@ class CMAES(ES):
         self.c_c, self.c_1, self.c_w, self._alpha_cov = None, None, None, 2.0  # for CMA (c_w -> c_μ)
         self._save_eig = options.get('_save_eig', False)  # whether or not save eigenvalues and eigenvectors
 
-    def _set_c_c(self):  # to set decay rate of evolution path for rank-one update of CMA
-        return (4.0 + self._mu_eff/self.ndim_problem)/(self.ndim_problem + 4.0 + 2.0*self._mu_eff/self.ndim_problem)
+    def _set_c_c(self):
+        """Set decay rate of evolution path for the rank-one update of CMA.
+        """
+        return (4.0 + self._mu_eff / self.ndim_problem) / (
+                self.ndim_problem + 4.0 + 2.0 * self._mu_eff / self.ndim_problem)
 
     def _set_c_w(self):
         return np.minimum(1.0 - self.c_1, self._alpha_cov*(1.0/4.0 + self._mu_eff + 1.0/self._mu_eff - 2.0) /
