@@ -195,7 +195,7 @@ def get_y_ellipsoid(ndim):
 
 
 def get_y_different_powers(ndim):
-    """Get test data for **Different_Powers** test function.
+    """Get test data for **Different-Powers** test function.
     """
     y = [[68, 2, 0, 2, 68],
          [84, 3, 0, 3, 84],
