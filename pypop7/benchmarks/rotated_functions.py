@@ -81,6 +81,24 @@ def load_rotation_matrix(func, x, rotation_matrix=None):
 
 
 def sphere(x, rotation_matrix=None):
+    """**Sphere** test function.
+
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(sphere, x, rotation_matrix)
     y = base_functions.sphere(np.dot(rotation_matrix, x))
     return y
@@ -96,6 +114,24 @@ class Sphere(BaseFunction):
 
 
 def cigar(x, rotation_matrix=None):
+    """**Cigar** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(cigar, x, rotation_matrix)
     y = base_functions.cigar(np.dot(rotation_matrix, x))
     return y
