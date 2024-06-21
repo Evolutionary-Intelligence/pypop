@@ -117,6 +117,24 @@ class Sphere(BaseFunction):
 
 
 def cigar(x, shift_vector=None):
+    """**Cigar** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     shift_vector = load_shift_vector(cigar, x, shift_vector)
     y = base_functions.cigar(x - shift_vector)
     return y
@@ -183,7 +201,7 @@ class Discus(BaseFunction):  # also called Tablet
 
 
 def cigar_discus(x, shift_vector=None):
-    """**Cigar_discus** test function.
+    """**Cigar-Discus** test function.
     Parameters
     ----------
     x : ndarray
