@@ -73,9 +73,8 @@ class RES(ES):
        ...            'sigma': 3.0}  # global step-size may need to be tuned for optimality
        >>> res = RES(problem, options)  # to initialize the black-box optimizer class
        >>> results = res.optimize()  # to run its optimization/evolution process
-       >>> # to return the used number of function evaluations and the found best-so-far fitness
        >>> print(f"RES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       RES: 5000, 0.00011689296624022443
+       RES: 5000, 0.0001
 
     For its correctness checking of Python-based coding, refer to `this code-based repeatability report
     <https://tinyurl.com/5n6ndrn7>`_ for more details.
