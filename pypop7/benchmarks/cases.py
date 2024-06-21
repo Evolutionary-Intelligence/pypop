@@ -159,6 +159,8 @@ def get_y_cigar(ndim):
 
 
 def get_y_discus(ndim):
+    """Get test data for **Discus** test function.
+    """
     y = [[4000004, 1000001, 0, 1000001, 4000004],
          [4000008, 1000002, 0, 1000002, 4000008],
          [0, 1000003, 1000003, 1000003, 1000029, 1000029, 16000014],
@@ -169,6 +171,8 @@ def get_y_discus(ndim):
 
 
 def get_y_cigar_discus(ndim):
+    """Get test data for **Cigar-Discus** test function.
+    """
     y = [[4080004, 1020001, 0, 1020001, 4080004],
          [4040004, 1010001, 0, 1010001, 4040004],
          [0, 1020001, 1020001, 1020001, 16130001, 16130001, 1130016],
@@ -179,6 +183,8 @@ def get_y_cigar_discus(ndim):
 
 
 def get_y_ellipsoid(ndim):
+    """Get test data for **Ellipsoid** test function.
+    """
     y = [[4000004, 1000001, 0, 1000001, 4000004],
          [4004004, 1001001, 0, 1001001, 4004004],
          [0, 1010101, 1010101, 1010101, 16090401, 16090401, 1040916],
@@ -189,6 +195,8 @@ def get_y_ellipsoid(ndim):
 
 
 def get_y_different_powers(ndim):
+    """Get test data for **Different_Powers** test function.
+    """
     y = [[68, 2, 0, 2, 68],
          [84, 3, 0, 3, 84],
          [0, 4, 4, 4, 4275.6, 4275.6, 81.3],
@@ -199,6 +207,8 @@ def get_y_different_powers(ndim):
 
 
 def get_y_schwefel221(ndim):
+    """Get test data for **Schwefel221** test function.
+    """
     y = [[2, 1, 0, 1, 2],
          [2, 1, 0, 1, 2],
          [2, 1, 0, 1, 2],
@@ -210,6 +220,8 @@ def get_y_schwefel221(ndim):
 
 
 def get_y_step(ndim):
+    """Get test data for **Step** test function.
+    """
     y = [[4, 1, 0, 1, 4],
          [8, 2, 0, 2, 8],
          [12, 3, 0, 3, 12],
@@ -221,6 +233,8 @@ def get_y_step(ndim):
 
 
 def get_y_schwefel222(ndim):
+    """Get test data for **Schwefel222** test function.
+    """
     y = [[4, 2, 0, 2, 4],
          [8, 3, 0, 3, 8],
          [14, 4, 0, 4, 14],
@@ -232,6 +246,8 @@ def get_y_schwefel222(ndim):
 
 
 def get_y_rosenbrock(ndim):
+    """Get test data for **Rosenbrock** test function.
+    """
     y = [[409, 4, 1, 0, 401],
          [810, 4, 2, 400, 4002],
          [3, 0, 1212, 804, 2705, 17913, 24330],
@@ -242,6 +258,8 @@ def get_y_rosenbrock(ndim):
 
 
 def get_y_schwefel12(ndim):
+    """Get test data for **Schwefel12** test function.
+    """
     y = [[4, 1, 0, 5, 20],
          [8, 2, 0, 6, 24],
          [0, 30, 30, 2, 146, 10, 18],
@@ -252,6 +270,8 @@ def get_y_schwefel12(ndim):
 
 
 def get_y_griewank(ndim):
+    """Get test data for **Griewank** test function.
+    """
     y = [[1.066895, 0.589738, 0, 0.589738, 1.066895],
          [1.029230, 0.656567, 0, 0.656567, 1.029230],
          [0, 0.698951, 0.698951, 0.698951, 1.001870, 1.001870, 0.886208],
@@ -262,6 +282,8 @@ def get_y_griewank(ndim):
 
 
 def get_y_bohachevsky(ndim):
+    """Get test data for **Bohachevsky** test function.
+    """
     y = [[0, 0, 0, 0, 0],
          [12, 3.6, 0, 3.6, 12],
          [24, 7.2, 0, 7.2, 24],
@@ -270,6 +292,8 @@ def get_y_bohachevsky(ndim):
 
 
 def get_y_ackley(ndim):
+    """Get test data for **Ackley** test function.
+    """
     y = [[6.593599, 3.625384, 0, 3.625384, 6.593599],
          [6.593599, 3.625384, 0, 3.625384, 6.593599],
          [0, 3.625384, 3.625384, 3.625384, 8.434694, 8.434694, 8.434694],
@@ -280,6 +304,8 @@ def get_y_ackley(ndim):
 
 
 def get_y_rastrigin(ndim):
+    """Get test data for **Rastrigin** test function.
+    """
     y = [[8, 2, 0, 2, 8],
          [12, 3, 0, 3, 12],
          [0, 4, 4, 4, 30, 30, 30],
