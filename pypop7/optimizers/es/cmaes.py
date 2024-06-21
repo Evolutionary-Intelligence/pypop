@@ -15,8 +15,8 @@ class CMAES(ES):
        <https://www.nature.com/articles/s41467-024-45882-z>`_, `[Koginov et al., 2024, TMRB]
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Falk et al., 2023, PNAS]
        <https://www.pnas.org/doi/abs/10.1073/pnas.2219558120>`_, `[Thamm&Rosenow, 2023, PRL]
-       <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.116202>`_, `[Brea et al., 2023, Nature Communications]
-       <https://www.nature.com/articles/s41467-023-38570-x>`_, `[Slade et al., 2022, Nature]
+       <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.116202>`_, `[Brea et al., 2023, Nature
+       Communications] <https://www.nature.com/articles/s41467-023-38570-x>`_, `[Slade et al., 2022, Nature]
        <https://www.nature.com/articles/s41586-022-05191-1>`_, `[Croon et al., 2022, Nature]
        <https://www.nature.com/articles/s41586-022-05182-2>`_, `[Rudolph et al., 2022, Nature Communications]
        <https://www.nature.com/articles/s41467-023-43908-6>`_, `[Franks et al., 2021]
@@ -148,14 +148,15 @@ class CMAES(ES):
         ES.__init__(self, problem, options)
         assert self.n_individuals >= 2
         self._w, self._mu_eff, self._mu_eff_minus = None, None, None  # variance effective selection mass
-        # c_s (c_σ) -> decay rate for the cumulation path for the step-size control
+        # c_s (c_σ) -> decay rate for the cumulating path for the step-size control
         self.c_s, self.d_sigma = None, None  # for cumulative step-length adaptation (CSA)
         self._p_s_1, self._p_s_2 = None, None  # for evolution path update of CSA
         self._p_c_1, self._p_c_2 = None, None  # for evolution path update of CMA
-        # c_c -> decay rate for cumulation path for the rank-one update of CMA
+        # c_c -> decay rate for cumulating path for the rank-one update of CMA
         # c_1 -> learning rate for the rank-one update of CMA
         # c_w (c_μ) -> learning rate for the rank-µ update of CMA
         self.c_c, self.c_1, self.c_w, self._alpha_cov = None, None, None, 2.0  # for CMA (c_w -> c_μ)
+        self._save_eig = options.get('_save_eig', False)  # whether or not save eigenvalues and eigenvectors
 
     def _set_c_c(self):  # to set decay rate of evolution path for rank-one update of CMA
         return (4.0 + self._mu_eff/self.ndim_problem)/(self.ndim_problem + 4.0 + 2.0*self._mu_eff/self.ndim_problem)
@@ -257,6 +258,7 @@ class CMAES(ES):
         results = self._collect(fitness, y, mean)
         results['p_s'] = p_s
         results['p_c'] = p_c
-        results['e_va'] = e_va
-        # results['e_ve'] = e_ve  # do NOT save covariance matrix, owing to its *quadratic* space complexity
+        # by default do *NOT* save eigenvalues and eigenvectors (with *quadratic* space complexity)
+        if self._save_eig:
+            results['e_va'], results['e_ve'] = e_va, e_ve
         return results
