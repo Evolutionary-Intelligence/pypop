@@ -163,12 +163,16 @@ class Cigar(BaseFunction):
 def discus(x, shift_vector=None):  # also called tablet
     """**Discus** test function.
 
-       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
-    x : ndarray
-        input vector.
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
 
     Returns
     -------
@@ -202,11 +206,18 @@ class Discus(BaseFunction):  # also called Tablet
 
 def cigar_discus(x, shift_vector=None):
     """**Cigar-Discus** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -239,11 +250,18 @@ class CigarDiscus(BaseFunction):
 
 def ellipsoid(x, shift_vector=None):
     """**Ellipsoid** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -275,12 +293,19 @@ class Ellipsoid(BaseFunction):
 
 
 def different_powers(x, shift_vector=None):
-    """**Different_powers** test function.
+    """**Different-Powers** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -313,11 +338,18 @@ class DifferentPowers(BaseFunction):
 
 def schwefel221(x, shift_vector=None):
     """**Schwefel221** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -350,11 +382,18 @@ class Schwefel221(BaseFunction):
 
 def step(x, shift_vector=None):
     """**Step** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -387,11 +426,18 @@ class Step(BaseFunction):
 
 def schwefel222(x, shift_vector=None):
     """**Schwefel222** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -424,11 +470,18 @@ class Schwefel222(BaseFunction):
 
 def rosenbrock(x, shift_vector=None):
     """**Rosenbrock** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -461,11 +514,18 @@ class Rosenbrock(BaseFunction):
 
 def schwefel12(x, shift_vector=None):
     """**Schwefel12** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -498,11 +558,18 @@ class Schwefel12(BaseFunction):
 
 def exponential(x, shift_vector=None):
     """**Exponential** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -535,11 +602,18 @@ class Exponential(BaseFunction):
 
 def griewank(x, shift_vector=None):
     """**Griewank** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -572,11 +646,18 @@ class Griewank(BaseFunction):
 
 def bohachevsky(x, shift_vector=None):
     """**Bohachevsky** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -609,11 +690,18 @@ class Bohachevsky(BaseFunction):
 
 def ackley(x, shift_vector=None):
     """**Ackley** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -646,11 +734,18 @@ class Ackley(BaseFunction):
 
 def rastrigin(x, shift_vector=None):
     """**Rastrigin** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -682,12 +777,19 @@ class Rastrigin(BaseFunction):
 
 
 def scaled_rastrigin(x, shift_vector=None):
-    """**Scaled_rastrigin** test function.
+    """**Scaled-Rastrigin** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -719,12 +821,19 @@ class ScaledRastrigin(BaseFunction):
 
 
 def skew_rastrigin(x, shift_vector=None):
-    """**Skew_rastrigin** test function.
+    """**Skew-Rastrigin** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -756,12 +865,19 @@ class SkewRastrigin(BaseFunction):
 
 
 def levy_montalvo(x, shift_vector=None):
-    """**Levy_montalvo** test function.
+    """**Levy-Montalvo** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -794,11 +910,18 @@ class LevyMontalvo(BaseFunction):
 
 def michalewicz(x, shift_vector=None):
     """**Michalewicz** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -831,11 +954,18 @@ class Michalewicz(BaseFunction):
 
 def salomon(x, shift_vector=None):
     """**Salomon** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -868,11 +998,18 @@ class Salomon(BaseFunction):
 
 def shubert(x, shift_vector=None):
     """**Shubert** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
@@ -905,11 +1042,18 @@ class Shubert(BaseFunction):
 
 def schaffer(x, shift_vector=None):
     """**Schaffert** test function.
+
+       .. note:: It's LaTeX formulation is `$$`.
+          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
+          generate it (stored in *txt* form) in advance.
+
     Parameters
     ----------
-    x : ndarray
-        input vector.
-    
+    x            : ndarray
+                   input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
     Returns
     -------
     y : float
