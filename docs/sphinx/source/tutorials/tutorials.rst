@@ -14,8 +14,8 @@ shown below:
 * Controller Design/Optimization (aka Direct Policy Search),
 * Benchmarking BBO on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact
   Award for COCO <https://dl.acm.org/doi/abs/10.1145/3447929.3447930>`_),
-* Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
-  recently by FacebookResearch).
+* Benchmarking BBO on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform
+  (Developed by **FacebookResearch**).
 
 For each black-box optimizer from this `open-source <https://twitter.com/ylecun/status/1715363851967906176>`_
 library, we also provide a *toy* example on their corresponding **API** documentations and two *testing* code
