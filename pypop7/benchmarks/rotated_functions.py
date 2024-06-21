@@ -146,8 +146,8 @@ class Cigar(BaseFunction):
         return cigar(x, rotation_matrix)
 
 
-def discus(x, rotation_matrix=None):  # also called tablet
-    """**Discus** test function.
+def discus(x, rotation_matrix=None):
+    """**Discus/Tablet** test function.
 
        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
           If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
@@ -170,7 +170,7 @@ def discus(x, rotation_matrix=None):  # also called tablet
     return y
 
 
-class Discus(BaseFunction):  # also called Tablet
+class Discus(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
         self.__name__ = 'discus'
