@@ -73,12 +73,13 @@ class CMAES(ES):
        ...            'sigma': 3.0}  # global step-size may need to be tuned
        >>> cmaes = CMAES(problem, options)  # to initialize the optimizer class
        >>> results = cmaes.optimize()  # to run the optimization/evolution process
-       >>> # to return the number of function evaluations and the best-so-far fitness
        >>> print(f"CMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       CMAES: 5000, 0.0017836312093795592
+       CMAES: 5000, 0.0017
 
-    For its correctness checking of coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/4mysrjwe>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_cmaes.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_cmaes.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_cmaes.py>`_.
 
     Attributes
     ----------
