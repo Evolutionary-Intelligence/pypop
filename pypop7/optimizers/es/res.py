@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
+from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strategies (ES) classes
 
 
 class RES(ES):
@@ -76,8 +76,10 @@ class RES(ES):
        >>> print(f"RES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        RES: 5000, 0.0001
 
-    For its correctness checking of Python-based coding, refer to `this code-based repeatability report
-    <https://tinyurl.com/5n6ndrn7>`_ for more details.
+    For its correctness checking of Python coding, please refer to `this code-based repeatability report
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/_repeat_res.py>`_
+    for all details. For *pytest*-based automatic testing, please see `test_res.py
+    <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/test_res.py>`_.
 
     Attributes
     ----------
