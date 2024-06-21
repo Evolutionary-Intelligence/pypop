@@ -13,7 +13,7 @@ from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
 def generate_rotation_matrix(func, ndim, seed):
     """Generate a *random* rotation matrix of dimension [`ndim` * `ndim`], sampled normally.
 
-        .. note:: The generated rotation matrix will be automatically stored in *txt* form for further use.
+       .. note:: The generated rotation matrix will be automatically stored in *txt* form for further use.
 
     Parameters
     ----------
@@ -149,9 +149,9 @@ class Cigar(BaseFunction):
 def discus(x, rotation_matrix=None):  # also called tablet
     """**Discus** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
