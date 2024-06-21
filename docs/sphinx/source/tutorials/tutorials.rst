@@ -696,14 +696,14 @@ The final HTML outputs look like:
    :width: 500px
    :align: center
 
-Benchmarking on the Famous NeverGrad Platform
----------------------------------------------
+Benchmarking BBO on the Famous NeverGrad Platform
+-------------------------------------------------
 
-As pointed out in the recent paper from Facebook AI Research `[Meunier et al., 2022, TEVC]
-<https://ieeexplore.ieee.org/abstract/document/9524335>`_, *"Existing studies in black-box optimization suffer from
-low generalizability, caused by a typically selective choice of problem instances used for training and testing of
-different optimization algorithms. Among other issues, this practice promotes overfitting and poor-performing user
-guidelines."*
+As pointed out in the recent paper from Facebook AI Research (`[Meunier et al., 2022, TEVC]
+<https://ieeexplore.ieee.org/abstract/document/9524335>`_), *"Existing studies in black-box optimization suffer
+from low generalizability, caused by a typically selective choice of problem instances used for training and
+testing of different optimization algorithms. Among other issues, this practice promotes overfitting and
+poor-performing user guidelines."*
 
 Here we choose a **real-world** optimization problem to compare two population-based optimizers (`PSO` vs `DE`)
 in the following:
