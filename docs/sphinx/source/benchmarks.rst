@@ -127,3 +127,15 @@ Note that these are used only for the *testing* purpose.
 .. autofunction:: pypop7.benchmarks.cases.get_y_sphere
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_cigar
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_discus
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_cigar_discus
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_ellipsoid
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_different_powers
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_schwefel221
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_step
