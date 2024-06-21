@@ -644,19 +644,19 @@ well on a `classical <https://ieeexplore.ieee.org/document/9306925>`_ control pr
             print(solver.optimize())
             c.env.close()
 
-Benchmarking on the Well-Designed COCO Platform
------------------------------------------------
+Benchmarking BBO on the Well-Designed COCO Platform
+---------------------------------------------------
 
-From the `evolutionary computation <https://www.nature.com/articles/nature14544>`_ community,
-`COCO <https://github.com/numbbo/coco>`_ is a *well-designed* and *actively-maintained* platform for comparing continuous
-optimizers in the **black-box** setting.
+From the `evolutionary computation <https://www.nature.com/articles/nature14544>`_ community, `COCO
+<https://github.com/numbbo/coco>`_ is a *well-designed* and *actively-maintained* software platform
+for comparing continuous optimizers in the **black-box** setting.
 
     .. code-block:: python
 
-        """A simple example for `COCO` Benchmarking using `PyPop7`:
-          https://github.com/numbbo/coco
-          
-          To install `COCO` successfully, please read the above link carefully. 
+        """A simple example for `COCO` Benchmarking using only `PyPop7`:
+           https://github.com/numbbo/coco
+
+           To install `COCO` successfully, please read the above open link carefully. 
         """
         import os
         import webbrowser  # for post-processing in the browser
@@ -669,7 +669,7 @@ optimizers in the **black-box** setting.
 
 
         if __name__ == '__main__':
-            suite, output = 'bbob', 'coco-maes'
+            suite, output = 'bbob', 'coco-pypop7-maes'
             budget_multiplier = 1e3  # or 1e4, 1e5, ...
             observer = cocoex.Observer(suite, 'result_folder: ' + output)
             minimal_print = cocoex.utilities.MiniPrint()
