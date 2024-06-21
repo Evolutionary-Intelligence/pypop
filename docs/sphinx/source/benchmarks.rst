@@ -107,6 +107,8 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.rotated_functions.generate_rotation_matrix
 
+.. autofunction:: pypop7.benchmarks.rotated_functions.load_rotation_matrix
+
 Rotated-Shifted Forms
 ---------------------
 
