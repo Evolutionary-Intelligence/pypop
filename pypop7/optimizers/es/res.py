@@ -6,6 +6,9 @@ from pypop7.optimizers.es.es import ES  # abstract class of all evolution strate
 class RES(ES):
     """Rechenberg's (1+1)-Evolution Strategy with 1/5th success rule (RES).
 
+    `"Given all variances and covariances, the normal (Gaussian) distribution has the largest entropy of all
+    distributions."---[Hansen, N., 2023] <https://arxiv.org/abs/1604.00772>`_
+
     .. note:: `RES` is the first evolution strategy with self-adaptation of the *global* step-size (designed
        by Rechenberg, one recipient of `IEEE Evolutionary Computation Pioneer Award 2002
        <https://tinyurl.com/456as566>`_), originally proposed for experimental optimization. As theoretically
