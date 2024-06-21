@@ -42,12 +42,18 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
 
     Parameters
     ----------
-    func
-    x
-    y
-    levels
-    num
-    is_save
+    func    : func
+              benchmarking function.
+    x       : list
+              x-axis range.
+    y       : list
+              y-axis range.
+    levels  : int
+              number of contour lines / regions.
+    num     : int
+              number of samples in each of x- and y-axis range.
+    is_save :
+              whether save the figure
 
     Returns
     -------
