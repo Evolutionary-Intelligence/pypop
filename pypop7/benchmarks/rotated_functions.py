@@ -147,6 +147,24 @@ class Cigar(BaseFunction):
 
 
 def discus(x, rotation_matrix=None):  # also called tablet
+    """**Discus** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(discus, x, rotation_matrix)
     y = base_functions.discus(np.dot(rotation_matrix, x))
     return y
@@ -162,6 +180,24 @@ class Discus(BaseFunction):  # also called Tablet
 
 
 def cigar_discus(x, rotation_matrix=None):
+    """**Cigar-Discus** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(cigar_discus, x, rotation_matrix)
     y = base_functions.cigar_discus(np.dot(rotation_matrix, x))
     return y
@@ -177,6 +213,24 @@ class CigarDiscus(BaseFunction):
 
 
 def ellipsoid(x, rotation_matrix=None):
+    """**Ellipsoid** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(ellipsoid, x, rotation_matrix)
     y = base_functions.ellipsoid(np.dot(rotation_matrix, x))
     return y
@@ -192,6 +246,24 @@ class Ellipsoid(BaseFunction):
 
 
 def different_powers(x, rotation_matrix=None):
+    """**Different-Powers** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(different_powers, x, rotation_matrix)
     y = base_functions.different_powers(np.dot(rotation_matrix, x))
     return y
@@ -207,6 +279,24 @@ class DifferentPowers(BaseFunction):
 
 
 def schwefel221(x, rotation_matrix=None):
+    """**Schwefel221** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(schwefel221, x, rotation_matrix)
     y = base_functions.schwefel221(np.dot(rotation_matrix, x))
     return y
@@ -222,6 +312,24 @@ class Schwefel221(BaseFunction):
 
 
 def step(x, rotation_matrix=None):
+    """**Step** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(step, x, rotation_matrix)
     y = base_functions.step(np.dot(rotation_matrix, x))
     return y
@@ -237,6 +345,24 @@ class Step(BaseFunction):
 
 
 def schwefel222(x, rotation_matrix=None):
+    """**Schwefel222** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(schwefel222, x, rotation_matrix)
     y = base_functions.schwefel222(np.dot(rotation_matrix, x))
     return y
@@ -252,6 +378,24 @@ class Schwefel222(BaseFunction):
 
 
 def rosenbrock(x, rotation_matrix=None):
+    """**Rosenbrock** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(rosenbrock, x, rotation_matrix)
     y = base_functions.rosenbrock(np.dot(rotation_matrix, x))
     return y
@@ -267,6 +411,24 @@ class Rosenbrock(BaseFunction):
 
 
 def schwefel12(x, rotation_matrix=None):
+    """**Schwefel12** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(schwefel12, x, rotation_matrix)
     y = base_functions.schwefel12(np.dot(rotation_matrix, x))
     return y
@@ -282,6 +444,24 @@ class Schwefel12(BaseFunction):
 
 
 def exponential(x, rotation_matrix=None):
+    """**Exponential** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(exponential, x, rotation_matrix)
     y = base_functions.exponential(np.dot(rotation_matrix, x))
     return y
@@ -297,6 +477,24 @@ class Exponential(BaseFunction):
 
 
 def griewank(x, rotation_matrix=None):
+    """**Griewank** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(griewank, x, rotation_matrix)
     y = base_functions.griewank(np.dot(rotation_matrix, x))
     return y
@@ -312,6 +510,24 @@ class Griewank(BaseFunction):
 
 
 def bohachevsky(x, rotation_matrix=None):
+    """**Bohachevsky** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(bohachevsky, x, rotation_matrix)
     y = base_functions.bohachevsky(np.dot(rotation_matrix, x))
     return y
@@ -327,6 +543,24 @@ class Bohachevsky(BaseFunction):
 
 
 def ackley(x, rotation_matrix=None):
+    """**Ackley** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(ackley, x, rotation_matrix)
     y = base_functions.ackley(np.dot(rotation_matrix, x))
     return y
@@ -342,6 +576,24 @@ class Ackley(BaseFunction):
 
 
 def rastrigin(x, rotation_matrix=None):
+    """**Rastrigin** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(rastrigin, x, rotation_matrix)
     y = base_functions.rastrigin(np.dot(rotation_matrix, x))
     return y
@@ -357,6 +609,24 @@ class Rastrigin(BaseFunction):
 
 
 def scaled_rastrigin(x, rotation_matrix=None):
+    """**Scaled-Rastrigin** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(scaled_rastrigin, x, rotation_matrix)
     y = base_functions.scaled_rastrigin(np.dot(rotation_matrix, x))
     return y
@@ -372,6 +642,24 @@ class ScaledRastrigin(BaseFunction):
 
 
 def skew_rastrigin(x, rotation_matrix=None):
+    """**Skew-Rastrigin** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(skew_rastrigin, x, rotation_matrix)
     y = base_functions.skew_rastrigin(np.dot(rotation_matrix, x))
     return y
@@ -387,6 +675,24 @@ class SkewRastrigin(BaseFunction):
 
 
 def levy_montalvo(x, rotation_matrix=None):
+    """**Levy-Montalvo** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(levy_montalvo, x, rotation_matrix)
     y = base_functions.levy_montalvo(np.dot(rotation_matrix, x))
     return y
@@ -402,6 +708,24 @@ class LevyMontalvo(BaseFunction):
 
 
 def michalewicz(x, rotation_matrix=None):
+    """**Michalewicz** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(michalewicz, x, rotation_matrix)
     y = base_functions.michalewicz(np.dot(rotation_matrix, x))
     return y
@@ -417,6 +741,24 @@ class Michalewicz(BaseFunction):
 
 
 def salomon(x, rotation_matrix=None):
+    """**Salomon** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(salomon, x, rotation_matrix)
     y = base_functions.salomon(np.dot(rotation_matrix, x))
     return y
@@ -432,6 +774,24 @@ class Salomon(BaseFunction):
 
 
 def shubert(x, rotation_matrix=None):
+    """**Shubert** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(shubert, x, rotation_matrix)
     y = base_functions.shubert(np.dot(rotation_matrix, x))
     return y
@@ -447,6 +807,24 @@ class Shubert(BaseFunction):
 
 
 def schaffer(x, rotation_matrix=None):
+    """**Schaffer** test function.
+
+        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+              generate it (stored in *txt* form) in advance.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    rotation_matrix : ndarray
+                      a matrix with the same size as `x` in each dimension.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     rotation_matrix = load_rotation_matrix(schaffer, x, rotation_matrix)
     y = base_functions.schaffer(np.dot(rotation_matrix, x))
     return y
