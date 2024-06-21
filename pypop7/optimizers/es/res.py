@@ -100,50 +100,50 @@ class RES(ES):
     `Tributes to Ingo Rechenberg (1934--2021).
     <https://dl.acm.org/doi/10.1145/3511282.3511283>`_
     ACM SIGEVOlution, 14(4), pp.1-4.
-    
+
     Agapie, A., Solomon, O. and Giuclea, M., 2021.
     `Theory of (1+1) ES on the RIDGE.
     <https://ieeexplore.ieee.org/abstract/document/9531957>`_
     IEEE Transactions on Evolutionary Computation, 26(3), pp.501-511.
-    
+
     Hansen, N., Arnold, D.V. and Auger, A., 2015.
     `Evolution strategies.
     <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
     In Springer Handbook of Computational Intelligence (pp. 871-898). Springer, Berlin, Heidelberg.
-    
+
     Kern, S., Müller, S.D., Hansen, N., Büche, D., Ocenasek, J. and Koumoutsakos, P., 2004.
     `Learning probability distributions in continuous evolutionary algorithms–a comparative review.
     <https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e>`_
     Natural Computing, 3, pp.77-112.
-    
+
     Beyer, H.G. and Schwefel, H.P., 2002.
     `Evolution strategies–A comprehensive introduction.
     <https://link.springer.com/article/10.1023/A:1015059928466>`_
     Natural Computing, 1(1), pp.3-52.
-    
+
     Rechenberg, I., 2000.
     `Case studies in evolutionary experimentation and computation.
     <https://www.sciencedirect.com/science/article/pii/S0045782599003813>`_
     Computer Methods in Applied Mechanics and Engineering, 186(2-4), pp.125-140.
-    
+
     Rechenberg, I., 1989.
     `Evolution strategy: Nature’s way of optimization.
     <https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6>`_
     In Optimization: Methods and Applications, Possibilities and Limitations (pp. 106-126).
     Springer, Berlin, Heidelberg.
-    
+
     Rechenberg, I., 1984.
     `The evolution strategy. A mathematical model of Darwinian evolution.
     <https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13>`_
     In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer, Berlin, Heidelberg.
-    
+
     Rechenberg, I., 1973.
     Evolutionsstrategie: Optimierung technischer systeme nach prinzipien der biologischen evolution.
     Frommann-Holzboog Verlag, Stuttgart.
     (Note that this **seminal** Ph.D. dissertation is not read by us since it was originally written
     in German. Here we still add it owing to its historically significant contributions to
     evolutionary computation and black-box optimization.)
-    
+
     Schumer, M.A. and `Steiglitz, K. <https://www.cs.princeton.edu/~ken/>`_, 1968.
     `Adaptive step size random search.
     <https://ieeexplore.ieee.org/abstract/document/1098903>`_
@@ -165,7 +165,7 @@ class RES(ES):
         return mean, y, best_so_far_y
 
     def iterate(self, args=None, mean=None):  # to sample and evaluate only one offspring
-        x = mean + self.sigma*self.rng_optimization.standard_normal((self.ndim_problem,))
+        x = mean + self.sigma * self.rng_optimization.standard_normal((self.ndim_problem,))
         y = self._evaluate_fitness(x, args)
         return x, y
 
