@@ -139,3 +139,17 @@ Note that these are used only for the *testing* purpose.
 .. autofunction:: pypop7.benchmarks.cases.get_y_schwefel221
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_step
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_schwefel222
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_rosenbrock
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_schwefel12
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_griewank
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_bohachevsky
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_ackley
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_rastrigin
