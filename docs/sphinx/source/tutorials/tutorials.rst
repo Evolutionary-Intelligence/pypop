@@ -12,8 +12,8 @@ shown below:
   European Space Agency),
 * Benchmarking for Large-Scale Black-Box Optimization (LBO),
 * Controller Design/Optimization (aka Direct Policy Search),
-* Benchmarking on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact Award
-  Winner <https://dl.acm.org/doi/abs/10.1145/3447929.3447930>`_),
+* Benchmarking BBO on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact
+  Award for COCO <https://dl.acm.org/doi/abs/10.1145/3447929.3447930>`_),
 * Benchmarking on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (developed
   recently by FacebookResearch).
 
