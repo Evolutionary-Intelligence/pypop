@@ -10,13 +10,13 @@ class RES(ES):
     distributions."---[Hansen, N., 2023] <https://arxiv.org/abs/1604.00772>`_
 
     .. note:: `RES` is the first evolution strategy with self-adaptation of the *global* step-size (designed
-       by Rechenberg, one recipient of `IEEE Evolutionary Computation Pioneer Award 2002
-       <https://tinyurl.com/456as566>`_), originally proposed for experimental optimization. As theoretically
-       investigated in his *seminal* Ph.D. dissertation at Technical University of Berlin, the existence of
-       narrow **evolution window** explains the necessarity of *global* step-size adaptation to maximize the
-       local convergence progress, if possible. Note that a similar theoretical study was independently
-       conducted in the automatic control community (that is, `[Schumer&Steiglitz, 1968, IEEE-TAC]
-       <https://ieeexplore.ieee.org/abstract/document/1098903>`_).
+       by Rechenberg, one 2002 recipient of `IEEE Evolutionary Computation Pioneer Award
+       <https://cis.ieee.org/awards/past-recipients#EvolutionaryComputationPioneerAward>`_), originally
+       proposed for experimental optimization. As theoretically investigated in his *seminal* Ph.D.
+       dissertation at Technical University of Berlin, the existence of narrow **evolution window** explains
+       the necessarity of *global* step-size adaptation to maximize the local convergence progress, if possible.
+       Note that a similar theoretical study was independently conducted in the automatic control community
+       (`[Schumer&Steiglitz, 1968, IEEE-TAC] <https://ieeexplore.ieee.org/abstract/document/1098903>`_).
 
        Since there is only one parent and only one offspring for each generation (iteration), `RES` generally
        shows limited *exploration* ability for large-scale black-box optimization. Therefore, it is
