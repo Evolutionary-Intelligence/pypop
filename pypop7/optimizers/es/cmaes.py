@@ -109,7 +109,12 @@ class CMAES(ES):
     `Information-geometric optimization algorithms: A unifying picture via invariance principles.
     <https://jmlr.org/papers/v18/14-467.html>`_
     Journal of Machine Learning Research, 18(18), pp.1-65.
-    
+
+    Kern, S., Müller, S.D., Hansen, N., Büche, D., Ocenasek, J. and Koumoutsakos, P., 2004.
+    `Learning probability distributions in continuous evolutionary algorithms–a comparative review.
+    <https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e>`_
+    Natural Computing, 3, pp.77-112.
+
     Hansen, N., Müller, S.D. and Koumoutsakos, P., 2003.
     `Reducing the time complexity of the derandomized evolution strategy with covariance matrix adaptation (CMA-ES).
     <https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized>`_
