@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # helper function for 2D-plotting
 def generate_xyz(func, x, y, num=200):
-    """
+    """Generate necessary data before plotting a 2D contour of the fitness landscape.
 
     Parameters
     ----------
@@ -38,7 +38,7 @@ def generate_xyz(func, x, y, num=200):
 
 # helper function for 2D-plotting
 def plot_contour(func, x, y, levels=None, num=200, is_save=False):
-    """
+    """Plot a 2D contour of the fitness landscape.
 
     Parameters
     ----------
@@ -49,15 +49,15 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
     y       : list
               y-axis range.
     levels  : int
-              number of contour lines / regions.
+              number of contour lines.
     num     : int
               number of samples in each of x- and y-axis range.
-    is_save :
-              whether save the figure
+    is_save : bool
+              whether or not to save the generated figure in the *local* folder.
 
     Returns
     -------
-
+    An online figure. 
     """
     x, y, z = generate_xyz(func, x, y, num)
     if levels is None:
