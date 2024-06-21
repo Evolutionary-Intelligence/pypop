@@ -98,6 +98,8 @@ class CMAES(ES):
 
     References
     ----------
+    https://cma-es.github.io/
+
     `Hansen, N. <http://www.cmap.polytechnique.fr/~nikolaus.hansen/>`_, 2023.
     `The CMA evolution strategy: A tutorial.
     <https://arxiv.org/abs/1604.00772>`_
