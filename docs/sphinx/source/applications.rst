@@ -7,6 +7,8 @@ Paper Cases
 Up to now, this open-source Python library `PyPop7` has been **used/cited** (at least) in the following papers:
 
 * 9: Bailo, R., Barbaro, A., Gomes, S.N., Riedl, K., Roith, T., Totzeck, C. and Vaes, U., 2024. `CBX: Python and Julia Packages for Consensus-based Interacting Particle Methods <https://github.com/PdIPS/CBX/blob/main/paper.md>`_. arXiv preprint arXiv:2403.14470. [**cited**]
+
+  * University of Oxford + Technische Universiteit Delft + University of Warwick + Technical University of Munich + Munich Center for Machine Learning + Deutsches Elektronen-Synchrotron DESY + University of Wuppertal + Inria + Ecole des Ponts
 * 8: Ma, Z., Guo, H., Chen, J., Peng, G., Cao, Z., Ma, Y. and Gong, Y.J., 2024. `LLaMoCo: Instruction Tuning of Large Language Models for Optimization Code Generation <https://arxiv.org/abs/2403.01131>`_. arXiv preprint arXiv:2403.01131. [**used&cited**]
 * 7: Zhang, Z., Wei, Y. and Sui, Y., 2024. `An Invariant Information Geometric Method for High-Dimensional Online Optimization <https://arxiv.org/abs/2401.01579>`_. arXiv preprint arXiv:2401.01579. [**used&cited**]
 * 6: Yu, L., Chen, Q., Lin, J. and He, L., 2023. `Black-box Prompt Tuning for Vision-Language Model as a Service <https://www.ijcai.org/proceedings/2023/0187.pdf>`_. Proceedings of International Joint Conference on Artificial Intelligence (pp. 1686-1694). IJCAI. [**used**]
