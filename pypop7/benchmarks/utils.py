@@ -57,7 +57,7 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
 
     Returns
     -------
-    An online figure. 
+    An online figure.
     """
     x, y, z = generate_xyz(func, x, y, num)
     if levels is None:
@@ -67,6 +67,46 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
         plt.contourf(x, y, z, levels, cmap='cool')
         c = plt.contour(x, y, z, levels, colors='white')
         plt.clabel(c, inline=True, fontsize=12, colors='white')
+    plt.title(func.__name__)
+    plt.xlabel('x')
+    plt.ylabel('y')
+    if is_save:
+        plt.savefig(func.__name__ + '_contour.png')
+    plt.show()
+
+
+# helper function for 3D-plotting
+def plot_contour3d(func, x, y, levels=None, num=2000, is_save=False):
+    """Plot a 3D contour of the fitness landscape.
+
+    Parameters
+    ----------
+    func    : func
+              benchmarking function.
+    x       : list
+              x-axis range.
+    y       : list
+              y-axis range.
+    levels  : int
+              number of contour lines.
+    num     : int
+              number of samples in each of x- and y-axis range.
+    is_save : bool
+              whether or not to save the generated figure in the *local* folder.
+
+    Returns
+    -------
+    An online figure.
+    """
+    x, y, z = generate_xyz(func, x, y, num)
+    ax = plt.figure().add_subplot(projection='3d')
+    if levels is None:
+        ax.contourf(x, y, z, cmap='cool')
+        ax.contour(x, y, z, colors='white')
+    else:
+        ax.contourf(x, y, z, levels, cmap='cool')
+        c = plt.contour(x, y, z, levels, colors='white')
+        ax.clabel(c, inline=True, fontsize=12, colors='white')
     plt.title(func.__name__)
     plt.xlabel('x')
     plt.ylabel('y')
