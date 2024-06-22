@@ -1,5 +1,5 @@
-Utils for BBO
-=============
+Util Functions for BBO
+======================
 
 In this open-source module, we provide some **common** utils functions for BBO, as presented below:
 
