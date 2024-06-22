@@ -82,7 +82,7 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
 
 # helper function for 3D-plotting
 def plot_surface(func, x, y, num=200, is_save=False):
-    """Plot a 3D contour of the fitness landscape.
+    """Plot a 3D surface of the fitness landscape.
 
     Parameters
     ----------
@@ -92,10 +92,10 @@ def plot_surface(func, x, y, num=200, is_save=False):
               x-axis range.
     y       : list
               y-axis range.
-    num     : int (`200` by default)
-              number of samples in each of x- and y-axis range.
-    is_save : bool (`False` by default)
-              whether or not to save the generated figure in the *local* folder.
+    num     : int
+              number of samples in each of x- and y-axis range (`200` by default).
+    is_save : bool
+              whether or not to save the generated figure in the *local* folder (`False` by default).
 
     Returns
     -------
