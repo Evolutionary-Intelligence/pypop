@@ -1,5 +1,5 @@
-Design Philosophy of PyPop7
-===========================
+Design Philosophy
+=================
 
 Given a large number of black-box optimizers (BBO) which still keep increasing almost every month, we need some
 (possibly) widely acceptable criteria to select from them, as presented below in details:
