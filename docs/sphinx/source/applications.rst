@@ -10,13 +10,29 @@ Up to now, this open-source Python library `PyPop7` has been **used/cited** (at 
 
   * University of Oxford + Technische Universiteit Delft + University of Warwick + Technical University of Munich + Munich Center for Machine Learning + Deutsches Elektronen-Synchrotron DESY + University of Wuppertal + Inria + Ecole des Ponts
 * 8: Ma, Z., Guo, H., Chen, J., Peng, G., Cao, Z., Ma, Y. and Gong, Y.J., 2024. `LLaMoCo: Instruction Tuning of Large Language Models for Optimization Code Generation <https://arxiv.org/abs/2403.01131>`_. arXiv preprint arXiv:2403.01131. [**used&cited**]
+
+  * South China University of Technology + Singapore Management University + Nanyang Technological University
 * 7: Zhang, Z., Wei, Y. and Sui, Y., 2024. `An Invariant Information Geometric Method for High-Dimensional Online Optimization <https://arxiv.org/abs/2401.01579>`_. arXiv preprint arXiv:2401.01579. [**used&cited**]
+
+  * Tsinghua University
 * 6: Yu, L., Chen, Q., Lin, J. and He, L., 2023. `Black-box Prompt Tuning for Vision-Language Model as a Service <https://www.ijcai.org/proceedings/2023/0187.pdf>`_. Proceedings of International Joint Conference on Artificial Intelligence (pp. 1686-1694). IJCAI. [**used**]
+
+  * East China Normal University
 * 5: Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768. [**used&cited**]
+
+  * Rice University + Shanghai Jiao Tong University + National University of Singapore
 * 4: Duan, Q., Shao, C., Zhou, G., Zhao, Q. and Shi, Y., 2023. `Distributed Evolution Strategies with Multi-Level Learning for Large-Scale Black-Box Optimization <https://arxiv.org/abs/2310.05377>`_. arXiv preprint arXiv:2310.05377. [**used**]
+
+  * Harbin Institute of Technology + Southern University of Science and Technology + University of Technology Sydney + University of Warwick
 * 3: Duan, Q., Shao, C., Zhou, G., Yang, H., Zhao, Q. and Shi, Y., 2023. `Cooperative Coevolution for Non-Separable Large-Scale Black-Box Optimization: Convergence Analyses and Distributed Accelerations <https://arxiv.org/abs/2304.05020>`_. arXiv preprint arXiv:2304.05020. [**used**]
+
+  * Harbin Institute of Technology + Southern University of Science and Technology + University of Technology Sydney
 * 2: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022. `Collective Learning of Low-Memory Matrix Adaptation for Large-Scale Black-Box Optimization <https://link.springer.com/chapter/10.1007/978-3-031-14721-0_20>`_. In International Conference on Parallel Problem Solving from Nature (pp. 281-294). Springer, Cham.  [**used**, this research paper entered the nomination list of the Best Paper Award on PPSN-2022]
+
+  * Harbin Institute of Technology + Southern University of Science and Technology + University of Technology Sydney
 * 1: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022, July. `Distributed Evolution Strategies for Large-Scale Optimization <https://dl.acm.org/doi/abs/10.1145/3520304.3528784>`_. In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion (pp. 395-398). ACM. [**used**]
+
+  * Harbin Institute of Technology + Southern University of Science and Technology + University of Technology Sydney
 
 Open-Source Cases
 -----------------
