@@ -1,5 +1,5 @@
-Direct Search (DS)
-==================
+Direct/Pattern Search (DS)
+==========================
 
 .. autoclass:: pypop7.optimizers.ds.ds.DS
 
@@ -7,7 +7,7 @@ Direct Search (DS)
 
 .. toctree::
    :maxdepth: 2
-   :caption: DSs:
+   :caption: Direct/Pattern Search (DS):
 
    powell
    gps
