@@ -59,7 +59,7 @@ class MMES(ES):
        >>> options = {'max_function_evaluations': 500000,  # to set optimizer options
        ...            'seed_rng': 2022,
        ...            'mean': 3.0*numpy.ones((200,)),
-       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       ...            'sigma': 3.0}  # global step-size may need to be tuned for optimality
        >>> mmes = MMES(problem, options)  # to initialize the optimizer class
        >>> results = mmes.optimize()  # to run the optimization/evolution process
        >>> print(f"MMES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
