@@ -7,7 +7,9 @@ import numpy as np  # engine for numerical computing
 
 from pypop7.benchmarks import base_functions as bf
 from pypop7.benchmarks import rotated_functions as rf
-from pypop7.benchmarks.utils import generate_xyz, plot_contour, plot_contour3d
+from pypop7.benchmarks.utils import generate_xyz
+from pypop7.benchmarks.utils import plot_contour
+from pypop7.benchmarks.utils import plot_surface
 
 
 # test function for plotting
@@ -34,23 +36,21 @@ class TestUtils(unittest.TestCase):
         plot_contour(cd, [-10.0, 10.0], [-10.0, 10.0])
         # plot ill-condition and non-separability
         rf.generate_rotation_matrix(rf.ellipsoid, 2, 72)
-        plot_contour(rf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0],
-                     levels=[1e0, 1e3, 1e6, 5e6, 1e7, 5e7, 1e8, 5e8, 1e9])
+        plot_contour(rf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0], 7)
 
-    def test_plot_contour3d(self):
+    def test_plot_surface(self):
         # plot smoothness and convexity
-        plot_contour3d(bf.sphere, [-10.0, 10.0], [-10.0, 10.0])
-        plot_contour3d(bf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0])
+        plot_surface(bf.sphere, [-10.0, 10.0], [-10.0, 10.0])
+        plot_surface(bf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0])
         # plot multi-modality
-        plot_contour3d(bf.rastrigin, [-10.0, 10.0], [-10.0, 10.0])
+        plot_surface(bf.rastrigin, [-10.0, 10.0], [-10.0, 10.0])
         # plot non-convexity
-        plot_contour3d(bf.ackley, [-10.0, 10.0], [-10.0, 10.0])
+        plot_surface(bf.ackley, [-10.0, 10.0], [-10.0, 10.0])
         # plot non-separability
-        plot_contour3d(cd, [-10.0, 10.0], [-10.0, 10.0])
+        plot_surface(cd, [-10.0, 10.0], [-10.0, 10.0])
         # plot ill-condition and non-separability
         rf.generate_rotation_matrix(rf.ellipsoid, 2, 72)
-        plot_contour3d(rf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0],
-                     levels=[1e0, 1e3, 1e6, 5e6, 1e7, 5e7, 1e8, 5e8, 1e9])
+        plot_surface(rf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0], 7)
 
 
 if __name__ == '__main__':
