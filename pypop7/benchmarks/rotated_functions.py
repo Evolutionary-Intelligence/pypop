@@ -183,8 +183,8 @@ def cigar_discus(x, rotation_matrix=None):
     """**Cigar-Discus** test function.
 
         .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+            If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+            generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -215,9 +215,9 @@ class CigarDiscus(BaseFunction):
 def ellipsoid(x, rotation_matrix=None):
     """**Ellipsoid** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -248,9 +248,9 @@ class Ellipsoid(BaseFunction):
 def different_powers(x, rotation_matrix=None):
     """**Different-Powers** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -281,9 +281,9 @@ class DifferentPowers(BaseFunction):
 def schwefel221(x, rotation_matrix=None):
     """**Schwefel221** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -314,9 +314,9 @@ class Schwefel221(BaseFunction):
 def step(x, rotation_matrix=None):
     """**Step** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -347,9 +347,9 @@ class Step(BaseFunction):
 def schwefel222(x, rotation_matrix=None):
     """**Schwefel222** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -380,9 +380,9 @@ class Schwefel222(BaseFunction):
 def rosenbrock(x, rotation_matrix=None):
     """**Rosenbrock** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -413,9 +413,9 @@ class Rosenbrock(BaseFunction):
 def schwefel12(x, rotation_matrix=None):
     """**Schwefel12** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -446,9 +446,9 @@ class Schwefel12(BaseFunction):
 def exponential(x, rotation_matrix=None):
     """**Exponential** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -479,9 +479,9 @@ class Exponential(BaseFunction):
 def griewank(x, rotation_matrix=None):
     """**Griewank** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -512,9 +512,9 @@ class Griewank(BaseFunction):
 def bohachevsky(x, rotation_matrix=None):
     """**Bohachevsky** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -545,9 +545,9 @@ class Bohachevsky(BaseFunction):
 def ackley(x, rotation_matrix=None):
     """**Ackley** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -578,9 +578,9 @@ class Ackley(BaseFunction):
 def rastrigin(x, rotation_matrix=None):
     """**Rastrigin** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -611,9 +611,9 @@ class Rastrigin(BaseFunction):
 def scaled_rastrigin(x, rotation_matrix=None):
     """**Scaled-Rastrigin** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -644,9 +644,9 @@ class ScaledRastrigin(BaseFunction):
 def skew_rastrigin(x, rotation_matrix=None):
     """**Skew-Rastrigin** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -677,9 +677,9 @@ class SkewRastrigin(BaseFunction):
 def levy_montalvo(x, rotation_matrix=None):
     """**Levy-Montalvo** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -710,9 +710,9 @@ class LevyMontalvo(BaseFunction):
 def michalewicz(x, rotation_matrix=None):
     """**Michalewicz** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -743,9 +743,9 @@ class Michalewicz(BaseFunction):
 def salomon(x, rotation_matrix=None):
     """**Salomon** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -776,9 +776,9 @@ class Salomon(BaseFunction):
 def shubert(x, rotation_matrix=None):
     """**Shubert** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
@@ -809,9 +809,9 @@ class Shubert(BaseFunction):
 def schaffer(x, rotation_matrix=None):
     """**Schaffer** test function.
 
-        .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-              If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
-              generate it (stored in *txt* form) in advance.
+       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
+          If its parameter `rotation_matrix` is `None`, please use function `generate_rotation_matrix()` to
+          generate it (stored in *txt* form) in advance.
 
     Parameters
     ----------
