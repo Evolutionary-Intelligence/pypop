@@ -1,6 +1,8 @@
 Utils for BBO
 =============
 
+In this open-source module, we provide some **common** utils functions for BBO, presented below:
+
 Plotting 2-D Fitness Landscape
 ------------------------------
 
