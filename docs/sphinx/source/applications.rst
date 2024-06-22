@@ -69,11 +69,16 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 * `中文博客网站CSDN <https://blog.csdn.net>`_:
 
   * https://blog.csdn.net/2301_81205034/category_12502462.html
+  * https://blog.csdn.net/gitblog_00094/article/details/139615060
 
 Praises
 -------
+
+All of the following praises come from online states. We appreciate very much for these unstinting praises,
+though we do not have an interest relationship with them:
 
   * `"an invaluable collection" <https://github.com/Evolutionary-Intelligence/pypop/issues/89>`_
   * `"one of the very best BBO libraries around" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
   * `"quite excellent (detailed and professional)" <https://github.com/Evolutionary-Intelligence/EC-A-Modern-Perspective/issues/2>`_
   * `"the excellent work" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
+  * `"无论是学术研究还是工业应用，PyPop7都是一个值得信赖的工具，提供了一流的性能和灵活性" <https://blog.csdn.net/gitblog_00094/article/details/139615060>`_
