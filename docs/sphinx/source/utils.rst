@@ -10,3 +10,5 @@ Plotting 2-D Fitness Landscape
 
 Plotting 3-D Fitness Landscape
 ------------------------------
+
+.. autofunction:: pypop7.benchmarks.utils.plot_surface
