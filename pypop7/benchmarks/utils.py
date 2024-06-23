@@ -64,8 +64,8 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
               x-axis range.
     y       : list
               y-axis range.
-    levels  : int or array
-              number of contour lines.
+    levels  : int or list
+              number of contour lines or a list of contours.
     num     : int
               number of samples in each of x- and y-axis range.
     is_save : bool
@@ -86,8 +86,8 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
        >>> from pypop7.benchmarks.rotated_functions import ellipsoid
        >>> # plot ill-condition and non-separability
        >>> generate_rotation_matrix(ellipsoid, 2, 72)
-       >>> levels = [0, 5e5, 8e6, 4e7, 8e7, 1.15e8, 1.42e8, 1.62e8, 1.78e8, 1.85e8, 2e8]
-       >>> plot_contour(ellipsoid, [-10.0, 10.0], [-10.0, 10.0], levels)
+       >>> contour_levels = [0, 5e5, 8e6, 4e7, 8e7, 1.15e8, 1.42e8, 1.62e8, 1.78e8, 1.85e8, 2e8]
+       >>> plot_contour(ellipsoid, [-10.0, 10.0], [-10.0, 10.0], contour_levels)
     """
     x, y, z = generate_xyz(func, x, y, num)
     if levels is None:
