@@ -70,7 +70,7 @@ class LMCMA(ES):
        ...            'fitness_threshold': 1e-8,
        ...            'seed_rng': 2022,
        ...            'mean': 3.0*numpy.ones((1000,)),
-       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       ...            'sigma': 3.0}  # global step-size may need to be tuned for optimality
        >>> lmcma = LMCMA(problem, options)  # to initialize the optimizer class
        >>> results = lmcma.optimize()  # to run the optimization/evolution process
        >>> print(f"LMCMA: {results['n_function_evaluations']}, {results['best_so_far_y']}")
