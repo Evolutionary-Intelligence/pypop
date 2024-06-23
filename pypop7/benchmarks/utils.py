@@ -56,26 +56,6 @@ def generate_xyz(func, x, y, num=200):
 def plot_contour(func, x, y, levels=None, num=200, is_save=False):
     """Plot a 2D contour of the fitness landscape.
 
-    Examples
-    --------
-
-    .. code-block:: python
-       :linenos:
-       >>> import numpy as np
-       >>> from pypop7.benchmarks import rotated_functions as rf
-       >>> from pypop7.benchmarks.utils import plot_contour
-       >>> plot_contour(bf.sphere, [-10.0, 10.0], [-10.0, 10.0])
-       >>> plot_contour(bf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0])
-       >>> # plot multi-modality
-       >>> plot_contour(bf.rastrigin, [-10.0, 10.0], [-10.0, 10.0])
-       >>> # plot non-convexity
-       >>> plot_contour(bf.ackley, [-10.0, 10.0], [-10.0, 10.0])
-       >>> # plot non-separability
-       >>> plot_contour(cd, [-10.0, 10.0], [-10.0, 10.0])
-       >>> # plot ill-condition and non-separability
-       >>> rf.generate_rotation_matrix(rf.ellipsoid, 2, 72)
-       >>> plot_contour(rf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0], 7)
-
     Parameters
     ----------
     func    : func
@@ -94,6 +74,19 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
     Returns
     -------
     An online figure.
+
+    Examples
+    --------
+
+    .. code-block:: python
+       :linenos:
+
+       >>> from pypop7.benchmarks.utils import plot_contour
+       >>> from pypop7.benchmarks.rotated_functions import generate_rotation_matrix
+       >>> from pypop7.benchmarks.rotated_functions import ellipsoid
+       >>> # plot ill-condition and non-separability
+       >>> generate_rotation_matrix(ellipsoid, 2, 72)
+       >>> plot_contour(ellipsoid, [-10.0, 10.0], [-10.0, 10.0], 27)
     """
     x, y, z = generate_xyz(func, x, y, num)
     if levels is None:
