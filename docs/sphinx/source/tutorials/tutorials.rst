@@ -357,20 +357,22 @@ refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryCo
 Benchmarking for Large-Scale Black-Box Optimization (LBO)
 ---------------------------------------------------------
 
-Benchmarking of BBO algorithms plays a very crucial role on understanding their search dynamics, comparing their
-competitive performance, analyzing their advantages/limitations, and also choosing their state-of-the-art (SOTA)
-versions, usually before applying them to **challenging** real-world problems.
+Benchmarking of BBO algorithms plays a very crucial role on understanding their search dynamics,
+comparing their competitive performance, analyzing their advantages/limitations, and also
+choosing their state-of-the-art (SOTA) versions, usually before applying them to **challenging**
+real-world problems.
 
-.. note:: *“A biased benchmark, excluding large parts of the real-world needs, leads to biased conclusions, no
-   matter how many experiments we perform.”* ---`[Meunier et al., 2022, TEVC]
+.. note:: *“A biased benchmark, excluding large parts of the real-world needs, leads to biased
+   conclusions, no matter how many experiments we perform.”* ---`[Meunier et al., 2022, TEVC]
    <https://ieeexplore.ieee.org/abstract/document/9524335>`_
 
-Here we show how to benchmark **multiple** black-box optimizers on a *relatively large* collection of test
-functions for LBO, in order to mainly compare their *local* search capabilities:
+Here we show how to benchmark **multiple** black-box optimizers on a *relatively large* collection
+of test functions for LBO, in order to mainly compare their *local* search capabilities:
 
-First, as a standard benchmarking practice, generate shift vectors and rotation matrices needed in the experiments,
-which is used to avoid possible bias against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and
-`separability <https://www.sciencedirect.com/science/article/pii/0004370295001247>`_:
+First, as a standard benchmarking practice, generate shift vectors and rotation matrices needed in
+the experiments, which is used to avoid possible bias against `center
+<https://www.nature.com/articles/s42256-022-00579-0>`_ and `separability
+<https://www.sciencedirect.com/science/article/pii/0004370295001247>`_:
 
     .. code-block:: python
 
@@ -411,7 +413,8 @@ which is used to avoid possible bias against `center <https://www.nature.com/art
         if __name__ == '__main__':
             generate_sv_and_rm()
 
-Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** and **shifted**) test functions:
+Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** and **shifted**)
+test functions:
 
     .. code-block:: python
 
@@ -429,10 +432,12 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
             def __init__(self, index, function, seed, ndim_problem):
                 self.index, self.seed = index, seed
                 self.function, self.ndim_problem = function, ndim_problem
-                self._folder = 'pypop7_benchmarks_lso'  # to save all data generated during optimization
+                # save all data generated during optimization
+                self._folder = 'pypop7_benchmarks_lso'
                 if not os.path.exists(self._folder):
                     os.makedirs(self._folder)
-                self._file = os.path.join(self._folder, 'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle')  # file format
+                # set file format
+                self._file = os.path.join(self._folder, 'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle')
 
             def run(self, optimizer):
                 problem = {'fitness_function': self.function,
@@ -461,9 +466,13 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
             def __init__(self, start, end, ndim_problem):
                 self.start, self.end = start, end
                 self.ndim_problem = ndim_problem
-                self.functions = [cf.sphere, cf.cigar, cf.discus, cf.cigar_discus, cf.ellipsoid,
-                                  cf.different_powers, cf.schwefel221, cf.step, cf.rosenbrock, cf.schwefel12]
-                self.seeds = np.random.default_rng(2022).integers(  # for repeatability
+                self.functions = [cf.sphere, cf.cigar,
+                                  cf.discus, cf.cigar_discus,
+                                  cf.ellipsoid, cf.different_powers,
+                                  cf.schwefel221, cf.step,
+                                  cf.rosenbrock, cf.schwefel12]
+                # set RNG seeds for repeatability
+                self.seeds = np.random.default_rng(2022).integers(
                     np.iinfo(np.int64).max, size=(len(self.functions), 50))
 
             def run(self, optimizer):
@@ -480,17 +489,25 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
         if __name__ == '__main__':
             start_runtime = time.time()
             parser = argparse.ArgumentParser()
-            parser.add_argument('--start', '-s', type=int)  # starting index of experiments (from 0 to 49)
-            parser.add_argument('--end', '-e', type=int)  # ending index of experiments (from 0 to 49)
-            parser.add_argument('--optimizer', '-o', type=str)  # any optimizer from PyPop7
-            parser.add_argument('--ndim_problem', '-d', type=int, default=2000)  # dimension of fitness function
+            # set starting index of experiments (from 0 to 49)
+            parser.add_argument('--start', '-s', type=int)
+            # set ending index of experiments (from 0 to 49)
+            parser.add_argument('--end', '-e', type=int)
+            # use any optimizer from PyPop7
+            parser.add_argument('--optimizer', '-o', type=str)
+            # set dimension of all fitness functions
+            parser.add_argument('--ndim_problem', '-d', type=int, default=2000)
             args = parser.parse_args()
             params = vars(args)
-            assert isinstance(params['start'], int) and 0 <= params['start'] < 50  # from 0 to 49
-            assert isinstance(params['end'], int) and 0 <= params['end'] < 50  # from 0 to 49
+            # ensure seeds between 0 (include) and 49 (include)
+            assert isinstance(params['start'], int) and 0 <= params['start'] < 50
+            assert isinstance(params['end'], int) and 0 <= params['end'] < 50
             assert isinstance(params['optimizer'], str)
             assert isinstance(params['ndim_problem'], int) and params['ndim_problem'] > 0
-            if params['optimizer'] == 'PRS':  # 1958
+            if params['optimizer'] == 'PRS':  # 1952
+                # PRS: Ashby's "Design for a Brain: The Origin of Adaptive Behavior"
+                #   (1952 - 1st Edition /1960 - 2nd Edition)
+                #   https://link.springer.com/book/10.1007/978-94-015-1320-3
                 from pypop7.optimizers.rs.prs import PRS as Optimizer
             elif params['optimizer'] == 'SRS':  # 2001
                 from pypop7.optimizers.rs.srs import SRS as Optimizer
@@ -572,15 +589,16 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
             experiments.run(Optimizer)
             print('Total runtime: {:7.5e}.'.format(time.time() - start_runtime))
 
-Please run the above Python script (named as `run_experiments.py` here) **in the background** on a high-performing
-computing server, since typically it needs a very long runtime for LBO:
+Please run the above Python script (named as `run_experiments.py` here) **in the background**
+on a high-performing computing server, since typically it needs a very long runtime for LBO:
 
     .. code-block:: bash
 
-       $ nohup python run_experiments.py -s=1 -e=2 -o=LMCMA >LMCMA_1_2.out 2>&1 &  # on Linux
+       $ # on Linux
+       $ nohup python run_experiments.py -s=1 -e=2 -o=LMCMA >LMCMA_1_2.out 2>&1 &
 
-To further compare **global** search capabilities of different black-box optimizers for LBO, please use the benchmarking
-test suite: `<>`_.
+To further compare **global** search capabilities of different black-box optimizers for LBO,
+please use the benchmarking test suite: `<>`_.
 
 Controller Design/Optimization
 ------------------------------
