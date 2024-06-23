@@ -177,7 +177,14 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
 
     Returns
     -------
-    A local file.
+    A local file stored in the working space (which can be obtained via the `pwd()` command).
+
+    Examples
+    --------
+
+    .. code-block:: python
+       :linenos:
+
     """
     if not os.path.exists(folder):
         os.makedirs(folder)  # to make a new folder under the working space
