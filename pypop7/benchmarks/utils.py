@@ -1,5 +1,6 @@
 import os
 import pickle
+
 import numpy as np  # engine for numerical computing
 import seaborn as sns
 from matplotlib import cm
@@ -177,7 +178,7 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
 
     Returns
     -------
-    A local file stored in the working space (which can be obtained via the `pwd()` command).
+    A **local** file stored in the working space (which can be obtained via the `pwd()` command).
 
     Examples
     --------
