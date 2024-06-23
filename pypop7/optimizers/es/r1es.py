@@ -62,7 +62,7 @@ class R1ES(ES):
        >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
        ...            'mean': 3.0*numpy.ones((2,)),
-       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       ...            'sigma': 3.0}  # global step-size may need to be tuned for optimality
        >>> r1es = R1ES(problem, options)  # to initialize the optimizer class
        >>> results = r1es.optimize()  # to run the optimization/evolution process
        >>> # return the number of function evaluations and best-so-far fitness
