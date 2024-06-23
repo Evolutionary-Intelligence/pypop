@@ -10,7 +10,7 @@ shown below:
   European Space Agency),
 * Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ (developed by
   European Space Agency),
-* Benchmarking for Large-Scale Black-Box Optimization (LBO),
+* `Benchmarking <https://pypop.readthedocs.io/en/latest/tutorials/tutorials.html#benchmarking-for-large-scale-black-box-optimization-lbo>`_ for Large-Scale Black-Box Optimization (LBO),
 * Controller Design/Optimization (aka Direct Policy Search),
 * Benchmarking `BBO <https://pypop.readthedocs.io/en/latest/tutorials/tutorials.html#benchmarking-bbo-on-the-well-designed-coco-platform>`_
   on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact Award for COCO
@@ -354,8 +354,8 @@ just to name a few. For a systematical paper collection on some top-tier journal
 refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
 <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_.
 
-Benchmarking for Large-Scale Black-Box Optimization (LSBBO)
------------------------------------------------------------
+Benchmarking for Large-Scale Black-Box Optimization (LBO)
+---------------------------------------------------------
 
 Benchmarking of optimization algorithms plays a very crucial role on understanding their search dynamics, comparative
 performance, analyzing their advantages/limitations, and also choosing state-of-the-art (SOTA) versions, usually
