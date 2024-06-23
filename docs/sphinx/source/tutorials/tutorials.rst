@@ -357,9 +357,9 @@ refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryCo
 Benchmarking for Large-Scale Black-Box Optimization (LBO)
 ---------------------------------------------------------
 
-Benchmarking of optimization algorithms plays a very crucial role on understanding their search dynamics, comparative
-performance, analyzing their advantages/limitations, and also choosing state-of-the-art (SOTA) versions, usually
-before applying them to challenging real-world problems.
+Benchmarking of BBO algorithms plays a very crucial role on understanding their search dynamics, comparing their
+competitive performance, analyzing their advantages/limitations, and also choosing their state-of-the-art (SOTA)
+versions, usually before applying them to **challenging** real-world problems.
 
 .. note:: *“A biased benchmark, excluding large parts of the real-world needs, leads to biased conclusions, no matter
    how many experiments we perform.”* ---`[Meunier et al., 2022, TEVC]
