@@ -54,7 +54,7 @@ class LMMAES(ES):
        >>> options = {'max_function_evaluations': 500000,  # to set optimizer options
        ...            'seed_rng': 0,
        ...            'mean': 3.0*numpy.ones((200,)),
-       ...            'sigma': 3.0}  # global step-size may need to be fine-tuned for better performance
+       ...            'sigma': 3.0}  # global step-size may need to be tuned for optimality
        >>> lmmaes = LMMAES(problem, options)  # to initialize the optimizer class
        >>> results = lmmaes.optimize()  # to run the optimization/evolution process
        >>> print(f"LMMAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
