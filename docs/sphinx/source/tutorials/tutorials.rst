@@ -374,7 +374,6 @@ which is used to avoid possible bias against `center <https://www.nature.com/art
 
     .. code-block:: python
 
-        # Written/Checked by Chang Shao, Mingyang Feng, and *Qiqi Duan*
         import time
 
         import numpy as np
@@ -416,7 +415,6 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
 
     .. code-block:: python
 
-        # Written/Checked by Chang Shao, Mingyang Feng, and *Qiqi Duan*
         import os
         import time
         import pickle
@@ -439,13 +437,13 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
             def run(self, optimizer):
                 problem = {'fitness_function': self.function,
                            'ndim_problem': self.ndim_problem,
-                           'upper_boundary': 10.0*np.ones((self.ndim_problem,)),
-                           'lower_boundary': -10.0*np.ones((self.ndim_problem,))}
-                options = {'max_function_evaluations': 100000*self.ndim_problem,
-                           'max_runtime': 3600*3,  # seconds (=3 hours)
+                           'upper_boundary': 10.0 * np.ones((self.ndim_problem,)),
+                           'lower_boundary': -10.0 * np.ones((self.ndim_problem,))}
+                options = {'max_function_evaluations': 100000 * self.ndim_problem,
+                           'max_runtime': 3600 * 3,  # seconds (=3 hours)
                            'fitness_threshold': 1e-10,
                            'seed_rng': self.seed,
-                           'sigma': 20.0/3.0,
+                           'sigma': 20.0 / 3.0,
                            'saving_fitness': 2000,
                            'verbose': 0}
                 options['temperature'] = 100.0  # for simulated annealing (SA)
