@@ -1,3 +1,5 @@
+import os
+import pickle
 import numpy as np  # engine for numerical computing
 import seaborn as sns
 from matplotlib import cm
@@ -149,3 +151,37 @@ def plot_surface(func, x, y, num=200, is_save=False):
     if is_save:
         plt.savefig(func.__name__ + '_surface.png')
     plt.show()
+
+
+# helper function for saving optimization results in pickle form
+def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_lso'):
+    """Save optimization results (in **pickle** form) via object serialization.
+
+       .. note:: By default, the **local** file name is given in the following form:
+          `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle`.
+
+    Parameters
+    ----------
+    results : dict
+              optimization results returned by any optimizer.
+    algo    : str
+              name of algorithm to be used.
+    func    : str
+              name of the fitness function to be tested.
+    dim     : str or int
+              dimensionality of the fitness function to be tested.
+    exp     : str or int
+              index of experiments to be run.
+    folder  : str
+              local folder under the working space (`pypop7_benchmarks_lso` by default).
+
+    Returns
+    -------
+    A local file.
+    """
+    if not os.path.exists(folder):
+        os.makedirs(folder)  # to make a new folder under the working space
+    local_file = os.path.join(folder, 'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle')  # to set file format
+    local_file = local_file.format(str(algo), str(func), str(dim), str(exp))  # to set data format
+    with open(local_file, 'wb') as handle:  # to save in pickle form
+        pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
