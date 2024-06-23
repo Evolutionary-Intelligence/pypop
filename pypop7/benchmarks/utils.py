@@ -3,7 +3,20 @@ import seaborn as sns
 from matplotlib import cm
 import matplotlib.pyplot as plt
 
+"""
+Examples
+--------
 
+.. code-block:: python
+   :linenos:
+   >>> import numpy as np
+   >>> from pypop7.benchmarks import base_functions as bf
+   >>> from pypop7.benchmarks.utils import generate_xyz
+   >>> x, y, z = generate_xyz(bf.sphere, [0.0, 1.0], [0.0, 1.0], num=2)
+   >>> self.assertTrue(np.allclose(x, np.array([[0.0, 1.0], [0.0, 1.0]])))
+   >>> self.assertTrue(np.allclose(y, np.array([[0.0, 0.0], [1.0, 1.0]])))
+   >>> self.assertTrue(np.allclose(z, np.array([[0.0, 1.0], [1.0, 2.0]])))
+"""
 sns.set_theme(style='darkgrid')
 
 
