@@ -574,12 +574,12 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
             experiments.run(Optimizer)
             print('Total runtime: {:7.5e}.'.format(time.time() - start_runtime))
 
-Please run the above Python script (named as `run_experiments.py`) in the background on a high-performing server, since
-it needs a very long runtime for LSBBO:
+Please run the above Python script (named as `run_experiments.py` here) **in the background** on a high-performing
+computing server, since typically it needs a very long runtime for LBO:
 
     .. code-block:: bash
 
-        $ nohup python run_experiments.py -s=1 -e=2 -o=LMCMA >LMCMA_1_2.out 2>&1 &  # on Linux
+       $ nohup python run_experiments.py -s=1 -e=2 -o=LMCMA >LMCMA_1_2.out 2>&1 &  # on Linux
 
 Controller Design/Optimization
 ------------------------------
