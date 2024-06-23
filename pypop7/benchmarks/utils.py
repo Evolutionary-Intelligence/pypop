@@ -3,21 +3,14 @@ import seaborn as sns
 from matplotlib import cm
 import matplotlib.pyplot as plt
 
+
 sns.set_theme(style='darkgrid')
 
 
 # helper function for 2D-plotting
 def generate_xyz(func, x, y, num=200):
     """Generate necessary data before plotting a 2D contour of the fitness landscape.
-    Examples
-    --------
-    .. code-block:: python
-       :linenos:
-       >>> import numpy as np
-       >>> from pypop7.benchmarks import base_functions as bf
-       >>> from pypop7.benchmarks.utils import generate_xyz
-       >>> print(x.shape, y.shape, z.shape)
-   
+
     Parameters
     ----------
     func : func
@@ -34,6 +27,17 @@ def generate_xyz(func, x, y, num=200):
     tuple
         A (x, y, z) tuple where x, y, and z are data points in
         x-axis, y-axis, and function values, respectively.
+
+    Examples
+    --------
+
+    .. code-block:: python
+       :linenos:
+
+       >>> from pypop7.benchmarks import base_functions
+       >>> from pypop7.benchmarks.utils import generate_xyz
+       >>> x_, y_, z_ = generate_xyz(base_functions.sphere, [0.0, 1.0], [0.0, 1.0], num=2)
+       >>> print(x_.shape, y_.shape, z_.shape)
     """
     x, y = np.array(x), np.array(y)
     if x.size == 2:
@@ -51,7 +55,7 @@ def generate_xyz(func, x, y, num=200):
 # helper function for 2D-plotting
 def plot_contour(func, x, y, levels=None, num=200, is_save=False):
     """Plot a 2D contour of the fitness landscape.
-    
+
     Examples
     --------
 
@@ -71,7 +75,7 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
        >>> # plot ill-condition and non-separability
        >>> rf.generate_rotation_matrix(rf.ellipsoid, 2, 72)
        >>> plot_contour(rf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0], 7)
-    
+
     Parameters
     ----------
     func    : func
@@ -110,7 +114,7 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
 # helper function for 3D-plotting
 def plot_surface(func, x, y, num=200, is_save=False):
     """Plot a 3D surface of the fitness landscape.
-    
+
     Examples
     --------
 
@@ -132,7 +136,7 @@ def plot_surface(func, x, y, num=200, is_save=False):
        >>> # plot ill-condition and non-separability
        >>> rf.generate_rotation_matrix(rf.ellipsoid, 2, 72)
        >>> plot_surface(rf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0], 7)
-      
+
     Parameters
     ----------
     func    : func
