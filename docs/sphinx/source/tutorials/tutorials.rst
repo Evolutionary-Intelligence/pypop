@@ -506,7 +506,7 @@ test functions:
             assert isinstance(params['ndim_problem'], int) and params['ndim_problem'] > 0
             if params['optimizer'] == 'PRS':  # 1952
                 # PRS: Ashby's "Design for a Brain: The Origin of Adaptive Behavior"
-                #   (1952 - 1st Edition /1960 - 2nd Edition)
+                #   (1952 - 1st Edition / 1960 - 2nd Edition)
                 #   https://link.springer.com/book/10.1007/978-94-015-1320-3
                 from pypop7.optimizers.rs.prs import PRS as Optimizer
             elif params['optimizer'] == 'SRS':  # 2001
