@@ -34,3 +34,15 @@ For **object serialization**, we use the standard library (`pickle
 <https://docs.python.org/3/library/pickle.html>`_) of Python.
 
 .. autofunction:: pypop7.benchmarks.utils.save_optimization
+
+Check Optimization Results
+--------------------------
+
+Plot Convergence Curves via Matplotlib
+--------------------------------------
+
+Compare Multiple Optimizers
+---------------------------
+
+Accelerate Computation via Numba
+--------------------------------
