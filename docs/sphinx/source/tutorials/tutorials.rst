@@ -431,7 +431,7 @@ Then, invoke multiple black-box optimizers from `PyPop7` on these (**rotated** a
             def __init__(self, index, function, seed, ndim_problem):
                 self.index, self.seed = index, seed
                 self.function, self.ndim_problem = function, ndim_problem
-                self._folder = 'pypop7_benchmarks_lso'  # to save all local data generated during optimization
+                self._folder = 'pypop7_benchmarks_lso'  # to save all data generated during optimization
                 if not os.path.exists(self._folder):
                     os.makedirs(self._folder)
                 self._file = os.path.join(self._folder, 'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle')  # file format
