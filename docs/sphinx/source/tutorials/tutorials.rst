@@ -361,12 +361,12 @@ Benchmarking of BBO algorithms plays a very crucial role on understanding their 
 competitive performance, analyzing their advantages/limitations, and also choosing their state-of-the-art (SOTA)
 versions, usually before applying them to **challenging** real-world problems.
 
-.. note:: *“A biased benchmark, excluding large parts of the real-world needs, leads to biased conclusions, no matter
-   how many experiments we perform.”* ---`[Meunier et al., 2022, TEVC]
+.. note:: *“A biased benchmark, excluding large parts of the real-world needs, leads to biased conclusions, no
+   matter how many experiments we perform.”* ---`[Meunier et al., 2022, TEVC]
    <https://ieeexplore.ieee.org/abstract/document/9524335>`_
 
-Here we show how to benchmark multiple black-box optimizers on a *relatively large* collection of LSBBO test functions,
-in order to mainly compare their search capabilities:
+Here we show how to benchmark **multiple** black-box optimizers on a *relatively large* collection of test
+functions for LBO, in order to mainly compare their *local* search capabilities:
 
 First, as a standard benchmarking practice, generate shift vectors and rotation matrices needed in the experiments,
 which is used to avoid possible bias against `center <https://www.nature.com/articles/s42256-022-00579-0>`_ and
