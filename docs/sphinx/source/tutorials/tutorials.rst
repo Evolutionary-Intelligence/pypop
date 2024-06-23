@@ -581,6 +581,9 @@ computing server, since typically it needs a very long runtime for LBO:
 
        $ nohup python run_experiments.py -s=1 -e=2 -o=LMCMA >LMCMA_1_2.out 2>&1 &  # on Linux
 
+To further compare **global** search capabilities of different black-box optimizers for LBO, please use the benchmarking
+test suite: `<>`_.
+
 Controller Design/Optimization
 ------------------------------
 
