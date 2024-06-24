@@ -63,12 +63,11 @@ class SSAES(ES):
        >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022,
        ...            'mean': 3.0*numpy.ones((2,)),
-       ...            'sigma': 3.0}  # global step-size may need to be tuned
+       ...            'sigma': 3.0}  # global step-size may need to be tuned for optimality
        >>> ssaes = SSAES(problem, options)  # to initialize the black-box optimizer class
        >>> results = ssaes.optimize()  # to run the optimization/evolution process
-       >>> # to return the number of function evaluations and the best-so-far fitness
        >>> print(f"SSAES: {results['n_function_evaluations']}, {results['best_so_far_y']}")
-       SSAES: 5000, 0.00023558230456829403
+       SSAES: 5000, 0.0002
 
     For its correctness checking of coding, refer to `this code-based repeatability report
     <https://tinyurl.com/zsmsyh2x>`_ for more details.
