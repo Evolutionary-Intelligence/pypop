@@ -38,6 +38,8 @@ For **object serialization**, we use the standard library (`pickle
 Check Optimization Results
 --------------------------
 
+.. autofunction:: pypop7.benchmarks.utils.check_optimization
+
 Plot Convergence Curves via Matplotlib
 --------------------------------------
 
