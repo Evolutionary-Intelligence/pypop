@@ -185,19 +185,21 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
 
     .. code-block:: python
        :linenos:
+
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.rs.prs import PRS
-       >>> dim = 2
+       >>> from pypop7.benchmarks.utils import save_optimization
+       >>> ndim = 2  # number of dimensionality
        >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
-       ...            'ndim_problem': dim,
-       ...            'lower_boundary': -5.0 * np.ones((dim,)),
-       ...            'upper_boundary': 5.0 * np.ones((dim,))}
+       ...            'ndim_problem': ndim,
+       ...            'lower_boundary': -5.0 * numpy.ones((ndim,)),
+       ...            'upper_boundary': 5.0 * numpy.ones((ndim,))}
        >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'seed_rng': 2022}  # global step-size may need to be tuned for optimality
        >>> prs = PRS(problem, options)  # to initialize the black-box optimizer class
-       >>> results = prs.optimize()  # to run its optimization/evolution process
-       >>> save_optimization(results, PRS.__name__, rosenbrock.__name__, dim, 1)
-
+       >>> res = prs.optimize()  # to run its optimization/evolution process
+       >>> save_optimization(res, PRS.__name__, rosenbrock.__name__, ndim, 1)
     """
     if not os.path.exists(folder):
         os.makedirs(folder)  # to make a new folder under the working space
