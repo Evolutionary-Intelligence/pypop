@@ -120,6 +120,8 @@ Benchmarking for Large-Scale BBO (LBO)
 
 .. autofunction:: pypop7.benchmarks.lbo.benchmark_local_search
 
+.. autofunction:: pypop7.benchmarks.lbo.benchmark_global_search
+
 Test Classes and Data
 ---------------------
 
