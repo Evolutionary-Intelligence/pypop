@@ -77,11 +77,11 @@ class Optimizer(object):
         self.start_function_evaluations = None
         self.time_function_evaluations = options.get('time_function_evaluations', 0)
         self.runtime, self.start_time = options.get('runtime', 0), None
-        self.best_so_far_y, self.best_so_far_x = options.get('best_so_far_y', np.Inf), None
+        self.best_so_far_y, self.best_so_far_x = options.get('best_so_far_y', np.inf), None
         self.fitness = None
         self.is_restart = options.get('is_restart', True)
         # all members of *early stopping* (closed by default according to following settings)
-        self.early_stopping_evaluations = options.get('early_stopping_evaluations', np.Inf)
+        self.early_stopping_evaluations = options.get('early_stopping_evaluations', np.inf)
         self.early_stopping_threshold = options.get('early_stopping_threshold', 0.0)
         self._counter_early_stopping, self._base_early_stopping = 0, self.best_so_far_y
 
