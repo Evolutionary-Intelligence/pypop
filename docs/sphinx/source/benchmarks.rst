@@ -115,6 +115,11 @@ Rotated-Shifted Forms
 In the following, we will introduce **rotated-shifted** forms of the above base functions,
 as presented below:
 
+Benchmarking for Large-Scale BBO (LBO)
+--------------------------------------
+
+.. autofunction:: pypop7.benchmarks.lbo
+
 Test Classes and Data
 ---------------------
 
