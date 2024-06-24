@@ -219,7 +219,13 @@ def read_semeion_handwritten_digit(is_10=True):
         # Class: 0/1
         # Missing Values: No
     """
-    d = genfromtxt('semeion.data', delimiter=' ')
+    file = 'semeion.data'
+    file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
+                'data-science/' + file
+    r = requests.get(file_path)
+    with open(file, 'wb') as f:
+        f.write(r.content)
+    d = genfromtxt(file, delimiter=' ')
     x, y = d[:, :256], d[:, -1]  # only to classify digit 9
     if not is_10:
         y[y == 0] = -1
