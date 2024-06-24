@@ -16,13 +16,13 @@ class Experiment(object):
     def run(self, optimizer):
         problem = {'fitness_function': self.function,
                    'ndim_problem': self.ndim_problem,
-                   'upper_boundary': 10.0*np.ones((self.ndim_problem,)),
-                   'lower_boundary': -10.0*np.ones((self.ndim_problem,))}
-        options = {'max_function_evaluations': 100000*self.ndim_problem,
-                   'max_runtime': 3600*3,  # seconds (=3 hours)
+                   'upper_boundary': 10.0 * np.ones((self.ndim_problem,)),
+                   'lower_boundary': -10.0 * np.ones((self.ndim_problem,))}
+        options = {'max_function_evaluations': 100000 * self.ndim_problem,
+                   'max_runtime': 3600 * 3,  # seconds (=3 hours)
                    'fitness_threshold': 1e-10,
                    'seed_rng': self.seed,
-                   'sigma': 20.0/3.0,
+                   'sigma': 20.0 / 3.0,
                    'saving_fitness': 2000,
                    'verbose': 0,
                    'temperature': 100.0,  # for simulated annealing (SA)
