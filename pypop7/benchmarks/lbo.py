@@ -56,7 +56,7 @@ class Experiments(object):
                 print('    * [runtime]: {:7.5e}.'.format(time.time() - start_time))
 
 
-def test_local_search_for_lbo(optimizer, ndim=2000, start_index=1, end_index=14, seed=20221001):
+def benchmark_local_search(optimizer, ndim=2000, start_index=1, end_index=14, seed=20221001):
     """Test **Local Search** Abilities for Large-Scale Black-Box Optimization (LBO).
 
     Parameters
