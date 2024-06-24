@@ -200,7 +200,13 @@ def read_parkinson_disease_classification(is_10=True):
         # Class: 0/1
         # Missing Values: No
     """
-    d = genfromtxt('pd_speech_features.csv', delimiter=',')
+    file = 'pd_speech_features.csv'
+    file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
+                'data-science/' + file
+    r = requests.get(file_path)
+    with open(file, 'wb') as f:
+        f.write(r.content)
+    d = genfromtxt(file, delimiter=',')
     x, y = d[2:, 1:-1], d[2:, -1]
     if not is_10:
         y[y == 0] = -1
