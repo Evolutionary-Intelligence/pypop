@@ -4,6 +4,24 @@ from sklearn.preprocessing import MinMaxScaler, Normalizer
 import pypop7.benchmarks.data_science as ds
 
 
+def test_read_cnae9():
+    x, y = ds.read_cnae9()
+    assert x.shape == (1080, 856)
+    assert y.shape == (1080,)
+    assert sum(y == 0) == 960
+    assert sum(y == 1) == 120
+    assert sum(y == 0) + sum(y == 1) == len(y)
+    print(x.dtype, y.dtype)
+
+    x, y = ds.read_cnae9(is_10=False)
+    assert x.shape == (1080, 856)
+    assert y.shape == (1080,)
+    assert sum(y == -1) == 960
+    assert sum(y == 1) == 120
+    assert sum(y == -1) + sum(y == 1) == len(y)
+    print(x.dtype, y.dtype)
+
+
 def test_read_madelon():
     x, y = ds.read_madelon()
     assert x.shape == (2000, 500)
