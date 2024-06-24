@@ -1,5 +1,7 @@
 """https://jermwatt.github.io/machine_learning_refined/
 """
+import requests
+
 import numpy as np  # engine for numerical computing
 from numpy import genfromtxt  # to read datasets
 
@@ -276,7 +278,13 @@ def read_qsar_androgen_receptor(is_10=False):
         # Class: -1/1
         # Missing Values: No
     """
-    d = genfromtxt('qsar_androgen_receptor.csv', delimiter=';')
+    file = 'qsar_androgen_receptor.csv'
+    file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' +\
+                'data-science/' + file
+    r = requests.get(file_path)
+    with open(file, 'wb') as f:
+        f.write(r.content)
+    d = genfromtxt(file, delimiter=';')
     x, y = d[:, :-1], d[:, -1]
     if is_10:  # to convert all labels with -1 to 0
         y[y == -1] = 0
