@@ -224,6 +224,21 @@ def check_optimization(problem, options, results):
     Returns
     -------
     A detailed checking report.
+
+    Examples
+    --------
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy  # engine for numerical computing
+       >>> from pypop7.benchmarks.utils import check_optimization
+       >>> problem = {'lower_boundary': [-5.0, -7.0],
+       ...            'upper_boundary': [5.0, 7.0]}
+       >>> options = {'max_function_evaluations': 7777777}
+       >>> results = {'n_function_evaluations': 7777777,
+       ...        'best_so_far_x': np.zeros((2,))}
+       >>> check_optimization(problem, options, results)
     """
     # check upper and lower boundary
     if problem.get('lower_boundary') is not None:
