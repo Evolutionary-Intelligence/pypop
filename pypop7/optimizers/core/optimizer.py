@@ -54,9 +54,9 @@ class Optimizer(object):
 
         # optimizer-related options
         self.options = options
-        self.max_function_evaluations = options.get('max_function_evaluations', np.Inf)
-        self.max_runtime = options.get('max_runtime', np.Inf)
-        self.fitness_threshold = options.get('fitness_threshold', -np.Inf)
+        self.max_function_evaluations = options.get('max_function_evaluations', np.inf)
+        self.max_runtime = options.get('max_runtime', np.inf)
+        self.fitness_threshold = options.get('fitness_threshold', -np.inf)
         self.n_individuals = options.get('n_individuals')  # offspring population size
         self.n_parents = options.get('n_parents')  # parent population size
         self.seed_rng = options.get('seed_rng')
