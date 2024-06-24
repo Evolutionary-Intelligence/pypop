@@ -125,6 +125,13 @@ black-box optimization (LBO):
 
 .. autofunction:: pypop7.benchmarks.lbo.benchmark_global_search
 
+Black-Box Classification from Data Science
+------------------------------------------
+
+Here we provide a family of **black-box classification** from data science:
+
+.. autofunction:: pypop7.benchmarks.data_science.cross_entropy_loss_lr
+
 Test Classes and Data
 ---------------------
 
