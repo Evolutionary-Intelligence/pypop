@@ -233,12 +233,12 @@ def check_optimization(problem, options, results):
 
        >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.utils import check_optimization
-       >>> problem = {'lower_boundary': [-5.0, -7.0],
-       ...            'upper_boundary': [5.0, 7.0]}
-       >>> options = {'max_function_evaluations': 7777777}
-       >>> results = {'n_function_evaluations': 7777777,
-       ...        'best_so_far_x': np.zeros((2,))}
-       >>> check_optimization(problem, options, results)
+       >>> pro = {'lower_boundary': [-5.0, -7.0, -3.0],
+       ...        'upper_boundary': [5.0, 7.0, 3.0]}
+       >>> opt = {'max_function_evaluations': 7777777}
+       >>> res = {'n_function_evaluations': 7777777,
+       ...        'best_so_far_x': numpy.zeros((3,))}
+       >>> check_optimization(pro, opt, res)
     """
     # check upper and lower boundary
     if problem.get('lower_boundary') is not None:
