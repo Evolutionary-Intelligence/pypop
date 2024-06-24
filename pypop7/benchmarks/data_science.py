@@ -260,8 +260,21 @@ def read_madelon(is_10=False):
         # Class: -1/1
         # Missing Values: No
     """
-    x = genfromtxt('madelon_train.data', delimiter=' ')
-    y = genfromtxt('madelon_train.labels')
+    file = 'madelon_train.data'
+    file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
+                'data-science/' + file
+    r = requests.get(file_path)
+    with open(file, 'wb') as f:
+        f.write(r.content)
+    x = genfromtxt(file, delimiter=' ')
+
+    file = 'madelon_train.labels'
+    file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
+                'data-science/' + file
+    r = requests.get(file_path)
+    with open(file, 'wb') as f:
+        f.write(r.content)
+    y = genfromtxt(file)
     if is_10:  # to convert all labels with -1 to 0
         y[y == -1] = 0
     return x, y
@@ -279,7 +292,7 @@ def read_qsar_androgen_receptor(is_10=False):
         # Missing Values: No
     """
     file = 'qsar_androgen_receptor.csv'
-    file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' +\
+    file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
                 'data-science/' + file
     r = requests.get(file_path)
     with open(file, 'wb') as f:
