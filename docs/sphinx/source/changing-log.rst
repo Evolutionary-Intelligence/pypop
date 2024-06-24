@@ -15,6 +15,10 @@ Version: 0.0.80
 
   * https://github.com/Evolutionary-Intelligence/pypop/commit/7f26d5c86a2e728bac8dc3c6e561c13c90e47519
 
+* Use `np.inf` instead.
+
+  * NumPy 2.0 removes `np.Inf`: https://numpy.org/doc/stable//numpy_2_0_migration_guide.html
+
 Version: 0.0.79
 ---------------
 
