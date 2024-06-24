@@ -32,7 +32,8 @@ class ES(Optimizer):
        <https://diffusion-es.github.io/>`_, `[Lee et al., 2023, Science Robotics]
        <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_, `[Koginov et al., 2023, TMRB]
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Sun et al., 2023, ACL]
-       <https://aclanthology.org/2023.acl-long.625.pdf>`_, `[Lipson&Pollack, 2000, Nature]
+       <https://aclanthology.org/2023.acl-long.625.pdf>`_, `[Heidrich-Meisner&Igel, 2009, ICML]
+       <https://dl.acm.org/doi/abs/10.1145/1553374.1553426>`_, `[Lipson&Pollack, 2000, Nature]
        <https://www.nature.com/articles/35023115>`_, just to name a few.
 
     Parameters
