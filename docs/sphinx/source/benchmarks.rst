@@ -118,6 +118,9 @@ as presented below:
 Benchmarking for Large-Scale BBO (LBO)
 --------------------------------------
 
+Here we provide two different benchmarking cases (**local vs global search**) for large-scale
+black-box optimization (LBO):
+
 .. autofunction:: pypop7.benchmarks.lbo.benchmark_local_search
 
 .. autofunction:: pypop7.benchmarks.lbo.benchmark_global_search
