@@ -238,7 +238,13 @@ def read_cnae9(is_10=True):
         # Class: 0/1
         # Missing Values: No
     """
-    d = genfromtxt('CNAE-9.data', delimiter=',')
+    file = 'CNAE-9.data'
+    file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
+                'data-science/' + file
+    r = requests.get(file_path)
+    with open(file, 'wb') as f:
+        f.write(r.content)
+    d = genfromtxt(file, delimiter=',')
     x, y = d[:, 1:], d[:, 0]
     index_not_9, index_9 = y != 9, y == 9
     if is_10:
