@@ -4,6 +4,24 @@ from sklearn.preprocessing import MinMaxScaler, Normalizer
 import pypop7.benchmarks.data_science as ds
 
 
+def test_read_semeion_handwritten_digit():
+    x, y = ds.read_semeion_handwritten_digit()
+    assert x.shape == (1593, 256)
+    assert y.shape == (1593,)
+    assert sum(y == 0) == 1435
+    assert sum(y == 1) == 158
+    assert sum(y == 0) + sum(y == 1) == len(y)
+    print(x.dtype, y.dtype)
+
+    x, y = ds.read_semeion_handwritten_digit(is_10=False)
+    assert x.shape == (1593, 256)
+    assert y.shape == (1593,)
+    assert sum(y == -1) == 1435
+    assert sum(y == 1) == 158
+    assert sum(y == -1) + sum(y == 1) == len(y)
+    print(x.dtype, y.dtype)
+
+
 def test_read_cnae9():
     x, y = ds.read_cnae9()
     assert x.shape == (1080, 856)
