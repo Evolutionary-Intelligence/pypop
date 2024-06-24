@@ -4,6 +4,24 @@ from sklearn.preprocessing import MinMaxScaler, Normalizer
 import pypop7.benchmarks.data_science as ds
 
 
+def test_read_parkinson_disease_classification():
+    x, y = ds.read_parkinson_disease_classification()
+    assert x.shape == (756, 753)
+    assert y.shape == (756,)
+    assert sum(y == 0) == 192
+    assert sum(y == 1) == 564
+    assert sum(y == 0) + sum(y == 1) == len(y)
+    print(x.dtype, y.dtype)
+
+    x, y = ds.read_parkinson_disease_classification(is_10=False)
+    assert x.shape == (756, 753)
+    assert y.shape == (756,)
+    assert sum(y == -1) == 192
+    assert sum(y == 1) == 564
+    assert sum(y == -1) + sum(y == 1) == len(y)
+    print(x.dtype, y.dtype)
+
+
 def test_read_semeion_handwritten_digit():
     x, y = ds.read_semeion_handwritten_digit()
     assert x.shape == (1593, 256)
