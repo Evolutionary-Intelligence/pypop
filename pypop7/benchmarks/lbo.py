@@ -81,8 +81,7 @@ def benchmark_local_search(optimizer, ndim=2000, max_runtime=3600*3,
 
     Returns
     -------
-    A set of data files from independent experiments in the working space
-    (obtained via the `pwd()` command).
+    A set of data files from independent experiments in the working space (`pwd()`).
     """
     # use the following 10 benchmarking function common in the
     # black-box optimization community
