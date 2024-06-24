@@ -10,6 +10,7 @@ from pypop7.benchmarks import rotated_functions as rf
 from pypop7.benchmarks.utils import generate_xyz
 from pypop7.benchmarks.utils import plot_contour
 from pypop7.benchmarks.utils import plot_surface
+from pypop7.benchmarks.utils import save_optimization
 
 
 # test function for plotting
@@ -51,6 +52,23 @@ class TestUtils(unittest.TestCase):
         # plot ill-condition and non-separability
         rf.generate_rotation_matrix(rf.ellipsoid, 2, 72)
         plot_surface(rf.ellipsoid, [-10.0, 10.0], [-10.0, 10.0], 7)
+
+    def test(self):
+        from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+        from pypop7.optimizers.es.res import RES
+
+        dim = 2
+        problem = {'fitness_function': rosenbrock,  # to define problem arguments
+                   'ndim_problem': dim,
+                   'lower_boundary': -5.0 * np.ones((dim,)),
+                   'upper_boundary': 5.0 * np.ones((dim,))}
+        options = {'max_function_evaluations': 5000,  # to set optimizer options
+                   'seed_rng': 2022,
+                   'mean': 3.0 * np.ones((dim,)),
+                   'sigma': 3.0}  # global step-size may need to be tuned for optimality
+        res = RES(problem, options)  # to initialize the black-box optimizer class
+        results = res.optimize()  # to run its optimization/evolution process
+        save_optimization(results, RES.__name__, rosenbrock.__name__, dim, 1)
 
 
 if __name__ == '__main__':
