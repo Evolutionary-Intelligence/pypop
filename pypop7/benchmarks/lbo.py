@@ -9,7 +9,24 @@ import pypop7.benchmarks.continuous_functions as cf
 
 
 class Experiment(object):
+    """One independent experiment.
+    """
     def __init__(self, index, function, seed, ndim_problem, max_runtime):
+        """Initialize one independent experiment.
+
+        Parameters
+        ----------
+        index        : int
+                       index of each independent experiment.
+        function     : func
+                       benchmarking function.
+        seed         : int
+                       seed for random number generation (RNG).
+        ndim_problem : int
+                       number of dimensionality.
+        max_runtime  : float
+                       maximum of runtime to be allowed.
+        """
         self.index, self.seed = index, seed
         self.function, self.ndim_problem = function, ndim_problem
         self.max_runtime = max_runtime
@@ -46,21 +63,20 @@ class Experiment(object):
 
 class Experiments(object):
     def __init__(self, start, end, ndim_problem, max_runtime, is_local=True):
-        """
+        """A set of independent experiments.
 
         Parameters
         ----------
         start        : int
-                       starting index of experiment.
+                       starting index of independent experiments.
         end          : int
-                       ending index of experiment.
+                       ending index of independent experiments.
         ndim_problem : int
                        number of dimensionality.
-        max_runtime  : int
-                       maximum of runtime to be allowed
+        max_runtime  : float
+                       maximum of runtime to be allowed.
         is_local     : bool
-                       flag to determine if local or global optimization functions should be tested
-
+                       whether or not to use local or global test functions.
         """
         self.start, self.end = start, end
         self.ndim_problem = ndim_problem  # number of dimensionality
