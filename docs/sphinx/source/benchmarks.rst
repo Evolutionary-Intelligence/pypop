@@ -146,6 +146,16 @@ Here we provide a family of **black-box classifications** from data science:
 
 .. autofunction:: pypop7.benchmarks.data_science.logistic_loss_l2
 
+.. autofunction:: pypop7.benchmarks.data_science.tanh_loss_lr
+
+.. autofunction:: pypop7.benchmarks.data_science.hinge_loss_perceptron
+
+.. autofunction:: pypop7.benchmarks.data_science.loss_margin_perceptron
+
+.. autofunction:: pypop7.benchmarks.data_science.loss_svm
+
+.. autofunction:: pypop7.benchmarks.data_science.mpc2023_nonsmooth
+
 Test Classes and Data
 ---------------------
 
