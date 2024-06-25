@@ -183,11 +183,11 @@ class LogisticLossL2(BaseFunction):
 
 
 def tanh_loss_lr(w, x, y):
-    """Tanh Loss Function of Logistic Regression (LR with binary labels/classes {-1, 1}).
+    """Tanh loss function of logistic regression (LR with binary labels/classes {-1, 1}).
 
-        .. note:: This loss function for binary classification is generally non-convex (non-linear least squares).
-        https://github.com/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_3_Softmax.ipynb
-      
+       .. note:: This loss function for binary classification is generally non-convex
+          (non-linear least squares).
+
     Parameters
     ----------
     w : ndarray
@@ -196,15 +196,18 @@ def tanh_loss_lr(w, x, y):
         features in the used train set.
     y : ndarray
         labels in the used train set.
-    
+
     Returns
     -------
     loss/fitness value (`float`).
 
+    References
+    ----------
+    https://github.com/jermwatt/machine_learning_refined/
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
-        loss[i] = np.square(2.0/(1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:])))) - 1.0 - y[i])
+        loss[i] = np.square(2.0 / (1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:])))) - 1.0 - y[i])
     return np.mean(loss)
 
 
@@ -214,16 +217,13 @@ class TanhLossLR(BaseFunction):
 
 
 def hinge_loss_perceptron(w, x, y):
-    """Hinge Loss Function of Perceptron (with binary labels/classes {-1, 1}).
+    """Hinge loss function of perceptron (with binary labels/classes {-1, 1}).
 
-        AKA perceptron cost, rectified linear unit cost.
+       .. note:: AKA perceptron cost, rectified linear unit cost. This cost function is always convex
+          but only has a single discontinuous derivative in each variable dimension. It always has a
+          trivial solution at the origin, thus one may need to take care in practice to avoid finding
+          it (or a point too close to it) **accidentally**.
 
-        This cost function is always convex but only has a single discontinuous derivative in each variable dimension.
-        .. note:: It always has a trivial solution at the origin, thus one may need to take care in practice to avoid
-           finding it (or a point too close to it) **accidentally**.
-
-        https://colab.research.google.com/github/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_4_Perceptron.ipynb
-    
     Parameters
     ----------
     w : ndarray
@@ -232,15 +232,18 @@ def hinge_loss_perceptron(w, x, y):
         features in the used train set.
     y : ndarray
         labels in the used train set.
-    
+
     Returns
     -------
     loss/fitness value (`float`).
-    
+
+    References
+    ----------
+    https://github.com/jermwatt/machine_learning_refined/
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
-        loss[i] = np.maximum(0.0, -y[i]*(w[0] + np.dot(x[i], w[1:])))
+        loss[i] = np.maximum(0.0, -y[i] * (w[0] + np.dot(x[i], w[1:])))
     return np.mean(loss)
 
 
@@ -250,7 +253,7 @@ class HingeLossPerceptron(BaseFunction):
 
 
 def loss_margin_perceptron(w, x, y):
-    """Loss Function of Margin Perceptron (with binary labels/classes {-1, 1}).
+    """Loss function of margin perceptron (with binary labels/classes {-1, 1}).
 
         https://jermwatt.github.io/machine_learning_refined/ (2020)
 
@@ -262,15 +265,18 @@ def loss_margin_perceptron(w, x, y):
         features in the used train set.
     y : ndarray
         labels in the used train set.
-    
+
     Returns
     -------
     loss/fitness value (`float`).
-    
+
+    References
+    ----------
+    https://github.com/jermwatt/machine_learning_refined/
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
-        loss[i] = np.maximum(0.0, 1.0 - y[i]*(w[0] + np.dot(x[i], w[1:])))
+        loss[i] = np.maximum(0.0, 1.0 - y[i] * (w[0] + np.dot(x[i], w[1:])))
     return np.mean(loss)
 
 
@@ -279,11 +285,9 @@ class LossMarginPerceptron(BaseFunction):
         return loss_margin_perceptron(w, x, y)
 
 
-def loss_svm(w, x, y, r=None):
-    """Loss Function of Support Vector Machines (SVM with binary labels/classes {-1, 1}).
+def loss_svm(w, x, y):
+    """Loss function of support vector machines (SVM with binary labels/classes {-1, 1}).
 
-        https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_5_SVMs.html (2020)
-    
     Parameters
     ----------
     w : ndarray
@@ -292,30 +296,30 @@ def loss_svm(w, x, y, r=None):
         features in the used train set.
     y : ndarray
         labels in the used train set.
-    
+
     Returns
     -------
     loss/fitness value (`float`).
-    
+
+    References
+    ----------
+    https://github.com/jermwatt/machine_learning_refined/
     """
-    if r is None:
-        r = 1e-3
+    r = 1e-3
     loss = np.empty(len(y))
     for i in range(len(y)):
-        loss[i] = np.maximum(0.0, 1.0 - y[i]*(w[0] + np.dot(x[i], w[1:])))
-    return np.mean(loss) + r*np.sum(np.square(w))
+        loss[i] = np.maximum(0.0, 1.0 - y[i] * (w[0] + np.dot(x[i], w[1:])))
+    return np.mean(loss) + r * np.sum(np.square(w))
 
 
 class LossSVM(BaseFunction):
-    def __call__(self, w, x, y, r=None):
-        return loss_svm(w, x, y, r=None)
+    def __call__(self, w, x, y):
+        return loss_svm(w, x, y)
 
 
 def mpc2023_nonsmooth(w, x, y):
-    """Nonsmooth Function from MPC-2023.
+    """Nonsmooth function from MPC-2023.
 
-        https://link.springer.com/article/10.1007/s12532-023-00233-9 (2023)
-    
     Parameters
     ----------
     w : ndarray
@@ -324,11 +328,14 @@ def mpc2023_nonsmooth(w, x, y):
         features in the used train set.
     y : ndarray
         labels in the used train set.
-    
+
     Returns
     -------
     loss/fitness value (`float`).
-    
+
+    References
+    ----------
+    https://link.springer.com/article/10.1007/s12532-023-00233-9 (2023)
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
