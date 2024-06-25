@@ -30,7 +30,6 @@ def cross_entropy_loss_lr(w, x, y):
     References
     ----------
     https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_2_Cross_entropy.html
-
     https://openreview.net/forum?id=BJe-DsC5Fm (2019)
     """
     loss = np.empty(len(y))
@@ -46,7 +45,7 @@ class CrossEntropyLossLR(BaseFunction):
 
 
 def cross_entropy_loss_l2(w, x, y):
-    """"Cross-entropy loss function with L2-regularization of logistic regression (LR with binary labels {0, 1}).
+    """Cross-entropy loss function with L2-regularization of logistic regression (LR with binary labels {0, 1}).
 
     Parameters
     ----------
@@ -75,20 +74,36 @@ class CrossEntropyLossL2(BaseFunction):
 
 
 def square_loss_lr(w, x, y):
-    """Square Loss Function of Logistic Regression (LR with binary labels/classes {0, 1}).
+    """Square loss function of logistic regression (LR with binary labels/classes {0, 1}).
 
-        Note that this loss function for binary classification is generally non-convex (non-linear least squares).
+       .. note:: This loss function for binary classification is generally non-convex
+                 (non-linear least squares).
 
-        https://jermwatt.github.io/machine_learning_refined/ (2020)
-        https://openreview.net/forum?id=ryxz8CVYDH (2020)
-        https://epubs.siam.org/doi/abs/10.1137/1.9781611976236.23 (2020)
-        https://openreview.net/forum?id=BJe-DsC5Fm (2019)
-        https://proceedings.neurips.cc/paper/2018/file/ba9a56ce0a9bfa26e8ed9e10b2cc8f46-Paper.pdf (2018)
-        https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8 (2018)
+    Parameters
+    ----------
+    w : ndarray
+        input vector (weights).
+    x : ndarray
+        features in the used train set.
+    y : ndarray
+        labels in the used train set.
+
+    Returns
+    -------
+    loss/fitness value (`float`).
+
+    References
+    ----------
+    https://jermwatt.github.io/machine_learning_refined/ (2020)
+    https://openreview.net/forum?id=ryxz8CVYDH (2020)
+    https://epubs.siam.org/doi/abs/10.1137/1.9781611976236.23 (2020)
+    https://openreview.net/forum?id=BJe-DsC5Fm (2019)
+    https://proceedings.neurips.cc/paper/2018/file/ba9a56ce0a9bfa26e8ed9e10b2cc8f46-Paper.pdf (2018)
+    https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8 (2018)
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
-        loss[i] = np.square(y[i] - 1.0/(1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:])))))
+        loss[i] = np.square(y[i] - 1.0 / (1.0 + np.exp(-(w[0] + np.dot(x[i], w[1:])))))
     return np.mean(loss)
 
 
