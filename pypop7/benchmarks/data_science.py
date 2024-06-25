@@ -382,16 +382,26 @@ def read_parkinson_disease_classification(is_10=True):
 
 
 def read_semeion_handwritten_digit(is_10=True):
-    """Tactile,Srl, Massimo,Buscema, and Stefano,Terzi (1994).
-        Semeion Handwritten Digit.
-        UCI Machine Learning Repository.
-        https://doi.org/10.24432/C5SC8V
+    """Read Semeion Handwritten Digit.
 
-        # Data: https://archive.ics.uci.edu/static/public/178/semeion+handwritten+digit.zip
-        # Instances: 1593
-        # Features: 256 (For 266 Features: the last 10 columns are class labels for digit 0 - 9)
-        # Class: 0/1
-        # Missing Values: No
+       .. note::
+
+          # Data: https://archive.ics.uci.edu/static/public/178/semeion+handwritten+digit.zip
+
+          # Instances: 1593
+
+          # Features: 256 (For 266 Features: the last 10 columns are class labels for digit 0 - 9)
+
+          # Class: 0/1
+
+          # Missing Values: No
+
+    References
+    ----------
+    Tactile,Srl, Massimo,Buscema, and Stefano,Terzi (1994).
+    Semeion Handwritten Digit.
+    UCI Machine Learning Repository.
+    https://doi.org/10.24432/C5SC8V
     """
     file = 'semeion.data'
     file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
