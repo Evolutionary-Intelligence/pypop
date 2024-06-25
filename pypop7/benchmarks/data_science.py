@@ -419,11 +419,17 @@ def read_semeion_handwritten_digit(is_10=True):
 def read_cnae9(is_10=True):
     """Read dataset CNAE-9.
 
-        # Data: https://archive.ics.uci.edu/static/public/233/cnae+9.zip
-        # Instances: 1080
-        # Features: 856
-        # Class: 0/1
-        # Missing Values: No
+       .. note::
+
+          # Data: https://archive.ics.uci.edu/static/public/233/cnae+9.zip
+
+          # Instances: 1080
+
+          # Features: 856
+
+          # Class: 0/1
+
+          # Missing Values: No
 
     References
     ----------
@@ -449,16 +455,26 @@ def read_cnae9(is_10=True):
 
 
 def read_madelon(is_10=False):
-    """Guyon,Isabelle. (2008).
-        Madelon.
-        UCI Machine Learning Repository.
-        https://doi.org/10.24432/C5602H.
+    """Read dataset Madelon.
 
-        # Data: https://archive.ics.uci.edu/static/public/171/madelon.zip
-        # Instances: 2000
-        # Features: 500
-        # Class: -1/1
-        # Missing Values: No
+       .. note::
+
+          # Data: https://archive.ics.uci.edu/static/public/171/madelon.zip
+
+          # Instances: 2000
+
+          # Features: 500
+
+          # Class: -1/1
+
+          # Missing Values: No
+
+    References
+    ----------
+    Guyon,Isabelle. (2008).
+    Madelon.
+    UCI Machine Learning Repository.
+    https://doi.org/10.24432/C5602H.
     """
     file = 'madelon_train.data'
     file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
@@ -481,15 +497,25 @@ def read_madelon(is_10=False):
 
 
 def read_qsar_androgen_receptor(is_10=False):
-    """QSAR androgen receptor. (2019).
-        UCI Machine Learning Repository.
-        https://doi.org/10.24432/C53317.
+    """Read dataset QSAR androgen receptor.
 
-        # Data: https://archive.ics.uci.edu/static/public/509/qsar+androgen+receptor.zip
-        # Instances: 1687
-        # Features: 1024
-        # Class: -1/1
-        # Missing Values: No
+       .. note::
+
+          # Data: https://archive.ics.uci.edu/static/public/509/qsar+androgen+receptor.zip
+
+          # Instances: 1687
+
+          # Features: 1024
+
+          # Class: -1/1
+
+          # Missing Values: No
+
+    References
+    ----------
+    QSAR androgen receptor. (2019).
+    UCI Machine Learning Repository.
+    https://doi.org/10.24432/C53317.
     """
     file = 'qsar_androgen_receptor.csv'
     file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
