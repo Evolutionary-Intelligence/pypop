@@ -30,6 +30,7 @@ def cross_entropy_loss_lr(w, x, y):
     References
     ----------
     https://jermwatt.github.io/machine_learning_refined/ (2020)
+
     https://openreview.net/forum?id=BJe-DsC5Fm (2019)
     """
     loss = np.empty(len(y))
@@ -63,6 +64,7 @@ def cross_entropy_loss_l2(w, x, y):
     References
     ----------
     https://jermwatt.github.io/machine_learning_refined/ (2020)
+
     https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8 (2018)
     """
     return cross_entropy_loss_lr(w, x, y) + np.sum(np.square(w)) / (2.0 * len(y))
@@ -95,10 +97,15 @@ def square_loss_lr(w, x, y):
     References
     ----------
     https://jermwatt.github.io/machine_learning_refined/ (2020)
+
     https://openreview.net/forum?id=ryxz8CVYDH (2020)
+
     https://epubs.siam.org/doi/abs/10.1137/1.9781611976236.23 (2020)
+
     https://openreview.net/forum?id=BJe-DsC5Fm (2019)
+
     https://proceedings.neurips.cc/paper/2018/file/ba9a56ce0a9bfa26e8ed9e10b2cc8f46-Paper.pdf (2018)
+
     https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8 (2018)
     """
     loss = np.empty(len(y))
@@ -133,6 +140,7 @@ def logistic_loss_lr(w, x, y):
     References
     ----------
     https://www.tandfonline.com/doi/full/10.1080/00031305.2021.2006781 (2021)
+
     https://jermwatt.github.io/machine_learning_refined/ (2020)
     """
     loss = np.empty(len(y))
@@ -147,11 +155,26 @@ class LogisticLossLR(BaseFunction):
 
 
 def logistic_loss_l2(w, x, y):
-    """Logistic Loss Function with L2-Regularization of Logistic Regression (LR with binary labels/classes {-1, 1}).
+    """Logistic loss function with L2-regularization of logistic regression (LR with binary labels/classes {-1, 1}).
 
-        https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8 (2018)
+    Parameters
+    ----------
+    w : ndarray
+        input vector (weights).
+    x : ndarray
+        features in the used train set.
+    y : ndarray
+        labels in the used train set.
+
+    Returns
+    -------
+    loss/fitness value (`float`).
+
+    References
+    ----------
+    https://epubs.siam.org/doi/abs/10.1137/17M1154679?journalCode=sjope8 (2018)
     """
-    return logistic_loss_lr(w, x, y) + np.sum(np.square(w))/(2.0*len(y))
+    return logistic_loss_lr(w, x, y) + np.sum(np.square(w)) / (2.0 * len(y))
 
 
 class LogisticLossL2(BaseFunction):
