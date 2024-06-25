@@ -134,6 +134,10 @@ Here we provide a family of **black-box classifications** from data science:
 
 .. autofunction:: pypop7.benchmarks.data_science.cross_entropy_loss_l2
 
+.. autofunction:: pypop7.benchmarks.data_science.square_loss_lr
+
+.. autofunction:: pypop7.benchmarks.data_science.logistic_loss_lr
+
 Test Classes and Data
 ---------------------
 
