@@ -29,7 +29,7 @@ def cross_entropy_loss_lr(w, x, y):
 
     References
     ----------
-    https://jermwatt.github.io/machine_learning_refined/notes/6_Linear_twoclass_classification/6_2_Cross_entropy.html
+    https://jermwatt.github.io/machine_learning_refined/ (2020)
     https://openreview.net/forum?id=BJe-DsC5Fm (2019)
     """
     loss = np.empty(len(y))
@@ -113,16 +113,31 @@ class SquareLossLR(BaseFunction):
 
 
 def logistic_loss_lr(w, x, y):
-    """Logistic Loss Function of Logistic Regression (LR with binary labels/classes {-1, 1}).
+    """Logistic loss function of logistic regression (LR with binary labels/classes {-1, 1}).
 
-        AKA softmax cost (always convex regardless of the dataset used).
+       .. note:: AKA softmax cost (always convex regardless of the dataset used).
 
-        https://www.tandfonline.com/doi/full/10.1080/00031305.2021.2006781
-        https://github.com/jermwatt/machine_learning_refined/blob/main/notes/6_Linear_twoclass_classification/6_3_Softmax.ipynb
+    Parameters
+    ----------
+    w : ndarray
+        input vector (weights).
+    x : ndarray
+        features in the used train set.
+    y : ndarray
+        labels in the used train set.
+
+    Returns
+    -------
+    loss/fitness value (`float`).
+
+    References
+    ----------
+    https://www.tandfonline.com/doi/full/10.1080/00031305.2021.2006781 (2021)
+    https://jermwatt.github.io/machine_learning_refined/ (2020)
     """
     loss = np.empty(len(y))
     for i in range(len(y)):
-        loss[i] = np.log(1.0 + np.exp(-y[i]*(w[0] + np.dot(x[i], w[1:]))))
+        loss[i] = np.log(1.0 + np.exp(-y[i] * (w[0] + np.dot(x[i], w[1:]))))
     return np.mean(loss)
 
 
