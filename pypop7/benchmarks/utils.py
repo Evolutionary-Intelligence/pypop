@@ -325,7 +325,7 @@ def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_
     plt.plot(time, fitness, label=algo, color='blue', linewidth=2.0)
     plt.title(func, fontsize=24, fontweight='bold')
     plt.xlabel('Running Time (Seconds)', fontsize=20, fontweight='bold')
-    plt.ylabel('Cost', fontsize=20, fontweight='bold')
+    plt.ylabel('Fitness (Minimized)', fontsize=20, fontweight='bold')
     plt.xticks(fontsize=16, fontweight='bold')
     plt.yticks(fontsize=16, fontweight='bold')
     plt.legend(fontsize=14, loc='upper right')
