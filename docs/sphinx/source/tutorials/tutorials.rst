@@ -673,7 +673,7 @@ for comparing continuous optimizers in the **black-box** setting.
 
     .. code-block:: python
 
-        """A simple example for `COCO` Benchmarking using only `PyPop7`:
+        """Demo for `COCO` benchmarking using only `PyPop7` here:
            https://github.com/numbbo/coco
 
            To install `COCO` successfully, please read the above open link carefully. 
@@ -689,18 +689,18 @@ for comparing continuous optimizers in the **black-box** setting.
 
 
         if __name__ == '__main__':
-            suite, output = 'bbob', 'coco-pypop7-maes'
+            suite, output = 'bbob', 'COCO-PyPop7-MAES'
             budget_multiplier = 1e3  # or 1e4, 1e5, ...
             observer = cocoex.Observer(suite, 'result_folder: ' + output)
             minimal_print = cocoex.utilities.MiniPrint()
             for function in cocoex.Suite(suite, '', ''):
-                function.observe_with(observer)  # generate data for `cocopp` post-processing
-                sigma = np.min(function.upper_bounds - function.lower_bounds)/3.0
+                function.observe_with(observer)  # to generate data for `cocopp` post-processing
+                sigma = np.min(function.upper_bounds - function.lower_bounds) / 3.0
                 problem = {'fitness_function': function,
                            'ndim_problem': function.dimension,
                            'lower_boundary': function.lower_bounds,
                            'upper_boundary': function.upper_bounds}
-                options = {'max_function_evaluations': function.dimension*budget_multiplier,
+                options = {'max_function_evaluations': function.dimension * budget_multiplier,
                            'seed_rng': 2022,
                            'x': function.initial_solution,
                            'sigma': sigma}
@@ -709,7 +709,7 @@ for comparing continuous optimizers in the **black-box** setting.
             cocopp.main(observer.result_folder)
             webbrowser.open('file://' + os.getcwd() + '/ppdata/index.html')
 
-The final HTML outputs look like:
+The final output of the above code looks like:
 
 .. image:: images/COCO_MAES.png
    :width: 500px
