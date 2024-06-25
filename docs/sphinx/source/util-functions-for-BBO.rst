@@ -36,6 +36,11 @@ For **object serialization**, we use the standard library (`pickle
 
 .. autofunction:: pypop7.benchmarks.utils.save_optimization
 
+Please check the following *local* file in your working space (obtained
+via the `pwd()` command):
+
+ * **pypop7_benchmarks_lso/Algo-PRS_Func-rosenbrock_Dim-2_Exp-1.pickle**
+
 Check Optimization Results
 --------------------------
 
