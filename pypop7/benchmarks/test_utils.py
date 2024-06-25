@@ -94,6 +94,29 @@ class TestUtils(unittest.TestCase):
         res = spso.optimize()  # run the optimization process
         plot_convergence_curve(SPSO.__name__, ellipsoid.__name__, 2, results=res)
 
+    def test_plot_convergence_curves(self):
+        from pypop7.benchmarks.base_functions import ellipsoid  # function to be minimized
+        from pypop7.optimizers.rs.prs import PRS
+        from pypop7.optimizers.pso.spso import SPSO
+        from pypop7.optimizers.de.cde import CDE
+        from pypop7.optimizers.eda.umda import UMDA
+        from pypop7.optimizers.es.cmaes import CMAES
+        from pypop7.benchmarks.utils import plot_convergence_curves
+        algos = [PRS, SPSO, CDE, UMDA, CMAES]
+        problem = {'fitness_function': ellipsoid,  # to define problem arguments
+                   'ndim_problem': 2,
+                   'lower_boundary': -5.0 * np.ones((2,)),
+                   'upper_boundary': 5.0 * np.ones((2,))}
+        options = {'max_function_evaluations': 5000,  # to set optimizer options
+                   'saving_fitness': 1,
+                   'sigma': 3.0,
+                   'seed_rng': 2022}
+        res = []
+        for Optimizer in algos:
+            optimizer = Optimizer(problem, options)  # to initialize the black-box optimizer class
+            res.append(optimizer.optimize())  # to run the optimization process
+        plot_convergence_curves(algos, ellipsoid.__name__, 2, results=res)
+
 
 if __name__ == '__main__':
     unittest.main()
