@@ -265,7 +265,7 @@ def check_optimization(problem, options, results):
 
 
 def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_benchmarks_lso'):
-    """Plot the convergence curve of final optimization results.
+    """Plot the convergence curve of final optimization results obtained by one optimizer.
 
        .. note:: By default, the **local** file name is given in the following form:
           `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the **local** folder `pypop7_benchmarks_lso`.
@@ -318,6 +318,75 @@ def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_
     plt.plot(results['fitness'][:, 0],
              results['fitness'][:, 1],
              label=algo, linewidth=2.0)
+    plt.title(func, fontsize=24, fontweight='bold')
+    plt.xlabel('Number of Fitness Evaluations', fontsize=20, fontweight='bold')
+    plt.ylabel('Fitness (Minimized)', fontsize=20, fontweight='bold')
+    plt.xticks(fontsize=15, fontweight='bold')
+    plt.yticks(fontsize=15, fontweight='bold')
+    plt.legend(fontsize=15, loc='best')
+    plt.show()
+
+
+def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop7_benchmarks_lso'):
+    """Plot convergence curves of final optimization results obtained by multiple optimizers.
+
+       .. note:: By default, the **local** file name is given in the following form:
+          `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the **local** folder `pypop7_benchmarks_lso`.
+
+    Parameters
+    ----------
+    algos   : list of str
+              a list of algorithms to be used.
+    func    : str
+              name of the fitness function to be minimized.
+    dim     : str or int
+              dimensionality of the fitness function to be minimized.
+    exp     : str or int
+              index of experiments to be run.
+    results : list of dict
+              optimization results returned by any optimizer.
+    folder  : str
+              local folder under the working space (`pypop7_benchmarks_lso` by default).
+
+    Examples
+    --------
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy  # engine for numerical computing
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.rs.prs import PRS
+       >>> from pypop7.optimizers.pso.spso import SPSO
+       >>> from pypop7.optimizers.de.cde import CDE
+       >>> from pypop7.optimizers.eda.umda import UMDA
+       >>> from pypop7.optimizers.es.cmaes import CMAES
+       >>> from pypop7.benchmarks.utils import plot_convergence_curve
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
+       ...            'saving_fitness': 1,
+       ...            'sigma': 3.0,
+       ...            'seed_rng': 2022}
+       >>> res = [None] * 5
+       >>> for Optimizer in [PRS, SPSO, CDE, UMDA, CMAES]:
+       >>>     optimizer = Optimizer(problem, options)  # to initialize the black-box optimizer class
+       >>>     res.append(optimizer.optimize())  # to run the optimization process
+       >>> plot_convergence_curve('SPSO', rosenbrock.__name__, 2, results=res)
+    """
+    # set font family and size
+    plt.rcParams['font.family'] = 'Times New Roman'
+    plt.rcParams['font.size'] = '12'
+    # plot figure
+    plt.figure(figsize=(7, 7))
+    plt.grid(True)
+    plt.yscale('log')
+    for algo in algos:
+        if results is None:
+            results = read_optimization(folder, algo, func, dim, exp)
+        plt.plot(results['fitness'][:, 0], results['fitness'][:, 1], label=algo, linewidth=2.0)
     plt.title(func, fontsize=24, fontweight='bold')
     plt.xlabel('Number of Fitness Evaluations', fontsize=20, fontweight='bold')
     plt.ylabel('Fitness (Minimized)', fontsize=20, fontweight='bold')
