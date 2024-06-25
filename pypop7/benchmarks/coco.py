@@ -9,8 +9,8 @@ import cocoex  # experimentation module of `COCO`
 import cocopp  # post-processing module of `COCO`
 
 
-def coco(optimizer, seed_rng=2022, budget_multiplier=100000):
-    """Test on the well-designed **COCO** platform.
+def coco_bbob(optimizer, seed_rng=2022, budget_multiplier=100000):
+    """Test on the well-designed **COCO/BBOB** platform.
 
        .. note:: To install `COCO` successfully, please read the following open link carefully:
           https://github.com/numbbo/coco.
