@@ -156,6 +156,16 @@ Here we provide a family of **black-box classifications** from data science:
 
 .. autofunction:: pypop7.benchmarks.data_science.mpc2023_nonsmooth
 
+.. autofunction:: pypop7.benchmarks.data_science.read_parkinson_disease_classification
+
+.. autofunction:: pypop7.benchmarks.data_science.read_semeion_handwritten_digit
+
+.. autofunction:: pypop7.benchmarks.data_science.read_cnae9
+
+.. autofunction:: pypop7.benchmarks.data_science.read_madelon
+
+.. autofunction:: pypop7.benchmarks.data_science.read_qsar_androgen_receptor
+
 Test Classes and Data
 ---------------------
 
