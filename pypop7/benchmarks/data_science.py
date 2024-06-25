@@ -255,8 +255,6 @@ class HingeLossPerceptron(BaseFunction):
 def loss_margin_perceptron(w, x, y):
     """Loss function of margin perceptron (with binary labels/classes {-1, 1}).
 
-        https://jermwatt.github.io/machine_learning_refined/ (2020)
-
     Parameters
     ----------
     w : ndarray
