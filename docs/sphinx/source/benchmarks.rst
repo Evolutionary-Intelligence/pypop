@@ -138,6 +138,8 @@ Here we provide a family of **black-box classifications** from data science:
 
 .. autofunction:: pypop7.benchmarks.data_science.logistic_loss_lr
 
+.. autofunction:: pypop7.benchmarks.data_science.logistic_loss_l2
+
 Test Classes and Data
 ---------------------
 
