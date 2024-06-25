@@ -12,6 +12,7 @@ from pypop7.benchmarks.utils import plot_contour
 from pypop7.benchmarks.utils import plot_surface
 from pypop7.benchmarks.utils import save_optimization
 from pypop7.benchmarks.utils import check_optimization
+from pypop7.benchmarks.utils import plot_convergence_curve
 
 
 # test function for plotting
@@ -78,6 +79,20 @@ class TestUtils(unittest.TestCase):
         results = {'n_function_evaluations': 7777777,
                    'best_so_far_x': np.zeros((2,))}
         check_optimization(problem, options, results)
+
+    def test_plot_convergence_curve(self):
+        from pypop7.benchmarks.base_functions import ellipsoid  # function to be minimized
+        from pypop7.optimizers.pso.spso import SPSO
+        problem = {'fitness_function': ellipsoid,  # define problem arguments
+                   'ndim_problem': 2,
+                   'lower_boundary': -5.0 * np.ones((2,)),
+                   'upper_boundary': 5.0 * np.ones((2,))}
+        options = {'max_function_evaluations': 3500,  # set optimizer options
+                   'saving_fitness': 1,
+                   'seed_rng': 2022}
+        spso = SPSO(problem, options)  # initialize the black-box optimizer class
+        res = spso.optimize()  # run the optimization process
+        plot_convergence_curve(SPSO.__name__, ellipsoid.__name__, 2, results=res)
 
 
 if __name__ == '__main__':
