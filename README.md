@@ -378,7 +378,7 @@ For each algorithm family, we try to provide several *representative* applicatio
 
 ## Sponsor
 
-From 2021 to 2023, this open-source pure-Python library was supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000). Now Qiqi Duan is seeking new sponsors (e.g., from any enterprises).
+From 2021 to 2023, this open-source pure-Python library was supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (￥2,000,000). Now Qiqi Duan, one of the core developers of this library, is seeking new sponsors (e.g., from enterprises).
 
 ## Citation
 
