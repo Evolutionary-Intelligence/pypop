@@ -295,15 +295,15 @@ def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.pso.spso import SPSO
        >>> from pypop7.benchmarks.utils import plot_convergence_curve
-       >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5.0*numpy.ones((2,)),
        ...            'upper_boundary': 5.0*numpy.ones((2,))}
-       >>> options = {'max_function_evaluations': 5000,  # set optimizer options
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
        ...            'saving_fitness': 1,
        ...            'seed_rng': 2022}
-       >>> spso = SPSO(problem, options)  # initialize the black-box optimizer class
-       >>> res = spso.optimize()  # run the optimization process
+       >>> spso = SPSO(problem, options)  # to initialize the black-box optimizer class
+       >>> res = spso.optimize()  # to run the optimization process
        >>> plot_convergence_curve('SPSO', rosenbrock.__name__, 2, results=res)
     """
     if results is None:
