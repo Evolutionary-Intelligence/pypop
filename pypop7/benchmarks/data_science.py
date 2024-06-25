@@ -347,16 +347,26 @@ class MPC2023Nonsmooth(BaseFunction):
 
 
 def read_parkinson_disease_classification(is_10=True):
-    """Sakar,C., Serbes,Gorkem, Gunduz,Aysegul, Nizam,Hatice, and Sakar,Betul. (2018).
-        Parkinson's Disease Classification.
-        UCI Machine Learning Repository.
-        https://doi.org/10.24432/C5MS4X
+    """Read dataset Parkinson's Disease Classification.
 
-        # Data: https://archive.ics.uci.edu/static/public/470/parkinson+s+disease+classification.zip
-        # Instances: 756
-        # Features: 753 (Delete `id` from 754 Features)
-        # Class: 0/1
-        # Missing Values: No
+       .. note::
+
+          # Data: https://archive.ics.uci.edu/static/public/470/parkinson+s+disease+classification.zip
+
+          # Instances: 756
+
+          # Features: 753 (Delete `id` from 754 Features)
+
+          # Class: 0/1
+
+          # Missing Values: No
+
+    References
+    ----------
+    Sakar,C., Serbes,Gorkem, Gunduz,Aysegul, Nizam,Hatice, and Sakar,Betul. (2018).
+    Parkinson's Disease Classification.
+    UCI Machine Learning Repository.
+    https://doi.org/10.24432/C5MS4X
     """
     file = 'pd_speech_features.csv'
     file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
