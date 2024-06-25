@@ -154,12 +154,12 @@ def plot_surface(func, x, y, num=200, is_save=False):
     plt.show()
 
 
-# helper function for saving optimization results in pickle form
+# helper function for saving optimization results in *pickle* form
 def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_lso'):
     """Save optimization results (in **pickle** form) via object serialization.
 
        .. note:: By default, the **local** file name is given in the following form:
-          `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle`.
+          `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the local folder `pypop7_benchmarks_lso`.
 
     Parameters
     ----------
@@ -168,11 +168,11 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
     algo    : str
               name of algorithm to be used.
     func    : str
-              name of the fitness function to be tested.
+              name of the fitness function to be minimized.
     dim     : str or int
-              dimensionality of the fitness function to be tested.
+              dimensionality of the fitness function to be minimized.
     exp     : str or int
-              index of experiments to be run.
+              index of the experiment to be run.
     folder  : str
               local folder under the working space (`pypop7_benchmarks_lso` by default).
 
@@ -207,6 +207,14 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
     local_file = local_file.format(str(algo), str(func), str(dim), str(exp))  # to set data format
     with open(local_file, 'wb') as handle:  # to save in pickle form
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+
+# helper function for reading optimization results in *pickle* form
+def read_optimization(folder, algo, func, dim, exp):
+    afile = os.path.join(folder,
+                         'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle'.format(algo, func, dim, exp))
+    with open(afile, 'rb') as handle:
+        return pickle.load(handle)
 
 
 def check_optimization(problem, options, results):
@@ -256,26 +264,20 @@ def check_optimization(problem, options, results):
                   "larger than 'max_function_evaluations' given in `options`.")
 
 
-def read_pickle(folder, aa, ff, dd, ee):
-    afile = os.path.join(f'./{folder}', f'Algo-{aa}_Func-{ff}_Dim-{dd}_Exp-{ee}.pickle')
-    with open(afile, 'rb') as handle:
-        return pickle.load(handle)
-
-
 def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_benchmarks_lso'):
-    """Plot the convergence curve.
+    """Plot the convergence curve of final optimization results.
 
        .. note:: By default, the **local** file name is given in the following form:
-          `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle`.
+          `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the **local** folder `pypop7_benchmarks_lso`.
 
     Parameters
     ----------
     algo    : str
               name of algorithm to be used.
     func    : str
-              name of the fitness function to be tested.
+              name of the fitness function to be minimized.
     dim     : str or int
-              dimensionality of the fitness function to be tested.
+              dimensionality of the fitness function to be minimized.
     exp     : str or int
               index of experiments to be run.
     results : dict
@@ -289,9 +291,10 @@ def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_
     .. code-block:: python
        :linenos:
 
-       >>> import numpy
+       >>> import numpy  # engine for numerical computing
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
        >>> from pypop7.optimizers.pso.spso import SPSO
+       >>> from pypop7.benchmarks.utils import plot_convergence_curve
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5.0*numpy.ones((2,)),
@@ -299,36 +302,26 @@ def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
        ...            'saving_fitness': 1,
        ...            'seed_rng': 2022}
-       >>> spso = SPSO(problem, options)  # initialize the optimizer class
-       >>> results = spso.optimize()  # run the optimization process
-       >>> from pypop7.benchmarks.utils import plot_convergence_curve
-       >>> plot_convergence_curve('SPSO', 'rosenbrock', 2, results=results)
+       >>> spso = SPSO(problem, options)  # initialize the black-box optimizer class
+       >>> res = spso.optimize()  # run the optimization process
+       >>> plot_convergence_curve('SPSO', rosenbrock.__name__, 2, results=res)
     """
-
+    if results is None:
+        results = read_optimization(folder, algo, func, dim, exp)
+    # set font family and size
     plt.rcParams['font.family'] = 'Times New Roman'
     plt.rcParams['font.size'] = '12'
-
-    max_runtime, fitness_threshold = 3600*3 - 10*60, 1e-10
-
-    if results is None:
-        results = read_pickle(folder, algo, func, dim, exp)
-    time = results['fitness'][:, 0]*results['runtime']/results['n_function_evaluations']
-    y = results['fitness'][:, 1]
-    if func == 'michalewicz':  # for printing in the log scale
-        y += 600.0
-    fitness = y
-    time[-1] = time[-1] if time[-1] <= max_runtime else max_runtime
-    fitness[-1] = fitness[-1] if fitness[-1] >= fitness_threshold else fitness_threshold
-
-    plt.figure(figsize=(9, 7))
-    plt.yscale('log')
-    plt.plot(time, fitness, label=algo, color='blue', linewidth=2.0)
-    plt.title(func, fontsize=24, fontweight='bold')
-    plt.xlabel('Running Time (Seconds)', fontsize=20, fontweight='bold')
-    plt.ylabel('Fitness (Minimized)', fontsize=20, fontweight='bold')
-    plt.xticks(fontsize=16, fontweight='bold')
-    plt.yticks(fontsize=16, fontweight='bold')
-    plt.legend(fontsize=14, loc='upper right')
+    # plot figure
+    plt.figure(figsize=(7, 7))
     plt.grid(True)
+    plt.yscale('log')
+    plt.plot(results['fitness'][:, 0],
+             results['fitness'][:, 1],
+             label=algo, linewidth=2.0)
+    plt.title(func, fontsize=24, fontweight='bold')
+    plt.xlabel('Number of Fitness Evaluations', fontsize=20, fontweight='bold')
+    plt.ylabel('Fitness (Minimized)', fontsize=20, fontweight='bold')
+    plt.xticks(fontsize=15, fontweight='bold')
+    plt.yticks(fontsize=15, fontweight='bold')
+    plt.legend(fontsize=15, loc='best')
     plt.show()
-    
