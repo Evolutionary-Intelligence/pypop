@@ -297,7 +297,7 @@ def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_
        ...            'lower_boundary': -5.0*numpy.ones((2,)),
        ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # set optimizer options
-                      'saving_fitness': 1,
+       ...            'saving_fitness': 1,
        ...            'seed_rng': 2022}
        >>> spso = SPSO(problem, options)  # initialize the optimizer class
        >>> results = spso.optimize()  # run the optimization process
