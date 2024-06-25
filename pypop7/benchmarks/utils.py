@@ -361,7 +361,7 @@ def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop
        >>> from pypop7.optimizers.de.cde import CDE
        >>> from pypop7.optimizers.eda.umda import UMDA
        >>> from pypop7.optimizers.es.cmaes import CMAES
-       >>> from pypop7.benchmarks.utils import plot_convergence_curve
+       >>> from pypop7.benchmarks.utils import plot_convergence_curves
        >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5.0*numpy.ones((2,)),
@@ -370,11 +370,11 @@ def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop
        ...            'saving_fitness': 1,
        ...            'sigma': 3.0,
        ...            'seed_rng': 2022}
-       >>> res = [None] * 5
+       >>> res = []
        >>> for Optimizer in [PRS, SPSO, CDE, UMDA, CMAES]:
        >>>     optimizer = Optimizer(problem, options)  # to initialize the black-box optimizer class
        >>>     res.append(optimizer.optimize())  # to run the optimization process
-       >>> plot_convergence_curve('SPSO', rosenbrock.__name__, 2, results=res)
+       >>> plot_convergence_curves([PRS, SPSO, CDE, UMDA, CMAES], rosenbrock.__name__, 2, results=res)
     """
     # set font family and size
     plt.rcParams['font.family'] = 'Times New Roman'
@@ -383,10 +383,10 @@ def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop
     plt.figure(figsize=(7, 7))
     plt.grid(True)
     plt.yscale('log')
-    for algo in algos:
+    for a, r in zip(algos, results):
         if results is None:
-            results = read_optimization(folder, algo, func, dim, exp)
-        plt.plot(results['fitness'][:, 0], results['fitness'][:, 1], label=algo, linewidth=2.0)
+            r = read_optimization(folder, a.__name__, func, dim, exp)
+        plt.plot(r['fitness'][:, 0], r['fitness'][:, 1], label=a.__name__, linewidth=2.0)
     plt.title(func, fontsize=24, fontweight='bold')
     plt.xlabel('Number of Fitness Evaluations', fontsize=20, fontweight='bold')
     plt.ylabel('Fitness (Minimized)', fontsize=20, fontweight='bold')
