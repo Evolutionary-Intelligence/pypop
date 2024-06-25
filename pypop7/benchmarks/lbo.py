@@ -46,6 +46,22 @@ class Experiment(object):
 
 class Experiments(object):
     def __init__(self, start, end, ndim_problem, max_runtime, is_local=True):
+        """
+
+        Parameters
+        ----------
+        start        : int
+                       starting index of experiment.
+        end          : int
+                       ending index of experiment.
+        ndim_problem : int
+                       number of dimensionality.
+        max_runtime  : int
+                       maximum of runtime to be allowed
+        is_local     : bool
+                       flag to determine if local or global optimization functions should be tested
+
+        """
         self.start, self.end = start, end
         self.ndim_problem = ndim_problem  # number of dimensionality
         self.max_runtime = max_runtime  # maximum of runtime to be allowed
