@@ -382,7 +382,7 @@ def read_parkinson_disease_classification(is_10=True):
 
 
 def read_semeion_handwritten_digit(is_10=True):
-    """Read Semeion Handwritten Digit.
+    """Read dataset Semeion Handwritten Digit.
 
        .. note::
 
@@ -417,16 +417,20 @@ def read_semeion_handwritten_digit(is_10=True):
 
 
 def read_cnae9(is_10=True):
-    """Ciarelli,Patrick and Oliveira,Elias. (2012).
-        CNAE-9.
-        UCI Machine Learning Repository.
-        https://doi.org/10.24432/C51G7P.
+    """Read dataset CNAE-9.
 
         # Data: https://archive.ics.uci.edu/static/public/233/cnae+9.zip
         # Instances: 1080
         # Features: 856
         # Class: 0/1
         # Missing Values: No
+
+    References
+    ----------
+    Ciarelli,Patrick and Oliveira,Elias. (2012).
+    CNAE-9.
+    UCI Machine Learning Repository.
+    https://doi.org/10.24432/C51G7P.
     """
     file = 'CNAE-9.data'
     file_path = 'https://github.com/Evolutionary-Intelligence/pypop/raw/main/docs/' + \
