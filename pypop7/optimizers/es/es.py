@@ -46,8 +46,8 @@ class ES(Optimizer):
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : dict
               optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - number of offspring/descendants, aka offspring population size (`int`),
@@ -229,7 +229,7 @@ class ES(Optimizer):
             self._n_restart += 1
             self._list_generations.append(self._n_generations)  # for each restart
             self._n_generations = 0
-            self._list_fitness = [np.Inf]
+            self._list_fitness = [np.inf]
             self.sigma = np.copy(self._sigma_bak)
             self.n_individuals *= 2
             self.n_parents = int(self.n_individuals/2)
