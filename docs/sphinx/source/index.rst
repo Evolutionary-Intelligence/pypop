@@ -1,7 +1,5 @@
-.. This is the *official* online documentation of PyPop7.
-
-PyPop7's Documentation for Black-Box Optimization (BBO)
-=======================================================
+Online Documentations of PyPop7 for Black-Box Optimization (BBO)
+================================================================
 
 .. image:: https://img.shields.io/badge/GitHub-PyPop7-red.svg
    :target: https://github.com/Evolutionary-Intelligence/pypop
