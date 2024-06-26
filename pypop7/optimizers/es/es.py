@@ -29,7 +29,8 @@ class ES(Optimizer):
        (deep neural network-based) policy search in reinforcement learning.
 
        For some interesting applications of `ES`, please refer to `[Yang et al., 2024, CVPR]
-       <https://diffusion-es.github.io/>`_, `[Lee et al., 2023, Science Robotics]
+       <https://diffusion-es.github.io/>`_, `[Elfikky et al., 2024, LWC]
+       <https://ieeexplore.ieee.org/abstract/document/10531788>`_, `[Lee et al., 2023, Science Robotics]
        <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_, `[Koginov et al., 2023, TMRB]
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Sun et al., 2023, ACL]
        <https://aclanthology.org/2023.acl-long.625.pdf>`_, `[Heidrich-Meisner&Igel, 2009, ICML]
