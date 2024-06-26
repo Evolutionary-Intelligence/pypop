@@ -22,8 +22,6 @@ def benchmark_nevergrad(optimizer, ndim=10, max_function_evaluations=50000, seed
     results : dict
               final optimization results.
     """
-    # use the following 10 benchmarking function common in the
-    # black-box optimization community
     half = int(ndim/2)
     func = Photonics("bragg", ndim)
     problem = {'fitness_function': func,
