@@ -383,9 +383,9 @@ def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop
     plt.figure(figsize=(7, 7))
     plt.grid(True)
     plt.yscale('log')
+    if results is None:
+        results = [read_optimization(folder, a.__name__, func, dim, exp) for a in algos]
     for a, r in zip(algos, results):
-        if results is None:
-            r = read_optimization(folder, a.__name__, func, dim, exp)
         plt.plot(r['fitness'][:, 0], r['fitness'][:, 1], label=a.__name__, linewidth=2.0)
     plt.title(func, fontsize=24, fontweight='bold')
     plt.xlabel('Number of Fitness Evaluations', fontsize=20, fontweight='bold')
