@@ -8,19 +8,19 @@ def benchmark_nevergrad(optimizer, ndim=10, max_function_evaluations=50000, seed
 
     Parameters
     ----------
-    optimizer   : class
-                  any black-box optimizer.
+    optimizer                : class
+                               any black-box optimizer.
     ndim                     : int
                                number of dimensionality.
     max_function_evaluations : int
                                maximum of function evalutations.
-    seed        : int
-                  seed for random number generation (RNG).
+    seed                     : int
+                               seed for random number generation (RNG).
 
     Returns
     -------
-    results : dict
-              final optimization results.
+    results                  : dict
+                               final optimization results.
     """
     half = int(ndim/2)
     func = Photonics("bragg", ndim)
