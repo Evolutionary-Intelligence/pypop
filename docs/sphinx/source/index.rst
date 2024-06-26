@@ -90,7 +90,7 @@ negating it.
 
 See `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_ for
 details about the **optimizer setting**. Please refer to the following contents for all the BBO currently available
-in this *increasingly popular* open-source Python library.
+in this `increasingly popular <https://pypop.readthedocs.io/en/latest/applications.html>`_ open-source library.
 
 
 
