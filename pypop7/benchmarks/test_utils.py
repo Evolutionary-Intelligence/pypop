@@ -137,7 +137,7 @@ class TestUtils(unittest.TestCase):
             return rm.T
 
         rng = np.random.default_rng(2022)
-        ndim = 2 # 2000
+        ndim = 2  # 2000
         rm_, z_, downdate_ = 2 + rng.random((ndim, ndim)), rng.random(ndim, ), False
 
         runtime_1 = []
