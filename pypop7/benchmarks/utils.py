@@ -70,9 +70,9 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
               y-axis range.
     levels  : int or list
               number of contour lines or a list of contours.
-    num     : int
+    num     : int (`200` by default)
               number of samples in each of x- and y-axis range.
-    is_save : bool
+    is_save : bool (`False` by default)
               whether or not to save the generated figure in the *local* folder.
 
     Returns
@@ -121,10 +121,10 @@ def plot_surface(func, x, y, num=200, is_save=False):
               x-axis range.
     y       : list
               y-axis range.
-    num     : int
-              number of samples in each of x- and y-axis range (`200` by default).
-    is_save : bool
-              whether or not to save the generated figure in the *local* folder (`False` by default).
+    num     : int (`200` by default)
+              number of samples in each of x- and y-axis range.
+    is_save : bool (`False` by default)
+              whether or not to save the generated figure in the *local* folder.
 
     Returns
     -------
@@ -174,8 +174,8 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
               dimensionality of the fitness function to be minimized.
     exp     : str or int
               index of the experiment to be run.
-    folder  : str
-              local folder under the working space (`pypop7_benchmarks_lso` by default).
+    folder  : str (`pypop7_benchmarks_lso` by default)
+              local folder under the working space.
 
     Returns
     -------
@@ -283,8 +283,8 @@ def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_
               index of experiments to be run.
     results : dict
               optimization results returned by any optimizer.
-    folder  : str
-              local folder under the working space (`pypop7_benchmarks_lso` by default).
+    folder  : str (`pypop7_benchmarks_lso` by default)
+              local folder under the working space.
 
     Examples
     --------
@@ -346,8 +346,8 @@ def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop
               index of experiments to be run.
     results : list of dict
               optimization results returned by any optimizer.
-    folder  : str
-              local folder under the working space (`pypop7_benchmarks_lso` by default).
+    folder  : str (`pypop7_benchmarks_lso` by default)
+              local folder under the working space.
 
     Examples
     --------
@@ -399,6 +399,23 @@ def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop
 
 @nb.jit(nopython=True)
 def cholesky_update(rm, z, downdate):
+    """Cholesky update of rank-one.
+
+    Parameters
+    ----------
+    rm       : (N, N) ndarray
+               2D input data from which the triangular part will be used to
+               read the Cholesky factor.
+    z        : (N,) ndarray
+               1D update/downdate vector.
+    downdate : bool, optional (`False` by default)
+               `False` indicates an update while `True` indicates a downdate.
+
+    Returns
+    -------
+    D : (N, N) ndarray
+        Cholesky factor.
+    """
     # https://github.com/scipy/scipy/blob/d20f92fce9f1956bfa65365feeec39621a071932/
     #     scipy/linalg/_decomp_cholesky_update.py
     rm, z, alpha, beta = rm.T, z, np.empty_like(z), np.empty_like(z)
