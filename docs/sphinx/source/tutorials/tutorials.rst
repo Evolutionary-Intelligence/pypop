@@ -734,7 +734,7 @@ in the following:
 
     .. code-block:: python
 
-        """This is a simple demo that optimizes the Bragg mirrors structure, modeled in the following paper:
+        """Demo that optimizes the Bragg mirrors structure, modeled in the following paper:
             Bennet, P., Centeno, E., Rapin, J., Teytaud, O. and Moreau, A., 2020.
             The photonics and ARCoating testbeds in NeverGrad.
             https://hal.uca.fr/hal-02613161v1
@@ -778,13 +778,16 @@ in the following:
             plt.savefig('photonics_optimization.png')
 
 
-The final figure output is:
+The final figure output is shown below:
 
 .. image:: images/photonics_optimization.png
    :width: 500px
    :align: center
 
-For each black-box optimizer (BBO) from this open-source library, we also provide a *toy* example on their corresponding
-`API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_ documentations and two *testing* code (if possible) on
-their corresponding `source code <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_
-folders.
+More Examples
+-------------
+
+For each black-box optimizer (BBO) from this open-source library, we also provide a *toy* example
+on their corresponding `API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_
+documentations and two *testing* code (if possible) on their corresponding `source code
+<https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_ folders.
