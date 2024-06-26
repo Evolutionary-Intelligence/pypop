@@ -1,9 +1,8 @@
-import copy
 import os
 import pickle
-import time
 
 import numpy as np  # engine for numerical computing
+import numba as nb
 import seaborn as sns
 from matplotlib import cm
 import matplotlib.pyplot as plt
@@ -398,141 +397,18 @@ def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop
     plt.show()
 
 
-rm, z, downdate = 2 + np.random.random((2000, 2000)), np.random.random(2000,), False
-
-
-def accelerate_via_numba():
-    @nb.jit(nopython=True)
-    def cholesky_update(rm, z, downdate):
-        # https://github.com/scipy/scipy/blob/d20f92fce9f1956bfa65365feeec39621a071932/
-        #     scipy/linalg/_decomp_cholesky_update.py
-        rm, z, alpha, beta = rm.T, z, np.empty_like(z), np.empty_like(z)
-        alpha[-1], beta[-1] = 1.0, 1.0
-        sign = -1 if downdate else 1
-        for r in range(len(z)):
-            a = z[r]/rm[r, r]
-            alpha[r] = alpha[r - 1] + sign*np.power(a, 2)
-            beta[r] = np.sqrt(alpha[r])
-            z[r + 1:] -= a*rm[r, r + 1:]
-            rm[r, r:] *= beta[r]/beta[r - 1]
-            rm[r, r + 1:] += sign*a/(beta[r]*beta[r - 1])*z[r + 1:]
-        return rm.T
-
-    runtime = []
-    for i in range(1, 1000):
-        start_time = time.time()
-        cholesky_update(copy.deepcopy(rm), copy.deepcopy(z), downdate)
-        runtime.append(time.time() - start_time)
-    return runtime
-
-
-def without_accelerate_via_numba():
-    def cholesky_update(rm, z, downdate):
-        # https://github.com/scipy/scipy/blob/d20f92fce9f1956bfa65365feeec39621a071932/
-        #     scipy/linalg/_decomp_cholesky_update.py
-        rm, z, alpha, beta = rm.T, z, np.empty_like(z), np.empty_like(z)
-        alpha[-1], beta[-1] = 1.0, 1.0
-        sign = -1 if downdate else 1
-        for r in range(len(z)):
-            a = z[r]/rm[r, r]
-            alpha[r] = alpha[r - 1] + sign*np.power(a, 2)
-            beta[r] = np.sqrt(alpha[r])
-            z[r + 1:] -= a*rm[r, r + 1:]
-            rm[r, r:] *= beta[r]/beta[r - 1]
-            rm[r, r + 1:] += sign*a/(beta[r]*beta[r - 1])*z[r + 1:]
-        return rm.T
-
-    runtime = []
-    for i in range(1, 1000):
-        start_time = time.time()
-        cholesky_update(copy.deepcopy(rm), copy.deepcopy(z), downdate)
-        runtime.append(time.time() - start_time)
-    return runtime
-
-
-plt.rcParams['font.family'] = 'Times New Roman'
-plt.rcParams['font.size'] = '12'
-# plot figure
-plt.figure(figsize=(7, 7))
-plt.grid(True)
-plt.plot(np.cumsum(accelerate_via_numba()), color='r', label='Accelerate via numba', linewidth=2)
-plt.plot(np.cumsum(without_accelerate_via_numba()), color='g', label='Without accelerate via numba', linewidth=2)
-plt.title("Compare the runtime", fontsize=24, fontweight='bold')
-plt.xlabel('Number of Iterations', fontsize=20, fontweight='bold')
-plt.ylabel('Runtime (Seconds)', fontsize=20, fontweight='bold')
-plt.xticks(fontsize=15, fontweight='bold')
-plt.yticks(fontsize=15, fontweight='bold')
-plt.legend(fontsize=15, loc='best')
-plt.show()
-
-
-def accelerate_via_numba(is_accelerate=True):
-    """Accelerate computation via numba.
-
-    Parameters
-    ----------
-    is_accelerate : bool
-                    whether accelerate via numba.
-
-    Examples
-    --------
-    .. code-block:: python
-       :linenos:
-
-       >>> plt.rcParams['font.family'] = 'Times New Roman'
-       >>> plt.rcParams['font.size'] = '12'
-       >>> # plot figure
-       >>> plt.figure(figsize=(7, 7))
-       >>> plt.grid(True)
-       >>> plt.plot(np.cumsum(accelerate_via_numba(True)), color='r', label='Accelerate via numba', linewidth=2)
-       >>> plt.plot(np.cumsum(accelerate_via_numba(False)), color='g', label='Without accelerate via numba', linewidth=2)
-       >>> plt.title("Compare the runtime", fontsize=24, fontweight='bold')
-       >>> plt.xlabel('Number of Iterations', fontsize=20, fontweight='bold')
-       >>> plt.ylabel('Runtime (Seconds)', fontsize=20, fontweight='bold')
-       >>> plt.xticks(fontsize=15, fontweight='bold')
-       >>> plt.yticks(fontsize=15, fontweight='bold')
-       >>> plt.legend(fontsize=15, loc='best')
-       >>> plt.show()
-    """
-    if is_accelerate:
-        @nb.jit(nopython=True)
-        def cholesky_update(rm, z, downdate):
-            # https://github.com/scipy/scipy/blob/d20f92fce9f1956bfa65365feeec39621a071932/
-            #     scipy/linalg/_decomp_cholesky_update.py
-            rm, z, alpha, beta = rm.T, z, np.empty_like(z), np.empty_like(z)
-            alpha[-1], beta[-1] = 1.0, 1.0
-            sign = -1 if downdate else 1
-            for r in range(len(z)):
-                a = z[r]/rm[r, r]
-                alpha[r] = alpha[r - 1] + sign*np.power(a, 2)
-                beta[r] = np.sqrt(alpha[r])
-                z[r + 1:] -= a*rm[r, r + 1:]
-                rm[r, r:] *= beta[r]/beta[r - 1]
-                rm[r, r + 1:] += sign*a/(beta[r]*beta[r - 1])*z[r + 1:]
-            return rm.T
-    else:
-        def cholesky_update(rm, z, downdate):
-            # https://github.com/scipy/scipy/blob/d20f92fce9f1956bfa65365feeec39621a071932/
-            #     scipy/linalg/_decomp_cholesky_update.py
-            rm, z, alpha, beta = rm.T, z, np.empty_like(z), np.empty_like(z)
-            alpha[-1], beta[-1] = 1.0, 1.0
-            sign = -1 if downdate else 1
-            for r in range(len(z)):
-                a = z[r]/rm[r, r]
-                alpha[r] = alpha[r - 1] + sign*np.power(a, 2)
-                beta[r] = np.sqrt(alpha[r])
-                z[r + 1:] -= a*rm[r, r + 1:]
-                rm[r, r:] *= beta[r]/beta[r - 1]
-                rm[r, r + 1:] += sign*a/(beta[r]*beta[r - 1])*z[r + 1:]
-            return rm.T
-
-    rng = np.random.default_rng(2022)
-    rm, z, downdate = 2 + rng.random((2000, 2000)), rng.random(2000,), False
-
-    runtime = []
-    for i in range(1, 1000):
-        start_time = time.time()
-        cholesky_update(copy.deepcopy(rm), copy.deepcopy(z), downdate)
-        runtime.append(time.time() - start_time)
-    return runtime
-    
+@nb.jit(nopython=True)
+def cholesky_update(rm, z, downdate):
+    # https://github.com/scipy/scipy/blob/d20f92fce9f1956bfa65365feeec39621a071932/
+    #     scipy/linalg/_decomp_cholesky_update.py
+    rm, z, alpha, beta = rm.T, z, np.empty_like(z), np.empty_like(z)
+    alpha[-1], beta[-1] = 1.0, 1.0
+    sign = -1.0 if downdate else 1.0
+    for r in range(len(z)):
+        a = z[r] / rm[r, r]
+        alpha[r] = alpha[r - 1] + sign * np.power(a, 2)
+        beta[r] = np.sqrt(alpha[r])
+        z[r + 1:] -= a * rm[r, r + 1:]
+        rm[r, r:] *= beta[r] / beta[r - 1]
+        rm[r, r + 1:] += sign * a / (beta[r] * beta[r - 1]) * z[r + 1:]
+    return rm.T
