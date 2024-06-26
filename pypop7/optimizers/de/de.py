@@ -34,8 +34,8 @@ class DE(Optimizer):
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : dict
               optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular setting (`key`):
                 * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `100`).
