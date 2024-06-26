@@ -394,3 +394,27 @@ def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop
     plt.yticks(fontsize=15, fontweight='bold')
     plt.legend(fontsize=15, loc='best')
     plt.show()
+
+"""
+>>> import numpy
+>>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+>>> from pypop7.optimizers.es.opoa2015 import OPOA2015
+>>> problem = {'fitness_function': rosenbrock,  # define problem arguments
+...            'ndim_problem': 2000,
+...            'lower_boundary': -5*numpy.ones((2000,)),
+...            'upper_boundary': 5*numpy.ones((2000,))}
+>>> options = {'max_function_evaluations': 10000,  # set optimizer options
+...            'seed_rng': 2022,
+...            'mean': 3*numpy.ones((2000,)),
+...            'sigma': 0.1}  # the global step-size may need to be tuned for better performance
+>>> opoa2015 = OPOA2015(problem, options)  # initialize the optimizer class
+>>> results = opoa2015.optimize()  # run the optimization process
+# return the number of function evaluations, best-so-far fitness and the runtime
+print(f"OPOA2015: {results['n_function_evaluations']}, {results['best_so_far_y']}, {results['runtime']}")
+
+# Without acceleration
+# OPOA2015: 10000, 2669857.5237152553, 51.111472845077515
+
+# Acceleration though decorating function `cholesky_update` by @nb.jit(nopython=True) in opoa2015.py
+# OPOA2015: 10000, 2669857.5237152553, 45.297667026519775
+"""
