@@ -598,7 +598,8 @@ on a high-performing computing server, since typically it needs a very long runt
        $ nohup python run_experiments.py -s=1 -e=2 -o=LMCMA >LMCMA_1_2.out 2>&1 &
 
 To further compare **global** search capabilities of different black-box optimizers for LBO,
-please use the benchmarking test suite: `<>`_.
+please use the benchmarking test suite: `benchmark_global_search()
+<https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/benchmarks/lbo.py#L159>`_.
 
 Controller Design/Optimization
 ------------------------------
@@ -711,7 +712,11 @@ for comparing continuous optimizers in the **black-box** setting.
 
 The final output of the above code looks like:
 
-.. image:: images/COCO_MAES.png
+.. image:: images/COCO-PyPop7-MAES.png
+   :width: 500px
+   :align: center
+
+.. image:: images/COCO-PyPop7-MAES-2.png
    :width: 500px
    :align: center
 
