@@ -363,13 +363,13 @@ def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop
        >>> from pypop7.optimizers.es.cmaes import CMAES
        >>> from pypop7.benchmarks.utils import plot_convergence_curves
        >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
-       >>>            'ndim_problem': 2,
-       >>>            'lower_boundary': -5.0*numpy.ones((2,)),
-       >>>            'upper_boundary': 5.0*numpy.ones((2,))}
+       ...            'ndim_problem': 2,
+       ...            'lower_boundary': -5.0*numpy.ones((2,)),
+       ...            'upper_boundary': 5.0*numpy.ones((2,))}
        >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
-       >>>            'saving_fitness': 1,
-       >>>            'sigma': 3.0,
-       >>>            'seed_rng': 2022}
+       ...            'saving_fitness': 1,
+       ...            'sigma': 3.0,
+       ...            'seed_rng': 2022}
        >>> res = []
        >>> for Optimizer in [PRS, SPSO, CDE, UMDA, CMAES]:
        >>>     optimizer = Optimizer(problem, options)  # to initialize the black-box optimizer class
