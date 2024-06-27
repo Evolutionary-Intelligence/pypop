@@ -23,7 +23,7 @@ def generate_xyz(func, x, y, num=200):
            x-axis range.
     y    : list
            y-axis range.
-    num  : int
+    num  : int (`200` by default)
            number of samples in each of x- and y-axis range.
 
     Returns
@@ -58,7 +58,7 @@ def generate_xyz(func, x, y, num=200):
 
 # helper function for 2D-plotting
 def plot_contour(func, x, y, levels=None, num=200, is_save=False):
-    """Plot a 2D contour of the fitness landscape.
+    """Plot a 2-D contour of the fitness landscape.
 
     Parameters
     ----------
@@ -111,7 +111,7 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
 
 # helper function for 3D-plotting
 def plot_surface(func, x, y, num=200, is_save=False):
-    """Plot a 3D surface of the fitness landscape.
+    """Plot a 3-D surface of the fitness landscape.
 
     Parameters
     ----------
