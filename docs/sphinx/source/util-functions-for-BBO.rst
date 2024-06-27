@@ -41,6 +41,8 @@ via the `pwd()` command):
 
  * **pypop7_benchmarks_lso/Algo-PRS_Func-rosenbrock_Dim-2_Exp-1.pickle**
 
+.. autofunction:: pypop7.benchmarks.utils.read_optimization
+
 Check Optimization Results
 --------------------------
 
