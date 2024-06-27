@@ -5,6 +5,7 @@ Mathematical Theories for BBO
 -----------------------------
 
 * Duchi, J.C., Jordan, M.I., Wainwright, M.J. and Wibisono, A., 2015. Optimal rates for zero-order convex optimization: The power of two function evaluations. IEEE Transactions on Information Theory, 61(5), pp.2788-2806.
+* Ghadimi, S. and Lan, G., 2013. Stochastic first-and zeroth-order methods for nonconvex stochastic programming. SIAM Journal on Optimization, 23(4), pp.2341-2368.
 * Agarwal, A., Bartlett, P.L., Ravikumar, P. and Wainwright, M.J., 2012. Information-theoretic lower bounds on the oracle complexity of stochastic convex optimization. IEEE Transactions on Information Theory, 58(5), pp.3235-3249.
 
 Random Search (RS)
