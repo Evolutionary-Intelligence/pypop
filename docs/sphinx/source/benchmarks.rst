@@ -169,6 +169,9 @@ Here we provide a family of **black-box classifications** from data science:
 Benchmarking on Photonics Models from NeverGrad
 -----------------------------------------------
 
+Please refer to `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ for an
+introduction.
+
 .. autofunction:: pypop7.benchmarks.never_grad.benchmark_photonics
 
 Test Classes and Data
