@@ -22,31 +22,17 @@ def benchmark_photonics(optimizer, ndim=10, max_function_evaluations=50000, seed
     results : dict
               final optimization results.
     """
-    half = int(ndim/2)
-    func = Photonics("bragg", ndim)
-    problem = {'fitness_function': func,
+    half = int(ndim / 2)
+    # define problem arguments
+    problem = {'fitness_function': Photonics('bragg', ndim),
                'ndim_problem': ndim,
-               'lower_boundary': np.hstack((2*np.ones(half), 30*np.ones(half))),
-               'upper_boundary': np.hstack((3*np.ones(half), 180*np.ones(half)))}
+               'lower_boundary': np.hstack((2.0 * np.ones(half), 30.0 * np.ones(half))),
+               'upper_boundary': np.hstack((3.0 * np.ones(half), 180.0 * np.ones(half)))}
+    # set algorithm options
     options = {'max_function_evaluations': max_function_evaluations,
-               'n_individuals': 200,
                'is_bound': True,
                'seed_rng': seed,
                'saving_fitness': 1,
-               'verbose': 200}
-    solver = optimizer(problem, options)
-    results = solver.optimize()
-    res = results['fitness']
-
-    plt.rcParams['font.family'] = 'Times New Roman'
-    plt.rcParams['font.size'] = '12'
-    plt.figure(figsize=(7, 7))
-    plt.grid(True)
-    plt.plot(res[:, 0], res[:, 1], linewidth=2.0, linestyle='-', label=optimizer.__name__)
-    plt.legend()
-    plt.xlabel('Number of Function Evaluations')
-    plt.ylabel('Fitness (to be Minimized)')
-    plt.title('Bragg Mirrors Structure')
-    plt.show()
-
+               'verbose': 100}
+    results = optimizer(problem, options).optimize()
     return results
