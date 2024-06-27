@@ -1,5 +1,4 @@
-import numpy as np
-import matplotlib.pyplot as plt
+import numpy as np  # engine for numerical computing
 from nevergrad.functions.photonics.core import Photonics
 
 
