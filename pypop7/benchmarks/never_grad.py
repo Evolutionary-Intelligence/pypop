@@ -2,15 +2,16 @@ import numpy as np  # engine for numerical computing
 from nevergrad.functions.photonics.core import Photonics
 
 
-def benchmark_nevergrad(optimizer, ndim=10, max_function_evaluations=50000, seed=20221001):
-    """Test the application from `nevergrad` platform for Large-Scale Black-Box Optimization (LBO).
+def benchmark_photonics(optimizer, ndim=10, max_function_evaluations=50000, seed=20221001):
+    """Benchmark on the photonics model from the `NeverGrad
+       <https://github.com/facebookresearch/nevergrad>`_ platform.
 
     Parameters
     ----------
     optimizer                : class
                                any black-box optimizer.
     ndim                     : int
-                               number of dimensionality.
+                               number of dimensionality of the fitness function to be minimized.
     max_function_evaluations : int
                                maximum of function evalutations.
     seed                     : int
@@ -18,8 +19,8 @@ def benchmark_nevergrad(optimizer, ndim=10, max_function_evaluations=50000, seed
 
     Returns
     -------
-    results                  : dict
-                               final optimization results.
+    results : dict
+              final optimization results.
     """
     half = int(ndim/2)
     func = Photonics("bragg", ndim)
