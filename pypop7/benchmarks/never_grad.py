@@ -3,8 +3,7 @@ from nevergrad.functions.photonics.core import Photonics
 
 
 def benchmark_photonics(optimizer, ndim=10, max_function_evaluations=50000, seed=20221001):
-    """Benchmark on the photonics model from the `NeverGrad
-       <https://github.com/facebookresearch/nevergrad>`_ platform.
+    """Benchmark on the photonics model from the **NeverGrad** platform.
 
     Parameters
     ----------
