@@ -166,6 +166,11 @@ Here we provide a family of **black-box classifications** from data science:
 
 .. autofunction:: pypop7.benchmarks.data_science.read_qsar_androgen_receptor
 
+Benchmarking on the Photonics Model from the NeverGrad Platform
+---------------------------------------------------------------
+
+.. autofunction:: pypop7.benchmarks.never_grad.benchmark_photonics
+
 Test Classes and Data
 ---------------------
 
