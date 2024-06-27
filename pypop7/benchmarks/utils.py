@@ -216,20 +216,20 @@ def read_optimization(folder, algo, func, dim, exp):
     """Read optimization results (in **pickle** form) after object serialization.
 
        .. note:: By default, the **local** file name is given in the following form:
-          `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the local folder `pypop7_benchmarks_lso`.
+          `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the local folder.
 
     Parameters
     ----------
-    folder  : str
-              local folder under the working space obtained via the `pwd()` command.
-    algo    : str
-              name of algorithm to be used.
-    func    : str
-              name of the fitness function to be minimized.
-    dim     : str or int
-              dimensionality of the fitness function to be minimized.
-    exp     : str or int
-              index of each independent experiment to be run.
+    folder : str
+             local folder under the working space obtained via the `pwd()` command.
+    algo   : str
+             name of algorithm to be used.
+    func   : str
+             name of the fitness function to be minimized.
+    dim    : str or int
+             dimensionality of the fitness function to be minimized.
+    exp    : str or int
+             index of each independent experiment to be run.
 
     Returns
     -------
