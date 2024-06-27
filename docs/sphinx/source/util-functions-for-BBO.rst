@@ -1,9 +1,8 @@
 Util Functions for BBO
 ======================
 
-In this open-source Python module, we provide some **common** utils functions for BBO, as presented
-below. The main purpose of these utils is to simplify the **experimental** procedure.
-
+In this open-source Python module, we have provided some **common** utils functions for BBO, as presented
+below. The main purpose of these utils is to simplify the **development** and **experiment** procedure.
 
 Plot 2-D Fitness Landscape
 --------------------------
