@@ -11,7 +11,6 @@ import matplotlib.pyplot as plt
 sns.set_theme(style='darkgrid')
 
 
-# helper function for 2D-plotting
 def generate_xyz(func, x, y, num=200):
     """Generate necessary data before plotting a 2D contour of the fitness landscape.
 
@@ -56,7 +55,6 @@ def generate_xyz(func, x, y, num=200):
     return x, y, z
 
 
-# helper function for 2D-plotting
 def plot_contour(func, x, y, levels=None, num=200, is_save=False):
     """Plot a 2-D contour of the fitness landscape.
 
@@ -70,10 +68,10 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
               y-axis range.
     levels  : int or list
               number of contour lines or a list of contours.
-    num     : int (`200` by default)
-              number of samples in each of x- and y-axis range.
-    is_save : bool (`False` by default)
-              whether or not to save the generated figure in the *local* folder.
+    num     : int
+              number of samples in each of x- and y-axis range (`200` by default).
+    is_save : bool
+              whether or not to save the generated figure in the *local* folder (`False` by default).
 
     Returns
     -------
@@ -109,7 +107,6 @@ def plot_contour(func, x, y, levels=None, num=200, is_save=False):
     plt.show()
 
 
-# helper function for 3D-plotting
 def plot_surface(func, x, y, num=200, is_save=False):
     """Plot a 3-D surface of the fitness landscape.
 
@@ -121,10 +118,10 @@ def plot_surface(func, x, y, num=200, is_save=False):
               x-axis range.
     y       : list
               y-axis range.
-    num     : int (`200` by default)
-              number of samples in each of x- and y-axis range.
-    is_save : bool (`False` by default)
-              whether or not to save the generated figure in the *local* folder.
+    num     : int
+              number of samples in each of x- and y-axis range (`200` by default).
+    is_save : bool
+              whether or not to save the generated figure in the *local* folder (`False` by default).
 
     Returns
     -------
@@ -155,11 +152,10 @@ def plot_surface(func, x, y, num=200, is_save=False):
     plt.show()
 
 
-# helper function for saving optimization results in *pickle* form
 def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_lso'):
     """Save optimization results (in **pickle** form) via object serialization.
 
-       .. note:: By default, the **local** file name is given in the following form:
+       .. note:: By default, the **local** file name to be saved is given in the following form:
           `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the local folder `pypop7_benchmarks_lso`.
 
     Parameters
@@ -174,8 +170,9 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
               dimensionality of the fitness function to be minimized.
     exp     : str or int
               index of each independent experiment to be run.
-    folder  : str (`pypop7_benchmarks_lso` by default)
-              local folder under the working space obtained via the `pwd()` command.
+    folder  : str
+              local folder under the working space obtained via the `pwd()` command
+              (`pypop7_benchmarks_lso` by default).
 
     Returns
     -------
@@ -211,11 +208,10 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
-# helper function for reading optimization results in *pickle* form
 def read_optimization(folder, algo, func, dim, exp):
     """Read optimization results (in **pickle** form) after object serialization.
 
-       .. note:: By default, the **local** file name is given in the following form:
+       .. note:: By default, the **local** file name to be saved is given in the following form:
           `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the local folder.
 
     Parameters
@@ -315,7 +311,7 @@ def check_optimization(problem, options, results):
 def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_benchmarks_lso'):
     """Plot the convergence curve of final optimization results obtained by one optimizer.
 
-       .. note:: By default, the **local** file name is given in the following form:
+       .. note:: By default, the **local** file name to be saved is given in the following form:
           `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the **local** folder `pypop7_benchmarks_lso`.
 
     Parameters
@@ -330,8 +326,8 @@ def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_
               index of experiments to be run.
     results : dict
               optimization results returned by any optimizer.
-    folder  : str (`pypop7_benchmarks_lso` by default)
-              local folder under the working space.
+    folder  : str
+              local folder under the working space (`pypop7_benchmarks_lso` by default).
 
     Examples
     --------
@@ -378,7 +374,7 @@ def plot_convergence_curve(algo, func, dim, exp=1, results=None, folder='pypop7_
 def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop7_benchmarks_lso'):
     """Plot convergence curves of final optimization results obtained by multiple optimizers.
 
-       .. note:: By default, the **local** file name is given in the following form:
+       .. note:: By default, the **local** file name to be saved is given in the following form:
           `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the **local** folder `pypop7_benchmarks_lso`.
 
     Parameters
@@ -393,8 +389,8 @@ def plot_convergence_curves(algos, func, dim, exp=1, results=None, folder='pypop
               index of experiments to be run.
     results : list of dict
               optimization results returned by any optimizer.
-    folder  : str (`pypop7_benchmarks_lso` by default)
-              local folder under the working space.
+    folder  : str
+              local folder under the working space (`pypop7_benchmarks_lso` by default).
 
     Examples
     --------
@@ -455,8 +451,8 @@ def cholesky_update(rm, z, downdate):
                read the Cholesky factor.
     z        : (N,) ndarray
                1D update/downdate vector.
-    downdate : bool, optional (`False` by default)
-               `False` indicates an update while `True` indicates a downdate.
+    downdate : bool
+               `False` indicates an update while `True` indicates a downdate (`False` by default).
 
     Returns
     -------
