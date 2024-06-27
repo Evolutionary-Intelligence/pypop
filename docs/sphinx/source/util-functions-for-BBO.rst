@@ -2,7 +2,16 @@ Util Functions for BBO
 ======================
 
 In this open-source Python module, we have provided some **common** utils functions for BBO, as presented
-below. The main purpose of these utils is to simplify the **development** and **experiment** procedure.
+below. The main purpose of these utils is to simplify the typical **development** and **experiment**
+procedures of BBO.
+
+* `Plot 2-D Fitness Landscape <https://pypop.readthedocs.io/en/latest/util-functions-for-BBO.html#plot-2-d-fitness-landscape>`_
+* `Plot 3-D Fitness Landscape <https://pypop.readthedocs.io/en/latest/util-functions-for-BBO.html#plot-3-d-fitness-landscape>`_
+* `Save Optimization Results via Object Serialization <https://pypop.readthedocs.io/en/latest/util-functions-for-BBO.html#save-optimization-results-via-object-serialization>`_
+* `Check Optimization Results <https://pypop.readthedocs.io/en/latest/util-functions-for-BBO.html#check-optimization-results>`_
+* `Plot Convergence Curve via Matplotlib <https://pypop.readthedocs.io/en/latest/util-functions-for-BBO.html#plot-convergence-curve-via-matplotlib>`_
+* `Compare Multiple Black-Box Optimizers <https://pypop.readthedocs.io/en/latest/util-functions-for-BBO.html#compare-multiple-black-box-optimizers>`_
+* `Accelerate Computation via Numba <https://pypop.readthedocs.io/en/latest/util-functions-for-BBO.html#accelerate-computation-via-numba>`_
 
 Plot 2-D Fitness Landscape
 --------------------------
