@@ -62,7 +62,9 @@ Plot Convergence Curve via Matplotlib
 -------------------------------------
 
 Here we use `Matplotlib <https://matplotlib.org/>`_ to plot a convergence
-curve figure for (only) one black-box optimizer.
+curve figure for (only) one black-box optimizer. Please refer to `its
+official website <https://matplotlib.org/stable/project/history.html>`_
+for an introduction.
 
 .. autofunction:: pypop7.benchmarks.utils.plot_convergence_curve
 
