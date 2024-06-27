@@ -173,9 +173,9 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
     dim     : str or int
               dimensionality of the fitness function to be minimized.
     exp     : str or int
-              index of the experiment to be run.
+              index of each independent experiment to be run.
     folder  : str (`pypop7_benchmarks_lso` by default)
-              local folder under the working space.
+              local folder under the working space obtained via the `pwd()` command.
 
     Returns
     -------
@@ -202,9 +202,10 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
        >>> res = prs.optimize()  # to run its optimization/evolution process
        >>> save_optimization(res, PRS.__name__, rosenbrock.__name__, ndim, 1)
     """
+    file_format = 'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle'
     if not os.path.exists(folder):
         os.makedirs(folder)  # to make a new folder under the working space
-    local_file = os.path.join(folder, 'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle')  # to set file format
+    local_file = os.path.join(folder, file_format)  # to set file format
     local_file = local_file.format(str(algo), str(func), str(dim), str(exp))  # to set data format
     with open(local_file, 'wb') as handle:  # to save in pickle form
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
@@ -212,8 +213,54 @@ def save_optimization(results, algo, func, dim, exp, folder='pypop7_benchmarks_l
 
 # helper function for reading optimization results in *pickle* form
 def read_optimization(folder, algo, func, dim, exp):
-    afile = os.path.join(folder,
-                         'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle'.format(algo, func, dim, exp))
+    """Read optimization results (in **pickle** form) after object serialization.
+
+       .. note:: By default, the **local** file name is given in the following form:
+          `Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle` in the local folder `pypop7_benchmarks_lso`.
+
+    Parameters
+    ----------
+    folder  : str
+              local folder under the working space obtained via the `pwd()` command.
+    algo    : str
+              name of algorithm to be used.
+    func    : str
+              name of the fitness function to be minimized.
+    dim     : str or int
+              dimensionality of the fitness function to be minimized.
+    exp     : str or int
+              index of each independent experiment to be run.
+
+    Returns
+    -------
+    results : dict
+              optimization results returned by any optimizer.
+
+    Examples
+    --------
+
+    .. code-block:: python
+       :linenos:
+
+       >>> import numpy  # engine for numerical computing
+       >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
+       >>> from pypop7.optimizers.rs.prs import PRS
+       >>> from pypop7.benchmarks.utils import save_optimization, read_optimization
+       >>> ndim = 2  # number of dimensionality
+       >>> problem = {'fitness_function': rosenbrock,  # to define problem arguments
+       ...            'ndim_problem': ndim,
+       ...            'lower_boundary': -5.0 * numpy.ones((ndim,)),
+       ...            'upper_boundary': 5.0 * numpy.ones((ndim,))}
+       >>> options = {'max_function_evaluations': 5000,  # to set optimizer options
+       ...            'seed_rng': 2022}  # global step-size may need to be tuned for optimality
+       >>> prs = PRS(problem, options)  # to initialize the black-box optimizer class
+       >>> res = prs.optimize()  # to run its optimization/evolution process
+       >>> save_optimization(res, PRS.__name__, rosenbrock.__name__, ndim, 1)
+       >>> res = read_optimization('pypop7_benchmarks_lso', PRS.__name__, rosenbrock.__name__, ndim, 1)
+       >>> print(res)
+    """
+    file_format = 'Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle'
+    afile = os.path.join(folder, file_format.format(algo, func, dim, exp))
     with open(afile, 'rb') as handle:
         return pickle.load(handle)
 
