@@ -41,12 +41,13 @@ Save Optimization Results via Object Serialization
 --------------------------------------------------
 
 For **serialization of complex object**, we use the standard library (`pickle
-<https://docs.python.org/3/library/pickle.html>`_) of Python.
+<https://docs.python.org/3/library/pickle.html>`_) of Python. Please refer to
+`Python wiki <https://wiki.python.org/moin/UsingPickle>`_ for an introduction.
 
 .. autofunction:: pypop7.benchmarks.utils.save_optimization
 
-Please check the following *local* file in your working space (obtained
-via the `pwd()` command):
+Please check the following *local* file in your working space obtained via the
+`pwd()` command:
 
  * **pypop7_benchmarks_lso/Algo-PRS_Func-rosenbrock_Dim-2_Exp-1.pickle**
 
