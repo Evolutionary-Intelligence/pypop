@@ -31,7 +31,7 @@ The online figure generated in the above Example is shown below:
 Save Optimization Results via Object Serialization
 --------------------------------------------------
 
-For **object serialization**, we use the standard library (`pickle
+For **serialization of complex object**, we use the standard library (`pickle
 <https://docs.python.org/3/library/pickle.html>`_) of Python.
 
 .. autofunction:: pypop7.benchmarks.utils.save_optimization
