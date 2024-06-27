@@ -23,8 +23,8 @@ def generate_xyz(func, x, y, num=200):
            x-axis range.
     y    : list
            y-axis range.
-    num  : int (`200` by default)
-           number of samples in each of x- and y-axis range.
+    num  : int
+           number of samples in each of x- and y-axis range (`200` by default).
 
     Returns
     -------
