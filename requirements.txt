@@ -13,3 +13,4 @@ rst2pdf
 pytest  # only for testing and not available in setup.cfg
 requests
 nevergrad
+gymnasium
