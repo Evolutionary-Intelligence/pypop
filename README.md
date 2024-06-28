@@ -163,7 +163,8 @@ For LSO, computational efficiency is an indispensable performance criterion of B
 
 The basic folder structrue of this open-source library is presented below:
 
-* `.circleci`: for automatic testing based on [pytest]().
+* `.circleci`: for automatic testing based on [pytest](https://docs.pytest.org/en/8.2.x/).
+  * `config.yml`: configuration file in [CircleCI](https://circleci.com/).
 * `docs`: for online documentations.
 * `pypop7`: Python source code. 
 * `tutorials`: a set of tutorials.
