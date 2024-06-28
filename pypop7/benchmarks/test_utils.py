@@ -75,6 +75,23 @@ class TestUtils(unittest.TestCase):
         results = res.optimize()  # to run its optimization/evolution process
         save_optimization(results, RES.__name__, rosenbrock.__name__, dim, 1)
 
+    def test_read_optimization(self):
+        from pypop7.benchmarks.base_functions import rosenbrock
+        from pypop7.optimizers.rs.prs import PRS
+        from pypop7.benchmarks.utils import save_optimization, read_optimization
+        ndim = 2  # number of dimensionality
+        problem = {'fitness_function': rosenbrock,  # to define problem arguments
+                   'ndim_problem': ndim,
+                   'lower_boundary': -5.0 * numpy.ones((ndim,)),
+                   'upper_boundary': 5.0 * numpy.ones((ndim,))}
+        options = {'max_function_evaluations': 5000,  # to set optimizer options
+                   'seed_rng': 2022}  # global step-size may need to be tuned for optimality
+        prs = PRS(problem, options)  # to initialize the black-box optimizer class
+        res = prs.optimize()  # to run its optimization/evolution process
+        save_optimization(res, PRS.__name__, rosenbrock.__name__, ndim, 1)
+        res = read_optimization('pypop7_benchmarks_lso', PRS.__name__, rosenbrock.__name__, ndim, 1)
+        print(res)
+
     def test_check_optimization(self):
         problem = {'lower_boundary': [-5.0, -7.0],
                    'upper_boundary': [5.0, 7.0]}
