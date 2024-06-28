@@ -174,6 +174,15 @@ introduction.
 
 .. autofunction:: pypop7.benchmarks.never_grad.benchmark_photonics
 
+Benchmarking of Controllers on Gymnasium
+----------------------------------------
+
+Please refer to `Gymnasium <https://gymnasium.farama.org/>`_ for an
+introduction (from `Farama Foundation <https://farama.org/>`_).
+
+.. autoclass:: pypop7.benchmarks.gymnasium.Cartpole
+   :members:
+
 Test Classes and Data
 ---------------------
 
