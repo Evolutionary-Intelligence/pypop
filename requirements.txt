@@ -14,4 +14,4 @@ pytest  # only for testing and not available in setup.cfg
 requests
 nevergrad
 gymnasium
-pip install gymnasium[classic-control]
+gymnasium[classic-control]
