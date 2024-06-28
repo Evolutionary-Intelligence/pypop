@@ -1,7 +1,7 @@
 Online Tutorials
 ================
 
-Here we provide several *interesting* tutorials to help better use this `open-source <https://opensource.org/>`_
+Here we have provided several *interesting* tutorials to help better use this `open-source <https://opensource.org/>`_
 library `PyPop7 <https://pypop.readthedocs.io/en/latest/installation.html>`_ for black-box optimization (BBO), as
 shown below:
 
@@ -15,11 +15,11 @@ shown below:
 * Benchmarking `BBO <https://pypop.readthedocs.io/en/latest/tutorials/tutorials.html#benchmarking-bbo-on-the-well-designed-coco-platform>`_
   on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact Award for COCO
   <https://dl.acm.org/doi/abs/10.1145/3447929.3447930>`_),
-* Benchmarking `BBO <https://pypop.readthedocs.io/en/latest/tutorials/tutorials.html#benchmarking-on-the-famous-nevergrad-platform>`_
+* Benchmarking `BBO <https://pypop.readthedocs.io/en/latest/benchmarks.html#benchmarking-on-photonics-models-from-nevergrad>`_
   on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (Developed by **FacebookResearch**).
 
 For each black-box optimizer from this `open-source <https://twitter.com/ylecun/status/1715363851967906176>`_
-library, we also provide a *toy* example on their corresponding **API** documentations and two *testing* code
+library, we have also provided a *toy* example on their corresponding **API** documentations and two *testing* code
 (if possible) on their corresponding `Python source code
 <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_ folders.
 
