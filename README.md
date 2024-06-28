@@ -166,7 +166,7 @@ The basic folder structrue of this open-source library is presented below:
 * `.circleci`: for automatic testing based on [pytest](https://docs.pytest.org/en/8.2.x/).
   * `config.yml`: configuration file in [CircleCI](https://circleci.com/).
 * `docs`: for online documentations.
-* `pypop7`: Python source code. 
+* `pypop7`: all Python source code of BBO. 
 * `tutorials`: a set of tutorials.
 * `.gitignore`: for [GitHub](https://github.com/).
 * `.readthedocs.yaml`: for [readthedocs](https://docs.readthedocs.io/en/stable/).
