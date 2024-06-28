@@ -264,20 +264,18 @@ just to name a few. For a systematical paper collection on some top-tier journal
 refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
 <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_.
 
-Global Trajectory Optimization
-------------------------------
+Global Trajectory Optimization from PyKep
+-----------------------------------------
 
-Six hard global trajectory optimization problems have been given in `pykep <https://esa.github.io/pykep/index.html>`_,
+Six **hard** global trajectory optimization (GTO) problems have been given in `pykep <https://esa.github.io/pykep/index.html>`_,
 developed at `European Space Agency <https://sophia.estec.esa.int/gtoc_portal/>`_. Here we use the Standard Particle
-Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_) as an optimizer baseline:
+Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_) as a black-box optimizer baseline:
 
     .. code-block:: python
 
-        """This is a simple demo that uses PSO to optimize 6 minimization problems provided by `pykep`:
+        """Demo that uses PSO to optimize 6 GTO problems provided by `pykep`:
             https://esa.github.io/pykep/
             https://esa.github.io/pykep/examples/ex13.html
-
-            # Written/Checked by Guochen Zhou, Yajing Tan, and *Qiqi Duan*
         """
         import pygmo as pg  # it's better to use conda to install (and it's better to use pygmo==2.18)
         import pykep as pk  # it's better to use conda to install
@@ -339,7 +337,7 @@ The convergence curves on six different instances obtained via `SPSO` are given 
    :width: 500px
    :align: center
 
-For more applications of `PSO` on challenging problems, refer to e.g.,
+For more applications of `PSO` on some challenging problems, refer to e.g.,
 `[Reddy et al., 2023, TC] <https://ieeexplore.ieee.org/document/10005787>`_;
 `[Guan et al., 2022, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.186001>`_;
 `[Weiel, et al., 2021, Nature Mach. Intell.] <https://www.nature.com/articles/s42256-021-00366-3>`_;
