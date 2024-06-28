@@ -193,7 +193,6 @@ high-dimensional optimization problem:
 
     .. code-block:: python
 
-        # Written/Checked by Guochen Zhou, Yajing Tan, and *Qiqi Duan*
         import pygmo as pg  # need to be installed: https://esa.github.io/pygmo2/install.html
         import seaborn as sns
         import matplotlib.pyplot as plt
@@ -249,8 +248,8 @@ during the early stage to disrupt convergence curves):
 From the above figure, two different `DE` versions show **different** search performance: `CDE` does not limit samples into
 the given search boundaries during optimization and generate a out-of-box solution (which may be infeasible in practice)
 **very fast**, while `JADE` limits all samples into the given search boundaries during optimization and generate an
-inside-of-box solution **relatively slow**. Since *different* implementations of the same algorithm family details could
-sometimes even result in *totally different* search behaviors, their **open-source** implementations play an important role
+inside-of-box solution **relatively slow**. Since *different* implementations of the same algorithm family could sometimes
+even result in *totally different* search behaviors, their **open-source** implementations play an important role
 for **repeatability**.
 
 For more interesting applications of `DE` on challenging problems, refer to e.g.,
@@ -260,8 +259,8 @@ For more interesting applications of `DE` on challenging problems, refer to e.g.
 `[Gagnon et al., 2017, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.053203>`_;
 `[Laganowsky et al., 2014, Nature] <https://www.nature.com/articles/nature13419>`_;
 `[Lovett et al., 2013, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.110.220501>`_,
-just to name a few. For a systematical paper collection on some top-tier journals/conferences, please
-refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
+just to name a few. For a systematical paper collection of evolutionary algorithms on some top-tier journals/conferences,
+please refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
 <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_.
 
 Global Trajectory Optimization from PyKep
