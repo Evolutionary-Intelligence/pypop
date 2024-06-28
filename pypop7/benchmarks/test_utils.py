@@ -82,15 +82,15 @@ class TestUtils(unittest.TestCase):
         ndim = 2  # number of dimensionality
         problem = {'fitness_function': rosenbrock,  # to define problem arguments
                    'ndim_problem': ndim,
-                   'lower_boundary': -5.0 * numpy.ones((ndim,)),
-                   'upper_boundary': 5.0 * numpy.ones((ndim,))}
+                   'lower_boundary': -5.0 * np.ones((ndim,)),
+                   'upper_boundary': 5.0 * np.ones((ndim,))}
         options = {'max_function_evaluations': 5000,  # to set optimizer options
                    'seed_rng': 2022}  # global step-size may need to be tuned for optimality
         prs = PRS(problem, options)  # to initialize the black-box optimizer class
         res = prs.optimize()  # to run its optimization/evolution process
         save_optimization(res, PRS.__name__, rosenbrock.__name__, ndim, 1)
         res = read_optimization('pypop7_benchmarks_lso', PRS.__name__, rosenbrock.__name__, ndim, 1)
-        print(res)
+        assert res['n_function_evaluations'] == 5000
 
     def test_check_optimization(self):
         problem = {'lower_boundary': [-5.0, -7.0],
