@@ -12,7 +12,7 @@ def benchmark_photonics(optimizer, ndim=10, max_function_evaluations=50000, seed
     ndim                     : int
                                number of dimensionality of the fitness function to be minimized.
     max_function_evaluations : int
-                               maximum of function evalutations.
+                               maximum of function evaluations.
     seed                     : int
                                seed for random number generation (RNG).
 
