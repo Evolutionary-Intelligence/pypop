@@ -175,7 +175,7 @@ The basic folder structrue of this open-source library is presented below:
 * `README.md`: basic information of this library.
 * `pyproject.toml`: for [PyPI](https://pypi.org/).
 * `requirements.txt`: for development.
-* `setup.cfg`: for PyPI (used via `pyproject.toml`).
+* `setup.cfg`: for [PyPI](https://pypi.org/) (used via `pyproject.toml`).
 
 ## References
 
