@@ -183,8 +183,8 @@ introduction (from `Farama Foundation <https://farama.org/>`_).
 .. autoclass:: pypop7.benchmarks.gymnasium.Cartpole
    :members:
 
-Lennard-Jones Cluster Optimization Problem from PyGMO
------------------------------------------------------
+Lennard-Jones Cluster Optimization from PyGMO
+---------------------------------------------
 
 .. autofunction:: pypop7.benchmarks.pygmo.lennard_jones
 
