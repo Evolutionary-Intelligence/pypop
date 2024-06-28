@@ -15,3 +15,5 @@ requests
 gymnasium
 nevergrad
 gymnasium[classic-control]
+pygmo
+pykep
