@@ -159,6 +159,23 @@ Note that this classification based on only the dimension of objective function 
 
 For LSO, computational efficiency is an indispensable performance criterion of BBO/DFO/ZOO [in the post-Moore era](https://www.science.org/doi/10.1126/science.aam9744). To obtain high-performance computation as much as possible, [NumPy](https://www.nature.com/articles/s41586-020-2649-2) is heavily used in this library as the base of numerical computation along with [SciPy](https://www.nature.com/articles/s41592-019-0686-2). Sometimes [Numba](https://numba.pydata.org/) is also utilized, in order to further accelerate the wall-clock time.
 
+## Folder Structure
+
+The basic folder structrue of this open-source library is presented below:
+
+* `.circleci`: for automatic testing based on [pytest]().
+* `docs`: for online documentations.
+* `pypop7`: Python source code. 
+* `tutorials`: a set of tutorials.
+* `.gitignore`: for [GitHub](https://github.com/).
+* `.readthedocs.yaml`: for [readthedocs](https://docs.readthedocs.io/en/stable/).
+* `CODE_OF_CONDUCT.md`: code of conduct.
+* `LICENSE`: open-source license.
+* `README.md`: basic information of this library.
+* `pyproject.toml`: for PyPI.
+* `requirements.txt`: for development.
+* `setup.cfg`: for PyPI (used via `pyproject.toml`).
+
 ## References
 
 For each algorithm family, we try to provide several *representative* applications published on some [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) journals and conferences (such as, [Nature](https://www.nature.com/), Science, PNAS, PRL, JACS, JACM, PIEEE, JMLR, etc.), systematically reported in the paper list called [DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) openly accessible via GitHub.
