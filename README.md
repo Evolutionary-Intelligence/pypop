@@ -173,7 +173,7 @@ The basic folder structrue of this open-source library is presented below:
 * `CODE_OF_CONDUCT.md`: code of conduct.
 * `LICENSE`: open-source license.
 * `README.md`: basic information of this library.
-* `pyproject.toml`: for PyPI.
+* `pyproject.toml`: for [PyPI](https://pypi.org/).
 * `requirements.txt`: for development.
 * `setup.cfg`: for PyPI (used via `pyproject.toml`).
 
