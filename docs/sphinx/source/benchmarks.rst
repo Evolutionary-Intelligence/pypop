@@ -289,7 +289,8 @@ for large-scale black-box optimization (LBO):
 Black-Box Classification from Data Science
 ------------------------------------------
 
-Here we provide a family of **black-box classifications** from data science:
+Here we have provided a family of test functions from **black-box classification**
+of data science:
 
 .. autofunction:: pypop7.benchmarks.data_science.cross_entropy_loss_lr
 
