@@ -75,7 +75,7 @@ to support this more complex scenario:
 
        >>> import numpy as np  # engine for numerical computing
        >>> def rosenbrock(x, args):
-       ...     return arg*np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
+       ...     return args*np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
        >>> ndim_problem = 10
        >>> problem = {'fitness_function': rosenbrock,  # cost function to be minimized
        ...            'ndim_problem': ndim_problem,  # dimension of cost function
