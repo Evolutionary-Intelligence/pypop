@@ -315,6 +315,12 @@ def get_y_rastrigin(ndim):
     return y[ndim]
 
 
+def get_y_salomon():
+    """Get test data for **Salomon** test function.
+    """
+    return None
+
+
 def get_y_shubert():
     """Get test data for **Schaffer** test function.
     """
