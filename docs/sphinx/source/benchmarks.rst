@@ -389,3 +389,5 @@ skip this section safely.
 .. autofunction:: pypop7.benchmarks.cases.get_y_ackley
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_rastrigin
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_schaffer
