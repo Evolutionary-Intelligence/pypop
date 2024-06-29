@@ -382,6 +382,8 @@ skip this section safely.
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_schwefel12
 
+.. autofunction:: pypop7.benchmarks.cases.get_y_exponential
+
 .. autofunction:: pypop7.benchmarks.cases.get_y_griewank
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_bohachevsky
