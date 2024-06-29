@@ -22,7 +22,7 @@ def lennard_jones(optimizer, max_function_evaluations=700000):
               final optimization results
     """
     # print(prob)  # 444-dimensional
-    problem = {'fitness_function': float(prob.fitness(x)),
+    problem = {'fitness_function': lambda: float(prob.fitness(x)),
                'ndim_problem': 444,
                'upper_boundary': prob.get_bounds()[1],
                'lower_boundary': prob.get_bounds()[0]}
