@@ -3,9 +3,11 @@ Benchmarking Functions for BBO
 
 In this open-source Python module, we have provided a set of benchmarking/test functions
 which have been commonly used in the **black-box/zeroth-order/gradient-free optimization**
-community. In the coming days, we are planning to add some challenging optimization models
-from various **real-world applications**. Since this is a *long-term* development project,
-welcome anyone to make open-source contributions to it.
+community. 
+
+.. Note :: In the coming days, we are planning to add some challenging BBO models from various
+   **real-world applications**. Since this is a *long-term* development project, welcome
+   anyone to make open-source contributions to it.
 
 For a set of 23 benchmarking/test functions, their **base** forms, **shifted/transformed**
 forms, **rotated** forms, and **rotated-shifted** forms have been coded and well-tested.
