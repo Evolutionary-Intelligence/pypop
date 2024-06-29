@@ -1,5 +1,5 @@
 """Online documentation:
-    https://pypop.readthedocs.io/en/latest/benchmarks.html
+    https://pypop.readthedocs.io/en/latest/benchmarks.html#base-functions
 """
 import numpy as np  # engine for numerical computing
 
