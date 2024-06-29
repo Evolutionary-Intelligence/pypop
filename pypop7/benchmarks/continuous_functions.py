@@ -1,7 +1,7 @@
 """Online documentation:
-    https://pypop.readthedocs.io/en/latest/benchmarks.html
+    https://pypop.readthedocs.io/en/latest/benchmarks.html#rotated-shifted-forms
 """
-import numpy as np
+import numpy as np  # engine for numerical computing
 
 from pypop7.benchmarks import base_functions
 from pypop7.benchmarks.base_functions import BaseFunction
