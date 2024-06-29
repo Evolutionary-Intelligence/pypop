@@ -23,12 +23,12 @@ def generate_rotation_matrix(func, ndim, seed):
     ndim : int
            number of dimensions of the rotation matrix.
     seed : int
-           a scalar seed for random number generator (RNG).
+           scalar seed for random number generator (RNG).
 
     Returns
     -------
     rotation_matrix : ndarray
-                      a matrix of size [`ndim` * `ndim`].
+                      rotation matrix of size [`ndim` * `ndim`].
     """
     if hasattr(func, '__call__'):
         func = func.__name__
@@ -59,12 +59,12 @@ def load_rotation_matrix(func, x, rotation_matrix=None):
     x               : array_like
                       decision vector.
     rotation_matrix : ndarray
-                      a rotation matrix of size [`len(x)` * `len(x)`].
+                      rotation matrix of size [`len(x)` * `len(x)`].
 
     Returns
     -------
     rotation_matrix : ndarray
-                      a rotation matrix of size [`len(x)` * `len(x)`].
+                      rotation matrix of size [`len(x)` * `len(x)`].
     """
     x = squeeze_and_check(x)
     if rotation_matrix is None:
