@@ -274,6 +274,8 @@ for large-scale black-box optimization (LBO):
 
 .. autoclass:: pypop7.benchmarks.lbo.Experiment
 
+   .. automethod:: __init__
+
 .. autoclass:: pypop7.benchmarks.lbo.Experiments
 
 .. autofunction:: pypop7.benchmarks.lbo.benchmark_local_search
