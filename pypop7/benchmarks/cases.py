@@ -313,3 +313,12 @@ def get_y_rastrigin(ndim):
          [0, 6, 6, 6, 91, 91, 91],
          [0, 7, 7, 7, 140, 140, 140, 91]]
     return y[ndim]
+
+
+def get_y_schaffer(ndim):
+    """Get test data for **Schaffer** test function.
+    """
+    y = [[0.0, 0.0, 0.0, 0.0, 0.0],
+         [3.220, 1.228, 0.0, 1.228, 3.220],
+         [6.441, 2.456, 0.0, 2.456, 6.441]]
+    return y[ndim]
