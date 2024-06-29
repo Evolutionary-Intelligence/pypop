@@ -96,7 +96,8 @@ as presented below:
 Shifted/Transformed Forms
 -------------------------
 
-In the following, we will introduce **shifted/transformed** forms of the above base functions,
+In the following, we will introduce **shifted/transformed** forms of the above
+`base functions <https://pypop.readthedocs.io/en/latest/benchmarks.html#base-functions>`_,
 as presented below:
 
 .. autofunction:: pypop7.benchmarks.shifted_functions.generate_shift_vector
@@ -104,6 +105,50 @@ as presented below:
 .. autofunction:: pypop7.benchmarks.shifted_functions.load_shift_vector
 
 .. autofunction:: pypop7.benchmarks.shifted_functions.sphere
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.cigar
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.discus
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.cigar_discus
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.ellipsoid
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.different_powers
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.schwefel221
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.step
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.schwefel222
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.rosenbrock
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.schwefel12
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.exponential
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.griewank
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.bohachevsky
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.ackley
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.rastrigin
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.scaled_rastrigin
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.skew_rastrigin
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.levy_montalvo
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.michalewicz
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.salomon
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.shubert
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.schaffer
 
 Rotated Forms
 -------------
