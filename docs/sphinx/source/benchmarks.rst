@@ -10,7 +10,7 @@ optimization** community.
    anyone to make open-source contributions to it.
 
 For a set of 23 benchmarking/test functions, their **base** forms, **shifted/transformed**
-forms, **rotated** forms, and **rotated-shifted** forms have been coded and well-tested.
+forms, **rotated** forms, and **rotated-shifted** forms have been coded and *well-tested*.
 Typically, their **rotated-shifted** forms should be employed in **Comparison Experiments**
 for BBO, in order to avoid possible biases towards certain search points (e.g., the origin)
 or separability.
