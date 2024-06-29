@@ -315,6 +315,12 @@ def get_y_rastrigin(ndim):
     return y[ndim]
 
 
+def get_y_levy_montalvo():
+    """Get test data for **LevyMontalvo** test function.
+    """
+    return None
+
+
 def get_y_michalewicz():
     """Get test data for **Michalewicz** test function.
     """
