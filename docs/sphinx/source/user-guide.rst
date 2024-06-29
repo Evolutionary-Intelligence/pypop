@@ -73,55 +73,57 @@ to support this more complex scenario:
     .. code-block:: python
        :linenos:
 
-       >>> import numpy as np
+       >>> import numpy as np  # engine for numerical computing
        >>> def rosenbrock(x, args):
-       ...     return args*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
+       ...     return arg*np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
        >>> ndim_problem = 10
-       >>> problem = {'fitness_function': rosenbrock,
-       ...            'ndim_problem': ndim_problem,
-       ...            'lower_boundary': -5.0*np.ones((ndim_problem,)),
-       ...            'upper_boundary': 5.0*np.ones((ndim_problem,))}
-       >>> from pypop7.optimizers.es.maes import MAES  # which can be replaced by any other optimizer in this library
-       >>> options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than 1e-10
+       >>> problem = {'fitness_function': rosenbrock,  # cost function to be minimized
+       ...            'ndim_problem': ndim_problem,  # dimension of cost function
+       ...            'lower_boundary': -5.0*np.ones((ndim_problem,)),  # lower search boundary
+       ...            'upper_boundary': 5.0*np.ones((ndim_problem,))}  # upper search boundary
+       >>> from pypop7.optimizers.es.maes import MAES  # replaced by any other BBO in this library
+       >>> options = {'fitness_threshold': 1e-10,  # to terminate when the best-so-far fitness is lower than 1e-10
        ...            'max_function_evaluations': ndim_problem*10000,  # maximum of function evaluations
-       ...            'seed_rng': 0,  # seed of random number generation (which must be set for repeatability)
+       ...            'seed_rng': 0,  # seed of random number generation (which should be set for repeatability)
        ...            'sigma': 3.0,  # initial global step-size of Gaussian search distribution
        ...            'verbose': 500}  # to print verbose information every 500 generations
-       >>> maes = MAES(problem, options)  # initialize the optimizer
-       >>> results = maes.optimize(args=100.0)  # args as input arguments of fitness function except sampling point
+       >>> maes = MAES(problem, options)  # to initialize the black-box optimizer
+       >>> results = maes.optimize(args=100.0)  # args as input arguments of fitness function
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
-       7.573e-11 15537
+       7.57e-11 15537
 
-When there are multiple (>=2) input arguments except the sampling point `x`, all of them should be organized via
-a `function` or `class` wrapper with only one input argument except the sampling point `x` (in `dict` or `tuple`
-form).
+When there are multiple (>=2) input arguments except the sampling point `x`, all of them should be
+organized (in `dict` or `tuple` form) via a `function` or `class` wrapper.
 
 For Advanced Usage
 ~~~~~~~~~~~~~~~~~~
 
-Typically,  two members `upper_boundary` and `lower_boundary` are enough for most end-users to control the search
-range. However, sometimes for *benchmarking-of-optimizers* purpose (e.g., to avoid utilizing `symmetry and origin
-<https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_ to possibly bias the search), we add
-two extra settings to control the initialization of the population/individual:
+Typically, two problem definitions `upper_boundary` and `lower_boundary` are enough for most
+end-users to control the initial search range. However, sometimes for
+*benchmarking-of-optimizers* purpose (e.g., to avoid utilizing `symmetry and origin
+<https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977>`_ to possibly bias the
+search), we add two extra definitions to control the initialization of population/individuals:
 
   * `initial_upper_boundary`: upper boundary only for initialization (`array_like`),
   * `initial_lower_boundary`: lower boundary only for initialization (`array_like`).
 
-If *not* explicitly given, `initial_upper_boundary` and `initial_lower_boundary` are set to `upper_boundary` and
-`lower_boundary`, respectively. When `initial_upper_boundary` and `initial_lower_boundary` are explicitly given,
-the initialization of population/individual will be sampled from [`initial_lower_boundary`, `initial_upper_boundary`]
-rather than [`lower_boundary`, `upper_boundary`].
+If *not* explicitly given, `initial_upper_boundary` and `initial_lower_boundary` are set to
+`upper_boundary` and `lower_boundary`, respectively. When `initial_upper_boundary` and
+`initial_lower_boundary` are explicitly given, the initialization of population/individuals
+will be sampled from [`initial_lower_boundary`, `initial_upper_boundary`] rather than
+[`lower_boundary`, `upper_boundary`].
 
 Optimizer Setting
 -----------------
 
-This open-source library provides a *unified* API for hyper-parameter settings of all black-box optimizers. The following
-algorithm options (all stored into a `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ format)
-are common for all black-box optimizers:
+This library provides a *unified* API for **hyper-parameter** settings of all BBO. The
+following algorithm options (all stored into the `dict
+<https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ format) are
+very common for all BBO:
 
   * `max_function_evaluations`: maximum of function evaluations (`int`, default: `np.inf`),
   * `max_runtime`: maximal runtime to be allowed (`float`, default: `np.inf`),
-  * `seed_rng`: seed for random number generation needed to be *explicitly* set (`int`).
+  * `seed_rng`: seed for random number generation (TNG) needed to be *explicitly* set (`int`).
 
 At least one of two algorithm options (`max_function_evaluations` and `max_runtime`) should be set according to
 the available computing resources or acceptable runtime (i.e., **problem-dependent**). For **repeatability**,
