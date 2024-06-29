@@ -315,6 +315,16 @@ def get_y_rastrigin(ndim):
     return y[ndim]
 
 
+def get_y_skew_rastrigin(ndim):
+    """Get test data for **Skew-Rastrigin** test function.
+    """
+    y = [[4.0, 1.0, 0.0, 100.0, 400.0],
+         [404.0, 101.0, 0.0, 200.0, 800.0],
+         [804.0, 201.0, 0.0, 201.0, 804.0],
+         [0.0, 400.0, 4.0, 202.0, 3000.0, 1020.0, 1317.0]]
+    return y[ndim]
+
+
 def get_y_levy_montalvo():
     """Get test data for **LevyMontalvo** test function.
     """
