@@ -153,7 +153,8 @@ as presented below:
 Rotated Forms
 -------------
 
-In the following, we will introduce **rotated** forms of the above base functions,
+In the following, we will introduce **rotated** forms of the above
+`base functions <https://pypop.readthedocs.io/en/latest/benchmarks.html#base-functions>`_,
 as presented below:
 
 .. autofunction:: pypop7.benchmarks.rotated_functions.generate_rotation_matrix
