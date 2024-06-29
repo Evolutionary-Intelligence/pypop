@@ -13,56 +13,62 @@ sequentially, as presented in the following:
 Problem Definition
 ------------------
 
-First, an *objective function* (also called *fitness function* in this library) needs to be defined in the `function
-<https://docs.python.org/3/reference/compound_stmts.html#function-definitions>`_ form. Then, the standard data
-structure `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_ is used as a simple yet
-effective way to store all settings related to the optimization problem at hand, such as:
+First, an *objective function* (also called *fitness function* in evolutionary computation or
+*loss function* in machine learning) needs to be defined in the `function
+<https://docs.python.org/3/reference/compound_stmts.html#function-definitions>`_ form. Then,
+data structure `dict <https://docs.python.org/3/tutorial/datastructures.html#dictionaries>`_
+is used as a simple yet effective way to store all settings related to the optimization problem
+at hand, such as:
+
   * `fitness_function`: objective/cost function to be **minimized** (`func`),
   * `ndim_problem`: number of dimensionality (`int`),
   * `upper_boundary`: upper boundary of the search range (`array_like`),
   * `lower_boundary`: lower boundary of the search range (`array_like`).
 
-Note that without loss of generality, only the **minimization** process is considered in this library, since
-*maximization* can be easily transferred to *minimization* by negating it.
+Without loss of generality, only the **minimization** process is considered in this library,
+since *maximization* can be easily transferred to *minimization* by simply negating its
+objective function.
 
-Below is a simple example to define the well-known test function `Rosenbrock
+Below is a toy example to define the well-known test function called `Rosenbrock
 <http://en.wikipedia.org/wiki/Rosenbrock_function>`_ from the optimization community:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy as np
-       >>> def rosenbrock(x):  # define the fitness (cost/objective) function
-       ...     return 100.0*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
-       >>> ndim_problem = 1000  # define its settings
-       >>> problem = {'fitness_function': rosenbrock,  # cost function
-       ...            'ndim_problem': ndim_problem,  # dimension
-       ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # search boundary
-       ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}
+       >>> import numpy as np  # engine for numerical computing
+       >>> def rosenbrock(x):  # to define the fitness function to be minimized
+       ...     return 100.0*np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
+       >>> ndim_problem = 1000  # to define its settings
+       >>> problem = {'fitness_function': rosenbrock,  # cost function to be minimized
+       ...            'ndim_problem': ndim_problem,  # dimension of cost function
+       ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # lower search boundary
+       ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}  # upper search boundary
 
-When the fitness function itself involves other *input arguments* except the sampling point `x` (here we distinguish
-*input arguments* and above *problem settings*), there are two simple ways to support this scenario:
+When the fitness function itself involves other *input arguments* except the sampling point `x`
+(here we distinguish *input arguments* and above *problem settings*), there are two simple ways
+to support this more complex scenario:
 
-* to create a `class <https://docs.python.org/3/reference/compound_stmts.html#class-definitions>`_ wrapper, e.g.:
+* 1) to create a `class <https://docs.python.org/3/reference/compound_stmts.html#class-definitions>`_
+  wrapper, e.g.:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy as np
-       >>> def rosenbrock(x, arg):  # define the fitness (cost/objective) function
-       ...     return arg*np.sum(np.power(x[1:] - np.power(x[:-1], 2), 2)) + np.sum(np.power(x[:-1] - 1, 2))
-       >>> class Rosenbrock(object):  # build a class wrapper
+       >>> import numpy as np  # engine for numerical computing
+       >>> def rosenbrock(x, arg):  # to define the fitness function to be minimized
+       ...     return arg*np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
+       >>> class Rosenbrock(object):  # to build a class wrapper
        ...     def __init__(self, arg):  # arg is an extra input argument
        ...         self.arg = arg
-       ...     def __call__(self, x):  # for fitness evaluation
+       ...     def __call__(self, x):  # for fitness evaluations
        ...         return rosenbrock(x, self.arg)
-       >>> ndim_problem = 1000  # define its settings
-       >>> problem = {'fitness_function': Rosenbrock(100.0),  # cost function
-       ...            'ndim_problem': ndim_problem,  # dimension
-       ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # search boundary
-       ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}
+       >>> ndim_problem = 1000  # to define its settings
+       >>> problem = {'fitness_function': Rosenbrock(100.0),  # cost function to be minimized
+       ...            'ndim_problem': ndim_problem,  # dimension of cost function
+       ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # lower search boundary
+       ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}  # upper search boundary
 
-* to utilize the easy-to-use unified interface provided for all optimizers in this library, e.g.:
+* 2) to utilize the easy-to-use **unified** interface provided for all BBO in this library, e.g.:
 
     .. code-block:: python
        :linenos:
