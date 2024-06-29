@@ -315,6 +315,14 @@ def get_y_rastrigin(ndim):
     return y[ndim]
 
 
+def get_y_scaled_rastrigin(ndim):
+    y = [[4.0, 1.0, 0.0, 1.0, 4.0],
+         [404.0, 101.0, 0.0, 101.0, 404.0],
+         [458.515, 115.763, 0.0, 115.763, 458.515],
+         [0.0, 141.650, 141.650, 163.097, 1825.687, 1825.687, 261.302]]
+    return y[ndim]
+
+
 def get_y_skew_rastrigin(ndim):
     """Get test data for **Skew-Rastrigin** test function.
     """
