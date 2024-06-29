@@ -220,8 +220,6 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.continuous_functions.load_shift_and_rotation
 
-.. autofunction:: pypop7.benchmarks.continuous_functions.load_shift_vector
-
 .. autofunction:: pypop7.benchmarks.continuous_functions.sphere
 
 .. autofunction:: pypop7.benchmarks.continuous_functions.cigar
