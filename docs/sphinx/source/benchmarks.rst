@@ -326,7 +326,7 @@ Benchmarking on Photonics Models from NeverGrad
 -----------------------------------------------
 
 Please refer to `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ for an
-introduction.
+introduction to the photonics model.
 
 .. autofunction:: pypop7.benchmarks.never_grad.benchmark_photonics
 
@@ -338,6 +338,8 @@ introduction (from `Farama Foundation <https://farama.org/>`_).
 
 .. autoclass:: pypop7.benchmarks.gymnasium.Cartpole
    :members:
+
+   .. automethod:: __init__
 
 Lennard-Jones Cluster Optimization from PyGMO
 ---------------------------------------------
