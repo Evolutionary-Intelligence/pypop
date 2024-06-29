@@ -179,7 +179,7 @@ The basic folder structrue of this open-source library is presented below:
 
 ## References
 
-For each algorithm family, we try to provide several *representative* applications published on some [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) journals and conferences (such as, [Nature](https://www.nature.com/), Science, PNAS, PRL, JACS, JACM, PIEEE, JMLR, etc.), systematically reported in the paper list called [DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) openly accessible via GitHub.
+For each algorithm family, we try to provide several *representative* applications published on some [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) journals and conferences (such as, [Nature](https://www.nature.com/), Science, PNAS, PRL, JACS, JACM, PIEEE, JMLR, ICML, NeurIPS, ICLR, CVPR, ICCV, etc.), systematically reported in the paper list called [DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) openly accessible via GitHub.
 
 * Derivative-Free Optimization (DFO) / Zeroth-Order Optimization (ZOO)
   * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). FoCM, 22(2), pp.507-560.
