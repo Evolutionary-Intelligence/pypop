@@ -353,8 +353,9 @@ Lennard-Jones cluster optimization problem from `PyGMO <https://esa.github.io/py
 Test Classes and Data
 ---------------------
 
-Here we provide a set of test classes and test data for benchmarking functions.
-Note that these are used only for the *testing* purpose.
+In the following, we will provide a set of test **classes** and test **data** for benchmarking
+functions. Since these classes and data are used only for the *testing* purpose, end-users can
+skip this section safely.
 
 .. autoclass:: pypop7.benchmarks.cases.Cases
    :members:
