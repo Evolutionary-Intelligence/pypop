@@ -1,5 +1,5 @@
 """Online documentation:
-    https://pypop.readthedocs.io/en/latest/benchmarks.html
+    https://pypop.readthedocs.io/en/latest/benchmarks.html#shifted-transformed-forms
 """
 import os
 
@@ -14,7 +14,8 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
     """Generate a *random* shift vector of dimension `ndim`, sampled uniformly between
     `low` (inclusive) and `high` (exclusive).
 
-       .. note:: The generated shift vector will be automatically stored in *txt* form for further use.
+       .. note:: The generated shift vector will be automatically stored in *txt* form
+          **for further use**.
 
     Parameters
     ----------
