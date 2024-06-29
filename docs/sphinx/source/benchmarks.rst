@@ -161,6 +161,56 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.rotated_functions.load_rotation_matrix
 
+.. autofunction:: pypop7.benchmarks.rotated_functions.generate_shift_vector
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.load_shift_vector
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.sphere
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.cigar
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.discus
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.cigar_discus
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.ellipsoid
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.different_powers
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.schwefel221
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.step
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.schwefel222
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.rosenbrock
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.schwefel12
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.exponential
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.griewank
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.bohachevsky
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.ackley
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.rastrigin
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.scaled_rastrigin
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.skew_rastrigin
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.levy_montalvo
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.michalewicz
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.salomon
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.shubert
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.schaffer
+
 Rotated-Shifted Forms
 ---------------------
 
