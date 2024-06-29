@@ -73,7 +73,7 @@ class Sphere(BaseFunction):
 
 
 def cigar(x, shift_vector=None, rotation_matrix=None):
-     """**Cigar** test function.
+    """**Cigar** test function.
 
     Parameters
     ----------
@@ -105,7 +105,7 @@ class Cigar(BaseFunction):
 
 
 def discus(x, shift_vector=None, rotation_matrix=None):
-     """**Discus** test function.
+    """**Discus** test function.
 
     Parameters
     ----------
@@ -137,7 +137,7 @@ class Discus(BaseFunction):  # also called Tablet
 
 
 def cigar_discus(x, shift_vector=None, rotation_matrix=None):
-     """**Cigar-Discus** test function.
+    """**Cigar-Discus** test function.
 
     Parameters
     ----------
@@ -169,7 +169,7 @@ class CigarDiscus(BaseFunction):
 
 
 def ellipsoid(x, shift_vector=None, rotation_matrix=None):
-     """**Ellipsoid** test function.
+    """**Ellipsoid** test function.
 
     Parameters
     ----------
@@ -201,7 +201,7 @@ class Ellipsoid(BaseFunction):
 
 
 def different_powers(x, shift_vector=None, rotation_matrix=None):
-     """**Different-Power** test function.
+    """**Different-Power** test function.
 
     Parameters
     ----------
@@ -233,7 +233,7 @@ class DifferentPowers(BaseFunction):
 
 
 def schwefel221(x, shift_vector=None, rotation_matrix=None):
-     """**Schwefel221** test function.
+    """**Schwefel221** test function.
 
     Parameters
     ----------
@@ -265,7 +265,7 @@ class Schwefel221(BaseFunction):
 
 
 def step(x, shift_vector=None, rotation_matrix=None):
-     """**Step** test function.
+    """**Step** test function.
 
     Parameters
     ----------
@@ -297,7 +297,7 @@ class Step(BaseFunction):
 
 
 def schwefel222(x, shift_vector=None, rotation_matrix=None):
-     """**Schwefel222** test function.
+    """**Schwefel222** test function.
 
     Parameters
     ----------
@@ -329,7 +329,7 @@ class Schwefel222(BaseFunction):
 
 
 def rosenbrock(x, shift_vector=None, rotation_matrix=None):
-     """**Rosenbrock** test function.
+    """**Rosenbrock** test function.
 
     Parameters
     ----------
@@ -361,7 +361,7 @@ class Rosenbrock(BaseFunction):
 
 
 def schwefel12(x, shift_vector=None, rotation_matrix=None):
-     """**Schwefel12** test function.
+    """**Schwefel12** test function.
 
     Parameters
     ----------
@@ -393,7 +393,7 @@ class Schwefel12(BaseFunction):
 
 
 def exponential(x, shift_vector=None, rotation_matrix=None):
-     """**Exponential** test function.
+    """**Exponential** test function.
 
     Parameters
     ----------
@@ -425,7 +425,7 @@ class Exponential(BaseFunction):
 
 
 def griewank(x, shift_vector=None, rotation_matrix=None):
-     """**Griewank** test function.
+    """**Griewank** test function.
 
     Parameters
     ----------
@@ -457,7 +457,7 @@ class Griewank(BaseFunction):
 
 
 def bohachevsky(x, shift_vector=None, rotation_matrix=None):
-     """**Bohachevsky** test function.
+    """**Bohachevsky** test function.
 
     Parameters
     ----------
@@ -489,7 +489,7 @@ class Bohachevsky(BaseFunction):
 
 
 def ackley(x, shift_vector=None, rotation_matrix=None):
-     """**Ackley** test function.
+    """**Ackley** test function.
 
     Parameters
     ----------
@@ -521,7 +521,7 @@ class Ackley(BaseFunction):
 
 
 def rastrigin(x, shift_vector=None, rotation_matrix=None):
-     """**Rastrigin** test function.
+    """**Rastrigin** test function.
 
     Parameters
     ----------
@@ -553,7 +553,7 @@ class Rastrigin(BaseFunction):
 
 
 def scaled_rastrigin(x, shift_vector=None, rotation_matrix=None):
-     """**Scaled-Rastrigin** test function.
+    """**Scaled-Rastrigin** test function.
 
     Parameters
     ----------
@@ -585,7 +585,7 @@ class ScaledRastrigin(BaseFunction):
 
 
 def skew_rastrigin(x, shift_vector=None, rotation_matrix=None):
-     """**Skew-Rastrigin** test function.
+    """**Skew-Rastrigin** test function.
 
     Parameters
     ----------
@@ -617,7 +617,7 @@ class SkewRastrigin(BaseFunction):
 
 
 def levy_montalvo(x, shift_vector=None, rotation_matrix=None):
-     """**Levy-Montalvo** test function.
+    """**Levy-Montalvo** test function.
 
     Parameters
     ----------
@@ -649,7 +649,7 @@ class LevyMontalvo(BaseFunction):
 
 
 def michalewicz(x, shift_vector=None, rotation_matrix=None):
-     """**Michalewicz** test function.
+    """**Michalewicz** test function.
 
     Parameters
     ----------
@@ -681,7 +681,7 @@ class Michalewicz(BaseFunction):
 
 
 def salomon(x, shift_vector=None, rotation_matrix=None):
-     """**Salomon** test function.
+    """**Salomon** test function.
 
     Parameters
     ----------
@@ -713,7 +713,7 @@ class Salomon(BaseFunction):
 
 
 def shubert(x, shift_vector=None, rotation_matrix=None):
-     """**Shubert** test function.
+    """**Shubert** test function.
 
     Parameters
     ----------
@@ -745,7 +745,7 @@ class Shubert(BaseFunction):
 
 
 def schaffer(x, shift_vector=None, rotation_matrix=None):
-     """**Schaffer** test function.
+    """**Schaffer** test function.
 
     Parameters
     ----------
