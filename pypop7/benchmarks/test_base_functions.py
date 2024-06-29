@@ -147,6 +147,13 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_scaled_rastrigin(self):
+        sample = Cases()
+        for func in [scaled_rastrigin, ScaledRastrigin()]:
+            for ndim in range(1, 4):
+                self.assertTrue(sample.compare(func, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
+            self.assertTrue(sample.check_origin(func))
+
     def test_skew_rastrigin(self):
         sample = Cases()
         for func in [skew_rastrigin, SkewRastrigin()]:
