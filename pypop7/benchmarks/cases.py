@@ -322,6 +322,8 @@ def get_y_rastrigin(ndim):
 
 
 def get_y_scaled_rastrigin(ndim):
+    """Get test data for **Scaled-Rastrigin** test function.
+    """
     y = [[4.0, 1.0, 0.0, 1.0, 4.0],
          [404.0, 101.0, 0.0, 101.0, 404.0],
          [458.515, 115.763, 0.0, 115.763, 458.515],
