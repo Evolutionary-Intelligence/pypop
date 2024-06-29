@@ -1,9 +1,14 @@
 User Guide
 ==========
 
-Before applying this open-source library `PyPop7` to real-world black-box optimization problems, the following user
-guidelines should be read sequentially: *1) Problem Definition*, *2) Optimizer Setting*, *3) Result Analysis*, and
-*4) Algorithm Selection and Configuration*.
+Before applying this open-source library `PyPop7` in `PyPI <https://pypi.org/project/pypop7/>`_ to real-world
+black-box optimization (BBO) problems, four basic information should be read sequentially, as presented in
+the following:
+
+* 1) Problem Definition,
+* 2) Optimizer Setting,
+* 3) Result Analysis,
+* 4) Algorithm Selection and Configuration.
 
 Problem Definition
 ------------------
