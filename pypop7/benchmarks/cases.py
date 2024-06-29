@@ -269,6 +269,12 @@ def get_y_schwefel12(ndim):
     return y[ndim]
 
 
+def get_y_levy_montalvo():
+    """Get test data for **Exponential** test function.
+    """
+    return None
+
+
 def get_y_griewank(ndim):
     """Get test data for **Griewank** test function.
     """
