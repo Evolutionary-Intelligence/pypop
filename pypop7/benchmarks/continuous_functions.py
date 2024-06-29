@@ -11,6 +11,30 @@ from pypop7.benchmarks.rotated_functions import load_rotation_matrix
 
 # helper function
 def load_shift_and_rotation(func, x, shift_vector=None, rotation_matrix=None):
+    """Load the rotation matrix which needs to be generated in advance.
+
+       .. note:: When `None`, the shift vector should have been generated and stored in *txt* form
+          **in advance**. When `None`, the rotation matrix should have been generated and stored
+          in *txt* form **in advance**.
+
+    Parameters
+    ----------
+    func            : str or func
+                      function name.
+    x               : array_like
+                      decision vector.
+    shift_vector    : array_like
+                      shift vector with the same size as `x`.
+    rotation_matrix : ndarray
+                      rotation matrix of size [`len(x)` * `len(x)`].
+
+    Returns
+    -------
+    shift_vector    : ndarray (of dtype np.float64)
+                      shift vector with the same size as `x`.
+    rotation_matrix : ndarray
+                      rotation matrix of size [`len(x)` * `len(x)`].
+    """
     shift_vector = load_shift_vector(func, x, shift_vector)
     rotation_matrix = load_rotation_matrix(func, x, rotation_matrix)
     return shift_vector, rotation_matrix
