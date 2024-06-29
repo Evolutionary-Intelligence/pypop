@@ -269,7 +269,7 @@ def get_y_schwefel12(ndim):
     return y[ndim]
 
 
-def get_y_levy_montalvo():
+def get_y_exponential():
     """Get test data for **Exponential** test function.
     """
     return None
