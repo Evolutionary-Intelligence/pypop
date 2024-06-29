@@ -1,3 +1,6 @@
+"""Online documentation:
+    https://pypop.readthedocs.io/en/latest/benchmarks.html#benchmarking-for-large-scale-bbo-lbo
+"""
 import time
 
 import numpy as np  # engine for numerical computing
