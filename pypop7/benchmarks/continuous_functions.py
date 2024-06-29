@@ -41,6 +41,22 @@ def load_shift_and_rotation(func, x, shift_vector=None, rotation_matrix=None):
 
 
 def sphere(x, shift_vector=None, rotation_matrix=None):
+    """**Sphere** test function.
+
+    Parameters
+    ----------
+    x               : ndarray
+                      input vector.
+    shift_vector    : array_like
+                      shift vector with the same size as `x`.
+    rotation_matrix : ndarray
+                      rotation matrix of size [`len(x)` * `len(x)`].
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
     shift_vector, rotation_matrix = load_shift_and_rotation(sphere, x, shift_vector, rotation_matrix)
     x = np.dot(rotation_matrix, x - shift_vector)
     y = base_functions.sphere(x)
