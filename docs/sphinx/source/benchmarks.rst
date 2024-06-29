@@ -1,9 +1,9 @@
 Benchmarking Functions for BBO
 ==============================
 
-In this open-source Python module, we have provided a set of benchmarking/test functions
-which have been commonly used in the **black-box/zeroth-order/gradient-free optimization**
-community. 
+In this open-source Python module, we have provided a set of **benchmarking/test functions**
+which have been commonly used in the **black-box/zeroth-order/gradient-free/derivative-free
+optimization** community. 
 
 .. Note :: In the coming days, we are planning to add some challenging BBO models from various
    **real-world applications**. Since this is a *long-term* development project, welcome
