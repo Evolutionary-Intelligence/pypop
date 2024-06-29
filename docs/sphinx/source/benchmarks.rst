@@ -273,10 +273,14 @@ Here we have provided two different benchmarking cases (**local vs global search
 for large-scale black-box optimization (LBO):
 
 .. autoclass:: pypop7.benchmarks.lbo.Experiment
+   :members: 
 
    .. automethod:: __init__
 
 .. autoclass:: pypop7.benchmarks.lbo.Experiments
+   :members: 
+
+   .. automethod:: __init__
 
 .. autofunction:: pypop7.benchmarks.lbo.benchmark_local_search
 
