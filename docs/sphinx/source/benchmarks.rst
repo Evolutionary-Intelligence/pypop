@@ -390,6 +390,10 @@ skip this section safely.
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_rastrigin
 
+.. autofunction:: pypop7.benchmarks.cases.get_y_scaled_rastrigin
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_skew_rastrigin
+
 .. autofunction:: pypop7.benchmarks.cases.get_y_levy_montalvo
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_michalewicz
