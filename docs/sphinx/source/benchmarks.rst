@@ -186,6 +186,10 @@ introduction (from `Farama Foundation <https://farama.org/>`_).
 Lennard-Jones Cluster Optimization from PyGMO
 ---------------------------------------------
 
+Please refer to `pagmo2 <https://esa.github.io/pagmo2/docs/cpp/problems/lennard_jones.html>`_
+for an introduction (from `European Space Agency <https://www.esa.int/>`_) to this 444-d
+Lennard-Jones cluster optimization problem from `PyGMO <https://esa.github.io/pygmo2/>`_.
+
 .. autofunction:: pypop7.benchmarks.pygmo.lennard_jones
 
 Test Classes and Data
