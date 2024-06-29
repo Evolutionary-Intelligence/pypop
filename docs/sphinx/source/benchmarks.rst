@@ -339,7 +339,7 @@ introduction (from `Farama Foundation <https://farama.org/>`_).
 .. autoclass:: pypop7.benchmarks.gymnasium.Cartpole
    :members:
 
-   .. automethod:: __init__
+   .. automethod:: __call__
 
 Lennard-Jones Cluster Optimization from PyGMO
 ---------------------------------------------
