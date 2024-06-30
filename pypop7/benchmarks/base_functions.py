@@ -746,7 +746,7 @@ class LevyMontalvo(BaseFunction):
 def michalewicz(x):
     """**Michalewicz** test function.
 
-       .. note:: It's LaTeX formulation is `$f(x) = -\sum_{i = 1}^{n}\sin(x_i)(\sin(\frac{ix_i^2}{\pi}))^{20}$`.
+       .. note:: It's LaTeX formulation is `$-\sum_{i = 1}^{n}\sin(x_i)(\sin(\frac{ix_i^2}{\pi}))^{20}$`.
 
     Parameters
     ----------
