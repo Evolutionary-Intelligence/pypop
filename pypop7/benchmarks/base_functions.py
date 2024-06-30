@@ -69,7 +69,7 @@ class Sphere(BaseFunction):
 def cigar(x):
     """**Cigar** test function.
 
-       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+       .. note:: It's LaTeX formulation is `$x_1^2 + 10^6 \sum_{i = 2}^{n} x_i^2$`. Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -106,7 +106,7 @@ class Cigar(BaseFunction):
 def discus(x):
     """**Discus** (also called **Tablet**) test function.
 
-       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+       .. note:: It's LaTeX formulation is `$10^6 x_1^2 + \sum_{i = 2}^{n} x_i^2$`. Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -183,7 +183,7 @@ class CigarDiscus(BaseFunction):
 def ellipsoid(x):
     """**Ellipsoid** test function.
 
-       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{n} 10^{\frac{6(i- 1)}{n - 1}} x_i^2$`. Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -220,7 +220,7 @@ class Ellipsoid(BaseFunction):
 def different_powers(x):
     """**Different-Powers** test function.
 
-       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{ n} \left | x_i \right | ^{\frac{2 + 4(i - 1)}{n - 1}}$`. Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -257,7 +257,7 @@ class DifferentPowers(BaseFunction):
 def schwefel221(x):
     """**Schwefel221** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$\max(\left | x_1 \right |, \cdots, \left | x_n \right |)$`.
 
     Parameters
     ----------
@@ -293,7 +293,7 @@ class Schwefel221(BaseFunction):
 def step(x):
     """**Step** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{n} (\lfloor x_i + 0.5 \rfloor)^2$`.
 
     Parameters
     ----------
@@ -366,7 +366,7 @@ class Schwefel222(BaseFunction):
 def rosenbrock(x):
     """**Rosenbrock** test function.
 
-       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+       .. note:: It's LaTeX formulation is `$100 \sum_{i = 1}^{n -1} (x_i^2 - x_{i + 1})^2 + \sum_{i = 1}^{n - 1} (x_i - 1)^2$`. Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -403,7 +403,7 @@ class Rosenbrock(BaseFunction):
 def schwefel12(x):
     """**Schwefel12** test function.
 
-       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{n} (\sum_{j = 1}^{i} x_j)^2$`. Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -478,7 +478,7 @@ class Exponential(BaseFunction):
 def griewank(x):
     """**Griewank** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$\frac{1}{4000} \sum_{i = 1}^{n} x_i^2 - \prod_{i = 1}^{n} \cos(\frac{x_i}{i ^ {0.5}}) + 1$`.
 
     Parameters
     ----------
@@ -515,7 +515,7 @@ class Griewank(BaseFunction):
 def bohachevsky(x):
     """**Bohachevsky** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{ n - 1} (x_i^2 + 2 x_{i + 1}^2 - 0.3\cos(3\pi x_i) - 0.4\cos(4\pi x_{i + 1}) + 0.7)$`.
 
     Parameters
     ----------
@@ -554,7 +554,7 @@ class Bohachevsky(BaseFunction):
 def ackley(x):
     """**Ackley** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$20 e^{-0.2 \sqrt{\frac{1}{n} \sum_{i = 1}^{n} x_i^2}} - e^{\frac{1}{n} \sum_{i = 1}^{n} \cos(2 \pi x_i)} + 20 + e$`.
 
     Parameters
     ----------
@@ -592,7 +592,7 @@ class Ackley(BaseFunction):
 def rastrigin(x):
     """**Rastrigin** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$10 n + \sum_{i = 1}^{n} (x_i^2 - 10 \cos(2 \pi x_i))$`.
 
     Parameters
     ----------
@@ -629,7 +629,7 @@ class Rastrigin(BaseFunction):
 def scaled_rastrigin(x):
     """**Scaled-Rastrigin** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$10 n + \sum_{i = 1}^{n} ((10^{\frac{i - 1}{n - 1}} x_i)^2 -10\cos(2\pi 10^{\frac{i - 1}{n - 1}} x_i))$`.
 
     Parameters
     ----------
@@ -667,7 +667,7 @@ class ScaledRastrigin(BaseFunction):
 def skew_rastrigin(x):
     """**Skew-Rastrigin** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$10 n + \sum_{i = 1}^{n} (y_i^2 - 10\cos(2\pi y_i))$, with$y_i = \begin{cases} 10 x_i, \mbox{if} x_i > 0 \\ x_i, \mbox{otherweise} \end{cases}$`.
 
     Parameters
     ----------
@@ -784,7 +784,7 @@ class Michalewicz(BaseFunction):
 def salomon(x):
     """**Salomon** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$1 - \cos(2\pi\sqrt{\sum_{i=1}^{n}x_i^2}) + 0.1 \sqrt{\sum_{i=1}^{n}x_i^2}$`.
 
     Parameters
     ----------
