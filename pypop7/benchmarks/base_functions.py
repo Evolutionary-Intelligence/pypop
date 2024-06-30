@@ -667,7 +667,7 @@ class ScaledRastrigin(BaseFunction):
 def skew_rastrigin(x):
     """**Skew-Rastrigin** test function.
 
-       .. note:: It's LaTeX formulation is `$10 n + \sum_{i = 1}^{n} (y_i^2 - 10\cos(2\pi y_i))$, with$y_i = \begin{cases} 10 x_i, \mbox{if} x_i > 0 \\ x_i, \mbox{otherweise} \end{cases}$`.
+       .. note:: It's LaTeX formulation is `$10 n + \sum_{i = 1}^{n} (y_i^2 - 10\cos(2\pi y_i))$, with $y_i = \begin{cases} 10 x_i, \mbox{if}~x_i > 0 \\ x_i, \mbox{otherweise} \end{cases}$`.
 
     Parameters
     ----------
@@ -746,7 +746,7 @@ class LevyMontalvo(BaseFunction):
 def michalewicz(x):
     """**Michalewicz** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$f(x) = -\sum_{i = 1}^{n}\sin(x_i)(\sin(\frac{ix_i^2}{\pi}))^{20}$`.
 
     Parameters
     ----------
