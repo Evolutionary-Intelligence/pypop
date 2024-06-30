@@ -9,7 +9,7 @@ import time
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ellipsoid, rosenbrock, rastrigin
-from pypop7.optimizers.es.vdcma import VDCMA as Solver
+from pypop7.optimizers.nes.vdcma import VDCMA as Solver
 
 
 class TestVDCMA(unittest.TestCase):
