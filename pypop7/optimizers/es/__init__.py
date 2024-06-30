@@ -12,7 +12,6 @@ from pypop7.optimizers.es.csaes import CSAES
 from pypop7.optimizers.es.saes import SAES
 from pypop7.optimizers.es.samaes import SAMAES
 from pypop7.optimizers.es.cmaes import CMAES
-from pypop7.optimizers.es.vdcma import VDCMA
 from pypop7.optimizers.es.vkdcma import VKDCMA
 from pypop7.optimizers.es.maes import MAES
 from pypop7.optimizers.es.fmaes import FMAES
