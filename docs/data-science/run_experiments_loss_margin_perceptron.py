@@ -102,8 +102,8 @@ class Experiment(object):
                    'upper_boundary': 10.0*np.ones((self.ndim_problem,)),  # search boundary
                    'lower_boundary': -10.0*np.ones((self.ndim_problem,))}
         # to define all the necessary properties of the black-box optimizer considered
-        options = {'max_function_evaluations': np.Inf,  # here we focus on the *wall-clock* time
-                   # 'max_function_evaluations': np.Inf,
+        options = {'max_function_evaluations': np.inf,  # here we focus on the *wall-clock* time
+                   # 'max_function_evaluations': np.inf,
                    'max_runtime': 60*60*3,  # maximal runtime to be allowed (seconds)
                    'fitness_threshold': 1e-10,  # fitness threshold to stop the optimization process
                    'seed_rng': self.seed,  # seed for random number generation (RNG)

@@ -144,6 +144,13 @@ class TestShiftedFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_griewank(ndim - 2), atol=0.001))
             self.assertTrue(sample.check_origin(func))
 
+    def test_bohachevsky(self):
+        sample = Cases(is_shifted=True)
+        for func in [bohachevsky, Bohachevsky()]:
+            for ndim in range(1, 5):
+                self.assertTrue(sample.compare(func, ndim, get_y_bohachevsky(ndim - 1), atol=0.1))
+            self.assertTrue(sample.check_origin(func))
+
     def test_ackley(self):
         sample = Cases(is_shifted=True)
         for func in [ackley, Ackley()]:
@@ -158,10 +165,24 @@ class TestShiftedFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_scaled_rastrigin(self):
+        sample = Cases(is_shifted=True)
+        for func in [scaled_rastrigin, ScaledRastrigin()]:
+            for ndim in range(1, 4):
+                self.assertTrue(sample.compare(func, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
+            self.assertTrue(sample.check_origin(func))
+
+    def test_skew_rastrigin(self):
+        sample = Cases(is_shifted=True)
+        for func in [skew_rastrigin, SkewRastrigin()]:
+            for ndim in range(1, 5):
+                self.assertTrue(sample.compare(func, ndim, get_y_skew_rastrigin(ndim - 1), atol=0.1))
+            self.assertTrue(sample.check_origin(func))
+
     def test_levy_montalvo(self):
         for func in [levy_montalvo, LevyMontalvo()]:
             for ndim in range(1, 8):
-                generate_shift_vector(func, ndim, -np.ones((ndim,)), 3 * np.ones((ndim,)), 2021 + ndim)
+                generate_shift_vector(func, ndim, -np.ones((ndim,)), 3.0 * np.ones((ndim,)), 2021 + ndim)
                 x = -np.ones((ndim,))
                 x += load_shift_vector(func, x)
                 self.assertTrue(np.abs(func(x)) < 1e-9)
@@ -177,16 +198,18 @@ class TestShiftedFunctions(unittest.TestCase):
             self.assertTrue(sample.check_origin(func))
 
     def test_shubert(self):
-        minimizers = [[-7.0835, 4.858], [-7.0835, -7.7083], [-1.4251, -7.0835], [5.4828, 4.858],
-                      [-1.4251, -0.8003], [4.858, 5.4828], [-7.7083, -7.0835], [-7.0835, -1.4251],
-                      [-7.7083, -0.8003], [-7.7083, 5.4828], [-0.8003, -7.7083], [-0.8003, -1.4251],
-                      [-0.8003, 4.8580], [-1.4251, 5.4828], [5.4828, -7.7083], [4.858, -7.0835],
-                      [5.4828, -1.4251], [4.858, -0.8003]]
         for func in [shubert, Shubert()]:
-            generate_shift_vector(func, 2, -7 * np.ones((2,)), 5 * np.ones((2,)), 2021)
-            for minimizer in minimizers:
+            generate_shift_vector(func, 2, -7.0 * np.ones((2,)), 5.0 * np.ones((2,)), 2021)
+            for minimizer in get_y_shubert():
                 minimizer += load_shift_vector(func, minimizer)
                 self.assertTrue((np.abs(func(minimizer) + 186.7309) < 1e-3))
+
+    def test_schaffer(self):
+        sample = Cases(is_shifted=True)
+        for func in [schaffer, Schaffer()]:
+            for ndim in range(1, 4):
+                self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
+            self.assertTrue(sample.check_origin(func))
 
 
 if __name__ == '__main__':

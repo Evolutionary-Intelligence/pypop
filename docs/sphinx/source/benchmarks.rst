@@ -1,14 +1,16 @@
 Benchmarking Functions for BBO
 ==============================
 
-In this open-source module, we provide a set of benchmarking/test functions which have been
-commonly used in the **black-box/zeroth-order/gradient-free optimization** community. In
-the coming days, we are planning to add some challenging optimization models from various
-**real-world applications**. Since this is a long-term development Python project, welcome
-anyone to make open-source contributions.
+In this open-source Python module, we have provided a set of **benchmarking/test functions**
+which have been commonly used in the **black-box/zeroth-order/gradient-free/derivative-free
+optimization** community. 
+
+.. Note :: In the coming days, we are planning to add some challenging BBO models from various
+   **real-world applications**. Since this is a *long-term* development project, welcome
+   anyone to make open-source contributions to it.
 
 For a set of 23 benchmarking/test functions, their **base** forms, **shifted/transformed**
-forms, **rotated** forms, and **rotated-shifted** forms have been coded and well-tested.
+forms, **rotated** forms, and **rotated-shifted** forms have been coded and *well-tested*.
 Typically, their **rotated-shifted** forms should be employed in **Comparison Experiments**
 for BBO, in order to avoid possible biases towards certain search points (e.g., the origin)
 or separability.
@@ -16,7 +18,9 @@ or separability.
 Checking of Coding Correctness
 ------------------------------
 
-For all testing Python code, please refer to the following links for all details:
+For all testing Python code of benchmarking functions, please refer to the following openly
+accessible www links for details (In fact, we have spent much time in checking of coding
+correctness):
 
 * `for base forms <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/benchmarks/test_base_functions.py>`_
 * `for shifted/transformed forms <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/benchmarks/test_shifted_functions.py>`_
@@ -92,7 +96,8 @@ as presented below:
 Shifted/Transformed Forms
 -------------------------
 
-In the following, we will introduce **shifted/transformed** forms of the above base functions,
+In the following, we will introduce **shifted/transformed** forms of the above
+`base functions <https://pypop.readthedocs.io/en/latest/benchmarks.html#base-functions>`_,
 as presented below:
 
 .. autofunction:: pypop7.benchmarks.shifted_functions.generate_shift_vector
@@ -101,31 +106,181 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.shifted_functions.sphere
 
+.. autofunction:: pypop7.benchmarks.shifted_functions.cigar
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.discus
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.cigar_discus
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.ellipsoid
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.different_powers
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.schwefel221
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.step
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.schwefel222
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.rosenbrock
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.schwefel12
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.exponential
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.griewank
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.bohachevsky
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.ackley
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.rastrigin
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.scaled_rastrigin
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.skew_rastrigin
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.levy_montalvo
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.michalewicz
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.salomon
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.shubert
+
+.. autofunction:: pypop7.benchmarks.shifted_functions.schaffer
+
 Rotated Forms
 -------------
 
-In the following, we will introduce **rotated** forms of the above base functions,
+In the following, we will introduce **rotated** forms of the above
+`base functions <https://pypop.readthedocs.io/en/latest/benchmarks.html#base-functions>`_,
 as presented below:
 
 .. autofunction:: pypop7.benchmarks.rotated_functions.generate_rotation_matrix
 
 .. autofunction:: pypop7.benchmarks.rotated_functions.load_rotation_matrix
 
+.. autofunction:: pypop7.benchmarks.rotated_functions.generate_shift_vector
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.load_shift_vector
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.sphere
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.cigar
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.discus
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.cigar_discus
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.ellipsoid
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.different_powers
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.schwefel221
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.step
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.schwefel222
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.rosenbrock
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.schwefel12
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.exponential
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.griewank
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.bohachevsky
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.ackley
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.rastrigin
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.scaled_rastrigin
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.skew_rastrigin
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.levy_montalvo
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.michalewicz
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.salomon
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.shubert
+
+.. autofunction:: pypop7.benchmarks.rotated_functions.schaffer
+
 Rotated-Shifted Forms
 ---------------------
 
-In the following, we will introduce **rotated-shifted** forms of the above base functions,
+In the following, we will introduce **rotated-shifted** forms of the above
+`base functions <https://pypop.readthedocs.io/en/latest/benchmarks.html#base-functions>`_,
 as presented below:
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.load_shift_and_rotation
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.sphere
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.cigar
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.discus
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.cigar_discus
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.ellipsoid
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.different_powers
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.schwefel221
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.step
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.schwefel222
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.rosenbrock
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.schwefel12
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.exponential
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.griewank
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.bohachevsky
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.ackley
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.rastrigin
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.scaled_rastrigin
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.skew_rastrigin
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.levy_montalvo
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.michalewicz
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.salomon
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.shubert
+
+.. autofunction:: pypop7.benchmarks.continuous_functions.schaffer
 
 Benchmarking for Large-Scale BBO (LBO)
 --------------------------------------
 
-Here we provide two different benchmarking cases (**local vs global search**) for large-scale
-black-box optimization (LBO):
+Here we have provided two different benchmarking cases (**local vs global search**)
+for large-scale black-box optimization (LBO):
 
 .. autoclass:: pypop7.benchmarks.lbo.Experiment
+   :members: 
+
+   .. automethod:: __init__
 
 .. autoclass:: pypop7.benchmarks.lbo.Experiments
+   :members: 
+
+   .. automethod:: __init__
 
 .. autofunction:: pypop7.benchmarks.lbo.benchmark_local_search
 
@@ -134,7 +289,8 @@ black-box optimization (LBO):
 Black-Box Classification from Data Science
 ------------------------------------------
 
-Here we provide a family of **black-box classifications** from data science:
+Here we have provided a family of test functions from **black-box classification**
+of data science:
 
 .. autofunction:: pypop7.benchmarks.data_science.cross_entropy_loss_lr
 
@@ -166,11 +322,40 @@ Here we provide a family of **black-box classifications** from data science:
 
 .. autofunction:: pypop7.benchmarks.data_science.read_qsar_androgen_receptor
 
+Benchmarking on Photonics Models from NeverGrad
+-----------------------------------------------
+
+Please refer to `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ for an
+introduction to the photonics model.
+
+.. autofunction:: pypop7.benchmarks.never_grad.benchmark_photonics
+
+Benchmarking of Controllers on Gymnasium
+----------------------------------------
+
+Please refer to `Gymnasium <https://gymnasium.farama.org/>`_ for an
+introduction (from `Farama Foundation <https://farama.org/>`_).
+
+.. autoclass:: pypop7.benchmarks.gymnasium.Cartpole
+   :members:
+
+   .. automethod:: __call__
+
+Lennard-Jones Cluster Optimization from PyGMO
+---------------------------------------------
+
+Please refer to `pagmo2 <https://esa.github.io/pagmo2/docs/cpp/problems/lennard_jones.html>`_
+for an introduction (from `European Space Agency <https://www.esa.int/>`_) to this 444-d
+Lennard-Jones cluster optimization problem from `PyGMO <https://esa.github.io/pygmo2/>`_.
+
+.. autofunction:: pypop7.benchmarks.pygmo.lennard_jones
+
 Test Classes and Data
 ---------------------
 
-Here we provide a set of test classes and test data for benchmarking functions.
-Note that these are used only for the *testing* purpose.
+In the following, we will provide a set of test **classes** and test **data** for benchmarking
+functions. Since these classes and data are used only for the *testing* purpose, end-users can
+skip this section safely.
 
 .. autoclass:: pypop7.benchmarks.cases.Cases
    :members:
@@ -197,6 +382,8 @@ Note that these are used only for the *testing* purpose.
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_schwefel12
 
+.. autofunction:: pypop7.benchmarks.cases.get_y_exponential
+
 .. autofunction:: pypop7.benchmarks.cases.get_y_griewank
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_bohachevsky
@@ -204,3 +391,17 @@ Note that these are used only for the *testing* purpose.
 .. autofunction:: pypop7.benchmarks.cases.get_y_ackley
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_rastrigin
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_scaled_rastrigin
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_skew_rastrigin
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_levy_montalvo
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_michalewicz
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_salomon
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_shubert
+
+.. autofunction:: pypop7.benchmarks.cases.get_y_schaffer

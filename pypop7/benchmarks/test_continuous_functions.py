@@ -8,7 +8,7 @@ from pypop7.benchmarks.cases import *
 class Test(unittest.TestCase):
     def test_load_shift_and_rotation(self):
         func, ndim, seed = base_sphere, 2, 1
-        generate_shift_vector(func, 2, [-1, -2], [1, 2], 0)
+        generate_shift_vector(func, 2, [-1.0, -2.0], [1.0, 2.0], 0)
         generate_rotation_matrix(func, ndim, seed)
         shift_vector, rotation_matrix = load_shift_and_rotation(func, [0, 0])
         self.assertTrue(np.allclose(shift_vector, [2.739233746429086125e-01, -9.208531449445187533e-01]))
@@ -123,6 +123,13 @@ class Test(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_griewank(ndim - 2), atol=0.001))
             self.assertTrue(sample.check_origin(func))
 
+    def test_bohachevsky(self):
+        sample = Cases(is_shifted=True, is_rotated=True)
+        for func in [bohachevsky, Bohachevsky()]:
+            for ndim in range(1, 5):
+                self.assertTrue(sample.compare(func, ndim, get_y_bohachevsky(ndim - 1), atol=0.1))
+            self.assertTrue(sample.check_origin(func))
+
     def test_ackley(self):
         sample = Cases(is_shifted=True, is_rotated=True)
         for func in [ackley, Ackley()]:
@@ -135,6 +142,20 @@ class Test(unittest.TestCase):
         for func in [rastrigin, Rastrigin()]:
             for ndim in range(2, 8):
                 self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
+            self.assertTrue(sample.check_origin(func))
+
+    def test_scaled_rastrigin(self):
+        sample = Cases(is_shifted=True, is_rotated=True)
+        for func in [scaled_rastrigin, ScaledRastrigin()]:
+            for ndim in range(1, 4):
+                self.assertTrue(sample.compare(func, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
+            self.assertTrue(sample.check_origin(func))
+
+    def test_skew_rastrigin(self):
+        sample = Cases(is_shifted=True, is_rotated=True)
+        for func in [skew_rastrigin, SkewRastrigin()]:
+            for ndim in range(1, 5):
+                self.assertTrue(sample.compare(func, ndim, get_y_skew_rastrigin(ndim - 1), atol=0.1))
             self.assertTrue(sample.check_origin(func))
 
     def test_levy_montalvo(self):
@@ -159,19 +180,21 @@ class Test(unittest.TestCase):
             self.assertTrue(sample.check_origin(func))
 
     def test_shubert(self):
-        minimizers = [[-7.0835, 4.858], [-7.0835, -7.7083], [-1.4251, -7.0835], [5.4828, 4.858],
-                      [-1.4251, -0.8003], [4.858, 5.4828], [-7.7083, -7.0835], [-7.0835, -1.4251],
-                      [-7.7083, -0.8003], [-7.7083, 5.4828], [-0.8003, -7.7083], [-0.8003, -1.4251],
-                      [-0.8003, 4.8580], [-1.4251, 5.4828], [5.4828, -7.7083], [4.858, -7.0835],
-                      [5.4828, -1.4251], [4.858, -0.8003]]
         for func in [shubert, Shubert()]:
             generate_rotation_matrix(func, 2, 2)
-            generate_shift_vector(func, 2, -7 * np.ones((2,)), 5 * np.ones((2,)), 2021)
-            for minimizer in minimizers:
+            generate_shift_vector(func, 2, -7.0 * np.ones((2,)), 5.0 * np.ones((2,)), 2021)
+            for minimizer in get_y_shubert():
                 shift_vector, rotation_matrix = load_shift_and_rotation(func, minimizer)
                 minimizer = np.dot(np.linalg.inv(rotation_matrix), minimizer)
                 minimizer += shift_vector
                 self.assertTrue((np.abs(func(minimizer) + 186.7309) < 1e-3))
+
+    def test_schaffer(self):
+        sample = Cases(is_shifted=True, is_rotated=True)
+        for func in [schaffer, Schaffer()]:
+            for ndim in range(1, 4):
+                self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
+            self.assertTrue(sample.check_origin(func))
 
 
 if __name__ == '__main__':

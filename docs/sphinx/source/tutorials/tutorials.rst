@@ -1,7 +1,7 @@
 Online Tutorials
 ================
 
-Here we provide several *interesting* tutorials to help better use this `open-source <https://opensource.org/>`_
+Here we have provided several *interesting* tutorials to help better use this `open-source <https://opensource.org/>`_
 library `PyPop7 <https://pypop.readthedocs.io/en/latest/installation.html>`_ for black-box optimization (BBO), as
 shown below:
 
@@ -15,11 +15,11 @@ shown below:
 * Benchmarking `BBO <https://pypop.readthedocs.io/en/latest/tutorials/tutorials.html#benchmarking-bbo-on-the-well-designed-coco-platform>`_
   on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact Award for COCO
   <https://dl.acm.org/doi/abs/10.1145/3447929.3447930>`_),
-* Benchmarking `BBO <https://pypop.readthedocs.io/en/latest/tutorials/tutorials.html#benchmarking-on-the-famous-nevergrad-platform>`_
+* Benchmarking `BBO <https://pypop.readthedocs.io/en/latest/benchmarks.html#benchmarking-on-photonics-models-from-nevergrad>`_
   on the Famous `NeverGrad <https://github.com/facebookresearch/nevergrad>`_ Platform (Developed by **FacebookResearch**).
 
 For each black-box optimizer from this `open-source <https://twitter.com/ylecun/status/1715363851967906176>`_
-library, we also provide a *toy* example on their corresponding **API** documentations and two *testing* code
+library, we have also provided a *toy* example on their corresponding **API** documentations and two *testing* code
 (if possible) on their corresponding `Python source code
 <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_ folders.
 
@@ -193,7 +193,6 @@ high-dimensional optimization problem:
 
     .. code-block:: python
 
-        # Written/Checked by Guochen Zhou, Yajing Tan, and *Qiqi Duan*
         import pygmo as pg  # need to be installed: https://esa.github.io/pygmo2/install.html
         import seaborn as sns
         import matplotlib.pyplot as plt
@@ -249,8 +248,8 @@ during the early stage to disrupt convergence curves):
 From the above figure, two different `DE` versions show **different** search performance: `CDE` does not limit samples into
 the given search boundaries during optimization and generate a out-of-box solution (which may be infeasible in practice)
 **very fast**, while `JADE` limits all samples into the given search boundaries during optimization and generate an
-inside-of-box solution **relatively slow**. Since *different* implementations of the same algorithm family details could
-sometimes even result in *totally different* search behaviors, their **open-source** implementations play an important role
+inside-of-box solution **relatively slow**. Since *different* implementations of the same algorithm family could sometimes
+even result in *totally different* search behaviors, their **open-source** implementations play an important role
 for **repeatability**.
 
 For more interesting applications of `DE` on challenging problems, refer to e.g.,
@@ -260,24 +259,22 @@ For more interesting applications of `DE` on challenging problems, refer to e.g.
 `[Gagnon et al., 2017, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.053203>`_;
 `[Laganowsky et al., 2014, Nature] <https://www.nature.com/articles/nature13419>`_;
 `[Lovett et al., 2013, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.110.220501>`_,
-just to name a few. For a systematical paper collection on some top-tier journals/conferences, please
-refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
+just to name a few. For a systematical paper collection of evolutionary algorithms on some top-tier journals/conferences,
+please refer to `https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation
 <https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation>`_.
 
-Global Trajectory Optimization
-------------------------------
+Global Trajectory Optimization from PyKep
+-----------------------------------------
 
-Six hard global trajectory optimization problems have been given in `pykep <https://esa.github.io/pykep/index.html>`_,
+Six **hard** global trajectory optimization (GTO) problems have been given in `pykep <https://esa.github.io/pykep/index.html>`_,
 developed at `European Space Agency <https://sophia.estec.esa.int/gtoc_portal/>`_. Here we use the Standard Particle
-Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_) as an optimizer baseline:
+Swarm Optimizer (`SPSO <https://pypop.readthedocs.io/en/latest/pso/spso.html>`_) as a black-box optimizer baseline:
 
     .. code-block:: python
 
-        """This is a simple demo that uses PSO to optimize 6 minimization problems provided by `pykep`:
+        """Demo that uses PSO to optimize 6 GTO problems provided by `pykep`:
             https://esa.github.io/pykep/
             https://esa.github.io/pykep/examples/ex13.html
-
-            # Written/Checked by Guochen Zhou, Yajing Tan, and *Qiqi Duan*
         """
         import pygmo as pg  # it's better to use conda to install (and it's better to use pygmo==2.18)
         import pykep as pk  # it's better to use conda to install
@@ -339,7 +336,7 @@ The convergence curves on six different instances obtained via `SPSO` are given 
    :width: 500px
    :align: center
 
-For more applications of `PSO` on challenging problems, refer to e.g.,
+For more applications of `PSO` on some challenging problems, refer to e.g.,
 `[Reddy et al., 2023, TC] <https://ieeexplore.ieee.org/document/10005787>`_;
 `[Guan et al., 2022, PRL] <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.186001>`_;
 `[Weiel, et al., 2021, Nature Mach. Intell.] <https://www.nature.com/articles/s42256-021-00366-3>`_;
@@ -598,7 +595,8 @@ on a high-performing computing server, since typically it needs a very long runt
        $ nohup python run_experiments.py -s=1 -e=2 -o=LMCMA >LMCMA_1_2.out 2>&1 &
 
 To further compare **global** search capabilities of different black-box optimizers for LBO,
-please use the benchmarking test suite: `<>`_.
+please use the benchmarking test suite: `benchmark_global_search()
+<https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/benchmarks/lbo.py#L159>`_.
 
 Controller Design/Optimization
 ------------------------------
@@ -711,7 +709,11 @@ for comparing continuous optimizers in the **black-box** setting.
 
 The final output of the above code looks like:
 
-.. image:: images/COCO_MAES.png
+.. image:: images/COCO-PyPop7-MAES.png
+   :width: 500px
+   :align: center
+
+.. image:: images/COCO-PyPop7-MAES-2.png
    :width: 500px
    :align: center
 
@@ -729,7 +731,7 @@ in the following:
 
     .. code-block:: python
 
-        """This is a simple demo that optimizes the Bragg mirrors structure, modeled in the following paper:
+        """Demo that optimizes the Bragg mirrors structure, modeled in the following paper:
             Bennet, P., Centeno, E., Rapin, J., Teytaud, O. and Moreau, A., 2020.
             The photonics and ARCoating testbeds in NeverGrad.
             https://hal.uca.fr/hal-02613161v1
@@ -773,13 +775,16 @@ in the following:
             plt.savefig('photonics_optimization.png')
 
 
-The final figure output is:
+The final figure output is shown below:
 
 .. image:: images/photonics_optimization.png
    :width: 500px
    :align: center
 
-For each black-box optimizer (BBO) from this open-source library, we also provide a *toy* example on their corresponding
-`API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_ documentations and two *testing* code (if possible) on
-their corresponding `source code <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_
-folders.
+More Examples
+-------------
+
+For each black-box optimizer (BBO) from this open-source library, we also provide a *toy* example
+on their corresponding `API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_
+documentations and two *testing* code (if possible) on their corresponding `source code
+<https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_ folders.

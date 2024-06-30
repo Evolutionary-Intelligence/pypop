@@ -47,8 +47,8 @@ class PSO(Optimizer):
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : dict
               optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - swarm (population) size, aka number of particles (`int`, default: `20`),
@@ -154,9 +154,9 @@ class PSO(Optimizer):
         self._n_generations = 0  # initial number of generations
         # set linearly decreasing inertia weights introduced in [Shi&Eberhart, 1998, IEEE-WCCI/CEC]
         self._max_generations = np.ceil(self.max_function_evaluations/self.n_individuals)
-        if self._max_generations == np.Inf:
-            self._max_generations = 1e2*self.ndim_problem
-        self._w = 0.9 - 0.5*(np.arange(self._max_generations) + 1.0)/self._max_generations  # from 0.9 to 0.4
+        if self._max_generations == np.inf:
+            self._max_generations = 1e2 * self.ndim_problem
+        self._w = 0.9 - 0.5 * (np.arange(self._max_generations) + 1.0) / self._max_generations  # from 0.9 to 0.4
         self._swarm_shape = (self.n_individuals, self.ndim_problem)
 
     def initialize(self, args=None):

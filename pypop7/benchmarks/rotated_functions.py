@@ -1,5 +1,5 @@
 """Online documentation:
-    https://pypop.readthedocs.io/en/latest/benchmarks.html
+    https://pypop.readthedocs.io/en/latest/benchmarks.html#rotated-forms
 """
 import os
 
@@ -13,7 +13,8 @@ from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
 def generate_rotation_matrix(func, ndim, seed):
     """Generate a *random* rotation matrix of dimension [`ndim` * `ndim`], sampled normally.
 
-       .. note:: The generated rotation matrix will be automatically stored in *txt* form for further use.
+       .. note:: The generated rotation matrix will be automatically stored in *txt* form
+          **for further use**.
 
     Parameters
     ----------
@@ -22,12 +23,12 @@ def generate_rotation_matrix(func, ndim, seed):
     ndim : int
            number of dimensions of the rotation matrix.
     seed : int
-           a scalar seed for random number generator (RNG).
+           scalar seed for random number generator (RNG).
 
     Returns
     -------
     rotation_matrix : ndarray
-                      a matrix of size [`ndim` * `ndim`].
+                      rotation matrix of size [`ndim` * `ndim`].
     """
     if hasattr(func, '__call__'):
         func = func.__name__
@@ -49,7 +50,7 @@ def load_rotation_matrix(func, x, rotation_matrix=None):
     """Load the rotation matrix which needs to be generated in advance.
 
        .. note:: When `None`, the rotation matrix should have been generated and stored in *txt* form
-                 in advance.
+          **in advance**.
 
     Parameters
     ----------
@@ -58,12 +59,12 @@ def load_rotation_matrix(func, x, rotation_matrix=None):
     x               : array_like
                       decision vector.
     rotation_matrix : ndarray
-                      a matrix of size [`len(x)` * `len(x)`].
+                      rotation matrix of size [`len(x)` * `len(x)`].
 
     Returns
     -------
     rotation_matrix : ndarray
-                      a matrix of size [`len(x)` * `len(x)`].
+                      rotation matrix of size [`len(x)` * `len(x)`].
     """
     x = squeeze_and_check(x)
     if rotation_matrix is None:

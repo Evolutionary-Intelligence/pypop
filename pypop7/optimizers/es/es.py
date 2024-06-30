@@ -33,7 +33,8 @@ class ES(Optimizer):
        <https://ieeexplore.ieee.org/abstract/document/10531788>`_, `[Lee et al., 2023, Science Robotics]
        <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_, `[Koginov et al., 2023, TMRB]
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Sun et al., 2023, ACL]
-       <https://aclanthology.org/2023.acl-long.625.pdf>`_, `[Heidrich-Meisner&Igel, 2009, ICML]
+       <https://aclanthology.org/2023.acl-long.625.pdf>`_, `[Agrawal et al., 2014, TVCG]
+       <https://ieeexplore.ieee.org/abstract/document/6781622>`_, `[Heidrich-Meisner&Igel, 2009, ICML]
        <https://dl.acm.org/doi/abs/10.1145/1553374.1553426>`_, `[Lipson&Pollack, 2000, Nature]
        <https://www.nature.com/articles/35023115>`_, just to name a few.
 
@@ -47,8 +48,8 @@ class ES(Optimizer):
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : dict
               optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.Inf`),
-                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.Inf`),
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.inf`),
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
                 * 'n_individuals' - number of offspring/descendants, aka offspring population size (`int`),

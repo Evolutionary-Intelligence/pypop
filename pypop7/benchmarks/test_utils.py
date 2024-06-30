@@ -2,9 +2,11 @@
     https://pypop.readthedocs.io/en/latest/utils.html
 """
 import unittest
+import copy
+import time
 
 import numpy as np  # engine for numerical computing
-
+import matplotlib.pyplot as plt
 from pypop7.benchmarks import base_functions as bf
 from pypop7.benchmarks import rotated_functions as rf
 from pypop7.benchmarks.utils import generate_xyz
@@ -13,6 +15,7 @@ from pypop7.benchmarks.utils import plot_surface
 from pypop7.benchmarks.utils import save_optimization
 from pypop7.benchmarks.utils import check_optimization
 from pypop7.benchmarks.utils import plot_convergence_curve
+from pypop7.benchmarks.utils import cholesky_update
 
 
 # test function for plotting
@@ -72,6 +75,23 @@ class TestUtils(unittest.TestCase):
         results = res.optimize()  # to run its optimization/evolution process
         save_optimization(results, RES.__name__, rosenbrock.__name__, dim, 1)
 
+    def test_read_optimization(self):
+        from pypop7.benchmarks.base_functions import rosenbrock
+        from pypop7.optimizers.rs.prs import PRS
+        from pypop7.benchmarks.utils import save_optimization, read_optimization
+        ndim = 2  # number of dimensionality
+        problem = {'fitness_function': rosenbrock,  # to define problem arguments
+                   'ndim_problem': ndim,
+                   'lower_boundary': -5.0 * np.ones((ndim,)),
+                   'upper_boundary': 5.0 * np.ones((ndim,))}
+        options = {'max_function_evaluations': 5000,  # to set optimizer options
+                   'seed_rng': 2022}  # global step-size may need to be tuned for optimality
+        prs = PRS(problem, options)  # to initialize the black-box optimizer class
+        res = prs.optimize()  # to run its optimization/evolution process
+        save_optimization(res, PRS.__name__, rosenbrock.__name__, ndim, 1)
+        res = read_optimization('pypop7_benchmarks_lso', PRS.__name__, rosenbrock.__name__, ndim, 1)
+        assert res['n_function_evaluations'] == 5000
+
     def test_check_optimization(self):
         problem = {'lower_boundary': [-5.0, -7.0],
                    'upper_boundary': [5.0, 7.0]}
@@ -116,6 +136,55 @@ class TestUtils(unittest.TestCase):
             optimizer = Optimizer(problem, options)  # to initialize the black-box optimizer class
             res.append(optimizer.optimize())  # to run the optimization process
         plot_convergence_curves(algos, ellipsoid.__name__, 2, results=res)
+
+    def test_cholesky_update(self):
+        def cholesky_update_1(rm, z, downdate):  # without Numba
+            # https://github.com/scipy/scipy/blob/d20f92fce9f1956bfa65365feeec39621a071932/
+            #     scipy/linalg/_decomp_cholesky_update.py
+            rm, z, alpha, beta = rm.T, z, np.empty_like(z), np.empty_like(z)
+            alpha[-1], beta[-1] = 1.0, 1.0
+            sign = -1.0 if downdate else 1.0
+            for r in range(len(z)):
+                a = z[r] / rm[r, r]
+                alpha[r] = alpha[r - 1] + sign * np.power(a, 2)
+                beta[r] = np.sqrt(alpha[r])
+                z[r + 1:] -= a * rm[r, r + 1:]
+                rm[r, r:] *= beta[r] / beta[r - 1]
+                rm[r, r + 1:] += sign * a / (beta[r] * beta[r - 1]) * z[r + 1:]
+            return rm.T
+
+        rng = np.random.default_rng(2022)
+        ndim = 2  # 2000
+        rm_, z_, downdate_ = 2 + rng.random((ndim, ndim)), rng.random(ndim, ), False
+
+        runtime_1 = []
+        for i in range(3000):
+            rr, zz, dd = copy.deepcopy(rm_), copy.deepcopy(z_), copy.deepcopy(downdate_)
+            start_time = time.time()
+            cholesky_update_1(rr, zz, dd)
+            runtime_1.append(time.time() - start_time)
+
+        runtime_2 = []
+        for i in range(3000):
+            rr, zz, dd = copy.deepcopy(rm_), copy.deepcopy(z_), copy.deepcopy(downdate_)
+            start_time = time.time()
+            cholesky_update(rr, zz, dd)
+            runtime_2.append(time.time() - start_time)
+
+        plt.rcParams['font.family'] = 'Times New Roman'
+        plt.rcParams['font.size'] = '12'
+        plt.figure(figsize=(7, 7))
+        plt.grid(True)
+        plt.plot(np.cumsum(runtime_1), color='r', label='without Numba', linewidth=2)
+        plt.plot(np.cumsum(runtime_2), color='g', label='with Numba', linewidth=2)
+        plt.title("Runtime Comparisons on 2000 Dimension",
+                  fontsize=24, fontweight='bold')
+        plt.xlabel('Number of Iterations', fontsize=20, fontweight='bold')
+        plt.ylabel('Runtime (Seconds)', fontsize=20, fontweight='bold')
+        plt.xticks(fontsize=15, fontweight='bold')
+        plt.yticks(fontsize=15, fontweight='bold')
+        plt.legend(fontsize=15, loc='best')
+        plt.show()
 
 
 if __name__ == '__main__':

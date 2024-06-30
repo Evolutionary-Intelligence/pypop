@@ -1,5 +1,5 @@
 """Online documentation:
-    https://pypop.readthedocs.io/en/latest/benchmarks.html
+    https://pypop.readthedocs.io/en/latest/benchmarks.html#shifted-transformed-forms
 """
 import os
 
@@ -14,7 +14,8 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
     """Generate a *random* shift vector of dimension `ndim`, sampled uniformly between
     `low` (inclusive) and `high` (exclusive).
 
-       .. note:: The generated shift vector will be automatically stored in *txt* form for further use.
+       .. note:: The generated shift vector will be automatically stored in *txt* form
+          **for further use**.
 
     Parameters
     ----------
@@ -32,7 +33,7 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
     Returns
     -------
     shift_vector : ndarray (of dtype np.float64)
-                   a vector sampled uniformly in [`low`, `high`) of size `ndim`.
+                   a shift vector sampled uniformly in [`low`, `high`) of size `ndim`.
     """
     low, high = squeeze_and_check(low), squeeze_and_check(high)
     if hasattr(func, '__call__'):
@@ -51,7 +52,7 @@ def load_shift_vector(func, x, shift_vector=None):
     """Load the shift vector which needs to be generated in advance.
 
        .. note:: When `None`, the shift vector should have been generated and stored in *txt* form
-                 in advance.
+          **in advance**.
 
     Parameters
     ----------
@@ -60,12 +61,12 @@ def load_shift_vector(func, x, shift_vector=None):
     x            : array_like
                    decision vector.
     shift_vector : array_like
-                   a vector with the same size as `x`.
+                   a shift vector with the same size as `x`.
 
     Returns
     -------
     shift_vector : ndarray (of dtype np.float64)
-                   a vector with the same size as `x`.
+                   a shift vector with the same size as `x`.
     """
     x = squeeze_and_check(x)
     if shift_vector is None:

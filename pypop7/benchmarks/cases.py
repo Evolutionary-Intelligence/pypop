@@ -269,6 +269,12 @@ def get_y_schwefel12(ndim):
     return y[ndim]
 
 
+def get_y_exponential():
+    """Get test data for **Exponential** test function.
+    """
+    return None
+
+
 def get_y_griewank(ndim):
     """Get test data for **Griewank** test function.
     """
@@ -312,4 +318,62 @@ def get_y_rastrigin(ndim):
          [0, 5, 5, 5, 55, 55, 55],
          [0, 6, 6, 6, 91, 91, 91],
          [0, 7, 7, 7, 140, 140, 140, 91]]
+    return y[ndim]
+
+
+def get_y_scaled_rastrigin(ndim):
+    """Get test data for **Scaled-Rastrigin** test function.
+    """
+    y = [[4.0, 1.0, 0.0, 1.0, 4.0],
+         [404.0, 101.0, 0.0, 101.0, 404.0],
+         [458.515, 115.763, 0.0, 115.763, 458.515],
+         [0.0, 141.650, 141.650, 163.097, 1825.687, 1825.687, 261.302]]
+    return y[ndim]
+
+
+def get_y_skew_rastrigin(ndim):
+    """Get test data for **Skew-Rastrigin** test function.
+    """
+    y = [[4.0, 1.0, 0.0, 100.0, 400.0],
+         [404.0, 101.0, 0.0, 200.0, 800.0],
+         [804.0, 201.0, 0.0, 201.0, 804.0],
+         [0.0, 400.0, 4.0, 202.0, 3000.0, 1020.0, 1317.0]]
+    return y[ndim]
+
+
+def get_y_levy_montalvo():
+    """Get test data for **LevyMontalvo** test function.
+    """
+    return None
+
+
+def get_y_michalewicz():
+    """Get test data for **Michalewicz** test function.
+    """
+    return None
+
+
+def get_y_salomon():
+    """Get test data for **Salomon** test function.
+    """
+    return None
+
+
+def get_y_shubert():
+    """Get test data for **Schaffer** test function.
+    """
+    minimizers = [[-7.0835, 4.858], [-7.0835, -7.7083], [-1.4251, -7.0835], [5.4828, 4.858],
+                  [-1.4251, -0.8003], [4.858, 5.4828], [-7.7083, -7.0835], [-7.0835, -1.4251],
+                  [-7.7083, -0.8003], [-7.7083, 5.4828], [-0.8003, -7.7083], [-0.8003, -1.4251],
+                  [-0.8003, 4.8580], [-1.4251, 5.4828], [5.4828, -7.7083], [4.858, -7.0835],
+                  [5.4828, -1.4251], [4.858, -0.8003]]
+    return minimizers
+
+
+def get_y_schaffer(ndim):
+    """Get test data for **Schaffer** test function.
+    """
+    y = [[0.0, 0.0, 0.0, 0.0, 0.0],
+         [3.220, 1.228, 0.0, 1.228, 3.220],
+         [6.441, 2.456, 0.0, 2.456, 6.441]]
     return y[ndim]

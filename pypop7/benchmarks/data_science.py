@@ -219,10 +219,10 @@ class TanhLossLR(BaseFunction):
 def hinge_loss_perceptron(w, x, y):
     """Hinge loss function of perceptron (with binary labels/classes {-1, 1}).
 
-       .. note:: AKA perceptron cost, rectified linear unit cost. This cost function is always convex
-          but only has a single discontinuous derivative in each variable dimension. It always has a
-          trivial solution at the origin, thus one may need to take care in practice to avoid finding
-          it (or a point too close to it) **accidentally**.
+       .. note:: AKA *perceptron cost* or *rectified linear unit cost*. This cost function is
+          always convex but has a single discontinuous derivative in each variable dimension.
+          It always has a trivial solution at the origin, thus one may need to take care in
+          practice in order to avoid finding it **accidentally**.
 
     Parameters
     ----------

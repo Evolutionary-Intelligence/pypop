@@ -1,7 +1,5 @@
-.. This is the *official* online documentation of PyPop7.
-
-PyPop7's Online Documentation for Black-Box Optimization (BBO)
-==============================================================
+Online Documentations of PyPop7 for Black-Box Optimization (BBO)
+================================================================
 
 .. image:: https://img.shields.io/badge/GitHub-PyPop7-red.svg
    :target: https://github.com/Evolutionary-Intelligence/pypop
@@ -49,8 +47,8 @@ In practice, three simple steps are enough to utilize the potential of
 
        $ pip install pypop7
 
-See `this online documentation <https://pypop.readthedocs.io/en/latest/installation.html>`_ for details about *multiple*
-installation ways.
+Please refer to `this online documentation <https://pypop.readthedocs.io/en/latest/installation.html>`_ for details
+about *multiple* installation ways.
 
 2. Define/code your own objective/cost function (to be **minimized**) for the optimization problem at hand:
 
@@ -68,7 +66,8 @@ installation ways.
 
 See `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for details about the **problem
 definition**. Note that any *maximization* problem can be easily transformed into the *minimization* problem via simply
-negating it.
+negating it. Please refer to `this online documentation <https://pypop.readthedocs.io/en/latest/benchmarks.html>`_ for a
+large set of benchmarking functions.
 
 3. Run one or more black-box optimizers (BBO) from `pypop7` on the above optimization problem:
 
@@ -88,9 +87,9 @@ negating it.
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
        9.948e-11 2973386
 
-See `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_ for
-details about the **optimizer setting**. Please refer to the following contents for all the BBO currently available
-in this *increasingly popular* open-source Python library.
+Please refer to `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_
+for details about the **optimizer setting**. Please refer to the following contents for all the BBO currently available
+in this `increasingly popular <https://pypop.readthedocs.io/en/latest/applications.html>`_ open-source library.
 
 
 

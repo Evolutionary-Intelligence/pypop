@@ -1,3 +1,6 @@
+"""Online documentation:
+    https://pypop.readthedocs.io/en/latest/benchmarks.html#benchmarking-for-large-scale-bbo-lbo
+"""
 import time
 
 import numpy as np  # engine for numerical computing
@@ -111,7 +114,7 @@ class Experiments(object):
 def benchmark_local_search(optimizer, ndim=2000, max_runtime=3600*3,
                            start_index=1, end_index=14,
                            seed=20221001):
-    """Test **Local Search** Abilities for Large-Scale Black-Box Optimization (LBO).
+    """Test **local search** abilities for large-scale black-box optimization (LBO).
 
     Parameters
     ----------
@@ -159,7 +162,7 @@ def benchmark_local_search(optimizer, ndim=2000, max_runtime=3600*3,
 def benchmark_global_search(optimizer, ndim=2000, max_runtime=3600*3,
                             start_index=1, end_index=14,
                             seed=20221001):
-    """Test **Global Search** Abilities for Large-Scale Black-Box Optimization (LBO).
+    """Test **global search** abilities for large-scale black-box optimization (LBO).
 
     Parameters
     ----------

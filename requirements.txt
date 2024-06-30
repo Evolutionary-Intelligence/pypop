@@ -12,3 +12,8 @@ sphinx_copybutton
 rst2pdf
 pytest  # only for testing and not available in setup.cfg
 requests
+gymnasium
+nevergrad
+gymnasium[classic-control]
+pygmo
+# pykep
