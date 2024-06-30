@@ -257,7 +257,7 @@ if __name__ == '__main__':
     elif params['optimizer'] == 'CCMAES2016':  # 2016
         from pypop7.optimizers.es.ccmaes2016 import CCMAES2016 as Optimizer
     elif params['optimizer'] == 'VKDCMA':  # 2016
-        from pypop7.optimizers.es.vkdcma import VKDCMA as Optimizer
+        from pypop7.optimizers.nes.vkdcma import VKDCMA as Optimizer
     elif params['optimizer'] == 'CMAES':  # 2016
         from pypop7.optimizers.es.cmaes import CMAES as Optimizer
     elif params['optimizer'] == 'OPOA2015':  # 2015
@@ -265,7 +265,7 @@ if __name__ == '__main__':
     elif params['optimizer'] == 'LMCMAES':  # 2014
         from pypop7.optimizers.es.lmcmaes import LMCMAES as Optimizer
     elif params['optimizer'] == 'VDCMA':  # 2014
-        from pypop7.optimizers.es.vdcma import VDCMA as Optimizer
+        from pypop7.optimizers.nes.vdcma import VDCMA as Optimizer
     elif params['optimizer'] == 'SHADE':  # 2013
         from pypop7.optimizers.de.shade import SHADE as Optimizer
     elif params['optimizer'] == 'IPSO':  # 2011
