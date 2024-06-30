@@ -1,9 +1,9 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.es.es import ES  # abstract class of all evolution strategies (ES)
+from pypop7.optimizers.nes import NES  # abstract class of all natural evolution strategies (NES)
 
 
-class VDCMA(ES):
+class VDCMA(NES):
     """Linear Covariance Matrix Adaptation (VDCMA).
 
     Parameters
@@ -41,7 +41,7 @@ class VDCMA(ES):
 
        >>> import numpy
        >>> from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
-       >>> from pypop7.optimizers.es.vdcma import VDCMA
+       >>> from pypop7.optimizers.nes.vdcma import VDCMA
        >>> problem = {'fitness_function': rosenbrock,  # define problem arguments
        ...            'ndim_problem': 2,
        ...            'lower_boundary': -5*numpy.ones((2,)),
@@ -91,7 +91,7 @@ class VDCMA(ES):
     https://gist.github.com/youheiakimoto/08b95b52dfbf8832afc71dfff3aed6c8
     """
     def __init__(self, problem, options):
-        ES.__init__(self, problem, options)
+        NES.__init__(self, problem, options)
         self.options = options
         self.c_factor = options.get('c_factor', np.maximum((self.ndim_problem - 5.0)/6.0, 0.5))
         self.c_c, self.c_1, self.c_mu, self.c_s = None, None, None, None
@@ -196,12 +196,12 @@ class VDCMA(ES):
         return mean, p_s, p_c, v, d
 
     def restart_reinitialize(self, d=None, v=None, p_s=None, p_c=None, z=None, zz=None, x=None, mean=None, y=None):
-        if self.is_restart and ES.restart_reinitialize(self, y):
+        if self.is_restart and NES.restart_reinitialize(self, y):
             d, v, p_s, p_c, z, zz, x, mean, y = self.initialize(True)
         return d, v, p_s, p_c, z, zz, x, mean, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
-        fitness = ES.optimize(self, fitness_function)
+        fitness = NES.optimize(self, fitness_function)
         d, v, p_s, p_c, z, zz, x, mean, y = self.initialize()
         while not self.termination_signal:
             # sample and evaluate offspring population
