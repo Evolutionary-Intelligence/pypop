@@ -707,7 +707,7 @@ class SkewRastrigin(BaseFunction):
 def levy_montalvo(x):
     """**Levy-Montalvo** test function.
 
-       .. note:: It's LaTeX formulation is `$(10 \sin^2(\pi (1 + 0.25(x_1 + 1))) + (0.25(x_n + 1))^2) \sum_{i = 1}^{n - 1} (0.25(x_i + 1))^2 (1 + 10 \sin^2 (\pi (1 + 0.25(x_{i + 1} + 1))))$`.
+       .. note:: It's LaTeX formulation is `$(10 \sin^2(\pi (1.25 + 0.25x_1)) + (0.25(x_n + 1))^2) \sum_{i = 1}^{n - 1} (0.25(x_i + 1))^2 (1 + 10 \sin^2 (\pi (1.25 + 0.25x_{i + 1})))$`.
 
     Parameters
     ----------
