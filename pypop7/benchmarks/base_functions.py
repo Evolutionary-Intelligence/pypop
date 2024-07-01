@@ -143,7 +143,7 @@ class Discus(BaseFunction):  # also called Tablet
 def cigar_discus(x):
     """**Cigar-Discus** test function.
 
-       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+       .. note:: It's LaTeX formulation is `$\begin{cases} x_1^2 + 10^4 \sum_{i = 1}^{n}x_i^2 + 10^6 x_n^2, \mbox{if}~n = 2 \\ x_1^2 + 10^4 \sum_{i = 2}^{n}x_i^2 + 10^6 x_n^2, \mbox{otherweise} \end{cases}$`. Its dimensionality should `> 1`.
 
     Parameters
     ----------
