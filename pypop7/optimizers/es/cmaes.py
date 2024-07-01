@@ -27,7 +27,8 @@ class CMAES(ES):
        <https://www.nature.com/articles/s41467-021-22017-2>`_, `[Lei, 2020, Ph.D. Dissertation (University of Oxford)]
        <https://tinyurl.com/yzkjwr34>`_, `[Zhang et al., 2017, Science]
        <https://www.science.org/doi/full/10.1126/science.aal5054>`_, `[Loshchilov&Hutter, 2016]
-       <https://arxiv.org/abs/1604.07269>`_, to name a few.
+       <https://arxiv.org/abs/1604.07269>`_, `[Molinari et al., 2014, AIAAJ]
+       <https://arc.aiaa.org/doi/full/10.2514/1.J052715>`_, just to name a few.
 
     Parameters
     ----------
