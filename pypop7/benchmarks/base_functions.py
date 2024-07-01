@@ -820,7 +820,7 @@ class Salomon(BaseFunction):
 def shubert(x):
     """**Shubert** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$$`.
 
     Parameters
     ----------
@@ -861,7 +861,7 @@ class Shubert(BaseFunction):
 def schaffer(x):
     """**Schaffer** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{n - 1} (x_i^2 + x_{i+1}^2)^{0.25} (\sin^2(50(x_i^2 + x_{i+1}^2)^{0.1}) + 1)$`.
 
     Parameters
     ----------
