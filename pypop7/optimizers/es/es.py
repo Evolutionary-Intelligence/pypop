@@ -34,7 +34,8 @@ class ES(Optimizer):
        <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_, `[Koginov et al., 2023, TMRB]
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Sun et al., 2023, ACL]
        <https://aclanthology.org/2023.acl-long.625.pdf>`_, `[Agrawal et al., 2014, TVCG]
-       <https://ieeexplore.ieee.org/abstract/document/6781622>`_, `[Heidrich-Meisner&Igel, 2009, ICML]
+       <https://ieeexplore.ieee.org/abstract/document/6781622>`_, `[Molinari et al., 2014, AIAAJ]
+       <https://arc.aiaa.org/doi/full/10.2514/1.J052715>`_, `[Heidrich-Meisner&Igel, 2009, ICML]
        <https://dl.acm.org/doi/abs/10.1145/1553374.1553426>`_, `[Lipson&Pollack, 2000, Nature]
        <https://www.nature.com/articles/35023115>`_, just to name a few.
 
