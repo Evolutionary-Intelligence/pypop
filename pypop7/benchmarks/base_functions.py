@@ -820,7 +820,7 @@ class Salomon(BaseFunction):
 def shubert(x):
     """**Shubert** test function.
 
-       .. note:: It's LaTeX formulation is `$$`.
+       .. note:: It's LaTeX formulation is `$\prod_{i=1}^{n} \sum_{j=1}^{5} j\cos((j+1) x_i j)$`.
 
     Parameters
     ----------
