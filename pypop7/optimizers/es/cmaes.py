@@ -28,7 +28,8 @@ class CMAES(ES):
        <https://tinyurl.com/yzkjwr34>`_, `[Zhang et al., 2017, Science]
        <https://www.science.org/doi/full/10.1126/science.aal5054>`_, `[Loshchilov&Hutter, 2016]
        <https://arxiv.org/abs/1604.07269>`_, `[Molinari et al., 2014, AIAAJ]
-       <https://arc.aiaa.org/doi/full/10.2514/1.J052715>`_, just to name a few.
+       <https://arc.aiaa.org/doi/full/10.2514/1.J052715>`_, `[Melton, 2014, Acta Astronautica]
+       <https://www.sciencedirect.com/science/article/pii/S0094576514002318>`_, just to name a few.
 
     Parameters
     ----------
