@@ -19,7 +19,7 @@ import time
 import numpy as np
 
 from pypop7.benchmarks.base_functions import ellipsoid
-from pypop7.optimizers.es.vkdcma import VKDCMA
+from pypop7.optimizers.nes.vkdcma import VKDCMA
 
 
 if __name__ == '__main__':

@@ -145,7 +145,7 @@ if __name__ == '__main__':
     elif params['optimizer'] == 'RMES':
         from pypop7.optimizers.es.rmes import RMES as Optimizer
     elif params['optimizer'] == 'VDCMA':
-        from pypop7.optimizers.es.vdcma import VDCMA as Optimizer
+        from pypop7.optimizers.nes.vdcma import VDCMA as Optimizer
     elif params['optimizer'] == 'LMMAES':
         from pypop7.optimizers.es.lmmaes import LMMAES as Optimizer
     elif params['optimizer'] == 'MMES':

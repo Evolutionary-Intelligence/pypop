@@ -5,6 +5,8 @@ from pypop7.optimizers.nes.enes import ENES
 from pypop7.optimizers.nes.xnes import XNES
 from pypop7.optimizers.nes.snes import SNES
 from pypop7.optimizers.nes.r1nes import R1NES
+from pypop7.optimizers.nes.vdcma import VDCMA
+from pypop7.optimizers.nes.vkdcma import VKDCMA
 
 
 ___all__ = [NES,  # Natural Evolution Strategies [2008]
@@ -13,4 +15,6 @@ ___all__ = [NES,  # Natural Evolution Strategies [2008]
             ENES,  # Exact Natural Evolution Strategy (ENES)
             XNES,  # Exponential Natural Evolution Strategies (XNES)
             SNES,  # Separable Natural Evolution Strategies (SNES)
-            R1NES]  # Rank-One Natural Evolution Strategies (R1NES)
+            R1NES,  # Rank-One Natural Evolution Strategies (R1NES)
+            VDCMA,
+            VKDCMA]

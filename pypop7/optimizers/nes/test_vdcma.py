@@ -1,7 +1,7 @@
 def test_optimize():
     import numpy  # engine for numerical computing
     from pypop7.benchmarks.base_functions import rosenbrock  # function to be minimized
-    from pypop7.optimizers.es.vdcma import VDCMA
+    from pypop7.optimizers.nes.vdcma import VDCMA
     problem = {'fitness_function': rosenbrock,  # define problem arguments
                'ndim_problem': 2,
                'lower_boundary': -5.0 * numpy.ones((2,)),
