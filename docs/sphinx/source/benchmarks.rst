@@ -18,9 +18,8 @@ or separability.
 Checking of Coding Correctness
 ------------------------------
 
-For all testing Python code of benchmarking functions, please refer to the following openly
-accessible www links for details (In fact, we have spent much time in checking of coding
-correctness):
+For all testing code of benchmarking functions, please refer to the following openly accessible
+links for details (In fact, we have spent much time in checking of Python coding correctness):
 
 * `for base forms <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/benchmarks/test_base_functions.py>`_
 * `for shifted/transformed forms <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/benchmarks/test_shifted_functions.py>`_
