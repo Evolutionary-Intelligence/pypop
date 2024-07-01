@@ -329,7 +329,7 @@ class Step(BaseFunction):
 def schwefel222(x):
     """**Schwefel222** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `\sum_{i = 1}^{n} \left | x_i \right | + \prod_{i = 1}^{n} \left | x_i \right |`.
 
     Parameters
     ----------
@@ -441,7 +441,7 @@ class Schwefel12(BaseFunction):
 def exponential(x):
     """**Exponential** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `-e^{-0.5 \sum_{i = 1}^{n} x_i^2}`.
 
     Parameters
     ----------
