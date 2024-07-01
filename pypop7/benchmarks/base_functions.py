@@ -143,7 +143,7 @@ class Discus(BaseFunction):  # also called Tablet
 def cigar_discus(x):
     """**Cigar-Discus** test function.
 
-       .. note:: It's LaTeX formulation is ``. Its dimensionality should `> 1`.
+       .. note:: It's LaTeX formulation is `$\begin{cases} x_1^2 + 10^4 \sum_{i = 1}^{n}x_i^2 + 10^6 x_n^2, \mbox{if}~n = 2 \\ x_1^2 + 10^4 \sum_{i = 2}^{n}x_i^2 + 10^6 x_n^2, \mbox{otherweise} \end{cases}$`. Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -329,7 +329,7 @@ class Step(BaseFunction):
 def schwefel222(x):
     """**Schwefel222** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{n} \left | x_i \right | + \prod_{i = 1}^{n} \left | x_i \right |$`.
 
     Parameters
     ----------
@@ -441,7 +441,7 @@ class Schwefel12(BaseFunction):
 def exponential(x):
     """**Exponential** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$-e^{-0.5 \sum_{i = 1}^{n} x_i^2}$`.
 
     Parameters
     ----------
@@ -707,7 +707,7 @@ class SkewRastrigin(BaseFunction):
 def levy_montalvo(x):
     """**Levy-Montalvo** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$(10 \sin^2(\pi (1.25 + 0.25x_1)) + (0.25(x_n + 1))^2) \sum_{i = 1}^{n - 1} (0.25(x_i + 1))^2 (1 + 10 \sin^2 (\pi (1.25 + 0.25x_{i + 1})))$`.
 
     Parameters
     ----------
@@ -820,7 +820,7 @@ class Salomon(BaseFunction):
 def shubert(x):
     """**Shubert** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$\prod_{i=1}^{n} \sum_{j=1}^{5} j\cos((j+1) x_i j)$`.
 
     Parameters
     ----------
@@ -861,7 +861,7 @@ class Shubert(BaseFunction):
 def schaffer(x):
     """**Schaffer** test function.
 
-       .. note:: It's LaTeX formulation is ``.
+       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{n - 1} (x_i^2 + x_{i+1}^2)^{0.25} (\sin^2(50(x_i^2 + x_{i+1}^2)^{0.1}) + 1)$`.
 
     Parameters
     ----------
