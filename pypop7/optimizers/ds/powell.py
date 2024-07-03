@@ -86,8 +86,7 @@ def _line_for_search(x0, alpha, lb, ub):
     # this is adopted from https://github.com/scipy/scipy/blob/main/scipy/optimize/_optimize.py
     nonzero, = alpha.nonzero()
     if len(nonzero) == 0:
-        return (0, 0)
-      
+        return 0, 0
     lb, ub = lb[nonzero], ub[nonzero]
     x0, alpha = x0[nonzero], alpha[nonzero]
     low, high = (lb - x0)/alpha, (ub - x0)/alpha
