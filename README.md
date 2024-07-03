@@ -165,6 +165,8 @@ The basic folder structrue of this open-source library is presented below:
 
 * `.circleci`: for automatic testing based on [pytest](https://docs.pytest.org/en/8.2.x/).
   * `config.yml`: configuration file in [CircleCI](https://circleci.com/).
+* `.github`: all configuration files for GitHub.
+  * `workflows`": for [https://github.com/Evolutionary-Intelligence/pypop/actions](https://github.com/Evolutionary-Intelligence/pypop/actions).
 * `docs`: for [online](https://pypop.readthedocs.io/) documentations.
 * `pypop7`: all [Python](https://www.python.org/) source code of BBO. 
 * `tutorials`: a set of tutorials.
