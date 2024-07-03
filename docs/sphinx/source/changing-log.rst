@@ -1,12 +1,19 @@
 Changing Log
 ============
 
-Version: 0.0.81
+Version: 0.0.82
 ---------------
 
 * Add a new optimizer class called Simultaneous Perturbation Stochastic Approximation (**SPSA**):
 
   * https://github.com/jgomezdans/spsa
+
+Version: 0.0.81
+---------------
+
+* Fix a bug of **line-search** for the optimizer class **POWELL**:
+
+  * https://github.com/Evolutionary-Intelligence/pypop/pull/376
 
 Version: 0.0.80
 ---------------
