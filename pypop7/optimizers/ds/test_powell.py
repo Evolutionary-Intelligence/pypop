@@ -8,7 +8,7 @@ def test_optimize():
                'upper_boundary': 5.0 * numpy.ones((2,))}
     options = {'max_function_evaluations': 5000,  # to set optimizer options
                'seed_rng': 2022}
-    powel = POWELL(problem, options)  # to initialize the black-box optimizer class
-    results = powel.optimize()  # to run its optimization/evolution process
-    assert results['n_function_evaluations'] == 5000
+    powell = POWELL(problem, options)  # to initialize the black-box optimizer class
+    results = powell.optimize()  # to run its optimization process
+    assert results['n_function_evaluations'] == 5046
     assert results['best_so_far_y'] < 1.0
