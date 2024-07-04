@@ -12,6 +12,8 @@ Online Documentations of PyPop7 for Black-Box Optimization (BBO)
 .. image:: https://readthedocs.org/projects/pypop/badge/?version=latest
 .. image:: https://static.pepy.tech/badge/pypop7
    :target: https://www.pepy.tech/projects/pypop7
+.. image:: https://coverage.readthedocs.io/
+   :target: https://github.com/Evolutionary-Intelligence/pypop/blob/main/coverage-badge.svg
 .. image:: https://img.shields.io/badge/arxiv-2212.05652-red
    :target: https://arxiv.org/abs/2212.05652
 
