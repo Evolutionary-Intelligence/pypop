@@ -7,8 +7,7 @@ def test_optimize():
                'lower_boundary': -5.0 * numpy.ones((2,)),
                'upper_boundary': 5.0 * numpy.ones((2,))}
     options = {'max_function_evaluations': 5000,  # to set optimizer options
-               'seed_rng': 2022,
-               'sigma': 3.0}  # global step-size may need to be tuned for optimality
+               'seed_rng': 2022}
     hcc = HCC(problem, options)  # to initialize the black-box optimizer class
     results = hcc.optimize()  # to run its optimization/evolution process
     assert results['n_function_evaluations'] == 5000
