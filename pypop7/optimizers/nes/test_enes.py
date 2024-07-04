@@ -8,9 +8,8 @@ def test_optimize():
                'upper_boundary': 5.0 * numpy.ones((2,))}
     options = {'max_function_evaluations': 5000,  # to set optimizer options
                'seed_rng': 2022,
-               'mean': 3.0 * numpy.ones((2,)),
-               'sigma': 3.0}  # global step-size may need to be tuned for optimality
-    enes = ENES(problem, options)  # to initialize the optimizer class
+               'mean': 3.0 * numpy.ones((2,))}
+    enes = ENES(problem, options)  # to initialize the black-box optimizer class
     results = enes.optimize()  # to run the optimization process
     assert results['n_function_evaluations'] == 5000
     assert results['best_so_far_y'] < 1.0
