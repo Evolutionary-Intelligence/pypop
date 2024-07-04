@@ -1,4 +1,5 @@
 import numpy
+
 from pypop7.optimizers.nes import NES
 
 
@@ -14,6 +15,5 @@ def test_initialize():
                'sigma': 3.0}
     nes = NES(problem, options)
     nes.initialize()
-    print(sum(nes._u))
     assert numpy.all(0.0 <= nes._u)
     assert numpy.all(nes._u <= 1.0)
