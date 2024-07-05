@@ -161,7 +161,7 @@ For LSO, computational efficiency is an indispensable performance criterion of B
 
 ## Folder Structure
 
-The basic folder structrue of this open-source library is presented below:
+The basic folder structrue of this open-source library **PyPop7** is presented below:
 
 * `.circleci`: for automatic testing based on [pytest](https://docs.pytest.org/en/8.2.x/).
   * `config.yml`: configuration file in [CircleCI](https://circleci.com/).
@@ -397,7 +397,7 @@ From 2021 to 2023, this open-source pure-Python library **PyPop7** was supported
 
 ## Citation
 
-If this open-source pure-Python library **PyPop7** is used in your paper or project, it is highly welcomed to cite the following arXiv [preprint](https://arxiv.org/abs/2212.05652) paper: **Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y., Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.** (now submitted to [JMLR](https://jmlr.org/), *under review*).
+If this open-source pure-Python library **PyPop7** is used in your paper or project, it is highly welcomed *but NOT mandatory* to cite the following arXiv [preprint](https://arxiv.org/abs/2212.05652) paper: **Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y., Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.** (now submitted to [JMLR](https://jmlr.org/), *under review*).
 
 ## Star History
 
