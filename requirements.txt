@@ -12,6 +12,7 @@ sphinx_copybutton
 rst2pdf
 pytest  # only for testing and not available in setup.cfg
 coverage  # only for testing and not available in setup.cfg
+genbadge[all]  # only for testing and not available in setup.cfg
 requests
 gymnasium
 nevergrad
