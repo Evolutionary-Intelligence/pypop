@@ -3,7 +3,7 @@ import numpy as np
 import gymnasium as gym
 
 
-class Cartpole(object):  # linear neural network
+class Cartpole(object):
     """Control of Cartpole via a linear neural network.
     """
     def __init__(self):
@@ -24,7 +24,7 @@ class Cartpole(object):  # linear neural network
         fitness : float
                   negative reward (for minimization rather than maximization).
         """
-        fitness = 0
+        fitness = 0.0
         self.observation, _ = self.env.reset()
         for i in range(1000):
             action = np.matmul(x.reshape(self.action_dim, -1), self.observation[:, np.newaxis])
@@ -39,26 +39,28 @@ class Cartpole(object):  # linear neural network
         return fitness  # for minimization (rather than maximization)
 
 
-class Ant(object):  # linear neural network
+class Ant(object):
     """Control of Ant via a linear neural network.
     """
     def __init__(self):
         self.env = gym.make('Ant-v2')
         self.observation, _ = self.env.reset()
-        self.action_dim = np.prod(self.env.action_space.shape)  # for action probability space
+        self.action_dim = np.prod(self.env.action_space.shape)
 
     def __call__(self, x):
         """Control of Ant via a linear neural network.
+
         Parameters
         ----------
         x : ndarray
             input vector.
+
         Returns
         -------
         fitness : float
                   negative reward (for minimization rather than maximization).
         """
-        fitness = 0
+        fitness = 0.0
         self.observation, _ = self.env.reset()
         for i in range(1000):
             action = np.matmul(x.reshape(self.action_dim, -1), self.observation[:, np.newaxis])
@@ -69,20 +71,22 @@ class Ant(object):  # linear neural network
         return fitness  # for minimization (rather than maximization)
 
 
-class HalfCheetah(object):  # linear neural network
+class HalfCheetah(object):
     """Control of HalfCheetah via a linear neural network.
     """
     def __init__(self):
         self.env = gym.make('HalfCheetah-v2')
         self.observation, _ = self.env.reset()
-        self.action_dim = np.prod(self.env.action_space.shape)  # for action probability space
+        self.action_dim = np.prod(self.env.action_space.shape)
 
     def __call__(self, x):
         """Control of HalfCheetah via a linear neural network.
+
         Parameters
         ----------
         x : ndarray
             input vector.
+
         Returns
         -------
         fitness : float
@@ -99,20 +103,22 @@ class HalfCheetah(object):  # linear neural network
         return fitness  # for minimization (rather than maximization)
 
 
-class Hopper(object):  # linear neural network
+class Hopper(object):
     """Control of Hopper via a linear neural network.
     """
     def __init__(self):
         self.env = gym.make('Hopper-v2')
         self.observation, _ = self.env.reset()
-        self.action_dim = np.prod(self.env.action_space.shape)  # for action probability space
+        self.action_dim = np.prod(self.env.action_space.shape)
 
     def __call__(self, x):
         """Control of Hopper via a linear neural network.
+
         Parameters
         ----------
         x : ndarray
             input vector.
+
         Returns
         -------
         fitness : float
@@ -129,20 +135,22 @@ class Hopper(object):  # linear neural network
         return fitness  # for minimization (rather than maximization)
 
 
-class Humanoid(object):  # linear neural network
+class Humanoid(object):
     """Control of Humanoid via a linear neural network.
     """
     def __init__(self):
         self.env = gym.make('Humanoid-v2')
         self.observation, _ = self.env.reset()
-        self.action_dim = np.prod(self.env.action_space.shape)  # for action probability space
+        self.action_dim = np.prod(self.env.action_space.shape)
 
     def __call__(self, x):
         """Control of Humanoid via a linear neural network.
+
         Parameters
         ----------
         x : ndarray
             input vector.
+
         Returns
         -------
         fitness : float
@@ -159,20 +167,22 @@ class Humanoid(object):  # linear neural network
         return fitness  # for minimization (rather than maximization)
 
 
-class Swimmer(object):  # linear neural network
+class Swimmer(object):
     """Control of Swimmer via a linear neural network.
     """
     def __init__(self):
         self.env = gym.make('Swimmer-v2')
         self.observation, _ = self.env.reset()
-        self.action_dim = np.prod(self.env.action_space.shape)  # for action probability space
+        self.action_dim = np.prod(self.env.action_space.shape)
 
     def __call__(self, x):
         """Control of Swimmer via a linear neural network.
+
         Parameters
         ----------
         x : ndarray
             input vector.
+
         Returns
         -------
         fitness : float
@@ -189,20 +199,22 @@ class Swimmer(object):  # linear neural network
         return fitness  # for minimization (rather than maximization)
 
 
-class Walker2d(object):  # linear neural network
+class Walker2d(object):
     """Control of Walker2d via a linear neural network.
     """
     def __init__(self):
         self.env = gym.make('Walker2d-v2')
         self.observation, _ = self.env.reset()
-        self.action_dim = np.prod(self.env.action_space.shape)  # for action probability space
+        self.action_dim = np.prod(self.env.action_space.shape)
 
     def __call__(self, x):
         """Control of Walker2d via a linear neural network.
+
         Parameters
         ----------
         x : ndarray
             input vector.
+
         Returns
         -------
         fitness : float
