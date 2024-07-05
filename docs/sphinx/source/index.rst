@@ -20,11 +20,12 @@ black-box problems. Its design goal is to provide a *unified* (API) interface an
 implementations for **Black-Box Optimizers (BBO)**, *particularly population-based optimizers*, in order to
 facilitate research repeatability, benchmarking of BBO, and especially real-world applications.
 
-Specifically, for alleviating the well-known **curse of dimensionality** of BBO, the primary focus of `PyPop7
-<https://github.com/Evolutionary-Intelligence/pypop>`_ is to cover their **State-Of-The-Art (SOTA) implementations
-for Large-Scale Optimization (LSO)** as much as possible, though many of their *medium/small-scale* versions and
-variants are also included here (some mainly for *theoretical* purposes, some mainly for *educational* purposes,
-some mainly for *benchmarking* purposes, and some mainly for *application* purposes on medium/low dimensions).
+Specifically, for alleviating the well-known ("notorious") **curse of dimensionality** of BBO, the primary focus
+of `PyPop7 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to cover their **State-Of-The-Art (SOTA)
+implementations for Large-Scale Optimization (LSO)** as much as possible, though many of their
+*medium/small-scale* versions and variants are also included here (some mainly for *theoretical* purposes, some
+mainly for *educational* purposes, some mainly for *benchmarking* purposes, and some mainly for *application*
+purposes on medium/low dimensions).
 
 .. image:: images/logo.png
    :width: 321px
@@ -33,8 +34,8 @@ some mainly for *benchmarking* purposes, and some mainly for *application* purpo
 .. note::
    This `open-source <https://www.gnu.org/>`_ Python library for **continuous** BBO is still under active maintenance.
    In the future, we plan to add some NEW BBO and some SOTA versions of existing BBO families, in order to make this
-   library as fresh as possible. Any suggestions, extensions, improvements, usages, and tests to this `open-source
-   <https://opensource.org/>`_ Python library are highly welcomed!
+   library as fresh as possible. Any suggestions, extensions, improvements, usages, and tests (even *criticisms*) to
+   this `open-source <https://opensource.org/>`_ Python library are highly welcomed!
 
 **Quick Start**
 
