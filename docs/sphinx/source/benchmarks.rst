@@ -340,6 +340,36 @@ introduction (from `Farama Foundation <https://farama.org/>`_).
 
    .. automethod:: __call__
 
+.. autoclass:: pypop7.benchmarks.gymnasium.Ant
+   :members:
+
+   .. automethod:: __call__
+
+.. autoclass:: pypop7.benchmarks.gymnasium.HalfCheetah
+   :members:
+
+   .. automethod:: __call__
+
+.. autoclass:: pypop7.benchmarks.gymnasium.Hopper
+   :members:
+
+   .. automethod:: __call__
+
+.. autoclass:: pypop7.benchmarks.gymnasium.Humanoid
+   :members:
+
+   .. automethod:: __call__
+
+.. autoclass:: pypop7.benchmarks.gymnasium.Swimmer
+   :members:
+
+   .. automethod:: __call__
+
+.. autoclass:: pypop7.benchmarks.gymnasium.Walker2d
+   :members:
+
+   .. automethod:: __call__
+
 Lennard-Jones Cluster Optimization from PyGMO
 ---------------------------------------------
 
