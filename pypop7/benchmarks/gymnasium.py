@@ -37,6 +37,8 @@ class Cartpole(object):  # linear neural network
             if terminated or truncated:
                 return fitness  # for minimization (rather than maximization)
         return fitness  # for minimization (rather than maximization)
+
+
 class Ant(object):  # linear neural network
     """Control of Ant via a linear neural network.
     """
