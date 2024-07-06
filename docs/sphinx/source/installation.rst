@@ -77,13 +77,14 @@ For MATLAB Users
 ----------------
 
 For MATLAB users, `MATLAB-to-Python Migration Guide
-<https://www.enthought.com/wp-content/uploads/2019/08/Enthought-MATLAB-to-Python-White-Paper_.pdf>`_ or
-`NumPy for MATLAB Users <https://numpy.org/devdocs/user/numpy-for-matlab-users.html>`_ is highly recommended.
-Given the fact that the USA government `blocks
-<https://www.quora.com/Did-the-US-really-block-the-license-of-MATLAB-to-several-Chinese-universities>`_ the MATLAB
-license to several Chinese universities (including *HIT*, the affiliation of one core developer), we argue that
-well-designed open-source software like Python and NumPy (to name a few) is really a good alternative to MATLAB
-in many cases.
+<https://www.enthought.com/wp-content/uploads/2019/08/Enthought-MATLAB-to-Python-White-Paper_.pdf>`_
+or `NumPy for MATLAB Users <https://numpy.org/devdocs/user/numpy-for-matlab-users.html>`_ is highly
+recommended. Given the fact that the USA government `blocks
+<https://www.quora.com/Did-the-US-really-block-the-license-of-MATLAB-to-several-Chinese-universities>`_
+the MATLAB license to several Chinese universities (including *HIT*, the affiliation of one core
+developer), we argue that an increasing number of well-designed open-source software like Python,
+NumPy, SciPy, and scikit-learn (just to name a few) are really wonderful alternatives to commercial
+MATLAB in many cases.
 
 For R Users
 -----------
