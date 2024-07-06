@@ -97,15 +97,15 @@ large set of benchmarking functions from different application fields, which hav
        9.948e-11 2973386
 
 Please refer to `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_
-for details about the **optimizer setting**. Please refer to the following contents for all currently available BBO
-in this seemingly `increasingly popular <https://pypop.readthedocs.io/en/latest/applications.html>`_ open-source Python
-library.
+for details about the **optimizer setting**. The following **API** contents are given mainly for all currently available
+BBO in this seemingly `increasingly popular <https://pypop.readthedocs.io/en/latest/applications.html>`_ open-source
+Python library.
 
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contents of PyPop7:
 
    installation
    design-philosophy
