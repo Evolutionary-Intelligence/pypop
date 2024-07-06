@@ -1,0 +1,76 @@
+# Bash
+
+nohup python run_experiments_loss_svm.py -s=1 -e=1 -o=MMES >MMES_1_1_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=2 -e=2 -o=MMES >MMES_2_2_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=3 -e=3 -o=MMES >MMES_3_3_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=4 -e=4 -o=MMES >MMES_4_4_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=5 -e=5 -o=MMES >MMES_5_5_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=6 -e=6 -o=MMES >MMES_6_6_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=7 -e=7 -o=MMES >MMES_7_7_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=8 -e=8 -o=MMES >MMES_8_8_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=9 -e=9 -o=MMES >MMES_9_9_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=10 -e=10 -o=MMES >MMES_10_10_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=11 -e=11 -o=MMES >MMES_11_11_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=12 -e=12 -o=MMES >MMES_12_12_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=13 -e=13 -o=MMES >MMES_13_13_loss_svm.out 2>&1 &
+nohup python run_experiments_loss_svm.py -s=14 -e=14 -o=MMES >MMES_14_14_loss_svm.out 2>&1 &
+
+nohup python run_experiments_loss_margin_perceptron.py -s=1 -e=1 -o=MMES >MMES_1_1_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=2 -e=2 -o=MMES >MMES_2_2_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=3 -e=3 -o=MMES >MMES_3_3_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=4 -e=4 -o=MMES >MMES_4_4_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=5 -e=5 -o=MMES >MMES_5_5_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=6 -e=6 -o=MMES >MMES_6_6_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=7 -e=7 -o=MMES >MMES_7_7_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=8 -e=8 -o=MMES >MMES_8_8_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=9 -e=9 -o=MMES >MMES_9_9_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=10 -e=10 -o=MMES >MMES_10_10_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=11 -e=11 -o=MMES >MMES_11_11_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=12 -e=12 -o=MMES >MMES_12_12_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=13 -e=13 -o=MMES >MMES_13_13_loss_margin_perceptron.out 2>&1 &
+nohup python run_experiments_loss_margin_perceptron.py -s=14 -e=14 -o=MMES >MMES_14_14_loss_margin_perceptron.out 2>&1 &
+
+nohup python run_experiments_tanh_loss_lr.py -s=1 -e=1 -o=MMES >MMES_1_1_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=2 -e=2 -o=MMES >MMES_2_2_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=3 -e=3 -o=MMES >MMES_3_3_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=4 -e=4 -o=MMES >MMES_4_4_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=5 -e=5 -o=MMES >MMES_5_5_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=6 -e=6 -o=MMES >MMES_6_6_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=7 -e=7 -o=MMES >MMES_7_7_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=8 -e=8 -o=MMES >MMES_8_8_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=9 -e=9 -o=MMES >MMES_9_9_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=10 -e=10 -o=MMES >MMES_10_10_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=11 -e=11 -o=MMES >MMES_11_11_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=12 -e=12 -o=MMES >MMES_12_12_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=13 -e=13 -o=MMES >MMES_13_13_tanh_loss_lr.out 2>&1 &
+nohup python run_experiments_tanh_loss_lr.py -s=14 -e=14 -o=MMES >MMES_14_14_tanh_loss_lr.out 2>&1 &
+
+nohup python run_experiments_mpc2023_nonsmooth.py -s=1 -e=1 -o=MMES >MMES_1_1_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=2 -e=2 -o=MMES >MMES_2_2_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=3 -e=3 -o=MMES >MMES_3_3_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=4 -e=4 -o=MMES >MMES_4_4_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=5 -e=5 -o=MMES >MMES_5_5_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=6 -e=6 -o=MMES >MMES_6_6_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=7 -e=7 -o=MMES >MMES_7_7_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=8 -e=8 -o=MMES >MMES_8_8_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=9 -e=9 -o=MMES >MMES_9_9_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=10 -e=10 -o=MMES >MMES_10_10_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=11 -e=11 -o=MMES >MMES_11_11_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=12 -e=12 -o=MMES >MMES_12_12_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=13 -e=13 -o=MMES >MMES_13_13_mpc2023_nonsmooth.out 2>&1 &
+nohup python run_experiments_mpc2023_nonsmooth.py -s=14 -e=14 -o=MMES >MMES_14_14_mpc2023_nonsmooth.out 2>&1 &
+
+nohup python run_experiments_square_loss_lr.py -s=1 -e=1 -o=MMES >MMES_1_1_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=2 -e=2 -o=MMES >MMES_2_2_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=3 -e=3 -o=MMES >MMES_3_3_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=4 -e=4 -o=MMES >MMES_4_4_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=5 -e=5 -o=MMES >MMES_5_5_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=6 -e=6 -o=MMES >MMES_6_6_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=7 -e=7 -o=MMES >MMES_7_7_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=8 -e=8 -o=MMES >MMES_8_8_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=9 -e=9 -o=MMES >MMES_9_9_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=10 -e=10 -o=MMES >MMES_10_10_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=11 -e=11 -o=MMES >MMES_11_11_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=12 -e=12 -o=MMES >MMES_12_12_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=13 -e=13 -o=MMES >MMES_13_13_square_loss_lr.out 2>&1 &
+nohup python run_experiments_square_loss_lr.py -s=14 -e=14 -o=MMES >MMES_14_14_square_loss_lr.out 2>&1 &
