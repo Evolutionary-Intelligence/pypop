@@ -52,8 +52,9 @@ of the increasingly popular `pypop7` library:
 Conda-based Virtual Environment
 -------------------------------
 
-You can first use the popular `conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_ tool to create
-a virtual environment (e.g., named as `env_pypop7`):
+You can first use the popular `conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_
+(`Miniconda <https://docs.anaconda.com/miniconda/>`_) tool to create a virtual environment (e.g.,
+named as `env_pypop7`):
 
 .. code-block:: bash
 
@@ -66,12 +67,13 @@ a virtual environment (e.g., named as `env_pypop7`):
     pip install pypop7
     conda deactivate  # close current virtual env `env_pypop7`
 
-Note that the above Python version (`3.8.12`) can be changed to meet your personal **Python3** version
-(>=3.5 if possible).
+Note that the above Python version (`3.8.12`) can be freely changed to meet your personal
+**Python-3** version (>=3.5 if possible).
 
-Although we strongly recommend to use the the `conda` package manager to build the virtual environment as your working
-space, currently we do not add this library to `conda-forge <https://conda-forge.org/>`_ and leave it for the future
-(maybe 2025). As a result, currently you can only use `pip install pypop7` for `conda`.
+Although we strongly recommend to use the the `conda` package manager to build the virtual
+environment as your working space, currently we do not add this library to `conda-forge
+<https://conda-forge.org/>`_ and leave it for the future (maybe 2025). As a result,
+currently you can only use `pip install pypop7` for `conda`.
 
 For MATLAB Users
 ----------------
