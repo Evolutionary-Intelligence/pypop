@@ -83,16 +83,16 @@ large set of benchmarking functions from different application fields, which hav
     .. code-block:: python
        :linenos:
 
-       >>> from pypop7.optimizers.es.lmmaes import LMMAES  # choose any black-box optimizer you prefer in this library
+       >>> from pypop7.optimizers.es.lmmaes import LMMAES  # or to choose any black-box optimizer you prefer in PyPop7
        >>> options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than 1e-10
-       ...            'max_runtime': 3600,  # terminate when the actual runtime exceeds 1 hour (i.e. 3600 seconds)
-       ...            'seed_rng': 0,  # seed of random number generation (which must be set for repeatability)
-       ...            'x': 4.0*np.ones((ndim_problem,)),  # initial mean of search/mutation distribution
-       ...            'sigma': 3.0,  # initial global step-size of search distribution (to be fine-tuned)
+       ...            'max_runtime': 3600,  # terminate when the actual runtime exceeds 1 hour (i.e., 3600 seconds)
+       ...            'seed_rng': 0,  # seed of random number generation (which should be set for repeatability)
+       ...            'x': 4.0*np.ones((ndim_problem,)),  # initial mean of search/mutation/sampling distribution
+       ...            'sigma': 3.0,  # initial global step-size of search distribution (to be fine-tuned for optimality)
        ...            'verbose': 500}
        >>> lmmaes = LMMAES(problem, options)  # initialize the black-box optimizer (a unified interface for all optimizers)
        >>> results = lmmaes.optimize()  # run its (time-consuming) optimization/evolution/search process
-       >>> # print final best-so-far fitness and used function evaluations returned by the used black-box optimizer
+       >>> # print best-so-far fitness and used function evaluations returned by the used black-box optimizer
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
        9.948e-11 2973386
 
