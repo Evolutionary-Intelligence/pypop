@@ -92,11 +92,15 @@ For R (and S-Plus) users, `NumPy-for-R <https://mathesaurus.sourceforge.net/r-nu
 is highly recommended. Note that `R <https://www.r-project.org/>`_ is a free and well-established software environment
 for statistical computing and graphics.
 
-Uninstalling this Open-Source Library
--------------------------------------
+Uninstallation
+--------------
 
-If necessary, you could uninstall this open-source library *freely* with one **shell** command:
+If necessary, you could uninstall this open-source Python library *freely* with only one shell
+command:
 
 .. code-block:: bash
 
     pip uninstall -y pypop7
+
+After you have installed it successfully, we wish that you can enjoy the happy journey on
+**PyPop7** for black-box optimization.
