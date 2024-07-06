@@ -15,6 +15,10 @@ Version: 0.0.81
 
   * https://github.com/Evolutionary-Intelligence/pypop/pull/376
 
+* ImportError: cannot import name 'parallel_config' from 'joblib'
+
+  * Solution: first `pip uninstall joblib`, then `pip install joblib`
+
 Version: 0.0.80
 ---------------
 
