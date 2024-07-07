@@ -16,7 +16,9 @@ class EP(Optimizer):
 
        For an introduction to pioneer contributions of Laurence J. Fogel to evolutionary computation, please refer to
        `[Evolutionary Intelligence, 2008] <https://link.springer.com/article/10.1007/s12065-007-0006-0>`_ and
-       `[ECJ 2007] <https://direct.mit.edu/evco/article-abstract/15/2/iii/1264/In-Memoriam-Laurence-J-Fogel>`_.
+       `[ECJ 2007] <https://direct.mit.edu/evco/article-abstract/15/2/iii/1264/In-Memoriam-Laurence-J-Fogel>`_. For
+       some interesting applications of `EP`, please refer to e.g., `[Fogel et al., 2004, PIEEE]
+       <https://ieeexplore.ieee.org/abstract/document/1360168>`_, just to name a few.
 
     Parameters
     ----------
