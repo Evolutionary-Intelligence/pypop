@@ -40,7 +40,7 @@ purposes on medium/low dimensions).
    If this open-source pure-Python library **PyPop7** is used in your paper or project, it is highly welcomed but NOT
    mandatory to cite the following arXiv preprint paper: Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Yang, Y.,
    Zhao, Q. and Shi, Y., 2022. PyPop7: A pure-Python library for population-based black-box optimization. arXiv
-   preprint arXiv:2212.05652. (Now this arXiv paper has been submitted to JMLR, under review).
+   preprint arXiv:2212.05652. (Now this arXiv paper has been submitted to `JMLR <https://jmlr.org/>`_, under review).
 
 **Quick Start**
 
