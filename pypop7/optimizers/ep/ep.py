@@ -10,10 +10,13 @@ class EP(Optimizer):
     optimize the black-box problem at hand.
 
     .. note:: `EP` is one of three classical families of evolutionary algorithms (EAs), proposed originally by Lawrence
-       J. Fogel, the recipient of `IEEE Evolutionary Computation Pioneer Award 1998 <https://tinyurl.com/456as566>`_ and
-       `IEEE Frank Rosenblatt Award 2006 <https://tinyurl.com/yj28zxfa>`_. When used for continuous optimization, most
-       of modern `EP` versions share much similarities (e.g. self-adaptation) with `ES
-       <https://pypop.readthedocs.io/en/latest/es/es.html>`_, another representative EA.
+       J. Fogel (both the recipient of IEEE Evolutionary Computation Pioneer Award 1998 and IEEE Frank Rosenblatt Award
+       2006). When used for continuous BBO, most of modern `EP` versions share similarities (e.g., self-adaptation)
+       with `ES <https://pypop.readthedocs.io/en/latest/es/es.html>`_, another of three representative EAs.
+
+       For an introduction to pioneer contributions of Laurence J. Fogel to evolutionary computation, please refer to
+       `[Evolutionary Intelligence, 2008] <https://link.springer.com/article/10.1007/s12065-007-0006-0>`_ and
+       `[ECJ 2007] <https://direct.mit.edu/evco/article-abstract/15/2/iii/1264/In-Memoriam-Laurence-J-Fogel>`_.
 
     Parameters
     ----------
