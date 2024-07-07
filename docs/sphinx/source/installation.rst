@@ -5,8 +5,8 @@ In order to install *pypop7*, it is **highly recommended** to use the `Python3 <
 virtual environment via `venv <https://docs.python.org/3/library/venv.html>`_ or
 `conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_. Among them, `Anaconda <https://docs.anaconda.com/>`_
 (or its mini version `miniconda <https://docs.conda.io/projects/miniconda/en/latest/>`_) is a very popular `Python
-<https://www.python.org/>`_ programming platform (IDE) of scientists and researchers especially for Artificial Intelligence
-(AI), Machine Learning (ML), Data Science, Scientific Computing, and so on.
+<https://www.python.org/>`_ programming platform (IDE) of scientists and engineers especially for Artificial Intelligence
+(AI), Machine Learning (ML), Data Science, and Scientific Computing.
 
 For **Virtual Environments**, please refer to `this online documentation
 <https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/>`_ for details.
@@ -19,14 +19,14 @@ Pip via Python Package Index (PyPI)
    https://github.com/Evolutionary-Intelligence/pypop.
 
 Note that `pip <https://pip.pypa.io/en/stable/>`_ is the package installer for Python. You can use it to install
-various packages easily. For `pypop7`, please run the following **shell** command:
+various open-source packages easily. For `pypop7`, please run the following **shell** command:
 
 .. code-block:: bash
 
     pip install pypop7
 
 For Chinese users, sometimes the following PyPI configuration can be used to speedup the installation process
-of `pypop7` owing to network blocking (note that other mirrors could be also used here):
+of `pypop7` owing to possible network blocking:
 
 .. code-block:: bash
 
@@ -40,8 +40,10 @@ rather than the default PyPI setting:
     pip config set global.index-url https://pypi.org/simple
     pip config set install.trusted-host files.pythonhosted.org
 
-If the latest cutting-edge version is preferred for development, you can install directly from the GitHub repository
-of the increasingly popular `pypop7` library:
+(Note that other mirrors for PyPI could be also used here.)
+
+If the latest cutting-edge version is preferred for development, you can install directly from the GitHub
+repository of the increasingly popular `pypop7` library:
 
 .. code-block:: bash
    
