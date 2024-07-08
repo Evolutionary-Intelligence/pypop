@@ -66,7 +66,13 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.cigar_discus
 
-* Jastrebski, G.A. and Arnold, D.V., 2006, July. Improving evolution strategies through active covariance matrix adaptation. In IEEE International Conference on Evolutionary Computation (pp. 2814-2821). IEEE.
+.. image:: images/cigar_discus.png
+   :width: 321px
+   :align: center
+
+* Jastrebski, G.A. and Arnold, D.V., 2006, July.
+  Improving evolution strategies through active covariance matrix adaptation.
+  In IEEE International Conference on Evolutionary Computation (pp. 2814-2821). IEEE.
 
 .. autofunction:: pypop7.benchmarks.base_functions.ellipsoid
 
