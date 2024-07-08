@@ -120,3 +120,8 @@ BBO/DFO/ZOO
 * Antonakopoulos, K., Vu, D.Q., Cevher, V., Levy, K. and Mertikopoulos, P., 2022, June. UnderGrad: A universal black-box optimization method with almost dimension-free convergence rate guarantees. In International Conference on Machine Learning (pp. 772-795). PMLR.
 * Arango, S.P., Jomaa, H.S., Wistuba, M. and Grabocka, J., 2021. Hpo-b: A large-scale reproducible benchmark for black-box hpo based on openml. arXiv preprint arXiv:2106.06257.
 * Flaxman, A. D., Kalai, A. T., & McMahan, H. B. (2005, January). Online convex optimization in the bandit setting: gradient descent without a gradient. In Proceedings of Annual ACM-SIAM symposium on Discrete Algorithms (pp. 385-394).
+
+Constrained Optimization
+------------------------
+
+* Maesani, A. and Floreano, D., 2014. Viability principles for constrained optimization using a (1+1)-CMA-ES. In Parallel Problem Solving from Nature. Springer.
