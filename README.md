@@ -402,4 +402,6 @@ If this open-source pure-Python library **PyPop7** is used in your paper or proj
 
 ## Star History
 
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop)
+
 [![PyPop7-Star-Data](https://api.star-history.com/svg?repos=Evolutionary-Intelligence/pypop&type=Date)](https://star-history.com/#Evolutionary-Intelligence/pypop&Date)
