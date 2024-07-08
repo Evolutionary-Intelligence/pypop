@@ -1,8 +1,10 @@
 Design Philosophy
 =================
 
-Given a large number of black-box optimizers (BBO) which still keep increasing almost every month, we need some
-(possibly) widely acceptable criteria to select from them, as presented below in details:
+Given a large number of black-box optimizers (BBO) versions/variants which still keep increasing almost every week,
+we need some (possibly) widely acceptable criteria to select from them, as presented below in details. For any
+**new/missed** BBO in the literature, we have provided an open-access (unified API) interface to help freely add
+them, **if necessary**.
 
 Respect for Beauty (Elegance)
 -----------------------------
@@ -67,7 +69,10 @@ for it, we will not consider any **very complex** optimizer in this library, in 
   * Sörensen, K., 2015. `Metaheuristics—the metaphor exposed <https://onlinelibrary.wiley.com/doi/full/10.1111/itor.12001>`_.
     International Transactions in Operational Research, 22(1), pp.3-18.
 
-  * Auger, A., Hansen, N. and Schoenauer, M., 2012. `Benchmarking of continuous black box optimization algorithms
+  * `Auger, A. <https://scholar.google.com/citations?user=z04BQjgAAAAJ&hl=en&oi=ao>`_, `Hansen, N.
+    <https://scholar.google.com/citations?user=Z8ISh-wAAAAJ&hl=en&oi=ao>`_ and `Schoenauer, M.
+    <https://scholar.google.com/citations?user=GrCk6WoAAAAJ&hl=en&oi=ao>`_, 2012.
+    `Benchmarking of continuous black box optimization algorithms
     <https://direct.mit.edu/evco/article-abstract/20/4/481/956/Benchmarking-of-Continuous-Black-Box-Optimization>`_.
     Evolutionary Computation, 20(4), pp.481-481.
 
