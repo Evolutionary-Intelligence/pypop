@@ -386,10 +386,10 @@ For each algorithm family, we try to provide several *representative* applicatio
 * Automated Machine Learning (AutoML)
   * Hutter, F., Kotthoff, L. and Vanschoren, J., 2019. [Automated machine learning: Methods, systems, challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf). Springer Nature.
   * Hoos, H.H., 2011. [Automated algorithm configuration and parameter tuning](https://link.springer.com/chapter/10.1007/978-3-642-21434-9_3). In Autonomous Search (pp. 37-71). Springer, Berlin, Heidelberg.
-* Software
+* Software for Black-Box Optimization
   * Custódio, A.L., Scheinberg, K. and Nunes Vicente, L., 2017. [Methodologies and software for derivative-free optimization](https://epubs.siam.org/doi/abs/10.1137/1.9781611974683.ch37). Advances and Trends in Optimization with Engineering Applications, pp.495-506.
-  * Rios, L.M. and Sahinidis, N.V., 2013. [Derivative-free optimization: A review of algorithms and comparison of software implementations](https://link.springer.com/article/10.1007/s10898-012-9951-y). Journal of Global Optimization, 56, pp.1247-1293.
-  * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010. [PyBrain](https://jmlr.org/papers/v11/schaul10a.html). Journal of Machine Learning Research, 11(24), pp.743-746.
+  * Rios, L.M. and Sahinidis, N.V., 2013. [Derivative-free optimization: A review of algorithms and comparison of software implementations](https://link.springer.com/article/10.1007/s10898-012-9951-y). JGO, 56, pp.1247-1293.
+  * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010. [PyBrain](https://jmlr.org/papers/v11/schaul10a.html). JMLR, 11(24), pp.743-746.
   * Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
 
 ## Sponsor
