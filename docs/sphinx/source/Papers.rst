@@ -1,5 +1,5 @@
-Some (Rather All) Papers on Black-Box Optimization (BBO)
-========================================================
+Some (Rather All) of Papers on Black-Box Optimization (BBO)
+===========================================================
 
 Mathematical Theories for BBO
 -----------------------------
