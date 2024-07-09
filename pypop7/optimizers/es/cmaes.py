@@ -31,8 +31,9 @@ class CMAES(ES):
        <https://arc.aiaa.org/doi/full/10.2514/1.J052715>`_, `[Melton, 2014, Acta Astronautica]
        <https://www.sciencedirect.com/science/article/pii/S0094576514002318>`_, `[Khaira et al., 2014, ACS Macro Lett.]
        <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_, `[Wang et al., 2010, TOG]
-       <https://dl.acm.org/doi/10.1145/1778765.1778810>`_,
-       RoboCup 2014 3D Simulation League Competition, to name a few.
+       <https://dl.acm.org/doi/10.1145/1778765.1778810>`_, `[Wampler&Popović, 2009, TOG]
+       <https://dl.acm.org/doi/10.1145/1531326.1531366>`_
+       RoboCup 2014 3D Simulation League Competition Champions, to name a few.
 
     Parameters
     ----------
