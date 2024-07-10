@@ -125,3 +125,4 @@ Constrained Optimization
 ------------------------
 
 * Maesani, A. and Floreano, D., 2014. Viability principles for constrained optimization using a (1+1)-CMA-ES. In Parallel Problem Solving from Nature. Springer.
+* Wampler, K. and Popović, Z., 2009. Optimal gait and form for animal locomotion. ACM Transactions on Graphics, 28(3), pp.1-8.
