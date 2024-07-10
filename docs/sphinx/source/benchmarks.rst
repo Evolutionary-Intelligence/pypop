@@ -96,6 +96,10 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.schwefel221
 
+.. image:: images/schwefel221.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.step
 
 .. autofunction:: pypop7.benchmarks.base_functions.schwefel222
