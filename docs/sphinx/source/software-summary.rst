@@ -139,10 +139,10 @@ Matlab
 
   * https://gitlab.ethz.ch/mavt-cse/cma-es
 
-* https://divis-gmbh.de/es-software/ (ES)
+* https://divis-gmbh.de/es-software/ (**ES**)
 
-  * The Octave source code (proprietary implementations) can be downloaded only for non-commercial use.
-
+  * "The Octave source code (proprietary implementations) can be downloaded only for non-commercial use."
+  * It seems to be NOT openly-access now!
 * https://github.com/BIMK/PlatEMO (**1.5k stars**)
 
   * **"Evolutionary multi-objective optimization platform"**
