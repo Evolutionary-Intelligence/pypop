@@ -143,10 +143,12 @@ Matlab
 
   * The Octave source code (proprietary implementations) can be downloaded only for non-commercial use.
 
-* https://github.com/BIMK/PlatEMO
+* https://github.com/BIMK/PlatEMO (**1.5k stars**)
 
   * **"Evolutionary multi-objective optimization platform"**
-  * 1.5k stars
+  * Ye Tian, Ran Cheng, Xingyi Zhang, and Yaochu Jin, PlatEMO: A MATLAB Platform for Evolutionary
+    Multi-Objective Optimization [Educational Forum], IEEE Computational Intelligence Magazine,
+    2017, 12(4): 73-87.
 * https://github.com/blockchain-group/DIRECTGO
 * https://github.com/m01marpor/BFO
 * https://github.com/ProbabilisticNumerics/entropy-search (ESEGO)
