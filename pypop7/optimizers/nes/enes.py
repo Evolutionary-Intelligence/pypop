@@ -4,7 +4,7 @@ from pypop7.optimizers.nes.ones import ONES  # Original Natural Evolution Strate
 
 
 def _combine_block(ll):
-    ll = [list(map(np.mat, row)) for row in ll]
+    ll = [list(map(np.asmatrix, row)) for row in ll]
     h = [m.shape[1] for m in ll[0]]
     v, v_i = [row[0].shape[0] for row in ll], 0
     mat = np.zeros((sum(h), sum(v)))
@@ -135,8 +135,8 @@ class ENES(ONES):
             c = np.dot(inv_cv[k + 1:, k], q)
             r, r_g = 1.0/(w - c), 1.0/(w_g - c)
             t, t_g = -(1.0 + r*c)/w, -(1.0 + r_g*c)/w_g
-            g = _combine_block([[r_g, t_g*q], [np.mat(t_g*q).T, d + r_g*np.outer(q, q)]])
-            d = _combine_block([[r, t*q], [np.mat(t*q).T, d + r*np.outer(q, q)]])
+            g = _combine_block([[r_g, t_g*q], [np.asmatrix(t_g*q).T, d + r_g*np.outer(q, q)]])
+            d = _combine_block([[r, t*q], [np.asmatrix(t*q).T, d + r*np.outer(q, q)]])
             v[j - (self.ndim_problem - k - 1):j + 1, :] = np.dot(g, v[j - (self.ndim_problem - k - 1):j + 1, :])
             j -= self.ndim_problem - k
         grad, v_2 = np.zeros((self._n_distribution,)), v*v
