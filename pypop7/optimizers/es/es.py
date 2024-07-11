@@ -232,7 +232,7 @@ class ES(Optimizer):
             self._n_restart += 1
             self._list_generations.append(self._n_generations)  # for each restart
             self._n_generations = 0
-            self._list_fitness = [np.Inf]
+            self._list_fitness = [np.inf]
             self.sigma = np.copy(self._sigma_bak)
             self.n_individuals *= 2
             self.n_parents = int(self.n_individuals/2)
