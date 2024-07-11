@@ -91,7 +91,7 @@ class XNES(NES):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/xnes.py
     """
     def __init__(self, problem, options):
-        options['sigma'] = np.Inf  # not used for `SGES`
+        options['sigma'] = np.inf  # not used for `XNES`
         NES.__init__(self, problem, options)
         self.lr_cv = 0.6*(3.0 + np.log(self.ndim_problem))/self.ndim_problem/np.sqrt(self.ndim_problem)
         self.lr_sigma = 0.6*(3.0 + np.log(self.ndim_problem))/self.ndim_problem/np.sqrt(self.ndim_problem)
