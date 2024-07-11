@@ -134,6 +134,7 @@ Iterative Optimization Heuristics (IOHs)*.
 
 Matlab
 ------
+
 * https://cse-lab.seas.harvard.edu/cse-lab-software (Now it is not actively maintained.)
 
   * https://gitlab.ethz.ch/mavt-cse/cma-es
@@ -142,6 +143,10 @@ Matlab
 
   * The Octave source code (proprietary implementations) can be downloaded only for non-commercial use.
 
+* https://github.com/BIMK/PlatEMO
+
+  * **"Evolutionary multi-objective optimization platform"**
+  * 1.5k stars
 * https://github.com/blockchain-group/DIRECTGO
 * https://github.com/m01marpor/BFO
 * https://github.com/ProbabilisticNumerics/entropy-search (ESEGO)
