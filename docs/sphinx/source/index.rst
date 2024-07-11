@@ -109,7 +109,6 @@ Python library.
    :caption: Contents of PyPop7:
 
    installation
-   design-philosophy
    user-guide
    tutorials/tutorials
    es/es
@@ -132,6 +131,7 @@ Python library.
    software-summary
    applications
    sponsor
+   design-philosophy
    changing-log
 
 
