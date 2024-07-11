@@ -212,3 +212,6 @@ the powerful CMA-ES algorithm*.
 
 For experimental comparisons, refer to e.g., `2021 <https://onlinelibrary.wiley.com/doi/10.1111/exsy.12672>`_
 for MOO.
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-software-summary
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-software-summary
