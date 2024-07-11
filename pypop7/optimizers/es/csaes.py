@@ -174,7 +174,7 @@ class CSAES(DSAES):
             self.n_parents = int(self.n_individuals/4)
             self.lr_sigma = np.sqrt(self.n_parents/(self.ndim_problem + self.n_parents))
             z, x, mean, s, y = self.initialize(True)
-            self._list_fitness = [np.Inf]
+            self._list_fitness = [np.inf]
         return z, x, mean, s, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)
