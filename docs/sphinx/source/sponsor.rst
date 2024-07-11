@@ -52,3 +52,6 @@ much easier (still updated now):
 * `Prof. Suganthan <https://github.com/P-N-Suganthan>`_: `MATLAB code for CLPSO
   <https://github.com/P-N-Suganthan/CODES>`_
   ( `forked <https://github.com/Evolutionary-Intelligence/CODES>`_ )
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-sponsor
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-sponsor
