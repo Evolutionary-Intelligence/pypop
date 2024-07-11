@@ -7,7 +7,7 @@ from pypop7.benchmarks.cases import *
 
 # helper function
 def _check_rotation_matrix(x, error=1e-6):
-    x = np.mat(x)
+    x = np.asmatrix(x)
     if x.shape[0] != x.shape[1]:
         raise TypeError('rotation matrix should be a square matrix.')
     a = np.abs(np.matmul(x, x.transpose()) - np.eye(x.shape[0])) < error
