@@ -135,14 +135,17 @@ Iterative Optimization Heuristics (IOHs)*.
 Matlab
 ------
 
-* https://cse-lab.seas.harvard.edu/cse-lab-software (Now it is not actively maintained.)
+Note that `Matlab <https://ww2.mathworks.cn/products/matlab.html>`_ is one *commercial* platform for
+scientific computing and `GNU Octave <https://octave.org/>`_ is its **open-source** alternative.
+
+* https://cse-lab.seas.harvard.edu/cse-lab-software (**CMA-ES**)
 
   * https://gitlab.ethz.ch/mavt-cse/cma-es
-
+  * Now it seems to be NOT maintained actively!
 * https://divis-gmbh.de/es-software/ (**ES**)
 
   * "The Octave source code (proprietary implementations) can be downloaded only for non-commercial use."
-  * It seems to be NOT openly-access now!
+  * Now It seems to be NOT open-access!
 * https://github.com/BIMK/PlatEMO (**1.5k stars**)
 
   * **"Evolutionary multi-objective optimization platform"**
