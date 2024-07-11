@@ -8,6 +8,10 @@ Version: 0.0.82
 
   * https://github.com/jgomezdans/spsa
 
+* AttributeError: `np.mat` was removed in the NumPy 2.0 release. Use `np.asmatrix` instead.
+
+  * https://numpy.org/devdocs/release/2.0.0-notes.html
+
 Version: 0.0.81
 ---------------
 
