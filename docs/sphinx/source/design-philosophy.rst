@@ -162,3 +162,6 @@ intelligence (SI), and metaheuristics communities, please refer to the following
 Finally, we expect to see more interesting discussions about the **beauty** of BBO from different perspectives. For any
 **new/missed** BBO, we provide a *unified* API interface to help freely add them if they satisfy the above design
 philosophy well. See the `development guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for details.
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-design-philosophy
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-design-philosophy

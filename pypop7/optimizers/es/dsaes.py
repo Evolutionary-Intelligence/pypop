@@ -147,7 +147,7 @@ class DSAES(ES):
             self._n_generations = 0
             self.n_individuals *= 2
             x, mean, sigmas, y = self.initialize(True)
-            self._list_fitness = [np.Inf]
+            self._list_fitness = [np.inf]
         return x, mean, sigmas, y
 
     def optimize(self, fitness_function=None, args=None):  # for all generations (iterations)

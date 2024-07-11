@@ -137,7 +137,7 @@ class SAES(ES):
             self._n_generations = 0
             self.n_individuals *= 2
             self.n_parents = int(self.n_individuals/2)
-            self._list_fitness = [np.Inf]
+            self._list_fitness = [np.inf]
         return is_restart
 
     def restart_initialize(self, x=None, mean=None, sigmas=None, y=None):
