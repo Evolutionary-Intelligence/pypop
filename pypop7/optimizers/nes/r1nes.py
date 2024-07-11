@@ -90,7 +90,7 @@ class R1NES(NES):
     https://github.com/pybrain/pybrain/blob/master/pybrain/optimization/distributionbased/rank1.py
     """
     def __init__(self, problem, options):
-        options['sigma'] = np.Inf  # not used for `R1NES`
+        options['sigma'] = np.inf  # not used for `R1NES`
         NES.__init__(self, problem, options)
         self.n_individuals = int(max(5, max(4*np.log2(self.ndim_problem), 0.2*self.ndim_problem)))
         self.lr_sigma = 0.1
