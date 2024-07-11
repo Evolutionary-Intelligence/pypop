@@ -161,7 +161,7 @@ For LSO, computational efficiency is an indispensable performance criterion of B
 
 ## Folder Structure
 
-The basic folder structrue of this open-source library **PyPop7** is presented below:
+The main folder structure of this open-source library **PyPop7** is presented below:
 
 * `.circleci`: for automatic testing based on [pytest](https://docs.pytest.org/en/8.2.x/).
   * `config.yml`: configuration file in [CircleCI](https://circleci.com/).
