@@ -128,11 +128,11 @@ Python library.
    benchmarks
    util-functions-for-BBO
    development-guide
-   software-summary
    applications
    sponsor
    design-philosophy
    changing-log
+   software-summary
 
 
 
