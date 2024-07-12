@@ -260,3 +260,6 @@ into this open-source Python library, as shown below (just to name a few):
   * Rice, J.R., 1976. `The algorithm selection problem
     <https://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=1098&context=cstech>`_. In Advances in Computers (Vol. 15,
     pp. 65-118). Elsevier.
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-user-guide
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-user-guide
