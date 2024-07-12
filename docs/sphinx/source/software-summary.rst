@@ -145,7 +145,7 @@ scientific computing and `GNU Octave <https://octave.org/>`_ is its **open-sourc
 * https://divis-gmbh.de/es-software/ (**ES**)
 
   * "The Octave source code (proprietary implementations) can be downloaded only for non-commercial use."
-  * Now It seems to be NOT open-access!
+  * Now it seems to be NOT open-access!
 * https://github.com/BIMK/PlatEMO (**1.5k stars**)
 
   * **"Evolutionary multi-objective optimization platform"**
