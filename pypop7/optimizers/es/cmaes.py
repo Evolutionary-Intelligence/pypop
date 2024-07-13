@@ -148,7 +148,7 @@ class CMAES(ES):
     <https://cyberagent.ai/>`_:
     https://github.com/CyberAgentAILab/cmaes
 
-    Please refer to the *official* Python implementation from `Hansen, N.
+    Please refer to its *official* Python implementation from `Hansen, N.
     <http://www.cmap.polytechnique.fr/~nikolaus.hansen/>`_:
     https://github.com/CMA-ES/pycma
     """
