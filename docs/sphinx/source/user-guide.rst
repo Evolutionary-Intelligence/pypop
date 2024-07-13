@@ -68,7 +68,7 @@ to support this more complex scenario:
        ...            'lower_boundary': -10.0*np.ones((ndim_problem,)),  # lower search boundary
        ...            'upper_boundary': 10.0*np.ones((ndim_problem,))}  # upper search boundary
 
-* 2) to utilize the easy-to-use **unified** interface provided for all BBO in this library, e.g.:
+* 2) to utilize the easy-to-use **unified** (API) interface provided for all BBO in this library, e.g.:
 
     .. code-block:: python
        :linenos:
