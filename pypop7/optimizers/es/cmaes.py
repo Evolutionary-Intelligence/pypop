@@ -15,7 +15,8 @@ class CMAES(ES):
        <https://www.nature.com/articles/s41467-024-45882-z>`_, `[Jin et al., 2024]
        <https://link.springer.com/article/10.1007/s11044-024-09982-4>`_, `[Koginov et al., 2024, TMRB]
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Elfikky et al., 2024, LWC]
-       <https://ieeexplore.ieee.org/abstract/document/10531788>`_, `[Falk et al., 2023, PNAS]
+       <https://ieeexplore.ieee.org/abstract/document/10531788>`_, `[Hooper et al., 2024, RSIF]
+       <https://royalsocietypublishing.org/doi/10.1098/rsif.2024.0141>`_, `[Falk et al., 2023, PNAS]
        <https://www.pnas.org/doi/abs/10.1073/pnas.2219558120>`_, `[Thamm&Rosenow, 2023, PRL]
        <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.116202>`_, `[Brea et al., 2023, Nature
        Communications] <https://www.nature.com/articles/s41467-023-38570-x>`_, `[Slade et al., 2022, Nature]
