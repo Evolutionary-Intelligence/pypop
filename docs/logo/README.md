@@ -6,3 +6,5 @@ Please use the following report and logo **freely**.
   public presentations.
 * `Logo-of-PyPop7.png`: A **PNG**-format log figure for PyPop7, which is mainly used for
   public presentations.
+* `WeChatGroupTo*.png`: A **PNG**-format figure for our WeChat group mainly for Chinese
+  users.
