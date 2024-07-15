@@ -6,9 +6,10 @@ Application&Citation Papers
 
 Up to now, this open-source Python library `PyPop7` has been **used/cited** (at least) in the following papers:
 
-* 10: Vodopija, A., Cork, J.N. and Filipič, B., 2024, July. `The Lunar Lander Landing Site Selection Benchmark Reexamined: Problem Characterization and Algorithm Performance <https://dl.acm.org/doi/abs/10.1145/3638529.3654229>`_. In Proceedings of Annual Genetic and Evolutionary Computation Conference (pp. 1381-1389). ACM. [**cited**]
+* 10: Vodopija, A., Cork, J.N. and Filipič, B., 2024, July. `The Lunar Lander Landing Site Selection Benchmark Reexamined: Problem Characterization and Algorithm Performance <https://dl.acm.org/doi/abs/10.1145/3638529.3654229>`_. In Proceedings of Annual Genetic and Evolutionary Computation Conference (pp. 1381-1389). ACM. [**used&cited**]
 
   * Jozef Stefan Institute + Jozef Stefan International Postgraduate School
+  * **JADE**
 * 9: Bailo, R., Barbaro, A., Gomes, S.N., Riedl, K., Roith, T., Totzeck, C. and Vaes, U., 2024. `CBX: Python and Julia Packages for Consensus-based Interacting Particle Methods <https://github.com/PdIPS/CBX/blob/main/paper.md>`_. arXiv preprint arXiv:2403.14470. [**cited**]
 
   * University of Oxford + Technische Universiteit Delft + University of Warwick + Technical University of Munich + Munich Center for Machine Learning + Deutsches Elektronen-Synchrotron DESY + University of Wuppertal + Inria + Ecole des Ponts
