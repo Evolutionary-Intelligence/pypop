@@ -788,3 +788,6 @@ For each black-box optimizer (BBO) from this open-source library, we also provid
 on their corresponding `API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_
 documentations and two *testing* code (if possible) on their corresponding `source code
 <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_ folders.
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-tutorials
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-tutorials
