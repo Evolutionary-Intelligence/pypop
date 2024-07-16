@@ -789,7 +789,7 @@ on their corresponding `API <https://pypop.readthedocs.io/_/downloads/en/latest/
 documentations and two *testing* code (if possible) on their corresponding `source code
 <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_ folders.
 
-.. note:: ""---[Schwefel, 1997]
+.. note:: "Again unfortunately, there does not exist an agreed-upon test problem catalogue to evaluate old aswell as new algorithms in a concise way. It is doubtful whether such a test bed will ever be agreed uponbut efforts in that direction would be worthwhile."---[Schwefel, 1997]
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-tutorials
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-tutorials
