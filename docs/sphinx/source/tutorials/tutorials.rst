@@ -781,13 +781,15 @@ The final figure output is shown below:
    :width: 500px
    :align: center
 
-More Examples
--------------
+More Usage Examples
+-------------------
 
-For each black-box optimizer (BBO) from this open-source library, we also provide a *toy* example
-on their corresponding `API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_
+For each black-box optimizer from this open-source Python library, we have also provide a *toy*
+example on their corresponding `API <https://pypop.readthedocs.io/_/downloads/en/latest/pdf/>`_
 documentations and two *testing* code (if possible) on their corresponding `source code
 <https://github.com/Evolutionary-Intelligence/pypop/tree/main/pypop7/optimizers>`_ folders.
+For a summary of its applications and praises (from others), please refer to `this html
+<https://pypop.readthedocs.io/en/latest/applications.html>`_.
 
 .. note:: `"Unfortunately, there does not exist an agreed-upon test problem catalogue to evaluate
    old as well as new algorithms in a concise way. It is doubtful whether such a test bed will
