@@ -337,7 +337,7 @@ For each algorithm family, we try to provide several *representative* applicatio
 * Genetic Algorithm (GA)
   * Whitley, D., 2019. [Next generation genetic algorithms: A user’s guide and tutorial](https://link.springer.com/chapter/10.1007/978-3-319-91086-4_8). In Handbook of Metaheuristics (pp. 245-274). Springer, Cham.
   * Levine, D., 1997. [Commentary—Genetic algorithms: A practitioner's view](https://pubsonline.informs.org/doi/abs/10.1287/ijoc.9.3.256). INFORMS Journal on Computing, 9(3), pp.256-259.
-  * Goldberg, D.E., 1994. [Genetic and evolutionary algorithms come of age](https://dl.acm.org/doi/10.1145/175247.175259). Communications of the CACM, 37(3), pp.113-120.
+  * Goldberg, D.E., 1994. [Genetic and evolutionary algorithms come of age](https://dl.acm.org/doi/10.1145/175247.175259). CACM, 37(3), pp.113-120.
   * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
   * De Jong, K.A., 1993. [Are genetic algorithms function optimizer?](https://www.sciencedirect.com/science/article/pii/B9780080948324500064). Foundations of Genetic Algorithms, pp.5-17.
   * Mitchell, M., Holland, J. and Forrest, S., 1993. [When will a genetic algorithm outperform hill climbing](https://proceedings.neurips.cc/paper/1993/hash/ab88b15733f543179858600245108dd8-Abstract.html). Advances in Neural Information Processing Systems (pp. 51-58).
