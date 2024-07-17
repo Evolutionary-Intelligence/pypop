@@ -45,6 +45,8 @@ Till now, our open-source library `PyPop7` has been used (at least) in the follo
 
 * 14: https://github.com/nikivanstein/LLaMEA (2024)
 * 13: https://github.com/AmitDIRTYC0W/neuronveil-mnist-train (2024)
+
+  * **CLPSO + GL25 + SHADE + JADE + LEP**
 * 12: https://pypi.org/project/advanced-global-optimizers/ (2024)
 * 11: https://github.com/aiboxlab/evolutionary-abm-calibration (2024)
 * 10: https://github.com/Echozqn/llm [https://github.com/Echozqn/llm/tree/main/collie/examples/alpaca/eda] (2024)
