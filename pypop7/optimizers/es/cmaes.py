@@ -7,8 +7,8 @@ class CMAES(ES):
     """Covariance Matrix Adaptation Evolution Strategy (CMAES).
 
     .. note:: `CMAES` is widely recognized as one of **State-Of-The-Art (SOTA)** evolutionary algorithms for continuous
-       black-box optimization, according to the well-recognized `Nature <https://www.nature.com/articles/nature14544>`_
-       review of Evolutionary Computation.
+       black-box optimization (BBO), according to one well-recognized `Nature <https://doi.org/10.1038/nature14544>`_
+       review of Evolutionary Computation (EC).
 
        For some interesting applications of `CMAES`, please refer to e.g., `[Wang et al., 2024, ICLR]
        <https://arxiv.org/abs/2404.00451>`_, `[Gil-Fuster et al., 2024, Nature Communications]
