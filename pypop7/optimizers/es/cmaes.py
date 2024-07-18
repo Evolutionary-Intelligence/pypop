@@ -37,7 +37,8 @@ class CMAES(ES):
        <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_, `[Wang et al., 2010, TOG]
        <https://dl.acm.org/doi/10.1145/1778765.1778810>`_, `[Wampler&Popović, 2009, TOG]
        <https://dl.acm.org/doi/10.1145/1531326.1531366>`_
-       RoboCup 2014 3D Simulation League Competition Champions, to name a few.
+       `RoboCup <https://doi.org/10.1007/s10458-024-09642-z>`_ 2014 3D Simulation League Competition Champions,
+       to name a few.
 
     Parameters
     ----------
