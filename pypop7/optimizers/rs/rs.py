@@ -104,6 +104,11 @@ class RS(Optimizer):
     A discussion of random methods for seeking maxima.
     Operations Research, 6(2), pp.244-251.
     https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244
+
+    Ashby, W.R., 1952.
+    `Design for a brain: The origin of adaptive behaviour.
+    <https://link.springer.com/book/10.1007/978-94-015-1320-3>`_
+    Springer.
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
