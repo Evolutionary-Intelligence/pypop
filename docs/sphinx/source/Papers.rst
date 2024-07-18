@@ -47,24 +47,6 @@ SPSA
 * Spall, J. C., Hill, S. D., & Stark, D. R. (2006). Theoretical framework for comparing several stochastic optimization approaches. Probabilistic and Randomized Methods for Design under Uncertainty, 99-117.
 * Spall, J. C. (1999, December). Stochastic optimization and the simultaneous perturbation method. In Proceedings of Conference on Winter Simulation (pp. 101-109).
 
-ES
---
-
-* Nomura, M., Akimoto, Y. and Ono, I., 2024. CMA-ES with learning rate adaptation. arXiv preprint arXiv:2401.15876.
-* He, X., Zheng, Z., Chen, C., Zhou, Y., Luo, C. and Lin, Q., 2022. `Distributed evolution strategies for black-box stochastic optimization <https://ieeexplore.ieee.org/abstract/document/9762038>`_. IEEE Transactions on Parallel and Distributed Systems, 33(12), pp.3718-3731.
-* Spettel, P. and Beyer, H.G., 2022. On the design of a matrix adaptation evolution strategy for optimization on general quadratic manifolds. ACM Transactions on Evolutionary Learning and Optimization, 2(3), pp.1-32.
-* Hellwig, M. and Beyer, H.G., 2020. On the steady state analysis of covariance matrix self-adaptation evolution strategies on the noisy ellipsoid model. Theoretical Computer Science, 832, pp.98-122.
-* Maheswaranathan, N., Metz, L., Tucker, G., Choi, D., & Sohl-Dickstein, J. (2019, May). Guided evolutionary strategies: Augmenting random search with surrogate gradients. In International Conference on Machine Learning (pp. 4264-4273). PMLR.
-* Choromanski, K., Rowland, M., Sindhwani, V., Turner, R., & Weller, A. (2018, July). Structured evolution with compact architectures for scalable policy optimization. In International Conference on Machine Learning (pp. 970-978). PMLR.
-* Beyer, H.G. and Hellwig, M., 2016. The dynamics of cumulative step size adaptation on the ellipsoid model. Evolutionary Computation, 24(1), pp.25-57.
-* Beyer, H.G., 2014. Convergence analysis of evolutionary algorithms that are based on the paradigm of information geometry. Evolutionary Computation, 22(4), pp.679-709.
-* Pošík, P., Huyer, W. and Pál, L., 2012. A comparison of global search algorithms for continuous black box optimization. Evolutionary Computation, 20(4), pp.509-541.
-* Arnold, D.V. and Salomon, R., 2007. Evolutionary gradient search revisited. IEEE Transactions on Evolutionary Computation, 11(4), pp.480-495.
-* Ulmer, H., Streichert, F. and Zell, A., 2005. Model assisted evolution strategies. In Knowledge Incorporation in Evolutionary Computation (pp. 333-355). Springer Berlin Heidelberg.
-* Arnold, D.V. and Beyer, H.G., 2004. Performance analysis of evolutionary optimization with cumulative step length adaptation. IEEE Transactions on Automatic Control, 49(4), pp.617-622.
-* Beyer, H.G. and Arnold, D.V., 2003. Qualms regarding the optimality of cumulative path length control in CSA/CMA-evolution strategies. Evolutionary Computation, 11(1), pp.19-28.
-* Schwefel, H.P., 1981. Numerical optimization of computer models. John Wiley & Sons, Inc.
-
 EDA
 ---
 
@@ -126,3 +108,22 @@ Constrained Optimization
 
 * Maesani, A. and Floreano, D., 2014. Viability principles for constrained optimization using a (1+1)-CMA-ES. In Parallel Problem Solving from Nature. Springer.
 * Wampler, K. and Popović, Z., 2009. Optimal gait and form for animal locomotion. ACM Transactions on Graphics, 28(3), pp.1-8.
+
+ES (1964)
+---------
+
+* Nomura, M., Akimoto, Y. and Ono, I., 2024. CMA-ES with learning rate adaptation. arXiv preprint arXiv:2401.15876.
+* He, X., Zheng, Z., Chen, C., Zhou, Y., Luo, C. and Lin, Q., 2022. `Distributed evolution strategies for black-box stochastic optimization <https://ieeexplore.ieee.org/abstract/document/9762038>`_. IEEE Transactions on Parallel and Distributed Systems, 33(12), pp.3718-3731.
+* Spettel, P. and Beyer, H.G., 2022. On the design of a matrix adaptation evolution strategy for optimization on general quadratic manifolds. ACM Transactions on Evolutionary Learning and Optimization, 2(3), pp.1-32.
+* Hellwig, M. and Beyer, H.G., 2020. On the steady state analysis of covariance matrix self-adaptation evolution strategies on the noisy ellipsoid model. Theoretical Computer Science, 832, pp.98-122.
+* Maheswaranathan, N., Metz, L., Tucker, G., Choi, D., & Sohl-Dickstein, J. (2019, May). Guided evolutionary strategies: Augmenting random search with surrogate gradients. In International Conference on Machine Learning (pp. 4264-4273). PMLR.
+* Choromanski, K., Rowland, M., Sindhwani, V., Turner, R., & Weller, A. (2018, July). Structured evolution with compact architectures for scalable policy optimization. In International Conference on Machine Learning (pp. 970-978). PMLR.
+* Beyer, H.G. and Hellwig, M., 2016. The dynamics of cumulative step size adaptation on the ellipsoid model. Evolutionary Computation, 24(1), pp.25-57.
+* Beyer, H.G., 2014. Convergence analysis of evolutionary algorithms that are based on the paradigm of information geometry. Evolutionary Computation, 22(4), pp.679-709.
+* Makukhin, K., 2014. Evolution strategies with an RBM-based meta-model. In Proceedings of Knowledge Management and Acquisition for Smart Systems and Services (pp. 246-259). Springer.
+* Pošík, P., Huyer, W. and Pál, L., 2012. A comparison of global search algorithms for continuous black box optimization. Evolutionary Computation, 20(4), pp.509-541.
+* Arnold, D.V. and Salomon, R., 2007. Evolutionary gradient search revisited. IEEE Transactions on Evolutionary Computation, 11(4), pp.480-495.
+* Ulmer, H., Streichert, F. and Zell, A., 2005. Model assisted evolution strategies. In Knowledge Incorporation in Evolutionary Computation (pp. 333-355). Springer Berlin Heidelberg.
+* Arnold, D.V. and Beyer, H.G., 2004. Performance analysis of evolutionary optimization with cumulative step length adaptation. IEEE Transactions on Automatic Control, 49(4), pp.617-622.
+* Beyer, H.G. and Arnold, D.V., 2003. Qualms regarding the optimality of cumulative path length control in CSA/CMA-evolution strategies. Evolutionary Computation, 11(1), pp.19-28.
+* Schwefel, H.P., 1981. Numerical optimization of computer models. John Wiley & Sons, Inc.
