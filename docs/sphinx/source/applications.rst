@@ -55,11 +55,14 @@ Till now, our open-source library `PyPop7` has been used (at least) in the follo
 * 9: https://github.com/BruthYU/BPT-VLM (2023)
 
   * https://github.com/ECNU-ICALK/BPT-VLM
-* 8: https://github.com/opoframework/opof [online documentation: https://opof.kavrakilab.org/] (2023)
+* 8: https://github.com/opoframework/opof [online docs: https://opof.kavrakilab.org/] (2023)
 
   * https://github.com/annart167/opof
-* 7: https://github.com/pyanno4rt/pyanno4rt [online documentation: https://pyanno4rt.readthedocs.io/en/latest/] (2023)
+* 7: https://github.com/pyanno4rt/pyanno4rt [online docs: https://pyanno4rt.readthedocs.io/en/latest/] (2023)
 
+  * Tim Ortkamp: Scientific Computing Center, Karlsruhe Institute of Technology (KIT) +
+    Medical Physics in Radiation Oncology, German Cancer Research Center (DKFZ) +
+    Helmholtz Information and Data Science School for Health
   * **LMCMA + LMMAES**
 * 6: https://github.com/TUIlmenauAMS/BlackBoxOptimizerSPcomparison (2023)
 * 5: https://github.com/Anoxxx/SynCMA-official (2023)
