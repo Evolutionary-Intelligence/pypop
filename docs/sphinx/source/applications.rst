@@ -59,6 +59,8 @@ Till now, our open-source library `PyPop7` has been used (at least) in the follo
 
   * https://github.com/annart167/opof
 * 7: https://github.com/pyanno4rt/pyanno4rt [online documentation: https://pyanno4rt.readthedocs.io/en/latest/] (2023)
+
+  * **LMCMA + LMMAES**
 * 6: https://github.com/TUIlmenauAMS/BlackBoxOptimizerSPcomparison (2023)
 * 5: https://github.com/Anoxxx/SynCMA-official (2023)
 * 4: https://github.com/jeancroy/RP-fit (2023)
