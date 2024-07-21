@@ -343,7 +343,7 @@ For each algorithm family, we try to provide several *representative* applicatio
   * Mitchell, M., Holland, J. and Forrest, S., 1993. [When will a genetic algorithm outperform hill climbing](https://proceedings.neurips.cc/paper/1993/hash/ab88b15733f543179858600245108dd8-Abstract.html). Advances in Neural Information Processing Systems (pp. 51-58).
   * Holland, J.H., 1992. [Adaptation in natural and artificial systems: An introductory analysis with applications to biology, control, and artificial intelligence](https://direct.mit.edu/books/book/2574/Adaptation-in-Natural-and-Artificial-SystemsAn). MIT Press.
   * Holland, J.H., 1992. [Genetic algorithms](https://www.scientificamerican.com/article/genetic-algorithms/). Scientific American, 267(1), pp.66-73.
-  * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). In Proceedings of International Conference on Genetic Algorithms (pp. 116-121).
+  * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). FOGA (pp. 116-121).
   * Goldberg, D.E. and Holland, J.H., 1988. [Genetic algorithms and machine learning](https://link.springer.com/article/10.1023/A:1022602019183). Machine Learning, 3(2), pp.95-99.
   * Holland, J.H., 1973. [Genetic algorithms and the optimal allocation of trials](https://epubs.siam.org/doi/10.1137/0202009). SIAM Journal on Computing, 2(2), pp.88-105.
   * Holland, J.H., 1962. [Outline for a logical theory of adaptive systems](https://dl.acm.org/doi/10.1145/321127.321128). JACM, 9(3), pp.297-314.
