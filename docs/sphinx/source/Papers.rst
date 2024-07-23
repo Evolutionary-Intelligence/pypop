@@ -109,6 +109,11 @@ Constrained Optimization
 * Maesani, A. and Floreano, D., 2014. Viability principles for constrained optimization using a (1+1)-CMA-ES. In Parallel Problem Solving from Nature. Springer.
 * Wampler, K. and Popović, Z., 2009. Optimal gait and form for animal locomotion. ACM Transactions on Graphics, 28(3), pp.1-8.
 
+BO
+--
+
+* Nguyen, Q., Wu, K., Gardner, J. and Garnett, R., 2022. Local Bayesian optimization via maximizing probability of descent. Advances in Neural Information Processing Systems, 35, pp.13190-13202.
+
 ES (1964)
 ---------
 
@@ -132,4 +137,3 @@ SPSA
 ----
 
 https://github.com/jgomezdans/spsa
-
