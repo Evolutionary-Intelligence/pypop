@@ -91,6 +91,7 @@ Here we still add them as a set of historical records for our respect to previou
 * https://github.com/ljvmiranda921/pyswarms
 
   * Now this open-source Python library for **PSO** is not actively maintained (Last update - Jun 6, 2023).
+* https://github.com/keurfonluu/stochopy
 * https://github.com/nathanrooy/particle-swarm-optimization
 
   * Now this open-source Python library for **PSO** is not actively maintained (Last update - Jan 27, 2021).
