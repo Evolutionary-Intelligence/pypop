@@ -127,3 +127,9 @@ ES (1964)
 * Arnold, D.V. and Beyer, H.G., 2004. Performance analysis of evolutionary optimization with cumulative step length adaptation. IEEE Transactions on Automatic Control, 49(4), pp.617-622.
 * Beyer, H.G. and Arnold, D.V., 2003. Qualms regarding the optimality of cumulative path length control in CSA/CMA-evolution strategies. Evolutionary Computation, 11(1), pp.19-28.
 * Schwefel, H.P., 1981. Numerical optimization of computer models. John Wiley & Sons, Inc.
+
+SPSA
+----
+
+https://github.com/jgomezdans/spsa
+

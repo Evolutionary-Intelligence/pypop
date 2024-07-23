@@ -28,7 +28,8 @@ class CMAES(ES):
        Communications] <https://www.nature.com/articles/s41467-023-38570-x>`_, `[Slade et al., 2022, Nature]
        <https://www.nature.com/articles/s41586-022-05191-1>`_, `[Croon et al., 2022, Nature]
        <https://www.nature.com/articles/s41586-022-05182-2>`_, `[Rudolph et al., 2022, Nature Communications]
-       <https://www.nature.com/articles/s41467-023-43908-6>`_, `[Franks et al., 2021]
+       <https://www.nature.com/articles/s41467-023-43908-6>`_, `[Cazenille et al., 2022, Bioinspiration & Biomimetics]
+       <https://iopscience.iop.org/article/10.1088/1748-3190/ac7fd1>`_, `[Franks et al., 2021]
        <https://www.biorxiv.org/content/10.1101/2021.09.13.460170v1.abstract>`_, `[Yuan et al., 2021, MNRAS]
        <https://academic.oup.com/mnras/article/502/3/3582/6122578>`_, `[Löffler et al., 2021, Nature Communications]
        <https://www.nature.com/articles/s41467-021-22017-2>`_, `[Papadopoulou et al., 2021, JPCB]
@@ -38,7 +39,8 @@ class CMAES(ES):
        <https://dash.harvard.edu/handle/1/37369463>`_, `[Vasios et al., 2020, Soft Robotics]
        <https://www.liebertpub.com/doi/full/10.1089/soro.2018.0149>`_, `[Pal et al., 2020]
        <https://iopscience.iop.org/article/10.1088/1361-665X/abbd1d>`_, `[Lei, 2020, Ph.D. Dissertation (University of Oxford)]
-       <https://tinyurl.com/yzkjwr34>`_, `[Ong et al., 2019, PLOS Computational Biology]
+       <https://tinyurl.com/yzkjwr34>`_, `[Yang et al., 2019, Journal of Aircraft]
+       <https://arc.aiaa.org/doi/full/10.2514/1.C034873>`_, `[Ong et al., 2019, PLOS Computational Biology]
        <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006993>`_, `[Zhang et al., 2017, Science]
        <https://www.science.org/doi/full/10.1126/science.aal5054>`_, `[Loshchilov&Hutter, 2016]
        <https://arxiv.org/abs/1604.07269>`_, `[Molinari et al., 2014, AIAAJ]
@@ -47,7 +49,7 @@ class CMAES(ES):
        <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_, `[Wang et al., 2010, TOG]
        <https://dl.acm.org/doi/10.1145/1778765.1778810>`_, `[Wampler&Popović, 2009, TOG]
        <https://dl.acm.org/doi/10.1145/1531326.1531366>`_
-       `RoboCup <https://doi.org/10.1007/s10458-024-09642-z>`_ 2014 3D Simulation League Competition Champions,
+       `RoboCup <https://doi.org/10.1007/s10458-024-09642-z>`_, 2014 3D Simulation League Competition Champions,
        `[Muller et al., 2001, AIAAJ] <https://arc.aiaa.org/doi/abs/10.2514/2.1342>`_,
        to name a few.
 

@@ -4,10 +4,6 @@ Changing Log
 Version: 0.0.82
 ---------------
 
-* Add a new optimizer class called Simultaneous Perturbation Stochastic Approximation (**SPSA**):
-
-  * https://github.com/jgomezdans/spsa
-
 * AttributeError: `np.mat` was removed in the NumPy 2.0 release. Use `np.asmatrix` instead.
 
   * https://numpy.org/devdocs/release/2.0.0-notes.html
