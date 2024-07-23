@@ -28,7 +28,8 @@ class CMAES(ES):
        Communications] <https://www.nature.com/articles/s41467-023-38570-x>`_, `[Slade et al., 2022, Nature]
        <https://www.nature.com/articles/s41586-022-05191-1>`_, `[Croon et al., 2022, Nature]
        <https://www.nature.com/articles/s41586-022-05182-2>`_, `[Rudolph et al., 2022, Nature Communications]
-       <https://www.nature.com/articles/s41467-023-43908-6>`_, `[Franks et al., 2021]
+       <https://www.nature.com/articles/s41467-023-43908-6>`_, `[Cazenille et al., 2022, Bioinspiration & Biomimetics]
+       <https://iopscience.iop.org/article/10.1088/1748-3190/ac7fd1>`_, `[Franks et al., 2021]
        <https://www.biorxiv.org/content/10.1101/2021.09.13.460170v1.abstract>`_, `[Yuan et al., 2021, MNRAS]
        <https://academic.oup.com/mnras/article/502/3/3582/6122578>`_, `[Löffler et al., 2021, Nature Communications]
        <https://www.nature.com/articles/s41467-021-22017-2>`_, `[Papadopoulou et al., 2021, JPCB]
@@ -47,7 +48,7 @@ class CMAES(ES):
        <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_, `[Wang et al., 2010, TOG]
        <https://dl.acm.org/doi/10.1145/1778765.1778810>`_, `[Wampler&Popović, 2009, TOG]
        <https://dl.acm.org/doi/10.1145/1531326.1531366>`_
-       `RoboCup <https://doi.org/10.1007/s10458-024-09642-z>`_ 2014 3D Simulation League Competition Champions,
+       `RoboCup <https://doi.org/10.1007/s10458-024-09642-z>`_, 2014 3D Simulation League Competition Champions,
        `[Muller et al., 2001, AIAAJ] <https://arc.aiaa.org/doi/abs/10.2514/2.1342>`_,
        to name a few.
 
