@@ -10,7 +10,8 @@ class CMAES(ES):
        black-box optimization (BBO), according to one well-recognized `Nature <https://doi.org/10.1038/nature14544>`_
        review of Evolutionary Computation (EC).
 
-       For some (rather all) applications of `CMAES`, please refer to e.g., `[Wang et al., 2024, ICLR]
+       For some (rather all) applications of `CMAES`, please refer to e.g., `[Longobardo et al., 2024, AIAAJ]
+       <https://arc.aiaa.org/doi/full/10.2514/1.J063251>`_, `[Wang et al., 2024, ICLR]
        <https://arxiv.org/abs/2404.00451>`_, `[Gil-Fuster et al., 2024, Nature Communications]
        <https://www.nature.com/articles/s41467-024-45882-z>`_, `[Jin et al., 2024]
        <https://link.springer.com/article/10.1007/s11044-024-09982-4>`_, `[Koginov et al., 2024, TMRB]
