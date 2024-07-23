@@ -102,7 +102,7 @@ Here we still add them as a set of historical records for our respect to previou
 * https://github.com/strongio/evolutionary-optimization (Now it is not actively maintained: Last update - Jan 22, 2020.)
 * https://github.com/tisimst/pyswarm
 
-  * Now this open-source Python library for **PSO** is not actively maintained (Last update - Sep 22, 2015).
+  * Now it (for **PSO**) is not actively maintained (Last update - Sep 22, 2015).
 * https://github.com/uber/fiber
 
   * Now it seems to be not actively maintained (Last update - Mar 15, 2021).
