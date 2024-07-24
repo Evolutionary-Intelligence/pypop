@@ -122,7 +122,7 @@ ES (1964)
 * Spettel, P. and Beyer, H.G., 2022. On the design of a matrix adaptation evolution strategy for optimization on general quadratic manifolds. ACM Transactions on Evolutionary Learning and Optimization, 2(3), pp.1-32.
 * Hellwig, M. and Beyer, H.G., 2020. On the steady state analysis of covariance matrix self-adaptation evolution strategies on the noisy ellipsoid model. Theoretical Computer Science, 832, pp.98-122.
 * Hansen, N., 2019, July. A global surrogate assisted CMA-ES. In Proceedings of Annual Genetic and Evolutionary Computation Conference (pp. 664-672). ACM.
-* Maheswaranathan, N., Metz, L., Tucker, G., Choi, D., & Sohl-Dickstein, J. (2019, May). Guided evolutionary strategies: Augmenting random search with surrogate gradients. In International Conference on Machine Learning (pp. 4264-4273). PMLR.
+* Maheswaranathan, N., Metz, L., Tucker, G., Choi, D., & Sohl-Dickstein, J. (2019, May). `[Guided evolutionary strategies: Augmenting random search with surrogate gradients] <http://proceedings.mlr.press/v97/maheswaranathan19a.html>`_. In International Conference on Machine Learning (pp. 4264-4273). PMLR.
 * Choromanski, K., Rowland, M., Sindhwani, V., Turner, R., & Weller, A. (2018, July). Structured evolution with compact architectures for scalable policy optimization. In International Conference on Machine Learning (pp. 970-978). PMLR.
 * Beyer, H.G. and Hellwig, M., 2016. The dynamics of cumulative step size adaptation on the ellipsoid model. Evolutionary Computation, 24(1), pp.25-57.
 * Beyer, H.G., 2014. Convergence analysis of evolutionary algorithms that are based on the paradigm of information geometry. Evolutionary Computation, 22(4), pp.679-709.
