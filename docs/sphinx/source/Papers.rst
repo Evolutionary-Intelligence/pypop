@@ -13,6 +13,7 @@ Random Search (RS)
 
 * Sel, B., Tawaha, A., Ding, Y., Jia, R., Ji, B., Lavaei, J. and Jin, M., 2023, June. Learning-to-Learn to Guide Random Search: Derivative-Free Meta Blackbox Optimization on Manifold. In Learning for Dynamics and Control Conference (pp. 38-50). PMLR.
 * Li, L. and Talwalkar, A., 2020. Random search and reproducibility for neural architecture search. In Uncertainty in Artificial Intelligence (pp. 367-377). PMLR.
+* Hansen, N., 2019, July. A global surrogate assisted CMA-ES. In Proceedings of Annual Genetic and Evolutionary Computation Conference (pp. 664-672). ACM.
 * Sener, O. and Koltun, V., 2019, September. `Learning to guide random search <https://openreview.net/forum?id=B1gHokBKwS>`_. In International Conference on Learning Representations (ICLR).
 * Chechkin, A. and Sokolov, I., 2018. Random search with resetting: A unified renewal approach. Physical Review Letters, 121(5), p.050601.
 * Falcón-Cortés, A., Boyer, D., Giuggioli, L. and Majumdar, S.N., 2017. Localization transition induced by learning in random searches. Physical Review Letters, 119(14), p.140603.
