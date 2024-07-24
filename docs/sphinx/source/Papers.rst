@@ -13,7 +13,6 @@ Random Search (RS)
 
 * Sel, B., Tawaha, A., Ding, Y., Jia, R., Ji, B., Lavaei, J. and Jin, M., 2023, June. Learning-to-Learn to Guide Random Search: Derivative-Free Meta Blackbox Optimization on Manifold. In Learning for Dynamics and Control Conference (pp. 38-50). PMLR.
 * Li, L. and Talwalkar, A., 2020. Random search and reproducibility for neural architecture search. In Uncertainty in Artificial Intelligence (pp. 367-377). PMLR.
-* Hansen, N., 2019, July. A global surrogate assisted CMA-ES. In Proceedings of Annual Genetic and Evolutionary Computation Conference (pp. 664-672). ACM.
 * Sener, O. and Koltun, V., 2019, September. `Learning to guide random search <https://openreview.net/forum?id=B1gHokBKwS>`_. In International Conference on Learning Representations (ICLR).
 * Chechkin, A. and Sokolov, I., 2018. Random search with resetting: A unified renewal approach. Physical Review Letters, 121(5), p.050601.
 * Falcón-Cortés, A., Boyer, D., Giuggioli, L. and Majumdar, S.N., 2017. Localization transition induced by learning in random searches. Physical Review Letters, 119(14), p.140603.
@@ -122,6 +121,7 @@ ES (1964)
 * He, X., Zheng, Z., Chen, C., Zhou, Y., Luo, C. and Lin, Q., 2022. `Distributed evolution strategies for black-box stochastic optimization <https://ieeexplore.ieee.org/abstract/document/9762038>`_. IEEE Transactions on Parallel and Distributed Systems, 33(12), pp.3718-3731.
 * Spettel, P. and Beyer, H.G., 2022. On the design of a matrix adaptation evolution strategy for optimization on general quadratic manifolds. ACM Transactions on Evolutionary Learning and Optimization, 2(3), pp.1-32.
 * Hellwig, M. and Beyer, H.G., 2020. On the steady state analysis of covariance matrix self-adaptation evolution strategies on the noisy ellipsoid model. Theoretical Computer Science, 832, pp.98-122.
+* Hansen, N., 2019, July. A global surrogate assisted CMA-ES. In Proceedings of Annual Genetic and Evolutionary Computation Conference (pp. 664-672). ACM.
 * Maheswaranathan, N., Metz, L., Tucker, G., Choi, D., & Sohl-Dickstein, J. (2019, May). Guided evolutionary strategies: Augmenting random search with surrogate gradients. In International Conference on Machine Learning (pp. 4264-4273). PMLR.
 * Choromanski, K., Rowland, M., Sindhwani, V., Turner, R., & Weller, A. (2018, July). Structured evolution with compact architectures for scalable policy optimization. In International Conference on Machine Learning (pp. 970-978). PMLR.
 * Beyer, H.G. and Hellwig, M., 2016. The dynamics of cumulative step size adaptation on the ellipsoid model. Evolutionary Computation, 24(1), pp.25-57.
