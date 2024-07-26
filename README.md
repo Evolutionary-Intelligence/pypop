@@ -315,7 +315,7 @@ For each algorithm family, we try to provide several *representative* applicatio
   * Gomez, F., Schmidhuber, J. and Miikkulainen, R., 2008. [Accelerated neural evolution through cooperatively coevolved synapses](https://www.jmlr.org/papers/v9/gomez08a.html). JMLR, 9(31), pp.937-965.
   * Panait, L., Tuyls, K. and Luke, S., 2008. [Theoretical advantages of lenient learners: An evolutionary game theoretic perspective](https://jmlr.org/papers/volume9/panait08a/panait08a.pdf). JMLR, 9, pp.423-457.
   * Schmidhuber, J., Wierstra, D., Gagliolo, M. and Gomez, F., 2007. [Training recurrent networks by evolino](https://direct.mit.edu/neco/article-abstract/19/3/757/7156/Training-Recurrent-Networks-by-Evolino). Neural Computation, 19(3), pp.757-779.
-  * Gomez, F.J. and Schmidhuber, J., 2005, June. [Co-evolving recurrent neurons learn deep memory POMDPs](https://dl.acm.org/doi/10.1145/1068009.1068092). In Proceedings of Annual Conference on Genetic and Evolutionary Computation (pp. 491-498).
+  * Gomez, F.J. and Schmidhuber, J., 2005, June. [Co-evolving recurrent neurons learn deep memory POMDPs](https://dl.acm.org/doi/10.1145/1068009.1068092). GECCO (pp. 491-498).
   * Fan, J., Lau, R. and Miikkulainen, R., 2003. [Utilizing domain knowledge in neuroevolution](https://www.aaai.org/Library/ICML/2003/icml03-025.php). ICML (pp. 170-177).
   * Potter, M.A. and De Jong, K.A., 2000. [Cooperative coevolution: An architecture for evolving coadapted subcomponents](https://direct.mit.edu/evco/article-abstract/8/1/1/859/Cooperative-Coevolution-An-Architecture-for). ECJ, 8(1), pp.1-29.
   * Gomez, F.J. and Miikkulainen, R., 1999, July. [Solving non-Markovian control tasks with neuroevolution](https://www.ijcai.org/Proceedings/99-2/Papers/097.pdf). IJCAI. (pp. 1356-1361).
