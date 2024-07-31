@@ -192,7 +192,14 @@ The main folder structure of this open-source library **PyPop7** is presented be
 
 ## References
 
-For each algorithm family, we try to provide several *representative* applications published on some [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) journals and conferences (such as, [Nature](https://www.nature.com/), [Science](https://www.science.org/journal/science), [PNAS](https://www.pnas.org/), [PRL](https://journals.aps.org/prl/), [JACS](https://pubs.acs.org/journal/jacsat), [JACM](https://dl.acm.org/journal/jacm), [PIEEE](https://proceedingsoftheieee.ieee.org/), [JMLR](https://www.jmlr.org/), [ICML](https://icml.cc/), [NeurIPS](https://neurips.cc/), [ICLR](https://iclr.cc/), [CVPR](https://www.thecvf.com/), [ICCV](https://www.thecvf.com/), etc.), systematically reported in the (actively maintained) paper list called [DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) openly accessible via GitHub.
+For each optimization algorithm family, we are providing several *representative* applications published on some (rather
+all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) journals/conferences
+(such as, [Nature](https://www.nature.com/), [Science](https://www.science.org/journal/science),
+[PNAS](https://www.pnas.org/), [PRL](https://journals.aps.org/prl/), [JACS](https://pubs.acs.org/journal/jacsat),
+[JACM](https://dl.acm.org/journal/jacm), [PIEEE](https://proceedingsoftheieee.ieee.org/),
+[JMLR](https://www.jmlr.org/), [ICML](https://icml.cc/), [NeurIPS](https://neurips.cc/), [ICLR](https://iclr.cc/),
+[CVPR](https://www.thecvf.com/), [ICCV](https://www.thecvf.com/), just to name a few), reported in the paper list called
+[DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation).
 
 * Derivative-Free Optimization (DFO) / Zeroth-Order Optimization (ZOO)
   * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). FoCM, 22(2), pp.507-560.
