@@ -198,7 +198,7 @@ all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutio
 [PNAS](https://www.pnas.org/), [PRL](https://journals.aps.org/prl/), [JACS](https://pubs.acs.org/journal/jacsat),
 [JACM](https://dl.acm.org/journal/jacm), [PIEEE](https://proceedingsoftheieee.ieee.org/),
 [JMLR](https://www.jmlr.org/), [ICML](https://icml.cc/), [NeurIPS](https://neurips.cc/), [ICLR](https://iclr.cc/),
-[CVPR](https://www.thecvf.com/), [ICCV](https://www.thecvf.com/), just to name a few), reported in the paper list called
+[CVPR](https://www.thecvf.com/), [ICCV](https://www.thecvf.com/), [RSS](https://www.roboticsproceedings.org/index.html), just to name a few), reported in the paper list called
 [DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation).
 
 * Derivative-Free Optimization (DFO) / Zeroth-Order Optimization (ZOO)
