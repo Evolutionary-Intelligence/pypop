@@ -223,7 +223,7 @@ all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutio
   * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
   * [Taxonomy](https://link.springer.com/article/10.1007/s11047-020-09820-4)
 * Benchmarking [ [benchmarking-network](https://sites.google.com/view/benchmarking-network) + [iohprofiler](https://iohprofiler.github.io/) ]
-  * Andrés-Thió, N., Audet, C., et al., 2024. Solar: A solar thermal power plant simulator for blackbox optimization benchmarking. arXiv preprint arXiv:2406.00140.
+  * Andrés-Thió, N., Audet, C., et al., 2024. Solar: [A solar thermal power plant simulator for blackbox optimization benchmarking](https://arxiv.org/abs/2406.00140). arXiv preprint arXiv:2406.00140.
   * Kudela, J., 2022. [A critical problem in benchmarking and analysis of evolutionary computation methods](https://www.nature.com/articles/s42256-022-00579-0). Nature Machine Intelligence, 4(12), pp.1238-1245.
   * Meunier, L., Rakotoarison, H., Wong, P.K., Roziere, B., Rapin, J., Teytaud, O., Moreau, A. and Doerr, C., 2022. [Black-box optimization revisited: Improving algorithm selection wizards through massive benchmarking](https://ieeexplore.ieee.org/abstract/document/9524335). TEVC, 26(3), pp.490-500.
   * Hansen, N., Auger, A., Ros, R., Mersmann, O., Tušar, T. and Brockhoff, D., 2021. [COCO: A platform for comparing continuous optimizers in a black-box setting](https://www.tandfonline.com/doi/full/10.1080/10556788.2020.1808977). Optimization Methods and Software, 36(1), pp.114-144.
@@ -408,7 +408,6 @@ all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutio
   * Rios, L.M. and Sahinidis, N.V., 2013. [Derivative-free optimization: A review of algorithms and comparison of software implementations](https://link.springer.com/article/10.1007/s10898-012-9951-y). JGO, 56, pp.1247-1293.
   * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010. [PyBrain](https://jmlr.org/papers/v11/schaul10a.html). JMLR, 11(24), pp.743-746.
   * Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
-  * Andrés-Thió, N., Audet, C., et al., 2024. Solar: A solar thermal power plant simulator for blackbox optimization benchmarking. arXiv preprint arXiv:2406.00140.
 
 ## Sponsor
 
