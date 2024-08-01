@@ -408,6 +408,7 @@ all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutio
   * Rios, L.M. and Sahinidis, N.V., 2013. [Derivative-free optimization: A review of algorithms and comparison of software implementations](https://link.springer.com/article/10.1007/s10898-012-9951-y). JGO, 56, pp.1247-1293.
   * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010. [PyBrain](https://jmlr.org/papers/v11/schaul10a.html). JMLR, 11(24), pp.743-746.
   * Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007. [Numerical recipes: The art of scientific computing](http://numerical.recipes/). Cambridge University Press. (See Chapter 10. Minimization or maximization of functions.)
+  * Andrés-Thió, N., Audet, C., et al., 2024. Solar: A solar thermal power plant simulator for blackbox optimization benchmarking. arXiv preprint arXiv:2406.00140.
 
 ## Sponsor
 
