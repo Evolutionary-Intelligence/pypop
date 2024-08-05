@@ -122,6 +122,9 @@ BO
 ES (1964)
 ---------
 
+* Porter, J. and Arnold, D.V., 2024, July.
+  Direct augmented Lagrangian evolution strategies.
+  In Proceedings of Annual Genetic and Evolutionary Computation Conference (pp. 703-711). ACM.
 * Nomura, M., Akimoto, Y. and Ono, I., 2024. CMA-ES with learning rate adaptation. arXiv preprint arXiv:2401.15876.
 * He, X., Zheng, Z., Chen, C., Zhou, Y., Luo, C. and Lin, Q., 2022. `Distributed evolution strategies for black-box stochastic optimization <https://ieeexplore.ieee.org/abstract/document/9762038>`_. IEEE Transactions on Parallel and Distributed Systems, 33(12), pp.3718-3731.
 * Spettel, P. and Beyer, H.G., 2022. On the design of a matrix adaptation evolution strategy for optimization on general quadratic manifolds. ACM Transactions on Evolutionary Learning and Optimization, 2(3), pp.1-32.
