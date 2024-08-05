@@ -371,7 +371,7 @@ all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutio
   * Lagarias, J.C., Reeds, J.A., Wright, M.H. and Wright, P.E., 1998. [Convergence properties of the Nelder--Mead simplex method in low dimensions](https://epubs.siam.org/doi/abs/10.1137/S1052623496303470). SIOPT, 9(1), pp.112-147.
   * Powell, M.J., 1998. [Direct search algorithms for optimization calculations](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C). Acta Numerica, 7, pp.287-336.
   * Torczon, V., 1997. [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780). SIOPT, 7(1), pp.1-25.
-  * Barton, R.R. and Ivey Jr, J.S., 1996. [Nelder-Mead simplex modifications for simulation optimization](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.42.7.954). Management Science, 42(7), pp.954-973.
+  * Barton, R.R. and Ivey Jr, J.S., 1996. [Nelder-Mead simplex modifications for simulation optimization](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.42.7.954). MS, 42(7), pp.954-973.
   * Wright, M.H., 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
   * Jones, D.R., Perttunen, C.D. and Stuckman, B.E., 1993. [Lipschitzian optimization without the Lipschitz constant](https://link.springer.com/article/10.1007/BF00941892). JOTA, 79(1), pp.157-181.
   * Nelder, J.A. and Mead, R., 1965. [A simplex method for function minimization](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237). The Computer Journal, 7(4), pp.308-313.
