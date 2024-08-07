@@ -4,13 +4,17 @@ Applications
 Application&Citation Papers
 ---------------------------
 
-Up to now, this open-source Python library `PyPop7` has been **used/cited** (at least) in the following papers
-(note that the below list is **actively updated**):
+Up to now, this open-source Python library `PyPop7` has been **used/cited** (at least) in
+the following papers (note that the below list is **actively updated**):
 
-* **11**: Pinchuk, M., Kirgizov, G., Yamshchikova, L., Nikitin, N., Deeva, I., Shakhkyan, K., Borisov, I., Zharkov, K. and Kalyuzhnaya, A., 2024, July.
-  `GOLEM: Flexible Evolutionary Design of Graph Representations of Physical and Digital Objects
-  <https://dl.acm.org/doi/abs/10.1145/3638530.3664141>`_.
-  In Proceedings of Annual Genetic and Evolutionary Computation Conference Companion (pp. 1668-1675). ACM. [**cited**]
+[**cited**] indicates that PyPop7 has been cited but not used by the corresponding paper.
+
+* **11**: Pinchuk, M., Kirgizov, G., Yamshchikova, L., Nikitin, N., Deeva, I., Shakhkyan,
+  K., Borisov, I., Zharkov, K. and Kalyuzhnaya, A., 2024, July.
+  `GOLEM: Flexible Evolutionary Design of Graph Representations of Physical and Digital
+  Objects <https://dl.acm.org/doi/abs/10.1145/3638530.3664141>`_.
+  In Proceedings of Annual Genetic and Evolutionary Computation Conference Companion
+  (pp. 1668-1675). ACM. [**cited**]
 
   * ITMO University
 * **10**: Vodopija, A., Cork, J.N. and Filipič, B., 2024, July.
