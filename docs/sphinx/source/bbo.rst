@@ -1,14 +1,16 @@
 Black-Box Optimization (BBO)
 ============================
 
-.. note:: `"Certainly, and especially because of the broad availability of difficult and important applications, this
-   promises to be an exciting, interesting, and challenging area for many years to come."---[Conn et al., 2009,
-   Introduction to Derivative-Free Optimization, MOS-SIAM Series on Optimization]
+.. note:: `"Certainly, and especially because of the broad availability of difficult and important applications,
+   this promises to be an exciting, interesting, and challenging area for many years to come."---[Conn et al.,
+   2009, Introduction to Derivative-Free Optimization, MOS-SIAM Series on Optimization]
    <https://epubs.siam.org/doi/book/10.1137/1.9780898718768>`_
 
-The **black-box** nature of many real-world optimization problems comes from one or more of the following factors,
-as shown in e.g. the classical book **Introduction to Derivative-Free Optimization** or the seminal paper **Random
-Gradient-Free Minimization of Convex Functions**, just to name a few:
+The **black-box** nature of many real-world optimization problems comes from one or more of the following
+factors, as shown in the **classical** book `Introduction to Derivative-Free Optimization
+<https://epubs.siam.org/doi/book/10.1137/1.9780898718768>`_ or the **seminal** paper `Random Gradient-Free
+Minimization of Convex Functions <https://link.springer.com/article/10.1007/s10208-015-9296-2>`_, just to
+name a few:
 
 * increasing complexity in mathematical modeling,
 * higher sophistication of scientific computing,
