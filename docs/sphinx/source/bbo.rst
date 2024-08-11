@@ -79,9 +79,11 @@ Some of common problem characteristics of BBO are presented below:
 
   * `[Li et al., 2023, NeurIPS] <https://openreview.net/forum?id=VhbV56AJNt>`_.
 
-For black-box problems, the only information accessible to the algorithm is *function evaluations*, which can be freely
-selected by the algorithm, leading to Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO) or
-Gradient-Free Optimization (GFO).
+In a nutshell, for **black-box** problems the only information accessible to the algorithm is via *sampling
+evaluation*, which can be freely selected by the algorithm, leading to Black-Box Optimization (BBO) or
+Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO) or Gradient-Free Optimization (GFO)
+or Global Optimization (GO). `"We had ... yet felt there was a need for a unified view."
+<https://epubs.siam.org/doi/book/10.1137/1.9780898718768>`_
 
 No Free Lunch Theorems (NFL)
 ----------------------------
