@@ -1,9 +1,11 @@
 Black-Box Optimization (BBO)
 ============================
 
-.. note:: `"Certainly, and especially because of the broad availability of difficult and important applications,
-   this promises to be an exciting, interesting, and challenging area for many years to come."---[Conn et al.,
-   2009, Introduction to Derivative-Free Optimization, MOS-SIAM Series on Optimization]
+.. note:: `"In fact, we consider optimization without derivatives one of the most important, open, and
+   challenging areas in computational science and engineering, and one with enormous practical potential.
+   Certainly, and especially because of the broad availability of difficult and important applications,
+   this promises to be an exciting, interesting, and challenging area for many years to come."---[Conn
+   et al., 2009, Introduction to Derivative-Free Optimization, MOS-SIAM Series on Optimization]
    <https://epubs.siam.org/doi/book/10.1137/1.9780898718768>`_
 
 The **black-box** nature of many real-world optimization problems comes from one or more of the following
