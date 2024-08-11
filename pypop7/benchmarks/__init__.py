@@ -1,8 +1,5 @@
-"""This Python module covers a set of benchmark functions.
-    Here we do NOT include the *testing* code for simplicity.
-
-    For online documentations of benchmark functions, please refer to:
-        https://pypop.readthedocs.io/en/latest/benchmarks.html
+"""This Python module covers a set of benchmark functions. For online documentations of all
+    benchmark functions, please refer to: https://pypop.readthedocs.io/en/latest/benchmarks.html
 """
 import pypop7.benchmarks.cases  # *test* cases for all benchmarking functions (based on sampling)
 # utilities for saving, reading, plotting, and analyzing optimization results
