@@ -195,8 +195,11 @@ Limitations of BBO
 ------------------
 
 .. note:: *"If you can obtain clean derivatives (even if it requires considerable effort) and the functions defining
-   your problem are smooth and free of noise you should not use derivative-free methods."*---`[Conn et al., 2009,
-   Introduction to Derivative-Free Optimization] <https://epubs.siam.org/doi/book/10.1137/1.9780898718768>`_
+   your problem are smooth and free of noise you should not use derivative-free methods. Perhaps foremost among the
+   limitations of derivative-free methods is that, on a serial machine, it is usually not reasonable to try and
+   optimize problems with more than a few tens of variables, although some of the most recent techniques can handle
+   unconstrained problems in hundreds of variables"*---`[Conn et al., 2009, Introduction to Derivative-Free
+   Optimization] <https://epubs.siam.org/doi/book/10.1137/1.9780898718768>`_
 
 Very importantly, **not all** optimization problems can fit well in black-box optimizers. In fact, their *arbitrary abuses*
 in science and engineering have resulted in wide criticism. Although not always, black-box optimizers are often seen as
