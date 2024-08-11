@@ -15,4 +15,4 @@ import pypop7.benchmarks.data_science  # loss functions from data science
 # NeverGrad: https://github.com/facebookresearch/nevergrad
 import pypop7.benchmarks.never_grad  # photonics model from *NeverGrad*
 # PyGMO: https://esa.github.io/pygmo2/install.html
-# import pypop7.benchmarks.pygmo
+# import pypop7.benchmarks.pygmo  # optional owing to its specific installation way
