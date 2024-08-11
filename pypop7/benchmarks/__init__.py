@@ -1,14 +1,20 @@
 """This Python module covers a set of benchmark functions. For online documentations of all
     benchmark functions, please refer to: https://pypop.readthedocs.io/en/latest/benchmarks.html
 """
-import pypop7.benchmarks.cases  # *test* cases for all benchmarking functions (based on sampling)
+# *test* cases for all artificially-constructed benchmarking functions
+import pypop7.benchmarks.cases
 # utilities for saving, reading, plotting, and analyzing optimization results
 import pypop7.benchmarks.utils
-import pypop7.benchmarks.base_functions  # base forms of benchmarking functions
-import pypop7.benchmarks.shifted_functions  # shift/transform forms of benchmarking functions
-import pypop7.benchmarks.rotated_functions  # rotation forms of benchmarking functions
-import pypop7.benchmarks.continuous_functions  # rotation-shift forms of benchmarking functions
-import pypop7.benchmarks.data_science  # loss functions from data science
+# base forms of artificially-constructed benchmarking functions
+import pypop7.benchmarks.base_functions
+# shift/transform forms of artificially-constructed benchmarking functions
+import pypop7.benchmarks.shifted_functions
+# rotation forms of artificially-constructed benchmarking functions
+import pypop7.benchmarks.rotated_functions
+# rotation-shift forms of artificially-constructed benchmarking functions
+import pypop7.benchmarks.continuous_functions
+# a set of common loss functions from data science
+import pypop7.benchmarks.data_science
 # NeverGrad: https://github.com/facebookresearch/nevergrad
 import pypop7.benchmarks.never_grad  # photonics model from *NeverGrad*
 # PyGMO: https://esa.github.io/pygmo2/install.html
