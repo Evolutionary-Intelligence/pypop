@@ -120,6 +120,14 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.rastrigin
 
+.. image:: images/rastrigin.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_rastrigin.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.scaled_rastrigin
 
 .. autofunction:: pypop7.benchmarks.base_functions.skew_rastrigin
