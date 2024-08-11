@@ -192,14 +192,15 @@ The main folder structure of this open-source library **PyPop7** is presented be
 
 ## References
 
-For each optimization algorithm family, we are providing several *representative* applications published on some (rather
-all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation) journals/conferences
-(such as, [Nature](https://www.nature.com/), [Science](https://www.science.org/journal/science),
+For each **population-based** algorithm family, we are providing several *representative* applications published
+on some (rather all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation)
+journals/conferences (such as, [Nature](https://www.nature.com/), [Science](https://www.science.org/journal/science),
 [PNAS](https://www.pnas.org/), [PRL](https://journals.aps.org/prl/), [JACS](https://pubs.acs.org/journal/jacsat),
 [JACM](https://dl.acm.org/journal/jacm), [PIEEE](https://proceedingsoftheieee.ieee.org/),
 [JMLR](https://www.jmlr.org/), [ICML](https://icml.cc/), [NeurIPS](https://neurips.cc/), [ICLR](https://iclr.cc/),
 [CVPR](https://www.thecvf.com/), [ICCV](https://www.thecvf.com/),
-[RSS](https://www.roboticsproceedings.org/index.html), just to name a few), reported in the paper list called
+[RSS](https://www.roboticsproceedings.org/index.html), just to name a few),
+reported in the (now still actively-updated) paper list called
 [DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation).
 
 * Derivative-Free Optimization (DFO) / Zeroth-Order Optimization (ZOO)
@@ -209,7 +210,9 @@ all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutio
   * Kochenderfer, M.J. and Wheeler, T.A., 2019. [Algorithms for optimization](https://algorithmsbook.com/optimization/). MIT Press.
   * Larson, J., Menickelly, M. and Wild, S.M., 2019. [Derivative-free optimization methods](https://www.cambridge.org/core/journals/acta-numerica/article/abs/derivativefree-optimization-methods/84479E2B03A9BFFE0F9CD46CF9FCD289). Acta Numerica, 28, pp.287-404.
   * Nesterov, Y. and Spokoiny, V., 2017. [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2). FoCM, 17(2), pp.527-566.
-  * Conn, A.R., Scheinberg, K. and Vicente, L.N., 2009. [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768). SIAM.
+  * Conn, A.R., et al., 2009.
+    [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768).
+    SIAM.
 * Evolutionary Computation (EC) and Swarm Intelligence (SI)
   * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482. [ [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/) ]
   * Miikkulainen, R. and Forrest, S., 2021. [A biological perspective on evolutionary computation](https://www.nature.com/articles/s42256-020-00278-8). Nature Machine Intelligence, 3(1), pp.9-15.
