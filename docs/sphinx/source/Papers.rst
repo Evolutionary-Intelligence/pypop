@@ -150,4 +150,5 @@ https://github.com/jgomezdans/spsa
 Benchmark Functions
 -------------------
 
+* bohachevsky: $\sum_{i = 1}^{ n - 1} (x_i^2 + 2 x_{i + 1}^2 - 0.3\cos(3\pi x_i) - 0.4\cos(4\pi x_{i + 1}) + 0.7)$
 * ackley: $20 e^{-0.2 \sqrt{\frac{1}{n} \sum_{i = 1}^{n} x_i^2}} - e^{\frac{1}{n} \sum_{i = 1}^{n} \cos(2 \pi x_i)} + 20 + e$
