@@ -27,6 +27,7 @@ def squeeze_and_check(x, size_gt_1=False):
 class BaseFunction(object):
     """Class for all base functions.
     """
+
     def __init__(self):
         pass
 
@@ -58,7 +59,7 @@ class Sphere(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -95,7 +96,7 @@ class Cigar(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -132,7 +133,7 @@ class Discus(BaseFunction):  # also called Tablet
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -172,7 +173,7 @@ class CigarDiscus(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -209,7 +210,7 @@ class Ellipsoid(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -246,7 +247,7 @@ class DifferentPowers(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -282,7 +283,7 @@ class Schwefel221(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -318,7 +319,7 @@ class Step(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -355,7 +356,7 @@ class Schwefel222(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -392,7 +393,7 @@ class Rosenbrock(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -430,7 +431,7 @@ class Schwefel12(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -467,7 +468,7 @@ class Exponential(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -504,7 +505,7 @@ class Griewank(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -543,7 +544,7 @@ class Bohachevsky(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -579,7 +580,7 @@ class Ackley(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -616,7 +617,7 @@ class Rastrigin(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -654,7 +655,7 @@ class ScaledRastrigin(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -694,7 +695,7 @@ class SkewRastrigin(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -733,7 +734,7 @@ class LevyMontalvo(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -771,7 +772,7 @@ class Michalewicz(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -807,7 +808,7 @@ class Salomon(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -848,7 +849,7 @@ class Shubert(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -887,7 +888,7 @@ class Schaffer(BaseFunction):
         ----------
         x : ndarray
             input vector.
-    
+
         Returns
         -------
         y : float
@@ -896,6 +897,21 @@ class Schaffer(BaseFunction):
         return schaffer(x)
 
 
+# all of the following functions are only for visualization purpose
 def cosine(x):
-    result = 10 * x[0]**2 * (1 + 0.75 * math.cos(70 * x[0]) / 12) + math.cos(100 * x[0])**2 / 24 + 2 * x[1]**2 * (1 + 0.75 * math.cos(70 * x[1]) / 12) + math.cos(100 * x[1])**2 / 24 + 4 * x[0] * x[1]
-    return result
+    """**Cosine** test function.
+
+    Parameters
+    ----------
+    x: ndarray
+       input vector.
+
+    Returns
+    -------
+    y: float
+       scalar fitness.
+    """
+    y = 10.0 * x[0] ** 2 * (1.0 + 0.75 * math.cos(70.0 * x[0]) / 12.0) + math.cos(100.0 * x[0]) ** 2 / 24.0 + \
+        2.0 * x[1] ** 2 * (1.0 + 0.75 * math.cos(70.0 * x[1]) / 12.0) + math.cos(100.0 * x[1]) ** 2 / 24.0 + \
+        4.0 * x[0] * x[1]
+    return y
