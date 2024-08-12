@@ -893,3 +893,8 @@ class Schaffer(BaseFunction):
             scalar fitness.
         """
         return schaffer(x)
+
+
+def cosine(x):
+    result = 10 * x[0]**2 * (1 + 0.75 * cos(70 * x[0]) / 12) + cos(100 * x[0])**2 / 24 + 2 * x[1]**2 * (1 + 0.75 * cos(70 * x[1]) / 12) + cos(100 * x[1])**2 / 24 + 4 * x[0] * x[1]
+    return result
