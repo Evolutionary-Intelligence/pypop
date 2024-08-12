@@ -115,6 +115,14 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.griewank
 
+.. image:: images/griewank.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_griewank.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.bohachevsky
 
 .. image:: images/bohachevsky_2.png
