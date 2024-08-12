@@ -857,8 +857,6 @@ class Shubert(BaseFunction):
 def schaffer(x):
     """**Schaffer** test function.
 
-       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{n - 1} (x_i^2 + x_{i+1}^2)^{0.25} (\sin^2(50(x_i^2 + x_{i+1}^2)^{0.1}) + 1)$`.
-
     Parameters
     ----------
     x : ndarray
@@ -869,10 +867,10 @@ def schaffer(x):
     y : float
         scalar fitness.
     """
-    x, y = squeeze_and_check(x), 0
+    x, y = squeeze_and_check(x), 0.0
     for i in range(x.size - 1):
         xx = np.power(x[i], 2) + np.power(x[i + 1], 2)
-        y += np.power(xx, 0.25) * (np.power(np.sin(50 * np.power(xx, 0.1)), 2) + 1)
+        y += np.power(xx, 0.25) * (np.power(np.sin(50.0 * np.power(xx, 0.1)), 2) + 1.0)
     return y
 
 
