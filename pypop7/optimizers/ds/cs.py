@@ -92,12 +92,11 @@ class CS(DS):
     On the convergence of pattern search algorithms.
     SIAM Journal on Optimization, 7(1), pp.1-25.
     https://epubs.siam.org/doi/abs/10.1137/S1052623493250780
-    (See Algorithm 3 (Section 4.1) for details.)
 
     Fermi, E. and Metropolis N., 1952.
-    Numerical solution of a minimum problem.
-    Los Alamos Scientific Lab., Los Alamos, NM.
-    https://www.osti.gov/servlets/purl/4377177
+    `Numerical solution of a minimum problem
+    <https://www.osti.gov/servlets/purl/4377177>`_.
+    Los Alamos Scientific Lab.
     """
     def __init__(self, problem, options):
         DS.__init__(self, problem, options)
