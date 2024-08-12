@@ -171,6 +171,14 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.salomon
 
+.. image:: images/salomon.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_salomon.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.shubert
 
 .. image:: images/shubert.png
