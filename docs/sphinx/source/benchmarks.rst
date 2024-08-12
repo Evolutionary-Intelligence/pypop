@@ -117,6 +117,22 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.bohachevsky
 
+.. image:: images/bohachevsky_2.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_bohachevsky_2.png
+   :width: 321px
+   :align: center
+
+.. image:: images/bohachevsky.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_bohachevsky.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.ackley
 
 .. image:: images/ackley.png
