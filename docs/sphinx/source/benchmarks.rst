@@ -175,6 +175,14 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.schaffer
 
+.. image:: images/schaffer.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_schaffer.png
+   :width: 321px
+   :align: center
+
 Shifted/Transformed Forms
 -------------------------
 
