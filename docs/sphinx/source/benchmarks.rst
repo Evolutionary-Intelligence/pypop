@@ -2,10 +2,11 @@ Benchmarking Functions for BBO
 ==============================
 
 In this open-source Python module, we have provided a set of **benchmarking/test functions**
-which have been commonly used in the **black-box optimization / zeroth-order optimization /
-gradient-free optimization / derivative-free optimization / global optimization / direct
-search / randomized optimization / meta-heuristics / evolutionary algorithms / swarm
-intelligence** community. 
+which have been commonly used in the black-box optimization / zeroth-order optimization /
+gradient-free optimization / derivative-free optimization /
+`global optimization <https://link.springer.com/journal/10898>`_ /
+direct search / randomized optimization / meta-heuristics / evolutionary algorithms / swarm
+intelligence community. 
 
 .. Note :: In the coming days, we are planning to add some challenging BBO models from various
    **real-world applications**. Since this is a *long-term* development project, welcome
