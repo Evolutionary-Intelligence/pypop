@@ -480,8 +480,6 @@ class Exponential(BaseFunction):
 def griewank(x):
     """**Griewank** test function.
 
-       .. note:: It's LaTeX formulation is `$\frac{1}{4000} \sum_{i = 1}^{n} x_i^2 - \prod_{i = 1}^{n} \cos(\frac{x_i}{i ^ {0.5}}) + 1$`.
-
     Parameters
     ----------
     x : ndarray
