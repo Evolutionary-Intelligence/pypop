@@ -88,6 +88,12 @@ class CS(DS):
     Berlin: Springer International Publishing.
     https://link.springer.com/book/10.1007/978-3-319-68913-5
 
+    Conn, A.R., Scheinberg, K. and Vicente, L.N., 2009.
+    Introduction to derivative-free optimization.
+    SIAM.
+    (Please refer to Algorithm 7.1 (Coordinate-search method) in
+    Chapter 7 Directional direct-search methods.)
+
     Torczon, V., 1997.
     On the convergence of pattern search algorithms.
     SIAM Journal on Optimization, 7(1), pp.1-25.
