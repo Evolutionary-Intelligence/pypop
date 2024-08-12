@@ -173,6 +173,14 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.shubert
 
+.. image:: images/shubert.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_shubert.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.schaffer
 
 .. image:: images/schaffer.png
