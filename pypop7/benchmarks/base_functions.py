@@ -554,7 +554,8 @@ class Bohachevsky(BaseFunction):
 def ackley(x):
     """**Ackley** test function.
 
-       .. note:: It's LaTeX formulation is `$20 e^{-0.2 \sqrt{\frac{1}{n} \sum_{i = 1}^{n} x_i^2}} - e^{\frac{1}{n} \sum_{i = 1}^{n} \cos(2 \pi x_i)} + 20 + e$`.
+       .. note:: It's LaTeX formulation is ``$20 e^{-0.2 \sqrt{\frac{1}{n} \sum_{i = 1}^{n} x_i^2}} -
+          e^{\frac{1}{n} \sum_{i = 1}^{n} \cos(2 \pi x_i)} + 20 + e$``.
 
     Parameters
     ----------
