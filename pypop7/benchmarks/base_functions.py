@@ -780,8 +780,6 @@ class Michalewicz(BaseFunction):
 def salomon(x):
     """**Salomon** test function.
 
-       .. note:: It's LaTeX formulation is `$1 - \cos(2\pi\sqrt{\sum_{i=1}^{n}x_i^2}) + 0.1 \sqrt{\sum_{i=1}^{n}x_i^2}$`.
-
     Parameters
     ----------
     x : ndarray
