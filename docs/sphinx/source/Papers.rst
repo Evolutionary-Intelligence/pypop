@@ -146,3 +146,8 @@ SPSA
 ----
 
 https://github.com/jgomezdans/spsa
+
+Benchmark Functions
+-------------------
+
+* ackley: $20 e^{-0.2 \sqrt{\frac{1}{n} \sum_{i = 1}^{n} x_i^2}} - e^{\frac{1}{n} \sum_{i = 1}^{n} \cos(2 \pi x_i)} + 20 + e$
