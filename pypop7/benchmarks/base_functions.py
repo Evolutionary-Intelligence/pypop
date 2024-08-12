@@ -517,8 +517,6 @@ class Griewank(BaseFunction):
 def bohachevsky(x):
     """**Bohachevsky** test function.
 
-       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{ n - 1} (x_i^2 + 2 x_{i + 1}^2 - 0.3\cos(3\pi x_i) - 0.4\cos(4\pi x_{i + 1}) + 0.7)$`.
-
     Parameters
     ----------
     x : ndarray
