@@ -119,6 +119,14 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.ackley
 
+.. image:: images/ackley.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_ackley.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.rastrigin
 
 .. image:: images/rastrigin.png
