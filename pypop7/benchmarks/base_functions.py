@@ -2,6 +2,7 @@
     https://pypop.readthedocs.io/en/latest/benchmarks.html#base-functions
 """
 import numpy as np  # engine for numerical computing
+import math
 
 
 # helper function
@@ -893,3 +894,8 @@ class Schaffer(BaseFunction):
             scalar fitness.
         """
         return schaffer(x)
+
+
+def cosine(x):
+    result = 10 * x[0]**2 * (1 + 0.75 * math.cos(70 * x[0]) / 12) + math.cos(100 * x[0])**2 / 24 + 2 * x[1]**2 * (1 + 0.75 * math.cos(70 * x[1]) / 12) + math.cos(100 * x[1])**2 / 24 + 4 * x[0] * x[1]
+    return result
