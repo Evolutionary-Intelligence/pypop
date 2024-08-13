@@ -167,6 +167,14 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.levy_montalvo
 
+.. image:: images/levy_montalvo.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_levy_montalvo.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.michalewicz
 
 .. image:: images/michalewicz.png
