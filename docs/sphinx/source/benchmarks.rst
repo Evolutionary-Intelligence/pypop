@@ -163,7 +163,7 @@ as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.scaled_rastrigin
 
-.. image:: images/skew_scaled_rastrigin.png
+.. image:: images/scaled_rastrigin.png
    :width: 321px
    :align: center
 
