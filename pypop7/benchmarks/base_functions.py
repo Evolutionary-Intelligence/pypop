@@ -905,3 +905,12 @@ def cosine(x):
         2.0 * x[1] ** 2 * (1.0 + 0.75 * math.cos(70.0 * x[1]) / 12.0) + math.cos(100.0 * x[1]) ** 2 / 24.0 + \
         4.0 * x[0] * x[1]
     return y
+
+
+def dennis_woods(x):
+    c1 = np.array([-1, 1])
+    c2 = -c1
+    distance_c1 = np.linalg.norm(x - c1)**2
+    distance_c2 = np.linalg.norm(x - c2)**2
+    y = 0.5 * max(distance_c1, distance_c2)
+    return y
