@@ -663,8 +663,6 @@ class ScaledRastrigin(BaseFunction):
 def skew_rastrigin(x):
     """**Skew-Rastrigin** test function.
 
-       .. note:: It's LaTeX formulation is `$10 n + \sum_{i = 1}^{n} (y_i^2 - 10\cos(2\pi y_i))$, with $y_i = \begin{cases} 10 x_i, \mbox{if}~x_i > 0 \\ x_i, \mbox{otherweise} \end{cases}$`.
-
     Parameters
     ----------
     x : ndarray
@@ -685,7 +683,7 @@ def skew_rastrigin(x):
 
 class SkewRastrigin(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Skew-Rastrigin** test function.
 
         Parameters
         ----------
