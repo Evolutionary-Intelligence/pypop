@@ -207,14 +207,21 @@ reported in the (now still actively-updated) paper list called
   * Berahas, A.S., Cao, L., Choromanski, K. and Scheinberg, K., 2022. [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z). FoCM, 22(2), pp.507-560.
   * Porcelli, M. and Toint, P.L., 2022. [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054). ACM TOMS, 48(1), pp.1-25.
   * Gao, K. and Sener, O., 2022, June. [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html). ICML (pp. 7077-7101). PMLR.
-  * Kochenderfer, M.J. and Wheeler, T.A., 2019. [Algorithms for optimization](https://algorithmsbook.com/optimization/). MIT Press.
-  * Larson, J., Menickelly, M. and Wild, S.M., 2019. [Derivative-free optimization methods](https://www.cambridge.org/core/journals/acta-numerica/article/abs/derivativefree-optimization-methods/84479E2B03A9BFFE0F9CD46CF9FCD289). Acta Numerica, 28, pp.287-404.
+  * Kochenderfer, M.J. and Wheeler, T.A., 2019.
+    [Algorithms for optimization](https://algorithmsbook.com/optimization/).
+    MIT Press.
+  * Larson, J., et al., 2019.
+    [Derivative-free optimization methods](https://www.cambridge.org/core/journals/acta-numerica/article/abs/derivativefree-optimization-methods/84479E2B03A9BFFE0F9CD46CF9FCD289).
+    Acta Numerica, 28, pp.287-404.
   * Nesterov, Y. and Spokoiny, V., 2017.
     [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2).
     FoCM, 17(2), pp.527-566.
   * Conn, A.R., et al., 2009.
     [Introduction to derivative-free optimization](https://epubs.siam.org/doi/book/10.1137/1.9780898718768).
     SIAM.
+  * Kolda, T.G., et al., 2003.
+    [Optimization by direct search: New perspectives on some classical and modern methods](https://epubs.siam.org/doi/abs/10.1137/S003614450242889).
+    SIAM Review, 45(3), pp.385-482.
 * Evolutionary Computation (EC) and Swarm Intelligence (SI)
   * Eiben, A.E. and Smith, J., 2015. [From evolutionary computation to the evolution of things](https://www.nature.com/articles/nature14544.). Nature, 521(7553), pp.476-482. [ [http://www.evolutionarycomputation.org/](http://www.evolutionarycomputation.org/) ]
   * Miikkulainen, R. and Forrest, S., 2021. [A biological perspective on evolutionary computation](https://www.nature.com/articles/s42256-020-00278-8). Nature Machine Intelligence, 3(1), pp.9-15.
@@ -372,7 +379,6 @@ reported in the (now still actively-updated) paper list called
   * Audet, C., Le Digabel, S., Rochon Montplaisir, V. and Tribes, C., 2022. [Algorithm XXXX: NOMAD version 4: Nonlinear optimization with the MADS algorithm](https://dl.acm.org/doi/abs/10.1145/3544489). TOMS.
   * Brent, R.P., 2013. [Algorithms for minimization without derivatives](https://maths-people.anu.edu.au/~brent/pub/pub011.html). Courier Corporation.
   * Singer, S. and Nelder, J., 2009. [Nelder-mead algorithm](http://var.scholarpedia.org/article/Nelder-Mead_algorithm). Scholarpedia, 4(7), p.2928.
-  * Kolda, T.G., Lewis, R.M. and Torczon, V., 2003. [Optimization by direct search: New perspectives on some classical and modern methods](https://epubs.siam.org/doi/abs/10.1137/S003614450242889). SIAM Review, 45(3), pp.385-482.
   * Lagarias, J.C., Reeds, J.A., Wright, M.H. and Wright, P.E., 1998. [Convergence properties of the Nelder--Mead simplex method in low dimensions](https://epubs.siam.org/doi/abs/10.1137/S1052623496303470). SIOPT, 9(1), pp.112-147.
   * Powell, M.J., 1998. [Direct search algorithms for optimization calculations](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C). Acta Numerica, 7, pp.287-336.
   * Torczon, V., 1997. [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780). SIOPT, 7(1), pp.1-25.
