@@ -625,8 +625,6 @@ class Rastrigin(BaseFunction):
 def scaled_rastrigin(x):
     """**Scaled-Rastrigin** test function.
 
-       .. note:: It's LaTeX formulation is `$10 n + \sum_{i = 1}^{n} ((10^{\frac{i - 1}{n - 1}} x_i)^2 -10\cos(2\pi 10^{\frac{i - 1}{n - 1}} x_i))$`.
-
     Parameters
     ----------
     x : ndarray
@@ -645,7 +643,7 @@ def scaled_rastrigin(x):
 
 class ScaledRastrigin(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Scaled-Rastrigin** test function.
 
         Parameters
         ----------
