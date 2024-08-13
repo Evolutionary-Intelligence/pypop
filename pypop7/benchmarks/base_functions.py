@@ -742,8 +742,6 @@ class LevyMontalvo(BaseFunction):
 def michalewicz(x):
     """**Michalewicz** test function.
 
-       .. note:: It's LaTeX formulation is `$-\sum_{i = 1}^{n}\sin(x_i)(\sin(\frac{ix_i^2}{\pi}))^{20}$`.
-
     Parameters
     ----------
     x : ndarray
@@ -762,7 +760,7 @@ def michalewicz(x):
 
 class Michalewicz(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Michalewicz** test function.
 
         Parameters
         ----------
@@ -796,7 +794,7 @@ def salomon(x):
 
 class Salomon(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Salomon** test function.
 
         Parameters
         ----------
@@ -835,7 +833,7 @@ def shubert(x):
 
 class Shubert(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Shubert** test function.
 
         Parameters
         ----------
@@ -872,7 +870,7 @@ def schaffer(x):
 
 class Schaffer(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Schaffer** test function.
 
         Parameters
         ----------
