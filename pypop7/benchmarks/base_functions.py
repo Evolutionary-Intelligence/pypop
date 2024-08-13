@@ -908,9 +908,18 @@ def cosine(x):
 
 
 def dennis_woods(x):
-    c1 = np.array([-1, 1])
-    c2 = -c1
-    distance_c1 = np.linalg.norm(x - c1)**2
-    distance_c2 = np.linalg.norm(x - c2)**2
-    y = 0.5 * max(distance_c1, distance_c2)
+    """**Dennis-Woods** test function.
+
+    Parameters
+    ----------
+    x: ndarray
+       input vector.
+
+    Returns
+    -------
+    y: float
+       scalar fitness.
+    """
+    c_1 = np.array([1.0, -1.0])
+    y = 0.5 * max(np.linalg.norm(x - c_1) ** 2, np.linalg.norm(x + c_1) ** 2)
     return y
