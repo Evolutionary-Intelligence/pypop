@@ -418,7 +418,6 @@ reported in the (now still actively-updated) paper list called
 * Software for Black-Box Optimization
   * Custódio, A.L., Scheinberg, K. and Nunes Vicente, L., 2017. [Methodologies and software for derivative-free optimization](https://epubs.siam.org/doi/abs/10.1137/1.9781611974683.ch37). Advances and Trends in Optimization with Engineering Applications, pp.495-506.
   * Rios, L.M. and Sahinidis, N.V., 2013. [Derivative-free optimization: A review of algorithms and comparison of software implementations](https://link.springer.com/article/10.1007/s10898-012-9951-y). JGO, 56, pp.1247-1293.
-  * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010. [PyBrain](https://jmlr.org/papers/v11/schaul10a.html). JMLR, 11(24), pp.743-746.
 
 ## Sponsor
 
