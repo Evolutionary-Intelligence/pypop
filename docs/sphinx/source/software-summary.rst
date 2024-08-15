@@ -165,6 +165,10 @@ C
 
 * https://github.com/CMA-ES/c-cmaes (Now it is not actively maintained.)
 * https://www.egr.msu.edu/~kdeb/codes/g3pcx/g3pcx.tar (G3PCX)
+* Press, W.H., Teukolsky, S.A., Vetterling, W.T. and Flannery, B.P., 2007.
+  `Numerical recipes: The art of scientific computing <http://numerical.recipes/>`_.
+  Cambridge University Press.
+  (Chapter 10. Minimization or maximization of functions.)
 
 C++
 ---
