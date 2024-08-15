@@ -101,7 +101,7 @@ Here we still add them as a set of historical records for our respect to previou
     (Last update - Dec 18, 2017).
   * Schaul, T., Bayer, J., Wierstra, D., Sun, Y., Felder, M., Sehnke, F., Rückstieß, T. and Schmidhuber, J., 2010.
     `PyBrain <https://jmlr.org/papers/v11/schaul10a.html>`_
-    JMLR, 11(24), pp.743-746.
+    Journal of Machine Learning Research, 11(24), pp.743-746.
 * https://github.com/scikit-optimize/scikit-optimize (Now it is not actively maintained: Last update - Oct 12, 2021.)
 * https://github.com/strongio/evolutionary-optimization (Now it is not actively maintained: Last update - Jan 22, 2020.)
 * https://github.com/tisimst/pyswarm
