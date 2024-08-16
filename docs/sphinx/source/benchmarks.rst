@@ -32,8 +32,7 @@ links for details (In fact, we have spent much time in checking of Python coding
 Base Functions
 --------------
 
-In the following, we will introduce **base** forms of some common benchmarking functions,
-as presented below:
+Here we introduce **base** forms of some common benchmarking functions, as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.sphere
 
