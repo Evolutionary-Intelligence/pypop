@@ -69,7 +69,7 @@ class Sphere(BaseFunction):
 def cigar(x):
     """**Cigar** test function.
 
-       .. note:: It's LaTeX formulation is `$x_1^2 + 10^6 \sum_{i = 2}^{n} x_i^2$`. Its dimensionality should `> 1`.
+       .. note:: Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -88,7 +88,7 @@ def cigar(x):
 
 class Cigar(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Cigar** test function.
 
         Parameters
         ----------
@@ -899,7 +899,7 @@ def cosine(x):
 
 def dennis_woods(x):
     """**Dennis-Woods** test function.
-    
+
     Parameters
     ----------
     x: ndarray
@@ -912,11 +912,10 @@ def dennis_woods(x):
 
     References
     ----------
-    Dennis, J. E., Daniel J. Woods, 1987. 
+    Dennis, J. E., Daniel J. Woods, 1987.
     Optimization on microcomputers: The Nelder-Mead simplex algorithm.
     New computing environments: microcomputers in large-scale computing, 11, p. 6-122.
     """
-    
     c_1 = np.array([1.0, -1.0])
     y = 0.5 * max(np.linalg.norm(x - c_1) ** 2, np.linalg.norm(x + c_1) ** 2)
     return y
