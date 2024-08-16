@@ -106,7 +106,7 @@ class Cigar(BaseFunction):
 def discus(x):
     """**Discus** (also called **Tablet**) test function.
 
-       .. note:: It's LaTeX formulation is `$10^6 x_1^2 + \sum_{i = 2}^{n} x_i^2$`. Its dimensionality should `> 1`.
+       .. note:: Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -125,7 +125,7 @@ def discus(x):
 
 class Discus(BaseFunction):  # also called Tablet
     def __call__(self, x):
-        """
+        """Class of **Discus** (also called **Tablet**) test function.
 
         Parameters
         ----------
