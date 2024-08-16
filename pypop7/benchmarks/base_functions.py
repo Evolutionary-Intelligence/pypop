@@ -35,8 +35,6 @@ class BaseFunction(object):
 def sphere(x):
     """**Sphere** test function.
 
-       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-
     Parameters
     ----------
     x : ndarray
@@ -53,7 +51,7 @@ def sphere(x):
 
 class Sphere(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Sphere** test function.
 
         Parameters
         ----------
