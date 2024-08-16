@@ -8,7 +8,7 @@ gradient-free optimization / derivative-free optimization /
 direct search / randomized optimization /
 `meta-heuristics <http://www.scholarpedia.org/article/Metaheuristics>`_ /
 `evolutionary algorithms <https://direct.mit.edu/evco>`_ /
-`swarm intelligence <https://link.springer.com/journal/11721>`_ community. 
+`swarm intelligence <https://link.springer.com/journal/11721>`_ community.
 
 .. Note :: In the coming days, we are planning to add some challenging BBO models from various
    **real-world applications**. Since this is a *long-term* development project, welcome
@@ -70,6 +70,10 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
 .. autofunction:: pypop7.benchmarks.base_functions.discus
 
 .. image:: images/discus.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_discus.png
    :width: 321px
    :align: center
 
@@ -423,12 +427,12 @@ Here we have provided two different benchmarking cases (**local vs global search
 for large-scale black-box optimization (LBO):
 
 .. autoclass:: pypop7.benchmarks.lbo.Experiment
-   :members: 
+   :members:
 
    .. automethod:: __init__
 
 .. autoclass:: pypop7.benchmarks.lbo.Experiments
-   :members: 
+   :members:
 
    .. automethod:: __init__
 
