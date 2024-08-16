@@ -5,7 +5,8 @@ In this open-source Python module, we have provided a set of **benchmarking/test
 which have been commonly used in the black-box optimization / zeroth-order optimization /
 gradient-free optimization / derivative-free optimization /
 `global optimization <https://link.springer.com/journal/10898>`_ /
-direct search / randomized optimization /
+`direct search <https://dl.acm.org/journal/jacm>`_ /
+randomized optimization /
 `meta-heuristics <http://www.scholarpedia.org/article/Metaheuristics>`_ /
 `evolutionary algorithms <https://direct.mit.edu/evco>`_ /
 `swarm intelligence <https://link.springer.com/journal/11721>`_ community.
