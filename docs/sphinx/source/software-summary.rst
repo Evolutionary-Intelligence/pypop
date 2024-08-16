@@ -210,6 +210,11 @@ C#
 Others
 ------
 
+* Custódio, A.L., Scheinberg, K. and Nunes Vicente, L., 2017.
+  `Methodologies and software for derivative-free optimization
+  <https://epubs.siam.org/doi/abs/10.1137/1.9781611974683.ch37>`_.
+  Advances and Trends in Optimization with Engineering Applications, pp.495-506.
+
 `https://github.com/CMA-ES <https://github.com/CMA-ES>`_ is *a collection of various implementations of
 the powerful CMA-ES algorithm*.
   * https://github.com/CMA-ES/c-cmaes (C)
