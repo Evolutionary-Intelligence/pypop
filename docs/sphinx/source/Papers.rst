@@ -150,5 +150,15 @@ https://github.com/jgomezdans/spsa
 Benchmark Functions
 -------------------
 
+* sphere: $\sum_{i=1}^{n}x_i^2$
+* cigar: $x_1^2 + 10^6 \sum_{i = 2}^{n} x_i^2$
 * bohachevsky: $\sum_{i = 1}^{ n - 1} (x_i^2 + 2 x_{i + 1}^2 - 0.3\cos(3\pi x_i) - 0.4\cos(4\pi x_{i + 1}) + 0.7)$
+* griewank: $\frac{1}{4000} \sum_{i = 1}^{n} x_i^2 - \prod_{i = 1}^{n} \cos(\frac{x_i}{i ^ {0.5}}) + 1$
 * ackley: $20 e^{-0.2 \sqrt{\frac{1}{n} \sum_{i = 1}^{n} x_i^2}} - e^{\frac{1}{n} \sum_{i = 1}^{n} \cos(2 \pi x_i)} + 20 + e$
+* scaled_rastrigin: $10 n + \sum_{i = 1}^{n} ((10^{\frac{i - 1}{n - 1}} x_i)^2 -10\cos(2\pi 10^{\frac{i - 1}{n - 1}} x_i))$
+* skew_rastrigin: $10 n + \sum_{i = 1}^{n} (y_i^2 - 10\cos(2\pi y_i))$, with $y_i = \begin{cases} 10 x_i, \mbox{if}~x_i > 0 \\ x_i, \mbox{otherweise} \end{cases}$
+* levy_montalvo: $(10 \sin^2(\pi (1.25 + 0.25x_1)) + (0.25(x_n + 1))^2) \sum_{i = 1}^{n - 1} (0.25(x_i + 1))^2 (1 + 10 \sin^2 (\pi (1.25 + 0.25x_{i + 1})))$
+* michalewicz: $-\sum_{i = 1}^{n}\sin(x_i)(\sin(\frac{ix_i^2}{\pi}))^{20}$
+* salomon: $1 - \cos(2\pi\sqrt{\sum_{i=1}^{n}x_i^2}) + 0.1 \sqrt{\sum_{i=1}^{n}x_i^2}$
+* shubert: $\prod_{i=1}^{n} \sum_{j=1}^{5} j\cos((j+1) x_i j)$
+* schaffer: $\sum_{i = 1}^{n - 1} (x_i^2 + x_{i+1}^2)^{0.25} (\sin^2(50(x_i^2 + x_{i+1}^2)^{0.1}) + 1)$
