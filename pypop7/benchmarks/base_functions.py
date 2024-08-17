@@ -257,8 +257,6 @@ class DifferentPowers(BaseFunction):
 def schwefel221(x):
     """**Schwefel221** test function.
 
-       .. note:: It's LaTeX formulation is `$\max(\left | x_1 \right |, \cdots, \left | x_n \right |)$`.
-
     Parameters
     ----------
     x : ndarray
@@ -275,7 +273,7 @@ def schwefel221(x):
 
 class Schwefel221(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Schwefel221** test function.
 
         Parameters
         ----------
