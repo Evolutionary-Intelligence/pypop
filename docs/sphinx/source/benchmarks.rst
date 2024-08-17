@@ -130,6 +130,10 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
    :width: 321px
    :align: center
 
+.. image:: images/surface_schwefel221.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.step
 
 .. autofunction:: pypop7.benchmarks.base_functions.schwefel222
