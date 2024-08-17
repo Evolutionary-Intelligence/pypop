@@ -110,5 +110,5 @@ command:
 After you have installed it successfully, we wish that you could enjoy a happy journey on
 **PyPop7** for black-box optimization.
 
-.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-installation
-   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-installation
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
