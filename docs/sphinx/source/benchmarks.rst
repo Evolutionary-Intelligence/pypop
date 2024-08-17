@@ -102,6 +102,10 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
    :width: 321px
    :align: center
 
+.. image:: images/surface_ellipsoid.png
+   :width: 321px
+   :align: center
+
 * Jastrebski, G.A. and Arnold, D.V., 2006, July.
   Improving evolution strategies through active covariance matrix adaptation.
   In IEEE International Conference on Evolutionary Computation (pp. 2814-2821). IEEE.
