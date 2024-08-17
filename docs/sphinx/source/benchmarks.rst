@@ -170,7 +170,23 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
 
 .. autofunction:: pypop7.benchmarks.base_functions.schwefel12
 
+.. image:: images/schwefel12.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_schwefel12.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.exponential
+
+.. image:: images/exponential.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_exponential.png
+   :width: 321px
+   :align: center
 
 .. autofunction:: pypop7.benchmarks.base_functions.griewank
 
