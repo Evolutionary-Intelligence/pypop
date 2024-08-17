@@ -156,7 +156,7 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
 
 .. autofunction:: pypop7.benchmarks.base_functions.rosenbrock
 
-.. image:: images/rosenbrock.png
+.. image:: images/b_rosenbrock.png
    :width: 321px
    :align: center
 
