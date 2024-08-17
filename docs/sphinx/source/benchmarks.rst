@@ -136,11 +136,37 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
 
 .. autofunction:: pypop7.benchmarks.base_functions.step
 
+.. image:: images/step.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_step.png
+   :width: 321px
+   :align: center
+
 .. autofunction:: pypop7.benchmarks.base_functions.schwefel222
+
+.. image:: images/schwefel222.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_schwefel222.png
+   :width: 321px
+   :align: center
 
 .. autofunction:: pypop7.benchmarks.base_functions.rosenbrock
 
-* Jastrebski, G.A. and Arnold, D.V., 2006, July. Improving evolution strategies through active covariance matrix adaptation. In IEEE International Conference on Evolutionary Computation (pp. 2814-2821). IEEE.
+.. image:: images/rosenbrock.png
+   :width: 321px
+   :align: center
+
+.. image:: images/surface_rosenbrock.png
+   :width: 321px
+   :align: center
+
+* Jastrebski, G.A. and Arnold, D.V., 2006, July.
+  Improving evolution strategies through active covariance matrix adaptation.
+  In IEEE International Conference on Evolutionary Computation (pp. 2814-2821). IEEE.
 
 .. autofunction:: pypop7.benchmarks.base_functions.schwefel12
 
