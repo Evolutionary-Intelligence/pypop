@@ -291,8 +291,6 @@ class Schwefel221(BaseFunction):
 def step(x):
     """**Step** test function.
 
-       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{n} (\lfloor x_i + 0.5 \rfloor)^2$`.
-
     Parameters
     ----------
     x : ndarray
@@ -309,7 +307,7 @@ def step(x):
 
 class Step(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Step** test function.
 
         Parameters
         ----------
