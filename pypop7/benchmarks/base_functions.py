@@ -560,7 +560,7 @@ def ackley(x):
 
 class Ackley(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Ackley** test function.
 
         Parameters
         ----------
