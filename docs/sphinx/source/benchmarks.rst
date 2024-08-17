@@ -648,3 +648,6 @@ skip this section safely.
 .. autofunction:: pypop7.benchmarks.cases.get_y_shubert
 
 .. autofunction:: pypop7.benchmarks.cases.get_y_schaffer
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-index
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-index
