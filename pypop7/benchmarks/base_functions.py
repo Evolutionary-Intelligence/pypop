@@ -202,7 +202,7 @@ def ellipsoid(x):
 
 class Ellipsoid(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Ellipsoid** test function.
 
         Parameters
         ----------
@@ -220,7 +220,7 @@ class Ellipsoid(BaseFunction):
 def different_powers(x):
     """**Different-Powers** test function.
 
-       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{ n} \left | x_i \right | ^{\frac{2 + 4(i - 1)}{n - 1}}$`. Its dimensionality should `> 1`.
+       .. note:: Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -239,7 +239,7 @@ def different_powers(x):
 
 class DifferentPowers(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Different-Powers** test function.
 
         Parameters
         ----------
