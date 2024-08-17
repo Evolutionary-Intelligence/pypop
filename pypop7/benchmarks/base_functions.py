@@ -325,8 +325,6 @@ class Step(BaseFunction):
 def schwefel222(x):
     """**Schwefel222** test function.
 
-       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{n} \left | x_i \right | + \prod_{i = 1}^{n} \left | x_i \right |$`.
-
     Parameters
     ----------
     x : ndarray
@@ -344,7 +342,7 @@ def schwefel222(x):
 
 class Schwefel222(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Schwefel222** test function.
 
         Parameters
         ----------
@@ -362,7 +360,7 @@ class Schwefel222(BaseFunction):
 def rosenbrock(x):
     """**Rosenbrock** test function.
 
-       .. note:: It's LaTeX formulation is `$100 \sum_{i = 1}^{n -1} (x_i^2 - x_{i + 1})^2 + \sum_{i = 1}^{n - 1} (x_i - 1)^2$`. Its dimensionality should `> 1`.
+       .. note:: Its dimensionality should `> 1`.
 
     Parameters
     ----------
