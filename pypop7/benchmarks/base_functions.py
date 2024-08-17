@@ -379,7 +379,7 @@ def rosenbrock(x):
 
 class Rosenbrock(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Rosenbrock** test function.
 
         Parameters
         ----------
@@ -397,7 +397,7 @@ class Rosenbrock(BaseFunction):
 def schwefel12(x):
     """**Schwefel12** test function.
 
-       .. note:: It's LaTeX formulation is `$\sum_{i = 1}^{n} (\sum_{j = 1}^{i} x_j)^2$`. Its dimensionality should `> 1`.
+       .. note:: Its dimensionality should `> 1`.
 
     Parameters
     ----------
@@ -417,7 +417,7 @@ def schwefel12(x):
 
 class Schwefel12(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Schwefel12** test function.
 
         Parameters
         ----------
@@ -434,8 +434,6 @@ class Schwefel12(BaseFunction):
 
 def exponential(x):
     """**Exponential** test function.
-
-       .. note:: It's LaTeX formulation is `$-e^{-0.5 \sum_{i = 1}^{n} x_i^2}$`.
 
     Parameters
     ----------
@@ -454,7 +452,7 @@ def exponential(x):
 
 class Exponential(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Exponential** test function.
 
         Parameters
         ----------
