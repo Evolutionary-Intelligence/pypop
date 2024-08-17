@@ -152,6 +152,16 @@ Benchmark Functions
 
 * sphere: $\sum_{i=1}^{n}x_i^2$
 * cigar: $x_1^2 + 10^6 \sum_{i = 2}^{n} x_i^2$
+* discus: $10^6 x_1^2 + \sum_{i = 2}^{n} x_i^2$
+* cigar_discus: $\begin{cases} x_1^2 + 10^4 \sum_{i = 1}^{n}x_i^2 + 10^6 x_n^2, \mbox{if}~n = 2 \\ x_1^2 + 10^4 \sum_{i = 2}^{n}x_i^2 + 10^6 x_n^2, \mbox{otherweise} \end{cases}$
+* ellipsoid: $\sum_{i = 1}^{n} 10^{\frac{6(i- 1)}{n - 1}} x_i^2$
+* different_powers: $\sum_{i = 1}^{ n} \left | x_i \right | ^{\frac{2 + 4(i - 1)}{n - 1}}$
+* $\max(\left | x_1 \right |, \cdots, \left | x_n \right |)$
+* $\sum_{i = 1}^{n} (\lfloor x_i + 0.5 \rfloor)^2$
+* $\sum_{i = 1}^{n} \left | x_i \right | + \prod_{i = 1}^{n} \left | x_i \right |$
+* $100 \sum_{i = 1}^{n -1} (x_i^2 - x_{i + 1})^2 + \sum_{i = 1}^{n - 1} (x_i - 1)^2$
+* $\sum_{i = 1}^{n} (\sum_{j = 1}^{i} x_j)^2$
+* $-e^{-0.5 \sum_{i = 1}^{n} x_i^2}$
 * bohachevsky: $\sum_{i = 1}^{ n - 1} (x_i^2 + 2 x_{i + 1}^2 - 0.3\cos(3\pi x_i) - 0.4\cos(4\pi x_{i + 1}) + 0.7)$
 * griewank: $\frac{1}{4000} \sum_{i = 1}^{n} x_i^2 - \prod_{i = 1}^{n} \cos(\frac{x_i}{i ^ {0.5}}) + 1$
 * ackley: $20 e^{-0.2 \sqrt{\frac{1}{n} \sum_{i = 1}^{n} x_i^2}} - e^{\frac{1}{n} \sum_{i = 1}^{n} \cos(2 \pi x_i)} + 20 + e$
