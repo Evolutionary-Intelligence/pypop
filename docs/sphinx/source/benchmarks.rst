@@ -6,7 +6,7 @@ which have been commonly used in the black-box optimization / zeroth-order optim
 gradient-free optimization / derivative-free optimization /
 `global optimization <https://link.springer.com/journal/10898>`_ /
 `direct search <https://dl.acm.org/journal/jacm>`_ /
-randomized optimization /
+`randomized optimization <https://www.sciencedirect.com/journal/automatica>`_ /
 `meta-heuristics <http://www.scholarpedia.org/article/Metaheuristics>`_ /
 `evolutionary algorithms <https://direct.mit.edu/evco>`_ /
 `swarm intelligence <https://link.springer.com/journal/11721>`_ community.
