@@ -344,7 +344,7 @@ reported in the (now still actively-updated) paper list called
   * Gomez, F.J. and Miikkulainen, R., 1999, July. [Solving non-Markovian control tasks with neuroevolution](https://www.ijcai.org/Proceedings/99-2/Papers/097.pdf). IJCAI. (pp. 1356-1361).
   * Moriarty, D.E. and Mikkulainen, R., 1996. [Efficient reinforcement learning through symbiotic evolution](https://link.springer.com/article/10.1023/A:1018004120707). Machine Learning, 22(1), pp.11-32.
   * Moriarty, D.E. and Miikkulainen, R., 1995. [Efficient learning from delayed rewards through symbiotic evolution](https://www.sciencedirect.com/science/article/pii/B9781558603776500566). ICML (pp. 396-404). Morgan Kaufmann.
-  * Potter, M.A. and De Jong, K.A., 1994, October. [A cooperative coevolutionary approach to function optimization](https://link.springer.com/chapter/10.1007/3-540-58484-6_269). In International Conference on Parallel Problem Solving from Nature (pp. 249-257). Springer, Berlin, Heidelberg.
+  * Potter, M.A. and De Jong, K.A., 1994, October. [A cooperative coevolutionary approach to function optimization](https://link.springer.com/chapter/10.1007/3-540-58484-6_269). PPSN (pp. 249-257). Springer, Berlin, Heidelberg.
 * Simultaneous Perturbation Stochastic Approximation (SPSA) [ [https://www.jhuapl.edu/SPSA/](https://www.jhuapl.edu/SPSA/) ]
   * Spall, J.C., 2005. Introduction to stochastic search and optimization: Estimation, simulation, and control. John Wiley & Sons.
 * Simulated Annealing (SA)
