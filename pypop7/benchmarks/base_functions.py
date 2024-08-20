@@ -487,7 +487,7 @@ def griewank(x):
 
 class Griewank(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Griewank** test function.
 
         Parameters
         ----------
