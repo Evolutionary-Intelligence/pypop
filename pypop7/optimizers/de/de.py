@@ -25,7 +25,8 @@ class DE(Optimizer):
     <https://www.nature.com/articles/s41593-023-01299-3>`_, `[Barbosa et al., 2021, PAAP]
     <https://link.springer.com/chapter/10.1007/978-981-16-0010-4_15>`_, `[Lawson et al., 2020, AJ]
     <https://doi.org/10.3847/1538-3881/ababa6>`_, `[Lawson et al., 2019, AJ]
-    <https://doi.org/10.3847/1538-3881/ab3461>`_, just to name a few.
+    <https://doi.org/10.3847/1538-3881/ab3461>`_, `[Laganowsky et al., 2014, Nature]
+    <https://www.nature.com/articles/nature13419>`_, just to name a few.
 
     Parameters
     ----------
