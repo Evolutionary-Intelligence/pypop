@@ -19,7 +19,8 @@ class DE(Optimizer):
        The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ library has provided an
        open-source Python implementation for `DE` with wide applications.
 
-    For some interesting applications of `DE`, please refer to `[Higgins et al., 2023, Science]
+    For some interesting applications of `DE`, please refer to `[LaBerge et al., 2024, Nature Photonics]
+    <https://www.nature.com/articles/s41566-024-01475-2>`_, `[Higgins et al., 2023, Science]
     <https://www.science.org/doi/10.1126/science.add5190>`_, `[Shinn et al., 2023, Nature Neuroscience]
     <https://www.nature.com/articles/s41593-023-01299-3>`_, `[Barbosa et al., 2021, PAAP]
     <https://link.springer.com/chapter/10.1007/978-981-16-0010-4_15>`_, `[Lawson et al., 2020, AJ]
