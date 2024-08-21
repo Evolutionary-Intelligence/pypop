@@ -26,7 +26,8 @@ class CMAES(ES):
        <https://ieeexplore.ieee.org/abstract/document/10464875>`_, `[Jankowski et al., 2024]
        <https://arxiv.org/abs/2404.02795>`_, `[Martin, 2024, Ph.D. Dissertation (Harvard University)]
        <https://dash.harvard.edu/handle/1/37378922>`_, `[Milekovic et al., 2023, Nature Medicine]
-       <https://doi.org/10.1038/s41591-023-02584-1>`_, `[Falk et al., 2023, PNAS]
+       <https://doi.org/10.1038/s41591-023-02584-1>`_, `[Chen et al., 2023, Science Robotics]
+       <https://www.science.org/doi/10.1126/scirobotics.adc9244>`_, `[Falk et al., 2023, PNAS]
        <https://www.pnas.org/doi/abs/10.1073/pnas.2219558120>`_, `[Thamm&Rosenow, 2023, PRL]
        <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.116202>`_, `[Brea et al., 2023, Nature
        Communications] <https://www.nature.com/articles/s41467-023-38570-x>`_, `[Ghafouri&Biros, 2023]
