@@ -9,6 +9,11 @@ the following papers (note that the below list is **actively updated**):
 
 [**cited**] indicates that PyPop7 has been cited but not used by the corresponding paper.
 
+* **12**: Ma, Z., Chen, J., Guo, H. and Gong, Y.J., 2024.
+  `Neural Exploratory Landscape Analysis <https://arxiv.org/abs/2408.10672>`_.
+  arXiv preprint arXiv:2408.10672. [**used&cited**]
+
+  * South China University of Technology
 * **11**: Pinchuk, M., Kirgizov, G., Yamshchikova, L., Nikitin, N., Deeva, I., Shakhkyan,
   K., Borisov, I., Zharkov, K. and Kalyuzhnaya, A., 2024, July.
   `GOLEM: Flexible Evolutionary Design of Graph Representations of Physical and Digital
