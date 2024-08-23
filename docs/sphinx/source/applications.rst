@@ -7,7 +7,11 @@ Application&Citation Papers
 Up to now, this open-source Python library `PyPop7` has been **used/cited** (at least) in
 the following papers (note that the below list is **actively updated**):
 
+
 [**cited**] indicates that PyPop7 has been cited but not used by the corresponding paper.
+
+[**used**] indicates that PyPop7 has been used (but not cited in reference) by the corresponding paper.
+
 
 * **12**: Ma, Z., Chen, J., Guo, H. and Gong, Y.J., 2024.
   `Neural Exploratory Landscape Analysis <https://arxiv.org/abs/2408.10672>`_.
