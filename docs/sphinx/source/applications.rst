@@ -129,5 +129,5 @@ though we do not have an interest relationship with them:
   * `"the excellent work" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
   * `"无论是学术研究还是工业应用，PyPop7都是一个值得信赖的工具，提供了一流的性能和灵活性" <https://blog.csdn.net/gitblog_00094/article/details/139615060>`_
 
-.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-applications
-   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-applications
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
