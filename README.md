@@ -302,7 +302,9 @@ reported in the (now still actively-updated) paper list called
   * Pinneri, C., Sawant, S., Blaes, S., Achterhold, J., Stueckler, J., Rolinek, M. and Martius, G., 2021, October. [Sample-efficient cross-entropy method for real-time planning](https://proceedings.mlr.press/v155/pinneri21a.html). In Conference on Robot Learning (pp. 1049-1065). PMLR.
   * Amos, B. and Yarats, D., 2020, November. [The differentiable cross-entropy method](https://proceedings.mlr.press/v119/amos20a.html). ICML (pp. 291-302). PMLR.
   * Rubinstein, R.Y. and Kroese, D.P., 2016. [Simulation and the Monte Carlo method (Third Edition)](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980). John Wiley & Sons.
-  * Hu, J., Fu, M.C. and Marcus, S.I., 2007. [A model reference adaptive search method for global optimization](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367). Operations Research, 55(3), pp.549-568.
+  * Hu, J., et al., 2007.
+    [A model reference adaptive search method for global optimization](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367).
+    OR, 55(3), pp.549-568.
   * De Boer, P.T., Kroese, D.P., Mannor, S. and Rubinstein, R.Y., 2005. [A tutorial on the cross-entropy method](https://link.springer.com/article/10.1007/s10479-005-5724-z). Annals of Operations Research, 134(1), pp.19-67.
   * Rubinstein, R.Y. and Kroese, D.P., 2004. [The cross-entropy method: A unified approach to combinatorial optimization, Monte-Carlo simulation, and machine learning](https://link.springer.com/book/10.1007/978-1-4757-4321-0). New York: Springer.
   * Mannor, S., Rubinstein, R.Y. and Gat, Y., 2003. [The cross entropy method for fast policy search](https://dl.acm.org/doi/abs/10.5555/3041838.3041903). ICML (pp. 512-519).
