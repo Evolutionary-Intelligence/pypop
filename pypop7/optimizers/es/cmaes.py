@@ -40,7 +40,9 @@ class CMAES(ES):
        <https://www.biorxiv.org/content/10.1101/2021.09.13.460170v1.abstract>`_, `[Yuan et al., 2021, MNRAS]
        <https://academic.oup.com/mnras/article/502/3/3582/6122578>`_, `[Löffler et al., 2021, Nature Communications]
        <https://www.nature.com/articles/s41467-021-22017-2>`_, `[Papadopoulou et al., 2021, JPCB]
-       <https://pubs.acs.org/doi/10.1021/acs.jpcb.1c07562>`_, `[Barkley, 2021, Ph.D. Dissertation (Harvard University)]
+       <https://pubs.acs.org/doi/10.1021/acs.jpcb.1c07562>`_, `[Schmucker et al., 2021, PLoS Comput Biol]
+       <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009689>`_,
+       `[Barkley, 2021, Ph.D. Dissertation (Harvard University)]
        <https://dash.harvard.edu/handle/1/37368472>`_, `[Fernandes, 2021, Ph.D. Dissertation (Harvard University)]
        <https://dash.harvard.edu/handle/1/37370084>`_, `[Quinlivan, 2021, Ph.D. Dissertation (Harvard University)]
        <https://dash.harvard.edu/handle/1/37369463>`_, `[Vasios et al., 2020, Soft Robotics]
