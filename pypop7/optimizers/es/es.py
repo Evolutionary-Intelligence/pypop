@@ -28,7 +28,8 @@ class ES(Optimizer):
        <https://openai.com/index/evolution-strategies/>`_) but obtaining competitive performance for high-dimensional
        (deep neural network-based) policy search in reinforcement learning.
 
-       For some interesting applications of `ES`, please refer to `[Yang et al., 2024, CVPR]
+       For some interesting applications of `ES`, please refer to
+       `[Yang et al., 2024, CVPR (CMU)]
        <https://diffusion-es.github.io/>`_,
        `[Elfikky et al., 2024, LWC (UCSC + Qualcomm Inc.)]
        <https://ieeexplore.ieee.org/abstract/document/10531788>`_,
