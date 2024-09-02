@@ -34,7 +34,7 @@ class ES(Optimizer):
        `[Elfikky et al., 2024, LWC (UCSC + Qualcomm Inc.)]
        <https://ieeexplore.ieee.org/abstract/document/10531788>`_,
        `[Martin&Sandholm, 2024 (CMU + Strategy Robot, Inc. + Optimized Markets, Inc. + Strategic Machine, Inc.)]
-       <https://arxiv.org/abs/2406.08687>`_, `[Lee et al., 2023, Science Robotics]
+       <https://arxiv.org/abs/2406.08687>`_, `[Lee et al., 2023, Science Robotics (UMich, etc.)]
        <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_, `[Koginov et al., 2023, TMRB]
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Sun et al., 2023, ACL]
        <https://aclanthology.org/2023.acl-long.625.pdf>`_,
