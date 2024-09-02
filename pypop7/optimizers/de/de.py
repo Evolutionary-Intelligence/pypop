@@ -20,7 +20,8 @@ class DE(Optimizer):
        open-source Python implementation for `DE` with wide applications.
 
     For some interesting applications of `DE`, please refer to `[Weichart et al., 2024, Psychological Review]
-    <https://psycnet.apa.org/record/2024-83890-001>`_, `[LaBerge et al., 2024, Nature Photonics]
+    <https://psycnet.apa.org/record/2024-83890-001>`_,
+    `[LaBerge et al., 2024, Nature Photonics (UT Austin, etc.)]
     <https://www.nature.com/articles/s41566-024-01475-2>`_, `[Olschewski et al., 2024, PNAS]
     <https://www.pnas.org/doi/abs/10.1073/pnas.2317751121>`_, `[Higgins et al., 2023, Science]
     <https://www.science.org/doi/10.1126/science.add5190>`_, `[Shinn et al., 2023, Nature Neuroscience]
