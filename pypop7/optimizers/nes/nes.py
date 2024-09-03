@@ -18,7 +18,7 @@ class NES(ES):
     For some interesting applications of `NES`, please refer to
     `[Xu et al., 2024, ICLR]
     <https://openreview.net/pdf?id=6PbvbLyqT6>`_,
-    `[Liu et al., 2024, TC (Columbia University, etc.)]
+    `[Liu et al., 2024, TC (Columbia University, NVIDIA Research, Nokia Bell Labs, etc.)]
     <https://ieeexplore.ieee.org/abstract/document/10633902>`_,
     `[Xuan Zhang et al., 2024, IEEE-LRA]
     <https://ieeexplore.ieee.org/document/10382561>`_, `[Conti et al., 2018, NeurIPS]
