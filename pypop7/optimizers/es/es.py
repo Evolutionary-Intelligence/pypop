@@ -41,7 +41,7 @@ class ES(Optimizer):
        <https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2023.1272091/full>`_
        `[Lee et al., 2023, Science Robotics (UMich + Google X + Google Robotics + Georgia Tech)]
        <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_,
-       `[Milekovic et al., 2023, Nature Medicine (EPFL + ONWARD Medical + Medtronic Inc., etc.)]
+       `[Milekovic et al., 2023, Nature Medicine (EPFL + ONWARD Medical + Medtronic Inc. + Oxford, etc.)]
        <https://www.nature.com/articles/s41591-023-02584-1>`_,
        `[Koginov et al., 2023, TMRB]
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Sun et al., 2023, ACL]
