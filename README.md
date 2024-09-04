@@ -420,7 +420,7 @@ reported in the (now still actively-updated) paper list called
   * Wang, L., Fonseca, R. and Tian, Y., 2020. [Learning search space partition for black-box optimization using monte carlo tree search](https://proceedings.neurips.cc/paper/2020/hash/e2ce14e81dba66dbff9cbc35ecfdb704-Abstract.html). NeurIPS, 33, pp.19511-19522. [ [Python](https://github.com/facebookresearch/LaMCTS) ]
   * Jones, D.R., Schonlau, M. and Welch, W.J., 1998. [Efficient global optimization of expensive black-box functions](https://link.springer.com/article/10.1023/A:1008306431147). JGO, 13(4), pp.455-492.
 * Automated Machine Learning (AutoML)
-  * Hutter, F., Kotthoff, L. and Vanschoren, J., 2019. [Automated machine learning: Methods, systems, challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf). Springer.
+  * Hutter, F., et al., 2019. [Automated machine learning: Methods, systems, challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf). Springer.
   * Hoos, H.H., 2011. [Automated algorithm configuration and parameter tuning](https://link.springer.com/chapter/10.1007/978-3-642-21434-9_3). In Autonomous Search (pp. 37-71). Springer.
 
 ## Sponsor
