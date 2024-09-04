@@ -30,7 +30,7 @@ class ES(Optimizer):
 
        For some interesting applications of `ES`, please refer to
        `[SIMULIA > CST Studio Suite > Automatic Optimization (Dassault Systèmes)]
-       <https://www.3ds.com/products/simulia/cst-studio-suite/automatic-optimization>`_
+       <https://www.3ds.com/products/simulia/cst-studio-suite/automatic-optimization>`_,
        `[Yang et al., 2024, CVPR (CMU)]
        <https://diffusion-es.github.io/>`_,
        `[Elfikky et al., 2024, LWC (UCSC + Qualcomm Inc.)]
