@@ -428,21 +428,37 @@ reported in the (now still actively-updated) paper list called
   * Brooks, S.H., 1958. [A discussion of random methods for seeking maxima](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244). OR, 6(2), pp.244-251.
   * Ashby, W.R., 1952. [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3). Springer.
   * Some interesting applications of RS: e.g., [[Moon et al., 2023, Nature Medicine]](https://www.nature.com/articles/s41591-023-02482-6); [[Wang et al., 2023, Nature Mental Health]](https://www.nature.com/articles/s44220-023-00110-3); [[Xie et al., 2023, Nature Communications]](https://www.nature.com/articles/s41467-023-41951-x); [[Mathis et al., 2023, Nature Biotechnology]](https://www.nature.com/articles/s41587-022-01613-7); [[Tian et al., 2023, KDD]](https://dl.acm.org/doi/pdf/10.1145/3580305.3599882); [[Schuch et al., 2023, JAMA]](https://jamanetwork.com/journals/jamanetworkopen/article-abstract/2811316); [[Flam-Shepherd et al., 2022, Nature Communications]](https://www.nature.com/articles/s41467-022-30839-x); [[Beucler et al., 2021, PRL]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.098302); [[Roman et al., 2021, Nature Machine Intelligence]](https://www.nature.com/articles/s42256-021-00312-3); [[Shen et al., 2021, Nature Communications]](https://www.nature.com/articles/s41467-021-26023-2); [[Gonatopoulos-Pournatzis et al., 2020, Nature Biotechnology]](https://www.nature.com/articles/s41587-020-0437-z); [[Valeri et al., 2020, Nature Communications]](https://www.nature.com/articles/s41467-020-18676-2); [[Chen et al., 2020, Science Robotics]](https://www.science.org/doi/full/10.1126/scirobotics.abb6938); [[Pickard&Needs, 2006, PRL]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.97.045504).
-* Bayesian Optimization (BO)
-  * [https://bayesoptbook.com/](https://bayesoptbook.com/) + [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
-  * Wang, L., Fonseca, R. and Tian, Y., 2020. [Learning search space partition for black-box optimization using monte carlo tree search](https://proceedings.neurips.cc/paper/2020/hash/e2ce14e81dba66dbff9cbc35ecfdb704-Abstract.html). NeurIPS, 33, pp.19511-19522. [ [Python](https://github.com/facebookresearch/LaMCTS) ]
-  * Jones, D.R., et al., 1998. [Efficient global optimization of expensive black-box functions](https://link.springer.com/article/10.1023/A:1008306431147). JGO, 13(4), pp.455-492.
-* Automated Machine Learning (AutoML)
-  * Hutter, F., et al., 2019. [Automated machine learning: Methods, systems, challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf). Springer.
-  * Hoos, H.H., 2011. [Automated algorithm configuration and parameter tuning](https://link.springer.com/chapter/10.1007/978-3-642-21434-9_3). In Autonomous Search (pp. 37-71). Springer.
+* **Bayesian Optimization (BO)**
+  * [https://bayesoptbook.com/](https://bayesoptbook.com/) +
+    [https://bayesopt-tutorial.github.io/](https://bayesopt-tutorial.github.io/)
+  * Wang, L., et al., 2020.
+    [Learning search space partition for black-box optimization using monte carlo tree search](https://proceedings.neurips.cc/paper/2020/hash/e2ce14e81dba66dbff9cbc35ecfdb704-Abstract.html).
+    NeurIPS, 33, pp.19511-19522. [ [Python](https://github.com/facebookresearch/LaMCTS) ]
+  * Jones, D.R., et al., 1998.
+    [Efficient global optimization of expensive black-box functions](https://link.springer.com/article/10.1023/A:1008306431147).
+    JGO, 13(4), pp.455-492.
+* **Automated Machine Learning (AutoML)**
+  * Hutter, F., et al., 2019.
+    [Automated machine learning: Methods, systems, challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf).
+    Springer.
+  * Hoos, H.H., 2011.
+    [Automated algorithm configuration and parameter tuning](https://link.springer.com/chapter/10.1007/978-3-642-21434-9_3).
+    In Autonomous Search (pp. 37-71). Springer.
 
 ## Sponsor
 
-From 2021 to 2023, this open-source pure-Python library **PyPop7** was supported by Shenzhen Fundamental Research Program under Grant No. JCYJ20200109141235597 (2,000,000 Yuan). Now it is supported by Guangdong Basic and Applied Basic Research Foundation under Grants No. 2024A1515012241 and 2021A1515110024.
+From 2021 to 2023, this open-source pure-Python library **PyPop7** was supported by Shenzhen Fundamental
+Research Program under Grant No. JCYJ20200109141235597 (2,000,000 Yuan). Now it is supported by Guangdong
+Basic and Applied Basic Research Foundation under Grants No. 2024A1515012241 and 2021A1515110024.
 
 ## Citation
 
-If this open-source pure-Python library **PyPop7** is used in your paper or project, it is highly welcomed *but NOT mandatory* to cite the following arXiv [preprint](https://arxiv.org/abs/2212.05652) paper: **Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Huang, Y., Tan, Y., Yang, Y., Zhao, Q. and Shi, Y., 2024. PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.** (Now it has been submitted to [JMLR](https://jmlr.org/), *under 3rd review* from Tue, 28 Mar 2023 to Wed, 01 Nov 2023 to Fri, 05 Jul 2024.)
+If this open-source pure-Python library **PyPop7** is used in your paper or project, it is highly welcomed
+*but NOT mandatory* to cite the following arXiv [preprint](https://arxiv.org/abs/2212.05652) paper: **Duan,
+Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Huang, Y., Tan, Y., Yang, Y., Zhao, Q. and Shi, Y., 2024.
+PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.**
+(Now it has been submitted to [JMLR](https://jmlr.org/), *under 3rd review* from Tue, 28 Mar 2023 to Wed,
+01 Nov 2023 to Fri, 05 Jul 2024.)
 
 ## Star History
 
