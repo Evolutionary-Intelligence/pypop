@@ -321,17 +321,22 @@ reported in the (now still actively-updated) paper list called
 * **Particle Swarm Optimizer (PSO) / Consensus-Based Optimization (CBO)** [ [swarm intelligence](https://www.cs.cmu.edu/~arielpro/15381f16/c_slides/781f16-26.pdf) | [scholarpedia](http://www.scholarpedia.org/article/Particle_swarm_optimization) ]
   * Fornasier, M., et al., 2024.
     [Consensus-based optimization methods converge globally](https://epubs.siam.org/doi/10.1137/22M1527805).
-    SIAM Journal on Optimization, 34(3), pp.2973-3004.
+    SIOPT, 34(3), pp.2973-3004.
   * Bailo, R., et al., 2024.
     [CBX: Python and Julia packages for consensus-based interacting particle methods](https://joss.theoj.org/papers/10.21105/joss.06611.pdf).
     JOSS, 9(98), p.6611.
   * Sünnen, P., 2023.
     [Analysis of a consensus-based optimization method on hypersurfaces and applications](https://mediatum.ub.tum.de/doc/1647263/document.pdf).
     Doctoral Dissertation, Technische Universität München.
-  * Fornasier, M., Huang, H., Pareschi, L. and Sünnen, P., 2021. [Consensus-based optimization on the sphere: Convergence to global minimizers and machine learning](https://jmlr.csail.mit.edu/papers/v22/21-0259.html). JMLR, 22(1), pp.10722-10776.
-  * Carrillo, J.A., Choi, Y.P., Totzeck, C. and Tse, O., 2018. [An analytical framework for consensus-based global optimization method](https://www.worldscientific.com/doi/abs/10.1142/S0218202518500276). Mathematical Models and Methods in Applied Sciences, 28(06), pp.1037-1066.
-  * Blackwell, T. and Kennedy, J., 2018. [Impact of communication topology in particle swarm optimization](https://ieeexplore.ieee.org/abstract/document/8531770). TEVC, 23(4), pp.689-702.
-  * Pinnau, R., Totzeck, C., Tse, O. and Martin, S., 2017. [A consensus-based model for global optimization and its mean-field limit](https://www.worldscientific.com/doi/abs/10.1142/S0218202517400061). Mathematical Models and Methods in Applied Sciences, 27(01), pp.183-204.
+  * Fornasier, M., et al., 2021.
+    [Consensus-based optimization on the sphere: Convergence to global minimizers and machine learning](https://jmlr.csail.mit.edu/papers/v22/21-0259.html).
+    JMLR, 22(1), pp.10722-10776.
+  * Carrillo, J.A., et al., 2018.
+    [An analytical framework for consensus-based global optimization method](https://www.worldscientific.com/doi/abs/10.1142/S0218202518500276).
+    Mathematical Models and Methods in Applied Sciences, 28(06), pp.1037-1066.
+  * Pinnau, R., et al., 2017.
+    [A consensus-based model for global optimization and its mean-field limit](https://www.worldscientific.com/doi/abs/10.1142/S0218202517400061).
+    Mathematical Models and Methods in Applied Sciences, 27(01), pp.183-204.
   * Bonyadi, M.R. and Michalewicz, Z., 2017. [Particle swarm optimization for single objective continuous space problems: A review](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective). ECJ, 25(1), pp.1-54.
   * Escalante, H.J., Montes, M. and Sucar, L.E., 2009. [Particle swarm model selection](https://www.jmlr.org/papers/v10/escalante09a.html). JMLR, 10(15), pp.405−440.
   * Floreano, D. and Mattiussi, C., 2008. [Bio-inspired artificial intelligence: Theories, methods, and technologies](https://mitpress.mit.edu/9780262062718/bio-inspired-artificial-intelligence/). MIT Press.
