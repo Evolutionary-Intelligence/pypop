@@ -1,6 +1,6 @@
 import numpy as np  # engine for numerical computing
 
-from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all black-box optimizers (BBO)
+from pypop7.optimizers.core.optimizer import Optimizer  # abstract class of all black-box optimizer (BBO) classes
 
 
 class DE(Optimizer):
@@ -9,18 +9,19 @@ class DE(Optimizer):
     This is the **abstract** class for all Differential Evolution (`DE`) classes. Please use any of its instantiated
     subclasses to optimize the black-box problem at hand.
 
-    .. note:: Originally `DE` was proposed to solve some challenging real-world black-box problems by Kenneth Price and
-       Rainer Storn, `recipients of IEEE Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_.
+    .. note:: `DE` was proposed to solve some challenging real-world black-box problems by Kenneth Price and Rainer
+       Storn, `two recipients of IEEE Evolutionary Computation Pioneer Award 2017 <https://tinyurl.com/456as566>`_.
        Although there is *few* significant theoretical advance till now (to our knowledge), it is **still widely used
        in practice**, owing to its often attractive search performance on many multimodal black-box functions. `"DE
-       borrows the idea from Nelder&Mead of employing information from within the vector population to alter the search
-       space."---[Storn&Price, 1997, JGO] <https://doi.org/10.1023/A:1008202821328>`_
+       borrows the idea from Nelder&Mead of employing information from within the vector population to alter the
+       search space."---[Storn&Price, 1997, JGO] <https://doi.org/10.1023/A:1008202821328>`_
 
        The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ library has provided an
        open-source Python implementation for `DE` with wide applications.
 
     For some interesting applications of `DE`, please refer to `[Weichart et al., 2024, Psychological Review]
-    <https://psycnet.apa.org/record/2024-83890-001>`_, `[LaBerge et al., 2024, Nature Photonics]
+    <https://psycnet.apa.org/record/2024-83890-001>`_,
+    `[LaBerge et al., 2024, Nature Photonics (UT Austin, TU Dresden, Fermilab, etc.)]
     <https://www.nature.com/articles/s41566-024-01475-2>`_, `[Olschewski et al., 2024, PNAS]
     <https://www.pnas.org/doi/abs/10.1073/pnas.2317751121>`_, `[Higgins et al., 2023, Science]
     <https://www.science.org/doi/10.1126/science.add5190>`_, `[Shinn et al., 2023, Nature Neuroscience]

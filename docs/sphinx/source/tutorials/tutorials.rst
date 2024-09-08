@@ -1,8 +1,9 @@
 Online Tutorials
 ================
 
-Here we have provided several *interesting* tutorials to help better use this `open-source <https://opensource.org/>`_
-library `PyPop7 <https://pypop.readthedocs.io/en/latest/installation.html>`_ for black-box optimization (BBO), as
+Here we have provided several *interesting* online tutorials to help better use this `open-source
+<https://opensource.org/>`_ Python library `PyPop7
+<https://pypop.readthedocs.io/en/latest/installation.html>`_ for black-box optimization (BBO), as
 shown below:
 
 * Lens Shape Optimization from `[Beyer, GECCO] <https://dl.acm.org/doi/abs/10.1145/3377929.3389870>`_,

@@ -28,12 +28,26 @@ class ES(Optimizer):
        <https://openai.com/index/evolution-strategies/>`_) but obtaining competitive performance for high-dimensional
        (deep neural network-based) policy search in reinforcement learning.
 
-       For some interesting applications of `ES`, please refer to `[Yang et al., 2024, CVPR]
-       <https://diffusion-es.github.io/>`_, `[Elfikky et al., 2024, LWC]
-       <https://ieeexplore.ieee.org/abstract/document/10531788>`_, `[Lee et al., 2023, Science Robotics]
-       <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_, `[Koginov et al., 2023, TMRB]
+       For some interesting applications of `ES`, please refer to
+       `[SIMULIA > CST Studio Suite > Automatic Optimization (Dassault Systèmes)]
+       <https://www.3ds.com/products/simulia/cst-studio-suite/automatic-optimization>`_,
+       `[Yang et al., 2024, CVPR (CMU)]
+       <https://diffusion-es.github.io/>`_,
+       `[Elfikky et al., 2024, LWC (UCSC + Qualcomm Inc.)]
+       <https://ieeexplore.ieee.org/abstract/document/10531788>`_,
+       `[Martin&Sandholm, 2024 (CMU + Strategy Robot, Inc. + Optimized Markets, Inc. + Strategic Machine, Inc.)]
+       <https://arxiv.org/abs/2406.08687>`_,
+       `[Reali et al., 2024 (Microsoft Research, Gates Medical Research Institute, Hackensack Meridian Health, etc.)]
+       <https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2023.1272091/full>`_
+       `[Lee et al., 2023, Science Robotics (UMich + Google X + Google Robotics + Georgia Tech)]
+       <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_,
+       `[Milekovic et al., 2023, Nature Medicine (EPFL + ONWARD Medical + Medtronic Inc. + Oxford, etc.)]
+       <https://www.nature.com/articles/s41591-023-02584-1>`_,
+       `[Koginov et al., 2023, TMRB]
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Sun et al., 2023, ACL]
-       <https://aclanthology.org/2023.acl-long.625.pdf>`_, `[Agrawal et al., 2014, TVCG]
+       <https://aclanthology.org/2023.acl-long.625.pdf>`_,
+       `[Hasani et al., 2023, NeurIPS-Workshop (Vanguard Group, Inc.)]
+       <https://openreview.net/pdf?id=KiQ8PhDzIU>`_, `[Agrawal et al., 2014, TVCG]
        <https://ieeexplore.ieee.org/abstract/document/6781622>`_, `[Molinari et al., 2014, AIAAJ]
        <https://arc.aiaa.org/doi/full/10.2514/1.J052715>`_, `[Heidrich-Meisner&Igel, 2009, ICML]
        <https://dl.acm.org/doi/abs/10.1145/1553374.1553426>`_, `[Lipson&Pollack, 2000, Nature]

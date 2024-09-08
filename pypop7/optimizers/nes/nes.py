@@ -15,8 +15,12 @@ class NES(ES):
        <https://direct.mit.edu/neco/article-abstract/10/2/251/6143/Natural-Gradient-Works-Efficiently-in-Learning>`_.
        In this library, we have converted it to the *minimization* problem, in accordance with other modules.
 
-    For some interesting applications of `NES`, please refer to `[Xu et al., 2024, ICLR]
-    <https://openreview.net/pdf?id=6PbvbLyqT6>`_, `[Xuan Zhang et al., 2024, IEEE-LRA]
+    For some interesting applications of `NES`, please refer to
+    `[Xu et al., 2024, ICLR]
+    <https://openreview.net/pdf?id=6PbvbLyqT6>`_,
+    `[Liu et al., 2024, TC (Columbia University, NVIDIA Research, Nokia Bell Labs, etc.)]
+    <https://ieeexplore.ieee.org/abstract/document/10633902>`_,
+    `[Xuan Zhang et al., 2024, IEEE-LRA]
     <https://ieeexplore.ieee.org/document/10382561>`_, `[Conti et al., 2018, NeurIPS]
     <https://proceedings.neurips.cc/paper/2018/file/b1301141feffabac455e1f90a7de2054-Paper.pdf>`_, to name a few.
 
