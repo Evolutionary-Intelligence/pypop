@@ -183,7 +183,7 @@ class LogisticLossL2(BaseFunction):
 
 
 def tanh_loss_lr(w, x, y):
-    """Tanh loss function of logistic regression (LR with binary labels/classes {-1, 1}).
+    """Tanh loss function of logistic regression (LR with binary class labels {-1, 1}).
 
        .. note:: This loss function for binary classification is generally non-convex
           (non-linear least squares).
@@ -191,15 +191,15 @@ def tanh_loss_lr(w, x, y):
     Parameters
     ----------
     w : ndarray
-        input vector (weights).
+        input vector (weights to be optimized).
     x : ndarray
-        features in the used train set.
+        features in the used training set.
     y : ndarray
-        labels in the used train set.
+        class labels in the used training set.
 
     Returns
     -------
-    loss/fitness value (`float`).
+    loss/fitness value to be minimized (`float`).
 
     References
     ----------
