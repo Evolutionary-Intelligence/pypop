@@ -106,8 +106,15 @@ BBO/DFO/ZOO
 Constrained Optimization
 ------------------------
 
-* Maesani, A. and Floreano, D., 2014. Viability principles for constrained optimization using a (1+1)-CMA-ES. In Parallel Problem Solving from Nature. Springer.
-* Wampler, K. and Popović, Z., 2009. Optimal gait and form for animal locomotion. ACM Transactions on Graphics, 28(3), pp.1-8.
+* Brockhoff, D., 2023, July.
+  Comparing boundary handling techniques of CMA-ES on the bbob and sbox-cost test suites.
+  In Proceedings of Companion Conference on Genetic and Evolutionary Computation (pp. 2318-2325). ACM.
+* Maesani, A. and Floreano, D., 2014.
+  Viability principles for constrained optimization using a (1+1)-CMA-ES.
+  In Parallel Problem Solving from Nature. Springer.
+* Wampler, K. and Popović, Z., 2009.
+  Optimal gait and form for animal locomotion.
+  ACM Transactions on Graphics, 28(3), pp.1-8.
 
 Noisy Optimization
 ------------------
