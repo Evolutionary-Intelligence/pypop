@@ -77,6 +77,8 @@ Open-Source Cases
 Till now, this Python library `PyPop7` has been used (at least) in the following open-source projects:
 
 * 15 [2024]: https://github.com/GMC-DRL/Neur-ELA
+
+  * **FCMAES + SEPCMAES + RMES + CMAES**
 * 14: https://github.com/nikivanstein/LLaMEA (2024)
 * 13: https://github.com/AmitDIRTYC0W/neuronveil-mnist-train (2024)
 
