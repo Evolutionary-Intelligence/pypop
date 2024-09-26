@@ -48,9 +48,19 @@ the following papers (note that the below list is **actively updated**):
 * 5: Lee, Y., Lee, K., Hsu, D., Cai, P. and Kavraki, L.E., 2023. `The Planner Optimization Problem: Formulations and Frameworks <https://arxiv.org/abs/2303.06768>`_. arXiv preprint arXiv:2303.06768. [**used&cited**]
 
   * Rice University + Shanghai Jiao Tong University + National University of Singapore
-* 4: Duan, Q., Shao, C., Zhou, G., Zhao, Q. and Shi, Y., 2023. `Distributed Evolution Strategies with Multi-Level Learning for Large-Scale Black-Box Optimization <https://arxiv.org/abs/2310.05377>`_. arXiv preprint arXiv:2310.05377. [**used**]
+* **4**: Duan, Q., Shao, C., Zhou, G., Zhang, M., Zhao, Q. and Shi, Y., 2023.
+  `Distributed Evolution Strategies with Multi-Level Learning for Large-Scale Black-Box Optimization
+  <https://arxiv.org/abs/2310.05377>`_.
+  arXiv preprint arXiv:2310.05377. [**used**]
 
-  * Harbin Institute of Technology + Southern University of Science and Technology + University of Technology Sydney + University of Warwick
+  * Duan, Q., Shao, C., Zhou, G., Zhang, M., Zhao, Q. and Shi, Y., 2024.
+    `Distributed Evolution Strategies With Multi-Level Learning for Large-Scale Black-Box Optimization
+    <https://ieeexplore.ieee.org/abstract/document/10621616/>`_.
+    IEEE Transactions on Parallel & Distributed Systems, 35(11), pp.2087-2101.
+  * Harbin Institute of Technology +
+    Southern University of Science and Technology +
+    University of Technology Sydney +
+    University of Warwick
 * 3: Duan, Q., Shao, C., Zhou, G., Yang, H., Zhao, Q. and Shi, Y., 2023. `Cooperative Coevolution for Non-Separable Large-Scale Black-Box Optimization: Convergence Analyses and Distributed Accelerations <https://arxiv.org/abs/2304.05020>`_. arXiv preprint arXiv:2304.05020. [**used**]
 
   * Harbin Institute of Technology + Southern University of Science and Technology + University of Technology Sydney
