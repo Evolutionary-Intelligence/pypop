@@ -64,8 +64,9 @@ the following papers (note that the below list is **actively updated**):
 Open-Source Cases
 -----------------
 
-Till now, our open-source library `PyPop7` has been used (at least) in the following open-source projects:
+Till now, this Python library `PyPop7` has been used (at least) in the following open-source projects:
 
+* 15 [2024]: https://github.com/GMC-DRL/Neur-ELA
 * 14: https://github.com/nikivanstein/LLaMEA (2024)
 * 13: https://github.com/AmitDIRTYC0W/neuronveil-mnist-train (2024)
 
