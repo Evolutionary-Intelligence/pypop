@@ -33,7 +33,7 @@ class UMDA(EDA):
 
     Examples
     --------
-    Use the optimizer `UMDA` to minimize the well-known test function
+    Use the black-box optimizer `UMDA` from `EDA` to minimize the well-known test function
     `Rosenbrock <http://en.wikipedia.org/wiki/Rosenbrock_function>`_:
 
     .. code-block:: python
