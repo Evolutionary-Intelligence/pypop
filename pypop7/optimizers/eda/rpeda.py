@@ -1,14 +1,16 @@
 import numpy as np  # engine for numerical computing
 
+# abstract class of all Estimation of Distribution Algorithms (EDA) classes
 from pypop7.optimizers.eda.eda import EDA
 
 
 class RPEDA(EDA):
     """Random-Projection Estimation of Distribution Algorithm (RPEDA).
 
-    .. note:: `RPEDA` uses **random matrix theory (RMT)** to sample individuals on multiple embedded subspaces,
-       though it still evaluates all individuals on the original search space. It has a **quadractic** time
-       complexity w.r.t. each sampling for large-scale black-box optimization.
+    .. note:: `RPEDA` uses **random matrix theory** to sample individuals on multiple
+       embedded subspaces, though it still evaluates all individuals on the original
+       search space. It has a **quadractic** time complexity w.r.t. each sampling for
+       large-scale black-box optimization.
 
     Parameters
     ----------
@@ -20,16 +22,20 @@ class RPEDA(EDA):
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : dict
               optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+                * 'max_function_evaluations' - maximum of function evaluations (`int`,
+                  default: `np.inf`),
+                * 'max_runtime'              - maximal runtime (`float`,
+                  default: `np.inf`),
+                * 'seed_rng'                 - seed for random number generation needed
+                  to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring, offspring population size (`int`, default: `300`),
-                * 'n_parents'     - number of parents, parental population size (`int`, default:
-                  `int(0.25*options['n_individuals'])`),
+                * 'n_individuals' - number of offspring, offspring population size
+                  (`int`, default: `300`),
+                * 'n_parents'     - number of parents, parental population size
+                  (`int`, default: `int(0.25*options['n_individuals'])`),
                 * 'k'             - projection dimensionality (`int`, default: `3`),
-                * 'm'             - number of random projection matrices (`int`, default:
-                  `int(np.ceil(4*options['n_individuals']/options['k'])`).
+                * 'm'             - number of random projection matrices (`int`,
+                  default: `int(np.ceil(4*options['n_individuals']/options['k'])`).
 
     Examples
     --------
@@ -69,9 +75,9 @@ class RPEDA(EDA):
     References
     ----------
     Kabán, A., Bootkrajang, J. and Durrant, R.J., 2016.
-    Toward large-scale continuous EDA: A random matrix theory perspective.
+    `Toward large-scale continuous EDA: A random matrix theory perspective.
+    <https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix>`_
     Evolutionary Computation, 24(2), pp.255-291.
-    https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix
     """
     def __init__(self, problem, options):
         EDA.__init__(self, problem, options)
