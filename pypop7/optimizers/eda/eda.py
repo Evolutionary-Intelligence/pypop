@@ -29,13 +29,17 @@ class EDA(Optimizer):
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : dict
               optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
-                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+                * 'max_function_evaluations' - maximum of function evaluations (`int`,
+                  default: `np.inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`,
+                  default: `np.inf`),
+                * 'seed_rng'                 - seed for random number generation needed
+                  to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `200`),
-                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
-                  `int(self.n_individuals/2)`).
+                * 'n_individuals' - number of offspring, aka offspring population size
+                  (`int`, default: `200`),
+                * 'n_parents'     - number of parents, aka parental population size
+                  (`int`, default: `int(self.n_individuals/2)`).
 
     Attributes
     ----------
