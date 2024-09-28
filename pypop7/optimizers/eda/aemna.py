@@ -1,15 +1,17 @@
 import numpy as np  # engine for numerical computing
 
+# abstract class of all Estimation of Distribution Algorithms (EDA) classes
 from pypop7.optimizers.eda.eda import EDA
 
 
 class AEMNA(EDA):
     """Adaptive Estimation of Multivariate Normal Algorithm (AEMNA).
 
-    .. note:: `AEMNA` learns the *full* covariance matrix of the Gaussian sampling distribution, resulting
-       in a *cubic* time complexity w.r.t. each generation. Therefore, like `EMNA`, it is rarely used for
-       large-scale black-box optimization (LSBBO). It is **highly recommended** to first attempt other
-       more advanced methods for LSBBO.
+    .. note:: `AEMNA` learns the *full* covariance matrix of the Gaussian sampling
+       distribution, resulting in a *cubic* time complexity w.r.t. each sampling.
+       Therefore, now it is **rarely** used for large-scale black-box optimization
+       (LBO). It is **highly recommended** to first attempt other more advanced
+       optimization methods for LBO.
 
     Parameters
     ----------
@@ -21,13 +23,17 @@ class AEMNA(EDA):
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : dict
               optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
-                * 'max_runtime'              - maximal runtime (`float`, default: `np.inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+                * 'max_function_evaluations' - maximum of function evaluations (`int`,
+                  default: `np.inf`),
+                * 'max_runtime'              - maximal runtime (`float`,
+                  default: `np.inf`),
+                * 'seed_rng'                 - seed for random number generation needed
+                  to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `200`),
-                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
-                  `int(options['n_individuals']/2)`).
+                * 'n_individuals' - number of offspring, aka offspring population size
+                  (`int`, default: `200`),
+                * 'n_parents'     - number of parents, aka parental population size
+                  (`int`, default: `int(options['n_individuals']/2)`).
 
     Examples
     --------
@@ -65,9 +71,9 @@ class AEMNA(EDA):
     References
     ----------
     Larrañaga, P. and Lozano, J.A. eds., 2002.
-    Estimation of distribution algorithms: A new tool for evolutionary computation.
+    `Estimation of distribution algorithms: A new tool for evolutionary computation.
+    <https://link.springer.com/book/10.1007/978-1-4615-1539-5>`_
     Springer Science & Business Media.
-    https://link.springer.com/book/10.1007/978-1-4615-1539-5
     """
     def __init__(self, problem, options):
         EDA.__init__(self, problem, options)
