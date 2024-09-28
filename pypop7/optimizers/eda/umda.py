@@ -1,15 +1,17 @@
 import numpy as np  # engine for numerical computing
 
+# abstract class of all Estimation of Distribution Algorithms (EDA) classes
 from pypop7.optimizers.eda.eda import EDA
 
 
 class UMDA(EDA):
     """Univariate Marginal Distribution Algorithm for normal models (UMDA).
 
-    .. note:: `UMDA` learns only the *diagonal* elements of covariance matrix of the Gaussian sampling
-       distribution, resulting in a *linear* time complexity w.r.t. each sampling. Therefore, it can be
-       seen as a *baseline* for large-scale black-box optimization (LSBBO). To obtain satisfactory
-       performance for LSBBO, the number of offspring may need to be carefully tuned.
+    .. note:: `UMDA` learns only the *diagonal* elements of covariance matrix of the
+       Gaussian sampling distribution, resulting in a *linear* time complexity w.r.t.
+       each sampling. Therefore, it can be seen as a *baseline* for large-scale
+       black-box optimization (LBO). To obtain satisfactory performance for LBO, the
+       number of offspring may need to be carefully tuned in practice.
 
     Parameters
     ----------
@@ -21,13 +23,16 @@ class UMDA(EDA):
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : dict
               optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, 
+                                               default: `np.inf`),
                 * 'max_runtime'              - maximal runtime (`float`, default: `np.inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+                * 'seed_rng'                 - seed for random number generation needed to be
+                                               *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `200`),
-                * 'n_parents'     - number of parents, aka parental population size (`int`, default:
-                  `int(options['n_individuals']/2)`).
+                * 'n_individuals' - number of offspring, aka offspring population size (`int`,
+                                    default: `200`),
+                * 'n_parents'     - number of parents, aka parental population size (`int`,
+                                    default: `int(options['n_individuals']/2)`).
 
     Examples
     --------
