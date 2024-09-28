@@ -66,32 +66,32 @@ class EDA(Optimizer):
     https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix
 
     Larrañaga, P. and Lozano, J.A. eds., 2002.
-    Estimation of distribution algorithms: A new tool for evolutionary computation.
+    `Estimation of distribution algorithms: A new tool for evolutionary computation.
+    <https://link.springer.com/book/10.1007/978-1-4615-1539-5>`_
     Springer Science & Business Media.
-    https://link.springer.com/book/10.1007/978-1-4615-1539-5
-    ([Jose Lozano: IEEE Fellow for contributions to EDAs](https://tinyurl.com/sssfsfw8))
+    (Pedro Larrañaga + Jose Lozano: IEEE Fellows for contributions to EDAs)
 
     Mühlenbein, H. and Mahnig, T., 2001.
-    Evolutionary algorithms: From recombination to search distributions.
+    `Evolutionary algorithms: From recombination to search distributions.
+    <https://link.springer.com/chapter/10.1007/978-3-662-04448-3_7>`_
     In Theoretical Aspects of Evolutionary Computing (pp. 135-173). Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/978-3-662-04448-3_7
 
     Berny, A., 2000, September.
-    Selection and reinforcement learning for combinatorial optimization.
+    `Selection and reinforcement learning for combinatorial optimization.
+    <https://link.springer.com/chapter/10.1007/3-540-45356-3_59>`_
     In International Conference on Parallel Problem Solving from Nature (pp. 601-610).
     Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/3-540-45356-3_59
 
     Bosman, P.A. and Thierens, D., 2000, September.
-    Expanding from discrete to continuous estimation of distribution algorithms: The IDEA.
+    `Expanding from discrete to continuous estimation of distribution algorithms: The IDEA.
+    <https://link.springer.com/chapter/10.1007/3-540-45356-3_75>`_
     In International Conference on Parallel Problem Solving from Nature (pp. 767-776).
     Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/3-540-45356-3_75
 
     Mühlenbein, H., 1997.
-    The equation for response to selection and its use for prediction.
+    `The equation for response to selection and its use for prediction.
+    <https://tinyurl.com/yt78c786>`_
     Evolutionary Computation, 5(3), pp.303-346.
-    https://tinyurl.com/yt78c786
 
     Baluja, S. and Caruana, R., 1995.
     `Removing the genetics from the standard genetic algorithm.
