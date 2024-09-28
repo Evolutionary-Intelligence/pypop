@@ -88,9 +88,9 @@ class EDA(Optimizer):
     https://tinyurl.com/yt78c786
 
     Baluja, S. and Caruana, R., 1995.
-    Removing the genetics from the standard genetic algorithm.
+    `Removing the genetics from the standard genetic algorithm.
+    <https://www.sciencedirect.com/science/article/pii/B9781558603776500141>`_
     In International Conference on Machine Learning (pp. 38-46). Morgan Kaufmann.
-    https://www.sciencedirect.com/science/article/pii/B9781558603776500141
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
