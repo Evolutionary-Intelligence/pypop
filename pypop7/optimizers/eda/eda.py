@@ -1,20 +1,22 @@
 import numpy as np  # engine for numerical computing
 
+# Abstract class of all optimizers for continuous black-box **minimization**
 from pypop7.optimizers.core.optimizer import Optimizer
 
 
 class EDA(Optimizer):
     """Estimation of Distribution Algorithms (EDA).
 
-    This is the **abstract** class for all `EDA` classes. Please use any of its instantiated subclasses to
-    optimize the black-box problem at hand.
+    This is the **abstract** class for all `EDA` classes. Please use any of
+    its instantiated subclasses to optimize the black-box problem at hand.
 
-    .. note:: *`EDA` are a modern branch of evolutionary algorithms with some unique advantages in
-       principle*, as recognized in `[Kabán et al., 2016, ECJ] <https://tinyurl.com/mrxpe28y>`_.
+    .. note:: *"EDA are a modern branch of evolutionary algorithms with some
+       unique advantages in principle"*, as recognized in `[Kabán et al.,
+       2016, ECJ] <https://tinyurl.com/mrxpe28y>`_.
 
        AKA `probabilistic model-building genetic algorithms (PMBGA)
-       <https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e>`_, `iterated density estimation
-       evolutionary algorithms (IDEA)
+       <https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e>`_,
+       `iterated density estimation evolutionary algorithms (IDEA)
        <https://dspace.library.uu.nl/bitstream/handle/1874/1886/2000-15.pdf?sequence=1>`_.
 
     Parameters
