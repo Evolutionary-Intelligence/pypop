@@ -13,3 +13,8 @@ Estimation of Distribution Algorithms (EDA)
    aemna
    emna
    umda
+
+
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
