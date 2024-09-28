@@ -1,15 +1,17 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
+# class of Univariate Marginal Distribution Algorithm for normal models (UMDA)
 from pypop7.optimizers.eda.umda import UMDA
 
 
 class EMNA(UMDA):
     """Estimation of Multivariate Normal Algorithm (EMNA).
 
-    .. note:: `EMNA` learns the *full* covariance matrix of the Gaussian sampling distribution, resulting
-       in a *cubic* time complexity w.r.t. each sampling. Therefore, it is **rarely** used for
-       large-scale black-box optimization (LSBBO). It is **highly recommended** to first attempt other more
-       advanced methods for LSBBO.
+    .. note:: `EMNA` learns the *full* covariance matrix of the Gaussian sampling
+       distribution, resulting in a *cubic* time complexity w.r.t. each sampling.
+       Therefore, now it is **rarely** used for large-scale black-box optimization
+       (LBO). It is **highly recommended** to first attempt other more advanced
+       optimization methods for LBO.
 
     Parameters
     ----------
@@ -65,15 +67,15 @@ class EMNA(UMDA):
     References
     ----------
     Larrañaga, P. and Lozano, J.A. eds., 2002.
-    Estimation of distribution algorithms: A new tool for evolutionary computation.
+    `Estimation of distribution algorithms: A new tool for evolutionary computation.
+    <https://link.springer.com/book/10.1007/978-1-4615-1539-5>`_
     Springer Science & Business Media.
-    https://link.springer.com/book/10.1007/978-1-4615-1539-5
 
     Larranaga, P., Etxeberria, R., Lozano, J.A. and Pena, J.M., 2000.
     Optimization in continuous domains by learning and simulation of Gaussian networks.
     Technical Report, Department of Computer Science and Artificial Intelligence,
-    University of the Basque Country.
-    https://tinyurl.com/3bw6n3x4
+    University of the Basque Country. Spain.
+    (Unfortunately, to our knowledge this online document is not openly accessible now.)
     """
     def __init__(self, problem, options):
         UMDA.__init__(self, problem, options)
