@@ -24,9 +24,12 @@ class DE(Optimizer):
 
     For some interesting applications of `DE`, please refer to `[Weichart et al., 2024, Psychological Review]
     <https://psycnet.apa.org/record/2024-83890-001>`_,
-    `[LaBerge et al., 2024, Nature Photonics (UT Austin, TU Dresden, Fermilab, etc.)]
+    `[LaBerge, et al., 2024, Nature Photonics (UT Austin, TU Dresden, Fermilab, etc.)]
     <https://www.nature.com/articles/s41566-024-01475-2>`_, `[Olschewski et al., 2024, PNAS]
-    <https://www.pnas.org/doi/abs/10.1073/pnas.2317751121>`_, `[Higgins et al., 2023, Science]
+    <https://www.pnas.org/doi/abs/10.1073/pnas.2317751121>`_,
+    `[DeWolf, et al., 2024 (EPFL + MPI-IS + Harvard University)]
+    <https://www.biorxiv.org/content/10.1101/2024.09.11.612513v1.abstract>`_,
+    `[Higgins, et al., 2023, Science]
     <https://www.science.org/doi/10.1126/science.add5190>`_, `[Shinn et al., 2023, Nature Neuroscience]
     <https://www.nature.com/articles/s41593-023-01299-3>`_, `[Koob et al., 2023, Psychological Review]
     <https://psycnet.apa.org/record/2021-99615-001>`_, `[Barbosa et al., 2021, PAAP]
