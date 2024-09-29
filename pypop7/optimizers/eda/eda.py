@@ -56,14 +56,14 @@ class EDA(Optimizer):
     https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=22182
 
     Brookes, D., Busia, A., Fannjiang, C., Murphy, K. and Listgarten, J., 2020, July.
-    A view of estimation of distribution algorithms through the lens of expectation-maximization.
+    `A view of estimation of distribution algorithms through the lens of expectation-maximization.
+    <https://dl.acm.org/doi/abs/10.1145/3377929.3389938>`_
     In Proceedings of Genetic and Evolutionary Computation Conference Companion (pp. 189-190). ACM.
-    https://dl.acm.org/doi/abs/10.1145/3377929.3389938
 
     Kabán, A., Bootkrajang, J. and Durrant, R.J., 2016.
-    Toward large-scale continuous EDA: A random matrix theory perspective.
+    `Toward large-scale continuous EDA: A random matrix theory perspective.
+    <https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix>`_
     Evolutionary Computation, 24(2), pp.255-291.
-    https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix
 
     Larrañaga, P. and Lozano, J.A. eds., 2002.
     `Estimation of distribution algorithms: A new tool for evolutionary computation.
