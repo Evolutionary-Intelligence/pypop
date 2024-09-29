@@ -86,7 +86,8 @@ class DE(Optimizer):
     Journal of Global Optimization, 11(4), pp.341–359.
 
     Storn, R.M., 1996, May.
-    Differential evolution design of an IIR-filter.
+    `Differential evolution design of an IIR-filter.
+    <https://ieeexplore.ieee.org/document/542373>`_
     In Proceedings of IEEE International Conference on Evolutionary
     Computation (pp. 268-273). IEEE.
 
