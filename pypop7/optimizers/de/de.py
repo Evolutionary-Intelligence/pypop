@@ -19,19 +19,23 @@ class DE(Optimizer):
        population to alter the search space."---[Storn&Price, 1997, JGO]
        <https://doi.org/10.1023/A:1008202821328>`_
 
-       The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_ library has provided an
-       open-source Python implementation for `DE` with wide applications.
+       The popular and powerful `SciPy <https://www.nature.com/articles/s41592-019-0686-2>`_
+       library has provided an open-source Python implementation for `DE` with wide applications.
 
     For some interesting applications of `DE`, please refer to `[Weichart et al., 2024, Psychological Review]
     <https://psycnet.apa.org/record/2024-83890-001>`_,
-    `[LaBerge, et al., 2024, Nature Photonics (UT Austin, TU Dresden, Fermilab, etc.)]
+    `[LaBerge et al., 2024, Nature Photonics (UT Austin, TU Dresden, Fermilab, etc.)]
     <https://www.nature.com/articles/s41566-024-01475-2>`_, `[Olschewski et al., 2024, PNAS]
     <https://www.pnas.org/doi/abs/10.1073/pnas.2317751121>`_,
-    `[DeWolf, et al., 2024 (EPFL + MPI-IS + Harvard University)]
+    `[DeWolf et al., 2024 (EPFL + MPI-IS + Harvard University)]
     <https://www.biorxiv.org/content/10.1101/2024.09.11.612513v1.abstract>`_,
-    `[Higgins, et al., 2023, Science]
-    <https://www.science.org/doi/10.1126/science.add5190>`_, `[Shinn et al., 2023, Nature Neuroscience]
-    <https://www.nature.com/articles/s41593-023-01299-3>`_, `[Koob et al., 2023, Psychological Review]
+    `[Higgins et al., 2023, Science]
+    <https://www.science.org/doi/10.1126/science.add5190>`_,
+    `[Shinn et al., 2023, Nature Neuroscience]
+    <https://www.nature.com/articles/s41593-023-01299-3>`_,
+    `[Staffell et al., 2023, Nature Energy (Imperial + TU Delft)]
+    <https://www.nature.com/articles/s41560-023-01341-5>`_,
+    `[Koob et al., 2023, Psychological Review]
     <https://psycnet.apa.org/record/2021-99615-001>`_, `[Barbosa et al., 2021, PAAP]
     <https://link.springer.com/chapter/10.1007/978-981-16-0010-4_15>`_, `[Lawson et al., 2020, AJ]
     <https://doi.org/10.3847/1538-3881/ababa6>`_, `[Event Horizon Telescope Collaboration, 2019, ApJL]
