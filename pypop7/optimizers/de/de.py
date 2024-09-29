@@ -74,11 +74,13 @@ class DE(Optimizer):
     <https://link.springer.com/book/10.1007/3-540-31306-0>`_
     Springer Science & Business Media.
 
+    https://jacobfilipp.com/DrDobbs/articles/DDJ/1997/9704/9704a/9704a.htm
+
     Storn, R.M. and Price, K.V. 1997.
-    `Differential evolution – a simple and efficient heuristic for global optimization over continuous spaces.
+    `Differential evolution – a simple and efficient heuristic for global
+    optimization over continuous spaces.
     <https://doi.org/10.1023/A:1008202821328>`_
     Journal of Global Optimization, 11(4), pp.341–359.
-    
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
