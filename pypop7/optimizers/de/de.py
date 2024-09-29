@@ -81,6 +81,11 @@ class DE(Optimizer):
     optimization over continuous spaces.
     <https://doi.org/10.1023/A:1008202821328>`_
     Journal of Global Optimization, 11(4), pp.341–359.
+
+    Storn, R.M., 1996, June.
+    `On the usage of differential evolution for function optimization.
+    <https://ieeexplore.ieee.org/abstract/document/534789>`_
+    In Proceedings of North American Fuzzy Information Processing (pp. 519-523). IEEE.
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
