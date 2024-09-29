@@ -129,7 +129,7 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 * `微信公众号: 演化智能 <https://mp.weixin.qq.com>`_:
 
   * https://mp.weixin.qq.com/s/4JO2sYouiEvmq9XNUJkncA
-* `中文博客网站CSDN <https://blog.csdn.net>`_:
+* `中文博客网站：CSDN <https://blog.csdn.net>`_:
 
   * https://blog.csdn.net/2301_81205034/category_12502462.html
   * https://blog.csdn.net/gitblog_00094/article/details/139615060
