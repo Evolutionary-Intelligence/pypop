@@ -378,13 +378,27 @@ reported in the (now still actively-updated) paper list called
   * Goldberg, D.E., 1994. [Genetic and evolutionary algorithms come of age](https://dl.acm.org/doi/10.1145/175247.175259). CACM, 37(3), pp.113-120.
   * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
   * De Jong, K.A., 1993. [Are genetic algorithms function optimizer?](https://www.sciencedirect.com/science/article/pii/B9780080948324500064). FOGA, pp.5-17.
-  * Mitchell, M., Holland, J. and Forrest, S., 1993. [When will a genetic algorithm outperform hill climbing](https://proceedings.neurips.cc/paper/1993/hash/ab88b15733f543179858600245108dd8-Abstract.html). Advances in Neural Information Processing Systems (pp. 51-58).
-  * Holland, J.H., 1992. [Adaptation in natural and artificial systems: An introductory analysis with applications to biology, control, and artificial intelligence](https://direct.mit.edu/books/book/2574/Adaptation-in-Natural-and-Artificial-SystemsAn). MIT Press.
-  * Holland, J.H., 1992. [Genetic algorithms](https://www.scientificamerican.com/article/genetic-algorithms/). Scientific American, 267(1), pp.66-73.
-  * Whitley, D., 1989, December. [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169). FOGA (pp. 116-121).
-  * Goldberg, D.E. and Holland, J.H., 1988. [Genetic algorithms and machine learning](https://link.springer.com/article/10.1023/A:1022602019183). Machine Learning, 3(2), pp.95-99.
-  * Holland, J.H., 1973. [Genetic algorithms and the optimal allocation of trials](https://epubs.siam.org/doi/10.1137/0202009). SIAM Journal on Computing, 2(2), pp.88-105.
-  * Holland, J.H., 1962. [Outline for a logical theory of adaptive systems](https://dl.acm.org/doi/10.1145/321127.321128). JACM, 9(3), pp.297-314.
+  * Mitchell, M., Holland, J. and Forrest, S., 1993.
+    [When will a genetic algorithm outperform hill climbing](https://proceedings.neurips.cc/paper/1993/hash/ab88b15733f543179858600245108dd8-Abstract.html).
+    Advances in Neural Information Processing Systems (pp. 51-58).
+  * Holland, J.H., 1992.
+    [Adaptation in natural and artificial systems: An introductory analysis with applications to biology, control, and artificial intelligence](https://direct.mit.edu/books/book/2574/Adaptation-in-Natural-and-Artificial-SystemsAn).
+    MIT Press.
+  * Holland, J.H., 1992.
+    [Genetic algorithms](https://www.scientificamerican.com/article/genetic-algorithms/).
+    Scientific American, 267(1), pp.66-73.
+  * Whitley, D., 1989, December.
+    [The GENITOR algorithm and selection pressure: Why rank-based allocation of reproductive trials is best](https://dl.acm.org/doi/10.5555/93126.93169).
+    FOGA (pp. 116-121).
+  * Goldberg, D.E. and Holland, J.H., 1988.
+    [Genetic algorithms and machine learning](https://link.springer.com/article/10.1023/A:1022602019183).
+    MLJ, 3(2), pp.95-99.
+  * Holland, J.H., 1973.
+    [Genetic algorithms and the optimal allocation of trials](https://epubs.siam.org/doi/10.1137/0202009).
+    SICOMP, 2(2), pp.88-105.
+  * Holland, J.H., 1962.
+    [Outline for a logical theory of adaptive systems](https://dl.acm.org/doi/10.1145/321127.321128).
+    JACM, 9(3), pp.297-314.
   * Applications: e.g., [Wang, 2023, Harvard Ph.D. Dissertation](https://dash.harvard.edu/bitstream/handle/1/37374599/dissertation.pdf); [Lee et al., 2022, Science Robotics](https://www.science.org/doi/10.1126/scirobotics.abq7278); [Whitelam&Tamblyn, 2021, PRL](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.127.018003); [Walker et al., 2021, Nature Chemistry](https://www.nature.com/articles/s41557-020-00626-6); [Chen et al., 2020, Nature](https://www.nature.com/articles/s41586-019-1901-0); [Whitley et al., 1993, MLJ](https://link.springer.com/article/10.1007/BF00993045).
 * Evolutionary Programming (EP)
   * Yao, X., Liu, Y. and Lin, G., 1999. [Evolutionary programming made faster](https://ieeexplore.ieee.org/abstract/document/771163). TEVC, 3(2), pp.82-102.
