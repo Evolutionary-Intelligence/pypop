@@ -65,9 +65,9 @@ class TDE(DE):
     References
     ----------
     Fan, H.Y. and Lampinen, J., 2003.
-    A trigonometric mutation operation to differential evolution.
+    `A trigonometric mutation operation to differential evolution.
+    <https://link.springer.com/article/10.1023/A:1024653025686>`_
     Journal of Global Optimization, 27(1), pp.105-129.
-    https://link.springer.com/article/10.1023/A:1024653025686
     """
     def __init__(self, problem, options):
         DE.__init__(self, problem, options)
