@@ -137,14 +137,20 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 Praises
 -------
 
-All of the following praises come from online states. We appreciate very much for these unstinting praises,
-though we do not have an interest relationship with them:
+All of the following praises come from online states. We appreciate very
+much for these unstinting praises, given that we do not have an interest
+relationship with all of them:
 
-  * `"an invaluable collection" <https://github.com/Evolutionary-Intelligence/pypop/issues/89>`_
-  * `"one of the very best BBO libraries around" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
-  * `"quite excellent (detailed and professional)" <https://github.com/Evolutionary-Intelligence/EC-A-Modern-Perspective/issues/2>`_
-  * `"the excellent work" <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
-  * `"无论是学术研究还是工业应用，PyPop7都是一个值得信赖的工具，提供了一流的性能和灵活性" <https://blog.csdn.net/gitblog_00094/article/details/139615060>`_
+  * `"an invaluable collection"
+    <https://github.com/Evolutionary-Intelligence/pypop/issues/89>`_
+  * `"one of the very best BBO libraries around"
+    <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
+  * `"quite excellent (detailed and professional)"
+    <https://github.com/Evolutionary-Intelligence/EC-A-Modern-Perspective/issues/2>`_
+  * `"the excellent work"
+    <https://github.com/Evolutionary-Intelligence/pypop/issues/72>`_
+  * `"无论是学术研究还是工业应用，PyPop7都是一个值得信赖的工具，提供了一流的性能和灵活性"
+    <https://blog.csdn.net/gitblog_00094/article/details/139615060>`_
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
