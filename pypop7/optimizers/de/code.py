@@ -54,9 +54,9 @@ class CODE(CDE):
     References
     ----------
     Wang, Y., Cai, Z., and Zhang, Q. 2011.
-    Differential evolution with composite trial vector generation strategies and control parameters.
+    `Differential evolution with composite trial vector generation strategies and control parameters.
+    <https://doi.org/10.1109/TEVC.2010.2087271>`_
     IEEE Transactions on Evolutionary Computation, 15(1), pp.55–66.
-    https://doi.org/10.1109/TEVC.2010.2087271
     """
     def __init__(self, problem, options):
         CDE.__init__(self, problem, options)
