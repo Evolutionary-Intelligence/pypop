@@ -9,8 +9,8 @@ class CDE(DE):
 
     .. note:: Typically, `DE/rand/1/bin` is seen as the **classic/basic** version of `DE`.
        `CDE` often optimizes on relatively low-dimensional (e.g., << 1000) search spaces.
-       Its two creators (Kenneth Price&Rainer Storn) won the 2017 Evolutionary Computation
-       Pioneer Award from IEEE-CIS.
+       Its two creators (Kenneth Price&Rainer Storn) won the 2017 Evolutionary
+       Computation Pioneer Award from IEEE-CIS.
 
     Parameters
     ----------
@@ -22,11 +22,15 @@ class CDE(DE):
                 * 'lower_boundary'   - lower boundary of search range (`array_like`).
     options : `dict`
               optimizer options with the following common settings (`keys`):
-                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
-                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.inf`),
-                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`);
+                * 'max_function_evaluations' - maximum of function evaluations (`int`,
+                  default: `np.inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`,
+                  default: `np.inf`),
+                * 'seed_rng'                 - seed for random number generation needed
+                  to be *explicitly* set (`int`);
               and with the following particular settings (`keys`):
-                * 'n_individuals' - number of offspring, aka offspring population size (`int`, default: `100`),
+                * 'n_individuals' - number of offspring, aka offspring population size
+                  (`int`, default: `100`),
                 * 'f'             - mutation factor (`float`, default: `0.5`),
                 * 'cr'            - crossover probability (`float`, default: `0.9`).
 
