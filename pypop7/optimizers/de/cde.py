@@ -67,19 +67,20 @@ class CDE(DE):
     References
     ----------
     Price, K.V., 2013.
-    Differential evolution.
+    `Differential evolution.
+    <https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8>`_
     In Handbook of optimization (pp. 187-214). Springer, Berlin, Heidelberg.
-    https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8
+    
 
     Price, K.V., Storn, R.M. and Lampinen, J.A., 2005.
-    Differential evolution: A practical approach to global optimization.
+    `Differential evolution: A practical approach to global optimization.
+    <https://link.springer.com/book/10.1007/3-540-31306-0>`_
     Springer Science & Business Media.
-    https://link.springer.com/book/10.1007/3-540-31306-0
 
     Storn, R.M. and Price, K.V. 1997.
-    Differential evolution – a simple and efficient heuristic for global optimization over continuous spaces.
+    `Differential evolution – a simple and efficient heuristic for global optimization over continuous spaces.
+    <https://link.springer.com/article/10.1023/A:1008202821328>`_
     Journal of Global Optimization, 11(4), pp.341–359.
-    https://link.springer.com/article/10.1023/A:1008202821328
     (Kenneth Price&Rainer Storn won the **2017** `Evolutionary Computation Pioneer Award from IEEE CIS
     <https://cis.ieee.org/awards/past-recipients#EvolutionaryComputationPioneerAward>`_.)
     """
