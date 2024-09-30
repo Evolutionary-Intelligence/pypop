@@ -74,9 +74,9 @@ class JADE(DE):
     References
     ----------
     Zhang, J., and Sanderson, A. C. 2009.
-    JADE: Adaptive differential evolution with optional external archive.
+    `JADE: Adaptive differential evolution with optional external archive.
+    <https://ieeexplore.ieee.org/document/5208221/>`_
     IEEE Transactions on Evolutionary Computation, 13(5), pp.945–958.
-    https://ieeexplore.ieee.org/document/5208221/
     """
     def __init__(self, problem, options):
         DE.__init__(self, problem, options)
