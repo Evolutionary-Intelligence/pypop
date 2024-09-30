@@ -68,9 +68,9 @@ class SHADE(JADE):
     References
     ----------
     Tanabe, R. and Fukunaga, A., 2013, June.
-    Success-history based parameter adaptation for differential evolution.
+    `Success-history based parameter adaptation for differential evolution.
+    <https://ieeexplore.ieee.org/document/6557555>`_
     In IEEE Congress on Evolutionary Computation (pp. 71-78). IEEE.
-    https://ieeexplore.ieee.org/document/6557555
     """
     def __init__(self, problem, options):
         JADE.__init__(self, problem, options)
