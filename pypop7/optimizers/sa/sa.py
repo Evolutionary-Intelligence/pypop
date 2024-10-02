@@ -58,6 +58,10 @@ class SA(RS):
     <https://dl.acm.org/doi/abs/10.1145/264029.264043>`_
     ACM Transactions on Mathematical Software, 23(2), pp.209-228.
 
+    Granville, V., Krivánek, M. and Rasson, J.P., 1994.
+    Simulated annealing: A proof of convergence.
+    IEEE Transactions on Pattern Analysis and Machine Intelligence, 16(6), pp.652-656.
+
     Bertsimas, D. and Tsitsiklis, J., 1993.
     `Simulated annealing.
     <https://doi.org/10.1214/ss/1177011077>`_
