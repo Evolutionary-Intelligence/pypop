@@ -58,8 +58,9 @@ class SA(RS):
     Journal of Machine Learning Research, 20(1), pp.127-171.
 
     Lecchini-Visintini, A., Lygeros, J. and Maciejowski, J., 2007.
-    Simulated annealing: Rigorous finite-time guarantees for optimization on continuous domains.
-    Advances in neural information processing systems, 20.
+    `Simulated annealing: Rigorous finite-time guarantees for optimization on continuous domains.
+    <https://tinyurl.com/333m2fnu>`_
+    Advances in Neural Information Processing Systems, 20.
 
     Siarry, P., Berthiau, G., Durdin, F. and Haussy, J., 1997.
     `Enhanced simulated annealing for globally minimizing functions of many-continuous variables.
