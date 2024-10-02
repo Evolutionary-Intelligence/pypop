@@ -53,6 +53,10 @@ class SA(RS):
     <https://www.jmlr.org/papers/v20/16-588.html>`_
     Journal of Machine Learning Research, 20(1), pp.127-171.
 
+    Lecchini-Visintini, A., Lygeros, J. and Maciejowski, J., 2007.
+    Simulated annealing: Rigorous finite-time guarantees for optimization on continuous domains.
+    Advances in neural information processing systems, 20.
+
     Siarry, P., Berthiau, G., Durdin, F. and Haussy, J., 1997.
     `Enhanced simulated annealing for globally minimizing functions of many-continuous variables.
     <https://dl.acm.org/doi/abs/10.1145/264029.264043>`_
