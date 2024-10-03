@@ -49,7 +49,8 @@ class SA(RS):
     References
     ----------
     Bras, P., 2024.
-    Convergence of Langevin-simulated annealing algorithms with multiplicative noise.
+    `Convergence of Langevin-simulated annealing algorithms with multiplicative noise.
+    <https://www.degruyter.com/document/doi/10.1515/mcma-2023-2009/pdf>`_
     Mathematics of Computation, 93(348), pp.1761-1803.
 
     Bouttier, C. and Gavra, I., 2019.
