@@ -1,4 +1,4 @@
-# PyPop7: Pure-PYthon library of POPulation-based (evolution / swarm / pattern search) OPtimization in black-box cases
+# PyPop7: Pure-PYthon library of POPulation-based (evolutionary / swarm-based / pattern search) OPtimization in black-box cases
 
 [![GNU General Public License v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/LICENSE)
 [![PyPI for PyPop7](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/)
@@ -9,7 +9,12 @@
 [![Downloads](https://static.pepy.tech/badge/pypop7/month)](https://pepy.tech/project/pypop7)
 [![WeChat-Group](https://img.shields.io/badge/WeChat-green)](docs/logo/WeChatGroupTo20241008.jpg)
 
-```PyPop7``` is a *Pure-PYthon* open-source library of **POPulation-based OPtimization** for single-objective, real-parameter, black-box problems (*currently actively maintained*). Its goal is to provide a *unified* interface and a set of *elegant* algorithmic implementations (e.g., evolutionary algorithms, swarm-based optimizers, pattern search, etc.) for **Black-Box Optimization (BBO)**, *particularly population-based optimizers*, in order to facilitate research repeatability, benchmarking of BBO, and especially real-world applications.
+```PyPop7``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for single-objective,
+real-parameter, black-box problems (*currently actively maintained*). Its goal is to provide a
+*unified* interface and a set of *elegant* algorithmic implementations (e.g., evolutionary
+algorithms, swarm-based optimizers, pattern search, etc.) for **Black-Box Optimization (BBO)**,
+*particularly population-based optimizers*, in order to facilitate research repeatability, wide
+benchmarking of BBO, and especially their real-world applications.
 
 More specifically, for alleviating their **curse of dimensionality**, the focus of ```PyPop7``` is to cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their small/medium-scaled versions and variants are also included here (mainly for theoretical or benchmarking or educational purposes). For a list of **public use cases** of `PyPop7`, please refer to [this online document](https://pypop.readthedocs.io/en/latest/applications.html) for details. Although we have chosen *GPL-3.0 license*, anyone could use, modify, and improve this open-source Python library **entirely freely** for any (no matter open-source or closed-source) purpose.
 
