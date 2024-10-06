@@ -13,6 +13,10 @@ the following papers (note that the below list is **actively updated**):
 [**used**] indicates that PyPop7 has been used (but not cited in reference) by the corresponding paper.
 
 
+* **13**: Miranda, P.B., Giráldez-Cru, J., Silva-Filho, M.W., Zarco, C. and Cordón, O., 2024, June.
+  Learning agents' behavioral patterns in agent-Based modeling by means of evolutionary algorithms.
+  In IEEE Congress on Evolutionary Computation (pp. 1-8). IEEE.
+
 * **12**: Ma, Z., Chen, J., Guo, H. and Gong, Y.J., 2024.
   `Neural Exploratory Landscape Analysis <https://arxiv.org/abs/2408.10672>`_.
   arXiv preprint arXiv:2408.10672. [**used&cited**]
