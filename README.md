@@ -387,17 +387,28 @@ reported in the (now still actively-updated) paper list called
   * Hastings, W.K., 1970. [Monte Carlo sampling methods using Markov chains and their applications](https://academic.oup.com/biomet/article/57/1/97/284580). Biometrika, 57(1), pp.97-109.
   * Metropolis, N., Rosenbluth, A.W., Rosenbluth, M.N., Teller, A.H. and Teller, E., 1953. [Equation of state calculations by fast computing machines](https://aip.scitation.org/doi/abs/10.1063/1.1699114). Journal of Chemical Physics, 21(6), pp.1087-1092.
   * Applications: e.g., [Young et al., 2023, Nature](https://www.nature.com/articles/s41586-023-05823-0); [Kim et al., 2023, Nature](https://www.nature.com/articles/s41586-023-06123-3); [Passalacqua et al., 2023, Nature](https://www.nature.com/articles/s41586-023-06229-8); [Pronker et al., 2023, Nature](https://www.nature.com/articles/s41586-023-06599-z); [Sullivan&Seljak, 2023](https://arxiv.org/pdf/2310.00745.pdf); [Holm et al., 2023, Nature](https://www.nature.com/articles/s41586-023-05908-w); [Snyder et al., 2023, Nature](https://www.nature.com/articles/s41586-022-05409-2); [Samyak&Palacios, 2023, Biometrika](https://academic.oup.com/biomet/advance-article/doi/10.1093/biomet/asad025/7143381); [Bouchet et al., 2023, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.2221407120); [Li&Yu, 2023, ACM-TOG](https://dl.acm.org/doi/10.1145/3592096); [Zhao et al., 2023, VLDBJ](https://link.springer.com/article/10.1007/s00778-023-00802-3); [Zhong et al., 2023, IEEE/ACM-TASLP](https://ieeexplore.ieee.org/abstract/document/10214657); [Wang et al., 2023, IEEE-TMC](https://ieeexplore.ieee.org/abstract/document/10011565); [Filippo et al., 2023, IJCAI](https://www.ijcai.org/proceedings/2023/0644.pdf); [Barnes et al., 2023, ApJ](https://iopscience.iop.org/article/10.3847/1538-4357/acba8e); [Melo et al., 2023](https://www.biorxiv.org/content/10.1101/2023.05.31.542906v1.full.pdf); [Bruna et al., 2023](https://www.biorxiv.org/content/biorxiv/early/2023/01/15/2023.01.13.524024.full.pdf); [Holm et al., 2023](https://arxiv.org/pdf/2309.04468.pdf); [Jenson et al., 2023, Nature](https://www.nature.com/articles/s41586-023-05862-7); [Kolesov et al., 2016, IEEE-TPAMI](https://ieeexplore.ieee.org/document/7130637)
-* Genetic Algorithm (GA)
-  * Whitley, D., 2019. [Next generation genetic algorithms: A user’s guide and tutorial](https://link.springer.com/chapter/10.1007/978-3-319-91086-4_8). In Handbook of Metaheuristics (pp. 245-274). Springer, Cham.
-  * Levine, D., 1997. [Commentary—Genetic algorithms: A practitioner's view](https://pubsonline.informs.org/doi/abs/10.1287/ijoc.9.3.256). INFORMS Journal on Computing, 9(3), pp.256-259.
-  * Goldberg, D.E., 1994. [Genetic and evolutionary algorithms come of age](https://dl.acm.org/doi/10.1145/175247.175259). CACM, 37(3), pp.113-120.
-  * Forrest, S., 1993. [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439). Science, 261(5123), pp.872-878.
-  * De Jong, K.A., 1993. [Are genetic algorithms function optimizer?](https://www.sciencedirect.com/science/article/pii/B9780080948324500064). FOGA, pp.5-17.
+* **Genetic Algorithm (GA)**
+  * Whitley, D., 2019.
+    [Next generation genetic algorithms: A user’s guide and tutorial](https://link.springer.com/chapter/10.1007/978-3-319-91086-4_8).
+    In Handbook of Metaheuristics (pp. 245-274). Springer, Cham.
+  * Levine, D., 1997.
+    [Commentary—Genetic algorithms: A practitioner's view](https://pubsonline.informs.org/doi/abs/10.1287/ijoc.9.3.256).
+    IJOC, 9(3), pp.256-259.
+  * Goldberg, D.E., 1994.
+    [Genetic and evolutionary algorithms come of age](https://dl.acm.org/doi/10.1145/175247.175259).
+    CACM, 37(3), pp.113-120.
+  * Forrest, S., 1993.
+    [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439).
+    Science, 261(5123), pp.872-878.
+  * De Jong, K.A., 1993.
+    [Are genetic algorithms function optimizer?](https://www.sciencedirect.com/science/article/pii/B9780080948324500064).
+    FOGA, pp.5-17.
   * Mitchell, M., Holland, J. and Forrest, S., 1993.
     [When will a genetic algorithm outperform hill climbing](https://proceedings.neurips.cc/paper/1993/hash/ab88b15733f543179858600245108dd8-Abstract.html).
-    Advances in Neural Information Processing Systems (pp. 51-58).
+    NeurIPS (pp. 51-58).
   * Holland, J.H., 1992.
-    [Adaptation in natural and artificial systems: An introductory analysis with applications to biology, control, and artificial intelligence](https://direct.mit.edu/books/book/2574/Adaptation-in-Natural-and-Artificial-SystemsAn).
+    [Adaptation in natural and artificial systems: An introductory analysis with applications to
+    biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
     MIT Press.
   * Holland, J.H., 1992.
     [Genetic algorithms](https://www.scientificamerican.com/article/genetic-algorithms/).
