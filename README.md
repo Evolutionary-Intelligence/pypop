@@ -404,7 +404,7 @@ reported in the (now still actively-updated) paper list called
     [Genetic and evolutionary algorithms come of age](https://dl.acm.org/doi/10.1145/175247.175259).
     CACM, 37(3), pp.113-120.
   * Mitchell, M. and Forrest, S., 1994.
-    Genetic algorithms and artificial life.
+    [Genetic algorithms and artificial life](https://doi.org/10.1162/artl.1994.1.3.267)
     ALJ, 1(3), pp.267-289.
   * Forrest, S., 1993.
     [Genetic algorithms: Principles of natural selection applied to computation](https://www.science.org/doi/10.1126/science.8346439).
