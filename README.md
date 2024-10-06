@@ -404,8 +404,11 @@ reported in the (now still actively-updated) paper list called
     [Are genetic algorithms function optimizer?](https://www.sciencedirect.com/science/article/pii/B9780080948324500064).
     FOGA, pp.5-17.
   * Mitchell, M., Holland, J. and Forrest, S., 1993.
-    [When will a genetic algorithm outperform hill climbing](https://proceedings.neurips.cc/paper/1993/hash/ab88b15733f543179858600245108dd8-Abstract.html).
+    [When will a genetic algorithm outperform hill climbing](https://tinyurl.com/zfekmzhm).
     NeurIPS (pp. 51-58).
+  * Whitley, D., Dominic, S., Das, R. and Anderson, C.W., 1993.
+    [Genetic reinforcement learning for neurocontrol problems](https://tinyurl.com/5n6vvh8k).
+    MLJ, 13, pp.259-284.
   * Holland, J.H., 1992.
     [Adaptation in natural and artificial systems: An introductory analysis with applications to
     biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
@@ -425,7 +428,7 @@ reported in the (now still actively-updated) paper list called
   * Holland, J.H., 1962.
     [Outline for a logical theory of adaptive systems](https://dl.acm.org/doi/10.1145/321127.321128).
     JACM, 9(3), pp.297-314.
-  * Applications: e.g., [Wang, 2023, Harvard Ph.D. Dissertation](https://dash.harvard.edu/bitstream/handle/1/37374599/dissertation.pdf); [Lee et al., 2022, Science Robotics](https://www.science.org/doi/10.1126/scirobotics.abq7278); [Whitelam&Tamblyn, 2021, PRL](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.127.018003); [Walker et al., 2021, Nature Chemistry](https://www.nature.com/articles/s41557-020-00626-6); [Chen et al., 2020, Nature](https://www.nature.com/articles/s41586-019-1901-0); [Whitley et al., 1993, MLJ](https://link.springer.com/article/10.1007/BF00993045).
+  * Applications: e.g., [Wang, 2023, Harvard Ph.D. Dissertation](https://dash.harvard.edu/bitstream/handle/1/37374599/dissertation.pdf); [Lee et al., 2022, Science Robotics](https://www.science.org/doi/10.1126/scirobotics.abq7278); [Whitelam&Tamblyn, 2021, PRL](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.127.018003); [Walker et al., 2021, Nature Chemistry](https://www.nature.com/articles/s41557-020-00626-6); [Chen et al., 2020, Nature](https://www.nature.com/articles/s41586-019-1901-0).
 * Evolutionary Programming (EP)
   * Yao, X., Liu, Y. and Lin, G., 1999. [Evolutionary programming made faster](https://ieeexplore.ieee.org/abstract/document/771163). TEVC, 3(2), pp.82-102.
   * Fogel, D.B., 1999. [An overview of evolutionary programming](https://link.springer.com/chapter/10.1007/978-1-4612-1542-4_5). In Evolutionary Algorithms (pp. 89-109). Springer, New York, NY.
