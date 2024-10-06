@@ -7,6 +7,7 @@
 [![arxiv](https://img.shields.io/badge/arxiv-2212.05652-red)](https://arxiv.org/abs/2212.05652)
 [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7)
 [![Downloads](https://static.pepy.tech/badge/pypop7/month)](https://pepy.tech/project/pypop7)
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop)
 [![WeChat-Group](https://img.shields.io/badge/WeChat-green)](docs/logo/WeChatGroupTo20241008.jpg)
 
 ```PyPop7``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for single-objective,
@@ -497,7 +498,5 @@ PyPop7: A pure-Python library for population-based black-box optimization. arXiv
 01 Nov 2023 to Fri, 05 Jul 2024.)
 
 ## Star History
-
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop)
 
 [![PyPop7-Star-Data](https://api.star-history.com/svg?repos=Evolutionary-Intelligence/pypop&type=Date)](https://star-history.com/#Evolutionary-Intelligence/pypop&Date)
