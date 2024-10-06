@@ -23,7 +23,7 @@ small/medium-scaled versions and variants are also included here (mainly for the
 benchmarking or educational purposes). For a (growing) list of public use cases of `PyPop7`, please
 refer to [this online website](https://pypop.readthedocs.io/en/latest/applications.html) for
 details. Although we have chosen *GPL-3.0 license*, anyone could use, modify, and improve this
-open-source library entirely freely for any (no matter *open-source* or *closed-source*) purpose.
+open-source library entirely freely for any (no matter *open-source* or *closed-source*) purposes.
 
 ## How to Quickly Use
 
