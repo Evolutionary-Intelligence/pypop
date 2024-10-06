@@ -390,7 +390,7 @@ reported in the (now still actively-updated) paper list called
 * **Genetic Algorithm (GA)**
   * Whitley, D., 2019.
     [Next generation genetic algorithms: A user’s guide and tutorial](https://link.springer.com/chapter/10.1007/978-3-319-91086-4_8).
-    In Handbook of Metaheuristics (pp. 245-274). Springer, Cham.
+    In Handbook of Metaheuristics (pp. 245-274). Springer.
   * Levine, D., 1997.
     [Commentary—Genetic algorithms: A practitioner's view](https://pubsonline.informs.org/doi/abs/10.1287/ijoc.9.3.256).
     IJOC, 9(3), pp.256-259.
