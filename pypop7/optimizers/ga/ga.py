@@ -37,7 +37,8 @@ class GA(Optimizer):
     <https://www.nature.com/articles/s41566-023-01252-7>`_, `[Villard et al., 2023, JCTC]
     <https://pubs.acs.org/doi/full/10.1021/acs.jctc.2c01078>`_, `[Kanal&Hutchison, 2017]
     <https://arxiv.org/abs/1707.02949>`_, `[Groenendaal et al., 2015, PLoS Computational Biology]
-    <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004242>`_, to name a few.
+    <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004242>`_, `[Tang et al., 2000, EJOR]
+    <https://www.sciencedirect.com/science/article/abs/pii/S037722179900380X>`_, to name a few.
 
     Parameters
     ----------
