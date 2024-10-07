@@ -446,7 +446,12 @@ reported in the (now still actively-updated) paper list called
   * Fogel, D.B., 1999. [An overview of evolutionary programming](https://link.springer.com/chapter/10.1007/978-1-4612-1542-4_5). In Evolutionary Algorithms (pp. 89-109). Springer, New York, NY.
   * Fogel, D.B. and Fogel, L.J., 1995, September. [An introduction to evolutionary programming](https://link.springer.com/chapter/10.1007/3-540-61108-8_28). In European Conference on Artificial Evolution (pp. 21-33). Springer, Berlin, Heidelberg.
   * Fogel, D.B., 1994. [Evolutionary programming: An introduction and some current directions](https://link.springer.com/article/10.1007/BF00175356). Statistics and Computing, 4(2), pp.113-129.
-  * Bäck, T. and Schwefel, H.P., 1993. [An overview of evolutionary algorithms for parameter optimization](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for). ECJ, 1(1), pp.1-23.
+  * Bäck, T. and Schwefel, H.P., 1993.
+    [An overview of evolutionary algorithms for parameter optimization](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for).
+    ECJ, 1(1), pp.1-23.
+  * Fogel, L.J., Owens, A.J. and Walsh, M.J., 1965.
+    Intelligent decision making through a simulation of evolution.
+    IEEE Transactions on Human Factors in Electronics, 6(1), pp.13-23.
   * Applications: e.g., [Hoorfar, 2007, IEEE-TAP](https://ieeexplore.ieee.org/document/4120264); [Cui et al., 2006, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1060.0514); [Damavandi&Safavi-Naeini, 2005, IEEE-TCSI](https://ieeexplore.ieee.org/document/1427899).
 * Pattern Search
   * Porcelli, M. and Toint, P.L., 2022. [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054). ACM TOMS, 48(1), pp.1-25.
