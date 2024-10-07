@@ -450,7 +450,7 @@ reported in the (now still actively-updated) paper list called
     [An overview of evolutionary algorithms for parameter optimization](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for).
     ECJ, 1(1), pp.1-23.
   * Fogel, L.J., Owens, A.J. and Walsh, M.J., 1965.
-    Intelligent decision making through a simulation of evolution.
+    [Intelligent decision making through a simulation of evolution](https://doi.org/10.1002/bs.3830110403).
     IEEE Transactions on Human Factors in Electronics, 6(1), pp.13-23.
   * Applications: e.g., [Hoorfar, 2007, IEEE-TAP](https://ieeexplore.ieee.org/document/4120264); [Cui et al., 2006, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1060.0514); [Damavandi&Safavi-Naeini, 2005, IEEE-TCSI](https://ieeexplore.ieee.org/document/1427899).
 * Pattern Search
