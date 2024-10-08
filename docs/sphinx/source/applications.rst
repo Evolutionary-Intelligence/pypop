@@ -127,16 +127,7 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 * `medium <https://medium.com>`_:
 
   * https://medium.com/@monocosmo77/how-black-box-optimization-works-part2-machine-learning-bb63b4c93557
-* `机器之心: SOTA！模型 <https://sota.jiqizhixin.com>`_:
-
-  * https://sota.jiqizhixin.com/project/pypop7
-* `微信公众号: 演化智能 <https://mp.weixin.qq.com>`_:
-
-  * https://mp.weixin.qq.com/s/4JO2sYouiEvmq9XNUJkncA
-* `中文博客网站：CSDN <https://blog.csdn.net>`_:
-
-  * https://blog.csdn.net/2301_81205034/category_12502462.html
-  * https://blog.csdn.net/gitblog_00094/article/details/139615060
+* `https://robotic.tistory.com/1 <https://robotic.tistory.com/1>`_
 
 Praises
 -------
