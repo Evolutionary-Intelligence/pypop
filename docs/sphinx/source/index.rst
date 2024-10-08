@@ -143,5 +143,5 @@ Python library.
 
 
 
-.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
-   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+.. image:: https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FEvolutionary-Intelligence%2Fpypop&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false
+   :target: https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FEvolutionary-Intelligence%2Fpypop&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false
