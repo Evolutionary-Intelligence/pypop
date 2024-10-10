@@ -100,7 +100,7 @@ class CSAES(DSAES):
     Natural Computing, 3, pp.77-112.
 
     Ostermeier, A., Gawelczyk, A. and Hansen, N., 1994, October.
-    `Step-size adaptation based on non-local use of selection information
+    `Step-size adaptation based on non-local use of selection information.
     <http://link.springer.com/chapter/10.1007/3-540-58484-6_263>`_
     In International Conference on Parallel Problem Solving from Nature (pp. 189-198).
     Springer, Berlin, Heidelberg.
