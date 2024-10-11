@@ -27,12 +27,13 @@ set of *elegant* implementations for **Black-Box Optimizers (BBO)**, particularl
 methods, and pattern search*), in order to facilitate research repeatability, benchmarking of
 BBO, and especially real-world applications.
 
-Specifically, for alleviating the well-known ("notorious") **curse of dimensionality** of BBO, the primary focus
-of `PyPop7 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to cover their **State-Of-The-Art (SOTA)
-implementations for Large-Scale Optimization (LSO)** as much as possible, though many of their
-*medium/small-scale* versions and variants are also included here (some mainly for *theoretical* purposes, some
-mainly for *educational* purposes, some mainly for *benchmarking* purposes, and some mainly for *application*
-purposes on medium/low dimensions).
+Specifically, for alleviating the well-known ("notorious") **curse of dimensionality** of BBO,
+the primary focus of `PyPop7 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to
+cover their **State-Of-The-Art (SOTA) implementations for Large-Scale Optimization (LSO)** as
+much as possible, though many of their *medium- or small-scale* versions and variants are also
+included here (some mainly for *theoretical* purposes, some mainly for *educational* purposes,
+some mainly for *benchmarking* purposes, and some mainly for *application* purposes on medium
+or low dimensions).
 
 .. image:: images/logo.png
    :width: 321px
@@ -49,7 +50,7 @@ purposes on medium/low dimensions).
    Y., Tan, Y., Yang, Y., Zhao, Q. and Shi, Y., 2024. PyPop7: A pure-Python library for population-based black-box
    optimization. arXiv preprint arXiv:2212.05652.** (Now this arXiv paper has been submitted to `JMLR
    <https://jmlr.org/>`_, **accepted** in Fri, 11 Oct 2024 after 3 reviews from Tue, 28 Mar 2023 to Wed, 01 Nov 2023
-   to Fri, 05 Jul 2024).
+   to Fri, 05 Jul 2024.)
 
 **Quick Start**
 
