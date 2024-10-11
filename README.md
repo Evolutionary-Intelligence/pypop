@@ -525,8 +525,8 @@ If this open-source pure-Python library **PyPop7** is used in your paper or proj
 *but NOT mandatory* to cite the following arXiv [preprint](https://arxiv.org/abs/2212.05652) paper: **Duan,
 Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Huang, Y., Tan, Y., Yang, Y., Zhao, Q. and Shi, Y., 2024.
 PyPop7: A pure-Python library for population-based black-box optimization. arXiv preprint arXiv:2212.05652.**
-(Now it has been submitted to [JMLR](https://jmlr.org/), *under 3rd review* from Tue, 28 Mar 2023 to Wed,
-01 Nov 2023 to Fri, 05 Jul 2024.)
+(Now it has been submitted to [JMLR](https://jmlr.org/), *after 3 reviews* from Tue, 28 Mar 2023 to Wed,
+01 Nov 2023 to Fri, 05 Jul 2024, and accepted in Fri, 11 Oct 2024)
 
 ## Star History
 
