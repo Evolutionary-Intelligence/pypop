@@ -514,10 +514,10 @@ reported in the (now still actively-updated) paper list called
 
 ## Sponsor
 
-From 2021 to 2023, this open-source pure-Python library **PyPop7** was supported by Shenzhen Fundamental
-Research Program under Grant No. JCYJ20200109141235597 (2,000,000 Yuan). Now it is supported by National
-Natural Science Foundation of China under Grant No. 72401122, Guangdong Basic and Applied Basic Research
-Foundation under Grant No. 2024A1515012241 and 2021A1515110024.
+Now it is supported by National Natural Science Foundation of China under Grant No. 72401122, Guangdong Basic
+and Applied Basic Research Foundation under Grant No. 2024A1515012241 and 2021A1515110024. From 2021 to 2023,
+this open-source pure-Python library **PyPop7** was supported by Shenzhen Fundamental Research Program under
+Grant No. JCYJ20200109141235597 (a total of 2,000,000 Yuan).
 
 ## Citation
 
