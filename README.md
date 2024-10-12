@@ -5,6 +5,7 @@
 [![Documentation Status](https://readthedocs.org/projects/pypop/badge/?version=latest)](https://pypop.readthedocs.io/en/latest/?badge=latest)
 [![Coverage](https://github.com/Evolutionary-Intelligence/pypop/blob/main/coverage-badge.svg)](https://coverage.readthedocs.io/)
 [![arxiv](https://img.shields.io/badge/arxiv-2212.05652-red)](https://arxiv.org/abs/2212.05652)
+[![JMLR-2024](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/)
 [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7)
 [![Downloads](https://static.pepy.tech/badge/pypop7/month)](https://pepy.tech/project/pypop7)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop)
