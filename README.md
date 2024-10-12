@@ -27,9 +27,12 @@ open-source library entirely freely for any (no matter *open-source* or *closed-
 
 ## How to Quickly Use
 
-The following three steps are enough to utilize the black-box optimization power of this library [PyPop7](https://pypi.org/project/pypop7/):
+The following three steps are enough to utilize the **black-box optimization** power of this
+open-source library [PyPop7](https://pypi.org/project/pypop7/):
 
-1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html):
+1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual
+   environment via [venv](https://docs.python.org/3/library/venv.html) or
+   [conda](https://docs.conda.io/projects/conda/en/stable/):
 
 ```bash
 $ pip install pypop7
