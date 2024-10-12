@@ -44,22 +44,22 @@ $ pip install pypop7
    well-established tradition of evolutionary computation):
 
 ```Python
-import numpy as np  # for numerical computation, which is also the *computing engine* of pypop7
+import numpy as np  # for numerical computation, also the computing engine of pypop7
 
-# the below example is Rosenbrock, one notorious test function from the optimization community
+# the example is Rosenbrock, one notorious test function from the optimization community
 def rosenbrock(x):
-    return 100.0*np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
+    return 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
 
-# define the fitness (cost) function to be minimized and also its settings
+# to define the fitness function to be minimized and also its settings
 ndim_problem = 1000
-problem = {'fitness_function': rosenbrock,  # cost function
+problem = {'fitness_function': rosenbrock,
            'ndim_problem': ndim_problem,  # dimension
-           'lower_boundary': -5.0*np.ones((ndim_problem,)),  # lower search boundary
-           'upper_boundary': 5.0*np.ones((ndim_problem,))}  # lower search boundary
+           'lower_boundary': -5.0 * np.ones((ndim_problem,)),  # lower search boundary
+           'upper_boundary': 5.0 * np.ones((ndim_problem,))}  # upper search boundary
 ```
 
-Note that without loss of generality, only the minimization process is considered in this library, since **maximization**
-can be easily transferred to minimization by negating it.
+Note that without loss of generality, only the minimization process is considered in this library,
+since **maximization** can be easily transferred to **minimization** just by negating it.
 
 3. Run one or more black-box optimizers on this optimization problem:
 
