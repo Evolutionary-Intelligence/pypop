@@ -19,9 +19,9 @@ real-world applications.
 
 More specifically, for alleviating their **curse of dimensionality**, the focus of ```PyPop7``` is
 to cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their
-small/medium-scaled versions and variants are also included here (mainly for theoretical or
-benchmarking or educational purposes). For a (growing) list of public use cases of `PyPop7`, please
-refer to [this online website](https://pypop.readthedocs.io/en/latest/applications.html) for
+small/medium-scaled versions and variants are also included here (mainly for **theoretical** or
+**benchmarking** or **educational** purposes). For a (growing) list of public use cases of `PyPop7`,
+please refer to [this online website](https://pypop.readthedocs.io/en/latest/applications.html) for
 details. Although we have chosen *GPL-3.0 license*, anyone could use, modify, and improve this
 open-source library entirely freely for any (no matter *open-source* or *closed-source*) purposes.
 
