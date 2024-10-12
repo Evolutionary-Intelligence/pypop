@@ -21,9 +21,9 @@ real-world applications.
 More specifically, for alleviating their **curse of dimensionality**, the focus of ```PyPop7``` is
 to cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their
 small/medium-scaled versions and variants are also included here (mainly for **theoretical** or
-**benchmarking** or **educational** purposes). For a (growing) list of public use cases of `PyPop7`,
-please refer to [this online website](https://pypop.readthedocs.io/en/latest/applications.html) for
-details. Although we have chosen *GPL-3.0 license*, anyone could use, modify, and improve this
+**benchmarking** or **educational** purposes). For a growing list of public use cases of `PyPop7`,
+please refer to [this online website](https://pypop.readthedocs.io/en/latest/applications.html)
+for details. Although we have chosen *GPL-3.0 license*, anyone could use, modify, and improve this
 open-source library entirely freely for any (no matter *open-source* or *closed-source*) purposes.
 
 ## How to Quickly Use
@@ -39,7 +39,9 @@ open-source library [PyPop7](https://pypi.org/project/pypop7/):
 $ pip install pypop7
 ```
 
-2. Define the objective/cost/fitness function to be **minimized** for the optimization problem at hand,
+2. Define the objective/cost/error/fitness function to be **minimized** for the optimization
+   problem at hand (in this library, the term **fitness function** is used, following the
+   well-established tradition of evolutionary computation):
 
 ```Python
 import numpy as np  # for numerical computation, which is also the *computing engine* of pypop7
