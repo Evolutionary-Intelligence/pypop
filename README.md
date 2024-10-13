@@ -79,15 +79,9 @@ results = lmmaes.optimize()  # to run its (often time-consuming) randomized sear
 print(results)
 ```
 
-For ```PyPop7```, the number ```7``` was added just because ```pypop``` has been registered by
-[other](http://pypop.org/) in [PyPI](https://pypi.org/). The icon *butterfly* for `PyPop7` is
-used to respect/allude to the book (a complete variorum edition) of **Fisher** (["the greatest
-of Darwin's successors"](https://link.springer.com/article/10.1007/s00265-010-1122-x)): [The
-Genetical Theory of Natural Selection](https://tinyurl.com/3we44pt4) (butterflies in its cover),
-which directly inspired the proposal of [Genetic Algorithms (GA)](https://tinyurl.com/mptr255h).
-Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for the online documentation
-of this *well-designed* (self-boasted) Python library ([several praises from
-others](https://pypop.readthedocs.io/en/latest/applications.html#praises)).
+Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online documentations of this
+*well-designed* ("self-boasted") Python library for black-box optimization ([several praises from
+others](https://pypop.readthedocs.io/en/latest/applications.html)).
 
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
