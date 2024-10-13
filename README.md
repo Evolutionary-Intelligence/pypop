@@ -68,10 +68,10 @@ since **maximization** can be easily transferred to **minimization** just by neg
 #   please refer to https://pypop.readthedocs.io/en/latest/es/lmmaes.html for details
 from pypop7.optimizers.es.lmmaes import LMMAES  # Limited-Memory Matrix Adaptation Evolution Strategy
 # to define all the necessary algorithm options (which may differ among different optimizers)
-options = {'fitness_threshold': 1e-10,  # terminate when best-so-far fitness is lower than it
-           'max_runtime': 3600,  # 1 hours (terminate when the actual runtime exceeds it)
+options = {'fitness_threshold': 1e-10,  # to terminate when best-so-far fitness is lower than it
+           'max_runtime': 3600,  # to terminate when the actual runtime exceeds 1 hours
            'seed_rng': 0,  # seed of random number generation (explicitly set for repeatability)
-           'x': 4.0*np.ones((ndim_problem,)),  # initial mean of search (mutation) distribution
+           'x': 4.0 * np.ones((ndim_problem,)),  # initial mean of search (mutation) distribution
            'sigma': 3.0,  # initial global step-size of search distribution (not necessarily optimal)
            'verbose': 500}
 lmmaes = LMMAES(problem, options)  # to initialize the optimizer
