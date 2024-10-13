@@ -65,7 +65,7 @@ since **maximization** can be easily transferred to **minimization** just by neg
 
 ```Python
 # here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO:
-#     https://pypop.readthedocs.io/en/latest/es/lmmaes.html
+#   please refer to https://pypop.readthedocs.io/en/latest/es/lmmaes.html for details
 from pypop7.optimizers.es.lmmaes import LMMAES
 # define all the necessary algorithm options (which may differ among different optimizers)
 options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than this threshold
