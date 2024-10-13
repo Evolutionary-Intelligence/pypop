@@ -61,7 +61,7 @@ problem = {'fitness_function': rosenbrock,
 Note that without loss of generality, only the minimization process is considered in this library,
 since **maximization** can be easily transferred to **minimization** just by negating it.
 
-3. Run one or more black-box optimizers on this above optimization problem:
+3. Run one black-box optimizer or more on the above optimization problem (*rosenbrock*):
 
 ```Python
 # here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO:
