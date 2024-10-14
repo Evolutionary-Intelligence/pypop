@@ -43,7 +43,8 @@ For ```PyPop7```, the number ```7``` was added just because ```pypop``` has been
 used to respect/allude to the book (butterflies in its cover) of **Fisher** (["the greatest
 of Darwin's successors"](https://link.springer.com/article/10.1007/s00265-010-1122-x)): [The
 Genetical Theory of Natural Selection](https://tinyurl.com/3we44pt4), which directly inspired
-Prof. Holland's proposal of [Genetic Algorithms (GA)](https://tinyurl.com/mptr255h).
+[Prof. Holland](https://cacm.acm.org/research/adaptive-computation/)'s proposal of [Genetic
+Algorithms (GA)](https://tinyurl.com/mptr255h).
 
 2. Define the objective/cost/error/fitness function to be **minimized** for the optimization
    problem at hand (in this library, the term **fitness function** is used, following the
