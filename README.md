@@ -93,7 +93,8 @@ others](https://pypop.readthedocs.io/en/latest/applications.html)).
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
 ******* *** *******
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version for **LSO** (dimension >> 1000).
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version for
+  **LSO** (e.g., dimension > 100, but not an absolutely deterministic number).
 * ![c](https://img.shields.io/badge/**-c-blue.svg): indicates the **competitive** (or *de facto*) BBO version for *small/medium-dimensional* problems (though it may work well under certain LSO circumstances).
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg): indicates the **baseline** BBO version mainly for *theoretical*/*educational* interest, owing to its simplicity (relative ease to mathematical analysis).
 
