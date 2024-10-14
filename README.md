@@ -117,7 +117,9 @@ Selection](https://doi.org/10.1162/evco_a_00242) techniques.
   [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466),
   [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
   [Schwefel, 1984](https://link.springer.com/article/10.1007/BF01876146)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Mixture Model-based ES (**[MMES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/mmes.py)**) [[He et al., 2021, TEVC](https://ieeexplore.ieee.org/abstract/document/9244595)]
+  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Mixture Model-based ES
+    (**[MMES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/mmes.py)**)
+    [[He et al., 2021, TEVC](https://ieeexplore.ieee.org/abstract/document/9244595)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Matrix Adaptation ES (**[LMMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmmaes.py)**) [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited Memory Covariance Matrix Adaptation (**[LMCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcma.py)**) [[Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited Memory Covariance Matrix Adaptation ES (**[LMCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcmaes.py)**) [[Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
