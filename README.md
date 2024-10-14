@@ -98,7 +98,11 @@ recognized in the scientific research community. Note that currently both Ant Co
 ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search
 ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this library,
 since they work well mainly in *[discrete or combinatorial](https://tinyurl.com/327auv56)* search
-spaces in many cases. Furthermore, brute-force search (exhaustive/grid search) is also excluded here, since it works only for *very low* (typically << 10) dimensions. In the future version, we will consider adding [Simultaneous Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) into this open-source Python library. Please refer to [development guide](https://pypop.readthedocs.io/en/latest/development-guide.html) for details.
+spaces in many cases. Furthermore, both brute-force (exhaustive) search and grid search are also
+excluded here, since it works only for *very low* (typically < 10) dimensions. In the near-future
+version, we will consider to add others (e.g., [Simultaneous Perturbation Stochastic Approximation
+(SPSA)](https://www.jhuapl.edu/SPSA/)) into this open-source library. Please refer to [development
+guide](https://pypop.readthedocs.io/en/latest/development-guide.html) for more details.
 
 ******* *** *******
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version for **LSO** (dimension >> 1000).
