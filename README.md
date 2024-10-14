@@ -94,13 +94,15 @@ others](https://pypop.readthedocs.io/en/latest/applications.html)).
 
 ******* *** *******
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version for
-  **LSO** (e.g., dimension > 100, but not an absolutely deterministic number).
+  **LSO** (e.g., dimension > 100, but not an absolutely deterministic number),
 * ![c](https://img.shields.io/badge/**-c-blue.svg): indicates the **competitive** or **de facto**
   BBO version for *small- or medium-dimensional* problems (though it may also work well under
-  some certain LSO circumstances).
-* ![b](https://img.shields.io/badge/*-b-lightgrey.svg): indicates the **baseline** BBO version mainly for *theoretical*/*educational* interest, owing to its simplicity (relative ease to mathematical analysis).
+  some certain LSO circumstances),
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg): indicates the **baseline** BBO version
+  mainly for *theoretical* and/or *educational* interest, owing to its algorithmic simplicity
+  (usually relative ease to mathematical analysis).
 
-Note that this classification based on only the dimension of objective function is just a rough estimation for algorithm selection. In practice, perhaps the simplest way to algorithm selection is trial-and-error or to try more advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
+Note that this above classification based on only the dimension of objective function is just a rough estimation for algorithm selection. In practice, perhaps the simplest way to algorithm selection is trial-and-error or to try more advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
 ******* *** *******
 
 * **Evolution Strategies ([ES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/es.py))** [e.g., [Ollivier et al., 2017, JMLR](https://www.jmlr.org/papers/v18/14-467.html); [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44); [Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4); [Rudolph, 2012](https://link.springer.com/referenceworkentry/10.1007/978-3-540-92910-9_22); [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466); [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6); [Schwefel, 1984](https://link.springer.com/article/10.1007/BF01876146)]
