@@ -95,7 +95,9 @@ others](https://pypop.readthedocs.io/en/latest/applications.html)).
 ******* *** *******
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version for
   **LSO** (e.g., dimension > 100, but not an absolutely deterministic number).
-* ![c](https://img.shields.io/badge/**-c-blue.svg): indicates the **competitive** (or *de facto*) BBO version for *small/medium-dimensional* problems (though it may work well under certain LSO circumstances).
+* ![c](https://img.shields.io/badge/**-c-blue.svg): indicates the **competitive** or **de facto**
+  BBO version for *small- or medium-dimensional* problems (though it may also work well under
+  some certain LSO circumstances).
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg): indicates the **baseline** BBO version mainly for *theoretical*/*educational* interest, owing to its simplicity (relative ease to mathematical analysis).
 
 Note that this classification based on only the dimension of objective function is just a rough estimation for algorithm selection. In practice, perhaps the simplest way to algorithm selection is trial-and-error or to try more advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
