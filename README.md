@@ -8,7 +8,7 @@
 [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7)
 [![Downloads](https://static.pepy.tech/badge/pypop7/month)](https://pepy.tech/project/pypop7)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop)
-[![WeChat-Group](https://img.shields.io/badge/WeChat-green)](docs/logo/WeChatGroupTo20241015.jpg)
+[![WeChat-Group](https://img.shields.io/badge/WeChat-green)](docs/logo/WeChatGroupTo20241021.jpg)
 
 ```PyPop7``` is a *Pure-PYthon* library of **POPulation-based OPtimization** for single-objective,
 real-parameter, black-box problems. Its goal is to provide a *unified* interface and a set of
