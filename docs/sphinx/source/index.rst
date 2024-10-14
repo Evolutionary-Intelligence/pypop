@@ -17,6 +17,8 @@ Documentations of PyPop7 for Black-Box Optimization (BBO)
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
 .. image:: https://img.shields.io/badge/arxiv-2212.05652-red
    :target: https://arxiv.org/abs/2212.05652
+.. image:: https://img.shields.io/badge/JMLR-2024-red
+   :target: https://jmlr.org/
 .. image:: https://readthedocs.org/projects/pypop/badge/?version=latest
    :target: https://readthedocs.org/projects/pypop/
 
