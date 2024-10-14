@@ -92,18 +92,6 @@ others](https://pypop.readthedocs.io/en/latest/applications.html)).
 
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
-For new/missed BBO, we have provided a **unified** API to freely add them if they can well satisfy
-the [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html) widely
-recognized in the scientific research community. Note that currently both Ant Colony Optimization
-([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search
-([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this library,
-since they work well mainly in *[discrete or combinatorial](https://tinyurl.com/327auv56)* search
-spaces in many cases. Furthermore, both brute-force (exhaustive) search and grid search are also
-excluded here, since it works only for *very low* (typically < 10) dimensions. In the near-future
-version, we will consider to add others (e.g., [Simultaneous Perturbation Stochastic Approximation
-(SPSA)](https://www.jhuapl.edu/SPSA/)) into this open-source library. Please refer to [development
-guide](https://pypop.readthedocs.io/en/latest/development-guide.html) for more details.
-
 ******* *** *******
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version for **LSO** (dimension >> 1000).
 * ![c](https://img.shields.io/badge/**-c-blue.svg): indicates the **competitive** (or *de facto*) BBO version for *small/medium-dimensional* problems (though it may work well under certain LSO circumstances).
@@ -198,6 +186,18 @@ Note that this classification based on only the dimension of objective function 
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Annealed Random Hill Climber (**[ARHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/arhc.py)**) [e.g. [Russell&Norvig, 2021](http://aima.cs.berkeley.edu/); [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Random Hill Climber (**[RHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rhc.py)**) [e.g. [Russell&Norvig, 2021](http://aima.cs.berkeley.edu/); [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Pure Random Search (**[PRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/prs.py)**) [e.g. [Bergstra&Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html); [Schmidhuber et al., 2001](https://ml.jku.at/publications/older/ch9.pdf); [Brooks, 1958, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244); [Ashby, 1952](https://link.springer.com/book/10.1007/978-94-015-1320-3)]
+
+For new/missed BBO, we have provided a **unified** API to freely add them if they can well satisfy
+the [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html) widely
+recognized in the scientific research community. Note that currently both Ant Colony Optimization
+([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search
+([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this library,
+since they work well mainly in *[discrete or combinatorial](https://tinyurl.com/327auv56)* search
+spaces in many cases. Furthermore, both brute-force (exhaustive) search and grid search are also
+excluded here, since it works only for *very low* (typically < 10) dimensions. In the near-future
+version, we will consider to add others (e.g., [Simultaneous Perturbation Stochastic Approximation
+(SPSA)](https://www.jhuapl.edu/SPSA/)) into this open-source library. Please refer to [development
+guide](https://pypop.readthedocs.io/en/latest/development-guide.html) for more details.
 
 ## Computational Efficiency
 
