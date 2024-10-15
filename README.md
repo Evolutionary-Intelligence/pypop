@@ -166,8 +166,13 @@ for black-box optimization, though benchmarking is also very crucial for black-b
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Diagonal Decoding Covariance Matrix Adaptation
     (**[DDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ddcma.py)**)
     [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
-  * ![c](https://img.shields.io/badge/**-c-blue.svg) Matrix Adaptation ES (**[MAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/maes.py)**) [[Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
-    * ![c](https://img.shields.io/badge/**-c-blue.svg) Fast Matrix Adaptation ES (**[FMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/fmaes.py)**) [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
+  * ![c](https://img.shields.io/badge/**-c-blue.svg) Matrix Adaptation ES
+    (**[MAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/maes.py)**)
+    [[Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
+    * ![c](https://img.shields.io/badge/**-c-blue.svg) Fast Matrix Adaptation ES
+      (**[FMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/fmaes.py)**)
+      [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870),
+      [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Covariance Matrix Adaptation ES (**[CMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/cmaes.py)**) [e.g. [Hansen, 2016](https://arxiv.org/abs/1604.00772); [Hansen et al., 2003, ECJ](https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized); [Hansen et al., 2001, ECJ](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in); [Hansen&Ostermeier, 1996, CEC](https://ieeexplore.ieee.org/abstract/document/542381)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Self-Adaptation Matrix Adaptation ES (**[SAMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/samaes.py)**) [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870)]
     * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Self-Adaptation ES (**[SAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/saes.py)**) [e.g. [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
