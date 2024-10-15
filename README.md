@@ -159,7 +159,10 @@ for black-box optimization, though benchmarking is also very crucial for black-b
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) (1+1)-Cholesky-CMA-ES-2006
       (**[OPOC2006](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/opoc2006.py)**)
       [[Igel et al., 2006, GECCO](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable Covariance Matrix Adaptation ES (**[SEPCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/sepcmaes.py)**) [[Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4); [Ros&Hansen, 2008, PPSN](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
+  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable Covariance Matrix Adaptation ES
+    (**[SEPCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/sepcmaes.py)**)
+    [[Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4),
+    [Ros&Hansen, 2008, PPSN](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Diagonal Decoding Covariance Matrix Adaptation (**[DDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ddcma.py)**) [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Matrix Adaptation ES (**[MAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/maes.py)**) [[Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
     * ![c](https://img.shields.io/badge/**-c-blue.svg) Fast Matrix Adaptation ES (**[FMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/fmaes.py)**) [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870); [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
