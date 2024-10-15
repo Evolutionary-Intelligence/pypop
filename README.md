@@ -129,8 +129,14 @@ Selection](https://doi.org/10.1162/evco_a_00242) techniques.
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited Memory Covariance Matrix Adaptation ES
       (**[LMCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcmaes.py)**)
       [[Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-M ES (**[RMES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/rmes.py)**) [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257); [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
-    * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-One ES (**[R1ES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/r1es.py)**) [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257); [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
+  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-M ES
+    (**[RMES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/rmes.py)**)
+    [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
+    [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
+    * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-1 ES
+      (**[R1ES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/r1es.py)**)
+      [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
+      [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Cholesky-CMA-ES-2016 (**[CCMAES2016](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ccmaes2016.py)**) [[Krause et al., 2016, NeurIPS](https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html)]
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) (1+1)-Active-Cholesky-CMA-ES-2015 (**[OPOA2015](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/opoa2015.py)**) [[Krause&Igel, 2015, FOGA](https://dl.acm.org/doi/abs/10.1145/2725494.2725496)]
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) (1+1)-Active-Cholesky-CMA-ES (**[OPOA2010](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/opoa2010.py)**) [[Arnold&Hansen, 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830556); [Jastrebski&Arnold, 2006, CEC](https://ieeexplore.ieee.org/abstract/document/1688662)]
