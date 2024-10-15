@@ -207,7 +207,11 @@ for black-box optimization, though benchmarking is also very crucial for black-b
       [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
       [Rechenberg, 1984](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13),
       [Schumer&Steiglitz, 1968, TAC](https://ieeexplore.ieee.org/abstract/document/1098903)]
-* **Natural ES ([NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/nes.py))** [e.g., [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html); [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html); [Yi et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522); [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/document/4631255)]
+* **Natural ES ([NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/nes.py))**
+  [e.g., [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html),
+  [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html),
+  [Yi et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522),
+  [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/document/4631255)]
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Projection-based Covariance Matrix Adaptation (**[VKDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/vkdcma.py)**) [[Akimoto&Hansen, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_1); [Akimoto&Hansen, 2016, GECCO](https://dl.acm.org/doi/abs/10.1145/2908812.2908863)]
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Linear Covariance Matrix Adaptation (**[VDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/vdcma.py)**) [[Akimoto et al., 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598258)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-One NES (**[R1NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/r1nes.py)**) [[Sun et al., 2013, GECCO](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
