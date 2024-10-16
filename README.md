@@ -231,8 +231,12 @@ for black-box optimization, though benchmarking is also very crucial for black-b
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Exact NES
     (**[ENES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/enes.py)**)
     [[Sun et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522)]
-  * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Original NES (**[ONES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/ones.py)**) [e.g. [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
-  * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Search Gradient-based ES (**[SGES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/sges.py)**) [e.g. [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
+  * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Original NES
+    (**[ONES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/ones.py)**)
+    [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
+  * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Search Gradient-based ES
+    (**[SGES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/sges.py)**)
+    [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
 * **Estimation of Distribution Algorithms ([EDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/eda.py))** [e.g., [Brookes et al., 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389938); [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5); [Pelikan et al., 2002](https://link.springer.com/article/10.1023/A:1013500812258); [Mühlenbein&Paaß, 1996, PPSN](https://link.springer.com/chapter/10.1007/3-540-61723-X_982); [Baluja&Caruana, 1995, ICML](https://www.sciencedirect.com/science/article/pii/B9781558603776500141)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Random-Projection EDA (**[RPEDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/rpeda.py)**) [[Kabán et al., 2016, ECJ](https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Univariate Marginal Distribution Algorithm (**[UMDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/umda.py)**) [e.g. [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5); [Mühlenbein, 1997, ECJ](https://tinyurl.com/yt78c786)]
