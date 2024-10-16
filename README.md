@@ -225,7 +225,9 @@ for black-box optimization, though benchmarking is also very crucial for black-b
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable NES
     (**[SNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/snes.py)**)
     [[Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
-  * ![c](https://img.shields.io/badge/**-c-blue.svg) Exponential NES (**[XNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/xnes.py)**) [e.g. [Glasmachers et al., 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830557)]
+  * ![c](https://img.shields.io/badge/**-c-blue.svg) Exponential NES
+    (**[XNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/xnes.py)**)
+    [[Glasmachers et al., 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830557)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Exact NES (**[ENES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/enes.py)**) [e.g. [Sun et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Original NES (**[ONES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/ones.py)**) [e.g. [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Search Gradient-based ES (**[SGES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/sges.py)**) [e.g. [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
