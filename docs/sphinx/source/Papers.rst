@@ -124,6 +124,7 @@ Noisy Optimization
 BO
 --
 
+* Ilievski, I., Wang, W. and Shoemaker, C.A., ROSA: An optimization algorithm for multi-modal derivative-free functions in high dimensions. In NeurIPS Workshop on Bayesian Decision-making and Uncertainty.
 * Nguyen, Q., Wu, K., Gardner, J. and Garnett, R., 2022. Local Bayesian optimization via maximizing probability of descent. Advances in Neural Information Processing Systems, 35, pp.13190-13202.
 
 ES (1964)
