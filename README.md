@@ -219,8 +219,12 @@ for black-box optimization, though benchmarking is also very crucial for black-b
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Linear Covariance Matrix Adaptation
       (**[VDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/vdcma.py)**)
       [[Akimoto et al., 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598258)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-One NES (**[R1NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/r1nes.py)**) [[Sun et al., 2013, GECCO](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable NES (**[SNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/snes.py)**) [[Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
+  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-1 NES
+    (**[R1NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/r1nes.py)**)
+    [[Sun et al., 2013, GECCO](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
+  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable NES
+    (**[SNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/snes.py)**)
+    [[Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Exponential NES (**[XNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/xnes.py)**) [e.g. [Glasmachers et al., 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830557)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Exact NES (**[ENES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/enes.py)**) [e.g. [Sun et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Original NES (**[ONES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/ones.py)**) [e.g. [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
