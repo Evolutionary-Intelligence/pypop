@@ -2,7 +2,7 @@
 
 [![GNU GPL v3.0](https://img.shields.io/badge/license-GNU%20GPL--v3.0-green.svg)](https://tinyurl.com/9a43z6ve)
 [![PyPI for PyPop7](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/)
-[![Docs](https://readthedocs.org/projects/pypop/badge/?version=latest)](pypop.rtfd.io/)
+[![Docs](https://readthedocs.org/projects/pypop/badge/?version=latest)](http://pypop.rtfd.io/)
 [![arxiv](https://img.shields.io/badge/arxiv-2212.05652-red)](https://arxiv.org/abs/2212.05652)
 [![JMLR-2024](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/)
 [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7)
