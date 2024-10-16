@@ -244,8 +244,13 @@ for black-box optimization, though benchmarking is also very crucial for black-b
   [Pelikan et al., 2002](https://link.springer.com/article/10.1023/A:1013500812258),
   [Mühlenbein&Paaß, 1996, PPSN](https://link.springer.com/chapter/10.1007/3-540-61723-X_982),
   [Baluja&Caruana, 1995, ICML](https://www.sciencedirect.com/science/article/pii/B9781558603776500141)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Random-Projection EDA (**[RPEDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/rpeda.py)**) [[Kabán et al., 2016, ECJ](https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Univariate Marginal Distribution Algorithm (**[UMDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/umda.py)**) [e.g. [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5); [Mühlenbein, 1997, ECJ](https://tinyurl.com/yt78c786)]
+  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Random-Projection EDA
+    (**[RPEDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/rpeda.py)**)
+    [[Kabán et al., 2016, ECJ](https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix)]
+  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Univariate Marginal Distribution Algorithm
+    (**[UMDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/umda.py)**)
+    [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5),
+    [Mühlenbein, 1997, ECJ](https://tinyurl.com/yt78c786)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Adaptive Estimation of Multivariate Normal Algorithm (**[AEMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/aemna.py)**) [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Estimation of Multivariate Normal Algorithm (**[EMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/emna.py)**) [e.g. [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
 * **Cross-Entropy Method ([CEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/cem.py))** [e.g., [Rubinstein&Kroese, 2016](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980); [Hu et al., 2007, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367); [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0); [De Boer et al., 2005, AOR](https://link.springer.com/article/10.1007/s10479-005-5724-z); [Rubinstein&Kroese, 2004](https://link.springer.com/book/10.1007/978-1-4757-4321-0)]
