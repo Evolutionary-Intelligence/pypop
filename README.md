@@ -1,7 +1,7 @@
-# PyPop7: Pure-PYthon library of POPulation-based (evolutionary / swarm-based / pattern search) OPtimization in black-box cases
+# PyPop7: Pure-PYthon library of POPulation-based OPtimization in black-box cases
 
 [![GNU GPL v3.0](https://tinyurl.com/mrhnkjm4)](https://tinyurl.com/9a43z6ve)
-[![PyPI for PyPop7](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/)
+[![PyPI for PyPop7](https://tinyurl.com/murf7c4m)](https://pypi.org/project/pypop7/)
 [![Docs](https://readthedocs.org/projects/pypop/badge/?version=latest)](http://pypop.rtfd.io/)
 [![arxiv](https://img.shields.io/badge/arxiv-2212.05652-red)](https://arxiv.org/abs/2212.05652)
 [![JMLR-2024](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/)
