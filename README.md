@@ -128,7 +128,7 @@ for black-box optimization, though benchmarking is also very crucial for black-b
     [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited Memory Covariance Matrix Adaptation
     (**[LMCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcma.py)**)
-    [[Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
+    [[Loshchilov, 2017, ECJ](https://tinyurl.com/36ynee3s)]
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited Memory Covariance Matrix Adaptation ES
       (**[LMCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcmaes.py)**)
       [[Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
@@ -257,7 +257,12 @@ for black-box optimization, though benchmarking is also very crucial for black-b
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Estimation of Multivariate Normal Algorithm
     (**[EMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/emna.py)**)
     [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
-* **Cross-Entropy Method ([CEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/cem.py))** [e.g., [Rubinstein&Kroese, 2016](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980); [Hu et al., 2007, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367); [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0); [De Boer et al., 2005, AOR](https://link.springer.com/article/10.1007/s10479-005-5724-z); [Rubinstein&Kroese, 2004](https://link.springer.com/book/10.1007/978-1-4757-4321-0)]
+* **Cross-Entropy Method ([CEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/cem.py))**
+  [e.g., [Rubinstein&Kroese, 2016](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980),
+  [Hu et al., 2007, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367),
+  [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0),
+  [De Boer et al., 2005, AOR](https://link.springer.com/article/10.1007/s10479-005-5724-z),
+  [Rubinstein&Kroese, 2004](https://link.springer.com/book/10.1007/978-1-4757-4321-0)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Differentiable CEM (**[DCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/dcem.py)**) [[Amos&Yarats, 2020, ICML](https://proceedings.mlr.press/v119/amos20a.html)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Dynamic-Smoothing CEM (**[DSCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/dscem.py)**) [e.g. [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Model Reference Adaptive Search (**[MRAS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/mras.py)**) [e.g. [Hu et al., 2007, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367)]
