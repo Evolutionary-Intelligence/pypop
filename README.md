@@ -111,8 +111,7 @@ Selection](https://doi.org/10.1162/evco_a_00242) techniques.
 Clearly, this is an **algorithm-centric** rather than benchmarking-centric Python library only
 for black-box optimization, though benchmarking is also very crucial for black-box optimization.
 
-* **Evolution Strategies
-  ([ES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/es.py))**
+* **Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))**
   [e.g., [Ollivier et al., 2017, JMLR](https://www.jmlr.org/papers/v18/14-467.html),
   [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4),
