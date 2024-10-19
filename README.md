@@ -120,7 +120,7 @@ for black-box optimization, though benchmarking is also very crucial for black-b
   [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
   [Schwefel, 1984](https://link.springer.com/article/10.1007/BF01876146)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Mixture Model-based ES
-    (**[MMES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/mmes.py)**)
+    (**[MMES](https://tinyurl.com/y7upsbfm)**)
     [[He et al., 2021, TEVC](https://ieeexplore.ieee.org/abstract/document/9244595)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Matrix Adaptation ES
     (**[LMMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmmaes.py)**)
