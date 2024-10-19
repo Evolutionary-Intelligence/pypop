@@ -136,7 +136,7 @@ for black-box optimization, though benchmarking is also very crucial for black-b
     [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
     [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-1 ES
-      (**[R1ES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/r1es.py)**)
+      (**[R1ES](https://tinyurl.com/2jh7vkm7)**)
       [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
       [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Cholesky-CMA-ES-2016
