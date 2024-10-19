@@ -123,7 +123,7 @@ for black-box optimization, though benchmarking is also very crucial for black-b
     (**[MMES](https://tinyurl.com/y7upsbfm)**)
     [[He et al., 2021, TEVC](https://ieeexplore.ieee.org/abstract/document/9244595)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Matrix Adaptation ES
-    (**[LMMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmmaes.py)**)
+    (**[LMMAES](https://tinyurl.com/9e8jcmcy)**)
     [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited Memory Covariance Matrix Adaptation
     (**[LMCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/lmcma.py)**)
