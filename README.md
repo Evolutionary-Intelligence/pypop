@@ -132,7 +132,7 @@ for black-box optimization, though benchmarking is also very crucial for black-b
       (**[LMCMAES](https://tinyurl.com/4myhbwey)**)
       [[Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-M ES
-    (**[RMES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/rmes.py)**)
+    (**[RMES](https://tinyurl.com/bdfnrcfu)**)
     [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
     [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-1 ES
