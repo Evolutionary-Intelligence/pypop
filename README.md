@@ -140,7 +140,7 @@ for black-box optimization, though benchmarking is also very crucial for black-b
       [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
       [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Cholesky-CMA-ES-2016
-    (**[CCMAES2016](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ccmaes2016.py)**)
+    (**[CCMAES2016](https://tinyurl.com/yr4zf5b8)**)
     [[Krause et al., 2016, NeurIPS](https://tinyurl.com/4f89mn7n)]
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) (1+1)-Active-Cholesky-CMA-ES-2015
       (**[OPOA2015](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/opoa2015.py)**)
