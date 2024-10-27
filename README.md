@@ -1,4 +1,4 @@
-# PyPop7: Pure-PYthon library of POPulation-based OPtimization in black-box cases
+# PyPop7: A Pure-PYthon library of POPulation-based OPtimization in black-box cases
 
 [![GNU GPL v3.0](https://tinyurl.com/mrhnkjm4)](https://tinyurl.com/9a43z6ve)
 [![PyPI for PyPop7](https://tinyurl.com/murf7c4m)](https://pypi.org/project/pypop7/)
