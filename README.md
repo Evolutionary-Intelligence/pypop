@@ -52,13 +52,13 @@ Genetical Theory of Natural Selection](https://tinyurl.com/3we44pt4), which dire
    following the established terminology tradition of evolutionary computation):
 
 ```Python
-import numpy as np  # for numerical computation, also the computing engine of pypop7
+import numpy as np  # for numerical computation, also as the computing engine of pypop7
 
-# the example is Rosenbrock, one notorious test function from the optimization community
+# Rosenbrock, one notorious test function from the optimization community
 def rosenbrock(x):
     return 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
 
-# to define the fitness function to be minimized and also its settings
+# to define the fitness function to be *minimized* and also its problem settings
 ndim_problem = 1000
 problem = {'fitness_function': rosenbrock,
            'ndim_problem': ndim_problem,  # dimension
