@@ -66,8 +66,8 @@ problem = {'fitness_function': rosenbrock,
            'upper_boundary': 5.0 * np.ones((ndim_problem,))}  # upper search boundary
 ```
 
-Note that without loss of generality, only the minimization process is considered in this library,
-since **maximization** can be easily transferred to **minimization** just by negating it.
+Without loss of generality, only the **minimization** process is considered here, since
+**maximization** can be easily transferred to **minimization** just by negating it.
 
 3. Run one black-box optimizer or more on the above optimization problem (*rosenbrock*):
 
