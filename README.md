@@ -17,9 +17,9 @@ pattern search) for **Black-Box Optimization (BBO)**, *particularly population-b
 in order to facilitate research repeatability, wide benchmarking of BBO, and especially their
 real-world applications.
 
-More specifically, for alleviating their **curse of dimensionality**, the focus of ```PyPop7``` is
-to cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their
-small/medium-scaled versions and variants are also included here (mainly for **theoretical** or
+More specifically, for alleviating**curse of dimensionality**, one focus of ```PyPop7``` is to
+cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their small-
+and medium-scaled versions or variants are also included here (mainly for **theoretical** or
 **benchmarking** or **educational** purposes). For a growing list of public use cases of `PyPop7`,
 please refer to [this online website](https://pypop.readthedocs.io/en/latest/applications.html)
 for details. Although we have chosen *GPL-3.0 license*, anyone could use, modify, and improve this
