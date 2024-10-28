@@ -680,6 +680,6 @@ PyPop7: A pure-Python library for population-based black-box optimization. arXiv
 
 ## Star History
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FEvolutionary-Intelligence%2Fpypop&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop7-GitHub-README)
 
 [![PyPop7-Star-Data](https://api.star-history.com/svg?repos=Evolutionary-Intelligence/pypop&type=Date)](https://star-history.com/#Evolutionary-Intelligence/pypop&Date)
