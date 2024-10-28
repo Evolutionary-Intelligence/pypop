@@ -72,18 +72,18 @@ Without loss of generality, only the **minimization** process is considered here
 3. Run one black-box optimizer or more on the above optimization problem (*rosenbrock*):
 
 ```Python
-# here we choose LM-MA-ES owing to its low complexity and metric-learning ability for LSO:
-#   please refer to https://pypop.readthedocs.io/en/latest/es/lmmaes.html for details
-from pypop7.optimizers.es.lmmaes import LMMAES  # Limited-Memory Matrix Adaptation Evolution Strategy
-# to define all the necessary algorithm options (which may differ among different optimizers)
-options = {'fitness_threshold': 1e-10,  # to terminate when best-so-far fitness is lower than it
-           'max_runtime': 3600.0,  # to terminate when the actual runtime exceeds 1 hours
-           'seed_rng': 0,  # seed of random number generation (explicitly set for repeatability)
-           'x': 4.0 * np.ones((ndim_problem,)),  # initial mean of search (mutation) distribution
-           'sigma': 3.0,  # initial global step-size of search distribution (not necessarily optimal)
+# to choose e.g., LM-MA-ES owing to its low complexity and metric-learning ability for LSO:
+#   -> please refer to https://pypop.readthedocs.io/en/latest/es/lmmaes.html for more details
+from pypop7.optimizers.es.lmmaes import LMMAES  # Limited-Memory Matrix Adaptation ES
+# to define algorithm options (which may differ in details among different optimizers)
+options = {'fitness_threshold': 1e-10,  # to terminate when best-so-far fitness is <= it
+           'max_runtime': 3600.0,  # to terminate when actual runtime >= 1 hours
+           'seed_rng': 0,  # seed of random number generation (should be set for repeatability)
+           'x': 4.0 * np.ones((ndim_problem,)),  # initial mean of search/mutation distribution
+           'sigma': 3.0,  # initial global step-size of distribution (not necessarily optimal)
            'verbose': 500}
-lmmaes = LMMAES(problem, options)  # to initialize the optimizer
-results = lmmaes.optimize()  # to run its (often time-consuming) randomized search/evolution process
+lmmaes = LMMAES(problem, options)  # to initialize the black-box optimizer under a unified API
+results = lmmaes.optimize()  # to run its (often time-consuming) randomized evolution process
 print(results)
 ```
 
