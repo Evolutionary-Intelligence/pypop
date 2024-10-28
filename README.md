@@ -88,8 +88,8 @@ print(results)
 ```
 
 Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online documentations of this
-*well-designed* ("self-boasted") Python library for black-box optimization ([several praises from
-others](https://pypop.readthedocs.io/en/latest/applications.html)).
+*well-designed* ("**self-boasted**") Python library for black-box optimization ([several praises
+from others](https://pypop.readthedocs.io/en/latest/applications.html)).
 
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
