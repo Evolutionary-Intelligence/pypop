@@ -105,12 +105,12 @@ specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)"
   some certain LSO circumstances),
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg): indicates the **baseline** BBO version
   mainly for *theoretical* and/or *educational* interest, owing to its algorithmic simplicity
-  (usually relative ease to mathematical analysis).
+  (usually relative ease to mathematical analyze).
 
-Note that this above classification based on only the dimension of objective function is just a
-very rough estimation for **algorithm selection**. In practice, perhaps the **simplest** way to
-algorithm selection is **trial-and-error**. Or you can try more advanced [Automated Algorithm
-Selection](https://doi.org/10.1162/evco_a_00242) techniques.
+Note that this above classification based on only the dimension of objective function is *just a
+very rough* estimation for **algorithm selection**. In practice, perhaps the **simplest** way to
+algorithm selection is **trial-and-error**. Otherwise, you can try more advanced [Automated
+Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
 ******* *** *******
 
 Clearly, this is an **algorithm-centric** rather than benchmarking-centric Python library only
