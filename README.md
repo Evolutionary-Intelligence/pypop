@@ -93,6 +93,9 @@ others](https://pypop.readthedocs.io/en/latest/applications.html)).
 
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
+"[Optimization algorithms are often designed for a specific type of search space, exploiting its
+specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)"
+
 ******* *** *******
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version for
   **LSO** (e.g., dimension > 100, but not an absolutely deterministic number),
