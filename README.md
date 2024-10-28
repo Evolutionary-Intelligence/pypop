@@ -77,7 +77,7 @@ Without loss of generality, only the **minimization** process is considered here
 from pypop7.optimizers.es.lmmaes import LMMAES  # Limited-Memory Matrix Adaptation ES
 # to define algorithm options (which may differ in details among different optimizers)
 options = {'fitness_threshold': 1e-10,  # to terminate when best-so-far fitness is <= it
-           'max_runtime': 3600.0,  # to terminate when actual runtime >= 1 hours
+           'max_runtime': 3600.0,  # to terminate when actual runtime >= 1 hours (3600 seconds)
            'seed_rng': 0,  # seed of random number generation (should be set for repeatability)
            'x': 4.0 * np.ones((ndim_problem,)),  # initial mean of search/mutation distribution
            'sigma': 3.0,  # initial global step-size of distribution (not necessarily optimal)
