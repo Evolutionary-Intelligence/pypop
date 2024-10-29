@@ -343,7 +343,7 @@ with [SciPy](https://www.nature.com/articles/s41592-019-0686-2) and [scikit-lear
 
 ## Folder Structure
 
-The main folder structure of this open-source library **PyPop7** is presented below:
+The first-level folder structure of this library **PyPop7** is presented below:
 
 * `.circleci`: for automatic testing based on [pytest](https://docs.pytest.org/en/8.2.x/).
   * `config.yml`: configuration file in [CircleCI](https://circleci.com/).
@@ -357,8 +357,7 @@ The main folder structure of this open-source library **PyPop7** is presented be
 * `CODE_OF_CONDUCT.md`: code of conduct.
 * `LICENSE`: open-source license.
 * `README.md`: basic information of this library.
-* `coverage-badge.svg`: coverage rate of testing, calculated via [Coverage.py](https://coverage.readthedocs.io/) and generated via `https://smarie.github.io/python-genbadge/`.
-* `pyproject.toml`: for [PyPI](https://pypi.org/).
+* `pyproject.toml`: for [PyPI](https://pypi.org/) (used by `setup.cfg`).
 * `requirements.txt`: for development.
 * `setup.cfg`: for [PyPI](https://pypi.org/) (used via `pyproject.toml`).
 
