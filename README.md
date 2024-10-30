@@ -123,7 +123,7 @@ for black-box optimization, though proper benchmarking is also crucial for BBO, 
   [Rudolph, 2012](https://link.springer.com/referenceworkentry/10.1007/978-3-540-92910-9_22),
   [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466),
   [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
-  [Schwefel, 1984](https://link.springer.com/article/10.1007/BF01876146)]
+  [Schwefel, 1984](https://link.springer.com/article/10.1007/BF01876146), etc.]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Mixture Model-based ES
     (**[MMES](https://tinyurl.com/y7upsbfm)**)
     [[He et al., 2021, TEVC](https://ieeexplore.ieee.org/abstract/document/9244595)]
