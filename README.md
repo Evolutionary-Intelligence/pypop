@@ -392,6 +392,9 @@ reported in the (now still actively-updated) paper list called
   * Larson, J., et al., 2019.
     [Derivative-free optimization methods](https://www.cambridge.org/core/journals/acta-numerica/article/abs/derivativefree-optimization-methods/84479E2B03A9BFFE0F9CD46CF9FCD289).
     Acta Numerica, 28, pp.287-404.
+  * Nesterov, Y., 2018.
+    [Lectures on convex optimization](https://tinyurl.com/4yccr5k8).
+    Cham, Switzerland: Springer.
   * Nesterov, Y. and Spokoiny, V., 2017.
     [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2).
     FoCM, 17(2), pp.527-566.
