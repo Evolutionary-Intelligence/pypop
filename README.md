@@ -91,6 +91,11 @@ Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online docu
 *well-designed* ("**self-boasted**") Python library for black-box optimization ([several praises
 from others](https://pypop.readthedocs.io/en/latest/applications.html)).
 
+"[In our opinion, the main fact, which should be known to any person dealing with optimization
+models, is that in general, optimization problems are unsolvable. This statement, which is usually
+missing in standard optimization courses, is very important for understanding optimization theory
+and the logic of its development in the past and in the future.](https://tinyurl.com/4yccr5k8)"
+
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
 "[Optimization algorithms are often designed for a specific type of search space, exploiting its
