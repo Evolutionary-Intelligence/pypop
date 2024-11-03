@@ -1,7 +1,7 @@
 import time
 from enum import IntEnum
 
-import numpy as np  # engine for numerical computing
+import numpy as np  # engine for nearly all numerical computing
 
 
 class Terminations(IntEnum):
