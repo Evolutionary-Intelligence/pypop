@@ -392,6 +392,8 @@ reported in the (now still actively-updated) paper list called
   * Nesterov, Y., 2018.
     [Lectures on convex optimization](https://tinyurl.com/4yccr5k8).
     Cham, Switzerland: Springer.
+    "**most of the achievements in Structural Optimization are firmly supported
+    by the fundamental methods of Black-Box Convex Optimization.**"
   * Nesterov, Y. and Spokoiny, V., 2017.
     [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2).
     FoCM, 17(2), pp.527-566.
