@@ -5,3 +5,5 @@ Covariance Matrix Adaptation Evolution Strategy (CMAES)
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-CMAES
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-CMAES
