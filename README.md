@@ -187,8 +187,8 @@ for black-box optimization, though proper benchmarking is also crucial for BBO, 
       [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Covariance Matrix Adaptation ES
     (**[CMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/cmaes.py)**)
-    [e.g., [Hansen, 2023/2016](https://arxiv.org/abs/1604.00772),
-    [Hansen et al., 2003, ECJ](https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized),
+    [[Hansen, 2023/2016](https://arxiv.org/abs/1604.00772),
+    [Hansen et al., 2003, ECJ](https://tinyurl.com/mutxbddk),
     [Hansen et al., 2001, ECJ](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in),
     [Hansen&Ostermeier, 1996, CEC](https://ieeexplore.ieee.org/abstract/document/542381)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Self-Adaptation Matrix Adaptation ES
