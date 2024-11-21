@@ -14,11 +14,11 @@ class CMAES(ES):
        `[SIMULIA > CST Studio Suite > Automatic Optimization (Dassault Systèmes)]
        <https://www.3ds.com/products/simulia/cst-studio-suite/automatic-optimization>`_,
        `[PNAS-2024] <https://doi.org/10.1073/pnas.2318641121>`_,
+       `[Nature Communications-2024] <https://www.nature.com/articles/s41467-024-45882-z>`_,
        `[AIAA Journal-2024] <https://arc.aiaa.org/doi/full/10.2514/1.J063251>`_,
        `[NeurIPS-2024 Spotlight] <https://openreview.net/forum?id=79q206xswc>`_,
        `[ICLR-2024 Spotlight] <https://openreview.net/forum?id=KsUh8MMFKQ>`_,
-       `[Gil-Fuster et al., 2024, Nature Communications]
-       <https://www.nature.com/articles/s41467-024-45882-z>`_, `[Jin et al., 2024]
+       `[Jin et al., 2024]
        <https://link.springer.com/article/10.1007/s11044-024-09982-4>`_, `[Koginov et al., 2024, TMRB]
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Elfikky et al., 2024, LWC]
        <https://ieeexplore.ieee.org/abstract/document/10531788>`_, `[Hooper et al., 2024, RSIF]
