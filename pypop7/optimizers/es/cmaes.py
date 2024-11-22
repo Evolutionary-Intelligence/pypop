@@ -18,9 +18,8 @@ class CMAES(ES):
        `[AIAA Journal-2024] <https://arc.aiaa.org/doi/full/10.2514/1.J063251>`_,
        `[NeurIPS-2024 Spotlight] <https://openreview.net/forum?id=79q206xswc>`_,
        `[ICLR-2024 Spotlight] <https://openreview.net/forum?id=KsUh8MMFKQ>`_,
-       `[Jin et al., 2024]
-       <https://link.springer.com/article/10.1007/s11044-024-09982-4>`_, `[Koginov et al., 2024, TMRB]
-       <https://ieeexplore.ieee.org/document/10302449>`_, `[Elfikky et al., 2024, LWC]
+       `[TMRB-2024] <https://ieeexplore.ieee.org/document/10302449>`_,
+       `[Elfikky et al., 2024, LWC]
        <https://ieeexplore.ieee.org/abstract/document/10531788>`_, `[Hooper et al., 2024, RSIF]
        <https://royalsocietypublishing.org/doi/10.1098/rsif.2024.0141>`_, `[Yuan et al., 2024, MNRAS]
        <https://academic.oup.com/mnras/article/530/1/947/7643636#>`_, `[Bruel et al., 2024]
