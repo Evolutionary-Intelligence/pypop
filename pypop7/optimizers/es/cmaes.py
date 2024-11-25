@@ -21,8 +21,8 @@ class CMAES(ES):
        `[TMRB-2024] <https://ieeexplore.ieee.org/document/10302449>`_,
        `[LWC-2024] <https://ieeexplore.ieee.org/abstract/document/10531788>`_,
        `[RSIF-2024] <https://royalsocietypublishing.org/doi/10.1098/rsif.2024.0141>`_,
-       `[Yuan et al., 2024, MNRAS]
-       <https://academic.oup.com/mnras/article/530/1/947/7643636#>`_, `[Bruel et al., 2024]
+       `[MNRAS-2024] <https://academic.oup.com/mnras/article/530/1/947/7643636>`_,
+       `[Bruel et al., 2024]
        <https://www.biorxiv.org/content/10.1101/2024.04.12.589164v1>`_, `[Li et al., 2024]
        <https://arxiv.org/abs/2403.17009>`_, `[Liu et al., 2024]
        <https://aapm.onlinelibrary.wiley.com/doi/full/10.1002/mp.16962>`_, `[Wolff, 2024]
