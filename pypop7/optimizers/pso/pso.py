@@ -25,6 +25,7 @@ class PSO(Optimizer):
     `[Melis et al., 2024, Nature]
     <https://doi.org/10.1038/s41586-024-07293-4>`_, `[Wang et al., 2024, Nature Materials]
     <https://doi.org/10.1038/s41563-024-01830-2>`_,
+    `[Nature Communications-2024] <https://www.nature.com/articles/s41467-024-54708-x>`_,
     `[Zhang et al., 2024, CVPR (Snap Inc. + CUHK + Stanford + UCLA)]
     <https://zqh0253.github.io/SceneWiz3D/>`_,
     `[Elijošius et al., 2024]
