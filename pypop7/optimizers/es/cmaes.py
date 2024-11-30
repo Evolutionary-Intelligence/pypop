@@ -6,9 +6,9 @@ from pypop7.optimizers.es.es import ES  # abstract class of all Evolution Strate
 class CMAES(ES):
     """Covariance Matrix Adaptation Evolution Strategy (CMAES).
 
-    .. note:: `CMAES` is widely recognized as one of **State-Of-The-Art (SOTA)** evolutionary algorithms
-       for continuous black-box optimization (BBO), according to the well-recognized `Nature
-       <https://doi.org/10.1038/nature14544>`_ review of **Evolutionary Computation**.
+    .. note:: `CMAES` is widely recognized as one of **State-Of-The-Art (SOTA)** evolutionary
+       algorithms for continuous black-box optimization (BBO), according to the well-recognized
+       `Nature <https://doi.org/10.1038/nature14544>`_ review of **Evolutionary Computation**.
 
        For some (rather all) interesting applications of `CMA-ES`, please refer to e.g.,
        `[SIMULIA > CST Studio Suite > Automatic Optimization (Dassault Systèmes)]
@@ -22,8 +22,8 @@ class CMAES(ES):
        `[LWC-2024] <https://ieeexplore.ieee.org/abstract/document/10531788>`_,
        `[RSIF-2024] <https://royalsocietypublishing.org/doi/10.1098/rsif.2024.0141>`_,
        `[MNRAS-2024] <https://academic.oup.com/mnras/article/530/1/947/7643636>`_,
-       `[Liu et al., 2024]
-       <https://aapm.onlinelibrary.wiley.com/doi/full/10.1002/mp.16962>`_, `[Wolff, 2024]
+       `[Medical Physics-2024] <https://aapm.onlinelibrary.wiley.com/doi/full/10.1002/mp.16962>`_,
+       `[Wolff, 2024]
        <https://ieeexplore.ieee.org/abstract/document/10464875>`_, `[Jankowski et al., 2024]
        <https://arxiv.org/abs/2404.02795>`_, `[Martin, 2024, Ph.D. Dissertation (Harvard University)]
        <https://dash.harvard.edu/handle/1/37378922>`_, `[Milekovic et al., 2023, Nature Medicine]
