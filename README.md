@@ -3,7 +3,6 @@
 [![JMLR](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
 [![PyPI for PyPop7](https://tinyurl.com/murf7c4m)](https://pypi.org/project/pypop7/)
 [![Docs](https://readthedocs.org/projects/pypop/badge/?version=latest)](http://pypop.rtfd.io/)
-[![arxiv](https://img.shields.io/badge/arxiv-2212.05652-red)](https://arxiv.org/abs/2212.05652)
 [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7)
 [![Downloads](https://static.pepy.tech/badge/pypop7/month)](https://pepy.tech/project/pypop7)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop)
