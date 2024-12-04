@@ -44,9 +44,9 @@ Genetical Theory of Natural Selection](https://tinyurl.com/3we44pt4), which dire
 [proposal](https://tinyurl.com/5emfc5hb) of [Genetic Algorithms
 (GA)](https://tinyurl.com/mptr255h).
 
-2. Define the objective/cost/loss/error/fitness function to be **minimized** for the
-   optimization problem at hand (in this library, the term **fitness function** is used,
-   following the established terminology tradition of evolutionary computation):
+* Define the objective / cost / loss / error / fitness function to be **minimized** for the
+  optimization problem at hand (in this library, the term **fitness function** is used to
+  follow the well-established terminology tradition of **evolutionary computation**):
 
 ```Python
 import numpy as np  # for numerical computation, also as the computing engine of pypop7
