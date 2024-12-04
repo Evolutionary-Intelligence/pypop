@@ -16,20 +16,20 @@ real-world applications.
 
 More specifically, for alleviating **curse of dimensionality**, one focus of ```PyPop7``` is to
 cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their small-
-and medium-scaled versions or variants are also included here (but mainly for **theoretical** or
-**benchmarking** or **educational** purposes). For a *growing* list of use cases of `PyPop7`,
+and medium-scaled versions or variants are also included here (but mainly for **theoretical**
+or **benchmarking** or **educational** purposes). For a *growing* list of use cases of `PyPop7`,
 please refer to [this online website](https://pypop.readthedocs.io/en/latest/applications.html).
-Although we have chosen *GPL-3.0 license*, anyone could use, modify, and improve this open-source
-library entirely freely for any (no matter *open-source* or *closed-source*) purposes.
+Although we have chosen *GPL-3.0 license*, anyone could use, modify, and improve this library
+entirely freely for any (no matter *open-source* or *closed-source*) purposes.
 
 ## How to Quickly Use
 
 The following three steps are enough to utilize the **black-box optimization** power of
 [PyPop7](https://pypi.org/project/pypop7/):
 
-1. Use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the Python3-based virtual
-   environment via [venv](https://docs.python.org/3/library/venv.html) or
-   [conda](https://docs.conda.io/projects/conda/en/stable/):
+* Recommend to use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the
+  Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html)
+  or [conda](https://docs.conda.io/projects/conda/en/stable/) [*not mandatory*]:
 
 ```bash
 $ pip install pypop7
