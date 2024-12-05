@@ -69,10 +69,11 @@ Without loss of generality, only the **minimization** process is considered here
 * Run one black-box optimizer or more on the above optimization problem:
 
 ```Python
-# to choose e.g., LM-MA-ES owing to its low complexity and metric-learning ability for LSO:
-#   -> please refer to https://pypop.readthedocs.io/en/latest/es/lmmaes.html for more details
-from pypop7.optimizers.es.lmmaes import LMMAES  # Limited-Memory Matrix Adaptation ES
-# to define algorithm options (which may differ in details among different optimizers)
+# to choose e.g. LM-MA-ES (low computational complexity and metric-learning ability):
+#   -> please refer to https://pypop.readthedocs.io/en/latest/es/lmmaes.html
+# LMMAES: Limited Memory Matrix Adaptation Evolution Strategy
+from pypop7.optimizers.es.lmmaes import LMMAES
+# to define algorithm options (which differ in details among different optimizers)
 options = {'fitness_threshold': 1e-10,  # to terminate when best-so-far fitness is <= it
            'max_runtime': 3600.0,  # to terminate when actual runtime >= 1 hours (3600 seconds)
            'seed_rng': 0,  # seed of random number generation (should be set for repeatability)
