@@ -105,10 +105,10 @@ particular instances of problems.](https://tinyurl.com/4yccr5k8)"---**Yurii Nest
 "[Optimization algorithms are often designed for a specific type of search space, exploiting
 its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)"
 
-******* *** *******
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version for
-  **LSO** (e.g., dimension > 100, but not an absolutely deterministic number, depending upon
-  problems and time),
+******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version
+  in particular for **LSO** (e.g., dimension >> 100, but not an absolutely deterministic
+  number, depending upon the concrete problem and time),
 * ![c](https://img.shields.io/badge/**-c-blue.svg): indicates the **competitive** or **de facto**
   BBO version for *small- or medium-dimensional* problems (though it may also work well under
   some certain LSO circumstances),
@@ -120,7 +120,7 @@ Note that this above classification based on only the dimension of objective fun
 very rough* estimation for **algorithm selection**. In practice, perhaps the **simplest** way to
 algorithm selection is **trial-and-error**. Otherwise, you can try more advanced [Automated
 Algorithm Selection](https://doi.org/10.1162/evco_a_00242) techniques.
-******* *** *******
+******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
 
 Clearly, this is an **algorithm-centric** rather than benchmarking-centric Python library only
 for black-box optimization, though proper benchmarking is also crucial for BBO, as shown below.
