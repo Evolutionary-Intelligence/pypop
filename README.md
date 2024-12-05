@@ -75,20 +75,20 @@ Without loss of generality, only the **minimization** process is considered here
 # LMMAES: Limited Memory Matrix Adaptation Evolution Strategy
 from pypop7.optimizers.es.lmmaes import LMMAES
 # to define algorithm options (which differ in details among different optimizers)
-options = {'fitness_threshold': 1e-10,  # to terminate when best-so-far fitness is <= it
-           'max_runtime': 3600.0,  # to terminate when actual runtime >= 1 hours (3600 seconds)
-           'seed_rng': 0,  # seed of random number generation (should be set for repeatability)
-           'x': 4.0 * np.ones((ndim_problem,)),  # initial mean of search/mutation distribution
-           'sigma': 3.0,  # initial global step-size of distribution (not necessarily optimal)
+options = {'fitness_threshold': 1e-10,  # to stop if best-so-far fitness <= 1e-10
+           'max_runtime': 3600.0,  # to stop if runtime >= 1 hours (3600 seconds)
+           'seed_rng': 0,  # random seed (which should be set for repeatability)
+           'x': 4.0 * np.ones((ndim_problem,)),  # mean of search distribution
+           'sigma': 3.0,  # global step-size (but not necessarily optimal)
            'verbose': 500}
-lmmaes = LMMAES(problem, options)  # to initialize the black-box optimizer under a unified API
-results = lmmaes.optimize()  # to run its (often time-consuming) randomized evolution process
+lmmaes = LMMAES(problem, options)  # to initialize (under a unified API)
+results = lmmaes.optimize()  # to run its (time-consuming) evolution process
 print(results)
 ```
 
-Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online documentations of this
-*well-designed* ("**self-boasted**") Python library for black-box optimization ([several praises
-from others](https://pypop.readthedocs.io/en/latest/applications.html)).
+Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online documentations of
+this *well-designed* ("**self-boasted**") Python library for Black-Box Optimization ([several
+online praises from others](https://pypop.readthedocs.io/en/latest/applications.html)).
 
 "[In our opinion, the main fact, which should be known to any person dealing with optimization
 models, is that in general, optimization problems are unsolvable. This statement, which is usually
