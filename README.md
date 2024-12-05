@@ -91,9 +91,10 @@ this *well-designed* ("**self-boasted**") Python library for Black-Box Optimizat
 online praises from others](https://pypop.readthedocs.io/en/latest/applications.html)).
 
 "[In our opinion, the main fact, which should be known to any person dealing with optimization
-models, is that in general, optimization problems are unsolvable. This statement, which is usually
-missing in standard optimization courses, is very important for understanding optimization theory
-and the logic of its development in the past and in the future.](https://tinyurl.com/4yccr5k8)"
+models, is that in general, optimization problems are unsolvable. This statement, which is
+usually missing in standard optimization courses, is very important for understanding
+optimization theory and the logic of its development in the past and in the
+future.](https://tinyurl.com/4yccr5k8)"---**Yurii Nesterov**
 
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
