@@ -117,10 +117,10 @@ its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)
   simplicity (relative ease for mathematical analysis).
 
 Note that this simple classification based on only the dimensionality of objective function
-is *just a very rough* estimation for **algorithm selection**. In practice, perhaps the
-**simplest** way to algorithm selection is **trial-and-error**. Otherwise, you can try
-more advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242)
-techniques.
+is *just a very rough* estimation for [algorithm selection](https://tinyurl.com/ae64wyj3).
+In practice, perhaps the **simplest** way to algorithm selection is **trial-and-error**.
+More advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242)
+techniques could be also considered.
 ******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
 
 Clearly, this is an **algorithm-centric** rather than benchmarking-centric Python library only
