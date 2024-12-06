@@ -22,12 +22,15 @@ class ES(Optimizer):
        principles (**IGO** was originally inspired by `Natural Evolution Strategies 
        <https://jmlr.org/papers/v15/wierstra14a.html>`_).
 
-       `"Their two most prominent design principles are unbiasedness and adaptive control of parameters of the sample
-       distribution. Parameter control is not always directly inspired by biological evolution, but is an indispensable
-       and central feature of ES. The result of selection and recombination is often deterministic. For recombination,
-       using a single parental centroid has become the most popular approach, because such algorithms are simpler to
-       formalize, easier to analyze, and even perform better in various circumstances as they allow for maximum genetic
-       repair."---[Hansen et al., 2015] <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
+       `"Their two most prominent design principles are unbiasedness and adaptive
+       control of parameters of the sample distribution. Parameter control is not
+       always directly inspired by biological evolution, but is an indispensable
+       and central feature of ES. The result of selection and recombination is often
+       deterministic. For recombination, using a single parental centroid has become
+       the most popular approach, because such algorithms are simpler to formalize,
+       easier to analyze, and even perform better in various circumstances as they
+       allow for maximum genetic repair."---[Hansen et al., 2015]
+       <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
 
        In 2017, `OpenAI <https://openai.com/>`_ designed a **scalable** `ES` version without CMA (now called `OpenAI-ES
        <https://openai.com/index/evolution-strategies/>`_) but obtaining competitive performance for high-dimensional
