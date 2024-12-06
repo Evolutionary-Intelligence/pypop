@@ -7,8 +7,8 @@ from pypop7.optimizers.core.optimizer import Optimizer
 class ES(Optimizer):
     """Evolution Strategies (ES).
 
-    This is the **abstract** class for all `ES` classes. Please use any of its instantiated subclasses to
-    optimize the black-box problem at hand.
+    This is the **abstract** class for all `ES` classes. Please use any of instantiated
+    subclasses of `ES` to optimize the black-box problem at hand.
 
     .. note:: `ES` are a well-established family of randomized **population-based** search algorithms, proposed by two
        German computer scientists Ingo Rechenberg and Hans-Paul Schwefel (two recipients of `IEEE Evolutionary
