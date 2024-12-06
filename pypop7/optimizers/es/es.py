@@ -13,11 +13,14 @@ class ES(Optimizer):
     .. note:: `ES` are a well-established family of randomized **population-based**
        search algorithms, proposed by two German students Ingo Rechenberg and
        Hans-Paul Schwefel (two recipients of `IEEE Evolutionary Computation Pioneer
-       Award 2002 <https://tinyurl.com/456as566>`_). One key property of `ES` is **adaptability of
-       strategy parameters**, which can *significantly* accelerate the (local) convergence rate in many cases. Recently,
-       the **theoretical foundation** of its most representative (modern) version **CMA-ES** has been in part built on
-       the `Information-Geometric Optimization (IGO) <https://www.jmlr.org/papers/v18/14-467.html>`_ framework via
-       **invariance** principles (inspired by `NES <https://jmlr.org/papers/v15/wierstra14a.html>`_).
+       Award 2002 <https://tinyurl.com/456as566>`_). One key property of `ES` is
+       **adaptability of strategy parameters**, which can *significantly* accelerate
+       the (local) convergence rate in many cases. Recently, the **theoretical
+       foundation** of its most representative (modern) version **CMA-ES** has been in
+       part built on the `Information-Geometric Optimization (IGO)
+       <https://www.jmlr.org/papers/v18/14-467.html>`_ framework via **invariance**
+       principles (**IGO** was originally inspired by `Natural Evolution Strategies 
+       <https://jmlr.org/papers/v15/wierstra14a.html>`_).
 
        `"Their two most prominent design principles are unbiasedness and adaptive control of parameters of the sample
        distribution. Parameter control is not always directly inspired by biological evolution, but is an indispensable
