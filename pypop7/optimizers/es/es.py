@@ -32,9 +32,10 @@ class ES(Optimizer):
        allow for maximum genetic repair."---[Hansen et al., 2015]
        <https://link.springer.com/chapter/10.1007%2F978-3-662-43505-2_44>`_
 
-       In 2017, `OpenAI <https://openai.com/>`_ designed a **scalable** `ES` version without CMA (now called `OpenAI-ES
-       <https://openai.com/index/evolution-strategies/>`_) but obtaining competitive performance for high-dimensional
-       (deep neural network-based) policy search in reinforcement learning.
+       In 2017, `OpenAI <https://openai.com/>`_ designed a **scalable** `ES` version
+       (called `OpenAI-ES <https://openai.com/index/evolution-strategies/>`_) which
+       obtained *competitive* performance for deep neural network-based policy
+       search in reinforcement learning.
 
        For some interesting applications of `ES`, please refer to
        `[SIMULIA > CST Studio Suite > Automatic Optimization (Dassault Systèmes)]
