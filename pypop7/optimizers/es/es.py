@@ -10,9 +10,10 @@ class ES(Optimizer):
     This is the **abstract** class for all `ES` classes. Please use any of instantiated
     subclasses of `ES` to optimize the black-box problem at hand.
 
-    .. note:: `ES` are a well-established family of randomized **population-based** search algorithms, proposed by two
-       German computer scientists Ingo Rechenberg and Hans-Paul Schwefel (two recipients of `IEEE Evolutionary
-       Computation Pioneer Award 2002 <https://tinyurl.com/456as566>`_). One key property of `ES` is **adaptability of
+    .. note:: `ES` are a well-established family of randomized **population-based**
+       search algorithms, proposed by two German students Ingo Rechenberg and
+       Hans-Paul Schwefel (two recipients of `IEEE Evolutionary Computation Pioneer
+       Award 2002 <https://tinyurl.com/456as566>`_). One key property of `ES` is **adaptability of
        strategy parameters**, which can *significantly* accelerate the (local) convergence rate in many cases. Recently,
        the **theoretical foundation** of its most representative (modern) version **CMA-ES** has been in part built on
        the `Information-Geometric Optimization (IGO) <https://www.jmlr.org/papers/v18/14-467.html>`_ framework via
