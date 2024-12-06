@@ -109,9 +109,9 @@ its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version
   in particular for **LSO** (e.g., dimension >> 100, but not an absolutely deterministic
   number, depending upon the concrete problem and time),
-* ![c](https://img.shields.io/badge/**-c-blue.svg): indicates the **competitive** or **de facto**
-  BBO version for *small- or medium-dimensional* problems (though it may also work well under
-  some certain LSO circumstances),
+* ![c](https://img.shields.io/badge/**-c-blue.svg): indicates the **competitive** or **de
+  facto** BBO version for *low- or medium-dimensional* problems (though it may also work
+  well under some certain LSO circumstances),
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg): indicates the **baseline** BBO version
   mainly for *theoretical* and/or *educational* interest, owing to its algorithmic simplicity
   (usually relative ease to mathematical analyze).
