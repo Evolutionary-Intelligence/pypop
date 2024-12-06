@@ -123,8 +123,8 @@ More advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_002
 techniques could be also considered.
 ******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
 
-Clearly, this is an **algorithm-centric** rather than benchmarking-centric Python library only
-for black-box optimization, though proper benchmarking is also crucial for BBO, as shown below.
+Clearly, this is an **algorithm-centric** rather than *benchmarking-centric* Python library
+for **Black-Box Optimization** (though proper benchmarking is crucial for BBO).
 
 * **Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))**
   [e.g., [Ollivier et al., 2017, JMLR](https://www.jmlr.org/papers/v18/14-467.html),
