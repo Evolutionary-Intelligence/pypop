@@ -137,10 +137,10 @@ for **Black-Box Optimization** (though proper benchmarking is crucial for BBO).
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Matrix Adaptation ES
     (**[LMMAES](https://tinyurl.com/9e8jcmcy)**)
     [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
-    * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited Memory Covariance Matrix
+    * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Covariance Matrix
       Adaptation (**[LMCMA](https://tinyurl.com/3fenh5sj)**) [[Loshchilov, 2017,
       ECJ](https://tinyurl.com/36ynee3s)]
-    * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited Memory Covariance Matrix
+    * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Covariance Matrix
       Adaptation ES (**[LMCMAES](https://tinyurl.com/4myhbwey)**) [[Loshchilov, 2014,
       GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-M ES
