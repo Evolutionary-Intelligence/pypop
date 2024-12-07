@@ -133,7 +133,7 @@ for **Black-Box Optimization** (though proper benchmarking is crucial for BBO).
   [[Rudolph, 2012]](https://link.springer.com/referenceworkentry/10.1007/978-3-540-92910-9_22),
   [[Beyer&Schwefel, 2002]](https://link.springer.com/article/10.1023/A:1015059928466),
   [[Rechenberg, 1989]](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
-  [Schwefel, 1984](https://link.springer.com/article/10.1007/BF01876146), etc.]
+  [[Schwefel, 1984]](https://link.springer.com/article/10.1007/BF01876146), etc.]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Matrix Adaptation ES
     (**[LMMAES](https://tinyurl.com/9e8jcmcy)**)
     [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
