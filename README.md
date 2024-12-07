@@ -128,7 +128,7 @@ for **Black-Box Optimization** (though proper benchmarking is crucial for BBO).
 
 * **Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))**
   [e.g., [[JMLR-2017]](https://www.jmlr.org/papers/v18/14-467.html),
-  [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
+  [[Hansen et al., 2015]](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4),
   [Rudolph, 2012](https://link.springer.com/referenceworkentry/10.1007/978-3-540-92910-9_22),
   [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466),
