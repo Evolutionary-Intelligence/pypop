@@ -59,8 +59,9 @@ class ES(Optimizer):
        <https://openreview.net/pdf?id=KiQ8PhDzIU>`_, `[Agrawal et al., 2014, TVCG]
        <https://ieeexplore.ieee.org/abstract/document/6781622>`_, `[Molinari et al., 2014, AIAAJ]
        <https://arc.aiaa.org/doi/full/10.2514/1.J052715>`_, `[Heidrich-Meisner&Igel, 2009, ICML]
-       <https://dl.acm.org/doi/abs/10.1145/1553374.1553426>`_, `[Lipson&Pollack, 2000, Nature]
-       <https://www.nature.com/articles/35023115>`_, just to name a few.
+       <https://dl.acm.org/doi/abs/10.1145/1553374.1553426>`_,
+       `[Nature-2000] <https://www.nature.com/articles/35023115>`_,
+       just to name a few.
 
     Parameters
     ----------
