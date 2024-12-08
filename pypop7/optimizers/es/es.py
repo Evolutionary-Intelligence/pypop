@@ -56,8 +56,8 @@ class ES(Optimizer):
        <https://ieeexplore.ieee.org/document/10302449>`_, `[Sun et al., 2023, ACL]
        <https://aclanthology.org/2023.acl-long.625.pdf>`_,
        `[Hasani et al., 2023, NeurIPS-Workshop (Vanguard Group, Inc.)]
-       <https://openreview.net/pdf?id=KiQ8PhDzIU>`_, `[Agrawal et al., 2014, TVCG]
-       <https://ieeexplore.ieee.org/abstract/document/6781622>`_,
+       <https://openreview.net/pdf?id=KiQ8PhDzIU>`_,
+       `[TVCG-2014] <https://ieeexplore.ieee.org/abstract/document/6781622>`_,
        `[AIAAJ-2014] <https://arc.aiaa.org/doi/full/10.2514/1.J052715>`_,
        `[ICML-2009] <https://dl.acm.org/doi/abs/10.1145/1553374.1553426>`_,
        `[Nature-2000] <https://www.nature.com/articles/35023115>`_,
