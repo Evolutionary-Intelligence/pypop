@@ -53,8 +53,8 @@ class ES(Optimizer):
        `[Milekovic et al., 2023, Nature Medicine (EPFL + ONWARD Medical + Medtronic Inc. + Oxford, etc.)]
        <https://www.nature.com/articles/s41591-023-02584-1>`_,
        `[Koginov et al., 2023, TMRB]
-       <https://ieeexplore.ieee.org/document/10302449>`_, `[Sun et al., 2023, ACL]
-       <https://aclanthology.org/2023.acl-long.625.pdf>`_,
+       <https://ieeexplore.ieee.org/document/10302449>`_,
+       `[ACL-2023] <https://aclanthology.org/2023.acl-long.625.pdf>`_,
        `[NeurIPS-Workshop-2023] <https://openreview.net/pdf?id=KiQ8PhDzIU>`_,
        `[TVCG-2014] <https://ieeexplore.ieee.org/abstract/document/6781622>`_,
        `[AIAAJ-2014] <https://arc.aiaa.org/doi/full/10.2514/1.J052715>`_,
