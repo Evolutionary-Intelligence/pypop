@@ -48,8 +48,7 @@ class ES(Optimizer):
        <https://arxiv.org/abs/2406.08687>`_,
        `[Reali et al., 2024 (Microsoft Research, Gates Medical Research Institute, Hackensack Meridian Health, etc.)]
        <https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2023.1272091/full>`_
-       `[Lee et al., 2023, Science Robotics (UMich + Google X + Google Robotics + Georgia Tech)]
-       <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_,
+       `[Science Robotics-2023] <https://www.science.org/doi/10.1126/scirobotics.adg3705>`_,
        `[Nature Medicine-2023] <https://www.nature.com/articles/s41591-023-02584-1>`_,
        `[TMRB-2023] <https://ieeexplore.ieee.org/document/10302449>`_,
        `[ACL-2023] <https://aclanthology.org/2023.acl-long.625.pdf>`_,
