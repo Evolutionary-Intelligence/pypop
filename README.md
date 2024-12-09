@@ -174,9 +174,6 @@ for **Black-Box Optimization** (though proper benchmarking is crucial for BBO).
     (**[SEPCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/sepcmaes.py)**)
     [[Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4),
     [Ros&Hansen, 2008, PPSN](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
-  * ![c](https://img.shields.io/badge/**-c-blue.svg) Diagonal Decoding Covariance Matrix Adaptation
-    (**[DDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ddcma.py)**)
-    [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Matrix Adaptation ES
     (**[MAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/maes.py)**)
     [[Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
@@ -186,6 +183,9 @@ for **Black-Box Optimization** (though proper benchmarking is crucial for BBO).
       [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Covariance Matrix Adaptation ES
     (**[CMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/cmaes.py)**)
+    * ![c](https://img.shields.io/badge/**-c-blue.svg) Diagonal Decoding Covariance Matrix Adaptation
+    (**[DDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ddcma.py)**)
+    [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
     [[Hansen, 2023/2016](https://arxiv.org/abs/1604.00772),
     [Hansen et al., 2003, ECJ](https://tinyurl.com/mutxbddk),
     [Hansen et al., 2001, ECJ](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in),
