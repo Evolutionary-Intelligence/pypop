@@ -370,15 +370,24 @@ The first-level folder structure of this library **PyPop7** is presented below:
 
 ## References
 
-For each **population-based** algorithm family, we are providing several *representative* applications published
-on some (rather all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation)
-journals/conferences (such as, [Nature](https://www.nature.com/), [Science](https://www.science.org/journal/science),
-[PNAS](https://www.pnas.org/), [PRL](https://journals.aps.org/prl/), [JACS](https://pubs.acs.org/journal/jacsat),
-[JACM](https://dl.acm.org/journal/jacm), [PIEEE](https://proceedingsoftheieee.ieee.org/),
-[JMLR](https://www.jmlr.org/), [ICML](https://icml.cc/), [NeurIPS](https://neurips.cc/), [ICLR](https://iclr.cc/),
-[CVPR](https://www.thecvf.com/), [ICCV](https://www.thecvf.com/),
-[RSS](https://www.roboticsproceedings.org/index.html), just to name a few),
-reported in the (now still actively-updated) paper list called
+For each **population-based** algorithm family, we are providing several *representative*
+applications published on some (rather all) [top-tier](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation)
+journals/conferences (such as, [Nature](https://www.nature.com/),
+[Science](https://www.science.org/journal/science),
+[PNAS](https://www.pnas.org/),
+[PRL](https://journals.aps.org/prl/),
+[JACS](https://pubs.acs.org/journal/jacsat),
+[JACM](https://dl.acm.org/journal/jacm),
+[PIEEE](https://proceedingsoftheieee.ieee.org/),
+[JMLR](https://www.jmlr.org/),
+[ICML](https://icml.cc/),
+[NeurIPS](https://neurips.cc/),
+[ICLR](https://iclr.cc/),
+[CVPR](https://www.thecvf.com/),
+[ICCV](https://www.thecvf.com/),
+[RSS](https://www.roboticsproceedings.org/index.html),
+just to name a few),
+reported in the (actively-updated) paper list called
 [DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation).
 
 * Derivative-Free Optimization (DFO) / Zeroth-Order Optimization (ZOO)
