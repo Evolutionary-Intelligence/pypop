@@ -695,4 +695,4 @@ arXiv:2212.05652.** (Now it has been submitted to
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop7-GitHub-README)
 
-[![Star](https://api.star-history.com/svg?repos=Evolutionary-Intelligence/pypop&type=Date)](https://star-history.com/#Evolutionary-Intelligence/pypop&Date)
+[![Star](https://tinyurl.com/yy7pfjwz)](https://star-history.com/#Evolutionary-Intelligence/pypop&Date)
