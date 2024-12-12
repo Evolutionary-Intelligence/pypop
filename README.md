@@ -700,8 +700,7 @@ arXiv:2212.05652.** (Now it has been submitted to
 [JMLR](https://jmlr.org/), after 3 reviews from Tue, 28 Mar 2023 to Wed,
 01 Nov 2023 to Fri, 05 Jul 2024, and accepted in Fri, 11 Oct 2024.)
 
-## Star History
+## Visitors and Star
 
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop7-GitHub-README)
-
-[![Star](https://tinyurl.com/yy7pfjwz)](https://star-history.com/#Evolutionary-Intelligence/pypop&Date)
+![visitors](https://tinyurl.com/4cu8wn4u)
+[![Star](https://tinyurl.com/yy7pfjwz)](https://tinyurl.com/w9wwc54f)
