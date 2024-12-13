@@ -10,11 +10,15 @@ class RS(Optimizer):
     This is the **abstract** class for all `RS` classes. Please use any of
     its instantiated subclasses to optimize the black-box problem at hand.
 
-    .. note:: `"The topic of local search was reinvigorated in the early 1990s by surprisingly good results for large
-       (combinatorial) problems ... and by the incorporation of randomness, multiple simultaneous searches, and other
-       improvements."---[Russell&Norvig, 2022] <http://aima.cs.berkeley.edu/global-index.html>`_
+    .. note:: `"Local search was reinvigorated in the early 1990s by
+       surprisingly good results for large (combinatorial) problems ...
+       and by the incorporation of randomness, multiple simultaneous
+       searches, and other improvements."---[Russell&Norvig, 2022, AIMA]
+       <http://aima.cs.berkeley.edu/global-index.html>`_
 
-       **Randomized Local Search (RLS)** is often seen as one of `heuristic optimization algorithms <>`_.
+       **Randomized Local Search (RLS)** is often seen as one of `heuristic
+       optimization algorithms, also called hill climbing, steepest ascent,
+       or greedy search <>`_.
 
     Parameters
     ----------
