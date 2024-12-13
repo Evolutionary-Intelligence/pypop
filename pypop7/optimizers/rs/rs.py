@@ -1,18 +1,20 @@
-import numpy as np
+import numpy as np  # engine for numerical computing
 
+# abstract class of all Black-Box Optimizers (BBO)
 from pypop7.optimizers.core.optimizer import Optimizer
 
 
 class RS(Optimizer):
     """Random (stochastic) Search (optimization) (RS).
 
-    This is the **abstract** class for all `RS` classes. Please use any of its instantiated subclasses to
-    optimize the black-box problem at hand. Recently, all of its state-of-the-art versions adopt the
-    **population-based** random sampling strategy for better exploration in the complex search space.
+    This is the **abstract** class for all `RS` classes. Please use any of
+    its instantiated subclasses to optimize the black-box problem at hand.
 
     .. note:: `"The topic of local search was reinvigorated in the early 1990s by surprisingly good results for large
        (combinatorial) problems ... and by the incorporation of randomness, multiple simultaneous searches, and other
        improvements."---[Russell&Norvig, 2022] <http://aima.cs.berkeley.edu/global-index.html>`_
+
+       **Randomized Local Search (RLS)** is often seen as one of `heuristic optimization algorithms <>`_.
 
     Parameters
     ----------
