@@ -1,7 +1,7 @@
-# PyPop7: A Pure-PYthon library of POPulation-based OPtimization in Black-Box cases (JMLR-2024)
+# PyPop7: A Pure-PYthon library of POPulation-based OPtimization in Black-Box cases
 
-[![JMLR](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
-[![PyPI for PyPop7](https://tinyurl.com/murf7c4m)](https://pypi.org/project/pypop7/)
+[![Pub](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
+[![PyPI](https://tinyurl.com/murf7c4m)](https://pypi.org/project/pypop7/)
 [![Docs](https://readthedocs.org/projects/pypop/badge/?version=latest)](http://pypop.rtfd.io/)
 [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7)
 [![Downloads](https://static.pepy.tech/badge/pypop7/month)](https://pepy.tech/project/pypop7)
