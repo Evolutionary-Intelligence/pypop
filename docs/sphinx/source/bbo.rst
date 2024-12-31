@@ -81,6 +81,10 @@ Some of common problem characteristics of BBO are presented below:
 
   * `[Li et al., 2023, NeurIPS] <https://openreview.net/forum?id=VhbV56AJNt>`_.
 
+* needle-in-a-haystack
+
+  * `[De Jong, 2006] <https://mitpress.mit.edu/9780262529600/evolutionary-computation/>`_
+
 In a nutshell, for **black-box** problems the only information accessible to the algorithm is via *sampling
 evaluation*, which can be freely selected by the algorithm, leading to Black-Box Optimization (BBO) or
 Zeroth-Order Optimization (ZOO) or Derivative-Free Optimization (DFO) or Gradient-Free Optimization (GFO)
