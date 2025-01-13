@@ -226,6 +226,10 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
    :width: 321px
    :align: center
 
+* Carrillo, J.A., Choi, Y.P., Totzeck, C. and Tse, O., 2018.
+  An analytical framework for consensus-based global optimization method.
+  Mathematical Models and Methods in Applied Sciences, 28(06), pp.1037-1066.
+
 .. autofunction:: pypop7.benchmarks.base_functions.rastrigin
 
 .. image:: images/rastrigin.png
