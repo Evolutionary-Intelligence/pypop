@@ -700,6 +700,12 @@ arXiv:2212.05652.** (Now it has been submitted to
 [JMLR](https://jmlr.org/), after 3 reviews from 28 Mar 2023 to 01 Nov
 2023 to 05 Jul 2024, and finally accepted in 11 Oct 2024.)
 
+### 2025
+
+An 1-page paper has been submitted to [IEEE
+CEC-2025](https://www.cec2025.org/) as Journal-to-Conference
+([J2C](https://www.cec2025.org/index/page.html?id=1308)) Papers.
+
 ## Visitors and Star
 
 ![visitors](https://tinyurl.com/4cu8wn4u)
