@@ -1,6 +1,12 @@
 Design Philosophy
 =================
 
+As was shown in one `ALJ-2023 <https://tinyurl.com/2sjn8kp9>`_ paper, `"although metaphors can be powerful
+inspiration tools, the emergence of hundreds of barely discernible algorithmic variants under different
+labels and nomenclatures has been counterproductive to the scientific progress of the field, as it neither
+improves our ability to understand and simulate biological systems nor contributes generalizable knowledge
+or design principles for global optimization approaches." <https://tinyurl.com/2sjn8kp9>`_
+
 Given a large number of black-box optimizers (BBO) versions/variants which still keep increasing almost every week,
 we need some (possibly) widely acceptable criteria to select from them, as presented below in details. For any
 **new/missed** BBO in the literature, we have provided an open-access (unified API) interface to help freely add
