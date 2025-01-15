@@ -119,6 +119,14 @@ for details about the **optimizer setting**. The following **API** contents are 
 BBO in this seemingly `increasingly popular <https://pypop.readthedocs.io/en/latest/applications.html>`_ open-source
 Python library.
 
+.. note::
+   A total of four *extended* versions of PyPop7 (as PP7) are ongoing or
+   planned for further development, as follows:
+   * For Constrained Optimization (PyCoPop7 as PCP7)
+   * For Noisy Optimization (PyNoPop7 as PNP7)
+   * Via Parallel and Distributed Optimization (PyPop77 as PP77)
+   * Via Meta-evolution based Optimization (PyMePop7 as PMP7)
+
 
 
 .. toctree::
