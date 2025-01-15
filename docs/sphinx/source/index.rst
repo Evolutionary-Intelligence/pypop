@@ -22,6 +22,12 @@ Documentations of PyPop7 for Black-Box Optimization (BBO)
 .. image:: https://readthedocs.org/projects/pypop/badge/?version=latest
    :target: https://readthedocs.org/projects/pypop/
 
+`"Responsible for adaptation, optimization, and innovation in the living world, evolution
+executes a simple algorithm of diversifcation and natural selection, an algorithm that
+works at all levels of complexity from single protein molecules to whole ecosystems.
+"---From Nobel Lecture of Frances H. Arnold in California Institute of Technology
+<https://www.nobelprize.org/uploads/2018/10/arnold-lecture.pdf>`_
+
 **PyPop7** is a *Pure-PYthon* library of *POPulation-based OPtimization* for single-objective,
 real-parameter, black-box problems. Its design goal is to provide a *unified* interface and a
 set of *elegant* implementations for **Black-Box Optimizers (BBO)**, particularly
