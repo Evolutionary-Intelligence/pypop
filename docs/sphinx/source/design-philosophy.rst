@@ -177,6 +177,8 @@ Papers of Critical Analyses
 
 * 2024: `Exposing the *** optimization algorithm: A misleading metaheuristic technique with structural bias
   <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
+* 2015: `A critical analysis of the *** search algorithm—How not to solve sudoku
+  <https://www.sciencedirect.com/science/article/pii/S221471601500010X>`_
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
