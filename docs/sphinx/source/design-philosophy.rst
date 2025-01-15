@@ -1,6 +1,9 @@
 Design Philosophy
 =================
 
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-DesignPhilosophy
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-DesignPhilosophy
+
 As was shown in one `ALJ-2023 <https://tinyurl.com/2sjn8kp9>`_ paper, `"although metaphors can be powerful
 inspiration tools, the emergence of hundreds of barely discernible algorithmic variants under different
 labels and nomenclatures has been counterproductive to the scientific progress of the field, as it neither
@@ -168,6 +171,12 @@ intelligence (SI), and metaheuristics communities, please refer to the following
 Finally, we expect to see more interesting discussions about the **beauty** of BBO from different perspectives. For any
 **new/missed** BBO, we provide a *unified* API interface to help freely add them if they satisfy the above design
 philosophy well. See the `development guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for details.
+
+Papers of Critical Analyses
+---------------------------
+
+* 2024: `Exposing the *** optimization algorithm: A misleading metaheuristic technique with structural bias
+  <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
