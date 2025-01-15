@@ -122,10 +122,11 @@ Python library.
 .. note::
    A total of four *extended* versions of PyPop7 (as PP7) are ongoing or
    planned for further development, as follows:
-   * For Constrained Optimization (PyCoPop7 as PCP7)
-   * For Noisy Optimization (PyNoPop7 as PNP7)
-   * Via Parallel and Distributed Optimization (PyPop77 as PP77)
-   * Via Meta-evolution based Optimization (PyMePop7 as PMP7)
+
+   * For Constrained Optimization (PyCoPop7 as PCP7),
+   * For Noisy Optimization (PyNoPop7 as PNP7),
+   * Enhancement via Parallel and Distributed Optimization (PyPop77 as PP77),
+   * Enhancement via Meta-evolution based Optimization (PyMePop7 as PMP7).
 
 
 
