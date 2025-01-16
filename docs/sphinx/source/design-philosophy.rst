@@ -175,16 +175,18 @@ philosophy well. See the `development guide <https://pypop.readthedocs.io/en/lat
 Papers of Critical Analyses
 ---------------------------
 
-* 2024: `Exposing the *** optimization algorithm: A misleading metaheuristic technique with structural bias
-  <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
+* 2024: `Exposing the *** optimization algorithm: A misleading metaheuristic technique with
+  structural bias <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
 * 2020: `Nature inspired optimization algorithms or simply variations of metaheuristics?
   <https://link.springer.com/article/10.1007/s10462-020-09893-8>`_
 * 2015: `A critical analysis of the *** search algorithm—How not to solve sudoku
   <https://www.sciencedirect.com/science/article/pii/S221471601500010X>`_
-* 2011: `Analytical and numerical comparisons of ***-based optimization and genetic algorithms
-  <https://www.sciencedirect.com/science/article/abs/pii/S0020025510006067>`_
-* 2010: `A rigorous analysis of the *** search algorithm: How the research community can be misled by a
-  "novel" methodology
+* 2014: `How novel is the “novel” *** optimization approach?
+  <https://www.sciencedirect.com/science/article/abs/pii/S0020025514000462>`_
+* 2011: `Analytical and numerical comparisons of ***-based optimization and genetic
+  algorithms <https://www.sciencedirect.com/science/article/abs/pii/S0020025510006067>`_
+* 2010: `A rigorous analysis of the *** search algorithm: How the research community can be
+  misled by a "novel" methodology
   <https://www.igi-global.com/article/rigorous-analysis-harmony-search-algorithm/44954>`_
 
 
