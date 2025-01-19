@@ -24,6 +24,13 @@ entirely freely for any (no matter *open-source* or *closed-source*) purposes.
 
 ## How to Quickly Use
 
+"[In our opinion, the main fact, which should be known to any person dealing with optimization
+models, is that in general, optimization problems are unsolvable. This statement, which is
+usually missing in standard optimization courses, is very important for understanding
+optimization theory and the logic of its development in the past and in the
+future.](https://tinyurl.com/4yccr5k8)"
+---**[Yurii Nesterov](https://en.wikipedia.org/wiki/Yurii_Nesterov)**
+
 The following three steps are enough to utilize the **black-box optimization** power of
 [PyPop7](https://pypi.org/project/pypop7/):
 
@@ -90,11 +97,16 @@ Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online docu
 this *well-designed* ("**self-boasted**") Python library for Black-Box Optimization ([several
 online praises from others](https://pypop.readthedocs.io/en/latest/applications.html)).
 
-"[In our opinion, the main fact, which should be known to any person dealing with optimization
-models, is that in general, optimization problems are unsolvable. This statement, which is
-usually missing in standard optimization courses, is very important for understanding
-optimization theory and the logic of its development in the past and in the
-future.](https://tinyurl.com/4yccr5k8)"---**Yurii Nesterov**
+A total of four extended versions of PyPop7 (as **PP7**) are ongoing or planned for further
+development:
+
+For Constrained Optimization (PyCoPop7 as PCP7),
+
+For Noisy Optimization (PyNoPop7 as PNP7),
+
+Enhancement via Parallel and Distributed Optimization (PyPop77 as PP77),
+
+Enhancement via Meta-evolution based Optimization (PyMePop7 as PMP7).
 
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
