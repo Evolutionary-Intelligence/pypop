@@ -95,18 +95,14 @@ print(results)
 
 Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online documentations of
 this *well-designed* ("**self-boasted**") Python library for Black-Box Optimization ([several
-online praises from others](https://pypop.readthedocs.io/en/latest/applications.html)).
-
-A total of four extended versions of PyPop7 (as **PP7**) are ongoing or planned for further
+online praises from others](https://pypop.readthedocs.io/en/latest/applications.html)). A
+total of **four** extended versions of PyPop7 (as **PP7**) are ongoing or planned for further
 development:
 
-For Constrained Optimization (PyCoPop7 as PCP7),
-
-For Noisy Optimization (PyNoPop7 as PNP7),
-
-Enhancement via Parallel and Distributed Optimization (PyPop77 as PP77),
-
-Enhancement via Meta-evolution based Optimization (PyMePop7 as PMP7).
+* For Constrained Optimization (`PyCoPop7 as PCP7`),
+* For Noisy Optimization (`PyNoPop7 as PNP7`),
+* Enhancement via Parallel and Distributed Optimization (`PyPop77 as PP77`),
+* Enhancement via Meta-evolution based Optimization (`PyMePop7 as PMP7`).
 
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
