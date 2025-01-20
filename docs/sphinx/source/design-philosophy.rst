@@ -175,6 +175,9 @@ philosophy well. See the `development guide <https://pypop.readthedocs.io/en/lat
 Papers of Critical Analyses
 ---------------------------
 
+* 2025: `The paradox of success in evolutionary and bioinspired optimization: Revisiting
+  critical issues, key studies, and methodological pathways
+  <https://arxiv.org/abs/2501.07515>`_
 * 2024: `Exposing the *** optimization algorithm: A misleading metaheuristic technique with
   structural bias <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
 * 2020: `Nature inspired optimization algorithms or simply variations of metaheuristics?
