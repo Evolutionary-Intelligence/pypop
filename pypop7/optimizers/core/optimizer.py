@@ -5,12 +5,19 @@ import numpy as np  # engine for nearly all numerical computing
 
 
 class Terminations(IntEnum):
-    """Helper class used by all optimizer classes."""
+    """Helper class used by all black-box optimizers.
+
+    Four different termination conditions are considered for all optimizers, as below:
+    * MAX_FUNCTION_EVALUATIONS
+    * MAX_RUNTIME
+    * FITNESS_THRESHOLD
+    * EARLY_STOPPING
+    """
     NO_TERMINATION = 0
     MAX_FUNCTION_EVALUATIONS = 1  # maximum of function evaluations
     MAX_RUNTIME = 2  # maximal runtime to be allowed
-    FITNESS_THRESHOLD = 3  # when the best-so-far fitness is below fitness threshold, the optimizer will stop
-    EARLY_STOPPING = 4  # when the best-so-far fitness does not improve for a long time, the optimizer will stop
+    FITNESS_THRESHOLD = 3  # when best-so-far fitness is below threshold
+    EARLY_STOPPING = 4  # when best-so-far fitness does not improve for a long time
 
 
 class Optimizer(object):
