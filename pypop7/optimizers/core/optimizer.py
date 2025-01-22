@@ -8,7 +8,8 @@ class Terminations(IntEnum):
     """Helper class used by all black-box optimizers.
 
     Four different termination conditions are considered for all optimizers, as below:
-    * MAX_FUNCTION_EVALUATIONS
+    * MAX_FUNCTION_EVALUATIONS: When the maximum of function evaluations is reached,
+      the black-box optimizer will stop to run immediately.
     * MAX_RUNTIME
     * FITNESS_THRESHOLD
     * EARLY_STOPPING
