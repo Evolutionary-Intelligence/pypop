@@ -178,6 +178,9 @@ Papers of Critical Analyses
 * 2025: `The paradox of success in evolutionary and bioinspired optimization: Revisiting
   critical issues, key studies, and methodological pathways
   <https://arxiv.org/abs/2501.07515>`_
+* 2024: `Comprehensive taxonomies of nature- and bio-inspired optimization: Inspiration
+  versus algorithmic behavior, critical analysis and recommendations (from 2020 to 2024)
+  <https://arxiv.org/abs/2002.08136>`_
 * 2024: `Exposing the *** optimization algorithm: A misleading metaheuristic technique with
   structural bias <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
 * 2024: `A literature review and critical analysis of metaheuristics recently developed
