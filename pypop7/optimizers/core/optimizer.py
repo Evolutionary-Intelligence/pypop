@@ -10,7 +10,8 @@ class Terminations(IntEnum):
     Four different termination conditions are considered for all optimizers, as below:
     * MAX_FUNCTION_EVALUATIONS: When the maximum of function evaluations is reached,
       the black-box optimizer will stop to run immediately.
-    * MAX_RUNTIME
+    * MAX_RUNTIME: When the maximum of actual runtime is reached, the black-box
+      optimizer will stop to run immediately.
     * FITNESS_THRESHOLD
     * EARLY_STOPPING
     """
