@@ -180,6 +180,8 @@ Papers of Critical Analyses
   <https://arxiv.org/abs/2501.07515>`_
 * 2024: `Exposing the *** optimization algorithm: A misleading metaheuristic technique with
   structural bias <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
+* 2023: `A literature review and critical analysis of metaheuristics recently developed
+  <https://link.springer.com/article/10.1007/s11831-023-09975-0>`_
 * 2022: `A new taxonomy of global optimization algorithms
   <https://link.springer.com/article/10.1007/s11047-020-09820-4>`_
 * 2020: `Nature inspired optimization algorithms or simply variations of metaheuristics?
