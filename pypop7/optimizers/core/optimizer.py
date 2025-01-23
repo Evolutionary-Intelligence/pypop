@@ -14,7 +14,8 @@ class Terminations(IntEnum):
       optimizer will stop to run immediately.
     * FITNESS_THRESHOLD: When the threshold of the *best-so-far* fitness is reached,
       the black-box optimizer will stop to run immediately.
-    * EARLY_STOPPING
+    * EARLY_STOPPING: When the condition of early stopping is reached,
+      the black-box optimizer will stop to run immediately.
     """
     NO_TERMINATION = 0
     MAX_FUNCTION_EVALUATIONS = 1  # maximum of function evaluations
