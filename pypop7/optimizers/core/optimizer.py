@@ -12,7 +12,8 @@ class Terminations(IntEnum):
       the black-box optimizer will stop to run immediately.
     * MAX_RUNTIME: When the maximum of actual runtime is reached, the black-box
       optimizer will stop to run immediately.
-    * FITNESS_THRESHOLD
+    * FITNESS_THRESHOLD: When the threshold of the *best-so-far* fitness is reached,
+      the black-box optimizer will stop to run immediately.
     * EARLY_STOPPING
     """
     NO_TERMINATION = 0
