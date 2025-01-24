@@ -29,11 +29,6 @@ class Optimizer(object):
 
     References
     ----------
-    Kochenderfer, M.J. and Wheeler, T.A., 2019.
-    Algorithms for optimization.
-    MIT Press.
-    https://algorithmsbook.com/optimization/
-    (See Chapter 7: Direct Methods for details.)
     """
     def __init__(self, problem, options):
         # problem-related settings
