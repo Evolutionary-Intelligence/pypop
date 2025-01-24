@@ -32,7 +32,7 @@ class Optimizer(object):
     """
     def __init__(self, problem, options):
         # problem-related settings
-        self.fitness_function = problem.get('fitness_function')
+        self.fitness_function = problem.get('fitness_function')  # to be *minimized*
         self.ndim_problem = problem.get('ndim_problem')
         assert self.ndim_problem > 0
         self.upper_boundary = problem.get('upper_boundary')
