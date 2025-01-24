@@ -44,11 +44,14 @@ class Optimizer(object):
         self.fitness_function = problem.get('fitness_function')  # to be *minimized*
         self.ndim_problem = problem.get('ndim_problem')  # number of problem dimensionality
         assert self.ndim_problem > 0
-        self.upper_boundary = problem.get('upper_boundary')
-        self.lower_boundary = problem.get('lower_boundary')
+        # mainly for the initialization process
+        self.upper_boundary = problem.get('upper_boundary')  # upper boundary of search range
+        self.lower_boundary = problem.get('lower_boundary')  # lower boundary of search range
+        # only for the initialization process
         self.initial_upper_boundary = problem.get('initial_upper_boundary', self.upper_boundary)
         self.initial_lower_boundary = problem.get('initial_lower_boundary', self.lower_boundary)
-        self.problem_name = problem.get('problem_name')
+        # mainly for the printing purpose
+        self.problem_name = problem.get('problem_name')  # should be of data type `str`
         if (self.problem_name is None) and hasattr(self.fitness_function, '__name__'):
             self.problem_name = self.fitness_function.__name__
 
