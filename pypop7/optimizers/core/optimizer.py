@@ -34,11 +34,6 @@ class Optimizer(object):
     MIT Press.
     https://algorithmsbook.com/optimization/
     (See Chapter 7: Direct Methods for details.)
-
-    Nesterov, Y., 2018.
-    Lectures on convex optimization.
-    Berlin: Springer International Publishing.
-    https://link.springer.com/book/10.1007/978-3-319-91578-4
     """
     def __init__(self, problem, options):
         # problem-related settings
