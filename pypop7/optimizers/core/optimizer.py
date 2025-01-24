@@ -29,6 +29,10 @@ class Optimizer(object):
 
     References
     ----------
+    Holland, J.H., 1992.
+    Adaptation in natural and artificial systems: An introductory analysis with
+    applications to biology, control, and artificial intelligence.
+    MIT Press.
     """
     def __init__(self, problem, options):
         # problem-related settings
