@@ -40,9 +40,9 @@ class Optimizer(object):
     Frommann-Holzboog Verlag, Stuttgart.
     """
     def __init__(self, problem, options):
-        # problem-related settings
+        # problem-related basic settings
         self.fitness_function = problem.get('fitness_function')  # to be *minimized*
-        self.ndim_problem = problem.get('ndim_problem')
+        self.ndim_problem = problem.get('ndim_problem')  # number of problem dimensionality
         assert self.ndim_problem > 0
         self.upper_boundary = problem.get('upper_boundary')
         self.lower_boundary = problem.get('lower_boundary')
