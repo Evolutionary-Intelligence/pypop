@@ -195,6 +195,9 @@ Papers of Critical Analyses
   <https://www.sciencedirect.com/science/article/pii/S221471601500010X>`_
 * 2014: `How novel is the “novel” *** optimization approach?
   <https://www.sciencedirect.com/science/article/abs/pii/S0020025514000462>`_
+* 2011: `A practical tutorial on the use of nonparametric statistical tests as a
+  methodology for comparing evolutionary and swarm intelligence algorithms
+  <https://www.sciencedirect.com/science/article/abs/pii/S2210650211000034>`_
 * 2011: `Analytical and numerical comparisons of ***-based optimization and genetic
   algorithms <https://www.sciencedirect.com/science/article/abs/pii/S0020025510006067>`_
 * 2010: `A rigorous analysis of the *** search algorithm: How the research community can be
