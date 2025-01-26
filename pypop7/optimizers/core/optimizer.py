@@ -45,12 +45,14 @@ class Optimizer(object):
         self.ndim_problem = problem.get('ndim_problem')  # number of problem dimensionality
         assert self.ndim_problem > 0
         # mainly for both the *initialization* process and the *constrained sampling* process:
-        #   Constrained sampling is covered in its extended library called `PyCoPop7`
+        #   Constrained sampling is mainly covered in its extended library called `PyCoPop7`
         self.upper_boundary = problem.get('upper_boundary')  # upper boundary of search range
         self.lower_boundary = problem.get('lower_boundary')  # lower boundary of search range
         # only for the *initialization* process
-        self.initial_upper_boundary = problem.get('initial_upper_boundary', self.upper_boundary)
-        self.initial_lower_boundary = problem.get('initial_lower_boundary', self.lower_boundary)
+        self.initial_upper_boundary = problem.get('initial_upper_boundary',
+                                                  self.upper_boundary)
+        self.initial_lower_boundary = problem.get('initial_lower_boundary',
+                                                  self.lower_boundary)
         # mainly for the printing purpose
         self.problem_name = problem.get('problem_name')  # should be of data type `str`
         if (self.problem_name is None) and hasattr(self.fitness_function, '__name__'):
@@ -89,7 +91,7 @@ class Optimizer(object):
         self.verbose = options.get('verbose', 10)
 
         # auxiliary members
-        self.Terminations, self.termination_signal = Terminations, 0  # 0 -> NO_TERMINATION
+        self.Terminations, self.termination_signal = Terminations, 0  # 0 -> `NO_TERMINATION`
         self.n_function_evaluations = options.get('n_function_evaluations', 0)
         self.start_function_evaluations = None
         self.time_function_evaluations = options.get('time_function_evaluations', 0)
