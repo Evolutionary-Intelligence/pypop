@@ -83,7 +83,7 @@ class Optimizer(object):
         self.seed_optimization = options.get('seed_optimization',
                                              self.rng.integers(np.iinfo(np.int64).max))
         self.rng_optimization = np.random.default_rng(self.seed_optimization)
-        
+
         # basic options for saving results and printing progress
         # frequency of saving fitness when outputing results, to save memory space
         self.saving_fitness = options.get('saving_fitness', 0)
