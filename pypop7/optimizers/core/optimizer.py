@@ -90,7 +90,7 @@ class Optimizer(object):
         # only for printing in console
         self.verbose = options.get('verbose', 10)
 
-        # auxiliary members
+        # auxiliary members mainly for *count* and *summary*
         self.Terminations, self.termination_signal = Terminations, 0  # 0 -> `NO_TERMINATION`
         self.n_function_evaluations = options.get('n_function_evaluations', 0)
         self.start_function_evaluations = None
