@@ -57,17 +57,19 @@ class Optimizer(object):
             self.problem_name = self.fitness_function.__name__
 
         # optimizer-related basic options
-        self.options = options  # not use `deep copy` to save memory
+        self.options = options  # NOT use `deep copy` to save memory
         # for `MAX_FUNCTION_EVALUATIONS` in `Terminations`
         self.max_function_evaluations = options.get('max_function_evaluations', np.inf)
         # for `MAX_RUNTIME` in `MAX_RUNTIME`
         self.max_runtime = options.get('max_runtime', np.inf)
         # for `FITNESS_THRESHOLD` in `Terminations`
         self.fitness_threshold = options.get('fitness_threshold', -np.inf)
+        # mainly for *population-based optimizers*
         self.n_individuals = options.get('n_individuals')  # offspring population size
         self.n_parents = options.get('n_parents')  # parent population size
+        # for strict control of randomness, *very important* for ***repeatability***
         self.seed_rng = options.get('seed_rng')
-        if self.seed_rng is None:  # it is highly recommended to explicitly set *seed_rng*
+        if self.seed_rng is None:  # highly recommended to explicitly set `seed_rng`
             self.rng = np.random.default_rng()  # NOT use it, if possible
         else:
             self.rng = np.random.default_rng(self.seed_rng)
