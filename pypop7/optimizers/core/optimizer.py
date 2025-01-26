@@ -58,6 +58,7 @@ class Optimizer(object):
 
         # optimizer-related basic options
         self.options = options  # not use `deep copy` to save memory
+        # for `MAX_FUNCTION_EVALUATIONS` in `Terminations`
         self.max_function_evaluations = options.get('max_function_evaluations', np.inf)
         self.max_runtime = options.get('max_runtime', np.inf)
         self.fitness_threshold = options.get('fitness_threshold', -np.inf)
