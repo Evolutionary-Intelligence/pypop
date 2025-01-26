@@ -73,9 +73,13 @@ class Optimizer(object):
             self.rng = np.random.default_rng()  # NOT use it, if possible
         else:
             self.rng = np.random.default_rng(self.seed_rng)
-        self.seed_initialization = options.get('seed_initialization', self.rng.integers(np.iinfo(np.int64).max))
+        # better to set both `seed_initialization` and `seed_optimization`
+        #   automatically according to `seed_rng`
+        self.seed_initialization = options.get('seed_initialization',
+                                               self.rng.integers(np.iinfo(np.int64).max))
         self.rng_initialization = np.random.default_rng(self.seed_initialization)
-        self.seed_optimization = options.get('seed_optimization', self.rng.integers(np.iinfo(np.int64).max))
+        self.seed_optimization = options.get('seed_optimization',
+                                             self.rng.integers(np.iinfo(np.int64).max))
         self.rng_optimization = np.random.default_rng(self.seed_optimization)
         self.saving_fitness = options.get('saving_fitness', 0)
         self.verbose = options.get('verbose', 10)
