@@ -103,6 +103,7 @@ Till now, this Python library `PyPop7` has been used (at least) in the following
 
 * 16: https://github.com/lamda-bbo/BBOPlace-miniBench
 
+  * requirements.txt: `pypop7==0.0.82`
 * 15: https://github.com/GMC-DRL/Neur-ELA
 
   * **FCMAES + SEPCMAES + RMES + CMAES**
