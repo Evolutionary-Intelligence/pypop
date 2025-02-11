@@ -13,10 +13,12 @@ in the following papers (note that the below list is **actively updated**):
 [**used**] indicates that PyPop7 has been used by the corresponding paper.
 
 * **15**: Fiks, I.S. and Fiks, G.E., 2024.
-  Determining the minimum number of compensating monopole sources required to suppress the integral radiation level.
+  `Determining the minimum number of compensating monopole sources required to suppress the\
+   integral radiation level. <https://link.springer.com/article/10.1134/S1063771024602723>`_
   Acoustical Physics, 70(5), pp.914-918.
 
   * **cited**
+  * Russian: https://bioethicsjournal.ru/0320-7919/article/view/648447
 
 * **14**: `Santana, R. <https://scholar.google.com/citations?user=nyI7qw0AAAAJ&hl=en&oi=sra>`_,
   `Inza, I. <https://scholar.google.com/citations?user=ogYjUPAAAAAJ&hl=en&oi=sra>`_,
