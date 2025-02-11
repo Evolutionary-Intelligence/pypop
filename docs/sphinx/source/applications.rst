@@ -12,6 +12,12 @@ the following papers (note that the below list is **actively updated**):
 
 [**used**] indicates that PyPop7 has been used (but not cited in reference) by the corresponding paper.
 
+* **14**: Santana, R., Inza, I., Prol-Godoy, I. and Picallo-Perez, A., 2024, November.
+  Continuous estimation of distribution algorithms for the parametric optimization of geothermal power plants.
+  In Proceedings of International Conference on Computational Intelligence and Intelligent Systems
+  (pp. 86-93). ACM.
+  * **cited**
+  * **used**
 
 * **13**: Miranda, P.B., Giráldez-Cru, J., Silva-Filho, M.W., Zarco, C. and Cordón, O., 2024, June.
   Learning agents' behavioral patterns in agent-Based modeling by means of evolutionary algorithms.
