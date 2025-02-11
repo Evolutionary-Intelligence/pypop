@@ -19,13 +19,16 @@ in the following papers (note that the below list is **actively updated**):
   geothermal power plants. <https://dl.acm.org/doi/full/10.1145/3708778.3708791>`_
   In Proceedings of International Conference on Computational Intelligence and Intelligent Systems
   (pp. 86-93). ACM.
+
   * **cited**
   * **used**
 
 * **13**: Miranda, P.B., Giráldez-Cru, J., Silva-Filho, M.W., Zarco, C. and Cordón, O., 2024, June.
   Learning agents' behavioral patterns in agent-Based modeling by means of evolutionary algorithms.
   In IEEE Congress on Evolutionary Computation (pp. 1-8). IEEE.
-  * **cited** (but NOT used) in its `code project <https://github.com/aiboxlab/evolutionary-abm-calibration>`_
+
+  * **cited** (but NOT used) in its `code project
+    <https://github.com/aiboxlab/evolutionary-abm-calibration>`_
 
 * **12**: Ma, Z., Chen, J., Guo, H. and Gong, Y.J., 2024.
   `Neural Exploratory Landscape Analysis <https://arxiv.org/abs/2408.10672>`_.
