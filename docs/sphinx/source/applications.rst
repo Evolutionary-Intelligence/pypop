@@ -4,15 +4,17 @@ Applications
 Applications&Citations
 ----------------------
 
-Up to now, this open-source Python library `PyPop7` has been **used/cited** (at least) in
-the following papers (note that the below list is **actively updated**):
+Up to now, this open-source Python library `PyPop7` has been **used and/or cited** (at least)
+in the following papers (note that the below list is **actively updated**):
 
 
 [**cited**] indicates that PyPop7 has been cited in any location by the corresponding paper.
 
 [**used**] indicates that PyPop7 has been used by the corresponding paper.
 
-* **14**: Santana, R., Inza, I., Prol-Godoy, I. and Picallo-Perez, A., 2024, November.
+* **14**: `Santana, R. <https://scholar.google.com/citations?user=nyI7qw0AAAAJ&hl=en&oi=sra>`_,
+  `Inza, I. <https://scholar.google.com/citations?user=ogYjUPAAAAAJ&hl=en&oi=sra>`_,
+  Prol-Godoy, I. and Picallo-Perez, A., 2024, November.
   `Continuous estimation of distribution algorithms for the parametric optimization of
   geothermal power plants. <https://dl.acm.org/doi/full/10.1145/3708778.3708791>`_
   In Proceedings of International Conference on Computational Intelligence and Intelligent Systems
