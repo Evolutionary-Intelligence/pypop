@@ -13,7 +13,8 @@ the following papers (note that the below list is **actively updated**):
 [**used**] indicates that PyPop7 has been used by the corresponding paper.
 
 * **14**: Santana, R., Inza, I., Prol-Godoy, I. and Picallo-Perez, A., 2024, November.
-  Continuous estimation of distribution algorithms for the parametric optimization of geothermal power plants.
+  `Continuous estimation of distribution algorithms for the parametric optimization of
+  geothermal power plants. <https://dl.acm.org/doi/full/10.1145/3708778.3708791>`_
   In Proceedings of International Conference on Computational Intelligence and Intelligent Systems
   (pp. 86-93). ACM.
   * **cited**
