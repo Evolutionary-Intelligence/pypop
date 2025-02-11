@@ -25,6 +25,8 @@ in the following papers (note that the below list is **actively updated**):
 * **13**: Miranda, P.B., Giráldez-Cru, J., Silva-Filho, M.W., Zarco, C. and Cordón, O., 2024, June.
   Learning agents' behavioral patterns in agent-Based modeling by means of evolutionary algorithms.
   In IEEE Congress on Evolutionary Computation (pp. 1-8). IEEE.
+  * **cited** in its `code project <https://github.com/aiboxlab/evolutionary-abm-calibration>`_
+    (but NOT used)
 
 * **12**: Ma, Z., Chen, J., Guo, H. and Gong, Y.J., 2024.
   `Neural Exploratory Landscape Analysis <https://arxiv.org/abs/2408.10672>`_.
