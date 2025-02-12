@@ -688,30 +688,31 @@ reported in the (actively-updated) paper list called
     [Automated algorithm configuration and parameter tuning](https://link.springer.com/chapter/10.1007/978-3-642-21434-9_3).
     In Autonomous Search (pp. 37-71). Springer.
 
-## Sponsor
+## Sponsor for PyPop7
 
-Now it is supported by National Natural Science Foundation of China under
-Grant No. 72401122, Guangdong Basic and Applied Basic Research Foundation
-under Grant No. 2024A1515012241 and 2021A1515110024. From 2021 to 2023,
-this open-source Python library was supported by Shenzhen Fundamental
-Research Program under Grant No. JCYJ20200109141235597 (2,000,000 Yuan).
+Now it is supported by National Natural Science Foundation of China
+under Grant No. 72401122, Guangdong Basic and Applied Basic Research
+Foundation under Grant No. 2024A1515012241 and 2021A1515110024. From
+2021 to 2023, this open-source Python library was supported by
+Shenzhen Fundamental Research Program under Grant No.
+JCYJ20200109141235597 (2,000,000 Yuan).
 
 ## Citation for PyPop7
 
-If this open-source Python library is used in your paper or project, it
-is highly welcomed *but NOT mandatory* to cite the following arXiv
-[preprint](https://arxiv.org/abs/2212.05652) paper: **Duan, Q., Zhou,
-G., Shao, C., Wang, Z., Feng, M., Huang, Y., Tan, Y., Yang, Y., Zhao,
-Q. and Shi, Y., 2024. PyPop7: A Pure-Python Library for
+If this open-source Python library is used in your paper or project,
+it is highly welcomed *but NOT mandatory* to cite the following
+arXiv [preprint](https://arxiv.org/abs/2212.05652) paper: **Duan, Q.,
+Zhou, G., Shao, C., Wang, Z., Feng, M., Huang, Y., Tan, Y., Yang, Y.,
+Zhao, Q. and Shi, Y., 2024. PyPop7: A Pure-Python Library for
 Population-Based Black-Box Optimization. arXiv preprint
 arXiv:2212.05652.** (Now it has been submitted to
-[JMLR](https://jmlr.org/), after 3-round reviews from 28 Mar 2023 to 01
-Nov 2023 to 05 Jul 2024, and finally accepted in 11 Oct 2024.)
+[JMLR](https://jmlr.org/), after 3-round reviews from 28 Mar 2023 to
+01 Nov 2023 to 05 Jul 2024, and finally accepted in 11 Oct 2024.)
 
 ### 2025
 
-An 1-page paper has been submitted to [IEEE
-CEC-2025](https://www.cec2025.org/) as Journal-to-Conference
+An 1-page paper has been submitted to [IEEE-CEC
+2025](https://www.cec2025.org/) as Journal-to-Conference
 ([J2C](https://www.cec2025.org/index/page.html?id=1308)) Papers.
 
 ### BibTeX
