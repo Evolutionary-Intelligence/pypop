@@ -99,9 +99,10 @@ in the following papers (note that the below list is **actively updated**):
 Open-Source Cases
 -----------------
 
-Till now, this Python library `PyPop7` has been used (at least) in the following open-source projects:
+Till now, this Python library `PyPop7` has been required (at least) in the
+following open-source projects on **GitHub**:
 
-* 16: https://github.com/lamda-bbo/BBOPlace-miniBench
+* **16**: https://github.com/lamda-bbo/BBOPlace-miniBench
 
   * requirements.txt: `pypop7==0.0.82`
 * 15: https://github.com/GMC-DRL/Neur-ELA
