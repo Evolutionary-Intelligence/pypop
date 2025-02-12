@@ -714,6 +714,18 @@ An 1-page paper has been submitted to [IEEE
 CEC-2025](https://www.cec2025.org/) as Journal-to-Conference
 ([J2C](https://www.cec2025.org/index/page.html?id=1308)) Papers.
 
+### BibTeX
+
+@article{JMLR-2024-Duan,
+  title={{PyPop7}: A pure-python library for population-based black-box optimization},
+  author={Duan, Qiqi and Zhou, Guochen and Shao, Chang and Wang, Zhuowei and Feng, Mingyang and Huang, Yuwei and Tan, Yajing and Yang, Yijun and Zhao, Qi and Shi, Yuhui},
+  journal={Journal of Machine Learning Research},
+  volume={25},
+  number={296},
+  pages={1--28},
+  year={2024}
+}
+
 ## Visitors and Star
 
 ![visitors](https://tinyurl.com/4cu8wn4u)
