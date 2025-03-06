@@ -185,6 +185,9 @@ Papers of Critical Analyses
   structural bias <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
 * 2024: `A literature review and critical analysis of metaheuristics recently developed
   <https://link.springer.com/article/10.1007/s11831-023-09975-0>`_
+* 2023: `Exposing the ***, ***, ***, ***, ***, and *** algorithms: six misleading
+  optimization techniques inspired by bestial metaphors
+  <https://onlinelibrary.wiley.com/doi/full/10.1111/itor.13176>`_
 * 2022: `A new taxonomy of global optimization algorithms
   <https://link.springer.com/article/10.1007/s11047-020-09820-4>`_
 * 2020: `Nature inspired optimization algorithms or simply variations of metaheuristics?
