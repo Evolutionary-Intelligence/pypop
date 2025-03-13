@@ -3,7 +3,7 @@ Documentations of PyPop7 for Black-Box Optimization (BBO)
 
 **[News!]** Recently PyPop7 has been used and cited in one **Nature** paper:
 `[Veenstra et al., Nature, 2025]
-<https://www.nature.com/articles/s41586-025-08646-3?linkId=13404420>`_...
+<https://www.nature.com/articles/s41586-025-08646-3>`_...
 
 .. image:: https://img.shields.io/badge/GitHub-PyPop7-red.svg
    :target: https://github.com/Evolutionary-Intelligence/pypop
