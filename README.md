@@ -1,6 +1,6 @@
 # PyPop7: A Pure-PYthon library of POPulation-based continuous OPtimization in Black-Box cases [CCF-A]
 
-**[News!]** PyPop7 has been used in one Nature paper:
+**[News!]** PyPop7 has been used in one **Nature** paper:
 [[Veenstra et al., Nature, 2025]](https://www.nature.com/articles/s41586-025-08646-3?linkId=13404420)...
 
 [![Pub](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
