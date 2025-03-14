@@ -722,7 +722,7 @@ An 1-page paper has been submitted to [IEEE-CEC
 ### BibTeX
 
 @article{JMLR-2024-Duan,
-  title={{PyPop7}: A pure-python library for population-based black-box optimization},
+  title={{PyPop7}: A {pure-Python} library for population-based black-box optimization},
   author={Duan, Qiqi and Zhou, Guochen and Shao, Chang and Wang, Zhuowei and Feng, Mingyang and Huang, Yuwei and Tan, Yajing and Yang, Yijun and Zhao, Qi and Shi, Yuhui},
   journal={Journal of Machine Learning Research},
   volume={25},
