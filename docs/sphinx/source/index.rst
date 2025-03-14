@@ -1,5 +1,5 @@
-Documentations of PyPop7 for Black-Box Optimization (BBO)
-=========================================================
+PyPop7's Documentations for Black-Box Optimization (BBO)
+========================================================
 
 **[News!]** Recently PyPop7 has been used and cited in one **Nature** paper:
 `[Veenstra et al., Nature, 2025]
