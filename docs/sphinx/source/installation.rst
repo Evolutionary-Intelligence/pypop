@@ -28,15 +28,18 @@ Pip via Python Package Index (PyPI)
    freely available at `GitHub <https://github.com>`_:
    https://github.com/Evolutionary-Intelligence/pypop.
 
-Note that `pip <https://pip.pypa.io/en/stable/>`_ is the package installer for Python. You can use it to install
-various open-source packages easily. For `pypop7`, please run the following **shell** command:
+Note that `pip <https://pip.pypa.io/en/stable/>`_ is the package installer
+for Python. You can use it to install various open-source packages easily.
+For `pypop7`, please run the following `shell
+<https://en.wikipedia.org/wiki/Shell_(computing)>`_ command directly:
 
 .. code-block:: bash
 
-    pip install pypop7
+   pip install pypop7
 
-For Chinese users, sometimes the following PyPI configuration can be used to speedup the installation process
-of `pypop7` owing to possible network blocking:
+For Chinese users, sometimes the following PyPI configuration can be used to
+speedup the installation process of `pypop7`, for bypassing possible network
+blocking:
 
 .. code-block:: bash
 
