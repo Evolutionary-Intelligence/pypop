@@ -15,7 +15,7 @@ engineers especially for Artificial Intelligence (AI), Machine Learning
 (ML), Evolutionary Computation (EC), Swarm Intelligence (SI), Data
 Science (DS), and Scientific Computing (SC).
 
-For *Virtual Environment*, please refer to e.g. `venv's online document
+For **Virtual Environment**, please refer to e.g. `venv's online document
 <https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/>`_
 for its necessary details. In the development stage, using the virtual
 environment seems to be a very good practice for various `Python
