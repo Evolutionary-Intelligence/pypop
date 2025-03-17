@@ -38,7 +38,7 @@ For `pypop7`, please run the following `shell
    pip install pypop7
 
 For Chinese users, sometimes the following PyPI configuration can be used to
-speedup the installation process of `pypop7`, for bypassing possible network
+speedup the installation process of `pypop7` for bypassing possible network
 blocking:
 
 .. code-block:: bash
@@ -55,8 +55,9 @@ rather than the default PyPI setting:
 
 (Note that other mirrors for PyPI could be also used here.)
 
-If the latest cutting-edge version is preferred for development, you can install directly from the GitHub
-repository of the increasingly popular `pypop7` library:
+If its latest cutting-edge version is preferred for development, you can
+install directly from the GitHub repository of the *increasingly popular*
+`pypop7` library:
 
 .. code-block:: bash
    
