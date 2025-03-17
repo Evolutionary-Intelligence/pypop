@@ -5,8 +5,8 @@ Installation
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-Installation
 
 For installing *pypop7*, it is **highly recommended** to use the `Python3
-<https://docs.python.org/3/>`_-based virtual environment via e.g. `venv
-<https://docs.python.org/3/library/venv.html>`_ or `conda
+<https://docs.python.org/3/>`_-based **virtual environment** via e.g.
+`venv <https://docs.python.org/3/library/venv.html>`_ or `conda
 <https://docs.conda.io/projects/conda/en/latest/index.html>`_. Among them,
 `Anaconda <https://docs.anaconda.com/>`_ (or its mini version `miniconda
 <https://docs.anaconda.com/miniconda/>`_) is a very popular `Python
@@ -15,9 +15,11 @@ engineers especially for Artificial Intelligence (AI), Machine Learning
 (ML), Evolutionary Computation (EC), Swarm Intelligence (SI), Data
 Science (DS), and Scientific Computing (SC).
 
-For **Virtual Environments**, please refer to `this online documentation
-<https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/>`_ for details.
-In most cases, using virtual environments seems to be a good practice for `Python <https://www.python.org/>`_ projects.
+For *Virtual Environment*, please refer to e.g. `venv's online document
+<https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/>`_
+for its necessary details. In the development stage, using the virtual
+environment seems to be a very good practice for various `Python
+<https://www.python.org/>`_ projects.
 
 Pip via Python Package Index (PyPI)
 -----------------------------------
