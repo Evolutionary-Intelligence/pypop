@@ -4,12 +4,16 @@ Installation
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-Installation
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-Installation
 
-In order to install *pypop7*, it is **highly recommended** to use the `Python3 <https://docs.python.org/3/>`_-based
-virtual environment via `venv <https://docs.python.org/3/library/venv.html>`_ or
-`conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_. Among them, `Anaconda <https://docs.anaconda.com/>`_
-(or its mini version `miniconda <https://docs.anaconda.com/miniconda/>`_) is a very popular `Python
-<https://www.python.org/>`_ programming platform (IDE) of scientists and engineers especially for Artificial Intelligence
-(AI), Machine Learning (ML), Data Science, and Scientific Computing.
+For installing *pypop7*, it is **highly recommended** to use the `Python3
+<https://docs.python.org/3/>`_-based virtual environment via e.g. `venv
+<https://docs.python.org/3/library/venv.html>`_ or `conda
+<https://docs.conda.io/projects/conda/en/latest/index.html>`_. Among them,
+`Anaconda <https://docs.anaconda.com/>`_ (or its mini version `miniconda
+<https://docs.anaconda.com/miniconda/>`_) is a very popular `Python
+<https://www.python.org/>`_ programming platform (IDE) of scientists and
+engineers especially for Artificial Intelligence (AI), Machine Learning
+(ML), Evolutionary Computation (EC), Swarm Intelligence (SI), Data Science,
+and Scientific Computing.
 
 For **Virtual Environments**, please refer to `this online documentation
 <https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/>`_ for details.
