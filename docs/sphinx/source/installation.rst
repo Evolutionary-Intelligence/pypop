@@ -1,10 +1,13 @@
 Installation
 ============
 
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-Installation
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-Installation
+
 In order to install *pypop7*, it is **highly recommended** to use the `Python3 <https://docs.python.org/3/>`_-based
 virtual environment via `venv <https://docs.python.org/3/library/venv.html>`_ or
 `conda <https://docs.conda.io/projects/conda/en/latest/index.html>`_. Among them, `Anaconda <https://docs.anaconda.com/>`_
-(or its mini version `miniconda <https://docs.conda.io/projects/miniconda/en/latest/>`_) is a very popular `Python
+(or its mini version `miniconda <https://docs.anaconda.com/miniconda/>`_) is a very popular `Python
 <https://www.python.org/>`_ programming platform (IDE) of scientists and engineers especially for Artificial Intelligence
 (AI), Machine Learning (ML), Data Science, and Scientific Computing.
 
