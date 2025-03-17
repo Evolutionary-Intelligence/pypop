@@ -24,7 +24,8 @@ environment seems to be a very good practice for various `Python
 Pip via Python Package Index (PyPI)
 -----------------------------------
 
-.. note:: The official website of PyPop7's Python source code is freely available at GitHub:
+.. note:: The **official** website of PyPop7's Python source code is
+   freely available at `GitHub <https://github.com>`_:
    https://github.com/Evolutionary-Intelligence/pypop.
 
 Note that `pip <https://pip.pypa.io/en/stable/>`_ is the package installer for Python. You can use it to install
