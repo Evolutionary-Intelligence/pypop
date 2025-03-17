@@ -12,8 +12,8 @@ For installing *pypop7*, it is **highly recommended** to use the `Python3
 <https://docs.anaconda.com/miniconda/>`_) is a very popular `Python
 <https://www.python.org/>`_ programming platform (IDE) of scientists and
 engineers especially for Artificial Intelligence (AI), Machine Learning
-(ML), Evolutionary Computation (EC), Swarm Intelligence (SI), Data Science,
-and Scientific Computing.
+(ML), Evolutionary Computation (EC), Swarm Intelligence (SI), Data
+Science (DS), and Scientific Computing (SC).
 
 For **Virtual Environments**, please refer to `this online documentation
 <https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/>`_ for details.
