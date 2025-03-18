@@ -716,8 +716,8 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 ### 2025
 
 An 1-page paper has been submitted to [IEEE-CEC
-2025](https://www.cec2025.org/) as Journal-to-Conference
-([J2C](https://www.cec2025.org/index/page.html?id=1308)) Papers.
+2025](https://www.cec2025.org/) as one Journal-to-Conference
+([J2C](https://www.cec2025.org/index/page.html?id=1308)) paper.
 
 ### BibTeX
 
