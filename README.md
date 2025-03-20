@@ -13,8 +13,8 @@
 ```PyPop7``` is a Python library of **POPulation-based OPtimization** for **single-objective**,
 **real-parameter**, **unconstrained** black-box problems. Its main goal is to provide a
 *unified* interface and a large set of *elegant* implementations (e.g., evolutionary
-algorithms, swarm-based optimizers, and pattern search) for Black-Box Optimization,
-particularly population-based optimizers, in order to facilitate research repeatability, wide
+algorithms, swarm-based optimizers, and pattern search) for Black-Box Optimization, particularly
+various population-based optimizers, in order to facilitate research repeatability, wide
 benchmarking, and especially their real-world applications.
 
 More specifically, for alleviating the notorious **curse-of-dimensionality** issue, the focus of
