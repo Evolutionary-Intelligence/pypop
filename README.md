@@ -17,13 +17,14 @@ swarm-based optimizers, and pattern search) for Black-Box Optimization, particul
 population-based optimizers, in order to facilitate research repeatability, wide benchmarking
 of BBO, and especially their real-world applications.
 
-More specifically, for alleviating **curse of dimensionality**, one focus of ```PyPop7``` is to
-cover their **State Of The Art for Large-Scale Optimization (LSO)**, though many of their small-
-and medium-scaled versions or variants are also included here (but mainly for **theoretical**
-or **benchmarking** or **educational** purposes). For a *growing* list of use cases of `PyPop7`,
-please refer to [this online website](https://pypop.readthedocs.io/en/latest/applications.html).
-Although we have chosen *GPL-3.0 license*, anyone could use, modify, and improve this library
-entirely freely for any (no matter *open-source* or *closed-source*) purposes.
+More specifically, for alleviating the notorious **curse of dimensionality** issue, one focus of
+```PyPop7``` is to cover their **State Of The Art for Large-Scale Optimization (LSO)**, though
+many of their small- and medium-scaled versions or variants are also included here (but mainly
+for **theoretical** or **benchmarking** or **educational** or **practical** purposes). For a
+*growing* list of its *diverse* use cases, please refer to [this online
+website](https://pypop.readthedocs.io/en/latest/applications.html).
+Although we have chosen *GPL-3.0 license* initially, anyone could use, modify, and improve it
+entirely freely for any (no matter *open-source* or *closed-source*) positive purposes.
 
 ## How to Quickly Use
 
