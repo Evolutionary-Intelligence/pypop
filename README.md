@@ -17,7 +17,7 @@ swarm-based optimizers, and pattern search) for Black-Box Optimization, particul
 population-based optimizers, in order to facilitate research repeatability, wide benchmarking
 of BBO, and especially their real-world applications.
 
-More specifically, for alleviating the notorious **curse of dimensionality** issue, one focus of
+More specifically, for alleviating the notorious **curse-of-dimensionality** issue, the focus of
 ```PyPop7``` is to cover their **State Of The Art for Large-Scale Optimization (LSO)**, though
 many of their small- and medium-scaled versions or variants are also included here (but mainly
 for **theoretical** or **benchmarking** or **educational** or **practical** purposes). For a
