@@ -171,9 +171,9 @@ intelligence (SI), and metaheuristics communities, please refer to the following
 For benchmarking, please refer to e.g., `BBSR - Benchmarking, Benchmarks, Software, and Reproducibility in ACM GECCO 2025
 <https://gecco-2025.sigevo.org/Tracks#BBSR%20-%20Benchmarking,%20Benchmarks,%20Software,%20and%20Reproducibility>`_.
 
-Finally, we expect to see more interesting discussions about the **beauty** of BBO from different perspectives. For any
-**new/missed** BBO, we provide a *unified* API interface to help freely add them if they satisfy the above design
-philosophy well. See the `development guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for details.
+Finally, we expect to see more interesting discussions about BBO from different perspectives. For any **new/missed** BBO,
+we provide a *unified* API interface to help freely add them if it satisfies the above design philosophy well. Please
+refer to the `Development Guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for details.
 
 Papers of Critical Analyses
 ---------------------------
