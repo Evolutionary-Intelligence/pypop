@@ -104,7 +104,7 @@ Till now, this Python library `PyPop7` has been required and/or introduced
 
 * **18**: https://github.com/GMC-DRL/Awesome-MetaBBO
 
-  * `MetaBox` + `LLM4Opt` + `pypop7` + `EvoX` + `evosax`
+  * `MetaBox + LLM4Opt + pypop7 + EvoX + evosax`
   * "Many outstanding teams have developed excellent GitHub repositories
     for the Evolutionary Computation community, and we are pleased to
     share them here."
