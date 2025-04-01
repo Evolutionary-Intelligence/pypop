@@ -102,6 +102,10 @@ Open-Source Cases
 Till now, this Python library `PyPop7` has been required and/or introduced
 (at least) in the following **open-source** projects on **GitHub**:
 
+* **18**：https://github.com/GMC-DRL/Awesome-MetaBBO
+
+  * "Many outstanding teams have developed excellent GitHub repositories for the
+    Evolutionary Computation community, and we are pleased to share them here."
 * **17**: https://github.com/lamda-bbo/BBOPlace-Bench
 
   * `from pypop7.optimizers.pso.pso import PSO as PYPSO`
