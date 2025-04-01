@@ -102,6 +102,10 @@ Open-Source Cases
 Till now, this Python library `PyPop7` has been required and/or introduced
 (at least) in the following **open-source** projects on **GitHub**:
 
+* **19**: https://github.com/yangyongkang2000/SEvoBench
+
+  * `from pypop7.optimizers.de.shade import SHADE`
+  * `from pypop7.benchmarks.base_functions import rosenbrock`
 * **18**: https://github.com/GMC-DRL/Awesome-MetaBBO
 
   * `MetaBox + LLM4Opt + pypop7 + EvoX + evosax + ...`
