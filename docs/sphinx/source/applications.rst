@@ -99,9 +99,13 @@ in the following papers (note that the below list is **actively updated**):
 Open-Source Cases
 -----------------
 
-Till now, this Python library `PyPop7` has been required (at least) in the
-following open-source projects on **GitHub**:
+Till now, this Python library `PyPop7` has been required and/or introduced
+(at least) in the following **open-source** projects on **GitHub**:
 
+* **17**: https://github.com/lamda-bbo/BBOPlace-Bench
+
+  * `from pypop7.optimizers.pso.pso import PSO as PYPSO`
+  * requirements.txt: `pypop7==0.0.82`
 * **16**: https://github.com/lamda-bbo/BBOPlace-miniBench
 
   * requirements.txt: `pypop7==0.0.82`
