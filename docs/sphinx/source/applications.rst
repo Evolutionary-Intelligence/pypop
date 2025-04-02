@@ -102,6 +102,9 @@ Open-Source Cases
 Till now, this Python library `PyPop7` has been required and/or introduced
 (at least) in the following **open-source** projects on **GitHub**:
 
+* **21**: https://github.com/XAI-liacs/BLADE
+
+  * `pyproject.toml`: `pypop7 = "^0.0.79"`
 * **20**: https://github.com/LOG-postech/ZIP
 
   * `requirements.txt`: `pypop7`
