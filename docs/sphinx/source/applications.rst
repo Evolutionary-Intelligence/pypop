@@ -124,7 +124,8 @@ Till now, this Python library `PyPop7` has been required and/or introduced
   * `requirements.txt`: `pypop7==0.0.82`
 * **16**: https://github.com/lamda-bbo/BBOPlace-miniBench
 
-  * requirements.txt: `pypop7==0.0.82`
+  * `from pypop7.optimizers.pso.pso import PSO as PYPSO`
+  * `requirements.txt`: `pypop7==0.0.82`
 * 15: https://github.com/GMC-DRL/Neur-ELA
 
   * **FCMAES + SEPCMAES + RMES + CMAES**
