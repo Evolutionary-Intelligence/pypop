@@ -102,6 +102,9 @@ Open-Source Cases
 Till now, this Python library `PyPop7` has been required and/or introduced
 (at least) in the following **open-source** projects on **GitHub**:
 
+* **20**: https://github.com/LOG-postech/ZIP
+
+  * `requirements.txt`: `pypop7`
 * **19**: https://github.com/yangyongkang2000/SEvoBench
 
   * `from pypop7.optimizers.de.shade import SHADE`
@@ -115,7 +118,7 @@ Till now, this Python library `PyPop7` has been required and/or introduced
 * **17**: https://github.com/lamda-bbo/BBOPlace-Bench
 
   * `from pypop7.optimizers.pso.pso import PSO as PYPSO`
-  * requirements.txt: `pypop7==0.0.82`
+  * `requirements.txt`: `pypop7==0.0.82`
 * **16**: https://github.com/lamda-bbo/BBOPlace-miniBench
 
   * requirements.txt: `pypop7==0.0.82`
