@@ -126,9 +126,10 @@ Till now, this Python library `PyPop7` has been required and/or introduced
 
   * `from pypop7.optimizers.pso.pso import PSO as PYPSO`
   * `requirements.txt`: `pypop7==0.0.82`
-* 15: https://github.com/GMC-DRL/Neur-ELA
+* **15**: https://github.com/GMC-DRL/Neur-ELA
 
-  * **FCMAES + SEPCMAES + RMES + CMAES**
+  * `requirements.txt`: `pypop7==0.0.79`
+  * `from pypop7.optimizers.es import FCMAES, SEPCMAES, RMES, CMAES`
 * 14 [2024]: https://github.com/nikivanstein/LLaMEA
 * 13: https://github.com/AmitDIRTYC0W/neuronveil-mnist-train (2024)
 
