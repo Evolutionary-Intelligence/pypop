@@ -92,9 +92,15 @@ in the following papers (note that the below list is **actively updated**):
 * 2: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022. `Collective Learning of Low-Memory Matrix Adaptation for Large-Scale Black-Box Optimization <https://link.springer.com/chapter/10.1007/978-3-031-14721-0_20>`_. In International Conference on Parallel Problem Solving from Nature (pp. 281-294). Springer, Cham.  [**used**, this research paper entered the nomination list of the Best Paper Award on PPSN-2022]
 
   * Harbin Institute of Technology + Southern University of Science and Technology + University of Technology Sydney
-* 1: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022, July. `Distributed Evolution Strategies for Large-Scale Optimization <https://dl.acm.org/doi/abs/10.1145/3520304.3528784>`_. In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion (pp. 395-398). ACM. [**used**]
+* **1**: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022, July.
+  `Distributed Evolution Strategies for Large-Scale Optimization
+  <https://dl.acm.org/doi/abs/10.1145/3520304.3528784>`_.
+  In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion (pp. 395-398). ACM.
 
-  * Harbin Institute of Technology + Southern University of Science and Technology + University of Technology Sydney
+  * *used* (heavily depend upon `PyPop7`)
+  * Harbin Institute of Technology +
+    Southern University of Science and Technology +
+    University of Technology Sydney
 
 Open-Source Cases
 -----------------
