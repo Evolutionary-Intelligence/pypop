@@ -88,16 +88,28 @@ in the following papers (note that the below list is **actively updated**):
     University of Warwick
 * 3: Duan, Q., Shao, C., Zhou, G., Yang, H., Zhao, Q. and Shi, Y., 2023. `Cooperative Coevolution for Non-Separable Large-Scale Black-Box Optimization: Convergence Analyses and Distributed Accelerations <https://arxiv.org/abs/2304.05020>`_. arXiv preprint arXiv:2304.05020. [**used**]
 
-  * Harbin Institute of Technology + Southern University of Science and Technology + University of Technology Sydney
-* 2: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022. `Collective Learning of Low-Memory Matrix Adaptation for Large-Scale Black-Box Optimization <https://link.springer.com/chapter/10.1007/978-3-031-14721-0_20>`_. In International Conference on Parallel Problem Solving from Nature (pp. 281-294). Springer, Cham.  [**used**, this research paper entered the nomination list of the Best Paper Award on PPSN-2022]
+  * Harbin Institute of Technology +
+    Southern University of Science and Technology +
+    University of Technology Sydney
+* **2**: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022.
+  `Collective Learning of Low-Memory Matrix Adaptation for Large-Scale Black-Box Optimization
+  <https://link.springer.com/chapter/10.1007/978-3-031-14721-0_20>`_.
+  In International Conference on Parallel Problem Solving from Nature
+  (pp. 281-294). Springer, Cham.
 
+  * *used* (heavily depend upon `PyPop7`)
+  * this paper entered the nomination list of the *Best Paper Award on PPSN-2022*
+  * https://github.com/Evolutionary-Intelligence/D-LM-MA
+    has been not maintained now
+    since its more advanced versions are provided
   * Harbin Institute of Technology +
     Southern University of Science and Technology +
     University of Technology Sydney
 * **1**: Duan, Q., Zhou, G., Shao, C., Yang, Y. and Shi, Y., 2022, July.
   `Distributed Evolution Strategies for Large-Scale Optimization
   <https://dl.acm.org/doi/abs/10.1145/3520304.3528784>`_.
-  In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion (pp. 395-398). ACM.
+  In Proceedings of ACM Genetic and Evolutionary Computation Conference Companion
+  (pp. 395-398). ACM.
 
   * *used* (heavily depend upon `PyPop7`)
   * https://github.com/Evolutionary-Intelligence/DES has been deleted
