@@ -13,7 +13,8 @@ from pypop7.optimizers.es.maes import MAES
 
 matplotlib.rcParams['font.family'] = 'sans-serif'
 matplotlib.rcParams['font.sans-serif'] = 'SimSun'
-# matplotlib.rcParams['font.size'] = 10  # 对应5号字体
+matplotlib.rcParams['axes.unicode_minus'] = False
+matplotlib.rcParams['font.size'] = 10  # 对应5号字体
 
 
 def cd(x):  # from https://arxiv.org/pdf/1610.00040v1.pdf
