@@ -1,0 +1,46 @@
+"""This script has been used in Qiqi Duan's Ph.D. Dissertation (HIT&SUSTech).
+
+    Chinese: 该绘图脚本被段琦琦的博士论文（哈工大与南科大联合培养）所使用。
+"""
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
+from pypop7.benchmarks.utils import generate_xyz
+# abstract class for all evolution Strategies
+from pypop7.optimizers.es.es import ES
+# Matrix Adaptation Evolution Strategy
+from pypop7.optimizers.es.maes import MAES
+
+
+matplotlib.rcParams['font.family'] = 'sans-serif'
+matplotlib.rcParams['font.sans-serif'] = 'SimSun'
+matplotlib.rcParams['axes.unicode_minus'] = False
+matplotlib.rcParams['font.size'] = 10  # 对应5号字体
+
+
+def cd(x):  # from https://arxiv.org/pdf/1610.00040v1.pdf
+    return 7.0 * (x[0] ** 2) + 6.0 * x[0] * x[1] + 8.0 * (x[1] ** 2)
+
+
+# helper function for 2D-plotting
+def plot_contour(func, x, y):
+    x, y, z = generate_xyz(func, x, y, 500)
+    plt.contourf(x, y, z, cmap='cool')
+    plt.contour(x, y, z, colors='white', alpha=0.5)
+
+
+if __name__ == '__main__':
+    ndim_problem = 2
+    bound=[-10.0, 10.0]
+    plt.figure(figsize=(5, 5))
+    plt.title('不可分函数', fontsize=10)
+    plt.xlim(bound)
+    plt.ylim(bound)
+    plt.xticks(fontsize=10)
+    plt.yticks(fontsize=10)
+    plot_contour(cd, bound, bound)
+    plt.xlabel('维度1', fontsize=10)
+    plt.ylabel('维度2', fontsize=10, labelpad=-1)
+    plt.savefig(str(cd.__name__) + '.png', dpi=700, bbox_inches='tight')
+    plt.show()
