@@ -2,7 +2,6 @@
 
     Chinese: 该绘图脚本被段琦琦的博士论文（哈工大与南科大联合培养）所使用。
 """
-import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
