@@ -7,10 +7,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 from pypop7.benchmarks.utils import generate_xyz
-# abstract class for all evolution Strategies
-from pypop7.optimizers.es.es import ES
-# Matrix Adaptation Evolution Strategy
-from pypop7.optimizers.es.maes import MAES
 
 
 matplotlib.rcParams['font.family'] = 'sans-serif'
