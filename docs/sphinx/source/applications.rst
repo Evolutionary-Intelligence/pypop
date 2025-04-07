@@ -156,7 +156,9 @@ Till now, this Python library `PyPop7` has been required and/or introduced
   * `requirements.txt`: `pypop7==0.0.79`
   * `from pypop7.optimizers.es import FCMAES, SEPCMAES, RMES, CMAES`
 * **14**: https://github.com/nikivanstein/LLaMEA
-* 13: https://github.com/AmitDIRTYC0W/neuronveil-mnist-train (2024)
+
+  * `requirements.txt`: `pypop7 = "^0.0.79"`
+* **13**: https://github.com/AmitDIRTYC0W/neuronveil-mnist-train
 
   * **CLPSO + GL25 + SHADE + JADE + LEP**
 * 12: https://pypi.org/project/advanced-global-optimizers/ (2024)
