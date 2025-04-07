@@ -20,7 +20,7 @@ font_size = 10
 # helper function for 2D-plotting
 def plot_contour(func, x, y):
     levels = [0, 50000, 20000000, 50000000,
-            100000000, 150000000, 200000000]
+              100000000, 150000000, 200000000]
     generate_rotation_matrix(ellipsoid, 2, 72)
     x, y, z = generate_xyz(func, x, y, 500)
     plt.contourf(x, y, z, cmap='cool', levels=levels)
