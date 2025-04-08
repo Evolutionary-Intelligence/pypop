@@ -22,7 +22,7 @@ if __name__ == '__main__':
     ax = fig.add_subplot(1, 1, 1, projection='3d')
     x, y, z = generate_xyz(ackley, bound, bound, 1000)
     ax.plot_surface(x, y, z, cmap='cool',
-                    rstride=200, cstride=200, alpha=0.9)
+                    rstride=200, cstride=200)
     ax.set_title('多峰函数', fontsize=10)
     ax.set_xlim(bound)
     ax.set_ylim(bound)
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     ax = fig.add_subplot(1, 1, 1, projection='3d')
     x, y, z = generate_xyz(griewank, bound, bound, 1000)
     ax.plot_surface(x, y, z, cmap='cool',
-                    rstride=100, cstride=100, alpha=0.9)
+                    rstride=100, cstride=100)
     ax.set_title('多峰函数', fontsize=10)
     ax.set_xlim(bound)
     ax.set_ylim(bound)
