@@ -23,7 +23,7 @@ if __name__ == '__main__':
     ax = fig.add_subplot(1, 1, 1, projection='3d')
     x, y, z = generate_xyz(ellipsoid, bound, bound, 500)
     ax.plot_surface(x, y, z, cmap='cool',
-                    rstride=100, cstride=100, alpha=0.7)
+                    rstride=100, cstride=100)
     ax.set_title('病态函数', fontsize=10)
     ax.set_xlim(bound)
     ax.set_ylim(bound)
