@@ -27,7 +27,7 @@ def cd(x):  # from https://arxiv.org/pdf/1610.00040v1.pdf
 def plot_contour(func, x, y):
     x, y, z = generate_xyz(func, x, y, 200)
     plt.contourf(x, y, z, cmap='bone')
-    plt.contour(x, y, z, colors='white', alpha=0.5)
+    plt.contour(x, y, z, colors='white')
 
 
 def plot(xs, means, bound=[-10.0, 10.0]):
