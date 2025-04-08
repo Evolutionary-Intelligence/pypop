@@ -24,7 +24,7 @@ def plot_contour(func, x, y):
     generate_rotation_matrix(ellipsoid, 2, 72)
     x, y, z = generate_xyz(func, x, y, 500)
     plt.contourf(x, y, z, cmap='cool', levels=levels)
-    plt.contour(x, y, z, colors='white', alpha=0.7)
+    plt.contour(x, y, z, colors='white')
 
 
 if __name__ == '__main__':
