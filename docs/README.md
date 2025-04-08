@@ -6,8 +6,8 @@
 * `sphinx`: All [sphinx](https://www.sphinx-doc.org/en/master/) files for online documentations
   hosted in [readthedocs.io](https://about.readthedocs.com/?ref=readthedocs.org)
   ([https://pypop.readthedocs.io/en/latest/](https://pypop.readthedocs.io/en/latest/)).
-* `A-PPT-Report-on-PyPop7.pptx`: A PPT-format report file of PyPop7 to public (*entirely freely*).
-* `README.md`: A description of all basic information for this subfolder `docs`.
+* `PPT-Report-for-PyPop7.pptx`: A PPT-format report file of PyPop7 to public (*entirely freely*).
+* `README.md`: A simple description of all basic information for this subfolder `docs`.
 
 ## Coverage Rate of Testing
 
