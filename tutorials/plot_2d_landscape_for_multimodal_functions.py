@@ -20,7 +20,7 @@ matplotlib.rcParams['font.size'] = 10  # 对应5号字体
 def plot_contour(func, x, y):
     x, y, z = generate_xyz(func, x, y, 500)
     plt.contourf(x, y, z, cmap='cool')
-    plt.contour(x, y, z, colors='white', alpha=0.5)
+    plt.contour(x, y, z, colors='white')
 
 
 if __name__ == '__main__':
