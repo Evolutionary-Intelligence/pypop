@@ -11,9 +11,9 @@ gradient-free optimization / derivative-free optimization /
 `evolutionary algorithms <https://direct.mit.edu/evco>`_ /
 `swarm intelligence <https://link.springer.com/journal/11721>`_ community.
 
-.. Note :: In the coming days, we are planning to add some challenging BBO models from various
-   **real-world applications**. Since this is a *long-term* development project, welcome
-   anyone to make open-source contributions to it.
+.. Note :: In the coming days, we are planning to add some **challenging** BBO models from
+   various **real-world applications**. Since this is a *long-term* development project,
+   welcome anyone to make any open-source contributions to it.
 
 For a set of 23 benchmarking/test functions, their **base** forms, **shifted/transformed**
 forms, **rotated** forms, and **rotated-shifted** forms have been coded and *well-tested*.
