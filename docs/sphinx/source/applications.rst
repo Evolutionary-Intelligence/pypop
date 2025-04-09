@@ -166,7 +166,7 @@ Till now, this Python library `PyPop7` has been required and/or introduced
   * `from pypop7.optimizers.de.shade import SHADE`
   * `from pypop7.optimizers.de.jade import JADE`
   * `from pypop7.optimizers.ep.lep import LEP`
-* 12: https://pypi.org/project/advanced-global-optimizers/ (2024)
+* **12**: https://pypi.org/project/advanced-global-optimizers/
 * 11: https://github.com/aiboxlab/evolutionary-abm-calibration (2024)
 * 10: https://github.com/Echozqn/llm [https://github.com/Echozqn/llm/tree/main/collie/examples/alpaca/eda] (2024)
 
