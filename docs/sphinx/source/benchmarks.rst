@@ -133,7 +133,8 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
    :align: center
 
 * Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2018.
-  Large scale black-box optimization by limited-memory matrix adaptation.
+  `Large scale black-box optimization by limited-memory matrix adaptation
+  <https://github.com/Evolutionary-Intelligence/pypop/edit/main/docs/sphinx/source/benchmarks.rst>`_.
   IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
 * Jastrebski, G.A. and Arnold, D.V., 2006, July.
   Improving evolution strategies through active covariance matrix adaptation.
