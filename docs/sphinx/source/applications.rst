@@ -160,7 +160,12 @@ Till now, this Python library `PyPop7` has been required and/or introduced
   * `requirements.txt`: `pypop7 = "^0.0.79"`
 * **13**: https://github.com/AmitDIRTYC0W/neuronveil-mnist-train
 
-  * **CLPSO + GL25 + SHADE + JADE + LEP**
+  * `pyproject.toml`: `"pypop7 ~= 0.0.79"`
+  * `from pypop7.optimizers.pso.clpso import CLPSO`
+  * `from pypop7.optimizers.ga.gl25 import GL25`
+  * `from pypop7.optimizers.de.shade import SHADE`
+  * `from pypop7.optimizers.de.jade import JADE`
+  * `from pypop7.optimizers.ep.lep import LEP`
 * 12: https://pypi.org/project/advanced-global-optimizers/ (2024)
 * 11: https://github.com/aiboxlab/evolutionary-abm-calibration (2024)
 * 10: https://github.com/Echozqn/llm [https://github.com/Echozqn/llm/tree/main/collie/examples/alpaca/eda] (2024)
