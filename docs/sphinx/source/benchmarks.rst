@@ -53,6 +53,9 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
 * Jastrebski, G.A. and Arnold, D.V., 2006, July.
   Improving evolution strategies through active covariance matrix adaptation.
   In IEEE International Conference on Evolutionary Computation (pp. 2814-2821). IEEE.
+* Beyer, H.G. and Sendhoff, B., 2017.
+  Simplify your covariance matrix adaptation evolution strategy.
+  IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
 * Zhou, Q. and Li, Y., 2003.
   Directed variation in evolution strategies.
   IEEE Transactions on Evolutionary Computation, 7(4), pp.356-366.
