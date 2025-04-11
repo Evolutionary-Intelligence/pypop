@@ -100,11 +100,12 @@ results = lmmaes.optimize()  # to run its (time-consuming) evolution process
 print(results)
 ```
 
-Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online documentations of
-this *well-designed* ("**self-boasted**") Python library for Black-Box Optimization ([several
-online praises from others](https://pypop.readthedocs.io/en/latest/applications.html)). A
-total of **four** extended versions of PyPop7 (as **PP7**) are ongoing or planned for further
-development:
+Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online
+documentations of this *well-designed* ("**self-boasted**") Python library
+for Black-Box Optimization (e.g., [several online praises from
+others](https://pypop.readthedocs.io/en/latest/applications.html)). A total
+of **4** extended versions of PyPop7 (as **PP7**) are ongoing or planned
+for further development:
 
 * For Constrained Optimization (`PyCoPop7 as PCP7`),
 * For Noisy Optimization (`PyNoPop7 as PNP7`),
