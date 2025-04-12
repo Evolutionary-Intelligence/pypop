@@ -181,6 +181,9 @@ Papers of Critical Analyses
 * 2025: `The paradox of success in evolutionary and bioinspired optimization: Revisiting
   critical issues, key studies, and methodological pathways
   <https://arxiv.org/abs/2501.07515>`_
+* 2024: `Metaheuristics exposed: Unmasking the design pitfalls of *** optimization
+  algorithm in benchmarking
+  <https://www.sciencedirect.com/science/article/abs/pii/S1568494624004708>`_
 * 2024: `Comprehensive taxonomies of nature- and bio-inspired optimization: Inspiration
   versus algorithmic behavior, critical analysis and recommendations (from 2020 to 2024)
   <https://arxiv.org/abs/2002.08136>`_
