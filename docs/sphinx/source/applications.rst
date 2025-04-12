@@ -124,6 +124,9 @@ Open-Source Cases
 Till now, this Python library `PyPop7` has been required and/or introduced
 (at least) in the following **open-source** projects on **GitHub**:
 
+* **23**: https://github.com/Witcape/PSO
+
+  * `from pypop7.optimizers.pso.pso import PSO`
 * **22**: https://github.com/LijunSun90/Knowledge_with_Codes
 
   * `from pypop7.optimizers.pso.spso import SPSO as PSO`
