@@ -12,6 +12,7 @@ South China University of Technology (China).
 [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7)
 [![Downloads](https://static.pepy.tech/badge/pypop7/month)](https://pepy.tech/project/pypop7)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop)
+![Python](https://img.shields.io/badge/Python-3670A0?logo=python&logoColor=ffdd54)
 
 ```PyPop7``` is a [Python](https://www.python.org/) library of **POPulation-based OPtimization**
 for **single-objective**, **real-parameter**, **unconstrained** black-box problems. Its main goal
