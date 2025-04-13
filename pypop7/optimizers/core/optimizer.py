@@ -1,5 +1,5 @@
 import time
-from enum import IntEnum
+from enum import IntEnum  # for class of termination conditions of optimizers
 
 import numpy as np  # engine for nearly all numerical computing
 
