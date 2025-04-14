@@ -280,6 +280,10 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
    :width: 321px
    :align: center
 
+* Bungert, L., Roith, T. and Wacker, P., 2024.
+  Polarized consensus-based dynamics for optimization and sampling.
+  Mathematical Programming, pp.1-31.
+
 .. autofunction:: pypop7.benchmarks.base_functions.scaled_rastrigin
 
 .. image:: images/scaled_rastrigin.png
