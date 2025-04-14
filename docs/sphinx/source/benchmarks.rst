@@ -263,6 +263,9 @@ Here we introduce **base** forms of some common benchmarking functions, as prese
    :width: 321px
    :align: center
 
+* Bungert, L., Roith, T. and Wacker, P., 2024.
+  Polarized consensus-based dynamics for optimization and sampling.
+  Mathematical Programming, pp.1-31.
 * Carrillo, J.A., Choi, Y.P., Totzeck, C. and Tse, O., 2018.
   An analytical framework for consensus-based global optimization method.
   Mathematical Models and Methods in Applied Sciences, 28(06), pp.1037-1066.
