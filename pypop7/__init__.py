@@ -8,8 +8,9 @@
     More specifically, for alleviating the notorious **curse of dimensionality**
     of DFO (based on iterative sampling), one primary focus of PyPop7 is to cover
     their State-Of-The-Art (SOTA) implementations for Large-Scale Optimization
-    (LSO), though many of their other versions and variants are also included here
-    (for benchmarking/mixing purpose, and also for practical purpose).
+    (LSO), though many (rather all) of their other versions and variants are
+    also included for *benchmarking*, *hybrid*, *educational*, and more
+    importantly **practical** purposes.
 """
 # *base* (*abstract*) class for all global optimizers
 from pypop7.optimizers.core import Optimizer, Terminations
