@@ -12,17 +12,3 @@
 """
 # *base* (*abstract*) class for all global optimizers
 from pypop7.optimizers.core import Optimizer, Terminations
-from pypop7.optimizers.rs import RS, PRS, RHC, ARHC, SRS, GS, BES
-from pypop7.optimizers.ep import EP, CEP, FEP, LEP
-from pypop7.optimizers.ga import GA, GENITOR, G3PCX, GL25  # ASGA
-from pypop7.optimizers.sa import SA, CSA, ESA, NSA
-from pypop7.optimizers.cc import CC, COEA, HCC, COSYNE, COCMA
-from pypop7.optimizers.pso import PSO, SPSO, SPSOL, CLPSO, IPSO, CCPSO2
-from pypop7.optimizers.de import DE, CDE, TDE, JADE, CODE, SHADE
-from pypop7.optimizers.ds import DS, CS, HJ, NM, GPS, POWELL
-from pypop7.optimizers.cem import CEM, SCEM, DSCEM, MRAS  # DCEM
-from pypop7.optimizers.eda import EDA, EMNA, AEMNA, UMDA, RPEDA
-from pypop7.optimizers.nes import NES, SGES, ONES, ENES, XNES, SNES, R1NES, VDCMA, VKDCMA
-from pypop7.optimizers.es import ES, RES, SSAES, DSAES, CSAES, SAES, SAMAES, CMAES, OPOC2006, OPOC2009,\
-    CCMAES2009, OPOA2010, OPOA2015, CCMAES2016, MAES, FMAES, DDCMA, SEPCMAES, LMCMAES,\
-    LMCMA, R1ES, RMES, LMMAES, MMES
