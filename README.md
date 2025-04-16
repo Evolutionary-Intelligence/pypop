@@ -709,7 +709,7 @@ Foundation under Grant No. 2024A1515012241 and 2021A1515110024. From
 Shenzhen Fundamental Research Program under Grant No.
 JCYJ20200109141235597 (2,000,000 Yuan).
 
-## Citation for PyPop7
+## Citation and Activities
 
 If this open-source Python library is used in your paper or project,
 it is highly welcomed *but NOT mandatory* to cite the following
