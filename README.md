@@ -724,6 +724,8 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### 2026
 
+* A tutorial on Open-Source Softwares for Swarm Intelligence
+is planning for e.g., [ICSI 2026] or [Ants 2026] etc.
 * A tutorial on Open-Source Softwares for Evolutionary Algorithms
 is planning for e.g., [IEEE-CEC 2026] or [IEEE-SSCI 2026] etc.
 
