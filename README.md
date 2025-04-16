@@ -722,6 +722,11 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 28 Mar 2023 to 01 Nov 2023 to 05 Jul 2024, and finally accepted in
 11 Oct 2024.)
 
+### 2026
+
+* A tutorial on Open-Source Softwares for Evolutionary Algorithms
+is planning for e.g., [IEEE-CEC 2026] or [IEEE-SSCI 2026] etc.
+
 ### 2025
 
 * An account called *PyPop7* on the Wechat Public Platform has
