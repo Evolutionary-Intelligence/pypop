@@ -726,9 +726,10 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 * An oral presentation will be given by one author in [IEEE-CEC
 2025](https://www.cec2025.org/) and its PPT file will be released.
-* An one-page paper has been submitted and accepted to [IEEE-CEC
+* An one-page paper has been submitted to [IEEE-CEC
 2025](https://www.cec2025.org/) as one *Journal-to-Conference*
 ([J2C](https://www.cec2025.org/index/page.html?id=1308)) paper.
+(Accepted in 18 Mar 2025)
 
 ### BibTeX
 
