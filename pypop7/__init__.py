@@ -12,5 +12,7 @@
     variants are also included for *benchmarking*, *hybrid*, *educational*, and
     more importantly **practical** purposes.
 """
+# termination conditions shared for all global optimizers
+from pypop7.optimizers.core import Terminations
 # *base* (*abstract*) class for all global optimizers
-from pypop7.optimizers.core import Optimizer, Terminations
+from pypop7.optimizers.core import Optimizer
