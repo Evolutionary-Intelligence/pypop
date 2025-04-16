@@ -724,6 +724,8 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### 2025
 
+* An oral presentation will be given by one author in [IEEE-CEC
+2025](https://www.cec2025.org/) and its PPT file will be released.
 * An one-page paper has been submitted and accepted to [IEEE-CEC
 2025](https://www.cec2025.org/) as one *Journal-to-Conference*
 ([J2C](https://www.cec2025.org/index/page.html?id=1308)) paper.
@@ -732,7 +734,7 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 @article{JMLR-2024-Duan,
   title={{PyPop7}: A {pure-Python} library for population-based black-box optimization},
-  author={Duan, Qiqi and Zhou, Guochen and Shao, Chang and Wang, Zhuowei and Feng, Mingyang and Huang, Yuwei and Tan, Yajing and Yang, Yijun and Zhao, Qi and Shi, Yuhui},
+  author={Duan, Qiqi and Zhou, Guochen and Shao, Chang and Others},
   journal={Journal of Machine Learning Research},
   volume={25},
   number={296},
@@ -740,7 +742,8 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
   year={2024}
 }
 
-## Visitors and Star
+## Visitors
 
 ![visitors](https://tinyurl.com/4cu8wn4u)
+
 [![Star](https://tinyurl.com/yy7pfjwz)](https://tinyurl.com/w9wwc54f)
