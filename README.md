@@ -700,14 +700,14 @@ reported in the (actively-updated) paper list called
     [Automated algorithm configuration and parameter tuning](https://link.springer.com/chapter/10.1007/978-3-642-21434-9_3).
     In Autonomous Search (pp. 37-71). Springer.
 
-## Sponsor for PyPop7
+## Sponsor
 
 Now it is supported by National Natural Science Foundation of China
 under Grant No. 72401122, Guangdong Basic and Applied Basic Research
 Foundation under Grant No. 2024A1515012241 and 2021A1515110024. From
 2021 to 2023, this open-source Python library was supported by
-Shenzhen Fundamental Research Program under Grant No.
-JCYJ20200109141235597 (2,000,000 Yuan).
+**Shenzhen Fundamental Research Program** (a total of 2 000 000
+Yuan).
 
 ## Citation and Activities
 
