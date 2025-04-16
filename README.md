@@ -724,6 +724,8 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### 2025
 
+* An account called *PyPop7* on the Wechat Public Platform has
+been registered in 16 Apr 2025. (Chinese: 微信公众号)
 * An oral presentation will be given by one author in [IEEE-CEC
 2025](https://www.cec2025.org/) and its PPT file will be released.
 * An one-page paper has been submitted to [IEEE-CEC
