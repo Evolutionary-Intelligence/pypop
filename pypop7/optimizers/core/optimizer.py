@@ -1,5 +1,6 @@
 import time
-from enum import IntEnum  # for class of termination conditions of optimizers
+# for the `Terminations` class: termination conditions of global optimizers
+from enum import IntEnum
 
 import numpy as np  # engine for nearly all numerical computing
 
