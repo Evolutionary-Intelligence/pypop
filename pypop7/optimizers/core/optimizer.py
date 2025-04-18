@@ -8,21 +8,25 @@ import numpy as np  # engine for nearly all numerical computing
 class Terminations(IntEnum):
     """Helper class used by all global optimizers.
 
-    Four different termination conditions are considered for all optimizers, as below:
-    * MAX_FUNCTION_EVALUATIONS: When the maximum of function evaluations is reached,
-      the black-box optimizer will stop to run immediately.
-    * MAX_RUNTIME: When the maximum of actual runtime is reached, the black-box
+    Four different termination conditions are considered, as below:
+    * MAX_FUNCTION_EVALUATIONS: When the maximum of function evaluations
+      is reached, the optimizer will stop to run immediately.
+    * MAX_RUNTIME: When the maximum of actual runtime is reached, the
       optimizer will stop to run immediately.
-    * FITNESS_THRESHOLD: When the threshold of the *best-so-far* fitness is reached,
-      the black-box optimizer will stop to run immediately.
+    * FITNESS_THRESHOLD: When the threshold of the *best-so-far* fitness
+      is reached, the optimizer will stop to run immediately.
     * EARLY_STOPPING: When the condition of early stopping is reached,
-      the black-box optimizer will stop to run immediately.
+      the optimizer will stop to run immediately.
     """
     NO_TERMINATION = 0
-    MAX_FUNCTION_EVALUATIONS = 1  # maximum of function evaluations
-    MAX_RUNTIME = 2  # maximal runtime to be allowed
-    FITNESS_THRESHOLD = 3  # when best-so-far fitness is below threshold
-    EARLY_STOPPING = 4  # when best-so-far fitness does not improve for a long time
+    # maximum of function evaluations
+    MAX_FUNCTION_EVALUATIONS = 1
+    # maximal runtime to be allowed
+    MAX_RUNTIME = 2
+    # when best-so-far fitness is below threshold
+    FITNESS_THRESHOLD = 3
+    # when best-so-far fitness does not improve for a long time
+    EARLY_STOPPING = 4
 
 
 class Optimizer(object):
