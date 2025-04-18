@@ -6,7 +6,7 @@ import numpy as np  # engine for nearly all numerical computing
 
 
 class Terminations(IntEnum):
-    """Helper class used by all black-box optimizers.
+    """Helper class used by all global optimizers.
 
     Four different termination conditions are considered for all optimizers, as below:
     * MAX_FUNCTION_EVALUATIONS: When the maximum of function evaluations is reached,
