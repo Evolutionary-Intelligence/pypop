@@ -31,18 +31,6 @@ class Terminations(IntEnum):
 
 class Optimizer(object):
     """Base (abstract) class of all optimizers for continuous black-box **minimization**.
-
-    References
-    ----------
-    Holland, J.H., 1992.
-    Adaptation in natural and artificial systems: An introductory analysis with
-    applications to biology, control, and artificial intelligence (Second Edition).
-    MIT Press.
-
-    Rechenberg, I., 1973.
-    Evolutionsstrategie: Optimierung technischer systeme nach prinzipien der
-    biologischen evolution.
-    Frommann-Holzboog Verlag, Stuttgart.
     """
     def __init__(self, problem, options):
         # problem-related basic settings
