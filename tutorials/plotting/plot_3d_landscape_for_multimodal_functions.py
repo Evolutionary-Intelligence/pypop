@@ -28,10 +28,13 @@ if __name__ == '__main__':
     ax.set_xlim(bound)
     ax.set_ylim(bound)
     ax.set_xticks([-10.0, -5.0, 0.0, 5.0, 10.0],
+                  ['-10.0', '-5.0', '0.0', '5.0', '10.0'],
                   fontsize=font_size, fontfamily='Times New Roman')
     ax.set_yticks([-10.0, -5.0, 0.0, 5.0, 10.0],
+                  ['-10.0', '-5.0', '0.0', '5.0', '10.0'],
                   fontsize=font_size, fontfamily='Times New Roman')
     ax.set_zticks([0.0, 10.0, 20.0],
+                  ['0.0', '10.0', '20.0'],
                   fontsize=font_size, fontfamily='Times New Roman')
     ax.set_xlabel('维度', fontsize=font_size)
     ax.set_ylabel('维度', fontsize=font_size)
@@ -49,10 +52,13 @@ if __name__ == '__main__':
     ax.set_xlim(bound)
     ax.set_ylim(bound)
     ax.set_xticks([-10.0, -5.0, 0.0, 5.0, 10.0],
+                  ['-10.0', '-5.0', '0.0', '5.0', '10.0'],
                   fontsize=font_size, fontfamily='Times New Roman')
     ax.set_yticks([-10.0, -5.0, 0.0, 5.0, 10.0],
+                  ['-10.0', '-5.0', '0.0', '5.0', '10.0'],
                   fontsize=font_size, fontfamily='Times New Roman')
     ax.set_zticks([0.0, 1.0, 2.0, 3.0],
+                  ['0.0', '1.0', '2.0', '3.0'],
                   fontsize=font_size, fontfamily='Times New Roman')
     ax.set_xlabel('维度', fontsize=font_size)
     ax.set_ylabel('维度', fontsize=font_size)
