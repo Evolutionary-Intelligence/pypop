@@ -4,7 +4,7 @@
 [[Veenstra et al., Nature, 2025]](https://www.nature.com/articles/s41586-025-08646-3) and etc.
 For recently popular *Meta-Black-Box Optimization*, please refer to e.g.,
 [MetaBox](https://github.com/GMC-DRL/MetaBox) from the GMC-Research-Team of
-South China University of Technology (China).
+South China University of Technology.
 
 [![Pub](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
 [![PyPI](https://tinyurl.com/murf7c4m)](https://pypi.org/project/pypop7/)
