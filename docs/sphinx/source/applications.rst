@@ -124,6 +124,7 @@ Open-Source Cases
 Till now, this Python library `PyPop7` has been required and/or introduced
 (at least) in the following **open-source** projects on **GitHub**:
 
+* **26**: https://github.com/lamda-bbo/universal-offline-bbo
 * **25**: https://github.com/Ringzl/EA_sota
 * **24**: https://github.com/Wukong-SCUT/HCC
 
