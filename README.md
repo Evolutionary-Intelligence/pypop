@@ -18,6 +18,10 @@ Prof. Gong (South China University of Technology).
 ![Linux](https://img.shields.io/badge/Linux-FCC624?&logo=linux&logoColor=black)
 ![Apple](https://shields.io/badge/MacOS--9cf?logo=Apple&style=social)
 ![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)
+![CircleCI](https://img.shields.io/badge/CircleCI-343434?logo=circleci&logoColor=fff)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=github-actions&logoColor=white)
+![Codecov](https://img.shields.io/badge/Codecov-F01F7A?logo=codecov&logoColor=fff)
+![PyCharm](https://img.shields.io/badge/PyCharm-000?logo=pycharm&logoColor=fff)
 ![WeChat](https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white)
 
 ```PyPop7``` is a [Python](https://www.python.org/) library of **population-based randomized
