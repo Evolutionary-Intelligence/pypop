@@ -15,12 +15,12 @@ Prof. Gong (South China University of Technology).
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop)
 ![Python](https://img.shields.io/badge/Python-3670A0?logo=python&logoColor=ffdd54)
 
-```PyPop7``` is a [Python](https://www.python.org/) library of **POPulation-based OPtimization**
-for **single-objective**, **real-parameter**, **unconstrained** black-box problems. Its main goal
-is to provide a *unified* interface and a large set of *elegant* implementations (e.g.,
-[evolutionary algorithms](https://www.nature.com/articles/nature14544),
+```PyPop7``` is a [Python](https://www.python.org/) library of **population-based randomized
+optimization** for **single-objective**, **real-parameter**, **unconstrained** black-box
+problems. Its main goal is to provide a *unified* interface and a large set of *elegant*
+implementations (e.g., [evolutionary algorithms](https://www.nature.com/articles/nature14544),
 [swarm-based optimizers](https://github.com/Evolutionary-Intelligence/SwarmIntelligence-A-Modern-Perspective-SIAMP),
-and pattern search)
+and [pattern search]())
 for Black-Box Optimization, particularly various population-based optimizers, in order
 to facilitate research **repeatability**, wide **benchmarking**, and especially their real-world
 **applications**.
