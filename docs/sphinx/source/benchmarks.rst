@@ -51,6 +51,9 @@ common in the optimization literature, as presented below:
    :width: 321px
    :align: center
 
+* Script of its 3D surface:
+  https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/plotting/surface/plot_surface_for_sphere.py
+
 * Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2018.
   Large scale black-box optimization by limited-memory matrix adaptation.
   IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
