@@ -35,13 +35,17 @@ links for details (In fact, we have spent much time in checking of Python coding
 Base Functions
 --------------
 
-Here we introduce **base** forms of some common benchmarking functions, as presented below:
+Here we introduce the **base** form of some benchmarking functions
+common in the optimization literature, as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.sphere
 
 .. image:: images/sphere.png
    :width: 321px
    :align: center
+
+* Script of its 2D landscape:
+  https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/plotting/landscape/plot_landscape_for_sphere.py
 
 .. image:: images/surface_sphere.png
    :width: 321px
