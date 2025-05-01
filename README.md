@@ -16,6 +16,8 @@ Prof. Gong (South China University of Technology).
 ![Python](https://img.shields.io/badge/Python-3670A0?logo=python&logoColor=ffdd54)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?&logo=linux&logoColor=black)
 ![Apple](https://shields.io/badge/MacOS--9cf?logo=Apple&style=social)
+![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)
+![WeChat](https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white)
 
 ```PyPop7``` is a [Python](https://www.python.org/) library of **population-based randomized
 optimization** for **single-objective**, **real-parameter**, **unconstrained** black-box
