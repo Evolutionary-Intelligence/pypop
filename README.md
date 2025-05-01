@@ -743,12 +743,15 @@ is planning for e.g., [IEEE-CEC 2026] or [IEEE-SSCI 2026] etc.
 
 * An account called *PyPop7* on the Wechat Public Platform has
 been registered in 16 Apr 2025. (Chinese: 微信公众号 PyPop7)
+  * [微信公众号]()
 * An oral presentation will be given by one author in [IEEE-CEC
 2025](https://www.cec2025.org/) and its PPT file will be released.
+  * [ppt]()
 * An one-page paper has been submitted to [IEEE-CEC
 2025](https://www.cec2025.org/) as one *Journal-to-Conference*
 ([J2C](https://www.cec2025.org/index/page.html?id=1308)) paper.
 (Accepted in 18 Mar 2025)
+  * [pdf](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/presentations/IEEE-CEC-2025-%5BJ2C%5D.pdf)
 
 ### BibTeX
 
