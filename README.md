@@ -52,12 +52,12 @@ optimization theory and the logic of its development in the past and in the
 future.](https://tinyurl.com/4yccr5k8)"---
 **[Yurii Nesterov](https://nrc88.nas.edu/pnas_search/memberDetails.aspx?ctID=20022958)**
 
-The following three steps are enough to utilize the **black-box optimization** power of
-[PyPop7](https://pypi.org/project/pypop7/):
+The following **3** simple steps are enough to utilize the **black-box optimization**
+power of [PyPop7](https://pypi.org/project/pypop7/):
 
-* Recommend to use [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the
+* Recommend using [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the
   Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html)
-  or [conda](https://docs.conda.io/projects/conda/en/stable/) [*not mandatory*]:
+  or [conda](https://docs.conda.io/projects/conda/en/stable/) [*but not mandatory*]:
 
 ```bash
 $ pip install pypop7
