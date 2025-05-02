@@ -203,11 +203,14 @@ Till now, this Python library `PyPop7` has been required and/or introduced
 
   * This is a **parallel/distributed** extension to `PyPop7` (now actively developed).
 
-Introduction Cases
-------------------
+Introduction&Involvement‌
+------------------------
 
-For other introductions/coverage to this open-source library `PyPop7`, refer to e.g.:
+For introduction / coverage / involvement‌ to this library `PyPop7`,
+please refer to e.g.:
 
+* `https://optima.cs.cityu.edu.hk/research/ec.html
+  <https://optima.cs.cityu.edu.hk/research/ec.html>`_
 * `huggingface <https://huggingface.co/>`_:
 
   * https://huggingface.co/papers/2212.05652
@@ -215,7 +218,8 @@ For other introductions/coverage to this open-source library `PyPop7`, refer to 
 * `medium <https://medium.com>`_:
 
   * https://medium.com/@monocosmo77/how-black-box-optimization-works-part2-machine-learning-bb63b4c93557
-* `https://robotic.tistory.com/1 <https://robotic.tistory.com/1>`_
+* `https://robotic.tistory.com/1
+  <https://robotic.tistory.com/1>`_
 
 Praises
 -------
