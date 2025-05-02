@@ -49,8 +49,8 @@ Although we have chosen *GPL-3.0 license* initially, anyone could use, modify, a
 models, is that in general, optimization problems are unsolvable. This statement, which is
 usually missing in standard optimization courses, is very important for understanding
 optimization theory and the logic of its development in the past and in the
-future.](https://tinyurl.com/4yccr5k8)"
----**[Yurii Nesterov](https://en.wikipedia.org/wiki/Yurii_Nesterov)**
+future.](https://tinyurl.com/4yccr5k8)"---
+**[Yurii Nesterov](https://nrc88.nas.edu/pnas_search/memberDetails.aspx?ctID=20022958)**
 
 The following three steps are enough to utilize the **black-box optimization** power of
 [PyPop7](https://pypi.org/project/pypop7/):
