@@ -31,8 +31,8 @@ implementations (e.g., [evolutionary algorithms](https://www.nature.com/articles
 [swarm-based optimizers](https://github.com/Evolutionary-Intelligence/SwarmIntelligence-A-Modern-Perspective-SIAMP),
 and [pattern search]())
 for Black-Box Optimization, particularly various population-based optimizers, in order
-to facilitate research **repeatability**, wide **benchmarking**, and especially their real-world
-**applications**.
+to facilitate research **repeatability**, wide **benchmarking**, and especially their
+real-world **applications**.
 
 Specifically, for alleviating the notorious **curse-of-dimensionality** issue, ```PyPop7's```
 focus is to cover their **State Of The Art (SOTA) for Large-Scale Optimization (LSO)**, though
@@ -72,9 +72,9 @@ Genetical Theory of Natural Selection](https://tinyurl.com/3we44pt4), which dire
 [proposal](https://tinyurl.com/5emfc5hb) of [Genetic Algorithms
 (GA)](https://tinyurl.com/mptr255h).
 
-* Define the objective / cost / loss / error / fitness function to be **minimized** for the
-  optimization problem at hand (in this library, the term **fitness function** is used, in
-  order to follow the established terminology tradition of **evolutionary computation**):
+* Define the objective / cost / loss / error / fitness function to be **minimized** for
+  the optimization problem at hand (here the term **fitness function** is used, in order
+  to follow the *established* terminology tradition of **evolutionary computation**):
 
 ```Python
 import numpy as np  # for numerical computation (as the computing engine of pypop7)
