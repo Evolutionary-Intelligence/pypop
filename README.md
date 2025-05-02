@@ -395,8 +395,8 @@ The first-level folder structure of this library **PyPop7** is presented below:
 * `LICENSE`: open-source license.
 * `README.md`: basic information of this library.
 * `pyproject.toml`: for [PyPI](https://pypi.org/) (used by `setup.cfg` as `build-system`).
-* `requirements.txt`: only for development.
-* `setup.cfg`: for [PyPI](https://pypi.org/) (used via `pyproject.toml`).
+* `requirements.txt`: only for [development]().
+* `setup.cfg`: only for [PyPI](https://pypi.org/) (used via `pyproject.toml`).
 
 ## References
 
