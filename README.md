@@ -741,6 +741,7 @@ is planning for e.g., [IEEE-CEC 2026] or [IEEE-SSCI 2026] etc.
 
 ### 2025
 
+* A **batch-updated** version of ```PyPop7``` is ongoing.
 * An account called *PyPop7* on the Wechat Public Platform has
 been registered in 16 Apr 2025. (Chinese: 微信公众号 PyPop7)
   * [微信公众号]()
