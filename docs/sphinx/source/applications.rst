@@ -221,8 +221,8 @@ please refer to e.g.:
 * `https://robotic.tistory.com/1
   <https://robotic.tistory.com/1>`_
 
-Praises
--------
+Online Praises
+--------------
 
 All of the following praises come from online states. We appreciate very
 much for these unstinting praises, given that we do not have an interest
