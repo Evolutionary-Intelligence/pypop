@@ -79,7 +79,7 @@ Genetical Theory of Natural Selection](https://tinyurl.com/3we44pt4), which dire
 ```Python
 import numpy as np  # for numerical computation (as the computing engine of pypop7)
 
-# Rosenbrock (one notorious test function from the optimization community)
+# Rosenbrock (one notorious test function from the continuous optimization community)
 def rosenbrock(x):
     return 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
 
