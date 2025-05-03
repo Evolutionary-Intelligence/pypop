@@ -97,8 +97,8 @@ Note that this well-known test function is used *only* for the *benchmarking* pu
 
 * Run one black-box optimizer or more on the above optimization problem. Owing to its
   low computational complexity and well metric-learning ability, choose **LM-MA-ES**
-  just as an example. please refer to
-  https://pypop.readthedocs.io/en/latest/es/lmmaes.html.
+  as an example. Please refer to https://pypop.readthedocs.io/en/latest/es/lmmaes.html
+  for its algorithmic procedure.
 
 ```Python
 # LMMAES: Limited Memory Matrix Adaptation Evolution Strategy
