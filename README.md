@@ -49,7 +49,7 @@ Although we have chosen *GPL-3.0 license* initially, anyone could use, modify, a
 models, is that in general, optimization problems are unsolvable. This statement, which is
 usually missing in standard optimization courses, is very important for understanding
 optimization theory and the logic of its development in the past and in the
-future.](https://tinyurl.com/4yccr5k8)"---
+future.](https://tinyurl.com/4yccr5k8)"---From
 **[Yurii Nesterov](https://nrc88.nas.edu/pnas_search/memberDetails.aspx?ctID=20022958)**
 
 The following **3** simple steps are enough to utilize the **black-box optimization**
@@ -129,12 +129,14 @@ total of **4** extended versions of PyPop7 (as **PP7**) are *ongoing* or
 
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
 
-"[The main lesson of the development of our field in the last few decades is that efficient
+* "[The main lesson of the development of our field in the last few decades is that efficient
 optimization methods can be developed only by intelligently employing the structure of
-particular instances of problems.](https://tinyurl.com/4yccr5k8)"---**Yurii Nesterov**
+particular instances of problems.](https://tinyurl.com/4yccr5k8)"---From
+**Prof. Yurii Nesterov (Member of NAS, USA)**
 
-"[Optimization algorithms are often designed for a specific type of search space, exploiting
-its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)"
+* "[Optimization algorithms are often designed for a specific type of search space, exploiting
+its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)"---From
+**Information-Geometric Optimization in [JMLR-2017]**
 
 ******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version
