@@ -83,7 +83,7 @@ import numpy as np  # for numerical computation (as the computing engine of pypo
 def rosenbrock(x):
     return 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
 
-# to define the fitness function to be *minimized* and its problem settings
+# to define the fitness function to be *minimized* and also its problem settings
 ndim_problem = 1000
 problem = {'fitness_function': rosenbrock,
            'ndim_problem': ndim_problem,  # dimension
@@ -92,7 +92,7 @@ problem = {'fitness_function': rosenbrock,
 ```
 
 Without loss of generality, only the **minimization** process is considered here, since
-**maximization** can be easily transferred to **minimization** just by negating it.
+**maximization** can be easily transferred to **minimization** just by negating (-) it.
 
 * Run one black-box optimizer or more on the above optimization problem. Owing to its
   low computational complexity and well metric-learning ability, choose **LM-MA-ES**
