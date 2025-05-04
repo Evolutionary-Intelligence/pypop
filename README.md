@@ -116,6 +116,12 @@ results = lmmaes.optimize()  # to run its (time-consuming) evolution process
 print(results)
 ```
 
+Clearly, to obtain the *nearly optimal* rate of convergence for ``LMMAES```,
+the *key* hyper-parameter ```sigma``` may need to be well fine-tuned for
+this test function ```rosenbrock```. In practice, **Hyper-Paramter
+Optimization (HPO)** is one very common strategy to **approximate** the
+*possibly best* solution for the *complex* optimization problem at hand.
+
 Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online
 documentations and tutorials of this *well-designed* ("**self-boasted**")
 Python library for Black-Box Optimization (e.g., [several online praises
