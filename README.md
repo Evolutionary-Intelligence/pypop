@@ -125,8 +125,8 @@ Optimization (HPO)** is one very common strategy to **approximate** the
 ### Online Documentations, Online Tutorials, and Future Extensions
 
 Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online
-documentations and tutorials of this *well-designed* ("**self-boasted**")
-Python library for Black-Box Optimization (e.g., [several online praises
+documentations and tutorials of this *well-designed* ("**self-boasted**" by
+ourselves) Python library for Black-Box Optimization (e.g., [online praises
 from others](https://pypop.readthedocs.io/en/latest/applications.html)). A
 total of **4** extended versions of PyPop7 (as **PP7**) are *ongoing* or
 *planned* for further development:
