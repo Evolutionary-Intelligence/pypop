@@ -133,7 +133,7 @@ total of **4** extended versions of PyPop7 (as **PP7**) are *ongoing* or
 
 * For Constrained Black-Box Optimization (`PyCoPop7 as PCP7`),
 * For Noisy Black-Box Optimization (`PyNoPop7 as PNP7`),
-* Enhancement via Parallel and Distributed Optimization (`PyPop77 as PP77`),
+* Enhancement via Parallel and Distributed Optimization (`PyDPop7 as DP7`),
 * Enhancement via Meta-evolution based Optimization (`PyMePop7 as PMP7`).
 
 ## A (Still Growing) Number of Black-Box Optimizers (BBO)
