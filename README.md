@@ -139,6 +139,13 @@ its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)
 **Information-Geometric Optimization in [JMLR-2017]**
 
 ******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
+The below classification based on *only* the dimensionality of objective function, is
+*just a roughly empirical* estimation for the basic [algorithm
+selection](https://tinyurl.com/ae64wyj3) task. In practice, perhaps the **simplest**
+way to algorithm selection is **trial-and-error**. More advanced [automated
+algorithm selection](https://doi.org/10.1162/evco_a_00242) techniques can be also
+considered here in principle.
+
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the specific BBO version
   in particular for **LSO** (e.g., dimension >> 100, but not an absolutely deterministic
   number, depending upon the concrete problem and time),
@@ -148,12 +155,6 @@ its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg): indicates the **baseline** BBO
   version mainly for *theoretical* and/or *educational* interest, owing to its algorithmic
   simplicity (relative ease for mathematical analysis).
-
-Note that this simple classification based on only the dimensionality of objective function
-is *just a very rough* estimation for [algorithm selection](https://tinyurl.com/ae64wyj3).
-In practice, perhaps the **simplest** way to algorithm selection is **trial-and-error**.
-More advanced [Automated Algorithm Selection](https://doi.org/10.1162/evco_a_00242)
-techniques could be also considered.
 ******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
 
 Clearly, this is an **algorithm-centric** rather than *benchmarking-centric* Python library
