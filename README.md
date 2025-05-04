@@ -132,7 +132,7 @@ total of **4** extended versions of PyPop7 (as **PP7**) are *ongoing* or
 * "[The main lesson of the development of our field in the last few decades is that efficient
 optimization methods can be developed only by intelligently employing the structure of
 particular instances of problems.](https://tinyurl.com/4yccr5k8)"---From
-**Prof. Yurii Nesterov (Member of NAS, USA)**
+**Prof. Yurii Nesterov (Member of National Academy of Sciences (NAS), USA)**
 
 * "[Optimization algorithms are often designed for a specific type of search space, exploiting
 its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)"---From
@@ -157,8 +157,8 @@ considered here in principle.
   simplicity (relative ease for mathematical analysis).
 ******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
 
-Clearly, this is an **algorithm-centric** rather than *benchmarking-centric* Python library
-for **Black-Box Optimization** (though proper benchmarking is crucial for BBO).
+This is an **algorithm-centric** rather than *benchmarking-centric* Python library
+(though undoubtedly **proper benchmarking** is crucial for BBO).
 
 * **Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))**
   [e.g., [[JMLR-2017]](https://www.jmlr.org/papers/v18/14-467.html),
