@@ -121,6 +121,16 @@ the *key* hyper-parameter ```sigma``` may need to be well fine-tuned for
 this test function ```rosenbrock```. In practice, **Hyper-Paramter
 Optimization (HPO)** is one very common strategy to **approximate** the
 *possibly best* solution for the *complex* optimization problem at hand.
+Please refer to e.g., the following books and papers as *reference*:
+
+* [Hutter, F.](), et al., 2019.
+  [Automated machine learning: Methods, systems,
+  challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf).
+  Springer.
+* [Hoos, H.H.](), 2011.
+  [Automated algorithm configuration and parameter
+  tuning](https://link.springer.com/chapter/10.1007/978-3-642-21434-9_3).
+  In Autonomous Search (pp. 37-71). Springer.
 
 ### Online Documentations, Online Tutorials, and Future Extensions
 
@@ -715,13 +725,6 @@ reported in the (actively-updated) paper list called
   * Jones, D.R., et al., 1998.
     [Efficient global optimization of expensive black-box functions](https://link.springer.com/article/10.1023/A:1008306431147).
     JGO, 13(4), pp.455-492.
-* **Automated Machine Learning (AutoML)**
-  * Hutter, F., et al., 2019.
-    [Automated machine learning: Methods, systems, challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf).
-    Springer.
-  * Hoos, H.H., 2011.
-    [Automated algorithm configuration and parameter tuning](https://link.springer.com/chapter/10.1007/978-3-642-21434-9_3).
-    In Autonomous Search (pp. 37-71). Springer.
 
 ## Sponsor
 
