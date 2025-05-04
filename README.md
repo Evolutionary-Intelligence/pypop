@@ -717,10 +717,6 @@ reported in the (actively-updated) paper list called
   * Ashby, W.R., 1952. [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3). Springer.
   * Some interesting applications of RS: e.g., [[Moon et al., 2023, Nature Medicine]](https://www.nature.com/articles/s41591-023-02482-6); [[Wang et al., 2023, Nature Mental Health]](https://www.nature.com/articles/s44220-023-00110-3); [[Xie et al., 2023, Nature Communications]](https://www.nature.com/articles/s41467-023-41951-x); [[Mathis et al., 2023, Nature Biotechnology]](https://www.nature.com/articles/s41587-022-01613-7); [[Tian et al., 2023, KDD]](https://dl.acm.org/doi/pdf/10.1145/3580305.3599882); [[Schuch et al., 2023, JAMA]](https://jamanetwork.com/journals/jamanetworkopen/article-abstract/2811316); [[Flam-Shepherd et al., 2022, Nature Communications]](https://www.nature.com/articles/s41467-022-30839-x); [[Beucler et al., 2021, PRL]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.098302); [[Roman et al., 2021, Nature Machine Intelligence]](https://www.nature.com/articles/s42256-021-00312-3); [[Shen et al., 2021, Nature Communications]](https://www.nature.com/articles/s41467-021-26023-2); [[Gonatopoulos-Pournatzis et al., 2020, Nature Biotechnology]](https://www.nature.com/articles/s41587-020-0437-z); [[Valeri et al., 2020, Nature Communications]](https://www.nature.com/articles/s41467-020-18676-2); [[Chen et al., 2020, Science Robotics]](https://www.science.org/doi/full/10.1126/scirobotics.abb6938); [[Pickard&Needs, 2006, PRL]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.97.045504).
 
-  * Jones, D.R., et al., 1998.
-    [Efficient global optimization of expensive black-box functions](https://link.springer.com/article/10.1023/A:1008306431147).
-    JGO, 13(4), pp.455-492.
-
 ## Sponsor
 
 Now it is supported by National Natural Science Foundation of China
