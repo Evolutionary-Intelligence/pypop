@@ -122,6 +122,8 @@ this test function ```rosenbrock```. In practice, **Hyper-Paramter
 Optimization (HPO)** is one very common strategy to **approximate** the
 *possibly best* solution for the *complex* optimization problem at hand.
 
+### Online Documentations, Online Tutorials, and Future Extensions
+
 Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online
 documentations and tutorials of this *well-designed* ("**self-boasted**")
 Python library for Black-Box Optimization (e.g., [several online praises
