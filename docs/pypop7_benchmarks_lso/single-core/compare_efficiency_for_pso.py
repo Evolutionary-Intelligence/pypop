@@ -35,7 +35,7 @@ if __name__ == '__main__':
     colors = prop_cycle.by_key()['color']
 
     n_trials = 4  # number of trials (independent experiments)
-    algos = ['SPSO', 'SPSOL', 'CPSO',
+    algos = ['DEAPPSO', 'SPSO', 'SPSOL', 'CPSO',
              'CLPSO', 'IPSO', 'CCPSO2']
     max_runtime, fitness_threshold = 3600.0 * 3 - 10.0 * 60, 1e-10
     # funcs = ['cigar', 'cigar_discus', 'ackley', 'bohachevsky',
@@ -95,14 +95,14 @@ if __name__ == '__main__':
         # [yl.set_fontweight('bold') for yl in y_label]
 
     lines, labels = axs[-1][-1].get_legend_handles_labels()
-    leg = fig.legend(lines, labels, loc='center', ncol=3,
+    leg = fig.legend(lines, labels, loc='center', ncol=4,
                      fontsize=font_size,
                      bbox_to_anchor=(0.51, 0.93))
     # for text in leg.get_texts():
     #     text.set_fontweight('bold')
-    # fig.text(0.05, 0.5, 'Fitness (Minimized)', va='center',
-    #          rotation='vertical', fontsize=font_size)  # 'xx-large'
-    # fig.text(0.5, 0.05, 'Runtime (Seconds)', va='center',
-    #          ha='center', fontsize=font_size)  # 'xx-large'
+    fig.text(0.05, 0.5, 'Fitness (Minimized)', va='center',
+             rotation='vertical', fontsize=font_size)  # 'xx-large'
+    fig.text(0.5, 0.05, 'Runtime (Seconds)', va='center',
+             ha='center', fontsize=font_size)  # 'xx-large'
     plt.savefig('PSO.png', dpi=700, bbox_inches='tight')
     plt.show()
