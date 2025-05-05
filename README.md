@@ -22,6 +22,7 @@ Prof. Gong (South China University of Technology).
 ![Codecov](https://img.shields.io/badge/Codecov-F01F7A?logo=codecov&logoColor=fff)
 ![PyCharm](https://img.shields.io/badge/PyCharm-000?logo=pycharm&logoColor=fff)
 ![PyTest](https://img.shields.io/badge/pytest-%23ffffff.svg?logo=PyTest&logoColor=2f9fe3)
+[![Awesome](https://awesome.re/badge.svg)]()
 ![Sphinx](https://img.shields.io/badge/Sphinx-000?logo=sphinx&logoColor=fff)
 ![WeChat](https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white)
 ![EvoI](https://img.shields.io/badge/HIT&SUSTech-EvolutionaryIntelligence-brown)
