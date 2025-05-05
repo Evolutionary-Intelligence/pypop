@@ -27,6 +27,12 @@ if __name__ == '__main__':
     sns.set_theme(style='darkgrid')
     plt.rcParams['font.family'] = 'Times New Roman'
     plt.rcParams['font.size'] = '11'
+    markers = ['o', 'v', '^', '<', '>',
+               'd', 's', 'p', 'P', '*',
+               'h', 'H', '+', 'x', 'X',
+               'D', '8']
+    prop_cycle = plt.rcParams['axes.prop_cycle']
+    colors = prop_cycle.by_key()['color']
 
     n_trials = 4  # number of trials (independent experiments)
     algos = ['DEAPCMAES', 'MMES', 'FCMAES', 'LMMAES', 'LMCMA',
@@ -80,7 +86,11 @@ if __name__ == '__main__':
         for j, a in enumerate(algos):
             axs[m][n].plot(time[j][top_order[j]],
                            fitness[j][top_order[j]],
-                           label=a)
+                           c=colors[j % len(colors)])
+            axs[m][n].plot(time[j][top_order[j]][int(len(time[j][top_order[j]])/2)],
+                           fitness[j][top_order[j]][int(len(fitness[j][top_order[j]])/2)],
+                           c=colors[j % len(colors)], label=a,
+                           marker=markers[j % len(markers)], markersize=7)
         axs[m][n].set_title(f, fontsize=font_size)  # , fontweight='bold'
         x_label = axs[m][n].get_xticklabels()
         [xl.set_fontsize(font_size) for xl in x_label]
