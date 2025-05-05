@@ -196,9 +196,9 @@ For ```ES```, please refer to e.g.,
 [[Schwefel, 1984]](https://link.springer.com/article/10.1007/BF01876146),
 etc.
 
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Matrix Adaptation ES
-    (**[LMMAES](https://tinyurl.com/9e8jcmcy)**)
-    [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Matrix Adaptation
+  ES (**[LMMAES](https://tinyurl.com/9e8jcmcy)**)
+  [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Covariance Matrix
       Adaptation (**[LMCMA](https://tinyurl.com/3fenh5sj)**) [[Loshchilov, 2017,
       ECJ](https://tinyurl.com/36ynee3s)]
