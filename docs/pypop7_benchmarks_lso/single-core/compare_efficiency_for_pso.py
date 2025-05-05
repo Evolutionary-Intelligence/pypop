@@ -27,9 +27,15 @@ if __name__ == '__main__':
     sns.set_theme(style='darkgrid')
     plt.rcParams['font.family'] = 'Times New Roman'
     plt.rcParams['font.size'] = '11'
+    markers = ['o', 'v', '^', '<', '>',
+               'd', 's', 'p', 'P', '*',
+               'h', 'H', '+', 'x', 'X',
+               'D', '8']
+    prop_cycle = plt.rcParams['axes.prop_cycle']
+    colors = prop_cycle.by_key()['color']
 
     n_trials = 4  # number of trials (independent experiments)
-    algos = ['DEAPPSO', 'SPSO', 'SPSOL', 'CPSO',
+    algos = ['SPSO', 'SPSOL', 'CPSO',
              'CLPSO', 'IPSO', 'CCPSO2']
     max_runtime, fitness_threshold = 3600.0 * 3 - 10.0 * 60, 1e-10
     # funcs = ['cigar', 'cigar_discus', 'ackley', 'bohachevsky',
@@ -76,7 +82,10 @@ if __name__ == '__main__':
         for j, a in enumerate(algos):
             axs[m][n].plot(time[j][top_order[j]],
                            fitness[j][top_order[j]],
-                           label=a)
+                           c=colors[j])
+            axs[m][n].plot(time[j][top_order[j]][int(len(time[j][top_order[j]])/2)],
+                           fitness[j][top_order[j]][int(len(fitness[j][top_order[j]])/2)],
+                           c=colors[j], label=a, marker=markers[j], markersize=7)
         axs[m][n].set_title(f, fontsize=font_size)  # , fontweight='bold'
         x_label = axs[m][n].get_xticklabels()
         [xl.set_fontsize(font_size) for xl in x_label]
@@ -86,14 +95,14 @@ if __name__ == '__main__':
         # [yl.set_fontweight('bold') for yl in y_label]
 
     lines, labels = axs[-1][-1].get_legend_handles_labels()
-    leg = fig.legend(lines, labels, loc='center', ncol=4,
+    leg = fig.legend(lines, labels, loc='center', ncol=3,
                      fontsize=font_size,
                      bbox_to_anchor=(0.51, 0.93))
     # for text in leg.get_texts():
     #     text.set_fontweight('bold')
-    fig.text(0.05, 0.5, 'Fitness (Minimized)', va='center',
-             rotation='vertical', fontsize=font_size)  # 'xx-large'
-    fig.text(0.5, 0.05, 'Runtime (Seconds)', va='center',
-             ha='center', fontsize=font_size)  # 'xx-large'
+    # fig.text(0.05, 0.5, 'Fitness (Minimized)', va='center',
+    #          rotation='vertical', fontsize=font_size)  # 'xx-large'
+    # fig.text(0.5, 0.05, 'Runtime (Seconds)', va='center',
+    #          ha='center', fontsize=font_size)  # 'xx-large'
     plt.savefig('PSO.png', dpi=700, bbox_inches='tight')
     plt.show()
