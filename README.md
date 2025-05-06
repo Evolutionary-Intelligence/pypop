@@ -202,9 +202,6 @@ etc.
     * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Covariance Matrix
       Adaptation (**[LMCMA](https://tinyurl.com/3fenh5sj)**) [[Loshchilov, 2017,
       ECJ](https://tinyurl.com/36ynee3s)]
-    * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Covariance Matrix
-      Adaptation ES (**[LMCMAES](https://tinyurl.com/4myhbwey)**) [[Loshchilov, 2014,
-      GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-M ES
     (**[RMES](https://tinyurl.com/bdfnrcfu)**)
     [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
@@ -389,6 +386,14 @@ etc.
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Annealed Random Hill Climber (**[ARHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/arhc.py)**) [e.g. [Russell&Norvig, 2021](http://aima.cs.berkeley.edu/); [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Random Hill Climber (**[RHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rhc.py)**) [e.g. [Russell&Norvig, 2021](http://aima.cs.berkeley.edu/); [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Pure Random Search (**[PRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/prs.py)**) [e.g. [Bergstra&Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html); [Schmidhuber et al., 2001](https://ml.jku.at/publications/older/ch9.pdf); [Brooks, 1958, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244); [Ashby, 1952](https://link.springer.com/book/10.1007/978-94-015-1320-3)]
+
+### Various Variants
+
+#### **Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))**
+
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
+  [LMCMAES](https://tinyurl.com/4myhbwey)
+  [[Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
 
 For new/missed BBO, we have provided a **unified** API to freely add them if they can well satisfy
 the [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html) widely
