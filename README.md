@@ -207,8 +207,9 @@ etc.
   [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg)
   Cholesky Covariance Matrix Adaptation ES (**CCMAES2016**)
-  [[Krause et al., 2016, NeurIPS](https://tinyurl.com/4f89mn7n),
-  [Krause&Igel, 2015, FOGA](https://dl.acm.org/doi/abs/10.1145/2725494.2725496)]
+  [[Krause et al., 2016, NeurIPS](https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html),
+  [Krause&Igel, 2015, FOGA](https://dl.acm.org/doi/abs/10.1145/2725494.2725496),
+  [Arnold&Hansen, 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830556)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable CMA-ES
   (**SEPCMAES**)
   [[Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4),
@@ -384,8 +385,8 @@ etc.
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg)
   OPOA2015
   [[Krause&Igel, 2015, FOGA](https://dl.acm.org/doi/abs/10.1145/2725494.2725496)]
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg) (1+1)-Active-Cholesky-CMA-ES-2010
-  (**[OPOA2010](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/opoa2010.py)**)
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
+  OPOA2010
   [[Arnold&Hansen, 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
   [Jastrebski&Arnold, 2006, CEC](https://ieeexplore.ieee.org/abstract/document/1688662)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Cholesky-CMA-ES-2009
