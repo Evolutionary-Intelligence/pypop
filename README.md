@@ -208,10 +208,10 @@ etc.
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg)
   Cholesky Covariance Matrix Adaptation ES (**CCMAES2016**)
   [[Krause et al., 2016, NeurIPS](https://tinyurl.com/4f89mn7n)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable Covariance Matrix Adaptation ES
-    (**[SEPCMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/sepcmaes.py)**)
-    [[Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4),
-    [Ros&Hansen, 2008, PPSN](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable CMA-ES
+  (**SEPCMAES**)
+  [[Bäck et al., 2013](https://link.springer.com/book/10.1007/978-3-642-40137-4),
+  [Ros&Hansen, 2008, PPSN](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Matrix Adaptation ES
     (**[MAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/maes.py)**)
     [[Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
