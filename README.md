@@ -197,10 +197,12 @@ For ```ES```, please refer to e.g.,
 etc.
 
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg)
-  Limited-Memory Matrix Adaptation ES (**LMMAES**])
-  [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
+  Limited-Memory Matrix Adaptation ES (**LMMAES**)
+  [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043),
+  [Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale),
+  [Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg)
-  Rank-M ES (**[RMES](https://tinyurl.com/bdfnrcfu)**)
+  Rank-M ES (**RMES**)
   [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
   [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Cholesky-CMA-ES-2016
