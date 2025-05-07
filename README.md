@@ -196,17 +196,13 @@ For ```ES```, please refer to e.g.,
 [[Schwefel, 1984]](https://link.springer.com/article/10.1007/BF01876146),
 etc.
 
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Limited-Memory Matrix Adaptation
-  ES (**[LMMAES](https://tinyurl.com/9e8jcmcy)**)
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
+  Limited-Memory Matrix Adaptation ES (**LMMAES**])
   [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-M ES
-    (**[RMES](https://tinyurl.com/bdfnrcfu)**)
-    [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
-    [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
-    * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-1 ES
-      (**[R1ES](https://tinyurl.com/2jh7vkm7)**)
-      [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
-      [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
+  Rank-M ES (**[RMES](https://tinyurl.com/bdfnrcfu)**)
+  [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
+  [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Cholesky-CMA-ES-2016
     (**[CCMAES2016](https://tinyurl.com/yr4zf5b8)**)
     [[Krause et al., 2016, NeurIPS](https://tinyurl.com/4f89mn7n)]
@@ -389,11 +385,15 @@ etc.
 #### **Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))**
 
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg)
-  [LMCMA](https://tinyurl.com/3fenh5sj)
+  LMCMA
   [[Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg)
-  [LMCMAES](https://tinyurl.com/4myhbwey)
+  LMCMAES
   [[Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
+  R1ES
+  [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
+  [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
 
 For new/missed BBO, we have provided a **unified** API to freely add them if they can well satisfy
 the [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html) widely
