@@ -184,7 +184,7 @@ considered here in principle.
 This is an **algorithm-centric** rather than *benchmarking-centric* Python library
 (though undoubtedly **proper benchmarking** is crucial for BBO).
 
-### **Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))**
+### **Evolution Strategies**
 
 For ```ES```, please refer to e.g.,
 [[JMLR-2017]](https://www.jmlr.org/papers/v18/14-467.html),
