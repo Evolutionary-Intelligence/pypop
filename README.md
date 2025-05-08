@@ -184,7 +184,8 @@ considered here in principle.
 This is an **algorithm-centric** rather than *benchmarking-centric* Python library
 (though undoubtedly **proper benchmarking** is crucial for BBO: e.g.,
 [COCO](),
-[NeverGrad]()).
+[NeverGrad](),
+[IOHprofiler]()).
 
 ### **Evolution Strategies (ES)**
 
