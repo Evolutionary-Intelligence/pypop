@@ -219,8 +219,8 @@ etc.
   [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870),
   [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043),
   [Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
-  * ![c](https://img.shields.io/badge/**-c-blue.svg) Covariance Matrix Adaptation ES
-    (**[CMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/cmaes.py)**)
+* ![c](https://img.shields.io/badge/**-c-blue.svg) Covariance Matrix Adaptation ES
+  (**CMAES**)
     * ![c](https://img.shields.io/badge/**-c-blue.svg) Diagonal Decoding Covariance Matrix Adaptation
     (**[DDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ddcma.py)**)
     [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
