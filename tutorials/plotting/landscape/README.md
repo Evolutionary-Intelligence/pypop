@@ -1,4 +1,7 @@
-# Plotting
+# Plotting of 2D Fitness Landscape
+
+* `plot_landscape_for_sphere.py`
+* `plot_landscape_for_cigar.py`
 
 
 
