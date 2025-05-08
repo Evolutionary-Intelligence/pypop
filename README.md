@@ -156,7 +156,7 @@ total of **4** extended versions of PyPop7 (as **PP7**) are *ongoing* or
 * "[The main lesson of the development of our field in the last few decades is that efficient
 optimization methods can be developed only by intelligently employing the structure of
 particular instances of problems.](https://tinyurl.com/4yccr5k8)"---From
-**Prof. Yurii Nesterov (Member of National Academy of Sciences (NAS), USA)**
+**Prof. Yurii Nesterov (Member of National Academy of Sciences, USA)**
 
 * "[Optimization algorithms are often designed for a specific type of search space, exploiting
 its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)"---From
