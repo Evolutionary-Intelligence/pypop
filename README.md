@@ -355,7 +355,7 @@ etc.
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Random Hill Climber (**[RHC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/rhc.py)**) [e.g. [Russell&Norvig, 2021](http://aima.cs.berkeley.edu/); [Schaul et al., 2010, JMLR](https://jmlr.org/papers/v11/schaul10a.html)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Pure Random Search (**[PRS](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/rs/prs.py)**) [e.g. [Bergstra&Bengio, 2012, JMLR](https://www.jmlr.org/papers/v13/bergstra12a.html); [Schmidhuber et al., 2001](https://ml.jku.at/publications/older/ch9.pdf); [Brooks, 1958, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244); [Ashby, 1952](https://link.springer.com/book/10.1007/978-94-015-1320-3)]
 
-### Various Variants
+### Various Variants and Versions
 
 #### **Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))**
 
@@ -395,7 +395,7 @@ etc.
   (Schwefel's Self-Adaptation ES) [e.g.,
   [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466),
-  [Schwefel, 1988](https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8),
+  [Schwefel, 1988, Research Reports in Physics](https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8),
   [Schwefel, 1984, AOR](https://link.springer.com/article/10.1007/BF01876146)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) RES
   (Rechenberg's (1+1)-ES with 1/5 success rule) [e.g.,
