@@ -378,8 +378,7 @@ etc.
   OPOA2010
   [[Arnold&Hansen, 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
   [Jastrebski&Arnold, 2006, CEC](https://ieeexplore.ieee.org/abstract/document/1688662)]
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Cholesky-CMA-ES-2009
-  (**[CCMAES2009](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ccmaes2009.py)**)
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) CCMAES2009
   [[Suttorp et al., 2009, MLJ](https://link.springer.com/article/10.1007/s10994-009-5102-1)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) OPOC2009
   [[Suttorp et al., 2009, MLJ](https://link.springer.com/article/10.1007/s10994-009-5102-1)]
