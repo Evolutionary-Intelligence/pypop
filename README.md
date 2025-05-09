@@ -740,7 +740,7 @@ reported in the (actively-updated) paper list called
   * Ashby, W.R., 1952. [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3). Springer.
   * Some interesting applications of RS: e.g., [[Moon et al., 2023, Nature Medicine]](https://www.nature.com/articles/s41591-023-02482-6); [[Wang et al., 2023, Nature Mental Health]](https://www.nature.com/articles/s44220-023-00110-3); [[Xie et al., 2023, Nature Communications]](https://www.nature.com/articles/s41467-023-41951-x); [[Mathis et al., 2023, Nature Biotechnology]](https://www.nature.com/articles/s41587-022-01613-7); [[Tian et al., 2023, KDD]](https://dl.acm.org/doi/pdf/10.1145/3580305.3599882); [[Schuch et al., 2023, JAMA]](https://jamanetwork.com/journals/jamanetworkopen/article-abstract/2811316); [[Flam-Shepherd et al., 2022, Nature Communications]](https://www.nature.com/articles/s41467-022-30839-x); [[Beucler et al., 2021, PRL]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.098302); [[Roman et al., 2021, Nature Machine Intelligence]](https://www.nature.com/articles/s42256-021-00312-3); [[Shen et al., 2021, Nature Communications]](https://www.nature.com/articles/s41467-021-26023-2); [[Gonatopoulos-Pournatzis et al., 2020, Nature Biotechnology]](https://www.nature.com/articles/s41587-020-0437-z); [[Valeri et al., 2020, Nature Communications]](https://www.nature.com/articles/s41467-020-18676-2); [[Chen et al., 2020, Science Robotics]](https://www.science.org/doi/full/10.1126/scirobotics.abb6938); [[Pickard&Needs, 2006, PRL]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.97.045504).
 
-## Sponsor
+## Sponsors
 
 Now it is supported by National Natural Science Foundation of China
 under Grant No. 72401122, Guangdong Basic and Applied Basic Research
@@ -749,7 +749,7 @@ Foundation under Grant No. 2024A1515012241 and 2021A1515110024. From
 **Shenzhen Fundamental Research Program** (a total of 2 000 000
 Yuan).
 
-## Citation and Activities
+## Citations and Activities
 
 If this open-source Python library is used in your paper or project,
 it is highly welcomed *but NOT mandatory* to cite the following
@@ -796,7 +796,7 @@ been registered in 16 Apr 2025. (Chinese: 微信公众号 PyPop7)
   year={2024}
 }
 
-## Visitors
+## Visitors and Stars
 
 ![visitors](https://tinyurl.com/4cu8wn4u)
 
