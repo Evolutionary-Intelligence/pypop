@@ -398,7 +398,7 @@ etc.
   DDCMA
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) RES
   (Rechenberg's (1+1)-ES with 1/5 success rule)
-  [e.g., [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
+  [e.g., [Hansen et al., 2015, Springer Handbook of Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Kern et al., 2004, NACO](https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e),
   [Rechenberg, 1989, Lecture Notes in Engineering](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
   [Rechenberg, 1984, Springer Series in Synergetics](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13),
