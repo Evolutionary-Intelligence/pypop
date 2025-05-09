@@ -394,7 +394,7 @@ etc.
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SSAES
   (Schwefel's Self-Adaptation ES) [e.g.,
   [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
-  [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466),
+  [Beyer&Schwefel, 2002, NACO](https://link.springer.com/article/10.1023/A:1015059928466),
   [Schwefel, 1988, Research Reports in Physics](https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8),
   [Schwefel, 1984, AOR](https://link.springer.com/article/10.1007/BF01876146)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) RES
