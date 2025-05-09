@@ -243,10 +243,6 @@ etc.
       (**[CSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/csaes.py)**)
       [e.g., [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
       [Ostermeier et al., 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_263)]
-    * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Derandomized Self-Adaptation ES
-      (**[DSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/dsaes.py)**)
-      [e.g., [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
-      [Ostermeier et al., 1994, ECJ](https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of)]
 * **Natural ES ([NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/nes.py))**
   [e.g., [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html),
   [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html),
@@ -361,21 +357,16 @@ etc.
 
 #### **Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))**
 
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
-  LMCMA
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) LMCMA
   [[Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
-  LMCMAES
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) LMCMAES
   [[Loshchilov, 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
-  R1ES
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) R1ES
   [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
   [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
-  OPOA2015
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) OPOA2015
   [[Krause&Igel, 2015, FOGA](https://dl.acm.org/doi/abs/10.1145/2725494.2725496)]
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
-  OPOA2010
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) OPOA2010
   [[Arnold&Hansen, 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
   [Jastrebski&Arnold, 2006, CEC](https://ieeexplore.ieee.org/abstract/document/1688662)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) CCMAES2009
@@ -389,9 +380,13 @@ etc.
 * ![c](https://img.shields.io/badge/**-c-blue.svg) DDCMA
   (Diagonal Decoding CMA)
   [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) DSAES
+  (Derandomized Self-Adaptation ES)
+  [[Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
+  [Ostermeier et al., 1994, ECJ](https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SSAES
-  (Schwefel's Self-Adaptation ES) [e.g.,
-  [Hansen et al., 2015, Springer Handbook of Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
+  (Schwefel's SAES) [[Hansen et al., 2015, Springer Handbook of
+  Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Beyer&Schwefel, 2002, NACO](https://link.springer.com/article/10.1023/A:1015059928466),
   [Schwefel, 1988, Research Reports in Physics](https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8),
   [Schwefel, 1984, AOR](https://link.springer.com/article/10.1007/BF01876146)]
