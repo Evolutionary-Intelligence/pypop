@@ -405,16 +405,17 @@ etc.
   [Rechenberg, 1984, Springer Series in Synergetics](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13),
   [Schumer&Steiglitz, 1968, TAC](https://ieeexplore.ieee.org/abstract/document/1098903)]
 
-For new/missed BBO, we have provided a **unified** API to freely add them if they can well satisfy
-the [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html) widely
-recognized in the scientific research community. Note that currently both Ant Colony Optimization
-([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396)) and Tabu Search
-([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not covered in this library,
-since they work well mainly in *[discrete or combinatorial](https://tinyurl.com/327auv56)* search
-spaces in many cases. Furthermore, both brute-force (exhaustive) search and grid search are also
-excluded here, since it works only for *very low* (typically < 10) dimensions. In the near-future
-version, we will consider to add others (e.g., [Simultaneous Perturbation Stochastic Approximation
-(SPSA)](https://www.jhuapl.edu/SPSA/)) into this open-source library. Please refer to [development
+For any new/missed BBO, we have provided **a unified API** to freely add if they can well
+satisfy the [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html)
+*widely* recognized in the scientific research community. Note that currently both Ant Colony
+Optimization ([ACO](https://www.sciencedirect.com/science/article/pii/B9781558603776500396))
+and Tabu Search ([TS](https://www.science.org/doi/10.1126/science.267.5198.664)) are not
+covered here, since they work mainly in *[discrete or combinatorial](https://tinyurl.com/327auv56)*
+search spaces in many cases. Furthermore, both brute-force (exhaustive) search and grid search
+are also excluded here, since it works only for *very low* (typically < 10) dimensions. In some
+near-future version, we may consider to add other BBO (such as the well-known [Simultaneous
+Perturbation Stochastic Approximation (SPSA)](https://www.jhuapl.edu/SPSA/) algorithm) into this
+open-source library. Please refer to the [online development
 guide](https://pypop.readthedocs.io/en/latest/development-guide.html) for more details.
 
 ## Computational Efficiency
