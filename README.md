@@ -251,13 +251,6 @@ etc.
       [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466),
       [Schwefel, 1988](https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8),
       [Schwefel, 1984, AOR](https://link.springer.com/article/10.1007/BF01876146)]
-    * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Rechenberg's (1+1)-ES with 1/5th success rule
-      (**[RES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/res.py)**)
-      [e.g., [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
-      [Kern et al., 2004, NACO](https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e),
-      [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
-      [Rechenberg, 1984](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13),
-      [Schumer&Steiglitz, 1968, TAC](https://ieeexplore.ieee.org/abstract/document/1098903)]
 * **Natural ES ([NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/nes.py))**
   [e.g., [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html),
   [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html),
@@ -403,6 +396,13 @@ etc.
   [[Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 * ![c](https://img.shields.io/badge/**-c-blue.svg) Diagonal Decoding Covariance Matrix Adaptation
   DDCMA
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) RES
+  (Rechenberg's (1+1)-ES with 1/5 success rule)
+  [e.g., [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
+  [Kern et al., 2004, NACO](https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e),
+  [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
+  [Rechenberg, 1984](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13),
+  [Schumer&Steiglitz, 1968, TAC](https://ieeexplore.ieee.org/abstract/document/1098903)]
 
 For new/missed BBO, we have provided a **unified** API to freely add them if they can well satisfy
 the [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html) widely
