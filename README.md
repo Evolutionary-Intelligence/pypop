@@ -394,8 +394,9 @@ etc.
 * ![c](https://img.shields.io/badge/**-c-blue.svg)
   MAES
   [[Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
-* ![c](https://img.shields.io/badge/**-c-blue.svg) Diagonal Decoding Covariance Matrix Adaptation
-  DDCMA
+* ![c](https://img.shields.io/badge/**-c-blue.svg) DDCMA
+  (Diagonal Decoding Covariance Matrix Adaptation)
+  [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) RES
   (Rechenberg's (1+1)-ES with 1/5 success rule)
   [e.g., [Hansen et al., 2015, Springer Handbook of Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
