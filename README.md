@@ -400,8 +400,8 @@ etc.
   (Rechenberg's (1+1)-ES with 1/5 success rule)
   [e.g., [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Kern et al., 2004, NACO](https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e),
-  [Rechenberg, 1989](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
-  [Rechenberg, 1984](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13),
+  [Rechenberg, 1989, Lecture Notes in Engineering](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
+  [Rechenberg, 1984, Springer Series in Synergetics](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13),
   [Schumer&Steiglitz, 1968, TAC](https://ieeexplore.ieee.org/abstract/document/1098903)]
 
 For new/missed BBO, we have provided a **unified** API to freely add them if they can well satisfy
