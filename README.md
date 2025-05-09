@@ -213,7 +213,8 @@ etc.
   Cholesky Covariance Matrix Adaptation ES (**CCMAES2016**)
   [[Krause et al., 2016, NeurIPS](https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html),
   [Krause&Igel, 2015, FOGA](https://dl.acm.org/doi/abs/10.1145/2725494.2725496),
-  [Arnold&Hansen, 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830556)]
+  [Arnold&Hansen, 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
+  [Igel et al., 2006, GECCO](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable CMA-ES
   (**SEPCMAES**)
   [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix),
@@ -389,7 +390,7 @@ etc.
   MAES
   [[Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 * ![c](https://img.shields.io/badge/**-c-blue.svg) DDCMA
-  (Diagonal Decoding Covariance Matrix Adaptation)
+  (Diagonal Decoding CMA)
   [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SSAES
   (Schwefel's Self-Adaptation ES) [e.g.,
