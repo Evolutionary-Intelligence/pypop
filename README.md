@@ -245,12 +245,6 @@ etc.
       (**[DSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/dsaes.py)**)
       [e.g., [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
       [Ostermeier et al., 1994, ECJ](https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of)]
-    * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Schwefel's Self-Adaptation ES
-      (**[SSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/ssaes.py)**)
-      [e.g., [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
-      [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466),
-      [Schwefel, 1988](https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8),
-      [Schwefel, 1984, AOR](https://link.springer.com/article/10.1007/BF01876146)]
 * **Natural ES ([NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/nes.py))**
   [e.g., [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html),
   [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html),
@@ -397,9 +391,15 @@ etc.
 * ![c](https://img.shields.io/badge/**-c-blue.svg) DDCMA
   (Diagonal Decoding Covariance Matrix Adaptation)
   [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SSAES
+  (Schwefel's Self-Adaptation ES) [e.g.,
+  [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
+  [Beyer&Schwefel, 2002](https://link.springer.com/article/10.1023/A:1015059928466),
+  [Schwefel, 1988](https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8),
+  [Schwefel, 1984, AOR](https://link.springer.com/article/10.1007/BF01876146)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) RES
-  (Rechenberg's (1+1)-ES with 1/5 success rule)
-  [e.g., [Hansen et al., 2015, Springer Handbook of Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
+  (Rechenberg's (1+1)-ES with 1/5 success rule) [e.g.,
+  [Hansen et al., 2015, Springer Handbook of Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Kern et al., 2004, NACO](https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e),
   [Rechenberg, 1989, Lecture Notes in Engineering](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
   [Rechenberg, 1984, Springer Series in Synergetics](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13),
