@@ -44,14 +44,14 @@ common in the optimization literature, as presented below:
    :width: 321px
    :align: center
 
-* Script of its 2D landscape:
+* Generation script of its 2D landscape:
   https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/plotting/landscape/plot_landscape_for_sphere.py
 
 .. image:: images/surface_sphere.png
    :width: 321px
    :align: center
 
-* Script of its 3D surface:
+* Generation script of its 3D surface:
   https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/plotting/surface/plot_surface_for_sphere.py
 
 Reference (In Part):
@@ -75,9 +75,15 @@ Reference (In Part):
    :width: 321px
    :align: center
 
+* Generation script of its 2D landscape:
+  https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/plotting/landscape/plot_landscape_for_cigar.py
+
 .. image:: images/surface_cigar.png
    :width: 321px
    :align: center
+
+* Generation script of its 3D surface:
+  https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/plotting/surface/plot_surface_for_cigar.py
 
 * Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2018.
   Large scale black-box optimization by limited-memory matrix adaptation.
