@@ -239,10 +239,6 @@ etc.
       (**[SAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/saes.py)**)
       [e.g., [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870),
       [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
-    * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Cumulative Step-size Adaptation ES
-      (**[CSAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/csaes.py)**)
-      [e.g., [Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
-      [Ostermeier et al., 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_263)]
 * **Natural ES ([NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/nes.py))**
   [e.g., [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html),
   [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html),
@@ -379,11 +375,18 @@ etc.
   [[Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 * ![c](https://img.shields.io/badge/**-c-blue.svg) DDCMA
   (Diagonal Decoding CMA)
-  [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
+  [[Akimoto&Hansen, 2020,
+  ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) CSAES (Cumulative Step-size Adaptation ES)
+  [[Hansen et al., 2015, Springer Handbook of
+  Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
+  [Ostermeier et al., 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_263)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) DSAES
   (Derandomized Self-Adaptation ES)
-  [[Hansen et al., 2015](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
-  [Ostermeier et al., 1994, ECJ](https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of)]
+  [[Hansen et al., 2015, Springer Handbook of
+  Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
+  [Ostermeier et al., 1994,
+  ECJ](https://direct.mit.edu/evco/article-abstract/2/4/369/1407/A-Derandomized-Approach-to-Self-Adaptation-of)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SSAES
   (Schwefel's SAES) [[Hansen et al., 2015, Springer Handbook of
   Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
@@ -392,7 +395,8 @@ etc.
   [Schwefel, 1984, AOR](https://link.springer.com/article/10.1007/BF01876146)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) RES
   (Rechenberg's (1+1)-ES with 1/5 success rule) [e.g.,
-  [Hansen et al., 2015, Springer Handbook of Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
+  [Hansen et al., 2015, Springer Handbook of
+  Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Kern et al., 2004, NACO](https://link.springer.com/article/10.1023/B:NACO.0000023416.59689.4e),
   [Rechenberg, 1989, Lecture Notes in Engineering](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
   [Rechenberg, 1984, Springer Series in Synergetics](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13),
