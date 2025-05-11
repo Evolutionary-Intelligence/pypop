@@ -266,9 +266,6 @@ etc.
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Original NES
     (**[ONES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/ones.py)**)
     [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
-  * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Search Gradient-based ES
-    (**[SGES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/sges.py)**)
-    [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
 * **Estimation of Distribution Algorithms
   ([EDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/eda.py))**
   [e.g., [Brookes et al., 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389938),
@@ -377,6 +374,8 @@ etc.
   (Diagonal Decoding CMA)
   [[Akimoto&Hansen, 2020,
   ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SGES (Search Gradient ES)
+  [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) CSAES (Cumulative Step-size Adaptation ES)
   [[Hansen et al., 2015, Springer Handbook of
   Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
