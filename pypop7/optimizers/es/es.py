@@ -124,11 +124,6 @@ class ES(Optimizer):
     `Evolution strategies–A comprehensive introduction.
     <https://link.springer.com/article/10.1023/A:1015059928466>`_
     Natural Computing, 1(1), pp.3-52.
-
-    Rechenberg, I., 2000.
-    `Case studies in evolutionary experimentation and computation.
-    <https://www.sciencedirect.com/science/article/abs/pii/S0045782599003813>`_
-    Computer Methods in Applied Mechanics and Engineering, 186(2-4), pp.125-140.
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
