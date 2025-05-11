@@ -37,10 +37,17 @@ Evolution Strategies (ES)
 
 Reference
 ---------
+
+* Schwefel, H.P., 1984.
+  `Evolution strategies: A family of non-linear optimization techniques based on imitating
+  some principles of organic evolution.
+  <https://link.springer.com/article/10.1007/BF01876146>`_
+  Annals of Operations Research, 1(2), pp.165-167.
 * Rechenberg, I., 1984.
   `The evolution strategy. A mathematical model of darwinian evolution.
   <https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13>`_
-  In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer, Berlin, Heidelberg.
+  In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132).
+  Springer.
 
 
 
