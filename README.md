@@ -239,7 +239,7 @@ etc.
       (**[SAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/saes.py)**)
       [e.g., [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870),
       [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
-* **Natural ES ([NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/nes.py))**
+* **Natural ES (NES)**
   [e.g., [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html),
   [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html),
   [Yi et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522),
@@ -348,7 +348,7 @@ etc.
 
 ### Various Variants and Versions
 
-#### **Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))**
+#### Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))
 
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) LMCMA
   [[Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale)]
@@ -374,8 +374,6 @@ etc.
   (Diagonal Decoding CMA)
   [[Akimoto&Hansen, 2020,
   ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
-* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SGES (Search Gradient ES)
-  [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) CSAES (Cumulative Step-size Adaptation ES)
   [[Hansen et al., 2015, Springer Handbook of
   Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
@@ -400,6 +398,11 @@ etc.
   [Rechenberg, 1989, Lecture Notes in Engineering](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6),
   [Rechenberg, 1984, Springer Series in Synergetics](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13),
   [Schumer&Steiglitz, 1968, TAC](https://ieeexplore.ieee.org/abstract/document/1098903)]
+
+#### Natural ES (NES)
+
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SGES (Search Gradient ES)
+  [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
 
 For any new/missed BBO, we have provided **a unified API** to freely add if they can well
 satisfy the [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html)
