@@ -135,11 +135,6 @@ class ES(Optimizer):
     <https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6>`_
     In Optimization: Methods and Applications, Possibilities and Limitations (pp. 106-126).
     Springer, Berlin, Heidelberg.
-
-    Schwefel, H.P., 1988.
-    `Collective intelligence in evolving systems.
-    <https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8>`_
-    In Ecodynamics (pp. 95-100). Springer, Berlin, Heidelberg.
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
