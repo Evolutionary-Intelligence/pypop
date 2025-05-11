@@ -368,22 +368,24 @@ etc.
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) OPOC2006
   [[Igel et al., 2006, GECCO](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
 * ![c](https://img.shields.io/badge/**-c-blue.svg) MAES
+  (Matrix Adaptation ES)
   [[Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 * ![c](https://img.shields.io/badge/**-c-blue.svg) DDCMA
   (Diagonal Decoding CMA)
   [[Akimoto&Hansen, 2020,
   ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
-* ![b](https://img.shields.io/badge/*-b-lightgrey.svg)
-  SAES (Self-Adaptation ES)
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SAMAES
+  (Self-Adaptation MAES)
+  [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870)]
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SAES
+  (Self-Adaptation ES)
   [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870),
   [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
-* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) CSAES (Cumulative Step-size Adaptation ES)
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) CSAES
+  (Cumulative Step-size Adaptation ES)
   [[Hansen et al., 2015, Springer Handbook of
   Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Ostermeier et al., 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_263)]
-* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SAMAES
-  (Self-Adaptation Matrix Adaptation ES)
-  [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) DSAES
   (Derandomized SAES)
   [[Hansen et al., 2015, Springer Handbook of
