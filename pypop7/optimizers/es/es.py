@@ -140,12 +140,6 @@ class ES(Optimizer):
     `Collective intelligence in evolving systems.
     <https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8>`_
     In Ecodynamics (pp. 95-100). Springer, Berlin, Heidelberg.
-
-    Schwefel, H.P., 1984.
-    `Evolution strategies: A family of non-linear optimization techniques based on imitating
-    some principles of organic evolution.
-    <https://link.springer.com/article/10.1007/BF01876146>`_
-    Annals of Operations Research, 1(2), pp.165-167.
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
