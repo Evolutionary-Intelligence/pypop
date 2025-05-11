@@ -235,10 +235,6 @@ etc.
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Self-Adaptation Matrix Adaptation ES
     (**[SAMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/samaes.py)**)
     [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870)]
-    * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Self-Adaptation ES
-      (**[SAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/saes.py)**)
-      [e.g., [Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870),
-      [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
 * **Natural ES (NES)**
   [e.g., [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html),
   [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html),
@@ -374,12 +370,16 @@ etc.
   (Diagonal Decoding CMA)
   [[Akimoto&Hansen, 2020,
   ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix)]
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg)
+  SAES (Self-Adaptation ES)
+  [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870),
+  [Beyer, 2007, Scholarpedia](http://www.scholarpedia.org/article/Evolution_strategies)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) CSAES (Cumulative Step-size Adaptation ES)
   [[Hansen et al., 2015, Springer Handbook of
   Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Ostermeier et al., 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_263)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) DSAES
-  (Derandomized Self-Adaptation ES)
+  (Derandomized SAES)
   [[Hansen et al., 2015, Springer Handbook of
   Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Ostermeier et al., 1994,
