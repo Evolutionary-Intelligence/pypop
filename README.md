@@ -188,7 +188,7 @@ This is an **algorithm-centric** rather than *benchmarking-centric* Python libra
 [NeverGrad](),
 [IOHprofiler]()).
 
-### **Evolution Strategies (ES)**
+### Evolution Strategies (ES)
 
 For ```ES```, please refer to e.g.,
 [[JMLR-2017]](https://www.jmlr.org/papers/v18/14-467.html),
@@ -232,10 +232,9 @@ etc.
   [Hansen et al., 2003, ECJ](https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized),
   [Hansen et al., 2001, ECJ](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in),
   [Hansen&Ostermeier, 1996, CEC](https://ieeexplore.ieee.org/abstract/document/542381)]
-  * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Self-Adaptation Matrix Adaptation ES
-    (**[SAMAES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/samaes.py)**)
-    [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870)]
-* **Natural ES (NES)**
+
+### Natural ES (NES)
+
   [e.g., [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html),
   [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html),
   [Yi et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522),
@@ -378,6 +377,9 @@ etc.
   [[Hansen et al., 2015, Springer Handbook of
   Computational Intelligence](https://link.springer.com/chapter/10.1007/978-3-662-43505-2_44),
   [Ostermeier et al., 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_263)]
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SAMAES
+  (Self-Adaptation Matrix Adaptation ES)
+  [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) DSAES
   (Derandomized SAES)
   [[Hansen et al., 2015, Springer Handbook of
@@ -403,6 +405,8 @@ etc.
 
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SGES (Search Gradient ES)
   [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
+
+#### An Open Interface to New and Missed BBO
 
 For any new/missed BBO, we have provided **a unified API** to freely add if they can well
 satisfy the [design philosophy](https://pypop.readthedocs.io/en/latest/design-philosophy.html)
