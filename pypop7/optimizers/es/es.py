@@ -119,11 +119,6 @@ class ES(Optimizer):
     Berlin: Springer.
 
     http://www.scholarpedia.org/article/Evolution_strategies
-
-    Beyer, H.G. and Schwefel, H.P., 2002.
-    `Evolution strategies–A comprehensive introduction.
-    <https://link.springer.com/article/10.1023/A:1015059928466>`_
-    Natural Computing, 1(1), pp.3-52.
     """
     def __init__(self, problem, options):
         Optimizer.__init__(self, problem, options)
