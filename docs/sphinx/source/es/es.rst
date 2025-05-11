@@ -38,6 +38,10 @@ Evolution Strategies (ES)
 Reference
 ---------
 
+* Schwefel, H.P., 1988.
+  `Collective intelligence in evolving systems.
+  <https://link.springer.com/chapter/10.1007/978-3-642-73953-8_8>`_
+  In Ecodynamics (pp. 95-100). Springer.
 * Schwefel, H.P., 1984.
   `Evolution strategies: A family of non-linear optimization techniques based on imitating
   some principles of organic evolution.
