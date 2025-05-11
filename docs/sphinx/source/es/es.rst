@@ -33,6 +33,17 @@ Evolution Strategies (ES)
    ssaes
    res
 
+
+
+Reference
+---------
+* Rechenberg, I., 1984.
+  `The evolution strategy. A mathematical model of darwinian evolution.
+  <https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13>`_
+  In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer, Berlin, Heidelberg.
+
+
+
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-ES
