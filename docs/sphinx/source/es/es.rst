@@ -38,6 +38,10 @@ Evolution Strategies (ES)
 Reference
 ---------
 
+* Rechenberg, I., 2000.
+  `Case studies in evolutionary experimentation and computation.
+  <https://www.sciencedirect.com/science/article/abs/pii/S0045782599003813>`_
+  Computer Methods in Applied Mechanics and Engineering, 186(2-4), pp.125-140.
 * Rechenberg, I., 1989.
   `Evolution strategy: Nature’s way of optimization.
   <https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6>`_
