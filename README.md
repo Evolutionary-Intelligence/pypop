@@ -344,7 +344,7 @@ etc.
 
 ### Various Variants and Versions
 
-Here various *variants* and *varsions* of these above algorithm families of BBO
+Here various *variants* and *versions* of these above algorithm families of BBO
 are given below and still classified into three groups (*lso*, *c*, and *b*).
 
 #### Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))
