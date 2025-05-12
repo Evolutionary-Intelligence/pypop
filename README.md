@@ -344,6 +344,9 @@ etc.
 
 ### Various Variants and Versions
 
+Here various *variants* and *varsions* of these above algorithm families of BBO
+are given below and still classified into three groups (*lso*, *c*, and *b*).
+
 #### Evolution Strategies ([ES](https://tinyurl.com/ycd8dyz4))
 
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) LMCMA
