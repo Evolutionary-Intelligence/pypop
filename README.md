@@ -261,24 +261,28 @@ etc.
 
 ### Estimation of Distribution Algorithms (EDA)
 
-  [e.g., [Brookes et al., 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389938),
-  [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5),
-  [Pelikan et al., 2002](https://link.springer.com/article/10.1023/A:1013500812258),
-  [Mühlenbein&Paaß, 1996, PPSN](https://link.springer.com/chapter/10.1007/3-540-61723-X_982),
-  [Baluja&Caruana, 1995, ICML](https://www.sciencedirect.com/science/article/pii/B9781558603776500141)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Random-Projection EDA
-    (**[RPEDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/rpeda.py)**)
-    [[Kabán et al., 2016, ECJ](https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Univariate Marginal Distribution Algorithm
-    (**[UMDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/umda.py)**)
-    [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5),
-    [Mühlenbein, 1997, ECJ](https://tinyurl.com/yt78c786)]
-  * ![c](https://img.shields.io/badge/**-c-blue.svg) Adaptive Estimation of Multivariate Normal Algorithm
-    (**[AEMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/aemna.py)**)
-    [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
-  * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Estimation of Multivariate Normal Algorithm
-    (**[EMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/emna.py)**)
-    [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
+For ```EDA```, please refer to e.g.,
+[Brookes et al., 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389938),
+[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5),
+[Pelikan et al., 2002](https://link.springer.com/article/10.1023/A:1013500812258),
+[Mühlenbein&Paaß, 1996, PPSN](https://link.springer.com/chapter/10.1007/3-540-61723-X_982),
+[Baluja&Caruana, 1995, ICML](https://www.sciencedirect.com/science/article/pii/B9781558603776500141)],
+etc.
+
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Random-Projection EDA
+  (**[RPEDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/rpeda.py)**)
+  [[Kabán et al., 2016, ECJ](https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix)]
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Univariate Marginal Distribution Algorithm
+  (**[UMDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/umda.py)**)
+  [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5),
+  [Mühlenbein, 1997, ECJ](https://tinyurl.com/yt78c786)]
+* ![c](https://img.shields.io/badge/**-c-blue.svg) Adaptive Estimation of Multivariate Normal Algorithm
+  (**[AEMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/aemna.py)**)
+  [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Estimation of Multivariate Normal Algorithm
+  (**[EMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/emna.py)**)
+  [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
+
 * **Cross-Entropy Method ([CEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/cem.py))**
   [e.g., [Rubinstein&Kroese, 2016](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980),
   [Hu et al., 2007, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367),
