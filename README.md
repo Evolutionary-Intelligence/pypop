@@ -243,7 +243,7 @@ For ```NES```, please refer to e.g.,
 etc.
 
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Projection-based Covariance Matrix Adaptation
-  (**[VKDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/vkdcma.py)**)
+  (**VKDCMA**)
   [[Akimoto&Hansen, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_1),
   [Akimoto&Hansen, 2016, GECCO](https://dl.acm.org/doi/abs/10.1145/2908812.2908863)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Linear Covariance Matrix Adaptation
@@ -270,7 +270,7 @@ For ```EDA```, please refer to e.g.,
 etc.
 
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Random-Projection EDA
-  (**[RPEDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/rpeda.py)**)
+  (**RPEDA**)
   [[Kabán et al., 2016, ECJ](https://direct.mit.edu/evco/article-abstract/24/2/255/1016/Toward-Large-Scale-Continuous-EDA-A-Random-Matrix)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Univariate Marginal Distribution Algorithm
   (**[UMDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/umda.py)**)
@@ -278,9 +278,6 @@ etc.
   [Mühlenbein, 1997, ECJ](https://tinyurl.com/yt78c786)]
 * ![c](https://img.shields.io/badge/**-c-blue.svg) Adaptive Estimation of Multivariate Normal Algorithm
   (**[AEMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/aemna.py)**)
-  [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
-* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Estimation of Multivariate Normal Algorithm
-  (**[EMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/emna.py)**)
   [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
 
 * **Cross-Entropy Method ([CEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/cem.py))**
@@ -417,6 +414,12 @@ are given below and still classified into three groups (*lso*, *c*, and *b*).
   [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SGES (Search Gradient ES)
   [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
+
+#### Estimation of Distribution Algorithms (EDA)
+
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) EMNA
+  (Estimation of Multivariate Normal Algorithm)
+  [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
 
 #### An Open Interface to New and Missed BBO
 
