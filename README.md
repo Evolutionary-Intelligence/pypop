@@ -418,7 +418,6 @@ are given below and still classified into three groups (*lso*, *c*, and *b*).
 #### Estimation of Distribution Algorithms (EDA)
 
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) EMNA
-  (Estimation of Multivariate Normal Algorithm)
   [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
 
 #### An Open Interface to New and Missed BBO
