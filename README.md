@@ -277,12 +277,16 @@ etc.
   [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5),
   [Mühlenbein, 1997, ECJ](https://tinyurl.com/yt78c786)]
 
-* **Cross-Entropy Method ([CEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/cem.py))**
-  [e.g., [Rubinstein&Kroese, 2016](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980),
-  [Hu et al., 2007, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367),
-  [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0),
-  [De Boer et al., 2005, AOR](https://link.springer.com/article/10.1007/s10479-005-5724-z),
-  [Rubinstein&Kroese, 2004](https://link.springer.com/book/10.1007/978-1-4757-4321-0)]
+### Cross-Entropy Method (CEM)
+
+For ```CEM```, please refer to e.g.,
+[Rubinstein&Kroese, 2016](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980),
+[Hu et al., 2007, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367),
+[Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0),
+[De Boer et al., 2005, AOR](https://link.springer.com/article/10.1007/s10479-005-5724-z),
+[Rubinstein&Kroese, 2004](https://link.springer.com/book/10.1007/978-1-4757-4321-0)],
+etc.
+
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Differentiable CEM
     (**[DCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/dcem.py)**)
     [[Amos&Yarats, 2020, ICML](https://proceedings.mlr.press/v119/amos20a.html)]
