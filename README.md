@@ -276,9 +276,6 @@ etc.
   (**[UMDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/umda.py)**)
   [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5),
   [Mühlenbein, 1997, ECJ](https://tinyurl.com/yt78c786)]
-* ![c](https://img.shields.io/badge/**-c-blue.svg) Adaptive Estimation of Multivariate Normal Algorithm
-  (**[AEMNA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/aemna.py)**)
-  [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
 
 * **Cross-Entropy Method ([CEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/cem.py))**
   [e.g., [Rubinstein&Kroese, 2016](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118631980),
@@ -417,6 +414,9 @@ are given below and still classified into three groups (*lso*, *c*, and *b*).
 
 #### Estimation of Distribution Algorithms (EDA)
 
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) AEMNA
+  (Adaptive Estimation of Multivariate Normal Algorithm)
+  [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) EMNA
   [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
 
