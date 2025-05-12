@@ -235,7 +235,7 @@ etc.
 
 ### Natural ES (NES)
 
-For ```ES```, please refer to e.g.,
+For ```NES```, please refer to e.g.,
 [Hüttenrauch&Neumann, 2024, JMLR](https://www.jmlr.org/papers/v25/22-0564.html),
 [Wierstra et al., 2014, JMLR](https://jmlr.org/papers/v15/wierstra14a.html),
 [Yi et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522),
@@ -261,12 +261,9 @@ etc.
 * ![c](https://img.shields.io/badge/**-c-blue.svg) Exact NES
   (**[ENES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/enes.py)**)
   [[Sun et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522)]
-* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Original NES
-  (**[ONES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/ones.py)**)
-  [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
 
-* **Estimation of Distribution Algorithms
-  ([EDA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/eda/eda.py))**
+### Estimation of Distribution Algorithms (EDA)
+
   [e.g., [Brookes et al., 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389938),
   [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5),
   [Pelikan et al., 2002](https://link.springer.com/article/10.1023/A:1013500812258),
@@ -408,6 +405,9 @@ etc.
 
 #### Natural ES (NES)
 
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) ONES
+  (Original NES)
+  [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) SGES (Search Gradient ES)
   [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
 
