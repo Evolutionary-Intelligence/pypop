@@ -252,9 +252,6 @@ etc.
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-1 NES
   (**[R1NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/r1nes.py)**)
   [[Sun et al., 2013, GECCO](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable NES
-  (**[SNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/snes.py)**)
-  [[Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
 * ![c](https://img.shields.io/badge/**-c-blue.svg) Exponential NES
   (**[XNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/xnes.py)**)
   [[Glasmachers et al., 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830557)]
@@ -408,6 +405,9 @@ are given below and still classified into three groups (*lso*, *c*, and *b*).
 
 #### Natural ES (NES)
 
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) SNES
+  (Separable NES)
+  [[Schaul et al., 2011, GECCO](https://dl.acm.org/doi/abs/10.1145/2001576.2001692)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) ONES
   (Original NES)
   [[Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/abstract/document/4631255)]
