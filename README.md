@@ -287,17 +287,20 @@ For ```CEM```, please refer to e.g.,
 [Rubinstein&Kroese, 2004](https://link.springer.com/book/10.1007/978-1-4757-4321-0)],
 etc.
 
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Differentiable CEM
-    (**[DCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/dcem.py)**)
-    [[Amos&Yarats, 2020, ICML](https://proceedings.mlr.press/v119/amos20a.html)]
-  * ![c](https://img.shields.io/badge/**-c-blue.svg) Dynamic-Smoothing CEM
-    (**[DSCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/dscem.py)**)
-    [[Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0)]
-  * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Model Reference Adaptive Search
-    (**[MRAS](https://tinyurl.com/yfr6nadn)**)
-    [[Hu et al., 2007, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367)]
-  * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Standard CEM (**[SCEM](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cem/scem.py)**) [e.g. [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0)]
-* **Differential Evolution ([DE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/de.py))** [e.g., [Price, 2013](https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8); [Price et al., 2005](https://link.springer.com/book/10.1007/3-540-31306-0); [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Differentiable CEM
+  (**DCEM**)
+  [[Amos&Yarats, 2020, ICML](https://proceedings.mlr.press/v119/amos20a.html)]
+* ![c](https://img.shields.io/badge/**-c-blue.svg) Dynamic-Smoothing CEM
+  (**DSCEM**)
+  [[Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0)]
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Standard CEM
+  (**SCEM**)
+  [e.g. [Kroese et al., 2006, MCAP](https://link.springer.com/article/10.1007/s11009-006-9753-0)]
+
+### Differential Evolution (DE)
+
+[e.g., [Price, 2013](https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8); [Price et al., 2005](https://link.springer.com/book/10.1007/3-540-31306-0); [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
+
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Success-History based Adaptive DE (**[SHADE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/shade.py)**) [[Tanabe&Fukunaga, 2013, CEC](https://ieeexplore.ieee.org/document/6557555)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Adaptive DE (**[JADE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/jade.py)**) [[Zhang&Sanderson, 2009, TEVC](https://doi.org/10.1109/TEVC.2009.2014613)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Composite DE (**[CODE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/code.py)**) [[Wang et al., 2011, TEVC](https://doi.org/10.1109/TEVC.2010.2087271)]
@@ -423,6 +426,12 @@ are given below and still classified into three groups (*lso*, *c*, and *b*).
   [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) EMNA
   [[Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5)]
+
+#### Cross-Entropy Method (CEM)
+
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) MRAS
+  (Model Reference Adaptive Search)
+  [[Hu et al., 2007, OR](https://pubsonline.informs.org/doi/abs/10.1287/opre.1060.0367)]
 
 #### An Open Interface to New and Missed BBO
 
