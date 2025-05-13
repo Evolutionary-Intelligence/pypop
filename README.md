@@ -312,7 +312,19 @@ etc.
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Trigonometric-mutation DE (**[TDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/tde.py)**) [[Fan&Lampinen, 2003, JGO](https://link.springer.com/article/10.1023/A:1024653025686)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Classic DE (**[CDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/cde.py)**) [e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 
-* **Particle Swarm Optimizer ([PSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/pso.py))** [e.g., [Fornasier et al., 2021, JMLR](https://jmlr.csail.mit.edu/papers/v22/21-0259.html); [Bonyadi&Michalewicz, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective); [Rahmat-Samii et al., 2012, PIEEE](https://ieeexplore.ieee.org/document/6204306); [Escalante et al., 2009, JMLR](https://www.jmlr.org/papers/v10/escalante09a.html); [Dorigo et al., 2008](http://www.scholarpedia.org/article/Particle_swarm_optimization); [Poli et al., 2007, SI](https://link.springer.com/article/10.1007/s11721-007-0002-0); [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146); [Kennedy&Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
+* Particle Swarm Optimizer (PSO)
+
+For ```PSO```, please refer to e.g.,
+[Fornasier et al., 2021, JMLR](https://jmlr.csail.mit.edu/papers/v22/21-0259.html);
+[Bonyadi&Michalewicz, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/1/1040/Particle-Swarm-Optimization-for-Single-Objective);
+[Rahmat-Samii et al., 2012, PIEEE](https://ieeexplore.ieee.org/document/6204306);
+[Escalante et al., 2009, JMLR](https://www.jmlr.org/papers/v10/escalante09a.html);
+[Dorigo et al., 2008, Scholarpedia](http://www.scholarpedia.org/article/Particle_swarm_optimization);
+[Poli et al., 2007, SI](https://link.springer.com/article/10.1007/s11721-007-0002-0);
+[Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146);
+[Kennedy&Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)],
+etc.
+
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Cooperative Coevolving PSO (**[CCPSO2](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/ccpso2.py)**) [[Li&Yao, 2012, TEVC](https://ieeexplore.ieee.org/document/5910380/)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Incremental PSO (**[IPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/ipso.py)**) [[de Oca et al., 2011, TSMCB](https://ieeexplore.ieee.org/document/5582312)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Cooperative PSO (**[CPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/cpso.py)**) [[Van den Bergh&Engelbrecht, 2004, TEVC](https://ieeexplore.ieee.org/document/1304845)]
