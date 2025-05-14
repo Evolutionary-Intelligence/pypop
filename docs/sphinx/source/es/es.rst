@@ -65,6 +65,14 @@ Reference
   <https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13>`_
   In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer.
 
+Weighted Recombination
+----------------------
+
+* Akimoto, Y., Auger, A. and Hansen, N., 2017, January.
+  Quality gain analysis of the weighted recombination evolution strategy
+  on general convex quadratic functions.
+  In Proceedings of ACM/SIGEVO Conference on Foundations of Genetic Algorithms (pp. 111-126). ACM.
+
 
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
