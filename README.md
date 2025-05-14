@@ -312,7 +312,7 @@ etc.
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Trigonometric-mutation DE (**[TDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/tde.py)**) [[Fan&Lampinen, 2003, JGO](https://link.springer.com/article/10.1023/A:1024653025686)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Classic DE (**[CDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/cde.py)**) [e.g. [Storn&Price, 1997, JGO](https://link.springer.com/article/10.1023/A:1008202821328)]
 
-* Particle Swarm Optimizer (PSO)
+### Particle Swarm Optimizer (PSO)
 
 For ```PSO```, please refer to e.g.,
 [Fornasier et al., 2021, JMLR](https://jmlr.csail.mit.edu/papers/v22/21-0259.html);
@@ -331,6 +331,7 @@ etc.
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Comprehensive Learning PSO (**[CLPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/clpso.py)**) [[Liang et al., 2006, TEVC](https://ieeexplore.ieee.org/abstract/document/1637688)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Standard PSO with a Local (ring) topology (**[SPSOL](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spsol.py)**) [e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146); [Kennedy&Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
   * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Standard PSO with a global topology (**[SPSO](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/pso/spso.py)**) [e.g. [Shi&Eberhart, 1998, CEC](https://ieeexplore.ieee.org/abstract/document/699146); [Kennedy&Eberhart, 1995, ICNN](https://ieeexplore.ieee.org/document/488968)]
+
 * **Cooperative Co-evolution ([CC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/cc.py))** [e.g., [Gomez et al., 2008, JMLR](https://jmlr.org/papers/v9/gomez08a.html); [Panait et al., 2008, JMLR](https://www.jmlr.org/papers/v9/panait08a.html); [Moriarty&Miikkulainen, 1995, ICML](https://www.sciencedirect.com/science/article/pii/B9781558603776500566); [Potter&De Jong, 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_269)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Hierarchical CC (**[HCC](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/hcc.py)**) [[Mei et al., 2016, ACM-TOMS](https://dl.acm.org/doi/10.1145/2791291); [Gomez&Schmidhuber, 2005, ACM-GECCO](https://dl.acm.org/doi/10.1145/1068009.1068092)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) CoOperative CMA (**[COCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/cc/cocma.py)**) [[Mei et al., 2016, ACM-TOMS](https://dl.acm.org/doi/10.1145/2791291); [Potter&De Jong, 1994, PPSN](https://link.springer.com/chapter/10.1007/3-540-58484-6_269)]
