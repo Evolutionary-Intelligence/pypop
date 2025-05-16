@@ -72,6 +72,9 @@ Weighted Recombination
   Quality gain analysis of the weighted recombination evolution strategy
   on general convex quadratic functions.
   In Proceedings of ACM/SIGEVO Conference on Foundations of Genetic Algorithms (pp. 111-126). ACM.
+* Arnold, D.V., 2006.
+  Weighted multirecombination evolution strategies.
+  Theoretical Computer Science, 361(1), pp.18-37.
 
 
 
