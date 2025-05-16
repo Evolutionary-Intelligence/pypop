@@ -359,10 +359,18 @@ etc.
 * ![c](https://img.shields.io/badge/**-c-blue.svg) Corana et al.' SA (**[CSA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/csa.py)**) [[Corana et al., 1987, TOMS](https://dl.acm.org/doi/abs/10.1145/29380.29864)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Noisy SA (**[NSA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/sa/nsa.py)**) [[Bouttier&Gavra, 2019, JMLR](https://www.jmlr.org/papers/v20/16-588.html)]
 
-* **Genetic Algorithms ([GA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/ga.py))** [e.g., [Forrest, 1993, Science](https://www.science.org/doi/abs/10.1126/science.8346439); [Holland, 1973, SICOMP](https://epubs.siam.org/doi/10.1137/0202009); [Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)]
-  * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Global and Local genetic algorithm (**[GL25](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/gl25.py)**) [[García-Martínez et al., 2008, EJOR](https://www.sciencedirect.com/science/article/abs/pii/S0377221706006308)]
-  * ![c](https://img.shields.io/badge/**-c-blue.svg) Generalized Generation Gap with Parent-Centric Recombination (**[G3PCX](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/g3pcx.py)**) [[Deb et al., 2002, ECJ](https://direct.mit.edu/evco/article-abstract/10/4/371/1136/A-Computationally-Efficient-Evolutionary-Algorithm)]
-  * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) GENetic ImplemenTOR (**[GENITOR](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/genitor.py)**) [e.g. [Whitley et al., 1993, MLJ](https://link.springer.com/article/10.1023/A:1022674030396)]
+### Genetic Algorithms ([GA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/ga.py))
+
+For ```GA```, please refer to e.g.,
+[Forrest, 1993, Science](https://www.science.org/doi/abs/10.1126/science.8346439);
+[Holland, 1973, SICOMP](https://epubs.siam.org/doi/10.1137/0202009);
+[Holland, 1962, JACM](https://dl.acm.org/doi/10.1145/321127.321128)],
+etc.
+
+* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Global and Local genetic algorithm (**[GL25](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/gl25.py)**) [[García-Martínez et al., 2008, EJOR](https://www.sciencedirect.com/science/article/abs/pii/S0377221706006308)]
+* ![c](https://img.shields.io/badge/**-c-blue.svg) Generalized Generation Gap with Parent-Centric Recombination (**[G3PCX](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/g3pcx.py)**) [[Deb et al., 2002, ECJ](https://direct.mit.edu/evco/article-abstract/10/4/371/1136/A-Computationally-Efficient-Evolutionary-Algorithm)]
+* ![b](https://img.shields.io/badge/*-b-lightgrey.svg) GENetic ImplemenTOR (**[GENITOR](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ga/genitor.py)**) [e.g. [Whitley et al., 1993, MLJ](https://link.springer.com/article/10.1023/A:1022674030396)]
+
 * **Evolutionary Programming ([EP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/ep.py))** [e.g., [Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163); [Fogel, 1994, Statistics and Computing](https://link.springer.com/article/10.1007/BF00175356)]
   * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Lévy distribution based EP (**[LEP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/lep.py)**) [[Lee&Yao, 2004, TEVC](https://ieeexplore.ieee.org/document/1266370)]
   * ![c](https://img.shields.io/badge/**-c-blue.svg) Fast EP (**[FEP](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/ep/fep.py)**) [[Yao et al., 1999, TEVC](https://ieeexplore.ieee.org/abstract/document/771163)]
