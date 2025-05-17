@@ -162,7 +162,7 @@ particular instances of problems.](https://tinyurl.com/4yccr5k8)"---From
 
 * "[Optimization algorithms are often designed for a specific type of search space, exploiting
 its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)"---From
-**Information-Geometric Optimization in [JMLR-2017]**
+**Information-Geometric Optimization in [JMLR-2017] (CCF-A)**
 
 ******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
 The below classification based on *only* the dimensionality of objective function, is
