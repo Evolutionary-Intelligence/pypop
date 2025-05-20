@@ -1,11 +1,12 @@
-# PyPop7: A Pure-PYthon librarY of POPulation-based continuous OPtimization in black-box cases [CCF-A]
+# PyPop7: A Pure-PYthon librarY of POPulation-based cOntinuous OPtimization in black-box cases [CCF-A]
 
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/MayorIcons.png"
 alt="drawing" width="21" height="21"/> `PyPop7` has been used and cited in one **Nature** paper
 [[Veenstra et al., Nature, 2025]](https://www.nature.com/articles/s41586-025-08646-3) and etc.
 For recently popular *Meta-Black-Box Optimization*, please refer to e.g.,
 [MetaBox](https://github.com/GMC-DRL/MetaBox) from the research team of
-Prof. Gong (South China University of Technology).
+Prof. Gong (South China University of Technology) which has recently provided an interface to
+```PyPop7```.
 
 [![Pub](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
 [![arXiv](https://img.shields.io/badge/arXiv-2022-orange)](https://arxiv.org/abs/2212.05652)
