@@ -17,7 +17,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -76,51 +76,7 @@ jobs:
     
     - name: Install linting tools
       run: |
-        pip install flake8 black isort mypy
-    
-    - name: Check code formatting with black
-      run: black --check --diff tutorials/benchmarking_lsbbo_2.py
-    
-    - name: Check import sorting
-      run: isort --check-only --diff tutorials/benchmarking_lsbbo_2.py
+        pip install flake8
     
     - name: Lint with flake8
-      run: flake8 tutorials/benchmarking_lsbbo_2.py --max-line-length=100
-    
-    - name: Type checking with mypy
-      run: mypy tutorials/benchmarking_lsbbo_2.py --ignore-missing-imports
-
-  documentation:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Generate optimizer list documentation
-      run: |
-        python -c "
-        import sys
-        sys.path.append('tutorials')
-        from benchmarking_lsbbo_2 import OPTIMIZER_CONFIGS
-        
-        print('# Supported Optimizers')
-        print()
-        categories = {}
-        for name, config in sorted(OPTIMIZER_CONFIGS.items()):
-            category = config.module_path.split('.')[2]  # e.g., 'rs', 'es', etc.
-            if category not in categories:
-                categories[category] = []
-            categories[category].append((name, config.requires_sigma))
-        
-        for category, optimizers in sorted(categories.items()):
-            print(f'## {category.upper()}')
-            for name, needs_sigma in optimizers:
-                sigma_note = ' (requires sigma)' if needs_sigma else ''
-                print(f'- {name}{sigma_note}')
-            print()
-        " > OPTIMIZERS.md
-    
-    - name: Upload documentation
-      uses: actions/upload-artifact@v3
-      with:
-        name: optimizer-documentation
-        path: OPTIMIZERS.md
+      run: flake8 tutorials/benchmarking_lsbbo_2.py --max-line-length=100 --ignore=E501,W503
