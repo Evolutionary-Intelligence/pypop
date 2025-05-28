@@ -29,14 +29,14 @@ jobs:
 
     - name: Run syntax check
       run: |
-        python -m py_compile tutorials/benchmarking_lsbbo_2_improved.py
+        python -m py_compile tutorials/benchmarking_lsbbo_2.py
 
     - name: Test optimizer loading
       run: |
         python -c "
         import sys
         sys.path.append('tutorials')
-        from benchmarking_lsbbo_2_improved import get_optimizer_class, OPTIMIZER_CONFIGS
+        from benchmarking_lsbbo_2 import get_optimizer_class, OPTIMIZER_CONFIGS
         
         # Test a few optimizers
         test_optimizers = ['CMAES', 'PRS', 'JADE']
@@ -53,15 +53,15 @@ jobs:
 
     - name: Test argument validation
       run: |
-        python tutorials/benchmarking_lsbbo_2_improved.py --help
+        python tutorials/benchmarking_lsbbo_2.py --help
 
     - name: Test invalid optimizer
       run: |
-        python tutorials/benchmarking_lsbbo_2_improved.py --start 0 --end 0 --optimizer INVALID --ndim_problem 10 || echo "Expected failure for invalid optimizer"
+        python tutorials/benchmarking_lsbbo_2.py --start 0 --end 0 --optimizer INVALID --ndim_problem 10 || echo "Expected failure for invalid optimizer"
 
     - name: Quick integration test
       run: |
-        timeout 60 python tutorials/benchmarking_lsbbo_2_improved.py \
+        timeout 60 python tutorials/benchmarking_lsbbo_2.py \
           --start 0 --end 0 --optimizer CMAES --ndim_problem 2 || true
 
   code-quality:
@@ -79,16 +79,16 @@ jobs:
         pip install flake8 black isort mypy
     
     - name: Check code formatting with black
-      run: black --check --diff tutorials/benchmarking_lsbbo_2_improved.py
+      run: black --check --diff tutorials/benchmarking_lsbbo_2.py
     
     - name: Check import sorting
-      run: isort --check-only --diff tutorials/benchmarking_lsbbo_2_improved.py
+      run: isort --check-only --diff tutorials/benchmarking_lsbbo_2.py
     
     - name: Lint with flake8
-      run: flake8 tutorials/benchmarking_lsbbo_2_improved.py --max-line-length=100
+      run: flake8 tutorials/benchmarking_lsbbo_2.py --max-line-length=100
     
     - name: Type checking with mypy
-      run: mypy tutorials/benchmarking_lsbbo_2_improved.py --ignore-missing-imports
+      run: mypy tutorials/benchmarking_lsbbo_2.py --ignore-missing-imports
 
   documentation:
     runs-on: ubuntu-latest
@@ -100,7 +100,7 @@ jobs:
         python -c "
         import sys
         sys.path.append('tutorials')
-        from benchmarking_lsbbo_2_improved import OPTIMIZER_CONFIGS
+        from benchmarking_lsbbo_2 import OPTIMIZER_CONFIGS
         
         print('# Supported Optimizers')
         print()
