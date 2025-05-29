@@ -7,12 +7,27 @@ import time
 import pickle
 import argparse
 import importlib
-from typing import Dict, Type, Any
-from dataclasses import dataclass
+import json
+import yaml
+from typing import Dict, Type, Any, Optional
+from dataclasses import dataclass, asdict
 
 import numpy as np
 
 import pypop7.benchmarks.continuous_functions as cf
+
+
+@dataclass
+class ExperimentConfig:
+    max_function_evaluations_multiplier: int = 100000
+    max_runtime_hours: float = 3.0
+    fitness_threshold: float = 1e-10
+    saving_fitness: int = 2000
+    boundary_range: float = 10.0
+    sigma_value: float = 20.0 / 3.0
+    random_seed: int = 2022
+    verbose_level: int = 0
+    results_folder: str = "pypop7_benchmarks_lso"
 
 
 @dataclass
@@ -22,6 +37,7 @@ class OptimizerConfig:
     requires_sigma: bool = False
 
 
+# Centralized optimizer configurations
 OPTIMIZER_CONFIGS: Dict[str, OptimizerConfig] = {
     "PRS": OptimizerConfig("pypop7.optimizers.rs.prs", "PRS", True),
     "SRS": OptimizerConfig("pypop7.optimizers.rs.srs", "SRS", True),
@@ -63,6 +79,89 @@ OPTIMIZER_CONFIGS: Dict[str, OptimizerConfig] = {
 }
 
 
+def load_config(config_file: Optional[str] = None) -> ExperimentConfig:
+    config = ExperimentConfig()
+    
+    if config_file and os.path.exists(config_file):
+        try:
+            with open(config_file, 'r') as f:
+                if config_file.endswith('.json'):
+                    config_data = json.load(f)
+                elif config_file.endswith(('.yml', '.yaml')):
+                    config_data = yaml.safe_load(f)
+                else:
+                    raise ValueError("Config file must be JSON or YAML format")
+            
+            # Update config with loaded values
+            for key, value in config_data.items():
+                if hasattr(config, key):
+                    setattr(config, key, value)
+                    
+            print(f"Configuration loaded from {config_file}")
+        except Exception as e:
+            print(f"Warning: Failed to load config from {config_file}: {e}")
+            print("Using default configuration")
+    
+    return config
+
+
+def save_config_template(filename: str = "config_template.yaml") -> None:
+    config = ExperimentConfig()
+    config_dict = asdict(config)
+    
+    config_with_comments = {
+        "# Experiment Configuration Template": None,
+        "max_function_evaluations_multiplier": {
+            "value": config_dict["max_function_evaluations_multiplier"],
+            "description": "Multiplier for max function evaluations (multiplied by problem dimension)"
+        },
+        "max_runtime_hours": {
+            "value": config_dict["max_runtime_hours"], 
+            "description": "Maximum runtime in hours"
+        },
+        "fitness_threshold": {
+            "value": config_dict["fitness_threshold"],
+            "description": "Target fitness threshold for early stopping"
+        },
+        "saving_fitness": {
+            "value": config_dict["saving_fitness"],
+            "description": "Interval for saving fitness data"
+        },
+        "boundary_range": {
+            "value": config_dict["boundary_range"],
+            "description": "Range for problem boundaries (-range to +range)"
+        },
+        "sigma_value": {
+            "value": config_dict["sigma_value"],
+            "description": "Sigma value for optimizers that require it"
+        },
+        "random_seed": {
+            "value": config_dict["random_seed"],
+            "description": "Random seed for reproducibility"
+        },
+        "verbose_level": {
+            "value": config_dict["verbose_level"],
+            "description": "Verbosity level (0=quiet, 1=normal, 2=verbose)"
+        },
+        "results_folder": {
+            "value": config_dict["results_folder"],
+            "description": "Folder to save experiment results"
+        }
+    }
+    
+    simple_config = {k: v for k, v in config_dict.items()}
+    
+    try:
+        with open(filename, 'w') as f:
+            yaml.dump(simple_config, f, default_flow_style=False, sort_keys=False)
+        print(f"Configuration template saved to {filename}")
+    except ImportError:
+        json_filename = filename.replace('.yaml', '.json').replace('.yml', '.json')
+        with open(json_filename, 'w') as f:
+            json.dump(simple_config, f, indent=2)
+        print(f"Configuration template saved to {json_filename} (YAML not available)")
+
+
 def get_optimizer_class(optimizer_name: str) -> Type[Any]:
     if optimizer_name not in OPTIMIZER_CONFIGS:
         available_optimizers = ", ".join(sorted(OPTIMIZER_CONFIGS.keys()))
@@ -86,10 +185,11 @@ def requires_sigma(optimizer_name: str) -> bool:
 
 
 class Experiment(object):
-    def __init__(self, index: int, function: Any, seed: int, ndim_problem: int):
+    def __init__(self, index: int, function: Any, seed: int, ndim_problem: int, config: ExperimentConfig):
         self.index, self.seed = index, seed
         self.function, self.ndim_problem = function, ndim_problem
-        self._folder = "pypop7_benchmarks_lso"
+        self.config = config
+        self._folder = config.results_folder
         if not os.path.exists(self._folder):
             os.makedirs(self._folder)
         self._file = os.path.join(self._folder, "Algo-{}_Func-{}_Dim-{}_Exp-{}.pickle")
@@ -98,21 +198,21 @@ class Experiment(object):
         problem = {
             "fitness_function": self.function,
             "ndim_problem": self.ndim_problem,
-            "upper_boundary": 10.0 * np.ones((self.ndim_problem,)),
-            "lower_boundary": -10.0 * np.ones((self.ndim_problem,)),
+            "upper_boundary": self.config.boundary_range * np.ones((self.ndim_problem,)),
+            "lower_boundary": -self.config.boundary_range * np.ones((self.ndim_problem,)),
         }
 
         options = {
-            "max_function_evaluations": 100000 * self.ndim_problem,
-            "max_runtime": 3600 * 3,
-            "fitness_threshold": 1e-10,
+            "max_function_evaluations": self.config.max_function_evaluations_multiplier * self.ndim_problem,
+            "max_runtime": int(self.config.max_runtime_hours * 3600),  # Convert to seconds
+            "fitness_threshold": self.config.fitness_threshold,
             "seed_rng": self.seed,
-            "saving_fitness": 2000,
-            "verbose": 0,
+            "saving_fitness": self.config.saving_fitness,
+            "verbose": self.config.verbose_level,
         }
 
         if requires_sigma(optimizer_class.__name__):
-            options["sigma"] = 20.0 / 3.0
+            options["sigma"] = self.config.sigma_value
 
         solver = optimizer_class(problem, options)
         results = solver.optimize()
@@ -129,9 +229,10 @@ class Experiment(object):
 
 
 class Experiments(object):
-    def __init__(self, start: int, end: int, ndim_problem: int):
+    def __init__(self, start: int, end: int, ndim_problem: int, config: ExperimentConfig):
         self.start, self.end = start, end
         self.ndim_problem = ndim_problem
+        self.config = config
 
         self.functions = [
             cf.sphere,
@@ -146,7 +247,7 @@ class Experiments(object):
             cf.schwefel12,
         ]
 
-        self.seeds = np.random.default_rng(2022).integers(
+        self.seeds = np.random.default_rng(config.random_seed).integers(
             np.iinfo(np.int64).max, size=(len(self.functions), 50)
         )
 
@@ -158,7 +259,7 @@ class Experiments(object):
                 print(f"  * function: {f.__name__}:")
                 try:
                     experiment = Experiment(
-                        index, f, self.seeds[i, index], self.ndim_problem
+                        index, f, self.seeds[i, index], self.ndim_problem, self.config
                     )
                     experiment.run(optimizer_class)
                     print(f"    runtime: {time.time() - start_time:.5e}.")
@@ -217,18 +318,36 @@ def main() -> None:
         default=2000,
         help="Dimension of fitness function",
     )
+    parser.add_argument(
+        "--config",
+        "-c",
+        type=str,
+        help="Configuration file (JSON or YAML format)",
+    )
+    parser.add_argument(
+        "--save-config-template",
+        action="store_true",
+        help="Save configuration template and exit",
+    )
 
     args = parser.parse_args()
 
     try:
+        if args.save_config_template:
+            save_config_template()
+            return 0
+
+        config = load_config(args.config)
+
         validate_arguments(args)
         optimizer_class = get_optimizer_class(args.optimizer)
 
         print(f"Starting experiments with {args.optimizer} optimizer")
         print(f"Experiments: {args.start} to {args.end}")
         print(f"Problem dimension: {args.ndim_problem}")
+        print(f"Configuration: {config}")
 
-        experiments = Experiments(args.start, args.end, args.ndim_problem)
+        experiments = Experiments(args.start, args.end, args.ndim_problem, config)
         experiments.run(optimizer_class)
 
         print(f"Total runtime: {time.time() - start_runtime:.5e}.")
