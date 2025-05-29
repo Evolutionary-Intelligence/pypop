@@ -19,6 +19,7 @@ import pypop7.benchmarks.continuous_functions as cf
 
 @dataclass
 class ExperimentConfig:
+    """Centralized experiment configuration"""
     max_function_evaluations_multiplier: int = 100000
     max_runtime_hours: float = 3.0
     fitness_threshold: float = 1e-10
@@ -76,10 +77,11 @@ OPTIMIZER_CONFIGS: Dict[str, OptimizerConfig] = {
     "MMES": OptimizerConfig("pypop7.optimizers.es.mmes", "MMES", True),
     "LMCMA": OptimizerConfig("pypop7.optimizers.es.lmcma", "LMCMA", True),
     "LAMCTS": OptimizerConfig("pypop7.optimizers.bo.lamcts", "LAMCTS", True),
-}
+    }
 
 
 def load_config(config_file: Optional[str] = None) -> ExperimentConfig:
+    """Load configuration from file or use defaults"""
     config = ExperimentConfig()
     
     if config_file and os.path.exists(config_file):
@@ -96,61 +98,21 @@ def load_config(config_file: Optional[str] = None) -> ExperimentConfig:
             for key, value in config_data.items():
                 if hasattr(config, key):
                     setattr(config, key, value)
-                    
+
             print(f"Configuration loaded from {config_file}")
         except Exception as e:
             print(f"Warning: Failed to load config from {config_file}: {e}")
             print("Using default configuration")
-    
+
     return config
 
 
 def save_config_template(filename: str = "config_template.yaml") -> None:
     config = ExperimentConfig()
     config_dict = asdict(config)
-    
-    config_with_comments = {
-        "# Experiment Configuration Template": None,
-        "max_function_evaluations_multiplier": {
-            "value": config_dict["max_function_evaluations_multiplier"],
-            "description": "Multiplier for max function evaluations (multiplied by problem dimension)"
-        },
-        "max_runtime_hours": {
-            "value": config_dict["max_runtime_hours"], 
-            "description": "Maximum runtime in hours"
-        },
-        "fitness_threshold": {
-            "value": config_dict["fitness_threshold"],
-            "description": "Target fitness threshold for early stopping"
-        },
-        "saving_fitness": {
-            "value": config_dict["saving_fitness"],
-            "description": "Interval for saving fitness data"
-        },
-        "boundary_range": {
-            "value": config_dict["boundary_range"],
-            "description": "Range for problem boundaries (-range to +range)"
-        },
-        "sigma_value": {
-            "value": config_dict["sigma_value"],
-            "description": "Sigma value for optimizers that require it"
-        },
-        "random_seed": {
-            "value": config_dict["random_seed"],
-            "description": "Random seed for reproducibility"
-        },
-        "verbose_level": {
-            "value": config_dict["verbose_level"],
-            "description": "Verbosity level (0=quiet, 1=normal, 2=verbose)"
-        },
-        "results_folder": {
-            "value": config_dict["results_folder"],
-            "description": "Folder to save experiment results"
-        }
-    }
-    
+
     simple_config = {k: v for k, v in config_dict.items()}
-    
+
     try:
         with open(filename, 'w') as f:
             yaml.dump(simple_config, f, default_flow_style=False, sort_keys=False)
@@ -211,6 +173,7 @@ class Experiment(object):
             "verbose": self.config.verbose_level,
         }
 
+        # Add sigma parameter if required
         if requires_sigma(optimizer_class.__name__):
             options["sigma"] = self.config.sigma_value
 
@@ -234,6 +197,7 @@ class Experiments(object):
         self.ndim_problem = ndim_problem
         self.config = config
 
+        # Test functions for local search ability
         self.functions = [
             cf.sphere,
             cf.cigar,
