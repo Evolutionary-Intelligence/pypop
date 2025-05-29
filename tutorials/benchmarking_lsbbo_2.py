@@ -83,7 +83,7 @@ OPTIMIZER_CONFIGS: Dict[str, OptimizerConfig] = {
 def load_config(config_file: Optional[str] = None) -> ExperimentConfig:
     """Load configuration from file or use defaults"""
     config = ExperimentConfig()
-    
+
     if config_file and os.path.exists(config_file):
         try:
             with open(config_file, 'r') as f:
@@ -93,7 +93,7 @@ def load_config(config_file: Optional[str] = None) -> ExperimentConfig:
                     config_data = yaml.safe_load(f)
                 else:
                     raise ValueError("Config file must be JSON or YAML format")
-            
+
             # Update config with loaded values
             for key, value in config_data.items():
                 if hasattr(config, key):
@@ -325,4 +325,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     exit(main())
-    
