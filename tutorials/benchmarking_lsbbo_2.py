@@ -77,7 +77,7 @@ OPTIMIZER_CONFIGS: Dict[str, OptimizerConfig] = {
     "MMES": OptimizerConfig("pypop7.optimizers.es.mmes", "MMES", True),
     "LMCMA": OptimizerConfig("pypop7.optimizers.es.lmcma", "LMCMA", True),
     "LAMCTS": OptimizerConfig("pypop7.optimizers.bo.lamcts", "LAMCTS", True),
-    }
+}
 
 
 def load_config(config_file: Optional[str] = None) -> ExperimentConfig:
