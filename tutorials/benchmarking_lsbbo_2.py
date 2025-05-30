@@ -253,7 +253,7 @@ class Experiment(object):
 
     def run(self, optimizer_class: Type[Any]) -> bool:
         exp_id = f"{optimizer_class.__name__}_{self.function.__name__}_{self.ndim_problem}_{self.index}"
-    
+
         try:
             self.logger.info(f"Starting experiment: {exp_id}")
 
