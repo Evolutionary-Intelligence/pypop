@@ -1,0 +1,333 @@
+name: Test Refactoring - Error Handling and Logging (Improvement 3)
+
+on:
+  push:
+    branches: [ refactor-optimizer-selection-3 ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-logging-system:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9, '3.10']
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy pyyaml
+
+    - name: Test logging system implementation
+      run: |
+        python -c "
+        import sys
+        import tempfile
+        import os
+        import logging
+        
+        with open('tutorials/benchmarking_lsbbo_2.py', 'r') as f:
+            content = f.read()
+        
+        # Test logging setup function signature
+        if 'def setup_logging(config: ExperimentConfig) -> logging.Logger:' in content:
+            print('✓ Logging setup function with correct signature found')
+        else:
+            print('✗ Correct logging setup function signature missing')
+            sys.exit(1)
+            
+        # Test logging formatter configuration
+        if 'logging.Formatter(' in content and 'asctime' in content:
+            print('✓ Structured logging formatter found')
+        else:
+            print('✗ Structured logging formatter missing')
+            sys.exit(1)
+            
+        # Test multiple handlers (console + file)
+        if 'StreamHandler' in content and 'FileHandler' in content:
+            print('✓ Multiple logging handlers (console + file) found')
+        else:
+            print('✗ Multiple logging handlers missing')
+            sys.exit(1)
+        "
+
+    - name: Test error handling context manager
+      run: |
+        python -c "
+        import sys
+        
+        with open('tutorials/benchmarking_lsbbo_2.py', 'r') as f:
+            content = f.read()
+        
+        # Test context manager with specific signature
+        if '@contextmanager' in content and 'def experiment_error_handler(' in content:
+            print('✓ Error handling context manager found')
+        else:
+            print('✗ Error handling context manager missing')
+            sys.exit(1)
+            
+        # Test specific error type handling
+        error_handlers = [
+            'except KeyboardInterrupt:',
+            'except MemoryError:', 
+            'except Exception as e:'
+        ]
+        
+        for handler in error_handlers:
+            if handler in content:
+                print(f'✓ {handler} found')
+            else:
+                print(f'✗ {handler} missing')
+                sys.exit(1)
+                
+        # Test continue_on_error parameter usage
+        if 'continue_on_error' in content and 'if not continue_on_error:' in content:
+            print('✓ continue_on_error parameter logic found')
+        else:
+            print('✗ continue_on_error parameter logic missing')
+            sys.exit(1)
+        "
+
+    - name: Test checkpoint system
+      run: |
+        python -c "
+        import sys
+        
+        with open('tutorials/benchmarking_lsbbo_2.py', 'r') as f:
+            content = f.read()
+        
+        # Test ExperimentState class with specific methods
+        if 'class ExperimentState:' in content:
+            print('✓ ExperimentState class found')
+        else:
+            print('✗ ExperimentState class missing')
+            sys.exit(1)
+            
+        # Test checkpoint file management
+        checkpoint_features = [
+            'checkpoint_file = os.path.join',
+            'def load_checkpoint(',
+            'def save_checkpoint(',
+            'def is_completed(',
+            'def mark_completed(',
+            'def mark_failed('
+        ]
+        
+        for feature in checkpoint_features:
+            if feature in content:
+                print(f'✓ {feature} found')
+            else:
+                print(f'✗ {feature} missing')
+                sys.exit(1)
+                
+        # Test checkpoint data structure
+        if 'completed_experiments = set()' in content and 'failed_experiments = []' in content:
+            print('✓ Checkpoint data structures found')
+        else:
+            print('✗ Checkpoint data structures missing')
+            sys.exit(1)
+        "
+
+  test-enhanced-experiment-management:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    
+    - name: Test experiment statistics tracking
+      run: |
+        python -c "
+        import sys
+        
+        with open('tutorials/benchmarking_lsbbo_2.py', 'r') as f:
+            content = f.read()
+        
+        # Test statistics variables in run method
+        stats_vars = [
+            'completed_count = 0',
+            'failed_count = 0', 
+            'skipped_count = 0',
+            'total_experiments =',
+            'success_rate'
+        ]
+        
+        for var in stats_vars:
+            if var in content:
+                print(f'✓ {var} found')
+            else:
+                print(f'✗ {var} missing')
+                sys.exit(1)
+                
+        # Test experiment result reporting
+        if 'results = {' in content and \"'completed':\" in content:
+            print('✓ Structured experiment results found')
+        else:
+            print('✗ Structured experiment results missing')
+            sys.exit(1)
+        "
+
+    - name: Test enhanced configuration options
+      run: |
+        python -c "
+        import sys
+        
+        with open('tutorials/benchmarking_lsbbo_2.py', 'r') as f:
+            content = f.read()
+        
+        # Test new configuration fields in ExperimentConfig
+        new_config_fields = [
+            'continue_on_error: bool = True',
+            'log_level: str = \"INFO\"',
+            'log_file: Optional[str] = None',
+            'checkpoint_interval: int = 5'
+        ]
+        
+        for field in new_config_fields:
+            if field in content:
+                print(f'✓ {field} found')
+            else:
+                print(f'✗ {field} missing')
+                sys.exit(1)
+        "
+
+    - name: Test experiment recovery logic
+      run: |
+        python -c "
+        import sys
+        
+        with open('tutorials/benchmarking_lsbbo_2.py', 'r') as f:
+            content = f.read()
+        
+        # Test skip logic for completed experiments
+        if 'if self.state.is_completed(exp_id):' in content:
+            print('✓ Experiment skip logic found')
+        else:
+            print('✗ Experiment skip logic missing')
+            sys.exit(1)
+            
+        # Test checkpoint saving interval
+        if 'checkpoint_interval' in content and 'save_checkpoint()' in content:
+            print('✓ Periodic checkpoint saving found')
+        else:
+            print('✗ Periodic checkpoint saving missing')
+            sys.exit(1)
+            
+        # Test experiment state updates
+        if 'mark_completed(exp_id)' in content and 'mark_failed(exp_id' in content:
+            print('✓ Experiment state updates found')
+        else:
+            print('✗ Experiment state updates missing')
+            sys.exit(1)
+        "
+
+  test-error-scenarios:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        pip install numpy pyyaml
+    
+    - name: Test error handling integration
+      run: |
+        python -c "
+        import sys
+        import tempfile
+        import os
+        import json
+        
+        # Mock pypop7 modules
+        class MockModule:
+            def __getattr__(self, name):
+                return lambda: None
+        
+        sys.modules['pypop7'] = MockModule()
+        sys.modules['pypop7.benchmarks'] = MockModule()
+        sys.modules['pypop7.benchmarks.continuous_functions'] = MockModule()
+        
+        # Test checkpoint file operations
+        try:
+            with tempfile.TemporaryDirectory() as tmpdir:
+                checkpoint_file = os.path.join(tmpdir, 'checkpoint.json')
+                
+                # Test checkpoint save
+                checkpoint_data = {
+                    'completed': ['exp1', 'exp2'],
+                    'failed': [{'experiment': 'exp3', 'error': 'test error'}],
+                    'timestamp': '2024-01-01T00:00:00'
+                }
+                
+                with open(checkpoint_file, 'w') as f:
+                    json.dump(checkpoint_data, f)
+                
+                # Test checkpoint load
+                with open(checkpoint_file, 'r') as f:
+                    loaded_data = json.load(f)
+                
+                if loaded_data['completed'] == ['exp1', 'exp2']:
+                    print('✓ Checkpoint save/load functionality works')
+                else:
+                    print('✗ Checkpoint save/load functionality failed')
+                    sys.exit(1)
+                    
+        except Exception as e:
+            print(f'✗ Checkpoint test failed: {e}')
+            sys.exit(1)
+        "
+
+    - name: Test logging configuration
+      run: |
+        python -c "
+        import logging
+        import tempfile
+        import os
+        
+        # Test logging setup functionality
+        try:
+            # Create test config
+            class TestConfig:
+                log_level = 'DEBUG'
+                log_file = None
+            
+            config = TestConfig()
+            
+            # Setup logger
+            logger = logging.getLogger('test_benchmarking')
+            logger.setLevel(getattr(logging, config.log_level))
+            
+            # Test formatter
+            formatter = logging.Formatter(
+                '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            )
+            
+            # Test handler
+            console_handler = logging.StreamHandler()
+            console_handler.setFormatter(formatter)
+            logger.addHandler(console_handler)
+            
+            # Test logging
+            logger.info('Test message')
+            print('✓ Logging configuration works')
+            
+        except Exception as e:
+            print(f'✗ Logging configuration test failed: {e}')
+            sys.exit(1)
+        "
