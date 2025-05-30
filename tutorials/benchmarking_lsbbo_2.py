@@ -90,24 +90,24 @@ OPTIMIZER_CONFIGS: Dict[str, OptimizerConfig] = {
 def setup_logging(config: ExperimentConfig) -> logging.Logger:
     logger = logging.getLogger('benchmarking')
     logger.setLevel(getattr(logging, config.log_level.upper()))
-    
+
     if logger.handlers:
         logger.handlers.clear()
-    
+
     formatter = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S'
     )
-    
+
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
-    
+
     if config.log_file:
         file_handler = logging.FileHandler(config.log_file)
         file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
-    
+
     return logger
 
 
@@ -202,7 +202,7 @@ class ExperimentState:
         self.completed_experiments = set()
         self.failed_experiments = []
         self.load_checkpoint()
-    
+
     def load_checkpoint(self):
         if os.path.exists(self.checkpoint_file):
             try:
@@ -212,7 +212,7 @@ class ExperimentState:
                     self.failed_experiments = data.get('failed', [])
             except Exception:
                 pass
-    
+
     def save_checkpoint(self):
         checkpoint_data = {
             'completed': list(self.completed_experiments),
@@ -224,13 +224,13 @@ class ExperimentState:
                 json.dump(checkpoint_data, f, indent=2)
         except Exception:
             pass
-    
+
     def is_completed(self, exp_id: str) -> bool:
         return exp_id in self.completed_experiments
-    
+
     def mark_completed(self, exp_id: str):
         self.completed_experiments.add(exp_id)
-    
+
     def mark_failed(self, exp_id: str, error: str):
         self.failed_experiments.append({
             'experiment': exp_id,
@@ -240,7 +240,7 @@ class ExperimentState:
 
 
 class Experiment(object):
-    def __init__(self, index: int, function: Any, seed: int, ndim_problem: int, 
+    def __init__(self, index: int, function: Any, seed: int, ndim_problem: int,
                  config: ExperimentConfig, logger: logging.Logger):
         self.index, self.seed = index, seed
         self.function, self.ndim_problem = function, ndim_problem
@@ -253,10 +253,10 @@ class Experiment(object):
 
     def run(self, optimizer_class: Type[Any]) -> bool:
         exp_id = f"{optimizer_class.__name__}_{self.function.__name__}_{self.ndim_problem}_{self.index}"
-        
+    
         try:
             self.logger.info(f"Starting experiment: {exp_id}")
-            
+
             problem = {
                 "fitness_function": self.function,
                 "ndim_problem": self.ndim_problem,
@@ -288,10 +288,10 @@ class Experiment(object):
 
             with open(file, "wb") as handle:
                 pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
-            
+
             self.logger.info(f"Experiment completed successfully: {exp_id}")
             return True
-            
+
         except Exception as e:
             self.logger.error(f"Experiment failed: {exp_id}")
             self.logger.error(f"Error: {str(e)}")
@@ -329,33 +329,33 @@ class Experiments(object):
         completed_count = 0
         failed_count = 0
         skipped_count = 0
-        
+
         self.logger.info(f"Starting {total_experiments} experiments with {optimizer_class.__name__}")
-        
+
         for index in range(self.start, self.end + 1):
             self.logger.info(f"Experiment batch {index}")
             print(f"* experiment: {index} ***:")
-            
+
             for i, f in enumerate(self.functions):
                 exp_id = f"{optimizer_class.__name__}_{f.__name__}_{self.ndim_problem}_{index}"
-                
+
                 if self.state.is_completed(exp_id):
                     self.logger.info(f"Skipping completed experiment: {exp_id}")
                     print(f"  * function: {f.__name__}: SKIPPED (already completed)")
                     skipped_count += 1
                     continue
-                
+
                 start_time = time.time()
                 print(f"  * function: {f.__name__}:")
-                
+
                 with experiment_error_handler(self.logger, exp_id, self.config.continue_on_error):
                     experiment = Experiment(
                         index, f, self.seeds[i, index], self.ndim_problem, self.config, self.logger
                     )
-                    
+
                     success = experiment.run(optimizer_class)
                     runtime = time.time() - start_time
-                    
+
                     if success:
                         self.state.mark_completed(exp_id)
                         completed_count += 1
@@ -364,20 +364,20 @@ class Experiments(object):
                         self.state.mark_failed(exp_id, "Execution failed")
                         failed_count += 1
                         print(f"    runtime: {runtime:.5e}. [FAILED]")
-                        
+
                         if not self.config.continue_on_error:
                             self.logger.error("Stopping due to error (continue_on_error=False)")
                             break
-                
+
                 if (completed_count + failed_count) % self.config.checkpoint_interval == 0:
                     self.state.save_checkpoint()
                     self.logger.info(f"Checkpoint saved. Progress: {completed_count + failed_count}/{total_experiments}")
-            
+
             if not self.config.continue_on_error and failed_count > 0:
                 break
-        
+
         self.state.save_checkpoint()
-        
+
         results = {
             'total_experiments': total_experiments,
             'completed': completed_count,
@@ -385,7 +385,7 @@ class Experiments(object):
             'skipped': skipped_count,
             'success_rate': completed_count / (completed_count + failed_count) if (completed_count + failed_count) > 0 else 0
         }
-        
+
         self.logger.info(f"Experiments finished. Results: {results}")
         return results
 
@@ -481,7 +481,7 @@ def main() -> None:
         total_runtime = time.time() - start_runtime
         logger.info(f"Total runtime: {total_runtime:.5e}")
         logger.info(f"Final results: {results}")
-        
+
         print(f"Total runtime: {total_runtime:.5e}.")
         print(f"Experiment summary: {results['completed']} completed, {results['failed']} failed, {results['skipped']} skipped")
 
