@@ -175,8 +175,8 @@ Finally, we expect to see more interesting discussions about BBO from different 
 we provide a *unified* API interface to help freely add them if it satisfies the above design philosophy well. Please
 refer to the `Development Guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for details.
 
-Papers of Critical Analyses
----------------------------
+Increasingly Growing Papers of Critical Analyses to Metaphors
+-------------------------------------------------------------
 
 * 2025: `The paradox of success in evolutionary and bioinspired optimization: Revisiting
   critical issues, key studies, and methodological pathways
@@ -202,6 +202,8 @@ Papers of Critical Analyses
   <https://link.springer.com/article/10.1007/s10462-020-09893-8>`_
 * 2020: `Benchmarking in optimization: Best practice and open issues
   <https://arxiv.org/abs/2007.03488>`_
+* 2019: `Bio-inspired computation: Where we stand and what's next
+  <https://www.sciencedirect.com/science/article/abs/pii/S2210650218310277>`_
 * 2018: `An insight into bio-inspired and evolutionary algorithms for global
   optimization: Review, analysis, and lessons learnt over a decade of competitions
   <https://doi.org/10.1007/s12559-018-9554-0>`_
