@@ -202,6 +202,9 @@ Papers of Critical Analyses
   <https://link.springer.com/article/10.1007/s10462-020-09893-8>`_
 * 2020: `Benchmarking in optimization: Best practice and open issues
   <https://arxiv.org/abs/2007.03488>`_
+* 2018: `An insight into bio-inspired and evolutionary algorithms for global
+  optimization: Review, analysis, and lessons learnt over a decade of competitions
+  <https://doi.org/10.1007/s12559-018-9554-0>`_
 * 2015: `A critical analysis of the *** search algorithm—How not to solve sudoku
   <https://www.sciencedirect.com/science/article/pii/S221471601500010X>`_
 * 2014: `How novel is the “novel” *** optimization approach?
