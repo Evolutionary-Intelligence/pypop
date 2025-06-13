@@ -3,6 +3,9 @@ Covariance Matrix Adaptation Evolution Strategy (CMAES)
 
 .. autoclass:: pypop7.optimizers.es.cmaes.CMAES
 
+Basic Information of CMA-ES
+---------------------------
+
 Some Applications of CMA-ES
 ---------------------------
 
