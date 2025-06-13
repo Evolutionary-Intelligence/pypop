@@ -9,6 +9,8 @@ Basic Information of CMA-ES
 Some Applications of CMA-ES
 ---------------------------
 
+* `[2022 in Nature]
+  <https://www.nature.com/articles/s41586-022-05182-2>`_:
 * `[2010 in ACM Transactions on Graphics (TOG)]
   <https://dl.acm.org/doi/10.1145/1778765.1778810>`_:
   University of Toronto
