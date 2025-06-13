@@ -9,6 +9,8 @@ Basic Information of CMA-ES
 Some Applications of CMA-ES
 ---------------------------
 
+* `[2010 in ACM Transactions on Graphics (TOG)]
+  <https://dl.acm.org/doi/10.1145/1778765.1778810>`_:
 * `[2009 in ACM Transactions on Graphics (TOG)]
   <https://dl.acm.org/doi/10.1145/1531326.1531366>`_:
   University of Washington
