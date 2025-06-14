@@ -60,7 +60,6 @@ class CMAES(ES):
        <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_, `[Otake et al., 2013, Phys. Med. Biol.]
        <https://iopscience.iop.org/article/10.1088/0031-9155/58/23/8535>`_,
        `RoboCup <https://doi.org/10.1007/s10458-024-09642-z>`_, 2014 3D Simulation League Competition Champions,
-       `[Muller et al., 2001, AIAAJ] <https://arc.aiaa.org/doi/abs/10.2514/2.1342>`_,
        to name a few.
 
     Parameters
