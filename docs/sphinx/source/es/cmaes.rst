@@ -11,6 +11,7 @@ Some Applications of CMA-ES
 
 * `[2022 in Nature]
   <https://www.nature.com/articles/s41586-022-05182-2>`_:
+  Delft University of Technology, Aix Marseille Université
 * `[2010 in ACM Transactions on Graphics (TOG)]
   <https://dl.acm.org/doi/10.1145/1778765.1778810>`_:
   University of Toronto
@@ -27,5 +28,6 @@ Some Applications of CMA-ES
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-CMAES
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-CMAES
