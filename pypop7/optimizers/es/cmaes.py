@@ -57,8 +57,7 @@ class CMAES(ES):
        <https://arxiv.org/abs/1604.07269>`_, `[Molinari et al., 2014, AIAAJ]
        <https://arc.aiaa.org/doi/full/10.2514/1.J052715>`_, `[Melton, 2014, Acta Astronautica]
        <https://www.sciencedirect.com/science/article/pii/S0094576514002318>`_, `[Khaira et al., 2014, ACS Macro Lett.]
-       <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_, `[Otake et al., 2013, Phys. Med. Biol.]
-       <https://iopscience.iop.org/article/10.1088/0031-9155/58/23/8535>`_,
+       <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_,
        to name a few.
 
     Parameters
