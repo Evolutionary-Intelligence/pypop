@@ -15,6 +15,10 @@ Some Applications of CMA-ES
 * `[2022 in Nature]
   <https://www.nature.com/articles/s41586-022-05182-2>`_:
   Delft University of Technology, Aix Marseille Université
+* `[2014 in ACS Macro Letters]
+  <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_:
+  University of Chicago, A Western Digital Company,
+  Argonne National Laboratory
 * `[2013 in Physics in Medicine & Biology]
   <https://iopscience.iop.org/article/10.1088/0031-9155/58/23/8535>`_:
   Johns Hopkins University,
