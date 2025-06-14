@@ -22,7 +22,6 @@ etc.
 [![PyTest](https://img.shields.io/badge/pytest-%23ffffff.svg?logo=PyTest&logoColor=2f9fe3)](https://docs.pytest.org/en/stable/)
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation)
 [![Sphinx](https://img.shields.io/badge/Sphinx-000?logo=sphinx&logoColor=fff)](https://www.sphinx-doc.org/en/master/)
-![Slack](https://img.shields.io/badge/Slack-4A154B?logo=slack&logoColor=white)
 ![WeChat](https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white)
 ![EvoI](https://img.shields.io/badge/Maintainer-QiqiDuan-brown)
 
