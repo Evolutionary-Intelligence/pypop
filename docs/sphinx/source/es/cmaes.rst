@@ -23,6 +23,9 @@ Some Applications of CMA-ES
   University of Washington
 
   * "In discontinuous spaces"
+* `[2001 in AIAA Journal]
+  <https://arc.aiaa.org/doi/abs/10.2514/2.1342>`_:
+  Swiss Federal Institute of Technology
 
 
 
