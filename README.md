@@ -31,8 +31,8 @@ problems. Its main goal is to provide a *unified* interface and a large set of *
 implementations (e.g., [evolutionary algorithms](https://www.nature.com/articles/nature14544),
 [swarm-based optimizers](https://github.com/Evolutionary-Intelligence/SwarmIntelligence-A-Modern-Perspective-SIAMP),
 and [pattern search]())
-for Black-Box Optimization, particularly various population-based optimizers, in order
-to facilitate research **repeatability**, wide **benchmarking**, and especially their
+for only black-box optimization, *particularly* population-based optimizers, in order
+to facilitate research **repeatability**, wide **benchmarking**, and especially
 real-world **applications**.
 
 Specifically, for alleviating the notorious **curse-of-dimensionality** issue, ```PyPop7's```
