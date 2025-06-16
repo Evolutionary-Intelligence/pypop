@@ -15,6 +15,9 @@ Some Applications of CMA-ES
 * `[2022 in Nature]
   <https://www.nature.com/articles/s41586-022-05182-2>`_:
   Delft University of Technology, Aix Marseille Université
+* `[2016 in ICLR Workshop]
+  <https://openreview.net/forum?id=xnrA4qzmPu1m7RyVi38Z>`_:
+  Univesity of Freiburg
 * `[2014 in ACS Macro Letters]
   <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_:
   University of Chicago, A Western Digital Company,
