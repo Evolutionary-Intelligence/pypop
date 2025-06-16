@@ -12,6 +12,21 @@ Basic Information of CMA-ES
 Some Applications of CMA-ES
 ---------------------------
 
+* `[2024 in PNAS]
+  <https://pnas.org/doi/10.1073/pnas.2318641121>`_:
+  National University of Singapore,
+  University of Pennsylvania,
+  University of Minnesota,
+  ByteDance,
+  Rutgers University,
+  Yale University,
+  Kandang Kerbau Women’s and Children’s Hospital,
+  Singapore Institute for Clinical Sciences,
+  University of Auckland,
+  McGill University,
+  Universitat Pompeu Fabra,
+  Universitat Barcelona,
+  Massachusetts General Hopstial
 * `[2022 in Nature]
   <https://www.nature.com/articles/s41586-022-05182-2>`_:
   Delft University of Technology, Aix Marseille Université
@@ -20,7 +35,8 @@ Some Applications of CMA-ES
   Univesity of Freiburg
 * `[2014 in ACS Macro Letters]
   <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_:
-  University of Chicago, A Western Digital Company,
+  University of Chicago,
+  A Western Digital Company,
   Argonne National Laboratory
 * `[2013 in Physics in Medicine & Biology]
   <https://iopscience.iop.org/article/10.1088/0031-9155/58/23/8535>`_:
