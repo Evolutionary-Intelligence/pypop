@@ -12,7 +12,7 @@ Basic Information of CMA-ES
 Some Applications of CMA-ES
 ---------------------------
 
-* `[2024 in PNAS]
+* `[2024 in Proceedings of the National Academy of Sciences]
   <https://pnas.org/doi/10.1073/pnas.2318641121>`_:
   National University of Singapore,
   University of Pennsylvania,
@@ -30,6 +30,10 @@ Some Applications of CMA-ES
 * `[2022 in Nature]
   <https://www.nature.com/articles/s41586-022-05182-2>`_:
   Delft University of Technology, Aix Marseille Université
+* `[2022 in IEEE Transactions on Robotics]
+  <https://ieeexplore.ieee.org/document/9450826>`_:
+  Electronics and Telecommunications Research Institute,
+  Korea Advanced Institute of Science and Technology
 * `[2016 in ICLR Workshop]
   <https://openreview.net/forum?id=xnrA4qzmPu1m7RyVi38Z>`_:
   Univesity of Freiburg
