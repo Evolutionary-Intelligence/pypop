@@ -42,6 +42,12 @@ Some Applications of CMA-ES
 * `[2016 in ICLR Workshop]
   <https://openreview.net/forum?id=xnrA4qzmPu1m7RyVi38Z>`_:
   Univesity of Freiburg
+* `[2015 in International Journal of Robotics Research]
+  <https://journals.sagepub.com/doi/abs/10.1177/0278364915583680>`_:
+  ETH Zürich,
+  Inria,
+  CNRS,
+  Université de Lorraine
 * `[2014 in ACS Macro Letters]
   <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_:
   University of Chicago,
