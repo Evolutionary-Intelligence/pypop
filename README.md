@@ -815,10 +815,7 @@ reported in the (actively-updated) paper list called
 
 ## Sponsors
 
-Now it is supported by National Natural Science Foundation of China
-under Grant No. 72401122, Guangdong Basic and Applied Basic Research
-Foundation under Grant No. 2024A1515012241 and 2021A1515110024. From
-2021 to 2023, this open-source Python library was supported by
+From 2021, this open-source Python library was supported by
 **Shenzhen Fundamental Research Program** (a total of 2 000 000
 Yuan).
 
