@@ -48,6 +48,8 @@ Some Applications of CMA-ES
   Inria,
   CNRS,
   Université de Lorraine
+
+  * "46 cores"
 * `[2014 in ACS Macro Letters]
   <https://pubs.acs.org/doi/full/10.1021/mz5002349>`_:
   University of Chicago,
