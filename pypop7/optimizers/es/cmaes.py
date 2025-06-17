@@ -13,8 +13,6 @@ class CMAES(ES):
        For some (rather all) interesting applications of `CMA-ES`, please refer to e.g.,
        `[SIMULIA > CST Studio Suite > Automatic Optimization (Dassault Systèmes)]
        <https://www.3ds.com/products/simulia/cst-studio-suite/automatic-optimization>`_,
-       `[PNAS-2024] <https://doi.org/10.1073/pnas.2318641121>`_,
-       `[Nature Communications-2024] <https://www.nature.com/articles/s41467-024-45882-z>`_,
        `[AIAA Journal-2024] <https://arc.aiaa.org/doi/full/10.2514/1.J063251>`_,
        `[NeurIPS-2024 Spotlight] <https://openreview.net/forum?id=79q206xswc>`_,
        `[ICLR-2024 Spotlight] <https://openreview.net/forum?id=KsUh8MMFKQ>`_,
