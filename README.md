@@ -856,7 +856,7 @@ is planning for e.g., [IEEE-CEC 2026] or [IEEE-SSCI 2026] etc.
   ([J2C](https://www.cec2025.org/index/page.html?id=1308)) paper.
   * [pdf](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/presentations/IEEE-CEC-2025-%5BJ2C%5D.pdf)
 
-### BibTeX
+### BibTeX (2024)
 
 @article{JMLR-2024-Duan,
   title={{PyPop7}: A {pure-Python} library for population-based black-box optimization},
