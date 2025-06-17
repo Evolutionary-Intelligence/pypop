@@ -841,19 +841,19 @@ is planning for e.g., [ICSI 2026] or [ANTS 2026] etc.
 * A tutorial on Open-Source Software for Evolutionary Algorithms
 is planning for e.g., [IEEE-CEC 2026] or [IEEE-SSCI 2026] etc.
 
-### 2025
+### 2025 (Activities)
 
-* A **batch-updated** version of ```PyPop7``` is ongoing.
-* An account called *PyPop7* on the Wechat Public Platform has
-been registered in 16 Apr 2025. (Chinese: 微信公众号 PyPop7)
-  * [微信公众号]()
-* An oral presentation will be given by one author in [IEEE-CEC
-2025](https://www.cec2025.org/) and its PPT file will be released.
+* A **batch-updated** version of ```PyPop7``` is **ongoing**.
+* An **oral** presentation was given by one author (Qiqi Duan in
+  11 Jun 2025) in [IEEE-CEC 2025](https://www.cec2025.org/) and
+  its **PPT** file will be released within the next month.
   * [ppt]()
-* An one-page paper has been submitted to [IEEE-CEC
-2025](https://www.cec2025.org/) as one *Journal-to-Conference*
-([J2C](https://www.cec2025.org/index/page.html?id=1308)) paper.
-(Accepted in 18 Mar 2025)
+* An **account** called *PyPop7* on the *Wechat Public Platform*
+  has been registered in 16 Apr 2025.
+* An one-page **paper** has been submitted (Accepted in 18 Mar 2025)
+  to [IEEE-CEC 2025](https://www.cec2025.org/) as one
+  *Journal-to-Conference*
+  ([J2C](https://www.cec2025.org/index/page.html?id=1308)) paper.
   * [pdf](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/presentations/IEEE-CEC-2025-%5BJ2C%5D.pdf)
 
 ### BibTeX
