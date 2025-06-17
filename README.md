@@ -35,14 +35,14 @@ for only black-box optimization, *particularly* population-based optimizers, in 
 to facilitate research **repeatability**, wide **benchmarking**, and especially
 real-world **applications**.
 
-Specifically, for alleviating the notorious **curse-of-dimensionality** issue, ```PyPop7's```
-focus is to cover their **State Of The Art (SOTA) for Large-Scale Optimization (LSO)**, though
-many of their small- and medium-scaled versions or variants are also included here (for e.g.,
+Specifically, for alleviating the notorious **curse-of-dimensionality** issue, its focus is to
+cover their **State Of The Art (SOTA) for Large-Scale Optimization (LSO)**, though many of
+small- and medium-scaled versions or variants are also included here (for e.g.,
 **theoretical** or **benchmarking** or **educational** or **practical** purposes). For a
 *growing* list of its *diverse* use and/or citation cases, please refer to [this online
-website](https://pypop.readthedocs.io/en/latest/applications.html).
-Although we have chosen *GPL-3.0 license* initially, anyone could use, modify, and improve it
-**entirely freely** for any (no matter *open-source* or *closed-source*) positive purposes.
+website](https://pypop.readthedocs.io/en/latest/applications.html). Although we have chosen
+*GPL-3.0 license* initially, anyone could use, modify, and improve it **entirely freely** for
+any (no matter *open-source* or *closed-source*) positive purposes.
 
 ## How to Quickly Use
 
