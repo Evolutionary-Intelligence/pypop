@@ -27,6 +27,9 @@ Some Applications of CMA-ES
   Universitat Pompeu Fabra,
   Universitat Barcelona,
   Massachusetts General Hopstial
+* `[2024 in Nature Communications]
+  <https://www.nature.com/articles/s41467-024-45882-z>`_:
+  
 * `[2022 in Nature]
   <https://www.nature.com/articles/s41586-022-05182-2>`_:
   Delft University of Technology, Aix Marseille Université
