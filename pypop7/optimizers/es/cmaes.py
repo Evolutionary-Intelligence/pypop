@@ -11,8 +11,6 @@ class CMAES(ES):
        `Nature <https://doi.org/10.1038/nature14544>`_ review of **Evolutionary Computation**.
 
        For some (rather all) interesting applications of `CMA-ES`, please refer to e.g.,
-       `[SIMULIA > CST Studio Suite > Automatic Optimization (Dassault Systèmes)]
-       <https://www.3ds.com/products/simulia/cst-studio-suite/automatic-optimization>`_,
        `[AIAA Journal-2024] <https://arc.aiaa.org/doi/full/10.2514/1.J063251>`_,
        `[NeurIPS-2024 Spotlight] <https://openreview.net/forum?id=79q206xswc>`_,
        `[ICLR-2024 Spotlight] <https://openreview.net/forum?id=KsUh8MMFKQ>`_,
