@@ -11,6 +11,15 @@ Basic Information of CMA-ES
 
 * `[SIMULIA > CST Studio Suite > Automatic Optimization (Dassault Systèmes)]
   <https://www.3ds.com/products/simulia/cst-studio-suite/automatic-optimization>`_
+  * Covariance Matrix Adaptation Evolutionary Strategy,
+  Trust Region Framework (TRF),
+  Genetic Algorithm,
+  Particle Swarm Optimization,
+  Nelder Mead Simplex Algorithm,
+  Interpolated Quasi-Newton,
+  Classic Powell,
+  Decap Optimization
+  (Last Access in 18 June, 2025)
 
 Some Applications of CMA-ES
 ---------------------------
