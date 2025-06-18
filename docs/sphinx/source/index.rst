@@ -1,12 +1,9 @@
 PyPop7's Documentations for Black-Box Optimization (BBO)
 ========================================================
 
-**[News!]** Recently PyPop7 has been used and cited in one **Nature** paper:
+**[News!]** Recently PyPop7 has been used and/or cited in one **Nature** paper:
 `[Veenstra et al., Nature, 2025]
-<https://www.nature.com/articles/s41586-025-08646-3>`_...
-For recently popular *Meta-Black-Box Optimization*, please refer to e.g.,
-`MetaBox <https://github.com/MetaEvo/MetaBox>`_ from the research team
-of Prof. Gong of South China University of Technology.
+<https://www.nature.com/articles/s41586-025-08646-3>`_ etc.
 
 .. image:: https://img.shields.io/badge/GitHub-PyPop7-red.svg
    :target: https://github.com/Evolutionary-Intelligence/pypop
