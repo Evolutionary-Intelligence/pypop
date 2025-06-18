@@ -9,6 +9,9 @@ Basic Information of CMA-ES
 `RoboCup <https://doi.org/10.1007/s10458-024-09642-z>`_
 3D Simulation League Competition Champions.
 
+* `[SIMULIA > CST Studio Suite > Automatic Optimization (Dassault Systèmes)]
+  <https://www.3ds.com/products/simulia/cst-studio-suite/automatic-optimization>`_
+
 Some Applications of CMA-ES
 ---------------------------
 
