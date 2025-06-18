@@ -832,12 +832,14 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 28 Mar 2023 to 01 Nov 2023 to 05 Jul 2024, and finally accepted in
 11 Oct 2024.)
 
-### 2026
+### 2026 (Planned Activities)
 
-* A tutorial on Open-Source Software for Swarm Intelligence
-is planning for e.g., [ICSI 2026] or [ANTS 2026] etc.
-* A tutorial on Open-Source Software for Evolutionary Algorithms
-is planning for e.g., [IEEE-CEC 2026] or [IEEE-SSCI 2026] etc.
+* A **tutorial** on Open-Source Software for Swarm Intelligence and 
+  Evolutionary Algorithms is planning for e.g., [ICSI 2026] or
+  [ANTS 2026] etc.
+* A **tutorial** on Open-Source Software for Evolutionary Algorithms
+  and Swarm Intelligence is planning for e.g., [IEEE-CEC 2026] or
+  [IEEE-SSCI 2026] etc.
 
 ### 2025 (Activities)
 
