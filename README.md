@@ -65,14 +65,14 @@ power of [PyPop7](https://pypi.org/project/pypop7/):
 $ pip install pypop7
 ```
 
-For ```PyPop7```, the number ```7``` was added just because ```pypop``` has been registered by
-[other](http://pypop.org/) in [PyPI](https://pypi.org/). The icon *butterfly* for `PyPop7` is
-used to respect/allude to the book (butterflies in its cover) of **Fisher** (["the greatest
-of Darwin's successors"](https://link.springer.com/article/10.1007/s00265-010-1122-x)): [The
-Genetical Theory of Natural Selection](https://tinyurl.com/3we44pt4), which directly inspired
-[Prof. Holland](https://cacm.acm.org/research/adaptive-computation/)'s
-[proposal](https://tinyurl.com/5emfc5hb) of [Genetic Algorithms
-(GA)](https://tinyurl.com/mptr255h).
+For ```PyPop7```, the number ```7``` was added just because ```pypop``` has been registered
+by [other](http://pypop.org/) in [PyPI](https://pypi.org/). Its icon *butterfly* is used to
+respect/allude to the great book (butterflies in its cover) of **Fisher** (["(one of) the
+greatest of Darwin's successors"](https://link.springer.com/article/10.1007/s00265-010-1122-x)):
+[The Genetical Theory of Natural Selection](https://tinyurl.com/3we44pt4), which directly
+inspired [Prof. Holland](https://cacm.acm.org/research/adaptive-computation/)'s
+[proposal](https://direct.mit.edu/books/edited-volume/3809/chapter-abstract/125036/An-Interview-with-John-Holland)
+of [Genetic Algorithms (GA)](https://dl.acm.org/doi/10.1145/321127.321128).
 
 * Define the objective / cost / loss / error / fitness function to be **minimized** for
   the optimization problem at hand (here the term **fitness function** is used, in order
