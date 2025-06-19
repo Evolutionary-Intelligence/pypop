@@ -44,6 +44,8 @@ Some Applications of CMA-ES
   Freie Universität Berlin,
   Fraunhofer Heinrich Hertz Institute,
   Helmholtz-Zentrum Berlin für Materialien und Energie
+* `[2024 in AIAA Journal]
+  <https://arc.aiaa.org/doi/full/10.2514/1.J063251>`_:
 * `[2022 in Nature]
   <https://www.nature.com/articles/s41586-022-05182-2>`_:
   Delft University of Technology, Aix Marseille Université
