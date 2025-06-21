@@ -46,6 +46,8 @@ Some Applications of CMA-ES
   Helmholtz-Zentrum Berlin für Materialien und Energie
 * `[2024 in AIAA Journal]
   <https://arc.aiaa.org/doi/full/10.2514/1.J063251>`_:
+* `[2024 in NeurIPS]
+  <https://openreview.net/forum?id=79q206xswc>`_:
 * `[2022 in Nature]
   <https://www.nature.com/articles/s41586-022-05182-2>`_:
   Delft University of Technology, Aix Marseille Université
