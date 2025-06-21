@@ -11,7 +11,6 @@ class CMAES(ES):
        `Nature <https://doi.org/10.1038/nature14544>`_ review of **Evolutionary Computation**.
 
        For some (rather all) interesting applications of `CMA-ES`, please refer to e.g.,
-       `[NeurIPS-2024 Spotlight] <https://openreview.net/forum?id=79q206xswc>`_,
        `[ICLR-2024 Spotlight] <https://openreview.net/forum?id=KsUh8MMFKQ>`_,
        `[TMRB-2024] <https://ieeexplore.ieee.org/document/10302449>`_,
        `[LWC-2024] <https://ieeexplore.ieee.org/abstract/document/10531788>`_,
