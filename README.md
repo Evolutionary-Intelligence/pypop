@@ -74,9 +74,9 @@ inspired [Prof. Holland](https://cacm.acm.org/research/adaptive-computation/)'s
 [proposal](https://direct.mit.edu/books/edited-volume/3809/chapter-abstract/125036/An-Interview-with-John-Holland)
 of [Genetic Algorithms (GA)](https://dl.acm.org/doi/10.1145/321127.321128).
 
-* Define the objective / cost / loss / error / fitness function to be **minimized** for
+* Define the objective (cost / loss / error / fitness) function to be **minimized** for
   the optimization problem at hand (here the term **fitness function** is used, in order
-  to follow the *established* terminology tradition of **evolutionary computation**):
+  to follow the *established* terminology tradition in **evolutionary computation**):
 
 ```Python
 import numpy as np  # for numerical computation (as the computing engine of pypop7)
