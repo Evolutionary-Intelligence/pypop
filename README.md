@@ -96,10 +96,10 @@ problem = {'fitness_function': rosenbrock,
 Without loss of generality, only the **minimization** process is considered, since
 **maximization** can be easily transferred to **minimization** just by negating (-) it.
 
-* Run one black-box optimizer or more on the above optimization problem. Owing to its
-  low computational complexity and well metric-learning ability, choose **LM-MA-ES**
-  as an example. Please refer to https://pypop.readthedocs.io/en/latest/es/lmmaes.html
-  for its algorithmic procedure.
+* Run one black-box optimizer (or more) on the above optimization problem. Owing to its
+  *low* computational complexity and *well* metric-learning ability, choose **LM-MA-ES**
+  as one example. Please refer to https://pypop.readthedocs.io/en/latest/es/lmmaes.html
+  for its algorithmic procedure in detail.
 
 ```Python
 # LMMAES: Limited Memory Matrix Adaptation Evolution Strategy
