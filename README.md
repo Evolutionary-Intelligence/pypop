@@ -95,7 +95,6 @@ problem = {'fitness_function': rosenbrock,
 
 Without loss of generality, only the **minimization** process is considered, since
 **maximization** can be easily transferred to **minimization** just by negating (-) it.
-Note that this well-known test function is used *only* for the *benchmarking* purpose.
 
 * Run one black-box optimizer or more on the above optimization problem. Owing to its
   low computational complexity and well metric-learning ability, choose **LM-MA-ES**
