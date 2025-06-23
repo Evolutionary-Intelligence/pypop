@@ -85,15 +85,15 @@ import numpy as np  # for numerical computation (as the computing engine of pypo
 def rosenbrock(x):
     return 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
 
-# to define the fitness function to be *minimized* and also its problem settings
+# to define the fitness function to be *minimized* and also its problem settings (`dict`)
 ndim_problem = 1000
 problem = {'fitness_function': rosenbrock,
            'ndim_problem': ndim_problem,  # dimension
-           'lower_boundary': -5.0 * np.ones((ndim_problem,)),  # lower search boundary
-           'upper_boundary': 5.0 * np.ones((ndim_problem,))}  # upper search boundary
+           'lower_boundary': -5.0 * np.ones((ndim_problem,)),  # lower boundary of search range
+           'upper_boundary': 5.0 * np.ones((ndim_problem,))}  # upper boundary of search range
 ```
 
-Without loss of generality, only the **minimization** process is considered here, since
+Without loss of generality, only the **minimization** process is considered, since
 **maximization** can be easily transferred to **minimization** just by negating (-) it.
 Note that this well-known test function is used *only* for the *benchmarking* purpose.
 
