@@ -117,8 +117,8 @@ print(results)
 ```
 
 Clearly, to obtain the *nearly optimal* rate of convergence for ```LMMAES```,
-the *key* hyper-parameter ```sigma``` may need to be well fine-tuned for
-this test function ```rosenbrock```. In practice, **Hyper-Parameter
+one *key* hyper-parameter ```sigma``` often needs to be well fine-tuned for
+this popular test function ```rosenbrock```. In practice, **Hyper-Parameter
 Optimization (HPO)** is one very common strategy to **approximate** the
 *possibly best* solution for the *complex* optimization problem at hand.
 Please refer to e.g., the following books and papers as *reference*:
