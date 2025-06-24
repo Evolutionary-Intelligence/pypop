@@ -121,7 +121,8 @@ one *key* hyper-parameter ```sigma``` often needs to be well fine-tuned for
 this popular test function ```rosenbrock```. In practice, **Hyper-Parameter
 Optimization (HPO)** is one very common strategy to **approximate** the
 *possibly best* solution for the *complex* optimization problem at hand.
-Please refer to e.g., the following books and papers as *reference*:
+Please refer to e.g., the following books and papers as some (rather all)
+representative *reference*:
 
 * [Hutter, F.](), et al., 2019.
   [Automated machine learning: Methods, systems,
