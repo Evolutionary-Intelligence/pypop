@@ -150,16 +150,17 @@ total of **4** extended versions of PyPop7 (as **PP7**) are *ongoing* or
 * Enhancement via Parallel and Distributed Optimization (`PyDPop7 as PDP7`),
 * Enhancement via Meta-evolution based Optimization (`PyMePop7 as PMP7`).
 
-## A (Still Growing) Number of Black-Box Optimizers (BBO)
+## Black-Box Optimizers (BBO) Still Updated
 
 * "[The main lesson of the development of our field in the last few decades is that efficient
 optimization methods can be developed only by intelligently employing the structure of
-particular instances of problems.](https://tinyurl.com/4yccr5k8)"---From
-**Prof. Yurii Nesterov (Member of National Academy of Sciences, USA)**
-
+particular instances of problems.](https://link.springer.com/book/10.1007/978-3-319-91578-4)"
+---From **Lectures on Convex Optimization of Prof. Yurii Nesterov (Member of National Academy
+of Sciences, USA) in [Springer-2018]**
 * "[Optimization algorithms are often designed for a specific type of search space, exploiting
-its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)"---From
-**Information-Geometric Optimization in [JMLR-2017] (CCF-A)**
+its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)"
+---From **Information-Geometric Optimization Algorithms: A Unifying Picture via Invariance
+Principles of Nikolaus Hansen (Inventor of CMA-ES) et al in [JMLR-2017] (CCF-A)**
 
 ******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
 The below classification based on *only* the dimensionality of objective function, is
