@@ -87,8 +87,8 @@ def rosenbrock(x):
 
 # to define the fitness function to be *minimized* and also its problem settings (`dict`)
 ndim_problem = 1000
-problem = {'fitness_function': rosenbrock,
-           'ndim_problem': ndim_problem,  # dimension
+problem = {'fitness_function': rosenbrock,  # fitness function corresponding to the problem
+           'ndim_problem': ndim_problem,  # number of dimension of the problem to be optimized
            'lower_boundary': -5.0 * np.ones((ndim_problem,)),  # lower boundary of search range
            'upper_boundary': 5.0 * np.ones((ndim_problem,))}  # upper boundary of search range
 ```
