@@ -151,7 +151,7 @@ total of **4** extended versions of PyPop7 (as **PP7**) are *ongoing* or
 * Enhancement via Parallel and Distributed Optimization (`PyDPop7 as PDP7`),
 * Enhancement via Meta-evolution based Optimization (`PyMePop7 as PMP7`).
 
-## Black-Box Optimizers (BBO) Still Updated
+## Black-Box Optimizers (BBO)
 
 * "[The main lesson of the development of our field in the last few decades is that efficient
 optimization methods can be developed only by intelligently employing the structure of
