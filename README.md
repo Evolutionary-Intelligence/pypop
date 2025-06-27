@@ -164,8 +164,8 @@ its specific structure.](https://www.jmlr.org/papers/volume18/14-467/14-467.pdf)
 Invariance Principles' of Nikolaus Hansen (Inventor of CMA-ES) et al in [JMLR-2017]**
 
 ******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
-The below classification based on *only* the dimensionality of objective function, is
-*just a roughly empirical* estimation for the basic [algorithm
+The below algorithm classification based on *only* the dimensionality of objective
+function, is *just a roughly empirical* estimation for the basic [algorithm
 selection](https://tinyurl.com/ae64wyj3) task. In practice, perhaps the **simplest**
 way to algorithm selection is **trial-and-error**. More advanced [automated
 algorithm selection](https://doi.org/10.1162/evco_a_00242) techniques can be also
