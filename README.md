@@ -23,7 +23,7 @@ etc.
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation)
 [![Sphinx](https://img.shields.io/badge/Sphinx-000?logo=sphinx&logoColor=fff)](https://www.sphinx-doc.org/en/master/)
 ![WeChat](https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white)
-![EvoI](https://img.shields.io/badge/Maintainer-QiqiDuan-brown)
+[![EvoI](https://img.shields.io/badge/CCF-A-brown)]()
 
 ```PyPop7``` is a [Python](https://www.python.org/) library of **population-based randomized
 optimization** for **single-objective**, **real-parameter**, **unconstrained** black-box
