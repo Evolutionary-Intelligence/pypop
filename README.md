@@ -171,10 +171,10 @@ way to algorithm selection is **trial-and-error**. More advanced [automated
 algorithm selection](https://doi.org/10.1162/evco_a_00242) techniques can be also
 considered here in principle.
 
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg): indicates the *specific*
-  version for **Large-Scale Optimization (LSO)**, e.g., dimension >> 1000 (but this
-  is not an *absolutely deterministic* number depending upon the concrete problem.
-* ![c](https://img.shields.io/badge/**-c-blue.svg): indicates the **competitive** or **de
+* ![lso](https://img.shields.io/badge/*-l-orange.svg): indicates the *specific*
+  version for **Large-Scale Optimization (LSO)**, e.g., dimension >> 100 (but this
+  is not an *absolutely deterministic* number to distinguish LSO).
+* ![c](https://img.shields.io/badge/*-c-blue.svg): indicates the **competitive** or **de
   facto** BBO version for *low- or medium-dimensional* problems (though it may also work
   well under some certain LSO circumstances).
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg): indicates the **baseline** BBO
