@@ -12,7 +12,8 @@ shown below:
 * Global Trajectory Optimization from `pykep <https://esa.github.io/pykep/index.html>`_ (developed by
   European Space Agency),
 * `Benchmarking <https://pypop.readthedocs.io/en/latest/tutorials/tutorials.html#benchmarking-for-large-scale-black-box-optimization-lbo>`_ for Large-Scale Black-Box Optimization (LBO),
-* Controller Design/Optimization (aka Direct Policy Search),
+* Controller Design/Optimization (aka `Direct Policy Search
+  <https://arxiv.org/abs/1703.03864>`_),
 * Benchmarking `BBO <https://pypop.readthedocs.io/en/latest/tutorials/tutorials.html#benchmarking-bbo-on-the-well-designed-coco-platform>`_
   on the Well-Designed `COCO <https://github.com/numbbo/coco>`_ Platform (`A SIGEVO Impact Award for COCO
   <https://dl.acm.org/doi/abs/10.1145/3447929.3447930>`_),
