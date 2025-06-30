@@ -15,8 +15,6 @@ PyPop7's Documentations for Black-Box Optimization (BBO)
    :target: https://www.usenix.org/conferences/byname/179
 .. image:: https://static.pepy.tech/badge/pypop7
    :target: https://www.pepy.tech/projects/pypop7
-.. image:: https://static.pepy.tech/badge/pypop7/month
-   :target: https://www.pepy.tech/projects/pypop7
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
 .. image:: https://img.shields.io/badge/arxiv-2212.05652-red
