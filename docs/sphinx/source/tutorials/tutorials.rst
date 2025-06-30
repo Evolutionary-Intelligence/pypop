@@ -798,5 +798,10 @@ For a summary of its applications and praises (from others), please refer to `th
    ever be agreed upon but efforts in that direction would be worthwhile."---[Schwefel, 1997]
    <https://www.taylorfrancis.com/books/edit/10.1201/9780367802486/handbook-evolutionary-computation-fogel-michalewicz-thomas-baeck>`_
 
+
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-tutorials
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-tutorials
