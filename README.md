@@ -200,7 +200,7 @@ For ```ES```, please refer to e.g.,
 [[Schwefel, 1984]](https://link.springer.com/article/10.1007/BF01876146),
 etc.
 
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
+* ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Limited-Memory Matrix Adaptation ES (**LMMAES**)
   [[Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043),
   [Loshchilov, 2017, ECJ](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale),
