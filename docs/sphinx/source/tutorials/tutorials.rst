@@ -636,7 +636,8 @@ well on a `classical <https://ieeexplore.ieee.org/document/9306925>`_ control pr
             def __init__(self):
                 self.env = gym.make('CartPole-v1', render_mode='human')
                 self.observation, _ = self.env.reset()
-                self.action_dim = 2  # for action probability space
+                # for action probability space
+                self.action_dim = self.env.action_space.n
 
             def __call__(self, x):
                 rewards = 0
