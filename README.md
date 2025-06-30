@@ -183,10 +183,10 @@ considered here in principle.
 ******* *** ******* ******* *** ******* ******* *** ******* ******* *** *******
 
 This is an **algorithm-centric** rather than *benchmarking-centric* Python library
-(though undoubtedly **proper benchmarking** is crucial for BBO: e.g.,
-[COCO](),
-[NeverGrad](),
-[IOHprofiler]()).
+(though undoubtedly **proper benchmarking** is crucial for BBO: Via e.g.,
+[COCO](https://github.com/numbbo/coco),
+[NeverGrad](https://github.com/facebookresearch/nevergrad),
+[IOHprofiler](https://iohprofiler.github.io/)).
 
 ### Evolution Strategies (ES)
 
