@@ -615,16 +615,19 @@ well on a `classical <https://ieeexplore.ieee.org/document/9306925>`_ control pr
 
     .. code-block:: python
 
-        """This is a simple demo to optimize a linear controller on the popular `gymnasium` platform:
+        """This is a simple demo to optimize a linear controller
+           on the popular `gymnasium` platform for RL:
             https://github.com/Farama-Foundation/Gymnasium
 
             $ pip install gymnasium
             $ pip install gymnasium[classic-control]
 
-            For benchmarking, please use e.g. the more challenging MuJoCo tasks: https://mujoco.org/
+            For benchmarking, please use more challenging MuJoCo tasks:
+            https://mujoco.org/
         """
         import numpy as np
-        import gymnasium as gym  # to be installed from https://github.com/Farama-Foundation/Gymnasium
+        # to be installed from https://github.com/Farama-Foundation/Gymnasium
+        import gymnasium as gym
 
         from pypop7.optimizers.es.maes import MAES as Solver
 
