@@ -209,7 +209,7 @@ etc.
   Rank-M ES (**RMES**)
   [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
   [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg)
+* ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Cholesky Covariance Matrix Adaptation ES (**CCMAES2016**)
   [[Krause et al., 2016, NeurIPS](https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html),
   [Krause&Igel, 2015, FOGA](https://dl.acm.org/doi/abs/10.1145/2725494.2725496),
