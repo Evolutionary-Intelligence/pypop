@@ -44,7 +44,7 @@ website](https://pypop.readthedocs.io/en/latest/applications.html). Although we 
 *GPL-3.0 license* initially, anyone could use, modify, and improve it **entirely freely**
 for any (no matter *open-source* or *closed-source*) **positive** purposes.
 
-## How to Quickly Use
+## Quickstart
 
 "[In our opinion, the main fact, which should be known to any person dealing with optimization
 models, is that in general, optimization problems are unsolvable. This statement, which is
