@@ -221,13 +221,12 @@ etc.
   [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix),
   [[Bäck et al., 2013, Natural Computing Series](https://link.springer.com/book/10.1007/978-3-642-40137-4),
   [Ros&Hansen, 2008, PPSN](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
-* ![c](https://img.shields.io/badge/**-c-blue.svg) Fast Matrix Adaptation ES
+* ![c](https://img.shields.io/badge/*-c-blue.svg) Fast MAES
   (**FMAES**)
   [[Beyer, 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389870),
   [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043),
   [Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
-* ![c](https://img.shields.io/badge/**-c-blue.svg) Covariance Matrix Adaptation ES
-  (**CMAES**)
+* ![c](https://img.shields.io/badge/*-c-blue.svg) **CMAES**
   [[Hansen, 2023/2016, arXiv](https://arxiv.org/abs/1604.00772),
   [Hansen et al., 2003, ECJ](https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized),
   [Hansen et al., 2001, ECJ](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in),
