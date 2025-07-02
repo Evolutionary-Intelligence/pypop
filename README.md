@@ -216,8 +216,8 @@ etc.
   [Arnold&Hansen, 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
   [Suttorp et al., 2009, MLJ](https://link.springer.com/article/10.1007/s10994-009-5102-1),
   [Igel et al., 2006, GECCO](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Separable CMA-ES
-  (**SEPCMAES**)
+* ![lso](https://img.shields.io/badge/*-l-orange.svg)
+  Separable CMA-ES (**SEPCMAES**)
   [[Akimoto&Hansen, 2020, ECJ](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix),
   [[Bäck et al., 2013, Natural Computing Series](https://link.springer.com/book/10.1007/978-3-642-40137-4),
   [Ros&Hansen, 2008, PPSN](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
