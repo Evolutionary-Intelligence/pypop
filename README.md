@@ -241,8 +241,8 @@ For ```NES```, please refer to e.g.,
 [Wierstra et al., 2008, CEC](https://ieeexplore.ieee.org/document/4631255)],
 etc.
 
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Projection-based Covariance Matrix Adaptation
-  (**VKDCMA**)
+* ![lso](https://img.shields.io/badge/*-l-orange.svg)
+  Projection-based Covariance Matrix Adaptation (**VKDCMA**)
   [[Akimoto&Hansen, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_1),
   [Akimoto&Hansen, 2016, GECCO](https://dl.acm.org/doi/abs/10.1145/2908812.2908863)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Linear Covariance Matrix Adaptation
