@@ -227,10 +227,10 @@ etc.
   [Loshchilov et al., 2019, TEVC](https://ieeexplore.ieee.org/abstract/document/8410043),
   [Beyer&Sendhoff, 2017, TEVC](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 * ![c](https://img.shields.io/badge/*-c-blue.svg) **CMAES**
-  [[Hansen, 2023/2016, arXiv](https://arxiv.org/abs/1604.00772),
-  [Hansen et al., 2003, ECJ](https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized),
-  [Hansen et al., 2001, ECJ](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in),
-  [Hansen&Ostermeier, 1996, CEC](https://ieeexplore.ieee.org/abstract/document/542381)]
+  [[arXiv-2023/2016](https://arxiv.org/abs/1604.00772),
+  [ECJ-2003](https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized),
+  [ECJ-2001](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in),
+  [CEC-1996](https://ieeexplore.ieee.org/abstract/document/542381)]
 
 ### Natural ES (NES)
 
