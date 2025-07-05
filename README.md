@@ -213,9 +213,9 @@ etc.
   Cholesky Covariance Matrix Adaptation ES (**CCMAES2016**)
   [[Krause et al., 2016, NeurIPS](https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html),
   [Krause&Igel, 2015, FOGA](https://dl.acm.org/doi/abs/10.1145/2725494.2725496),
-  [Arnold&Hansen, 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
-  [Suttorp et al., 2009, MLJ](https://link.springer.com/article/10.1007/s10994-009-5102-1),
-  [Igel et al., 2006, GECCO](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
+  [GECCO-2010](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
+  [MLJ-2009](https://link.springer.com/article/10.1007/s10994-009-5102-1),
+  [GECCO-2006](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Separable CMA-ES (**SEPCMAES**)
   [[ECJ-2020](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix),
