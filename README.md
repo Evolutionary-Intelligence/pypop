@@ -211,8 +211,8 @@ etc.
   [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Cholesky Covariance Matrix Adaptation ES (**CCMAES2016**)
-  [[Krause et al., 2016, NeurIPS](https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html),
-  [Krause&Igel, 2015, FOGA](https://dl.acm.org/doi/abs/10.1145/2725494.2725496),
+  [[NeurIPS-2016](https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html),
+  [FOGA-2015](https://dl.acm.org/doi/abs/10.1145/2725494.2725496),
   [GECCO-2010](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
   [MLJ-2009](https://link.springer.com/article/10.1007/s10994-009-5102-1),
   [GECCO-2006](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
