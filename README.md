@@ -207,8 +207,8 @@ etc.
   [GECCO-2014](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Rank-M ES (**RMES**)
-  [[Li&Zhang, 2018, TEVC](https://ieeexplore.ieee.org/document/8080257),
-  [Li&Zhang, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
+  [[TEVC-2018](https://ieeexplore.ieee.org/document/8080257),
+  [PPSN-2016](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_70)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Cholesky Covariance Matrix Adaptation ES (**CCMAES2016**)
   [[NeurIPS-2016](https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html),
