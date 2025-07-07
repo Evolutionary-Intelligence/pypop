@@ -65,6 +65,9 @@ power of [PyPop7](https://pypi.org/project/pypop7/):
 $ pip install pypop7
 ```
 
+For using **free** Miniconda to download and install the virtual environment of Python,
+please refer to https://www.anaconda.com/docs/getting-started/miniconda/main.
+
 For ```PyPop7```, the number ```7``` was added just because ```pypop``` has been registered
 by [other](http://pypop.org/) in [PyPI](https://pypi.org/). Its icon *butterfly* is used to
 respect/allude to the great book (butterflies in its cover) of **Fisher** (["(one of) the
