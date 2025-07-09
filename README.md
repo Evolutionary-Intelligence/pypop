@@ -252,7 +252,8 @@ etc.
   Linear CMA
   (**[VDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/vdcma.py)**)
   [[Akimoto et al., 2014, GECCO](https://dl.acm.org/doi/abs/10.1145/2576768.2598258)]
-* ![lso](https://img.shields.io/badge/***-lso-orange.svg) Rank-1 NES
+* ![lso](https://img.shields.io/badge/*-l-orange.svg)
+  Rank-1 NES
   (**[R1NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/r1nes.py)**)
   [[Sun et al., 2013, GECCO](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
 * ![c](https://img.shields.io/badge/**-c-blue.svg) Exponential NES
