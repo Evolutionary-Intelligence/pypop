@@ -7,6 +7,7 @@ etc.
 
 [![Pub](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
 [![arXiv](https://img.shields.io/badge/arXiv-2022-orange)](https://arxiv.org/abs/2212.05652)
+[![Jan-2021](https://img.shields.io/badge/Jan-2021-blue)]()
 [![PyPI](https://tinyurl.com/murf7c4m)](https://pypi.org/project/pypop7/)
 [![Docs](https://readthedocs.org/projects/pypop/badge/?version=latest)](http://pypop.rtfd.io/)
 [![Downloads](https://static.pepy.tech/badge/pypop7)](https://pepy.tech/project/pypop7)
