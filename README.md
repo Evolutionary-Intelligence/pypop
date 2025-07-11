@@ -239,10 +239,10 @@ etc.
 ### Natural ES (NES)
 
 For ```NES```, please refer to e.g.,
-[[Hüttenrauch&Neumann, 2024, JMLR]](https://www.jmlr.org/papers/v25/22-0564.html),
-[[Wierstra et al., 2014, JMLR]](https://jmlr.org/papers/v15/wierstra14a.html),
-[[Yi et al., 2009, ICML]](https://dl.acm.org/doi/abs/10.1145/1553374.1553522),
-[[Wierstra et al., 2008, CEC]](https://ieeexplore.ieee.org/document/4631255),
+[[JMLR-2024]](https://www.jmlr.org/papers/v25/22-0564.html),
+[[JMLR-2014]](https://jmlr.org/papers/v15/wierstra14a.html),
+[[ICML-2009]](https://dl.acm.org/doi/abs/10.1145/1553374.1553522),
+[[CEC-2008]](https://ieeexplore.ieee.org/document/4631255),
 etc.
 
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
