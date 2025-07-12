@@ -248,8 +248,8 @@ etc.
 
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Projection-based CMA (**VKDCMA**)
-  [[Akimoto&Hansen, 2016, PPSN](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_1),
-  [Akimoto&Hansen, 2016, GECCO](https://dl.acm.org/doi/abs/10.1145/2908812.2908863)]
+  [[PPSN-2016]](https://link.springer.com/chapter/10.1007/978-3-319-45823-6_1),
+  [[GECCO-2016]](https://dl.acm.org/doi/abs/10.1145/2908812.2908863)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Linear CMA
   (**[VDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/vdcma.py)**)
