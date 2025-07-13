@@ -258,10 +258,12 @@ etc.
   Rank-1 NES
   (**[R1NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/r1nes.py)**)
   [[GECCO-2013](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
-* ![c](https://img.shields.io/badge/**-c-blue.svg) Exponential NES
+* ![c](https://img.shields.io/badge/*-c-blue.svg)
+  Exponential NES
   (**[XNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/xnes.py)**)
   [[Glasmachers et al., 2010, GECCO](https://dl.acm.org/doi/abs/10.1145/1830483.1830557)]
-* ![c](https://img.shields.io/badge/**-c-blue.svg) Exact NES
+* ![c](https://img.shields.io/badge/*-c-blue.svg)
+  Exact NES
   (**[ENES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/enes.py)**)
   [[Sun et al., 2009, ICML](https://dl.acm.org/doi/abs/10.1145/1553374.1553522)]
 
