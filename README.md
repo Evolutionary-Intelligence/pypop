@@ -252,7 +252,7 @@ etc.
   [[GECCO-2016]](https://dl.acm.org/doi/abs/10.1145/2908812.2908863)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Linear CMA
-  (**[VDCMA](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/es/vdcma.py)**)
+  (**VDCMA**)
   [[[GECCO-2014]](https://dl.acm.org/doi/abs/10.1145/2576768.2598258)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Rank-1 NES
