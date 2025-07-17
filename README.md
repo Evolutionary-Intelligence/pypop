@@ -260,7 +260,7 @@ etc.
   [[[GECCO-2013]](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
 * ![c](https://img.shields.io/badge/*-c-blue.svg)
   Exponential NES
-  (**[XNES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/xnes.py)**)
+  (**XNES**)
   [[GECCO-2010](https://dl.acm.org/doi/abs/10.1145/1830483.1830557)]
 * ![c](https://img.shields.io/badge/*-c-blue.svg)
   Exact NES
