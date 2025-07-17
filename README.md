@@ -256,7 +256,7 @@ etc.
   [[[GECCO-2014]](https://dl.acm.org/doi/abs/10.1145/2576768.2598258)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Rank-1 NES
-  (**[R1NES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/r1nes.py)**)
+  (**R1NES**)
   [[[GECCO-2013]](https://dl.acm.org/doi/abs/10.1145/2464576.2464608)]
 * ![c](https://img.shields.io/badge/*-c-blue.svg)
   Exponential NES
