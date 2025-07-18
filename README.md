@@ -264,7 +264,7 @@ etc.
   [[GECCO-2010](https://dl.acm.org/doi/abs/10.1145/1830483.1830557)]
 * ![c](https://img.shields.io/badge/*-c-blue.svg)
   Exact NES
-  (**[ENES](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/nes/enes.py)**)
+  (**ENES**)
   [[ICML-2009](https://dl.acm.org/doi/abs/10.1145/1553374.1553522)]
 
 ### Estimation of Distribution Algorithms (EDA)
