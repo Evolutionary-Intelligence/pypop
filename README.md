@@ -274,7 +274,7 @@ For ```EDA```, please refer to e.g.,
 [Larrañaga&Lozano, 2002](https://link.springer.com/book/10.1007/978-1-4615-1539-5),
 [Pelikan et al., 2002](https://link.springer.com/article/10.1023/A:1013500812258),
 [Mühlenbein&Paaß, 1996, PPSN](https://link.springer.com/chapter/10.1007/3-540-61723-X_982),
-[Baluja&Caruana, 1995, ICML](https://www.sciencedirect.com/science/article/pii/B9781558603776500141)],
+[[ICML-1995]](https://www.sciencedirect.com/science/article/pii/B9781558603776500141),
 etc.
 
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Random-Projection EDA
