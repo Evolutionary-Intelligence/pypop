@@ -208,7 +208,7 @@ etc.
   Limited-Memory Matrix Adaptation ES (**LMMAES**)
   [[[TEVC-2019]](https://ieeexplore.ieee.org/abstract/document/8410043),
   [[ECJ-2017]](https://direct.mit.edu/evco/article-abstract/25/1/143/1041/LM-CMA-An-Alternative-to-L-BFGS-for-Large-Scale),
-  [GECCO-2014](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
+  [[GECCO-2014]](https://dl.acm.org/doi/abs/10.1145/2576768.2598294)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Rank-M ES (**RMES**)
   [[TEVC-2018](https://ieeexplore.ieee.org/document/8080257),
