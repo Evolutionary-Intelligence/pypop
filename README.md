@@ -1,3 +1,270 @@
+# OpenSource Project(25-1)
+
+## Kim Chan Woo(2021040018)
+
+---
+
+# Goal : Benchmarking Script Refactoring
+
+## Overall Objective
+
+Transform the existing benchmarking script into a **maintainable, extensible, and reliable system** to enhance productivity and reliability in research and experimental environments.
+
+---
+
+## Phase-by-Phase Goals
+
+### Phase 1: Code Structure Improvement
+
+**Goal**: Transform complex and repetitive code patterns into systematic and manageable structures
+
+- **Eliminate 80+ line if-elif chain**: Replace optimizer selection logic with centralized configuration system
+- **Build dynamic import system**: Implement runtime loading system for required optimizer classes
+- **Ensure type safety**: Add type hints throughout codebase for improved IDE support and early error detection
+- **Remove code duplication**: Consolidate repetitive import patterns and configuration logic
+
+### Phase 2: Configuration Management System
+
+**Goal**: Separate hardcoded values into external configuration to improve experiment flexibility and reproducibility
+
+- **Create centralized configuration class**: Build system to manage all experiment parameters in one location
+- **Support multiple formats**: Support both JSON and YAML configuration files for user convenience
+- **Implement template system**: Create template generation functionality for easy configuration startup
+- **Progressive enhancement**: Implement new features as opt-in while maintaining existing behavior
+
+### Phase 3: Reliability & Recovery System
+
+**Goal**: Ensure experiment execution stability and build recovery capabilities for failure scenarios
+
+- **Comprehensive error handling**: Implement granular handling logic for various exception scenarios
+- **Guarantee experiment continuity**: System to prevent individual experiment failures from terminating entire batch execution
+- **Checkpoint and recovery**: State management system for automatic resumption of interrupted experiments
+- **Structured logging**: Build detailed logging system for debugging and monitoring
+
+---
+
+## Core Design Principles
+
+### 1. **Backward Compatibility**
+- Complete preservation of existing command-line interface
+- Uninterrupted support for existing scripts and workflows
+- Maintain identical output format and result storage structure
+
+### 2. **Progressive Enhancement**
+- New features provided as opt-in functionality
+- Default behavior remains identical to existing system
+- Users can activate advanced features as needed
+
+### 3. **Extensibility**
+- Simple configuration approach for adding new optimizers
+- Flexible structure for adding new experiment parameters
+- Solid foundation for future feature expansion
+
+### 4. **Observability**
+- Real-time monitoring of experiment progress
+- Detailed error information and debugging support
+- Performance metrics and experiment statistics tracking
+
+---
+
+## Expected Benefits
+
+### Developer Perspective
+- **60%+ reduction in code maintenance cost**: Simplified change operations through centralized configuration
+- **Shortened time to add new optimizers**: Single-line configuration for new optimizer addition
+- **Improved debugging efficiency**: Reduced troubleshooting time through structured logging
+
+### Researcher Perspective
+- **Experiment configuration flexibility**: Ability to adjust experiment parameters without code modification
+- **Enhanced experiment reproducibility**: Precise experiment environment reconstruction through configuration files
+- **Resilience to experiment interruptions**: Automatic experiment resumption through checkpoints
+
+### System Perspective
+- **Improved stability**: Minimized impact of individual experiment failures on entire batch
+- **Resource efficiency**: Selective re-execution of only failed experiments
+- **Enhanced monitoring**: Real-time progress tracking and performance analysis
+
+---
+
+# Guide
+
+## Execution Command Examples
+
+### Step 1: Data Preparation (Run once initially)
+```bash
+python benchmarking_lsbbo_1.py
+```
+
+### Step 2: Benchmarking Execution
+
+#### **Basic Execution (Quick Test)**
+```bash
+# Single experiment with CMAES algorithm on 2D problem
+python benchmarking_lsbbo_2.py --start 0 --end 0 --optimizer CMAES --ndim_problem 2
+```
+
+#### **Practical Execution Examples**
+```bash
+# 1) 3 experiments on 10D problem
+python benchmarking_lsbbo_2.py --start 0 --end 2 --optimizer JADE --ndim_problem 10
+
+# 2) Compare multiple algorithms (run each separately)
+python benchmarking_lsbbo_2.py --start 0 --end 4 --optimizer CMAES --ndim_problem 100
+python benchmarking_lsbbo_2.py --start 0 --end 4 --optimizer JADE --ndim_problem 100
+python benchmarking_lsbbo_2.py --start 0 --end 4 --optimizer PRS --ndim_problem 100
+
+# 3) Large-scale experiment (2000D, 10 experiments)
+python benchmarking_lsbbo_2.py --start 0 --end 9 --optimizer CMAES --ndim_problem 2000
+```
+
+#### **Using Configuration Files**
+```bash
+# 1) Generate configuration template
+python benchmarking_lsbbo_2.py --save-config-template
+
+# 2) Run with custom configuration
+python benchmarking_lsbbo_2.py --config config_template.yaml --start 0 --end 1 --optimizer JADE --ndim_problem 50
+```
+
+---
+
+## Execution Results
+
+### Sample Output During Execution
+```
+Starting experiments with CMAES optimizer
+Experiments: 0 to 2
+Problem dimension: 10
+* experiment: 0 ***:
+  * function: sphere:
+    runtime: 1.23456e+00. [SUCCESS]
+  * function: cigar:
+    runtime: 2.34567e+00. [SUCCESS]
+  ...
+Total runtime: 1.23456e+02.
+Experiment summary: 30 completed, 0 failed, 0 skipped
+```
+
+### Generated Files
+- Experiment result pickle files in `pypop7_benchmarks_lso/` folder
+- `checkpoint.json` (progress tracking)
+- Log files (if configured)
+
+---
+
+## Key Parameter Descriptions
+
+| Parameter | Description | Example |
+|---------|------|------|
+| `--start` | Experiment start index (0-49) | `--start 0` |
+| `--end` | Experiment end index (0-49) | `--end 4` |
+| `--optimizer` | Algorithm to use | `--optimizer CMAES` |
+| `--ndim_problem` | Problem dimension | `--ndim_problem 10` |
+| `--config` | Configuration file path | `--config my_config.yaml` |
+
+---
+
+## Command Examples
+
+### Step 1: Data Preparation (Run Once Initially)
+```bash
+python benchmarking_lsbbo_1.py
+```
+
+### Step 2: Benchmarking Execution
+
+#### **Basic Execution (Quick Test)**
+```bash
+# Single experiment with CMAES algorithm on 2D problem
+python benchmarking_lsbbo_2.py --start 0 --end 0 --optimizer CMAES --ndim_problem 2
+```
+
+#### **Practical Execution Examples**
+```bash
+# 1) 3 experiments on 10D problem
+python benchmarking_lsbbo_2.py --start 0 --end 2 --optimizer JADE --ndim_problem 10
+
+# 2) Compare multiple algorithms (run separately)
+python benchmarking_lsbbo_2.py --start 0 --end 4 --optimizer CMAES --ndim_problem 100
+python benchmarking_lsbbo_2.py --start 0 --end 4 --optimizer JADE --ndim_problem 100
+python benchmarking_lsbbo_2.py --start 0 --end 4 --optimizer PRS --ndim_problem 100
+
+# 3) Large-scale experiment (2000D, 10 experiments)
+python benchmarking_lsbbo_2.py --start 0 --end 9 --optimizer CMAES --ndim_problem 2000
+```
+
+#### **Using Configuration Files**
+```bash
+# 1) Generate configuration template
+python benchmarking_lsbbo_2.py --save-config-template
+
+# 2) Run with custom configuration
+python benchmarking_lsbbo_2.py --config config_template.yaml --start 0 --end 1 --optimizer JADE --ndim_problem 50
+```
+
+---
+
+## Execution Results
+
+### Sample Output During Execution
+```
+Starting experiments with CMAES optimizer
+Experiments: 0 to 2
+Problem dimension: 10
+* experiment: 0 ***:
+  * function: sphere:
+    runtime: 1.23456e+00. [SUCCESS]
+  * function: cigar:
+    runtime: 2.34567e+00. [SUCCESS]
+  ...
+Total runtime: 1.23456e+02.
+Experiment summary: 30 completed, 0 failed, 0 skipped
+```
+
+### Generated Files
+- Experiment result pickle files in `pypop7_benchmarks_lso/` folder
+- `checkpoint.json` (progress saving)
+- Log files (if configured)
+
+---
+
+## Key Parameter Descriptions
+
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `--start` | Experiment start number (0-49) | `--start 0` |
+| `--end` | Experiment end number (0-49) | `--end 4` |
+| `--optimizer` | Algorithm to use | `--optimizer CMAES` |
+| `--ndim_problem` | Problem dimension | `--ndim_problem 10` |
+| `--config` | Configuration file path | `--config my_config.yaml` |
+
+---
+
+## Available Optimizers
+
+```
+PRS, SRS, GS, BES, HJ, NM, POWELL, FEP, GENITOR, G3PCX, GL25, 
+COCMA, HCC, SPSO, SPSOL, CLPSO, CCPSO2, CDE, JADE, SHADE, 
+SCEM, MRAS, DSCEM, UMDA, EMNA, RPEDA, XNES, SNES, R1NES, 
+VDCMA, CMAES, FMAES, RMES, LMMAES, MMES, LMCMA, LAMCTS
+```
+
+---
+
+## Key Features
+
+- **Automatic Recovery**: Resume interrupted experiments automatically
+- **Error Resilience**: Individual experiment failures don't stop the entire batch
+- **Progress Tracking**: Real-time display of completed/failed/skipped experiments
+- **Flexible Configuration**: Adjust all parameters through configuration files
+- **Comprehensive Logging**: Detailed logging system for debugging and monitoring
+
+---
+
+This tool enables **objective comparison of various optimization algorithm performances**.
+
+---
+
 # PyPop7: A Pure-PYthon librarY of POPulation-based cOntinuous OPtimization in black-box cases [CCF-A]
 
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/MayorIcons.png"
