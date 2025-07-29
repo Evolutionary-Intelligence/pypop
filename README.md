@@ -217,7 +217,7 @@ etc.
   Cholesky Covariance Matrix Adaptation ES (**CCMAES2016**)
   [[[NeurIPS-2016]](https://proceedings.neurips.cc/paper/2016/hash/289dff07669d7a23de0ef88d2f7129e7-Abstract.html),
   [[FOGA-2015]](https://dl.acm.org/doi/abs/10.1145/2725494.2725496),
-  [GECCO-2010](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
+  [[GECCO-2010]](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
   [MLJ-2009](https://link.springer.com/article/10.1007/s10994-009-5102-1),
   [GECCO-2006](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
