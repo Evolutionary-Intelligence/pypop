@@ -219,7 +219,7 @@ etc.
   [[FOGA-2015]](https://dl.acm.org/doi/abs/10.1145/2725494.2725496),
   [[GECCO-2010]](https://dl.acm.org/doi/abs/10.1145/1830483.1830556),
   [[MLJ-2009]](https://link.springer.com/article/10.1007/s10994-009-5102-1),
-  [GECCO-2006](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
+  [[GECCO-2006]](https://dl.acm.org/doi/abs/10.1145/1143997.1144082)]
 * ![lso](https://img.shields.io/badge/*-l-orange.svg)
   Separable CMA-ES (**SEPCMAES**)
   [[ECJ-2020](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix),
