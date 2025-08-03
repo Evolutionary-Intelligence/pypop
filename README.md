@@ -224,7 +224,7 @@ etc.
   Separable CMA-ES (**SEPCMAES**)
   [[[ECJ-2020]](https://direct.mit.edu/evco/article/28/3/405/94999/Diagonal-Acceleration-for-Covariance-Matrix),
   [[Bäck et al., 2013]](https://link.springer.com/book/10.1007/978-3-642-40137-4),
-  [PPSN-2008](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
+  [[PPSN-2008]](https://link.springer.com/chapter/10.1007/978-3-540-87700-4_30)]
 * ![c](https://img.shields.io/badge/*-c-blue.svg)
   Fast MAES (**FMAES**)
   [[GECCO-2020](https://dl.acm.org/doi/abs/10.1145/3377929.3389870),
