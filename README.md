@@ -229,7 +229,7 @@ etc.
   Fast MAES (**FMAES**)
   [[[GECCO-2020]](https://dl.acm.org/doi/abs/10.1145/3377929.3389870),
   [[TEVC-2019]](https://ieeexplore.ieee.org/abstract/document/8410043),
-  [TEVC-2017](https://ieeexplore.ieee.org/abstract/document/7875115/)]
+  [[TEVC-2017]](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 * ![c](https://img.shields.io/badge/*-c-blue.svg)
   **CMAES**
   [[arXiv-2023/2016](https://arxiv.org/abs/1604.00772),
