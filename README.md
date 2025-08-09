@@ -232,10 +232,10 @@ etc.
   [[TEVC-2017]](https://ieeexplore.ieee.org/abstract/document/7875115/)]
 * ![c](https://img.shields.io/badge/*-c-blue.svg)
   **CMAES**
-  [[arXiv-2023/2016](https://arxiv.org/abs/1604.00772),
+  [[[arXiv-2023/2016]](https://arxiv.org/abs/1604.00772),
   [[ECJ-2003]](https://direct.mit.edu/evco/article-abstract/11/1/1/1139/Reducing-the-Time-Complexity-of-the-Derandomized),
-  [ECJ-2001](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in),
-  [CEC-1996](https://ieeexplore.ieee.org/abstract/document/542381)]
+  [[ECJ-2001]](https://direct.mit.edu/evco/article-abstract/9/2/159/892/Completely-Derandomized-Self-Adaptation-in),
+  [[CEC-1996]](https://ieeexplore.ieee.org/abstract/document/542381)]
 
 ### Natural ES (NES)
 
