@@ -270,7 +270,7 @@ etc.
 ### Estimation of Distribution Algorithms (EDA)
 
 For ```EDA```, please refer to e.g.,
-[Brookes et al., 2020, GECCO](https://dl.acm.org/doi/abs/10.1145/3377929.3389938),
+[[GECCO-2020]](https://dl.acm.org/doi/abs/10.1145/3377929.3389938),
 [[Larrañaga&Lozano, 2002]](https://link.springer.com/book/10.1007/978-1-4615-1539-5),
 [[COA-2002]](https://link.springer.com/article/10.1023/A:1013500812258),
 [[PPSN-1996]](https://link.springer.com/chapter/10.1007/3-540-61723-X_982),
