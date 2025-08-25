@@ -800,7 +800,7 @@ reported in the (actively-updated) paper list called
   * Hooke, R. and Jeeves, T.A., 1961. [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069). JACM, 8(2), pp.212-229. [ [Python - pymoo](https://pymoo.org/algorithms/soo/pattern.html) | [This Week's Citation Classic](http://garfield.library.upenn.edu/classics1980/A1980JK10100001.pdf) ]
   * Box, G.E., 1957. [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505). Journal of the Royal Statistical Society: Series C (Applied Statistics), 6(2), pp.81-101.
   * Fermi, E. and Metropolis N., 1952. [Numerical solution of a minimum problem](https://www.osti.gov/servlets/purl/4377177). Technical Report, Los Alamos Scientific Lab.
-* **Random Search (RS)**
+* **Random Search/Optimization (RS/RO)**
   * Gao, K. and Sener, O., 2022.
     [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html).
     ICML (pp. 7077-7101).
@@ -810,7 +810,7 @@ reported in the (actively-updated) paper list called
   * Appel, M.J., Labarre, R. and Radulovic, D., 2004.
     [On accelerated random search](https://epubs.siam.org/doi/abs/10.1137/S105262340240063X).
     SIOPT, 14(3), pp.708-731.
-  * Schmidhuber, J., Hochreiter, S. and Bengio, Y., 2001.
+  * [Schmidhuber, J.](), [Hochreiter, S.]() and [Bengio, Y.](), 2001.
     [Evaluating benchmark problems by random guessing](https://ml.jku.at/publications/older/ch9.pdf).
     A Field Guide to Dynamical Recurrent Networks, pp.231-235.
   * Rosenstein, M.T. and [Barto, A.G.](https://people.cs.umass.edu/~barto/), 2001.
@@ -825,8 +825,15 @@ reported in the (actively-updated) paper list called
   * Rastrigin, L.A., 1986.
     [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129).
     In Stochastic Optimization. Springer.
-  * Dorea, C.C.Y., 1983. [Expected number of steps of a random optimization method](https://link.springer.com/article/10.1007/BF00934526). JOTA, 39(2), pp.165-171.
-  * Solis, F.J. and Wets, R.J.B., 1981. [Minimization by random search techniques](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19). MOR, 6(1), pp.19-30.
+  * Dorea, C.C.Y., 1983.
+    [Expected number of steps of a random optimization method](https://link.springer.com/article/10.1007/BF00934526).
+    JOTA, 39(2), pp.165-171.
+  * Baba, N., 1981.
+    [Convergence of a random optimization method for constrained optimization problems]().
+    JOTA, 33(4), pp.451-461.
+  * Solis, F.J. and Wets, R.J.B., 1981.
+    [Minimization by random search techniques](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19).
+    MOR, 6(1), pp.19-30.
   * Schumer, M.A. and [Steiglitz, K.](https://www.cs.princeton.edu/~ken/), 1968.
     [Adaptive step size random search](https://ieeexplore.ieee.org/abstract/document/1098903).
     TAC, 13(3), pp.270-276.
