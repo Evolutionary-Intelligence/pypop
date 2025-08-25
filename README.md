@@ -819,9 +819,9 @@ reported in the (actively-updated) paper list called
   * Sarma, M.S., 1990.
     [On the convergence of the Baba and Dorea random optimization methods](https://link.springer.com/article/10.1007/BF00939542).
     JOTA, 66, pp.337-343.
-  * Polyak, B.T., 1987.
-    Introduction to optimization.
-    Optimization Software. New York.
+  * [Polyak, B.T.](https://sites.google.com/site/lab7polyak/), 1987.
+    [Introduction to optimization]().
+    Optimization Software.
   * Rastrigin, L.A., 1986.
     [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129).
     In Stochastic Optimization. Springer.
@@ -842,9 +842,8 @@ reported in the (actively-updated) paper list called
 
 ## Sponsors
 
-From 2021, this open-source Python library was supported by
-**Shenzhen Fundamental Research Program** (a total of 2 000 000
-Yuan).
+From 2021 to 2023, this open-source pure-Python library was supported by
+**Shenzhen Fundamental Research Program** (a total of 2 000 000 Yuan).
 
 ## Citations and Activities
 
@@ -869,7 +868,7 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### 2025 (Activities)
 
-* A **batch-updated** version of ```PyPop7``` is **ongoing**.
+* A batch-updated version of ```PyPop7``` is **ongoing**.
 * An **oral** presentation was given by one author (Qiqi Duan in
   11 Jun 2025) in [IEEE-CEC 2025](https://www.cec2025.org/) and
   its **PPT** file will be released within the next month.
