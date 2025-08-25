@@ -1,4 +1,4 @@
-# PyPop7: A Pure-PYthon librarY of POPulation-based continuous OPtimization in black-box cases [CCF-A]
+<img width="541" height="66" alt="image" src="https://github.com/user-attachments/assets/8a11494f-34a4-479e-9fae-e48e7ffe3d77" /># PyPop7: A Pure-PYthon librarY of POPulation-based continuous OPtimization in black-box cases [CCF-A]
 
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/MayorIcons.png"
 alt="drawing" width="21" height="21"/> `PyPop7` has been used and/or cited in one **Nature**
@@ -800,7 +800,6 @@ reported in the (actively-updated) paper list called
   * Hooke, R. and Jeeves, T.A., 1961. [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069). JACM, 8(2), pp.212-229. [ [Python - pymoo](https://pymoo.org/algorithms/soo/pattern.html) | [This Week's Citation Classic](http://garfield.library.upenn.edu/classics1980/A1980JK10100001.pdf) ]
   * Box, G.E., 1957. [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505). Journal of the Royal Statistical Society: Series C (Applied Statistics), 6(2), pp.81-101.
   * Fermi, E. and Metropolis N., 1952. [Numerical solution of a minimum problem](https://www.osti.gov/servlets/purl/4377177). Technical Report, Los Alamos Scientific Lab.
-  * Applications: e.g., [NM: [Gokhale et al., 2023, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.2207595120); [Hayashi, 2022, Bernoulli](https://doi.org/10.3150/21-BEJ1344); [Vanunu et al., 2021, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.2025646118); [Williams et al., 2021, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.2106237118); [Fleishman et al., Science, 2020](https://www.science.org/doi/abs/10.1126/science.aax6874); [Nanni et al., 2020, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.2023757118); [Steinrücken et al., 2019, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.1905060116); [Omran et al., 2019, Science](https://www.science.org/doi/10.1126/science.aax9743); [Sparrow et al., 2018, Nature](https://www.nature.com/articles/s41586-018-0152-9); [Prochazka&Vogl, 2017, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.1617252114); [Murphy&Brincke, 2017, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2016.2591); [Gillon et al., 2017, Nature](https://www.nature.com/articles/nature21360); [Aghaeepour et al., 2017, Science Immunol.](https://www.science.org/doi/full/10.1126/sciimmunol.aan2946); [Sayegh et al., 2017, TS](https://pubsonline.informs.org/doi/10.1287/trsc.2017.0787); [Landis&Schraiber, 2017, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.1710920114); [Kim et al., 2016, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.1618883114); [Chan et al., 2014, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.2013.1840); [Chan et al., 2014, MKSC](https://pubsonline.informs.org/doi/abs/10.1287/mksc.2013.0831); [Bajikar et al., 2014, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.1311647111); [Lee et al., 2014, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.1313039111); [Wang et al., 2012, PRL](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.109.175502); [Lau&Rubinstein, Nature, 2012](https://www.nature.com/articles/nature10699); [Brown et al., 2012, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1120.1563); [Contreras et al., 2012, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.1216953109); [Morlon et al., 2011, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.1102543108); [Forstmann et al., 2010, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.1004932107); [Balachander et al., 2009, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1090.1056); [Jayanthi et al., 2009, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1090.1002); [Farrell et al., 2009, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.0906845107); [Forstmann et al., 2008, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.0805903105); [Rouder et al., 2008, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.0711295105); [Sapir et al., 2005, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.0504678102); [Amonlirdviman et al., 2005, Science](https://www.science.org/doi/abs/10.1126/science.1105471); [Cowan et al., 2004, PS](https://journals.sagepub.com/doi/abs/10.1111/j.0956-7976.2004.00732.x); [Zhou et al., 2004, PS](https://journals.sagepub.com/doi/abs/10.1111/j.0963-7214.2004.01502007.x); [Draganska&Jain, 2004, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1040.0227); [Fain&Levitt, 2003, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.1732312100); [Dennis et al., 2002, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.062398499); [Sudhir, 2001, MKSC](https://pubsonline.informs.org/doi/abs/10.1287/mksc.20.1.42.10196); [Rouder, 2001, PS](https://journals.sagepub.com/doi/abs/10.1111/1467-9280.00358); [Wolszczan, 1994, Science](https://www.science.org/doi/abs/10.1126/science.264.5158.538); [Polvani et al., 1990, Science](https://www.science.org/doi/abs/10.1126/science.249.4975.1393); [Lee et al., 1987, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.84.9.2590); [Sabath et al., 1986, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.83.13.4739); [Burch et al., 1985, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.82.21.7434); [Regoeczi et al., 1982, PNAS](https://www.pnas.org/doi/abs/10.1073/pnas.79.7.2226); [Brasseur et al., 1982, PNAS](); [Korn et al., 1981, Science](https://www.science.org/doi/abs/10.1126/science.6266015); [Dean et al., 1975, Science](https://www.science.org/doi/10.1126/science.189.4205.805)]; [HJ: [Kalita et al., 2023, Nature](https://www.nature.com/articles/s41586-023-06283-2); [Washington et al, 2023](https://arxiv.org/pdf/2301.07822.pdf); [Huynh et al., 2023](https://arxiv.org/ftp/arxiv/papers/2304/2304.05603.pdf); [Kucher et al., 2022, SPLC](https://dl.acm.org/doi/abs/10.1145/3503229.3547041); [Pepe et al., 2021, IEEE-TASLP](https://ieeexplore.ieee.org/abstract/document/9729497); [Khaledian et al., 2018, IEEE-TMTT](https://ieeexplore.ieee.org/abstract/document/8335770); [Luhar et al., 2015, JFM](https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/framework-for-studying-the-effect-of-compliant-surfaces-on-wall-turbulence/47B8C79442109015690B6B16F891DF09); [Paxton et al., 2013, ApJS](https://iopscience.iop.org/article/10.1088/0067-0049/208/1/4); [Schneider&Excoffier, 1999, Genetics](https://academic.oup.com/genetics/article/152/3/1079/6034947); [Ditchfield et al., 1971, JCP](https://aip.scitation.org/doi/10.1063/1.1674902)].
 * **Random Search (RS)**
   * Gao, K. and Sener, O., 2022.
     [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html).
@@ -808,24 +807,38 @@ reported in the (actively-updated) paper list called
   * [Stich, S.U.](), 2014.
     [On low complexity acceleration techniques for randomized optimization](https://link.springer.com/chapter/10.1007/978-3-319-10762-2_13).
     In PPSN (pp. 130-140). Springer.
+  * Appel, M.J., Labarre, R. and Radulovic, D., 2004.
+    [On accelerated random search](https://epubs.siam.org/doi/abs/10.1137/S105262340240063X).
+    SIOPT, 14(3), pp.708-731.
   * Schmidhuber, J., Hochreiter, S. and Bengio, Y., 2001.
     [Evaluating benchmark problems by random guessing](https://ml.jku.at/publications/older/ch9.pdf).
     A Field Guide to Dynamical Recurrent Networks, pp.231-235.
   * Rosenstein, M.T. and [Barto, A.G.](https://people.cs.umass.edu/~barto/), 2001.
     [Robot weightlifting by direct policy search](https://dl.acm.org/doi/abs/10.5555/1642194.1642206).
     IJCAI. (pp. 839-846).
-  * Polyak, B.T., 1987. Introduction to optimization. Optimization Software. New York.
+  * Sarma, M.S., 1990.
+    [On the convergence of the Baba and Dorea random optimization methods](https://link.springer.com/article/10.1007/BF00939542).
+    JOTA, 66, pp.337-343.
+  * Polyak, B.T., 1987.
+    Introduction to optimization.
+    Optimization Software. New York.
   * Rastrigin, L.A., 1986.
     [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129).
     In Stochastic Optimization. Springer.
-  * Dorea, C.C.Y., 1983. [Expected number of steps of a random optimization method](https://link.springer.com/article/10.1007/BF00934526). JOTA, 39(2), pp.165-171. [ Sarma, M.S., 1990. [On the convergence of the Baba and Dorea random optimization methods](https://link.springer.com/article/10.1007/BF00939542). JOTA, 66, pp.337-343. ] + [ Appel, M.J., Labarre, R. and Radulovic, D., 2004. [On accelerated random search](https://epubs.siam.org/doi/abs/10.1137/S105262340240063X). SIOPT, 14(3), pp.708-731. ]
+  * Dorea, C.C.Y., 1983. [Expected number of steps of a random optimization method](https://link.springer.com/article/10.1007/BF00934526). JOTA, 39(2), pp.165-171.
   * Solis, F.J. and Wets, R.J.B., 1981. [Minimization by random search techniques](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19). MOR, 6(1), pp.19-30.
-  * Schumer, M.A. and Steiglitz, K., 1968. [Adaptive step size random search](https://ieeexplore.ieee.org/abstract/document/1098903). TAC, 13(3), pp.270-276.
+  * Schumer, M.A. and [Steiglitz, K.](https://www.cs.princeton.edu/~ken/), 1968.
+    [Adaptive step size random search](https://ieeexplore.ieee.org/abstract/document/1098903).
+    TAC, 13(3), pp.270-276.
   * Rastrigin, L.A., 1963.
     [The convergence of the random search method in the extremal control of a many parameter system](https://tinyurl.com/djfdnpx4).
     Automaton & Remote Control, 24, pp.1337-1342.
-  * Brooks, S.H., 1958. [A discussion of random methods for seeking maxima](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244). OR, 6(2), pp.244-251.
-  * [Ashby, W.R.](https://ashby.info), 1952. [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3). Springer.
+  * Brooks, S.H., 1958.
+    [A discussion of random methods for seeking maxima](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244).
+    OR, 6(2), pp.244-251.
+  * [Ashby, W.R.](https://ashby.info), 1952.
+    [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3).
+    Springer.
 
 ## Sponsors
 
