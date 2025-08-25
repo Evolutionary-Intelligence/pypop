@@ -805,7 +805,7 @@ reported in the (actively-updated) paper list called
     [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html).
     ICML (pp. 7077-7101).
   * [Nesterov, Y.]() and Spokoiny, V., 2017.
-    [Random gradient-free minimization of convex functions]().
+    [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2).
     FoCM, 17(2), pp.527-566.
   * [Stich, S.U.](), 2014.
     [On low complexity acceleration techniques for randomized optimization](https://link.springer.com/chapter/10.1007/978-3-319-10762-2_13).
