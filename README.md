@@ -1,4 +1,4 @@
-<img width="541" height="66" alt="image" src="https://github.com/user-attachments/assets/8a11494f-34a4-479e-9fae-e48e7ffe3d77" /># PyPop7: A Pure-PYthon librarY of POPulation-based continuous OPtimization in black-box cases [CCF-A]
+# PyPop7: A Pure-PYthon librarY of POPulation-based continuous OPtimization in black-box cases [CCF-A]
 
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/MayorIcons.png"
 alt="drawing" width="21" height="21"/> `PyPop7` has been used and/or cited in one **Nature**
