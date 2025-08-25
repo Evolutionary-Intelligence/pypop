@@ -804,7 +804,7 @@ reported in the (actively-updated) paper list called
 * **Random Search (RS)**
   * Gao, K. and Sener, O., 2022.
     [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html).
-    ICML (pp. 7077-7101). PMLR.
+    ICML (pp. 7077-7101).
   * [Stich, S.U.](), 2014.
     [On low complexity acceleration techniques for randomized optimization](https://link.springer.com/chapter/10.1007/978-3-319-10762-2_13).
     In PPSN (pp. 130-140). Springer.
@@ -814,7 +814,6 @@ reported in the (actively-updated) paper list called
   * Rosenstein, M.T. and [Barto, A.G.](https://people.cs.umass.edu/~barto/), 2001.
     [Robot weightlifting by direct policy search](https://dl.acm.org/doi/abs/10.5555/1642194.1642206).
     IJCAI. (pp. 839-846).
-  * Cvijović, D. and Klinowski, J., 1995. [Taboo search: An approach to the multiple minima problem](https://www.science.org/doi/abs/10.1126/science.267.5198.664). Science, 267(5198), pp.664-666.
   * Polyak, B.T., 1987. Introduction to optimization. Optimization Software. New York.
   * Dorea, C.C.Y., 1983. [Expected number of steps of a random optimization method](https://link.springer.com/article/10.1007/BF00934526). JOTA, 39(2), pp.165-171. [ Sarma, M.S., 1990. [On the convergence of the Baba and Dorea random optimization methods](https://link.springer.com/article/10.1007/BF00939542). JOTA, 66, pp.337-343. ] + [ Appel, M.J., Labarre, R. and Radulovic, D., 2004. [On accelerated random search](https://epubs.siam.org/doi/abs/10.1137/S105262340240063X). SIOPT, 14(3), pp.708-731. ]
   * Solis, F.J. and Wets, R.J.B., 1981. [Minimization by random search techniques](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19). MOR, 6(1), pp.19-30.
