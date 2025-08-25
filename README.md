@@ -856,7 +856,7 @@ reported in the (actively-updated) paper list called
     [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3).
     Springer.
 
-## Sponsors
+## Financial Sponsors
 
 From 2021 to 2023, this open-source pure-Python library was supported by
 **Shenzhen Fundamental Research Program** (a total of 2 000 000 Yuan).
