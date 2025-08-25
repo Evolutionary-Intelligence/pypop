@@ -815,15 +815,15 @@ reported in the (actively-updated) paper list called
     [Robot weightlifting by direct policy search](https://dl.acm.org/doi/abs/10.5555/1642194.1642206).
     IJCAI. (pp. 839-846).
   * Polyak, B.T., 1987. Introduction to optimization. Optimization Software. New York.
+  * Rastrigin, L.A., 1986.
+    [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129).
+    In Stochastic Optimization. Springer.
   * Dorea, C.C.Y., 1983. [Expected number of steps of a random optimization method](https://link.springer.com/article/10.1007/BF00934526). JOTA, 39(2), pp.165-171. [ Sarma, M.S., 1990. [On the convergence of the Baba and Dorea random optimization methods](https://link.springer.com/article/10.1007/BF00939542). JOTA, 66, pp.337-343. ] + [ Appel, M.J., Labarre, R. and Radulovic, D., 2004. [On accelerated random search](https://epubs.siam.org/doi/abs/10.1137/S105262340240063X). SIOPT, 14(3), pp.708-731. ]
   * Solis, F.J. and Wets, R.J.B., 1981. [Minimization by random search techniques](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19). MOR, 6(1), pp.19-30.
   * Schumer, M.A. and Steiglitz, K., 1968. [Adaptive step size random search](https://ieeexplore.ieee.org/abstract/document/1098903). TAC, 13(3), pp.270-276.
   * Rastrigin, L.A., 1963.
     [The convergence of the random search method in the extremal control of a many parameter system](https://tinyurl.com/djfdnpx4).
     Automaton & Remote Control, 24, pp.1337-1342.
-    * Rastrigin, L.A., 1986.
-      [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129).
-      In Stochastic Optimization. Springer.
   * Brooks, S.H., 1958. [A discussion of random methods for seeking maxima](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244). OR, 6(2), pp.244-251.
   * [Ashby, W.R.](https://ashby.info), 1952. [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3). Springer.
   * Some interesting applications of RS: e.g., [[Moon et al., 2023, Nature Medicine]](https://www.nature.com/articles/s41591-023-02482-6); [[Wang et al., 2023, Nature Mental Health]](https://www.nature.com/articles/s44220-023-00110-3); [[Xie et al., 2023, Nature Communications]](https://www.nature.com/articles/s41467-023-41951-x); [[Mathis et al., 2023, Nature Biotechnology]](https://www.nature.com/articles/s41587-022-01613-7); [[Tian et al., 2023, KDD]](https://dl.acm.org/doi/pdf/10.1145/3580305.3599882); [[Schuch et al., 2023, JAMA]](https://jamanetwork.com/journals/jamanetworkopen/article-abstract/2811316); [[Flam-Shepherd et al., 2022, Nature Communications]](https://www.nature.com/articles/s41467-022-30839-x); [[Beucler et al., 2021, PRL]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.098302); [[Roman et al., 2021, Nature Machine Intelligence]](https://www.nature.com/articles/s42256-021-00312-3); [[Shen et al., 2021, Nature Communications]](https://www.nature.com/articles/s41467-021-26023-2); [[Gonatopoulos-Pournatzis et al., 2020, Nature Biotechnology]](https://www.nature.com/articles/s41587-020-0437-z); [[Valeri et al., 2020, Nature Communications]](https://www.nature.com/articles/s41467-020-18676-2); [[Chen et al., 2020, Science Robotics]](https://www.science.org/doi/full/10.1126/scirobotics.abb6938); [[Pickard&Needs, 2006, PRL]](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.97.045504).
