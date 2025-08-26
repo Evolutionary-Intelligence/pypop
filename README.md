@@ -846,9 +846,12 @@ reported in the (actively-updated) paper list called
   * Schumer, M.A. and [Steiglitz, K.](https://www.cs.princeton.edu/~ken/), 1968.
     [Adaptive step size random search](https://ieeexplore.ieee.org/abstract/document/1098903).
     TAC, 13(3), pp.270-276.
+  * Matyas, J., 1965.
+    [Random optimization](https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=at&paperid=11288).
+    ARC, 26(2), pp.246-253.
   * Rastrigin, L.A., 1963.
     [The convergence of the random search method in the extremal control of a many parameter system](https://tinyurl.com/djfdnpx4).
-    Automaton & Remote Control, 24, pp.1337-1342.
+    ARC, 24, pp.1337-1342.
   * Brooks, S.H., 1958.
     [A discussion of random methods for seeking maxima](https://pubsonline.informs.org/doi/abs/10.1287/opre.6.2.244).
     OR, 6(2), pp.244-251.
