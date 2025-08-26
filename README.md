@@ -830,7 +830,7 @@ reported in the (actively-updated) paper list called
     JOTA, 66, pp.337-343.
   * [Polyak, B.T.](https://sites.google.com/site/lab7polyak/), 1987.
     [Introduction to optimization]().
-    Optimization Software.
+    Optimization Software Inc.
   * Rastrigin, L.A., 1986.
     [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129).
     In Stochastic Optimization. Springer.
