@@ -801,12 +801,14 @@ reported in the (actively-updated) paper list called
   * Box, G.E., 1957.
     [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
     Journal of the Royal Statistical Society: Series C (Applied Statistics), 6(2), pp.81-101.
-  * [Fermi, E.](https://www.nobelprize.org/prizes/physics/1938/fermi/biographical/) and Metropolis N., 1952.
+  * [Fermi, E.](https://www.nobelprize.org/prizes/physics/1938/fermi/biographical/) and
+    [Metropolis N.](https://history.computer.org/pioneers/metropolis.html), 1952.
     [Numerical solution of a minimum problem](https://www.osti.gov/servlets/purl/4377177).
     Technical Report, Los Alamos Scientific Lab.
 ### **Random Search/Optimization (RS/RO)**
   * Wang, X., Hong, L.J., Jiang, Z. and Shen, H., 2025.
-    [Gaussian process-based random search for continuous optimization via simulation](https://pubsonline.informs.org/doi/abs/10.1287/opre.2021.0303).
+    [Gaussian process-based random search for continuous optimization via
+    simulation](https://pubsonline.informs.org/doi/abs/10.1287/opre.2021.0303).
     OR, 73(1), pp.385-407.
   * Sel, B., et al., 2023, June.
     [Learning-to-learn to guide random search: Derivative-free meta blackbox optimization on manifold]().
