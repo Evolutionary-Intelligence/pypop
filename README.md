@@ -834,7 +834,7 @@ reported in the (actively-updated) paper list called
     [On the convergence of the Baba and Dorea random optimization methods](https://link.springer.com/article/10.1007/BF00939542).
     JOTA, 66, pp.337-343.
   * [Polyak, B.T.](https://sites.google.com/site/lab7polyak/), 1987.
-    [Introduction to optimization]().
+    [Introduction to optimization](https://sites.google.com/site/lab7polyak/).
     Optimization Software Inc.
   * Rastrigin, L.A., 1986.
     [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129).
@@ -843,7 +843,7 @@ reported in the (actively-updated) paper list called
     [Expected number of steps of a random optimization method](https://link.springer.com/article/10.1007/BF00934526).
     JOTA, 39(2), pp.165-171.
   * Baba, N., 1981.
-    [Convergence of a random optimization method for constrained optimization problems]().
+    [Convergence of a random optimization method for constrained optimization problems](https://link.springer.com/article/10.1007/BF00935752).
     JOTA, 33(4), pp.451-461.
   * Solis, F.J. and Wets, R.J.B., 1981.
     [Minimization by random search techniques](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19).
