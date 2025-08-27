@@ -782,7 +782,7 @@ reported in the (actively-updated) paper list called
     Intelligent decision making through a simulation of evolution.
     IEEE Transactions on Human Factors in Electronics, 6(1), pp.13-23.
   * Applications: e.g., [Hoorfar, 2007, IEEE-TAP](https://ieeexplore.ieee.org/document/4120264); [Cui et al., 2006, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1060.0514); [Damavandi&Safavi-Naeini, 2005, IEEE-TCSI](https://ieeexplore.ieee.org/document/1427899).
-* Pattern Search
+* **Pattern/Direct Search (PS/DS)**
   * Porcelli, M. and Toint, P.L., 2022. [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054). ACM TOMS, 48(1), pp.1-25.
   * Audet, C., Le Digabel, S., Rochon Montplaisir, V. and Tribes, C., 2022. [Algorithm XXXX: NOMAD version 4: Nonlinear optimization with the MADS algorithm](https://dl.acm.org/doi/abs/10.1145/3544489). TOMS.
   * Brent, R.P., 2013. [Algorithms for minimization without derivatives](https://maths-people.anu.edu.au/~brent/pub/pub011.html). Courier Corporation.
@@ -798,7 +798,7 @@ reported in the (actively-updated) paper list called
   * Kaupe Jr, A.F., 1963. [Algorithm 178: Direct search](https://dl.acm.org/doi/pdf/10.1145/366604.366632). CACM, 6(6), pp.313-314.
   * Spang, III, H.A., 1962. [A review of minimization techniques for nonlinear functions](https://epubs.siam.org/doi/abs/10.1137/1004089). SIAM Review, 4(4), pp.343-365.
   * Hooke, R. and Jeeves, T.A., 1961. [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069). JACM, 8(2), pp.212-229. [ [Python - pymoo](https://pymoo.org/algorithms/soo/pattern.html) | [This Week's Citation Classic](http://garfield.library.upenn.edu/classics1980/A1980JK10100001.pdf) ]
-  * Box, G.E., 1957.
+  * [Box, G.E.](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
     [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
     Journal of the Royal Statistical Society: Series C (Applied Statistics), 6(2), pp.81-101.
   * [Fermi, E.](https://www.nobelprize.org/prizes/physics/1938/fermi/biographical/) and
@@ -807,8 +807,7 @@ reported in the (actively-updated) paper list called
     Technical Report, Los Alamos Scientific Lab.
 ### **Random Search/Optimization (RS/RO)**
   * Wang, X., Hong, L.J., Jiang, Z. and Shen, H., 2025.
-    [Gaussian process-based random search for continuous optimization via
-    simulation](https://pubsonline.informs.org/doi/abs/10.1287/opre.2021.0303).
+    [Gaussian process-based random search for continuous optimization via simulation](https://pubsonline.informs.org/doi/abs/10.1287/opre.2021.0303).
     OR, 73(1), pp.385-407.
   * Sel, B., et al., 2023, June.
     [Learning-to-learn to guide random search: Derivative-free meta blackbox optimization on manifold]().
