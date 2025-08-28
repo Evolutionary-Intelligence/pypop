@@ -806,6 +806,9 @@ reported in the (actively-updated) paper list called
   * [Wright, M.H.](https://www.simonsfoundation.org/people/margaret-h-wright/), 1996.
     [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable).
     Pitman Research Notes in Mathematics Series, pp.191-208.
+  * Powell, M.J., 1973.
+    [On search directions for minimization algorithms](https://link.springer.com/article/10.1007/BF01584660).
+    Mathematical Programming, 4(1), pp.193-201.
   * Nelder, J.A. and Mead, R., 1965.
     [A simplex method for function minimization](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237).
     CJ, 7(4), pp.308-313.
