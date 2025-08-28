@@ -800,6 +800,9 @@ reported in the (actively-updated) paper list called
   * Powell, M.J., 1998.
     [Direct search algorithms for optimization calculations](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C).
     AN, 7, pp.287-336.
+  * McKinnon, K.I., 1998.
+    Convergence of the Nelder--Mead simplex method to a nonstationary point.
+    SIOPT, 9(1), pp.148-158.
   * Torczon, V., 1997.
     [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780).
     SIOPT, 7(1), pp.1-25.
