@@ -791,6 +791,9 @@ reported in the (actively-updated) paper list called
   * Singer, S. and Nelder, J., 2009.
     [Nelder-mead algorithm](http://var.scholarpedia.org/article/Nelder-Mead_algorithm).
     Scholarpedia, 4(7), p.2928.
+  * Dolan, E.D., Lewis, R.M. and Torczon, V., 2003.
+    [On the local convergence of pattern search]().
+    SIOPT, 14(2), pp.567-583.
   * Lagarias, J.C., Reeds, J.A., Wright, M.H. and Wright, P.E., 1998.
     [Convergence properties of the Nelder--Mead simplex method in low dimensions](https://epubs.siam.org/doi/abs/10.1137/S1052623496303470).
     SIOPT, 9(1), pp.112-147.
