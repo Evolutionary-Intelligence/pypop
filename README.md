@@ -791,16 +791,18 @@ reported in the (actively-updated) paper list called
   * Powell, M.J., 1998. [Direct search algorithms for optimization calculations](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C). Acta Numerica, 7, pp.287-336.
   * Torczon, V., 1997. [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780). SIOPT, 7(1), pp.1-25.
   * Barton, R.R. and Ivey Jr, J.S., 1996. [Nelder-Mead simplex modifications for simulation optimization](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.42.7.954). MS, 42(7), pp.954-973.
-  * Wright, M.H., 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
+  * [Wright, M.H.](https://www.simonsfoundation.org/people/margaret-h-wright/), 1996. [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable). Pitman Research Notes in Mathematics Series, pp.191-208.
   * Jones, D.R., Perttunen, C.D. and Stuckman, B.E., 1993. [Lipschitzian optimization without the Lipschitz constant](https://link.springer.com/article/10.1007/BF00941892). JOTA, 79(1), pp.157-181.
   * Nelder, J.A. and Mead, R., 1965. [A simplex method for function minimization](https://academic.oup.com/comjnl/article-abstract/7/4/308/354237). The Computer Journal, 7(4), pp.308-313.
-  * Powell, M.J., 1964. [An efficient method for finding the minimum of a function of several variables without calculating derivatives](https://academic.oup.com/comjnl/article-abstract/7/2/155/335330). The Computer Journal, 7(2), pp.155-162.
-  * Kaupe Jr, A.F., 1963. [Algorithm 178: Direct search](https://dl.acm.org/doi/pdf/10.1145/366604.366632). CACM, 6(6), pp.313-314.
-  * Spang, III, H.A., 1962. [A review of minimization techniques for nonlinear functions](https://epubs.siam.org/doi/abs/10.1137/1004089). SIAM Review, 4(4), pp.343-365.
-  * Hooke, R. and Jeeves, T.A., 1961. [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069). JACM, 8(2), pp.212-229. [ [Python - pymoo](https://pymoo.org/algorithms/soo/pattern.html) | [This Week's Citation Classic](http://garfield.library.upenn.edu/classics1980/A1980JK10100001.pdf) ]
-  * [Box, G.E.](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
-    [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
-    JRSS-SC, 6(2), pp.81-101.
+  * Powell, M.J., 1964.
+    [An efficient method for finding the minimum of a function of several variables without calculating derivatives](https://academic.oup.com/comjnl/article-abstract/7/2/155/335330).
+    CJ, 7(2), pp.155-162.
+  * Kaupe Jr, A.F., 1963.
+    [Algorithm 178: Direct search](https://dl.acm.org/doi/pdf/10.1145/366604.366632).
+    CACM, 6(6), pp.313-314.
+  * Hooke, R. and Jeeves, T.A., 1961.
+    [“Direct search” solution of numerical and statistical problems](https://dl.acm.org/doi/10.1145/321062.321069).
+    JACM, 8(2), pp.212-229.
   * [Fermi, E.](https://www.nobelprize.org/prizes/physics/1938/fermi/biographical/) and
     [Metropolis N.](https://history.computer.org/pioneers/metropolis.html), 1952.
     [Numerical solution of a minimum problem](https://www.osti.gov/servlets/purl/4377177).
@@ -866,6 +868,12 @@ reported in the (actively-updated) paper list called
   * [Ashby, W.R.](https://ashby.info), 1952.
     [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3).
     Springer.
+
+## Pioneers of Evolutionary and Swarm-Based Optimization
+
+* [Box, G.E.](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
+  [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
+  JRSS-SC, 6(2), pp.81-101.
 
 ## Financial Sponsors
 
