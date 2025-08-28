@@ -781,7 +781,7 @@ reported in the (actively-updated) paper list called
   * Fogel, L.J., Owens, A.J. and Walsh, M.J., 1965.
     Intelligent decision making through a simulation of evolution.
     IEEE Transactions on Human Factors in Electronics, 6(1), pp.13-23.
-* **Pattern/Direct Search (PS/DS)**
+### **Pattern/Direct Search (PS/DS)**
   * Porcelli, M. and [Toint, P.L.](https://researchportal.unamur.be/en/persons/phtoint), 2022.
     [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054).
     TOMS, 48(1), pp.1-25.
