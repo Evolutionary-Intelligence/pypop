@@ -783,14 +783,27 @@ reported in the (actively-updated) paper list called
     IEEE Transactions on Human Factors in Electronics, 6(1), pp.13-23.
   * Applications: e.g., [Hoorfar, 2007, IEEE-TAP](https://ieeexplore.ieee.org/document/4120264); [Cui et al., 2006, MS](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.1060.0514); [Damavandi&Safavi-Naeini, 2005, IEEE-TCSI](https://ieeexplore.ieee.org/document/1427899).
 * **Pattern/Direct Search (PS/DS)**
-  * Porcelli, M. and Toint, P.L., 2022. [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054). ACM TOMS, 48(1), pp.1-25.
-  * Audet, C., Le Digabel, S., Rochon Montplaisir, V. and Tribes, C., 2022. [Algorithm XXXX: NOMAD version 4: Nonlinear optimization with the MADS algorithm](https://dl.acm.org/doi/abs/10.1145/3544489). TOMS.
-  * Brent, R.P., 2013. [Algorithms for minimization without derivatives](https://maths-people.anu.edu.au/~brent/pub/pub011.html). Courier Corporation.
-  * Singer, S. and Nelder, J., 2009. [Nelder-mead algorithm](http://var.scholarpedia.org/article/Nelder-Mead_algorithm). Scholarpedia, 4(7), p.2928.
-  * Lagarias, J.C., Reeds, J.A., Wright, M.H. and Wright, P.E., 1998. [Convergence properties of the Nelder--Mead simplex method in low dimensions](https://epubs.siam.org/doi/abs/10.1137/S1052623496303470). SIOPT, 9(1), pp.112-147.
-  * Powell, M.J., 1998. [Direct search algorithms for optimization calculations](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C). Acta Numerica, 7, pp.287-336.
-  * Torczon, V., 1997. [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780). SIOPT, 7(1), pp.1-25.
-  * Barton, R.R. and Ivey Jr, J.S., 1996. [Nelder-Mead simplex modifications for simulation optimization](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.42.7.954). MS, 42(7), pp.954-973.
+  * Porcelli, M. and Toint, P.L., 2022.
+    [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054).
+    TOMS, 48(1), pp.1-25.
+  * Audet, C., Le Digabel, S., Montplaisir, V.R. and Tribes, C., 2022.
+    [Algorithm 1027: NOMAD version 4: Nonlinear optimization with the MADS algorithm](https://dl.acm.org/doi/abs/10.1145/3544489).
+    TOMS, 48(3), pp.1-22.
+  * Singer, S. and Nelder, J., 2009.
+    [Nelder-mead algorithm](http://var.scholarpedia.org/article/Nelder-Mead_algorithm).
+    Scholarpedia, 4(7), p.2928.
+  * Lagarias, J.C., Reeds, J.A., Wright, M.H. and Wright, P.E., 1998.
+    [Convergence properties of the Nelder--Mead simplex method in low dimensions](https://epubs.siam.org/doi/abs/10.1137/S1052623496303470).
+    SIOPT, 9(1), pp.112-147.
+  * Powell, M.J., 1998.
+    [Direct search algorithms for optimization calculations](https://www.cambridge.org/core/journals/acta-numerica/article/abs/direct-search-algorithms-for-optimization-calculations/23FA5B19EAF122E02D3724DB1841238C).
+    AN, 7, pp.287-336.
+  * Torczon, V., 1997.
+    [On the convergence of pattern search algorithms](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780).
+    SIOPT, 7(1), pp.1-25.
+  * Barton, R.R. and Ivey Jr, J.S., 1996.
+    [Nelder-Mead simplex modifications for simulation optimization](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.42.7.954).
+    MS, 42(7), pp.954-973.
   * [Wright, M.H.](https://www.simonsfoundation.org/people/margaret-h-wright/), 1996.
     [Direct search methods: Once scorned, now respectable](https://nyuscholars.nyu.edu/en/publications/direct-search-methods-once-scorned-now-respectable).
     Pitman Research Notes in Mathematics Series, pp.191-208.
