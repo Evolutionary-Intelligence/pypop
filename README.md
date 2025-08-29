@@ -836,7 +836,7 @@ reported in the (actively-updated) paper list called
     [Gaussian process-based random search for continuous optimization via simulation](https://pubsonline.informs.org/doi/abs/10.1287/opre.2021.0303).
     OR, 73(1), pp.385-407.
   * Sel, B., et al., 2023, June.
-    [Learning-to-learn to guide random search: Derivative-free meta blackbox optimization on manifold]().
+    [Learning-to-learn to guide random search: Derivative-free meta blackbox optimization on manifold](https://proceedings.mlr.press/v211/sel23a.html).
     In L4DC (pp. 38-50).
   * Gao, K. and Sener, O., 2022.
     [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html).
