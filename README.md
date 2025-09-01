@@ -927,6 +927,10 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### 2025 (Activities)
 
+* A 20-minute online report will be given by one author
+  (Qiqi Duan in 13 Sept 2025) in Chinese for
+  [LEAD (Workshop on Learning-assisted Evolutionary Algorithm Design)](https://sites.google.com/view/leadworkshop2025/).
+  * Oral: [ppt (in English)]()
 * A presentation was given by one author (Qiqi Duan in
   11 Jun 2025) in [IEEE-CEC 2025]().
   * Oral: [ppt]().
