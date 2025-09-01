@@ -842,7 +842,7 @@ reported in the (actively-updated) paper list called
     [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html).
     ICML (pp. 7077-7101).
   * Sener, O. and Koltun, V., 2020.
-    [Learning to guide random search]().
+    [Learning to guide random search](https://openreview.net/forum?id=B1gHokBKwS).
     In ICLR.
   * [Nesterov, Y.]() and Spokoiny, V., 2017.
     [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2).
