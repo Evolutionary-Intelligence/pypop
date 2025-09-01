@@ -927,10 +927,10 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### 2025 (Activities)
 
-* A presentation was given by one author (Qiqi Duan in 11
-  Jun 2025) in [IEEE-CEC 2025]().
+* A presentation was given by one author (Qiqi Duan in
+  11 Jun 2025) in [IEEE-CEC 2025]().
   * Oral: [ppt]().
-* An one-page paper was submitted to [IEEE-CEC 2025]() as
+* A one-page paper was submitted to [IEEE-CEC 2025]() as
   one *Journal-to-Conference* ([J2C]()) paper and was
   accepted in 18 Mar 2025.
   * J2C: [pdf](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/presentations/IEEE-CEC-2025-%5BJ2C%5D.pdf).
