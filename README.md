@@ -934,11 +934,12 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
   * [ppt]()
 * An **account** called *PyPop7* on the *Wechat Public Platform*
   has been registered in 16 Apr 2025.
-* An one-page **paper** has been submitted (Accepted in 18 Mar 2025)
-  to [IEEE-CEC 2025](https://www.cec2025.org/) as one
-  *Journal-to-Conference*
-  ([J2C](https://www.cec2025.org/index/page.html?id=1308)) paper.
-  * [pdf](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/presentations/IEEE-CEC-2025-%5BJ2C%5D.pdf)
+* An one-page paper was submitted to
+  [IEEE-CEC 2025](https://www.cec2025.org/)
+  as one *Journal-to-Conference*
+  ([J2C](https://www.cec2025.org/index/page.html?id=1308))
+  paper and was accepted in 18 Mar 2025.
+  * J2C: [pdf](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/presentations/IEEE-CEC-2025-%5BJ2C%5D.pdf)
 
 ### BibTeX (2024)
 
