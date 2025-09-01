@@ -929,16 +929,12 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 * A batch-updated version of ```PyPop7``` is **ongoing**.
 * An **oral** presentation was given by one author (Qiqi Duan in
-  11 Jun 2025) in [IEEE-CEC 2025](https://www.cec2025.org/) and
+  11 Jun 2025) in [IEEE-CEC 2025]() and
   its **PPT** file will be released within the next month.
   * [ppt]()
-* An **account** called *PyPop7* on the *Wechat Public Platform*
-  has been registered in 16 Apr 2025.
-* An one-page paper was submitted to
-  [IEEE-CEC 2025](https://www.cec2025.org/)
-  as one *Journal-to-Conference*
-  ([J2C](https://www.cec2025.org/index/page.html?id=1308))
-  paper and was accepted in 18 Mar 2025.
+* An one-page paper was submitted to [IEEE-CEC 2025]() as
+  one *Journal-to-Conference* ([J2C]()) paper and was
+  accepted in 18 Mar 2025.
   * J2C: [pdf](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/presentations/IEEE-CEC-2025-%5BJ2C%5D.pdf)
 
 ### BibTeX (2024)
