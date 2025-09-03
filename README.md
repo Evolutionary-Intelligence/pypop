@@ -844,7 +844,7 @@ reported in the (actively-updated) paper list called
   * Sener, O. and Koltun, V., 2020.
     [Learning to guide random search](https://openreview.net/forum?id=B1gHokBKwS).
     In ICLR.
-  * [Nesterov, Y.]() and Spokoiny, V., 2017.
+  * [Nesterov, Y.](https://www.nasonline.org/directory-entry/yurii-e-nesterov-5n5mo7/) and Spokoiny, V., 2017.
     [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2).
     FoCM, 17(2), pp.527-566.
   * [Stich, S.U.](), 2014.
