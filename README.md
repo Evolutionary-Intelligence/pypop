@@ -24,8 +24,8 @@ etc. For any questions or helps, please use
 [![PyTest](https://img.shields.io/badge/pytest-%23ffffff.svg?logo=PyTest&logoColor=2f9fe3)](https://docs.pytest.org/en/stable/)
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation)
 [![Sphinx](https://img.shields.io/badge/Sphinx-000?logo=sphinx&logoColor=fff)](https://www.sphinx-doc.org/en/master/)
-![WeChat](https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white)
-[![EvoI](https://img.shields.io/badge/CCF-A-brown)]()
+[![WeChat](https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white)](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/WeChat/WeChat-20250906.jpg)
+[![EvoI](https://img.shields.io/badge/CCF-A-brown)](https://evolutionary-intelligence.github.io)
 
 ```PyPop7``` is a [Python](https://www.python.org/) library of **population-based randomized
 optimization** for **single-objective**, **real-parameter**, **unconstrained** black-box
