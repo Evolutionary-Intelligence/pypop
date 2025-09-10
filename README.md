@@ -36,7 +36,7 @@ e.g., [evolutionary algorithms](https://www.nature.com/articles/nature14544),
 and [pattern search](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780),
 with at least three functionalities: (1) To facilitate **research repeatability**
 in a controllable manner, (2) To promote **wide benchmarking** in an open-source
-manner, especially (3) To be used in **real-world BBO applications** in a
+fashion, especially (3) To be used in **real-world BBO applications** in a
 trial-and-error manner.
 
 Specifically, for alleviating the notorious **curse-of-dimensionality** issue, its focus is to
