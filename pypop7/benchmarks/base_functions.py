@@ -772,7 +772,7 @@ def salomon(x):
     y : float
         A scalar fitness.
     """
-    x = np.sqrt(np.sum(np.square(squeeze_and_check(x))))
+    x = np.linalg.vector_norm(squeeze_and_check(x))
     y = 1.0 - np.cos(2.0 * np.pi * x) + 0.1 * x
     return y
 
