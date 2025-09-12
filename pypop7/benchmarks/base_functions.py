@@ -619,16 +619,16 @@ def scaled_rastrigin(x):
     Parameters
     ----------
     x : ndarray
-        input vector.
+        An input vector.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        A scalar fitness.
     """
-    x, w = squeeze_and_check(x), np.power(10.0, np.linspace(0.0, 1.0, len(x)))
-    x *= w
-    y = 10.0 * len(x) + np.sum(np.square(x) - 10.0 * np.cos(2.0 * np.pi * x))
+    x = squeeze_and_check(x)
+    w = np.power(10.0, np.linspace(0.0, 1.0, len(x)))
+    y = rastrigin(x * w)
     return y
 
 
