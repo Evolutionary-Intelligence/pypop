@@ -773,7 +773,8 @@ def salomon(x):
         A scalar fitness.
     """
     x = np.sqrt(np.sum(np.square(squeeze_and_check(x))))
-    return 1.0 - np.cos(2.0 * np.pi * x) + 0.1 * x
+    y = 1.0 - np.cos(2.0 * np.pi * x) + 0.1 * x
+    return y
 
 
 class Salomon(BaseFunction):
