@@ -3,7 +3,7 @@
 """
 import math
 
-import numpy as np  # engine for numerical computing
+import numpy as np
 
 
 # helper function
