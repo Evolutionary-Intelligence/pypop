@@ -839,17 +839,17 @@ def schaffer(x):
     Parameters
     ----------
     x : ndarray
-        input vector.
+        An input vector.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        A scalar fitness.
     """
     x, y = squeeze_and_check(x), 0.0
     for i in range(x.size - 1):
-        xx = np.power(x[i], 2) + np.power(x[i + 1], 2)
-        y += np.power(xx, 0.25) * (np.power(np.sin(50.0 * np.power(xx, 0.1)), 2) + 1.0)
+        xx = np.power(x[i], 2.0) + np.power(x[i + 1], 2.0)
+        y += np.power(xx, 0.25) * (np.power(np.sin(50.0 * np.power(xx, 0.1)), 2.0) + 1.0)
     return y
 
 
