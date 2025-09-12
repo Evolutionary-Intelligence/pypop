@@ -765,12 +765,12 @@ def salomon(x):
     Parameters
     ----------
     x : ndarray
-        input vector.
+        An input vector.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        A scalar fitness.
     """
     x = np.sqrt(np.sum(np.square(squeeze_and_check(x))))
     return 1.0 - np.cos(2.0 * np.pi * x) + 0.1 * x
