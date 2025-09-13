@@ -579,17 +579,15 @@ class Ackley(BaseFunction):
 def rastrigin(x):
     """**Rastrigin** test function.
 
-       .. note:: It's LaTeX formulation is `$10 n + \sum_{i = 1}^{n} (x_i^2 - 10 \cos(2 \pi x_i))$`.
-
     Parameters
     ----------
     x : ndarray
-        input vector.
+        An input vector.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        A scalar fitness.
     """
     x = squeeze_and_check(x)
     y = 10.0 * x.size + np.sum(np.square(x) - 10.0 * np.cos(2.0 * np.pi * x))
