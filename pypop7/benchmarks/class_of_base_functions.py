@@ -4,9 +4,39 @@ from pypop7.benchmarks import base_functions as bf
 # helper class
 class BaseFunction(object):
     """Class for all base functions.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
     """
     def __init__(self):
         pass
+
+    def __call__(self, x):
+        pass
+
+
+class Cigar(BaseFunction):
+    def __call__(self, x):
+        """Class of **Cigar** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.cigar(x)
 
 
 class Rastrigin(BaseFunction):
