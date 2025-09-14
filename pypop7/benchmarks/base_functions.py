@@ -50,23 +50,6 @@ def sphere(x):
     return y
 
 
-class Sphere(BaseFunction):
-    def __call__(self, x):
-        """Class of **Sphere** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            An input vector.
-
-        Returns
-        -------
-        y : float
-            A scalar fitness.
-        """
-        return sphere(x)
-
-
 def cigar(x):
     """**Cigar** test function.
 
