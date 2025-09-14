@@ -1,3 +1,15 @@
+from pypop7.benchmarks import base_functions as bf
+
+
+# helper class
+class BaseFunction(object):
+    """Class for all base functions.
+    """
+
+    def __init__(self):
+        pass
+
+
 class Rastrigin(BaseFunction):
     def __call__(self, x):
         """
@@ -5,11 +17,11 @@ class Rastrigin(BaseFunction):
         Parameters
         ----------
         x : ndarray
-            input vector.
+            An input vector.
 
         Returns
         -------
         y : float
-            scalar fitness.
+            A scalar fitness.
         """
-        return rastrigin(x)
+        return bf.rastrigin(x)
