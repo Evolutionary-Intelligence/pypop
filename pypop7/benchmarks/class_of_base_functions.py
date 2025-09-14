@@ -5,7 +5,6 @@ from pypop7.benchmarks import base_functions as bf
 class BaseFunction(object):
     """Class for all base functions.
     """
-
     def __init__(self):
         pass
 
