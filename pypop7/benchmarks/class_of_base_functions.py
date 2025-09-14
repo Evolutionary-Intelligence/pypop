@@ -24,3 +24,20 @@ class Rastrigin(BaseFunction):
             A scalar fitness.
         """
         return bf.rastrigin(x)
+
+
+class Sphere(BaseFunction):
+    def __call__(self, x):
+        """Class of **Sphere** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.sphere(x)
