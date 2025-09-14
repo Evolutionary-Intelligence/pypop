@@ -24,23 +24,6 @@ def squeeze_and_check(x, size_gt_1=False):
     return x
 
 
-def sphere(x):
-    """**Sphere** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        An input vector.
-
-    Returns
-    -------
-    y : float
-        A scalar fitness.
-    """
-    y = np.sum(np.square(squeeze_and_check(x)))
-    return y
-
-
 def cigar(x):
     """**Cigar** test function.
 
@@ -58,6 +41,23 @@ def cigar(x):
     """
     x = np.square(squeeze_and_check(x, True))
     y = x[0] + (10.0 ** 6) * np.sum(x[1:])
+    return y
+
+
+def sphere(x):
+    """**Sphere** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    y = np.sum(np.square(squeeze_and_check(x)))
     return y
 
 
