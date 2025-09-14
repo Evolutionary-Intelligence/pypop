@@ -58,33 +58,16 @@ def cigar(x):
     Parameters
     ----------
     x : ndarray
-        input vector.
+        An input vector.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        A scalar fitness.
     """
     x = np.square(squeeze_and_check(x, True))
     y = x[0] + (10.0 ** 6) * np.sum(x[1:])
     return y
-
-
-class Cigar(BaseFunction):
-    def __call__(self, x):
-        """Class of **Cigar** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return cigar(x)
 
 
 def discus(x):
