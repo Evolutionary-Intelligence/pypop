@@ -24,15 +24,6 @@ def squeeze_and_check(x, size_gt_1=False):
     return x
 
 
-# helper class
-class BaseFunction(object):
-    """Class for all base functions.
-    """
-
-    def __init__(self):
-        pass
-
-
 def sphere(x):
     """**Sphere** test function.
 
