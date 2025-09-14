@@ -44,6 +44,29 @@ def cigar(x):
     return y
 
 
+def cigar_discus(x):
+    """**Cigar-Discus** test function.
+
+       .. note:: Its dimensionality should `> 1`.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = np.square(squeeze_and_check(x, True))
+    if x.size == 2:
+        y = x[0] + (10.0 ** 4) * np.sum(x) + (10.0 ** 6) * x[-1]
+    else:
+        y = x[0] + (10.0 ** 4) * np.sum(x[1:-1]) + (10.0 ** 6) * x[-1]
+    return y
+
+
 def discus(x):
     """**Discus** (also called **Tablet**) test function.
 
@@ -78,29 +101,6 @@ def sphere(x):
         A scalar fitness.
     """
     y = np.sum(np.square(squeeze_and_check(x)))
-    return y
-
-
-def cigar_discus(x):
-    """**Cigar-Discus** test function.
-
-       .. note:: Its dimensionality should `> 1`.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    x = np.square(squeeze_and_check(x, True))
-    if x.size == 2:
-        y = x[0] + (10.0 ** 4) * np.sum(x) + (10.0 ** 6) * x[-1]
-    else:
-        y = x[0] + (10.0 ** 4) * np.sum(x[1:-1]) + (10.0 ** 6) * x[-1]
     return y
 
 
