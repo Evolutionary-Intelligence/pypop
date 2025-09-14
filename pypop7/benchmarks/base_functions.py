@@ -81,23 +81,6 @@ def sphere(x):
     return y
 
 
-class Discus(BaseFunction):  # also called Tablet
-    def __call__(self, x):
-        """Class of **Discus** (also called **Tablet**) test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return discus(x)
-
-
 def cigar_discus(x):
     """**Cigar-Discus** test function.
 
