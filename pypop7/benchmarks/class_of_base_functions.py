@@ -11,7 +11,7 @@ class BaseFunction(object):
 
 class Rastrigin(BaseFunction):
     def __call__(self, x):
-        """
+        """Class of **Rastrigin** test function.
 
         Parameters
         ----------
