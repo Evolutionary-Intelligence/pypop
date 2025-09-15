@@ -124,6 +124,23 @@ class Rastrigin(BaseFunction):
         return bf.rastrigin(x)
 
 
+class Schwefel221(BaseFunction):
+    def __call__(self, x):
+        """Class of **Schwefel221** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.schwefel221(x)
+
+
 class Sphere(BaseFunction):
     def __call__(self, x):
         """Class of **Sphere** test function.
