@@ -488,23 +488,6 @@ def levy_montalvo(x):
     return (np.pi / x.size) * y
 
 
-class LevyMontalvo(BaseFunction):
-    def __call__(self, x):
-        """Class of **Levy-Montalvo** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return levy_montalvo(x)
-
-
 def michalewicz(x):
     """**Michalewicz** test function.
 
