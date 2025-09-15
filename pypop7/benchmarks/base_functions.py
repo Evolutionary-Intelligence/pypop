@@ -633,20 +633,3 @@ def schaffer(x):
         xx = np.power(x[i], 2.0) + np.power(x[i + 1], 2.0)
         y += np.power(xx, 0.25) * (np.power(np.sin(50.0 * np.power(xx, 0.1)), 2.0) + 1.0)
     return y
-
-
-class Schaffer(BaseFunction):
-    def __call__(self, x):
-        """Class of **Schaffer** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return schaffer(x)
