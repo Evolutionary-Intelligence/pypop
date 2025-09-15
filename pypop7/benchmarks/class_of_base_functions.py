@@ -141,6 +141,23 @@ class Rosenbrock(BaseFunction):
         return bf.rosenbrock(x)
 
 
+class Schwefel12(BaseFunction):
+    def __call__(self, x):
+        """Class of **Schwefel12** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.schwefel12(x)
+
+
 class Schwefel221(BaseFunction):
     def __call__(self, x):
         """Class of **Schwefel221** test function.
