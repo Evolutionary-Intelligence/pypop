@@ -174,6 +174,25 @@ def griewank(x):
     return y
 
 
+def michalewicz(x):
+    """**Michalewicz** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x, y = squeeze_and_check(x), 0.0
+    for i in range(x.size):
+        y -= np.sin(x[i]) * np.power(np.sin((i + 1) * np.square(x[i]) / np.pi), 20.0)
+    return y
+
+
 def rosenbrock(x):
     """**Rosenbrock** test function.
 
@@ -483,22 +502,3 @@ def levy_montalvo(x):
         y += np.square(x[i] - 1.0) * (1.0 + 10.0 * np.square(np.sin(np.pi * x[i + 1])))
     y += 10.0 * np.square(np.sin(np.pi * x[0])) + np.square(x[-1] - 1.0)
     return (np.pi / x.size) * y
-
-
-def michalewicz(x):
-    """**Michalewicz** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        An input vector.
-
-    Returns
-    -------
-    y : float
-        A scalar fitness.
-    """
-    x, y = squeeze_and_check(x), 0.0
-    for i in range(x.size):
-        y -= np.sin(x[i]) * np.power(np.sin((i + 1) * np.square(x[i]) / np.pi), 20.0)
-    return y
