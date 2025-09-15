@@ -141,6 +141,23 @@ class Schwefel221(BaseFunction):
         return bf.schwefel221(x)
 
 
+class Schwefel222(BaseFunction):
+    def __call__(self, x):
+        """Class of **Schwefel222** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.schwefel222(x)
+
+
 class Sphere(BaseFunction):
     def __call__(self, x):
         """Class of **Sphere** test function.
