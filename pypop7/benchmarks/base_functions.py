@@ -178,23 +178,6 @@ def step(x):
     return y
 
 
-class Step(BaseFunction):
-    def __call__(self, x):
-        """Class of **Step** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return step(x)
-
-
 def schwefel222(x):
     """**Schwefel222** test function.
 
