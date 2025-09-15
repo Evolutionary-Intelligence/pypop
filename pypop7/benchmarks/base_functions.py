@@ -127,9 +127,8 @@ def ellipsoid(x):
         A scalar fitness.
     """
     x = squeeze_and_check(x, True)
-    x = np.square(x)
     w = 6.0 * np.linspace(0.0, 1.0, len(x))
-    y = np.dot(np.power(10.0, w), x)
+    y = np.dot(np.power(10.0, w), np.square(x))
     return y
 
 
