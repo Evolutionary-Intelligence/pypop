@@ -253,6 +253,24 @@ def salomon(x):
     return y
 
 
+def scaled_rastrigin(x):
+    """**Scaled-Rastrigin** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    w = np.power(10.0, np.linspace(0.0, 1.0, len(x)))
+    y = rastrigin(squeeze_and_check(x) * w)
+    return y
+
+
 def schaffer(x):
     """**Schaffer** test function.
 
@@ -484,21 +502,3 @@ class Rastrigin(BaseFunction):
             scalar fitness.
         """
         return rastrigin(x)
-
-
-def scaled_rastrigin(x):
-    """**Scaled-Rastrigin** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        An input vector.
-
-    Returns
-    -------
-    y : float
-        A scalar fitness.
-    """
-    w = np.power(10.0, np.linspace(0.0, 1.0, len(x)))
-    y = rastrigin(squeeze_and_check(x) * w)
-    return y
