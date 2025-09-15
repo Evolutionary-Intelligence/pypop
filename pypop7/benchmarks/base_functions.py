@@ -19,10 +19,10 @@ def squeeze_and_check(x, size_gt_1=False):
     if (x.ndim == 0) and (x.size == 1):
         x = np.array([x])
     if x.ndim != 1:
-        s = f'Number of dimensions should == 1 (not {x.ndim}) after numpy.squeeze(x).'
+        s = f'Number of dimensions should == 1 (not {x.ndim}) after numpy.squeeze().'
         raise TypeError(s)
     if size_gt_1 and not (x.size > 1):
-        s = f'Size should > 1 (not {x.size}) after numpy.squeeze(x).'
+        s = f'Size should > 1 (not {x.size}) after numpy.squeeze().'
         raise TypeError(s)
     if x.size == 0:
         raise TypeError(f'Size should != 0.')
