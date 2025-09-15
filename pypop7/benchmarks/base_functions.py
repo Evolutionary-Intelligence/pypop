@@ -222,7 +222,8 @@ def schwefel222(x):
     y : float
         A scalar fitness.
     """
-    x = np.abs(squeeze_and_check(x))
+    x = squeeze_and_check(x)
+    x = np.abs(x)
     y = np.sum(x) + np.prod(x)
     return y
 
