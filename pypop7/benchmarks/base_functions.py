@@ -524,23 +524,6 @@ def michalewicz(x):
     return y
 
 
-class Michalewicz(BaseFunction):
-    def __call__(self, x):
-        """Class of **Michalewicz** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return michalewicz(x)
-
-
 def salomon(x):
     """**Salomon** test function.
 
