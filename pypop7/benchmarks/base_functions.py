@@ -150,6 +150,26 @@ def exponential(x):
     return y
 
 
+def griewank(x):
+    """**Griewank** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = squeeze_and_check(x)
+    y = 1.0 + np.sum(np.square(x)) / 4000.0
+    w = np.sqrt(np.arange(1, len(x) + 1))
+    y -= np.prod(np.cos(x / w))
+    return y
+
+
 def rosenbrock(x):
     """**Rosenbrock** test function.
 
@@ -261,26 +281,6 @@ def step(x):
     """
     x = squeeze_and_check(x)
     y = np.sum(np.square(np.floor(x + 0.5)))
-    return y
-
-
-def griewank(x):
-    """**Griewank** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        An input vector.
-
-    Returns
-    -------
-    y : float
-        A scalar fitness.
-    """
-    x = squeeze_and_check(x)
-    y = 1.0 + np.sum(np.square(x)) / 4000.0
-    w = np.sqrt(np.arange(1, len(x) + 1))
-    y -= np.prod(np.cos(x / w))
     return y
 
 
