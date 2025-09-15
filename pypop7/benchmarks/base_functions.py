@@ -46,6 +46,27 @@ def ackley(x):
         np.exp(np.sum(np.cos(2.0 * np.pi * x)) / x.size) + 20.0 + np.exp(1)
     return y
 
+
+def bohachevsky(x):
+    """**Bohachevsky** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        input vector.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
+    x, y = squeeze_and_check(x), 0.0
+    for i in range(x.size - 1):
+        y += np.square(x[i]) + 2.0 * np.square(x[i + 1]) - 0.3 * np.cos(3.0 * np.pi * x[i]) - \
+             0.4 * np.cos(4.0 * np.pi * x[i + 1]) + 0.7
+    return y
+
+
 def cigar(x):
     """**Cigar** test function.
 
@@ -463,24 +484,4 @@ def step(x):
     """
     x = squeeze_and_check(x)
     y = np.sum(np.square(np.floor(x + 0.5)))
-    return y
-
-
-def bohachevsky(x):
-    """**Bohachevsky** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    x, y = squeeze_and_check(x), 0.0
-    for i in range(x.size - 1):
-        y += np.square(x[i]) + 2.0 * np.square(x[i + 1]) - 0.3 * np.cos(3.0 * np.pi * x[i]) - \
-             0.4 * np.cos(4.0 * np.pi * x[i + 1]) + 0.7
     return y
