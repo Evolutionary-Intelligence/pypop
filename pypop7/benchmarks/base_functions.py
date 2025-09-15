@@ -326,23 +326,6 @@ def ackley(x):
     return y
 
 
-class Ackley(BaseFunction):
-    def __call__(self, x):
-        """Class of **Ackley** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return ackley(x)
-
-
 def rastrigin(x):
     """**Rastrigin** test function.
 
