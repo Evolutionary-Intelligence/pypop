@@ -1,8 +1,11 @@
 """Online documentation:
     https://pypop.readthedocs.io/en/latest/benchmarks.html#base-functions
-"""
-import math
 
+    Here all of below base functions are ordered only in *name*. However,
+    in the above online documentation, all of base functions are
+    classified according to *uni-modality* or *multi-modality*
+    (dichotomy).
+"""
 import numpy as np
 
 
