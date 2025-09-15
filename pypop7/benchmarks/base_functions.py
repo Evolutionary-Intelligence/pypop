@@ -598,23 +598,6 @@ def shubert(x):
     return y
 
 
-class Shubert(BaseFunction):
-    def __call__(self, x):
-        """Class of **Shubert** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return shubert(x)
-
-
 def schaffer(x):
     """**Schaffer** test function.
 
