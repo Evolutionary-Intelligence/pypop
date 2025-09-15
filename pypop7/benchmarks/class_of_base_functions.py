@@ -311,6 +311,23 @@ class Shubert(BaseFunction):
         return bf.shubert(x)
 
 
+class SkewRastrigin(BaseFunction):
+    def __call__(self, x):
+        """Class of **Skew-Rastrigin** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            input vector.
+
+        Returns
+        -------
+        y : float
+            scalar fitness.
+        """
+        return skew_rastrigin(x)
+
+
 class Sphere(BaseFunction):
     def __call__(self, x):
         """Class of **Sphere** test function.
