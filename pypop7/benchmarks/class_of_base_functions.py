@@ -141,6 +141,23 @@ class Griewank(BaseFunction):
         return bf.griewank(x)
 
 
+class Michalewicz(BaseFunction):
+    def __call__(self, x):
+        """Class of **Michalewicz** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            input vector.
+
+        Returns
+        -------
+        y : float
+            scalar fitness.
+        """
+        return michalewicz(x)
+
+
 class Rastrigin(BaseFunction):
     def __call__(self, x):
         """Class of **Rastrigin** test function.
