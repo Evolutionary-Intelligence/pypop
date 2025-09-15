@@ -144,23 +144,6 @@ def sphere(x):
     return y
 
 
-class DifferentPowers(BaseFunction):
-    def __call__(self, x):
-        """Class of **Different-Powers** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return different_powers(x)
-
-
 def schwefel221(x):
     """**Schwefel221** test function.
 
