@@ -56,17 +56,20 @@ def bohachevsky(x):
     Parameters
     ----------
     x : ndarray
-        input vector.
+        An input vector.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        A scalar fitness.
     """
-    x, y = squeeze_and_check(x), 0.0
+    x = squeeze_and_check(x)
+    y = 0.0
     for i in range(x.size - 1):
-        y += np.square(x[i]) + 2.0 * np.square(x[i + 1]) - 0.3 * np.cos(3.0 * np.pi * x[i]) - \
-             0.4 * np.cos(4.0 * np.pi * x[i + 1]) + 0.7
+        y += np.square(x[i]) + 2.0 * np.square(x[i + 1])
+        y -= 0.3 * np.cos(3.0 * np.pi * x[i])
+        y -= 0.4 * np.cos(4.0 * np.pi * x[i + 1])
+        y += 0.7
     return y
 
 
