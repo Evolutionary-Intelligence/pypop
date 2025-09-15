@@ -144,6 +144,24 @@ def schwefel221(x):
     return y
 
 
+def schwefel222(x):
+    """**Schwefel222** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = np.abs(squeeze_and_check(x))
+    y = np.sum(x) + np.prod(x)
+    return y
+
+
 def sphere(x):
     """**Sphere** test function.
 
@@ -175,24 +193,6 @@ def step(x):
         A scalar fitness.
     """
     y = np.sum(np.square(np.floor(squeeze_and_check(x) + 0.5)))
-    return y
-
-
-def schwefel222(x):
-    """**Schwefel222** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    x = np.abs(squeeze_and_check(x))
-    y = np.sum(x) + np.prod(x)
     return y
 
 
