@@ -241,7 +241,8 @@ def sphere(x):
     y : float
         A scalar fitness.
     """
-    y = np.sum(np.square(squeeze_and_check(x)))
+    x = squeeze_and_check(x)
+    y = np.sum(np.square(x))
     return y
 
 
