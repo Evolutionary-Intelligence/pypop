@@ -243,6 +243,23 @@ class Schwefel222(BaseFunction):
         return bf.schwefel222(x)
 
 
+class Shubert(BaseFunction):
+    def __call__(self, x):
+        """Class of **Shubert** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.shubert(x)
+
+
 class Sphere(BaseFunction):
     def __call__(self, x):
         """Class of **Sphere** test function.
