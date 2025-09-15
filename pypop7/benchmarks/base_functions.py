@@ -67,6 +67,26 @@ def cigar_discus(x):
     return y
 
 
+def different_powers(x):
+    """**Different-Powers** test function.
+
+       .. note:: Its dimensionality should `> 1`.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = np.abs(squeeze_and_check(x, True))
+    y = np.sum(np.power(x, 2.0 + 4.0 * np.linspace(0.0, 1.0, len(x))))
+    return y
+
+
 def discus(x):
     """**Discus** (also called **Tablet**) test function.
 
@@ -121,26 +141,6 @@ def sphere(x):
         A scalar fitness.
     """
     y = np.sum(np.square(squeeze_and_check(x)))
-    return y
-
-
-def different_powers(x):
-    """**Different-Powers** test function.
-
-       .. note:: Its dimensionality should `> 1`.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    x = np.abs(squeeze_and_check(x, True))
-    y = np.sum(np.power(x, 2.0 + 4.0 * np.linspace(0.0, 1.0, x.size)))
     return y
 
 
