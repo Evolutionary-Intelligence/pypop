@@ -169,7 +169,7 @@ def griewank(x):
     """
     x = squeeze_and_check(x)
     y = 1.0 + np.sum(np.square(x)) / 4000.0
-    w = np.sqrt(np.arange(1, len(x) + 1))
+    w = np.sqrt(np.arange(len(x)) + 1)
     y -= np.prod(np.cos(x / w))
     return y
 
