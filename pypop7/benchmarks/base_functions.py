@@ -104,23 +104,6 @@ def sphere(x):
     return y
 
 
-class CigarDiscus(BaseFunction):
-    def __call__(self, x):
-        """Class of **Cigar-Discus** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return cigar_discus(x)
-
-
 def ellipsoid(x):
     """**Ellipsoid** test function.
 
