@@ -147,6 +147,27 @@ def rosenbrock(x):
     return y
 
 
+def schwefel12(x):
+    """**Schwefel12** test function.
+
+       .. note:: Its dimensionality should `> 1`.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = squeeze_and_check(x, True)
+    x = [np.sum(x[:i + 1]) for i in range(len(x))]
+    y = np.sum(np.square(x))
+    return y
+
+
 def schwefel221(x):
     """**Schwefel221** test function.
 
@@ -213,27 +234,6 @@ def step(x):
         A scalar fitness.
     """
     y = np.sum(np.square(np.floor(squeeze_and_check(x) + 0.5)))
-    return y
-
-
-def schwefel12(x):
-    """**Schwefel12** test function.
-
-       .. note:: Its dimensionality should `> 1`.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    x = squeeze_and_check(x, True)
-    x = [np.sum(x[:i + 1]) for i in range(x.size)]
-    y = np.sum(np.square(x))
     return y
 
 
