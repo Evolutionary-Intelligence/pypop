@@ -259,7 +259,8 @@ def step(x):
     y : float
         A scalar fitness.
     """
-    y = np.sum(np.square(np.floor(squeeze_and_check(x) + 0.5)))
+    x = squeeze_and_check(x)
+    y = np.sum(np.square(np.floor(x + 0.5)))
     return y
 
 
