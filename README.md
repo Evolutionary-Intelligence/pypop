@@ -930,6 +930,8 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### 2025 (Activities)
 
+* The Matrix-based version of PyPop7 started in Sept. 15
+  * Open-source code: [MPRO]()
 * A 20-minute online report was given by one author
   (Qiqi Duan in 13 Sept 2025) in Chinese for
   [LEAD (Workshop on Learning-assisted Evolutionary Algorithm Design)](https://sites.google.com/view/leadworkshop2025/).
