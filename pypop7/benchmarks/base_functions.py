@@ -355,6 +355,27 @@ def shubert(x):
     return y
 
 
+def skew_rastrigin(x):
+    """**Skew-Rastrigin** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        input vector.
+
+    Returns
+    -------
+    y : float
+        scalar fitness.
+    """
+    x = squeeze_and_check(x)
+    for i in range(x.size):
+        if x[i] > 0.0:
+            x[i] *= 10.0
+    y = rastrigin(x)
+    return y
+
+
 def sphere(x):
     """**Sphere** test function.
 
@@ -480,25 +501,4 @@ def scaled_rastrigin(x):
     """
     w = np.power(10.0, np.linspace(0.0, 1.0, len(x)))
     y = rastrigin(squeeze_and_check(x) * w)
-    return y
-
-
-def skew_rastrigin(x):
-    """**Skew-Rastrigin** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    x = squeeze_and_check(x)
-    for i in range(x.size):
-        if x[i] > 0.0:
-            x[i] *= 10.0
-    y = rastrigin(x)
     return y
