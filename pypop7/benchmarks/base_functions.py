@@ -284,23 +284,6 @@ def step(x):
     return y
 
 
-class Griewank(BaseFunction):
-    def __call__(self, x):
-        """Class of **Griewank** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return griewank(x)
-
-
 def bohachevsky(x):
     """**Bohachevsky** test function.
 
