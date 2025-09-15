@@ -255,23 +255,6 @@ def step(x):
     return y
 
 
-class Exponential(BaseFunction):
-    def __call__(self, x):
-        """Class of **Exponential** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return exponential(x)
-
-
 def griewank(x):
     """**Griewank** test function.
 
