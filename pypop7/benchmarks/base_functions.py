@@ -27,6 +27,7 @@ def squeeze_and_check(x, size_gt_1=False):
     return x
 
 
+# a list of base functions:
 def cigar(x):
     """**Cigar** test function.
 
