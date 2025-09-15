@@ -141,6 +141,23 @@ class Griewank(BaseFunction):
         return bf.griewank(x)
 
 
+class LevyMontalvo(BaseFunction):
+    def __call__(self, x):
+        """Class of **Levy-Montalvo** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            input vector.
+
+        Returns
+        -------
+        y : float
+            scalar fitness.
+        """
+        return bf.levy_montalvo(x)
+
+
 class Michalewicz(BaseFunction):
     def __call__(self, x):
         """Class of **Michalewicz** test function.
@@ -155,7 +172,7 @@ class Michalewicz(BaseFunction):
         y : float
             scalar fitness.
         """
-        return michalewicz(x)
+        return bf.michalewicz(x)
 
 
 class Rastrigin(BaseFunction):
