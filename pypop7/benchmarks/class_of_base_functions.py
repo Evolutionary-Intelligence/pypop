@@ -73,6 +73,23 @@ class Discus(BaseFunction):
         return bf.discus(x)
 
 
+class Ellipsoid(BaseFunction):
+    def __call__(self, x):
+        """Class of **Ellipsoid** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.ellipsoid(x)
+
+
 class Rastrigin(BaseFunction):
     def __call__(self, x):
         """Class of **Rastrigin** test function.
