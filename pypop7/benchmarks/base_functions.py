@@ -216,23 +216,6 @@ def step(x):
     return y
 
 
-class Rosenbrock(BaseFunction):
-    def __call__(self, x):
-        """Class of **Rosenbrock** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return rosenbrock(x)
-
-
 def schwefel12(x):
     """**Schwefel12** test function.
 
