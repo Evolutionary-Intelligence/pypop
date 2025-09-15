@@ -226,6 +226,23 @@ class Salomon(BaseFunction):
         return bf.salomon(x)
 
 
+class ScaledRastrigin(BaseFunction):
+    def __call__(self, x):
+        """Class of **Scaled-Rastrigin** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            input vector.
+
+        Returns
+        -------
+        y : float
+            scalar fitness.
+        """
+        return scaled_rastrigin(x)
+
+
 class Schaffer(BaseFunction):
     def __call__(self, x):
         """Class of **Schaffer** test function.
