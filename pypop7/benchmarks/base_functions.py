@@ -195,6 +195,25 @@ def rosenbrock(x):
     return y
 
 
+def salomon(x):
+    """**Salomon** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = squeeze_and_check(x)
+    x = np.linalg.vector_norm(x)
+    y = 1.0 - np.cos(2.0 * np.pi * x) + 0.1 * x
+    return y
+
+
 def schaffer(x):
     """**Schaffer** test function.
 
@@ -482,22 +501,4 @@ def michalewicz(x):
     x, y = squeeze_and_check(x), 0.0
     for i in range(x.size):
         y -= np.sin(x[i]) * np.power(np.sin((i + 1) * np.square(x[i]) / np.pi), 20.0)
-    return y
-
-
-def salomon(x):
-    """**Salomon** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        An input vector.
-
-    Returns
-    -------
-    y : float
-        A scalar fitness.
-    """
-    x = np.linalg.vector_norm(squeeze_and_check(x))
-    y = 1.0 - np.cos(2.0 * np.pi * x) + 0.1 * x
     return y
