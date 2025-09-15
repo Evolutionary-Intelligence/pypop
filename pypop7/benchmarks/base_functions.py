@@ -451,23 +451,6 @@ def skew_rastrigin(x):
     return y
 
 
-class SkewRastrigin(BaseFunction):
-    def __call__(self, x):
-        """Class of **Skew-Rastrigin** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return skew_rastrigin(x)
-
-
 def levy_montalvo(x):
     """**Levy-Montalvo** test function.
 
