@@ -175,6 +175,23 @@ class Rosenbrock(BaseFunction):
         return bf.rosenbrock(x)
 
 
+class Salomon(BaseFunction):
+    def __call__(self, x):
+        """Class of **Salomon** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.salomon(x)
+
+
 class Schaffer(BaseFunction):
     def __call__(self, x):
         """Class of **Schaffer** test function.
