@@ -270,15 +270,17 @@ def griewank(x):
     Parameters
     ----------
     x : ndarray
-        input vector.
+        An input vector.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        A scalar fitness.
     """
     x = squeeze_and_check(x)
-    y = np.sum(np.square(x)) / 4000.0 - np.prod(np.cos(x / np.sqrt(np.arange(1, x.size + 1)))) + 1.0
+    y = np.sum(np.square(x)) / 4000.0
+    y -= np.prod(np.cos(x / np.sqrt(np.arange(1, len(x) + 1))))
+    y += 1.0
     return y
 
 
