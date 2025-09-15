@@ -653,28 +653,3 @@ class Schaffer(BaseFunction):
             scalar fitness.
         """
         return schaffer(x)
-
-
-# all of the following functions are only for visualization purpose
-def dennis_woods(x):
-    """**Dennis-Woods** test function.
-
-    Parameters
-    ----------
-    x: ndarray
-       input vector.
-
-    Returns
-    -------
-    y: float
-       scalar fitness.
-
-    References
-    ----------
-    Dennis, J. E., Daniel J. Woods, 1987.
-    Optimization on microcomputers: The Nelder-Mead simplex algorithm.
-    New computing environments: microcomputers in large-scale computing, 11, p. 6-122.
-    """
-    c_1 = np.array([1.0, -1.0])
-    y = 0.5 * max(np.linalg.norm(x - c_1) ** 2, np.linalg.norm(x + c_1) ** 2)
-    return y
