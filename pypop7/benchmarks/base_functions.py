@@ -127,6 +127,26 @@ def ellipsoid(x):
     return y
 
 
+def rosenbrock(x):
+    """**Rosenbrock** test function.
+
+       .. note:: Its dimensionality should `> 1`.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = squeeze_and_check(x, True)
+    y = 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
+    return y
+
+
 def schwefel221(x):
     """**Schwefel221** test function.
 
@@ -193,26 +213,6 @@ def step(x):
         A scalar fitness.
     """
     y = np.sum(np.square(np.floor(squeeze_and_check(x) + 0.5)))
-    return y
-
-
-def rosenbrock(x):
-    """**Rosenbrock** test function.
-
-       .. note:: Its dimensionality should `> 1`.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    x = squeeze_and_check(x, True)
-    y = 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
     return y
 
 
