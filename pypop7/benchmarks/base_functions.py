@@ -127,6 +127,23 @@ def ellipsoid(x):
     return y
 
 
+def schwefel221(x):
+    """**Schwefel221** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    y = np.max(np.abs(squeeze_and_check(x)))
+    return y
+
+
 def sphere(x):
     """**Sphere** test function.
 
@@ -141,23 +158,6 @@ def sphere(x):
         A scalar fitness.
     """
     y = np.sum(np.square(squeeze_and_check(x)))
-    return y
-
-
-def schwefel221(x):
-    """**Schwefel221** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    y = np.max(np.abs(squeeze_and_check(x)))
     return y
 
 
