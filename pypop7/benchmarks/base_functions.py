@@ -278,9 +278,9 @@ def griewank(x):
         A scalar fitness.
     """
     x = squeeze_and_check(x)
-    y = np.sum(np.square(x)) / 4000.0
-    y -= np.prod(np.cos(x / np.sqrt(np.arange(1, len(x) + 1))))
-    y += 1.0
+    y = 1.0 + np.sum(np.square(x)) / 4000.0
+    w = np.sqrt(np.arange(1, len(x) + 1))
+    y -= np.prod(np.cos(x / w))
     return y
 
 
