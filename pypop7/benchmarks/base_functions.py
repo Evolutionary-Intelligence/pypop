@@ -84,8 +84,9 @@ def different_powers(x):
     y : float
         A scalar fitness.
     """
-    x = np.abs(squeeze_and_check(x, True))
-    y = np.sum(np.power(x, 2.0 + 4.0 * np.linspace(0.0, 1.0, len(x))))
+    x = squeeze_and_check(x, True)
+    w = 2.0 + 4.0 * np.linspace(0.0, 1.0, len(x))
+    y = np.sum(np.power(np.abs(x), w))
     return y
 
 
