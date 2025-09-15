@@ -167,12 +167,12 @@ def step(x):
     Parameters
     ----------
     x : ndarray
-        input vector.
+        An input vector.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        A scalar fitness.
     """
     y = np.sum(np.square(np.floor(squeeze_and_check(x) + 0.5)))
     return y
