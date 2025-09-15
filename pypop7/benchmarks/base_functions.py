@@ -124,23 +124,6 @@ def sphere(x):
     return y
 
 
-class Ellipsoid(BaseFunction):
-    def __call__(self, x):
-        """Class of **Ellipsoid** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return ellipsoid(x)
-
-
 def different_powers(x):
     """**Different-Powers** test function.
 
