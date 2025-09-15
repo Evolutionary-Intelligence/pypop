@@ -87,6 +87,26 @@ def discus(x):
     return y
 
 
+def ellipsoid(x):
+    """**Ellipsoid** test function.
+
+       .. note:: Its dimensionality should `> 1`.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = np.square(squeeze_and_check(x, True))
+    y = np.dot(np.power(10.0, 6.0 * np.linspace(0.0, 1.0, len(x))), x)
+    return y
+
+
 def sphere(x):
     """**Sphere** test function.
 
@@ -101,26 +121,6 @@ def sphere(x):
         A scalar fitness.
     """
     y = np.sum(np.square(squeeze_and_check(x)))
-    return y
-
-
-def ellipsoid(x):
-    """**Ellipsoid** test function.
-
-       .. note:: Its dimensionality should `> 1`.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    x = np.square(squeeze_and_check(x, True))
-    y = np.dot(np.power(10.0, 6.0 * np.linspace(0.0, 1.0, x.size)), x)
     return y
 
 
