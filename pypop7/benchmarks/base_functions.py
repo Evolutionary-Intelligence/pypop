@@ -190,7 +190,8 @@ def rosenbrock(x):
         A scalar fitness.
     """
     x = squeeze_and_check(x, True)
-    y = 100.0 * np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
+    y = np.square(x[1:] - np.square(x[:-1]))
+    y = 100.0 * np.sum(y) + np.sum(np.square(x[:-1] - 1.0))
     return y
 
 
