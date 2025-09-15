@@ -107,6 +107,23 @@ class Ellipsoid(BaseFunction):
         return bf.ellipsoid(x)
 
 
+class Exponential(BaseFunction):
+    def __call__(self, x):
+        """Class of **Exponential** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.exponential(x)
+
+
 class Rastrigin(BaseFunction):
     def __call__(self, x):
         """Class of **Rastrigin** test function.
