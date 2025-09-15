@@ -413,23 +413,6 @@ def scaled_rastrigin(x):
     return y
 
 
-class ScaledRastrigin(BaseFunction):
-    def __call__(self, x):
-        """Class of **Scaled-Rastrigin** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return scaled_rastrigin(x)
-
-
 def skew_rastrigin(x):
     """**Skew-Rastrigin** test function.
 
