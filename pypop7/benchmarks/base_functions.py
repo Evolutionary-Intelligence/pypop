@@ -127,6 +127,24 @@ def ellipsoid(x):
     return y
 
 
+def exponential(x):
+    """**Exponential** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = squeeze_and_check(x)
+    y = -np.exp(-0.5 * np.sum(np.square(x)))
+    return y
+
+
 def rosenbrock(x):
     """**Rosenbrock** test function.
 
@@ -234,24 +252,6 @@ def step(x):
         A scalar fitness.
     """
     y = np.sum(np.square(np.floor(squeeze_and_check(x) + 0.5)))
-    return y
-
-
-def exponential(x):
-    """**Exponential** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    x = squeeze_and_check(x)
-    y = -np.exp(-0.5 * np.sum(np.square(x)))
     return y
 
 
