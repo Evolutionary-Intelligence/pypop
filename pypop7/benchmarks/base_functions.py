@@ -274,6 +274,29 @@ def schwefel222(x):
     return y
 
 
+def shubert(x):
+    """**Shubert** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = squeeze_and_check(x)
+    y = 1.0
+    for i in range(x.size):
+        yy = 0.0
+        for j in range(1, 6):
+            yy += j * np.cos((j + 1) * x[i] + j)
+        y *= yy
+    return y
+
+
 def sphere(x):
     """**Sphere** test function.
 
@@ -477,26 +500,4 @@ def salomon(x):
     """
     x = np.linalg.vector_norm(squeeze_and_check(x))
     y = 1.0 - np.cos(2.0 * np.pi * x) + 0.1 * x
-    return y
-
-
-def shubert(x):
-    """**Shubert** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        input vector.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    x, y = squeeze_and_check(x), 1.0
-    for i in range(x.size):
-        yy = 0.0
-        for j in range(1, 6):
-            yy += j * np.cos((j + 1) * x[i] + j)
-        y *= yy
     return y
