@@ -22,6 +22,23 @@ class BaseFunction(object):
         pass
 
 
+class Ackley(BaseFunction):
+    def __call__(self, x):
+        """Class of **Ackley** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            input vector.
+
+        Returns
+        -------
+        y : float
+            scalar fitness.
+        """
+        return ackley(x)
+
+
 class Bohachevsky(BaseFunction):
     def __call__(self, x):
         """
