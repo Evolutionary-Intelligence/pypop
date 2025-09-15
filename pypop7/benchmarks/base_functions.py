@@ -60,7 +60,8 @@ def cigar_discus(x):
     y : float
         A scalar fitness.
     """
-    x = np.square(squeeze_and_check(x, True))
+    x = squeeze_and_check(x, True)
+    x = np.square(x)
     if x.size == 2:
         y = x[0] + (10.0 ** 4) * np.sum(x) + (10.0 ** 6) * x[-1]
     else:
