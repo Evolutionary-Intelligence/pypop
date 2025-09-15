@@ -559,23 +559,6 @@ def salomon(x):
     return y
 
 
-class Salomon(BaseFunction):
-    def __call__(self, x):
-        """Class of **Salomon** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return salomon(x)
-
-
 def shubert(x):
     """**Shubert** test function.
 
