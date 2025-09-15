@@ -204,7 +204,8 @@ def schwefel221(x):
     y : float
         A scalar fitness.
     """
-    y = np.max(np.abs(squeeze_and_check(x)))
+    x = squeeze_and_check(x)
+    y = np.max(np.abs(x))
     return y
 
 
