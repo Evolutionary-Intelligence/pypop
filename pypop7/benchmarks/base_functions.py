@@ -195,6 +195,27 @@ def rosenbrock(x):
     return y
 
 
+def schaffer(x):
+    """**Schaffer** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = squeeze_and_check(x)
+    y = 0.0
+    for i in range(x.size - 1):
+        xx = np.square(x[i]) + np.square(x[i + 1])
+        y += np.power(xx, 0.25) * (np.square(np.sin(50.0 * np.power(xx, 0.1))) + 1.0)
+    return y
+
+
 def schwefel12(x):
     """**Schwefel12** test function.
 
@@ -478,24 +499,4 @@ def shubert(x):
         for j in range(1, 6):
             yy += j * np.cos((j + 1) * x[i] + j)
         y *= yy
-    return y
-
-
-def schaffer(x):
-    """**Schaffer** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        An input vector.
-
-    Returns
-    -------
-    y : float
-        A scalar fitness.
-    """
-    x, y = squeeze_and_check(x), 0.0
-    for i in range(x.size - 1):
-        xx = np.power(x[i], 2.0) + np.power(x[i + 1], 2.0)
-        y += np.power(xx, 0.25) * (np.power(np.sin(50.0 * np.power(xx, 0.1)), 2.0) + 1.0)
     return y
