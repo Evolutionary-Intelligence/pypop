@@ -213,6 +213,24 @@ def michalewicz(x):
     return y
 
 
+def rastrigin(x):
+    """**Rastrigin** test function.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    x = squeeze_and_check(x)
+    y = 10.0 * len(x) + np.sum(np.square(x) - 10.0 * np.cos(2.0 * np.pi * x))
+    return y
+
+
 def rosenbrock(x):
     """**Rosenbrock** test function.
 
@@ -467,38 +485,3 @@ def ackley(x):
     y = -20.0 * np.exp(-0.2 * np.sqrt(np.sum(np.square(x)) / x.size)) - \
         np.exp(np.sum(np.cos(2.0 * np.pi * x)) / x.size) + 20.0 + np.exp(1)
     return y
-
-
-def rastrigin(x):
-    """**Rastrigin** test function.
-
-    Parameters
-    ----------
-    x : ndarray
-        An input vector.
-
-    Returns
-    -------
-    y : float
-        A scalar fitness.
-    """
-    x = squeeze_and_check(x)
-    y = 10.0 * len(x) + np.sum(np.square(x) - 10.0 * np.cos(2.0 * np.pi * x))
-    return y
-
-
-class Rastrigin(BaseFunction):
-    def __call__(self, x):
-        """
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return rastrigin(x)
