@@ -307,23 +307,6 @@ def bohachevsky(x):
     return y
 
 
-class Bohachevsky(BaseFunction):
-    def __call__(self, x):
-        """
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return bohachevsky(x)
-
-
 def ackley(x):
     """**Ackley** test function.
 
