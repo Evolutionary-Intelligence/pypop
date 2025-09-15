@@ -161,23 +161,6 @@ def sphere(x):
     return y
 
 
-class Schwefel221(BaseFunction):
-    def __call__(self, x):
-        """Class of **Schwefel221** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return schwefel221(x)
-
-
 def step(x):
     """**Step** test function.
 
