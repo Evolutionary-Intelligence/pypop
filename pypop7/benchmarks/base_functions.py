@@ -126,8 +126,10 @@ def ellipsoid(x):
     y : float
         A scalar fitness.
     """
-    x = np.square(squeeze_and_check(x, True))
-    y = np.dot(np.power(10.0, 6.0 * np.linspace(0.0, 1.0, len(x))), x)
+    x = squeeze_and_check(x, True)
+    x = np.square(x)
+    w = 6.0 * np.linspace(0.0, 1.0, len(x))
+    y = np.dot(np.power(10.0, w), x)
     return y
 
 
