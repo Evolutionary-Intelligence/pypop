@@ -39,7 +39,8 @@ def cigar(x):
     y : float
         A scalar fitness.
     """
-    x = np.square(squeeze_and_check(x, True))
+    x = squeeze_and_check(x, True)
+    x = np.square(x)
     y = x[0] + (10.0 ** 6) * np.sum(x[1:])
     return y
 
