@@ -237,23 +237,6 @@ def step(x):
     return y
 
 
-class Schwefel12(BaseFunction):
-    def __call__(self, x):
-        """Class of **Schwefel12** test function.
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return schwefel12(x)
-
-
 def exponential(x):
     """**Exponential** test function.
 
