@@ -124,6 +124,23 @@ class Exponential(BaseFunction):
         return bf.exponential(x)
 
 
+class Griewank(BaseFunction):
+    def __call__(self, x):
+        """Class of **Griewank** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.griewank(x)
+
+
 class Rastrigin(BaseFunction):
     def __call__(self, x):
         """Class of **Rastrigin** test function.
