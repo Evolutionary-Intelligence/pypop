@@ -156,3 +156,20 @@ class Sphere(BaseFunction):
             A scalar fitness.
         """
         return bf.sphere(x)
+
+
+class Step(BaseFunction):
+    def __call__(self, x):
+        """Class of **Step** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.step(x)
