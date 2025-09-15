@@ -39,6 +39,23 @@ class Cigar(BaseFunction):
         return bf.cigar(x)
 
 
+class CigarDiscus(BaseFunction):
+    def __call__(self, x):
+        """Class of **Cigar-Discus** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.cigar_discus(x)
+
+
 class Discus(BaseFunction):
     def __call__(self, x):
         """Class of **Discus** (also called **Tablet**) test function.
