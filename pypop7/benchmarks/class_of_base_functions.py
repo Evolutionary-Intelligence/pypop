@@ -56,6 +56,23 @@ class CigarDiscus(BaseFunction):
         return bf.cigar_discus(x)
 
 
+class DifferentPowers(BaseFunction):
+    def __call__(self, x):
+        """Class of **Different-Powers** test function.
+
+        Parameters
+        ----------
+        x : ndarray
+            An input vector.
+
+        Returns
+        -------
+        y : float
+            A scalar fitness.
+        """
+        return bf.different_powers(x)
+
+
 class Discus(BaseFunction):
     def __call__(self, x):
         """Class of **Discus** (also called **Tablet**) test function.
