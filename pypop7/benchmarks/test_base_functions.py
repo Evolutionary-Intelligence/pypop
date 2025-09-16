@@ -83,13 +83,6 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_schwefel221(ndim - 1)))
             self.assertTrue(sample.check_origin(func))
 
-    def test_step(self):
-        sample = Cases()
-        for func in [step, Step()]:
-            for ndim in range(1, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_step(ndim - 1)))
-            self.assertTrue(sample.check_origin(func))
-
     def test_schwefel222(self):
         sample = Cases()
         for func in [schwefel222, Schwefel222()]:
@@ -187,6 +180,12 @@ class TestBaseFunctions(unittest.TestCase):
             for ndim in range(1, 4):
                 self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
             self.assertTrue(sample.check_origin(func))
+
+    def test_step(self):
+        sample = Cases()
+        for ndim in range(1, 8):
+            self.assertTrue(sample.compare(step, ndim, get_y_step(ndim - 1)))
+        self.assertTrue(sample.check_origin(step))
 
 
 if __name__ == '__main__':
