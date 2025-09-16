@@ -441,12 +441,12 @@ def skew_rastrigin(x):
     Parameters
     ----------
     x : ndarray
-        input vector.
+        An input vector.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        A scalar fitness.
     """
     x = squeeze_and_check(x)
     for i in range(x.size):
