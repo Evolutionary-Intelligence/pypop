@@ -1,5 +1,6 @@
 import unittest
 
+from pypop7.benchmarks.base_functions import skew_rastrigin
 from pypop7.benchmarks.base_functions import sphere
 from pypop7.benchmarks.base_functions import step
 # test the correctness of benchmarking functions via sampling (test cases)
