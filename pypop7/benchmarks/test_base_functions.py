@@ -153,17 +153,16 @@ class TestBaseFunctions(unittest.TestCase):
         for func in [salomon, Salomon()]:
             self.assertTrue(sample.check_origin(func))
 
-    def test_shubert(self):
-        for func in [shubert, Shubert()]:
-            for minimizer in get_y_shubert():
-                self.assertTrue((np.abs(func(minimizer) + 186.7309) < 1e-3))
-
     def test_schaffer(self):
         sample = Cases()
         for func in [schaffer, Schaffer()]:
             for ndim in range(1, 4):
                 self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
             self.assertTrue(sample.check_origin(func))
+
+    def test_shubert(self):
+        for minimizer in get_y_shubert():
+            self.assertTrue((np.abs(shubert(minimizer) + 186.7309) < 1e-3))
 
     def test_skew_rastrigin(self):
         sample = Cases()
