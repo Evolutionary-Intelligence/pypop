@@ -1,7 +1,7 @@
 import unittest
 
-from pypop7.benchmarks.base_functions import *
-# test the correctness of benchmarking functions via sampling (test cases)
+from pypop7.benchmarks.class_of_base_functions import *
+# test correctness of benchmarking functions via *sampling* (test cases)
 from pypop7.benchmarks.cases import *
 
 
