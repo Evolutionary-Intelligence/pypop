@@ -67,13 +67,6 @@ class TestBaseFunctions(unittest.TestCase):
                 sample.compare(func, 1, np.empty((5,)))
             self.assertTrue(sample.check_origin(func))
 
-    def test_schwefel221(self):
-        sample = Cases()
-        for func in [schwefel221, Schwefel221()]:
-            for ndim in range(1, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_schwefel221(ndim - 1)))
-            self.assertTrue(sample.check_origin(func))
-
     def test_rosenbrock(self):
         sample = Cases()
         for func in [rosenbrock, Rosenbrock()]:
@@ -152,6 +145,12 @@ class TestBaseFunctions(unittest.TestCase):
             for ndim in range(1, 4):
                 self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
             self.assertTrue(sample.check_origin(func))
+
+    def test_schwefel221(self):
+        sample = Cases()
+        for ndim in range(1, 8):
+            self.assertTrue(sample.compare(schwefel221, ndim, get_y_schwefel221(ndim - 1)))
+        self.assertTrue(sample.check_origin(schwefel221))
 
     def test_schwefel222(self):
         sample = Cases()
