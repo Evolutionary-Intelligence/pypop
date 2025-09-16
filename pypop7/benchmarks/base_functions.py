@@ -427,7 +427,7 @@ def shubert(x):
     """
     x = squeeze_and_check(x)
     y = 1.0
-    for i in range(x.size):
+    for i in range(len(x)):
         yy = 0.0
         for j in range(1, 6):
             yy += j * np.cos((j + 1) * x[i] + j)
