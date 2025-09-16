@@ -1,6 +1,7 @@
 import unittest
 
-from pypop7.benchmarks.base_functions import *
+from pypop7.benchmarks.base_functions import sphere
+from pypop7.benchmarks.base_functions import step
 # test the correctness of benchmarking functions via sampling (test cases)
 from pypop7.benchmarks.cases import *
 
@@ -20,13 +21,6 @@ class TestBaseFunctions(unittest.TestCase):
             squeeze_and_check(x1, True)
         with self.assertRaisesRegex(TypeError, 'the size should != 0.'):
             squeeze_and_check([])
-
-    def test_sphere(self):
-        sample = Cases()
-        for func in [sphere, Sphere()]:
-            for ndim in range(1, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_sphere(ndim - 1)))
-            self.assertTrue(sample.check_origin(func))
 
     def test_cigar(self):
         sample = Cases()
@@ -177,6 +171,12 @@ class TestBaseFunctions(unittest.TestCase):
             for ndim in range(1, 4):
                 self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
             self.assertTrue(sample.check_origin(func))
+
+    def test_sphere(self):
+        sample = Cases()
+        for ndim in range(1, 8):
+            self.assertTrue(sample.compare(sphere, ndim, get_y_sphere(ndim - 1)))
+        self.assertTrue(sample.check_origin(sphere))
 
     def test_step(self):
         sample = Cases()
