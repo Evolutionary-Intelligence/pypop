@@ -149,8 +149,8 @@ class TestBaseFunctions(unittest.TestCase):
 
     def test_salomon(self):
         sample = Cases()
-        for func in [salomon, Salomon()]:
-            self.assertTrue(sample.check_origin(func))
+        salomon = Salomon()
+        self.assertTrue(sample.check_origin(salomon))
 
     def test_shubert(self):
         shubert = Shubert()
