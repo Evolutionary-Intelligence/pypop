@@ -74,15 +74,6 @@ class TestBaseFunctions(unittest.TestCase):
             with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
                 sample.compare(func, 1, np.empty((5,)))
 
-    def test_schwefel12(self):
-        sample = Cases()
-        for func in [schwefel12, Schwefel12()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_schwefel12(ndim - 2)))
-            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-                sample.compare(func, 1, np.empty((5,)))
-            self.assertTrue(sample.check_origin(func))
-
     def test_exponential(self):
         for func in [exponential, Exponential()]:
             for ndim in range(1, 8):
@@ -137,6 +128,15 @@ class TestBaseFunctions(unittest.TestCase):
         sample = Cases()
         salomon = Salomon()
         self.assertTrue(sample.check_origin(salomon))
+
+    def test_schwefel12(self):
+        sample = Cases()
+        schwefel12 = Schwefel12()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(schwefel12, ndim, get_y_schwefel12(ndim - 2)))
+        with self.assertRaisesRegex(TypeError, 'Size should > 1+'):
+            sample.compare(schwefel12, 1, np.empty((5,)))
+        self.assertTrue(sample.check_origin(schwefel12))
 
     def test_schwefel221(self):
         sample = Cases()
