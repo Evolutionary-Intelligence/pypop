@@ -449,7 +449,7 @@ def skew_rastrigin(x):
         A scalar fitness.
     """
     x = squeeze_and_check(x)
-    for i in range(x.size):
+    for i in range(len(x)):
         if x[i] > 0.0:
             x[i] *= 10.0
     y = rastrigin(x)
