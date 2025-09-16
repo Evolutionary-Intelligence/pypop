@@ -21,13 +21,6 @@ class TestBaseFunctions(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, 'the size should != 0.'):
             squeeze_and_check([])
 
-    def test_sphere(self):
-        sample = Cases()
-        for func in [sphere, Sphere()]:
-            for ndim in range(1, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_sphere(ndim - 1)))
-            self.assertTrue(sample.check_origin(func))
-
     def test_cigar(self):
         sample = Cases()
         for func in [cigar, Cigar()]:
@@ -177,6 +170,13 @@ class TestBaseFunctions(unittest.TestCase):
             for ndim in range(1, 4):
                 self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
             self.assertTrue(sample.check_origin(func))
+
+    def test_sphere(self):
+        sample = Cases()
+        sphere = Sphere()
+        for ndim in range(1, 8):
+            self.assertTrue(sample.compare(sphere, ndim, get_y_sphere(ndim - 1)))
+        self.assertTrue(sample.check_origin(sphere))
 
     def test_step(self):
         sample = Cases()
