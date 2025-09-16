@@ -137,13 +137,6 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
             self.assertTrue(sample.check_origin(func))
 
-    def test_skew_rastrigin(self):
-        sample = Cases()
-        for func in [skew_rastrigin, SkewRastrigin()]:
-            for ndim in range(1, 5):
-                self.assertTrue(sample.compare(func, ndim, get_y_skew_rastrigin(ndim - 1), atol=0.1))
-            self.assertTrue(sample.check_origin(func))
-
     def test_levy_montalvo(self):
         for func in [levy_montalvo, LevyMontalvo()]:
             for ndim in range(1, 8):
@@ -170,6 +163,13 @@ class TestBaseFunctions(unittest.TestCase):
             for ndim in range(1, 4):
                 self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
             self.assertTrue(sample.check_origin(func))
+
+    def test_skew_rastrigin(self):
+        sample = Cases()
+        skew_rastrigin = SkewRastrigin()
+        for ndim in range(1, 5):
+            self.assertTrue(sample.compare(skew_rastrigin, ndim, get_y_skew_rastrigin(ndim - 1), atol=0.1))
+        self.assertTrue(sample.check_origin(skew_rastrigin))
 
     def test_sphere(self):
         sample = Cases()
