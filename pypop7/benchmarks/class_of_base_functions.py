@@ -369,14 +369,14 @@ class SkewRastrigin(BaseFunction):
         Parameters
         ----------
         x : ndarray
-            input vector.
+            An input vector.
 
         Returns
         -------
         y : float
-            scalar fitness.
+            A scalar fitness.
         """
-        return skew_rastrigin(x)
+        return bf.skew_rastrigin(x)
 
 
 class Sphere(BaseFunction):
