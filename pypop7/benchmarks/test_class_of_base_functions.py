@@ -153,9 +153,9 @@ class TestBaseFunctions(unittest.TestCase):
             self.assertTrue(sample.check_origin(func))
 
     def test_shubert(self):
-        for func in [shubert, Shubert()]:
-            for minimizer in get_y_shubert():
-                self.assertTrue((np.abs(func(minimizer) + 186.7309) < 1e-3))
+        shubert = Shubert()
+        for minimizer in get_y_shubert():
+            self.assertTrue((np.abs(shubert(minimizer) + 186.7309) < 1e-3))
 
     def test_schaffer(self):
         sample = Cases()
