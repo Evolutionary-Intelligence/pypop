@@ -930,7 +930,7 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### 2025 (Activities)
 
-* The Matrix-based version of PyPop7 started in 15 Sept 2025
+* The matrix-based version of PyPop7 started in 15 Sept 2025.
   * Open-source code: [MPRO](https://github.com/Evolutionary-Intelligence/MPRO)
 * A 20-minute online report was given by one author
   (Qiqi Duan in 13 Sept 2025) in Chinese for
