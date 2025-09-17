@@ -22,7 +22,7 @@ class BaseFunction(object):
         pass
 
 
-# a list of 23 *scalable* base functions:
+# a list of 23 classes of *scalable* base functions:
 class Ackley(BaseFunction):
     def __call__(self, x):
         """Class of **Ackley** test function.
