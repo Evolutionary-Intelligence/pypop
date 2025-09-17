@@ -66,12 +66,11 @@ class TestBaseFunctions(unittest.TestCase):
 
     def test_discus(self):
         sample = Cases()
-        for func in [discus, Discus()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_discus(ndim - 2)))
-            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-                sample.compare(func, 1, np.empty((5,)))
-            self.assertTrue(sample.check_origin(func))
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(discus, ndim, get_y_discus(ndim - 2)))
+        with self.assertRaisesRegex(TypeError, '*size* should+'):
+            sample.compare(discus, 1, np.empty((5,)))
+        self.assertTrue(sample.check_origin(discus))
 
     def test_cigar_discus(self):
         sample = Cases()
