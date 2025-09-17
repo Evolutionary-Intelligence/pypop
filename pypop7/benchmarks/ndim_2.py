@@ -1,5 +1,7 @@
 import math
 
+import numpy as np
+
 
 def cosine(x):
     """**Cosine** test function.
