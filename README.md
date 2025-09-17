@@ -935,7 +935,7 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
   * With Honglin Jin, Lijun Sun, Yang Shen, etc.
 * The matrix-based version of PyPop7 started in 15 Sept 2025.
   * Open-source code: [MPRO](https://github.com/Evolutionary-Intelligence/MPRO).
-  * With Yang Shen, Honglin Jin, Lijun Sun, etc.
+  * With Yang Shen, Honglin Jin, Lijun Sun, Zhiwei Xu, etc.
 * A 20-minute online report was given by one author
   (Qiqi Duan in 13 Sept 2025) in Chinese for
   [LEAD (Workshop on Learning-assisted Evolutionary Algorithm Design)](https://sites.google.com/view/leadworkshop2025/).
