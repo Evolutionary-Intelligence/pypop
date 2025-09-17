@@ -250,12 +250,13 @@ def levy_montalvo(x):
     x = squeeze_and_check(x)
     x = 1.0 + 0.25 * (x + 1.0)
     y = 0.0
-    for i in range(x.size - 1):
+    for i in range(len(x) - 1):
         yy = 1.0 + 10.0 * np.square(np.sin(np.pi * x[i + 1]))
         y += np.square(x[i] - 1.0) * yy
     yy = np.square(np.sin(np.pi * x[0]))
     y += 10.0 * yy + np.square(x[-1] - 1.0)
-    return (np.pi / x.size) * y
+    y *= (np.pi / len(x))
+    return y
 
 
 def michalewicz(x):
