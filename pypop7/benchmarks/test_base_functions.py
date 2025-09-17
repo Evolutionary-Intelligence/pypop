@@ -37,11 +37,11 @@ class TestBaseFunctions(unittest.TestCase):
         x2 = np.array([0.0, 1.0])
         self.assertTrue(np.allclose(squeeze_and_check(x2), x2))
         x3 = np.arange(6).reshape(2, 3)
-        with self.assertRaisesRegex(TypeError, 'The number+'):
+        with self.assertRaisesRegex(TypeError, '*ndim* should+'):
             squeeze_and_check(x3)
-        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+        with self.assertRaisesRegex(TypeError, '*size* should+'):
             squeeze_and_check(x1, True)
-        with self.assertRaisesRegex(TypeError, 'the size should != 0.'):
+        with self.assertRaisesRegex(TypeError, '*size* should != 0.'):
             squeeze_and_check([])
 
     def test_ackley(self):
