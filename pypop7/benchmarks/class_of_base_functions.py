@@ -36,7 +36,7 @@ class Ackley(BaseFunction):
         y : float
             scalar fitness.
         """
-        return ackley(x)
+        return bf.ackley(x)
 
 
 class Bohachevsky(BaseFunction):
@@ -53,7 +53,7 @@ class Bohachevsky(BaseFunction):
         y : float
             scalar fitness.
         """
-        return bohachevsky(x)
+        return bf.bohachevsky(x)
 
 
 class Cigar(BaseFunction):
@@ -274,7 +274,7 @@ class ScaledRastrigin(BaseFunction):
         y : float
             scalar fitness.
         """
-        return scaled_rastrigin(x)
+        return bf.scaled_rastrigin(x)
 
 
 class Schaffer(BaseFunction):
