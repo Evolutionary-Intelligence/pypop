@@ -30,12 +30,12 @@ class Ackley(BaseFunction):
         Parameters
         ----------
         x : ndarray
-            input vector.
+            An input vector.
 
         Returns
         -------
         y : float
-            scalar fitness.
+            A scalar fitness.
         """
         return bf.ackley(x)
 
