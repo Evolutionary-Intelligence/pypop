@@ -44,6 +44,13 @@ class TestBaseFunctions(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, 'the size should != 0.'):
             squeeze_and_check([])
 
+    def test_ackley(self):
+        sample = Cases()
+        ackley = Ackley()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(ackley, ndim, get_y_ackley(ndim - 2), atol=0.001))
+        self.assertTrue(sample.check_origin(ackley))
+
     def test_cigar(self):
         sample = Cases()
         for func in [cigar, Cigar()]:
@@ -114,13 +121,6 @@ class TestBaseFunctions(unittest.TestCase):
         for func in [bohachevsky, Bohachevsky()]:
             for ndim in range(1, 5):
                 self.assertTrue(sample.compare(func, ndim, get_y_bohachevsky(ndim - 1), atol=0.1))
-            self.assertTrue(sample.check_origin(func))
-
-    def test_ackley(self):
-        sample = Cases()
-        for func in [ackley, Ackley()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_ackley(ndim - 2), atol=0.001))
             self.assertTrue(sample.check_origin(func))
 
     def test_rastrigin(self):
