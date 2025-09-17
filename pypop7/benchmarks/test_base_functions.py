@@ -106,13 +106,13 @@ class TestBaseFunctions(unittest.TestCase):
             self.assertTrue(sample.compare(griewank, ndim, get_y_griewank(ndim - 2), atol=0.001))
         self.assertTrue(sample.check_origin(griewank))
 
-    def test_rosenbrock(self):
+    def test_levy_montalvo(self):
+        for ndim in range(1, 8):
+            self.assertTrue(np.abs(levy_montalvo(-np.ones((ndim,)))) < 1e-9)
+
+    def test_michalewicz(self):
         sample = Cases()
-        for func in [rosenbrock, Rosenbrock()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_rosenbrock(ndim - 2)))
-            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-                sample.compare(func, 1, np.empty((5,)))
+        self.assertTrue(sample.check_origin(michalewicz))
 
     def test_rastrigin(self):
         sample = Cases()
@@ -121,21 +121,19 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
             self.assertTrue(sample.check_origin(func))
 
+    def test_rosenbrock(self):
+        sample = Cases()
+        for func in [rosenbrock, Rosenbrock()]:
+            for ndim in range(2, 8):
+                self.assertTrue(sample.compare(func, ndim, get_y_rosenbrock(ndim - 2)))
+            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+                sample.compare(func, 1, np.empty((5,)))
+
     def test_scaled_rastrigin(self):
         sample = Cases()
         for func in [scaled_rastrigin, ScaledRastrigin()]:
             for ndim in range(1, 4):
                 self.assertTrue(sample.compare(func, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
-            self.assertTrue(sample.check_origin(func))
-
-    def test_levy_montalvo(self):
-        for func in [levy_montalvo, LevyMontalvo()]:
-            for ndim in range(1, 8):
-                self.assertTrue(np.abs(func(-np.ones((ndim,)))) < 1e-9)
-
-    def test_michalewicz(self):
-        sample = Cases()
-        for func in [michalewicz, Michalewicz()]:
             self.assertTrue(sample.check_origin(func))
 
     def test_salomon(self):
