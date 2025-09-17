@@ -28,7 +28,7 @@ def squeeze_and_check(x, size_gt_1=False):
         An input vector.
     """
     x = np.squeeze(x)
-    if (x.ndim == 0) and (x.size == 1):
+    if (x.ndim == 0) and (x.size == 1):  # distinguish `ndim` and `size`
         x = np.array([x])
     if x.ndim != 1:
         s = f'Number of dimensions should == 1 (not {x.ndim}) after numpy.squeeze().'
