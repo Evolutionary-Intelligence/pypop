@@ -240,14 +240,16 @@ def levy_montalvo(x):
     Parameters
     ----------
     x : ndarray
-        input vector.
+        An input vector.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        A scalar fitness.
     """
-    x, y = 1.0 + 0.25 * (squeeze_and_check(x) + 1.0), 0.0
+    x = squeeze_and_check(x)
+    x = 1.0 + 0.25 * (x + 1.0)
+    y = 0.0
     for i in range(x.size - 1):
         y += np.square(x[i] - 1.0) * (1.0 + 10.0 * np.square(np.sin(np.pi * x[i + 1])))
     y += 10.0 * np.square(np.sin(np.pi * x[0])) + np.square(x[-1] - 1.0)
