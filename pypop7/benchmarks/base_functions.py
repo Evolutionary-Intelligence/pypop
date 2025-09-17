@@ -79,7 +79,7 @@ def bohachevsky(x):
     y : float
         A scalar fitness.
     """
-    x = squeeze_and_check(x)
+    x = squeeze_and_check(x, True)
     y = 0.7 * len(x)
     for i in range(len(x)):
         y += np.square(x[i]) + 2.0 * np.square(x[i + 1])
