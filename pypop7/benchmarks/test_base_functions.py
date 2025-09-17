@@ -46,7 +46,6 @@ class TestBaseFunctions(unittest.TestCase):
 
     def test_ackley(self):
         sample = Cases()
-        ackley = Ackley()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(ackley, ndim, get_y_ackley(ndim - 2), atol=0.001))
         self.assertTrue(sample.check_origin(ackley))
