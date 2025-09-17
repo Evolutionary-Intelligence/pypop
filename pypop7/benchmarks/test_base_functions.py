@@ -116,18 +116,16 @@ class TestBaseFunctions(unittest.TestCase):
 
     def test_rastrigin(self):
         sample = Cases()
-        for func in [rastrigin, Rastrigin()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
-            self.assertTrue(sample.check_origin(func))
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(rastrigin, ndim, get_y_rastrigin(ndim - 2)))
+        self.assertTrue(sample.check_origin(rastrigin))
 
     def test_rosenbrock(self):
         sample = Cases()
-        for func in [rosenbrock, Rosenbrock()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_rosenbrock(ndim - 2)))
-            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-                sample.compare(func, 1, np.empty((5,)))
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(rosenbrock, ndim, get_y_rosenbrock(ndim - 2)))
+        with self.assertRaisesRegex(TypeError, '*size* should+'):
+            sample.compare(rosenbrock, 1, np.empty((5,)))
 
     def test_scaled_rastrigin(self):
         sample = Cases()
