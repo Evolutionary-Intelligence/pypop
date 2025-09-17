@@ -373,9 +373,10 @@ def schaffer(x):
     """
     x = squeeze_and_check(x)
     y = 0.0
-    for i in range(x.size - 1):
+    for i in range(len(x) - 1):
         xx = np.square(x[i]) + np.square(x[i + 1])
-        y += np.power(xx, 0.25) * (np.square(np.sin(50.0 * np.power(xx, 0.1))) + 1.0)
+        yy = np.square(np.sin(50.0 * np.power(xx, 0.1))) + 1.0
+        y += np.power(xx, 0.25) * yy
     return y
 
 
