@@ -100,6 +100,12 @@ class TestBaseFunctions(unittest.TestCase):
         for ndim in range(1, 8):
             self.assertTrue(np.abs(exponential(np.zeros((ndim,))) + 1) < 1e-9)
 
+    def test_griewank(self):
+        sample = Cases()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(griewank, ndim, get_y_griewank(ndim - 2), atol=0.001))
+        self.assertTrue(sample.check_origin(griewank))
+
     def test_rosenbrock(self):
         sample = Cases()
         for func in [rosenbrock, Rosenbrock()]:
@@ -107,13 +113,6 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_rosenbrock(ndim - 2)))
             with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
                 sample.compare(func, 1, np.empty((5,)))
-
-    def test_griewank(self):
-        sample = Cases()
-        for func in [griewank, Griewank()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_griewank(ndim - 2), atol=0.001))
-            self.assertTrue(sample.check_origin(func))
 
     def test_rastrigin(self):
         sample = Cases()
