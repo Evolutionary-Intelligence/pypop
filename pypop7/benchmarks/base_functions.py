@@ -39,7 +39,7 @@ def squeeze_and_check(x, size_gt_1=False):
         s = f'*size* should > 1 (not {x.size}) after numpy.squeeze().'
         raise TypeError(s)
     if x.size == 0:
-        raise TypeError(f'Size should != 0.')
+        raise TypeError(f'*size* should != 0.')
     return x
 
 
