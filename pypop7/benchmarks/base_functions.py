@@ -21,7 +21,8 @@ def squeeze_and_check(x, size_gt_1=False):
     x         : ndarray-like
                 An input vector.
     size_gt_1 : bool
-                Checking whether or not its size should > 1 (default: `False`).
+                Checking whether or not its size should > 1
+                (default: `False`).
 
     Returns
     -------
