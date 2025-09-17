@@ -67,6 +67,8 @@ def ackley(x):
 def bohachevsky(x):
     """**Bohachevsky** test function.
 
+        .. note:: Its dimensionality should `> 1`.
+
     Parameters
     ----------
     x : ndarray
