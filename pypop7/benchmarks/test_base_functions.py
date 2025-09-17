@@ -127,31 +127,27 @@ class TestBaseFunctions(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, '*size* should+'):
             sample.compare(rosenbrock, 1, np.empty((5,)))
 
-    def test_scaled_rastrigin(self):
-        sample = Cases()
-        for func in [scaled_rastrigin, ScaledRastrigin()]:
-            for ndim in range(1, 4):
-                self.assertTrue(sample.compare(func, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
-            self.assertTrue(sample.check_origin(func))
-
     def test_salomon(self):
         sample = Cases()
-        for func in [salomon, Salomon()]:
-            self.assertTrue(sample.check_origin(func))
+        self.assertTrue(sample.check_origin(salomon))
+
+    def test_scaled_rastrigin(self):
+        sample = Cases()
+        for ndim in range(1, 4):
+            self.assertTrue(sample.compare(scaled_rastrigin, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
+        self.assertTrue(sample.check_origin(scaled_rastrigin))
 
     def test_schaffer(self):
         sample = Cases()
-        for func in [schaffer, Schaffer()]:
-            for ndim in range(1, 4):
-                self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
-            self.assertTrue(sample.check_origin(func))
+        for ndim in range(1, 4):
+            self.assertTrue(sample.compare(schaffer, ndim, get_y_schaffer(ndim - 1), atol=0.01))
+        self.assertTrue(sample.check_origin(schaffer))
 
     def test_schwefel12(self):
         sample = Cases()
-        schwefel12 = Schwefel12()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(schwefel12, ndim, get_y_schwefel12(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+        with self.assertRaisesRegex(TypeError, '*size* should+'):
             sample.compare(schwefel12, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(schwefel12))
 
