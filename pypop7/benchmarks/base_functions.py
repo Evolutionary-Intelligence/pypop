@@ -294,7 +294,8 @@ def rastrigin(x):
         A scalar fitness.
     """
     x = squeeze_and_check(x)
-    y = 10.0 * len(x) + np.sum(np.square(x) - 10.0 * np.cos(2.0 * np.pi * x))
+    y = np.square(x) - 10.0 * np.cos(2.0 * np.pi * x)
+    y = 10.0 * len(x) + np.sum(y)
     return y
 
 
