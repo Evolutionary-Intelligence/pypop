@@ -1,9 +1,9 @@
 """PyPop7 is a Pure-PYthon library of POPulation-based randomized OPtimization
-    algorithm for single-objective, real-parameter problems. Its main goal is
-    to provide a *unified* interface as well as *elegant* implementations for
-    Derivative-Free Optimization, particularly population-based optimizers,
-    in order to facilitate research repeatability, algorithmic benchmarking,
-    and also real-world applications.
+    algorithm for single-objective, real-parameter, unconstrained problems.
+    Its main goal is to provide a *unified* interface as well as *elegant*
+    implementations for derivative-free and black-box optimization,
+    particularly population-based optimizers, in order to facilitate research
+    repeatability, algorithmic benchmarking, and also real-world applications.
 
     More specifically, for alleviating the notorious **curse of dimensionality**
     issue (owing to a limited population of randomized samples), one *primary*
