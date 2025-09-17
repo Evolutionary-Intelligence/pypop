@@ -352,8 +352,9 @@ def scaled_rastrigin(x):
     y : float
         A scalar fitness.
     """
+    x = squeeze_and_check(x)
     w = np.power(10.0, np.linspace(0.0, 1.0, len(x)))
-    y = rastrigin(squeeze_and_check(x) * w)
+    y = rastrigin(x * w)
     return y
 
 
