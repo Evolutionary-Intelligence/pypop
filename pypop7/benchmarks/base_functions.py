@@ -1,4 +1,4 @@
-"""Online documentation:
+"""For the online documentation for base functions, please refer to:
     https://pypop.readthedocs.io/en/latest/benchmarks.html#base-functions
 
     Here all of below base functions are ordered only in *name*. However,
