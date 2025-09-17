@@ -29,7 +29,7 @@ def squeeze_and_check(x, size_gt_1=False):
     return x
 
 
-# a list of *scalable* base functions:
+# a list of 23 *scalable* base functions:
 def ackley(x):
     """**Ackley** test function.
 
