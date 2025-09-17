@@ -12,8 +12,9 @@ import numpy as np
 # helper function
 def squeeze_and_check(x, size_gt_1=False):
     """Squeeze the input vector `x` into 1-d `numpy.ndarray` and check
-        whether or not its number of dimensions == 1. If not, raise a `TypeError`.
-        Optionally, check whether or not its size should > 1. If not, raise a `TypeError`.
+        whether or not its number of dimensions == 1. If not, raise a
+        `TypeError`. Optionally, check whether or not its size should
+        > 1. If not, raise a `TypeError`.
 
     Parameters
     ----------
