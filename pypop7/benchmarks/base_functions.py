@@ -272,9 +272,11 @@ def michalewicz(x):
     y : float
         A scalar fitness.
     """
-    x, y = squeeze_and_check(x), 0.0
-    for i in range(x.size):
-        y -= np.sin(x[i]) * np.power(np.sin((i + 1) * np.square(x[i]) / np.pi), 20.0)
+    x = squeeze_and_check(x)
+    y = 0.0
+    for i in range(len(x)):
+        yy = np.sin((i + 1) * np.square(x[i]) / np.pi)
+        y -= np.sin(x[i]) * np.power(yy, 20.0)
     return y
 
 
