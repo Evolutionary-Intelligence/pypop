@@ -34,7 +34,7 @@ def squeeze_and_check(x, size_gt_1=False):
     if x.ndim != 1:
         s = f'*ndim* should == 1 (not {x.ndim}) after numpy.squeeze().'
         raise TypeError(s)
-    if size_gt_1 and not (x.size > 1):
+    if size_gt_1 and not (x.size > 1):  # distinguish `ndim` and `size`
         s = f'*size* should > 1 (not {x.size}) after numpy.squeeze().'
         raise TypeError(s)
     if x.size == 0:
