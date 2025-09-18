@@ -44,15 +44,6 @@ class TestBaseFunctions(unittest.TestCase):
             sample.compare(cigar, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(cigar))
 
-    def test_discus(self):
-        sample = Cases()
-        for func in [discus, Discus()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_discus(ndim - 2)))
-            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-                sample.compare(func, 1, np.empty((5,)))
-            self.assertTrue(sample.check_origin(func))
-
     def test_cigar_discus(self):
         sample = Cases()
         cigar_discus = CigarDiscus()
@@ -61,15 +52,6 @@ class TestBaseFunctions(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
             sample.compare(cigar_discus, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(cigar_discus))
-
-    def test_ellipsoid(self):
-        sample = Cases()
-        ellipsoid = Ellipsoid()
-        for ndim in range(2, 8):
-            self.assertTrue(sample.compare(ellipsoid, ndim, get_y_ellipsoid(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-            sample.compare(ellipsoid, 1, np.empty((5,)))
-        self.assertTrue(sample.check_origin(ellipsoid))
 
     def test_different_powers(self):
         sample = Cases()
@@ -80,13 +62,23 @@ class TestBaseFunctions(unittest.TestCase):
             sample.compare(different_powers, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(different_powers))
 
-    def test_rosenbrock(self):
+    def test_discus(self):
         sample = Cases()
-        rosenbrock = Rosenbrock()
+        for func in [discus, Discus()]:
+            for ndim in range(2, 8):
+                self.assertTrue(sample.compare(func, ndim, get_y_discus(ndim - 2)))
+            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+                sample.compare(func, 1, np.empty((5,)))
+            self.assertTrue(sample.check_origin(func))
+
+    def test_ellipsoid(self):
+        sample = Cases()
+        ellipsoid = Ellipsoid()
         for ndim in range(2, 8):
-            self.assertTrue(sample.compare(rosenbrock, ndim, get_y_rosenbrock(ndim - 2)))
+            self.assertTrue(sample.compare(ellipsoid, ndim, get_y_ellipsoid(ndim - 2)))
         with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-            sample.compare(rosenbrock, 1, np.empty((5,)))
+            sample.compare(ellipsoid, 1, np.empty((5,)))
+        self.assertTrue(sample.check_origin(ellipsoid))
 
     def test_exponential(self):
         exponential = Exponential()
@@ -100,20 +92,6 @@ class TestBaseFunctions(unittest.TestCase):
             self.assertTrue(sample.compare(griewank, ndim, get_y_griewank(ndim - 2), atol=0.001))
         self.assertTrue(sample.check_origin(griewank))
 
-    def test_rastrigin(self):
-        sample = Cases()
-        rastrigin = Rastrigin()
-        for ndim in range(2, 8):
-            self.assertTrue(sample.compare(rastrigin, ndim, get_y_rastrigin(ndim - 2)))
-        self.assertTrue(sample.check_origin(rastrigin))
-
-    def test_scaled_rastrigin(self):
-        sample = Cases()
-        scaled_rastrigin = ScaledRastrigin()
-        for ndim in range(1, 4):
-            self.assertTrue(sample.compare(scaled_rastrigin, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
-        self.assertTrue(sample.check_origin(scaled_rastrigin))
-
     def test_levy_montalvo(self):
         levy_montalvo = LevyMontalvo()
         for ndim in range(1, 8):
@@ -124,10 +102,39 @@ class TestBaseFunctions(unittest.TestCase):
         michalewicz = Michalewicz()
         self.assertTrue(sample.check_origin(michalewicz))
 
+    def test_rastrigin(self):
+        sample = Cases()
+        rastrigin = Rastrigin()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(rastrigin, ndim, get_y_rastrigin(ndim - 2)))
+        self.assertTrue(sample.check_origin(rastrigin))
+
+    def test_rosenbrock(self):
+        sample = Cases()
+        rosenbrock = Rosenbrock()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(rosenbrock, ndim, get_y_rosenbrock(ndim - 2)))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            sample.compare(rosenbrock, 1, np.empty((5,)))
+
     def test_salomon(self):
         sample = Cases()
         salomon = Salomon()
         self.assertTrue(sample.check_origin(salomon))
+
+    def test_scaled_rastrigin(self):
+        sample = Cases()
+        scaled_rastrigin = ScaledRastrigin()
+        for ndim in range(1, 4):
+            self.assertTrue(sample.compare(scaled_rastrigin, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
+        self.assertTrue(sample.check_origin(scaled_rastrigin))
+
+    def test_schaffer(self):
+        sample = Cases()
+        for func in [schaffer, Schaffer()]:
+            for ndim in range(1, 4):
+                self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
+            self.assertTrue(sample.check_origin(func))
 
     def test_schwefel12(self):
         sample = Cases()
@@ -156,13 +163,6 @@ class TestBaseFunctions(unittest.TestCase):
         shubert = Shubert()
         for minimizer in get_y_shubert():
             self.assertTrue((np.abs(shubert(minimizer) + 186.7309) < 1e-3))
-
-    def test_schaffer(self):
-        sample = Cases()
-        for func in [schaffer, Schaffer()]:
-            for ndim in range(1, 4):
-                self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
-            self.assertTrue(sample.check_origin(func))
 
     def test_skew_rastrigin(self):
         sample = Cases()
