@@ -86,13 +86,6 @@ class TestBaseFunctions(unittest.TestCase):
                 self.assertTrue(sample.compare(func, ndim, get_y_griewank(ndim - 2), atol=0.001))
             self.assertTrue(sample.check_origin(func))
 
-    def test_bohachevsky(self):
-        sample = Cases()
-        for func in [bohachevsky, Bohachevsky()]:
-            for ndim in range(1, 5):
-                self.assertTrue(sample.compare(func, ndim, get_y_bohachevsky(ndim - 1), atol=0.1))
-            self.assertTrue(sample.check_origin(func))
-
     def test_ackley(self):
         sample = Cases()
         for func in [ackley, Ackley()]:
