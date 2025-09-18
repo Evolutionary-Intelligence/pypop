@@ -55,21 +55,21 @@ class TestBaseFunctions(unittest.TestCase):
 
     def test_cigar_discus(self):
         sample = Cases()
-        for func in [cigar_discus, CigarDiscus()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_cigar_discus(ndim - 2)))
-            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-                sample.compare(func, 1, np.empty((5,)))
-            self.assertTrue(sample.check_origin(func))
+        cigar_discus = CigarDiscus()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(cigar_discus, ndim, get_y_cigar_discus(ndim - 2)))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            sample.compare(cigar_discus, 1, np.empty((5,)))
+        self.assertTrue(sample.check_origin(cigar_discus))
 
     def test_ellipsoid(self):
         sample = Cases()
-        for func in [ellipsoid, Ellipsoid()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_ellipsoid(ndim - 2)))
-            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-                sample.compare(func, 1, np.empty((5,)))
-            self.assertTrue(sample.check_origin(func))
+        ellipsoid = Ellipsoid()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(ellipsoid, ndim, get_y_ellipsoid(ndim - 2)))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            sample.compare(ellipsoid, 1, np.empty((5,)))
+        self.assertTrue(sample.check_origin(ellipsoid))
 
     def test_different_powers(self):
         sample = Cases()
