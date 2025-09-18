@@ -33,13 +33,13 @@ def squeeze_and_check(x, size_gt_1=False):
     if (x.ndim == 0) and (x.size == 1):  # distinguish `ndim` and `size`
         x = np.array([x])
     if x.ndim != 1:
-        s = f'*ndim* should == 1 (not {x.ndim}) after numpy.squeeze().'
+        s = f'PyPop7: ndim should == 1 (not {x.ndim}) after np.squeeze().'
         raise TypeError(s)
     if size_gt_1 and not (x.size > 1):  # distinguish `ndim` and `size`
-        s = f'*size* should > 1 (not {x.size}) after numpy.squeeze().'
+        s = f'PyPop7: size should > 1 (not {x.size}) after np.squeeze().'
         raise TypeError(s)
     if x.size == 0:
-        raise TypeError(f'*size* should != 0.')
+        raise TypeError(f'PyPop7: size should != 0.')
     return x
 
 
