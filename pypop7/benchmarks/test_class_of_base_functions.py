@@ -40,7 +40,7 @@ class TestBaseFunctions(unittest.TestCase):
         cigar = Cigar()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(cigar, ndim, get_y_cigar(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(cigar, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(cigar))
 
@@ -49,7 +49,7 @@ class TestBaseFunctions(unittest.TestCase):
         cigar_discus = CigarDiscus()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(cigar_discus, ndim, get_y_cigar_discus(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(cigar_discus, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(cigar_discus))
 
@@ -58,7 +58,7 @@ class TestBaseFunctions(unittest.TestCase):
         different_powers = DifferentPowers()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(different_powers, ndim, get_y_different_powers(ndim - 2), atol=0.1))
-        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(different_powers, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(different_powers))
 
@@ -67,7 +67,7 @@ class TestBaseFunctions(unittest.TestCase):
         discus = Discus()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(discus, ndim, get_y_discus(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(discus, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(discus))
 
@@ -76,7 +76,7 @@ class TestBaseFunctions(unittest.TestCase):
         ellipsoid = Ellipsoid()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(ellipsoid, ndim, get_y_ellipsoid(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(ellipsoid, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(ellipsoid))
 
@@ -114,7 +114,7 @@ class TestBaseFunctions(unittest.TestCase):
         rosenbrock = Rosenbrock()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(rosenbrock, ndim, get_y_rosenbrock(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(rosenbrock, 1, np.empty((5,)))
 
     def test_salomon(self):
@@ -141,7 +141,7 @@ class TestBaseFunctions(unittest.TestCase):
         schwefel12 = Schwefel12()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(schwefel12, ndim, get_y_schwefel12(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, 'Size should > 1+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(schwefel12, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(schwefel12))
 
