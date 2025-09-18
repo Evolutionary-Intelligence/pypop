@@ -22,7 +22,7 @@ class BaseFunction(object):
         pass
 
 
-# a list of 23 classes of *scalable* base functions:
+# a list of 22 classes of *scalable* base functions:
 class Ackley(BaseFunction):
     def __call__(self, x):
         """Class of **Ackley** test function.
@@ -38,23 +38,6 @@ class Ackley(BaseFunction):
             A scalar fitness.
         """
         return bf.ackley(x)
-
-
-class Bohachevsky(BaseFunction):
-    def __call__(self, x):
-        """
-
-        Parameters
-        ----------
-        x : ndarray
-            input vector.
-
-        Returns
-        -------
-        y : float
-            scalar fitness.
-        """
-        return bf.bohachevsky(x)
 
 
 class Cigar(BaseFunction):
