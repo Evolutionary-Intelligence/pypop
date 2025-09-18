@@ -81,7 +81,7 @@ class Cases(object):
                  [-7, 6, 5, 4, 3, 2, -1],
                  [0, 1, 2, 3, 4, 5, 6]]
         else:
-            raise TypeError('Number of dimensions should >= 1 and <= 7.')
+            raise TypeError('*ndim* should >= 1 and <= 7.')
         return np.array(x, dtype=np.float64)  # `ndarray` should be of dtype `np.float64`
 
     def compare(self, func, ndim, y_true, shift_vector=None, rotation_matrix=None, atol=1e-3):
