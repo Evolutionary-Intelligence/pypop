@@ -6,7 +6,7 @@
     classified mainly according to *uni-modality* or *multi-modality*
     (dichotomy).
 
-    Note that sometimes the shifted form is also called the transformed form.
+    Note that sometimes the *shifted* form is also called the *transformed* form.
 """
 import os
 
