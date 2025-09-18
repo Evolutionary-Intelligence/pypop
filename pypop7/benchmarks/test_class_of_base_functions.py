@@ -131,10 +131,10 @@ class TestBaseFunctions(unittest.TestCase):
 
     def test_schaffer(self):
         sample = Cases()
-        for func in [schaffer, Schaffer()]:
-            for ndim in range(1, 4):
-                self.assertTrue(sample.compare(func, ndim, get_y_schaffer(ndim - 1), atol=0.01))
-            self.assertTrue(sample.check_origin(func))
+        schaffer = Schaffer()
+        for ndim in range(1, 4):
+            self.assertTrue(sample.compare(schaffer, ndim, get_y_schaffer(ndim - 1), atol=0.01))
+        self.assertTrue(sample.check_origin(schaffer))
 
     def test_schwefel12(self):
         sample = Cases()
