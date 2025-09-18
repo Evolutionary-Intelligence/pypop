@@ -12,7 +12,7 @@ import os
 
 import numpy as np
 
-from pypop7.benchmarks import base_functions
+from pypop7.benchmarks import base_functions as bf
 from pypop7.benchmarks.base_functions import squeeze_and_check
 
 
