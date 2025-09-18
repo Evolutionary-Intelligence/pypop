@@ -38,11 +38,11 @@ class TestBaseFunctions(unittest.TestCase):
         x2 = np.array([0.0, 1.0])
         self.assertTrue(np.allclose(squeeze_and_check(x2), x2))
         x3 = np.arange(6).reshape(2, 3)
-        with self.assertRaisesRegex(TypeError, '*ndim* should+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: ndim should+'):
             squeeze_and_check(x3)
-        with self.assertRaisesRegex(TypeError, '*size* should+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             squeeze_and_check(x1, True)
-        with self.assertRaisesRegex(TypeError, '*size* should != 0.'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should != 0.'):
             squeeze_and_check([])
 
     def test_ackley(self):
@@ -61,7 +61,7 @@ class TestBaseFunctions(unittest.TestCase):
         sample = Cases()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(cigar, ndim, get_y_cigar(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, '*size* should+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(cigar, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(cigar))
 
@@ -69,7 +69,7 @@ class TestBaseFunctions(unittest.TestCase):
         sample = Cases()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(cigar_discus, ndim, get_y_cigar_discus(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, '*size* should+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(cigar_discus, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(cigar_discus))
 
@@ -77,7 +77,7 @@ class TestBaseFunctions(unittest.TestCase):
         sample = Cases()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(different_powers, ndim, get_y_different_powers(ndim - 2), atol=0.1))
-        with self.assertRaisesRegex(TypeError, '*size* should+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(different_powers, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(different_powers))
 
@@ -85,7 +85,7 @@ class TestBaseFunctions(unittest.TestCase):
         sample = Cases()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(discus, ndim, get_y_discus(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, '*size* should+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(discus, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(discus))
 
@@ -93,7 +93,7 @@ class TestBaseFunctions(unittest.TestCase):
         sample = Cases()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(ellipsoid, ndim, get_y_ellipsoid(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, '*size* should+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(ellipsoid, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(ellipsoid))
 
@@ -125,7 +125,7 @@ class TestBaseFunctions(unittest.TestCase):
         sample = Cases()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(rosenbrock, ndim, get_y_rosenbrock(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, '*size* should+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(rosenbrock, 1, np.empty((5,)))
 
     def test_salomon(self):
@@ -148,7 +148,7 @@ class TestBaseFunctions(unittest.TestCase):
         sample = Cases()
         for ndim in range(2, 8):
             self.assertTrue(sample.compare(schwefel12, ndim, get_y_schwefel12(ndim - 2)))
-        with self.assertRaisesRegex(TypeError, '*size* should+'):
+        with self.assertRaisesRegex(TypeError, 'PyPop7: size should+'):
             sample.compare(schwefel12, 1, np.empty((5,)))
         self.assertTrue(sample.check_origin(schwefel12))
 
