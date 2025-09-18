@@ -81,7 +81,7 @@ def bohachevsky(x):
     """
     x = squeeze_and_check(x, True)
     y = 0.7 * len(x)
-    for i in range(len(x)):
+    for i in range(len(x) - 1):
         y += np.square(x[i]) + 2.0 * np.square(x[i + 1])
         y -= 0.3 * np.cos(3.0 * np.pi * x[i])
         y -= 0.4 * np.cos(4.0 * np.pi * x[i + 1])
