@@ -1,3 +1,6 @@
+from pypop7.benchmarks.class_of_base_functions import BaseFunction
+
+
 class Sphere(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
