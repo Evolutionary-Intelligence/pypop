@@ -1,14 +1,16 @@
 """For the online documentation of shifted form of these base functions, refer to:
     https://pypop.readthedocs.io/en/latest/benchmarks.html#shifted-transformed-forms
 
-    Here all of below base functions are ordered only in *name*. However,
-    in the above online documentation, all of base functions are
+    Here all of below shifted functions are ordered only in *name*. However,
+    in the above online documentation, all of shifted functions are
     classified mainly according to *uni-modality* or *multi-modality*
     (dichotomy).
+
+    Note that sometimes the shifted form is also called the transformed form.
 """
 import os
 
-import numpy as np  # engine for numerical computing
+import numpy as np
 
 from pypop7.benchmarks import base_functions
 from pypop7.benchmarks.base_functions import squeeze_and_check
