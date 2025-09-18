@@ -6,7 +6,7 @@ import os
 import numpy as np  # engine for numerical computing
 
 from pypop7.benchmarks import base_functions
-from pypop7.benchmarks.base_functions import squeeze_and_check, BaseFunction
+from pypop7.benchmarks.base_functions import squeeze_and_check
 
 
 # helper function
