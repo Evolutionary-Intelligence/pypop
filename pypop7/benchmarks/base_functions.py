@@ -43,7 +43,7 @@ def squeeze_and_check(x, size_gt_1=False):
     return x
 
 
-# a list of 23 *scalable* base functions:
+# a list of 22 *scalable* base functions:
 def ackley(x):
     """**Ackley** test function.
 
@@ -61,30 +61,6 @@ def ackley(x):
     y = 20.0 + np.exp(1.0)
     y -= 20.0 * np.exp(-0.2 * np.sqrt(np.sum(np.square(x)) / len(x)))
     y -= np.exp(np.sum(np.cos(2.0 * np.pi * x)) / len(x))
-    return y
-
-
-def bohachevsky(x):
-    """**Bohachevsky** test function.
-
-        .. note:: Its dimensionality should `> 1`.
-
-    Parameters
-    ----------
-    x : ndarray
-        An input vector.
-
-    Returns
-    -------
-    y : float
-        A scalar fitness.
-    """
-    x = squeeze_and_check(x, True)
-    y = 0.7 * len(x)
-    for i in range(len(x) - 1):
-        y += np.square(x[i]) + 2.0 * np.square(x[i + 1])
-        y -= 0.3 * np.cos(3.0 * np.pi * x[i])
-        y -= 0.4 * np.cos(4.0 * np.pi * x[i + 1])
     return y
 
 
