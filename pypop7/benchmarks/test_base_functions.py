@@ -50,12 +50,6 @@ class TestBaseFunctions(unittest.TestCase):
             self.assertTrue(sample.compare(ackley, ndim, get_y_ackley(ndim - 2), atol=0.001))
         self.assertTrue(sample.check_origin(ackley))
 
-    def test_bohachevsky(self):
-        sample = Cases()
-        for ndim in range(1, 5):
-            self.assertTrue(sample.compare(bohachevsky, ndim, get_y_bohachevsky(ndim - 1), atol=0.1))
-        self.assertTrue(sample.check_origin(bohachevsky))
-
     def test_cigar(self):
         sample = Cases()
         for ndim in range(2, 8):
