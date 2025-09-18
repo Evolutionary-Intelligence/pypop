@@ -1,8 +1,10 @@
+from abc import ABC
+
 from pypop7.benchmarks import base_functions as bf
 
 
 # helper class
-class BaseFunction(object):
+class BaseFunction(ABC):
     """Class for all base functions.
 
     Parameters
