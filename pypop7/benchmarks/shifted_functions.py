@@ -1,5 +1,10 @@
-"""Online documentation:
+"""For the online documentation of these base functions, please refer to:
     https://pypop.readthedocs.io/en/latest/benchmarks.html#shifted-transformed-forms
+
+    Here all of below base functions are ordered only in *name*. However,
+    in the above online documentation, all of base functions are
+    classified mainly according to *uni-modality* or *multi-modality*
+    (dichotomy).
 """
 import os
 
