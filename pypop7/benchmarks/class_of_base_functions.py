@@ -253,12 +253,12 @@ class ScaledRastrigin(BaseFunction):
         Parameters
         ----------
         x : ndarray
-            input vector.
+            A input vector.
 
         Returns
         -------
         y : float
-            scalar fitness.
+            A scalar fitness.
         """
         return bf.scaled_rastrigin(x)
 
