@@ -1,7 +1,30 @@
 import unittest
 
-from pypop7.benchmarks.class_of_base_functions import *
-# test correctness of benchmarking functions via *sampling* (test cases)
+from pypop7.benchmarks.class_of_base_functions import squeeze_and_check
+from pypop7.benchmarks.class_of_base_functions import ackley
+from pypop7.benchmarks.class_of_base_functions import cigar
+from pypop7.benchmarks.class_of_base_functions import cigar_discus
+from pypop7.benchmarks.class_of_base_functions import different_powers
+from pypop7.benchmarks.class_of_base_functions import discus
+from pypop7.benchmarks.class_of_base_functions import ellipsoid
+from pypop7.benchmarks.class_of_base_functions import exponential
+from pypop7.benchmarks.class_of_base_functions import griewank
+from pypop7.benchmarks.class_of_base_functions import levy_montalvo
+from pypop7.benchmarks.class_of_base_functions import michalewicz
+from pypop7.benchmarks.class_of_base_functions import rastrigin
+from pypop7.benchmarks.class_of_base_functions import rosenbrock
+from pypop7.benchmarks.class_of_base_functions import salomon
+from pypop7.benchmarks.class_of_base_functions import scaled_rastrigin
+from pypop7.benchmarks.class_of_base_functions import schaffer
+from pypop7.benchmarks.class_of_base_functions import schwefel12
+from pypop7.benchmarks.class_of_base_functions import schwefel221
+from pypop7.benchmarks.class_of_base_functions import schwefel222
+from pypop7.benchmarks.class_of_base_functions import shubert
+from pypop7.benchmarks.class_of_base_functions import skew_rastrigin
+from pypop7.benchmarks.class_of_base_functions import sphere
+from pypop7.benchmarks.class_of_base_functions import step
+# test the coding correctness of benchmarking functions
+# via limited sampling (test cases)
 from pypop7.benchmarks.cases import *
 
 
