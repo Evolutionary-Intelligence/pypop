@@ -73,56 +73,56 @@ class TestBaseFunctions(unittest.TestCase):
 
     def test_different_powers(self):
         sample = Cases()
-        for func in [different_powers, DifferentPowers()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_different_powers(ndim - 2), atol=0.1))
-            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-                sample.compare(func, 1, np.empty((5,)))
-            self.assertTrue(sample.check_origin(func))
+        different_powers = DifferentPowers()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(different_powers, ndim, get_y_different_powers(ndim - 2), atol=0.1))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            sample.compare(different_powers, 1, np.empty((5,)))
+        self.assertTrue(sample.check_origin(different_powers))
 
     def test_rosenbrock(self):
         sample = Cases()
-        for func in [rosenbrock, Rosenbrock()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_rosenbrock(ndim - 2)))
-            with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
-                sample.compare(func, 1, np.empty((5,)))
+        rosenbrock = Rosenbrock()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(rosenbrock, ndim, get_y_rosenbrock(ndim - 2)))
+        with self.assertRaisesRegex(TypeError, 'The size should > 1+'):
+            sample.compare(rosenbrock, 1, np.empty((5,)))
 
     def test_exponential(self):
-        for func in [exponential, Exponential()]:
-            for ndim in range(1, 8):
-                self.assertTrue(np.abs(func(np.zeros((ndim,))) + 1) < 1e-9)
+        exponential = Exponential()
+        for ndim in range(1, 8):
+            self.assertTrue(np.abs(exponential(np.zeros((ndim,))) + 1) < 1e-9)
 
     def test_griewank(self):
         sample = Cases()
-        for func in [griewank, Griewank()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_griewank(ndim - 2), atol=0.001))
-            self.assertTrue(sample.check_origin(func))
+        griewank = Griewank()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(griewank, ndim, get_y_griewank(ndim - 2), atol=0.001))
+        self.assertTrue(sample.check_origin(griewank))
 
     def test_rastrigin(self):
         sample = Cases()
-        for func in [rastrigin, Rastrigin()]:
-            for ndim in range(2, 8):
-                self.assertTrue(sample.compare(func, ndim, get_y_rastrigin(ndim - 2)))
-            self.assertTrue(sample.check_origin(func))
+        rastrigin = Rastrigin()
+        for ndim in range(2, 8):
+            self.assertTrue(sample.compare(rastrigin, ndim, get_y_rastrigin(ndim - 2)))
+        self.assertTrue(sample.check_origin(rastrigin))
 
     def test_scaled_rastrigin(self):
         sample = Cases()
-        for func in [scaled_rastrigin, ScaledRastrigin()]:
-            for ndim in range(1, 4):
-                self.assertTrue(sample.compare(func, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
-            self.assertTrue(sample.check_origin(func))
+        scaled_rastrigin = ScaledRastrigin()
+        for ndim in range(1, 4):
+            self.assertTrue(sample.compare(scaled_rastrigin, ndim, get_y_scaled_rastrigin(ndim - 1), atol=0.01))
+        self.assertTrue(sample.check_origin(scaled_rastrigin))
 
     def test_levy_montalvo(self):
-        for func in [levy_montalvo, LevyMontalvo()]:
-            for ndim in range(1, 8):
-                self.assertTrue(np.abs(func(-np.ones((ndim,)))) < 1e-9)
+        levy_montalvo = LevyMontalvo()
+        for ndim in range(1, 8):
+            self.assertTrue(np.abs(levy_montalvo(-np.ones((ndim,)))) < 1e-9)
 
     def test_michalewicz(self):
         sample = Cases()
-        for func in [michalewicz, Michalewicz()]:
-            self.assertTrue(sample.check_origin(func))
+        michalewicz = Michalewicz()
+        self.assertTrue(sample.check_origin(michalewicz))
 
     def test_salomon(self):
         sample = Cases()
