@@ -1,5 +1,6 @@
 import unittest
 
+from pypop7.benchmarks.base_functions import squeeze_and_check
 from pypop7.benchmarks.base_functions import ackley
 from pypop7.benchmarks.base_functions import bohachevsky
 from pypop7.benchmarks.base_functions import cigar
