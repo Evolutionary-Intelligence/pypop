@@ -1,6 +1,27 @@
 from pypop7.benchmarks.class_of_base_functions import BaseFunction
 
 
+# helper class
+class BaseFunction(object):
+    """Class for all base functions.
+
+    Parameters
+    ----------
+    x : ndarray
+        An input vector.
+
+    Returns
+    -------
+    y : float
+        A scalar fitness.
+    """
+    def __init__(self):
+        pass
+
+    def __call__(self, x, shift_vector=None):
+        pass
+
+
 class Sphere(BaseFunction):
     def __init__(self):
         BaseFunction.__init__(self)
