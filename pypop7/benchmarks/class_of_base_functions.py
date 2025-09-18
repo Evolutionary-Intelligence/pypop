@@ -5,7 +5,7 @@ from pypop7.benchmarks import base_functions as bf
 
 # helper class
 class BaseFunction(ABC):
-    """Abstract Class for all base functions.
+    """Abstract Class for all classes of base functions.
 
     Parameters
     ----------
