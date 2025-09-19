@@ -9,7 +9,9 @@ Some Interesting Applications of PSO
 Here we list some (rather all) interesting applications involving PSO,
 though all of them did NOT use PyPop7. 
 
-`[Reviews of Modern Physics 2024]
+`[Nature, 2024]
+<https://www.nature.com/articles/s41586-024-07293-4>`_,
+`[Reviews of Modern Physics, 2024]
 <https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.96.015002>`_,
 
 
