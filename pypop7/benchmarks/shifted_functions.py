@@ -43,12 +43,13 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
                    a shift vector of size `ndim` sampled uniformly in [`low`, `high`).
     """
     low, high = squeeze_and_check(low), squeeze_and_check(high)
-    if hasattr(func, '__call__'):
+    if hasattr(func, '__name__'):
         func = func.__name__
     data_folder = 'pypop_benchmarks_input_data'
     if not os.path.exists(data_folder):
         os.mkdir(data_folder)
-    data_path = os.path.join(data_folder, 'shift_vector_' + func + '_dim_' + str(ndim) + '.txt')
+    data_name = 'shift_vector_' + func + '_dim_' + str(ndim) + '.txt'
+    data_path = os.path.join(data_folder, data_name)
     shift_vector = np.random.default_rng(seed).uniform(low, high, size=ndim)
     np.savetxt(data_path, shift_vector)
     return shift_vector
