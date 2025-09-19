@@ -77,17 +77,17 @@ def load_shift_vector(func, x, shift_vector=None):
     """
     x = squeeze_and_check(x)
     if shift_vector is None:
-        if (not hasattr(func, 'pypop_shift_vector')) or (len(func.pypop_shift_vector) != len(x)):
+        if not hasattr(func, 'pypop_shift_vector'):
             data_folder = 'pypop_benchmarks_input_data'
-            data_name = 'shift_vector_' + func.__name__ + '_dim_' + str(x.size) + '.txt'
-            data_path = os.path.join(data_folder, data_name)
+            data_name = 'shift_vector_' + func.__name__ + '_dim_' + str(x.size)
+            data_path = os.path.join(data_folder, data_name + '.txt')
             shift_vector = np.loadtxt(data_path)
             func.pypop_shift_vector = shift_vector
         shift_vector = func.pypop_shift_vector
     shift_vector = squeeze_and_check(shift_vector)
     if shift_vector.shape != x.shape:
         raise TypeError('shift_vector should have the same shape as x.')
-    if shift_vector.size != x.size:
+    if len(shift_vector) != len(x):
         raise TypeError('shift_vector should have the same size as x.')
     return shift_vector
 
