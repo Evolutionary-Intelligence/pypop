@@ -15,6 +15,8 @@ involving PSO, though all of them did *NOT* use PyPop7.
 <https://www.nature.com/articles/s41586-024-07293-4>`_,
 `[Reviews of Modern Physics, 2024]
 <https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.96.015002>`_,
+`[Nature Materials, 2024]
+<https://www.nature.com/articles/s41563-024-01830-2>`_,
 
 
 
