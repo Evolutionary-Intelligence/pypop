@@ -6,8 +6,8 @@ Particle Swarm Optimizer (PSO)
 Some Interesting Applications of PSO
 ------------------------------------
 
-Here we list some (rather all) interesting applications involving PSO,
-though all of them did NOT use PyPop7. 
+Here we are listing some (*rather all*) interesting applications
+involving PSO, though all of them did *NOT* use PyPop7. 
 
 `[Nature, 2024]
 <https://www.nature.com/articles/s41586-024-07293-4>`_,
