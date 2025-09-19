@@ -17,12 +17,17 @@ involving PSO, though all of them did *NOT* use PyPop7.
 <https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.96.015002>`_,
 `[Nature Materials, 2024]
 <https://www.nature.com/articles/s41563-024-01830-2>`_,
+`[Nature Communications, 2024]
+<https://www.nature.com/articles/s41467-024-54708-x>`_,
 
 
+
+Some Versions and Variants of PSO
+---------------------------------
 
 .. toctree::
    :maxdepth: 1
-   :caption: PSOs:
+   :caption: 
 
    ccpso2
    ipso
