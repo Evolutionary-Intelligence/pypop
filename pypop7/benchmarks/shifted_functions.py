@@ -77,9 +77,10 @@ def load_shift_vector(func, x, shift_vector=None):
     """
     x = squeeze_and_check(x)
     if shift_vector is None:
-        if (not hasattr(func, 'pypop_shift_vector')) or (func.pypop_shift_vector.size != x.size):
+        if (not hasattr(func, 'pypop_shift_vector')) or (len(func.pypop_shift_vector) != len(x)):
             data_folder = 'pypop_benchmarks_input_data'
-            data_path = os.path.join(data_folder, 'shift_vector_' + func.__name__ + '_dim_' + str(x.size) + '.txt')
+            data_name = 'shift_vector_' + func.__name__ + '_dim_' + str(x.size) + '.txt'
+            data_path = os.path.join(data_folder, data_name)
             shift_vector = np.loadtxt(data_path)
             func.pypop_shift_vector = shift_vector
         shift_vector = func.pypop_shift_vector
