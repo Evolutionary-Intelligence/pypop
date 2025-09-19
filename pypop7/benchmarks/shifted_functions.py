@@ -47,7 +47,7 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
         func = func.__name__
     data_folder = 'pypop_benchmarks_input_data'
     if not os.path.exists(data_folder):
-        os.mkdir(data_folder)
+        os.mkdir(data_folder)  # only in the working directory
     data_name = 'shift_vector_' + func + '_dim_' + str(ndim) + '.txt'
     data_path = os.path.join(data_folder, data_name)
     shift_vector = np.random.default_rng(seed).uniform(low, high, size=ndim)
