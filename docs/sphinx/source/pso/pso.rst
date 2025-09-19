@@ -19,7 +19,8 @@ involving PSO, though all of them did *NOT* use PyPop7.
 <https://www.nature.com/articles/s41563-024-01830-2>`_,
 `[Nature Communications, 2024]
 <https://www.nature.com/articles/s41467-024-54708-x>`_,
-
+`[CVPR, 2024]
+<https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_Towards_Text-guided_3D_Scene_Composition_CVPR_2024_paper.html>`_
 
 
 Some Versions and Variants of PSO
