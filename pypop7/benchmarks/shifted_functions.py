@@ -40,7 +40,7 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
     Returns
     -------
     shift_vector : ndarray (of dtype np.float64)
-                   a shift vector sampled uniformly in [`low`, `high`) of size `ndim`.
+                   a shift vector of size `ndim` sampled uniformly in [`low`, `high`).
     """
     low, high = squeeze_and_check(low), squeeze_and_check(high)
     if hasattr(func, '__call__'):
