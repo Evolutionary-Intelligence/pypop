@@ -3,6 +3,15 @@ Particle Swarm Optimizer (PSO)
 
 .. autoclass:: pypop7.optimizers.pso.pso.PSO
 
+Some Interesting Applications of PSO
+------------------------------------
+
+Here we list some (rather all) interesting applications involving PSO,
+though all of them did NOT use PyPop7. 
+
+`[Reviews of Modern Physics 2024]
+<https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.96.015002>`_,
+
 
 
 .. toctree::
