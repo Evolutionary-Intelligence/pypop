@@ -56,17 +56,17 @@ def generate_shift_vector(func, ndim, low, high, seed=None):
 
 
 def load_shift_vector(func, x, shift_vector=None):
-    """Load the shift vector which needs to be generated in advance.
+    """Load the shift vector which needs to be generated *in advance*.
 
-       .. note:: When `None`, the shift vector should have been generated and stored in *txt* form
-          **in advance**.
+       .. note:: When `None`, the shift vector should have been generated and
+          stored in the *txt* form **in advance** via `generate_shift_vector()`.
 
     Parameters
     ----------
     func         : func
                    function name.
     x            : array_like
-                   decision vector.
+                   a decision vector (aka an input vector).
     shift_vector : array_like
                    a shift vector with the same size as `x`.
 
