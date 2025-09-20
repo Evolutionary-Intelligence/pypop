@@ -95,10 +95,6 @@ def load_shift_vector(func, x, shift_vector=None):
 def sphere(x, shift_vector=None):
     """**Sphere** test function.
 
-       .. note:: It's LaTeX formulation is `$\sum_{i=1}^{n}x_i^2$`.
-          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
-          generate it (stored in *txt* form) in advance.
-
     Parameters
     ----------
     x            : ndarray
