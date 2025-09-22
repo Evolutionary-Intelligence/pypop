@@ -132,6 +132,26 @@ def cigar_discus(x, shift_vector=None):
     return y
 
 
+def different_powers(x, shift_vector=None):
+    """**Different-Powers** test function.
+
+    Parameters
+    ----------
+    x            : ndarray
+                   an input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
+    Returns
+    -------
+    y : float
+        a scalar fitness.
+    """
+    shift_vector = load_shift_vector(different_powers, x, shift_vector)
+    y = bf.different_powers(x - shift_vector)
+    return y
+
+
 def discus(x, shift_vector=None):
     """**Discus** (aka **Tablet**) test function.
 
@@ -189,30 +209,6 @@ def sphere(x, shift_vector=None):
     """
     shift_vector = load_shift_vector(sphere, x, shift_vector)
     y = bf.sphere(x - shift_vector)
-    return y
-
-
-def different_powers(x, shift_vector=None):
-    """**Different-Powers** test function.
-
-       .. note:: It's LaTeX formulation is `$$`.
-          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
-          generate it (stored in *txt* form) in advance.
-
-    Parameters
-    ----------
-    x            : ndarray
-                   input vector.
-    shift_vector : ndarray
-                   a vector with the same size as `x`.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    shift_vector = load_shift_vector(different_powers, x, shift_vector)
-    y = bf.different_powers(x - shift_vector)
     return y
 
 
