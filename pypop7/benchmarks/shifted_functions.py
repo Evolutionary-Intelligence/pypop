@@ -98,14 +98,14 @@ def sphere(x, shift_vector=None):
     Parameters
     ----------
     x            : ndarray
-                   input vector.
+                   an input vector.
     shift_vector : ndarray
                    a vector with the same size as `x`.
 
     Returns
     -------
     y : float
-        scalar fitness.
+        a scalar fitness.
     """
     shift_vector = load_shift_vector(sphere, x, shift_vector)
     y = base_functions.sphere(x - shift_vector)
