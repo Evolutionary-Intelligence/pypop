@@ -108,7 +108,7 @@ def sphere(x, shift_vector=None):
         a scalar fitness.
     """
     shift_vector = load_shift_vector(sphere, x, shift_vector)
-    y = base_functions.sphere(x - shift_vector)
+    y = bf.sphere(x - shift_vector)
     return y
 
 
@@ -132,7 +132,7 @@ def cigar(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(cigar, x, shift_vector)
-    y = base_functions.cigar(x - shift_vector)
+    y = bf.cigar(x - shift_vector)
     return y
 
 
@@ -156,7 +156,7 @@ def discus(x, shift_vector=None):  # also called tablet
         scalar fitness.
     """
     shift_vector = load_shift_vector(discus, x, shift_vector)
-    y = base_functions.discus(x - shift_vector)
+    y = bf.discus(x - shift_vector)
     return y
 
 
@@ -180,7 +180,7 @@ def cigar_discus(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(cigar_discus, x, shift_vector)
-    y = base_functions.cigar_discus(x - shift_vector)
+    y = bf.cigar_discus(x - shift_vector)
     return y
 
 
@@ -204,7 +204,7 @@ def ellipsoid(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(ellipsoid, x, shift_vector)
-    y = base_functions.ellipsoid(x - shift_vector)
+    y = bf.ellipsoid(x - shift_vector)
     return y
 
 
@@ -228,7 +228,7 @@ def different_powers(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(different_powers, x, shift_vector)
-    y = base_functions.different_powers(x - shift_vector)
+    y = bf.different_powers(x - shift_vector)
     return y
 
 
@@ -252,7 +252,7 @@ def schwefel221(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(schwefel221, x, shift_vector)
-    y = base_functions.schwefel221(x - shift_vector)
+    y = bf.schwefel221(x - shift_vector)
     return y
 
 
@@ -276,7 +276,7 @@ def step(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(step, x, shift_vector)
-    y = base_functions.step(x - shift_vector)
+    y = bf.step(x - shift_vector)
     return y
 
 
@@ -300,7 +300,7 @@ def schwefel222(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(schwefel222, x, shift_vector)
-    y = base_functions.schwefel222(x - shift_vector)
+    y = bf.schwefel222(x - shift_vector)
     return y
 
 
@@ -324,7 +324,7 @@ def rosenbrock(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(rosenbrock, x, shift_vector)
-    y = base_functions.rosenbrock(x - shift_vector)
+    y = bf.rosenbrock(x - shift_vector)
     return y
 
 
@@ -348,7 +348,7 @@ def schwefel12(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(schwefel12, x, shift_vector)
-    y = base_functions.schwefel12(x - shift_vector)
+    y = bf.schwefel12(x - shift_vector)
     return y
 
 
@@ -372,7 +372,7 @@ def exponential(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(exponential, x, shift_vector)
-    y = base_functions.exponential(x - shift_vector)
+    y = bf.exponential(x - shift_vector)
     return y
 
 
@@ -396,7 +396,7 @@ def griewank(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(griewank, x, shift_vector)
-    y = base_functions.griewank(x - shift_vector)
+    y = bf.griewank(x - shift_vector)
     return y
 
 
@@ -420,7 +420,7 @@ def bohachevsky(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(bohachevsky, x, shift_vector)
-    y = base_functions.bohachevsky(x - shift_vector)
+    y = bf.bohachevsky(x - shift_vector)
     return y
 
 
@@ -444,7 +444,7 @@ def ackley(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(ackley, x, shift_vector)
-    y = base_functions.ackley(x - shift_vector)
+    y = bf.ackley(x - shift_vector)
     return y
 
 
@@ -468,7 +468,7 @@ def rastrigin(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(rastrigin, x, shift_vector)
-    y = base_functions.rastrigin(x - shift_vector)
+    y = bf.rastrigin(x - shift_vector)
     return y
 
 
@@ -492,7 +492,7 @@ def scaled_rastrigin(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(scaled_rastrigin, x, shift_vector)
-    y = base_functions.scaled_rastrigin(x - shift_vector)
+    y = bf.scaled_rastrigin(x - shift_vector)
     return y
 
 
@@ -516,7 +516,7 @@ def skew_rastrigin(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(skew_rastrigin, x, shift_vector)
-    y = base_functions.skew_rastrigin(x - shift_vector)
+    y = bf.skew_rastrigin(x - shift_vector)
     return y
 
 
@@ -540,7 +540,7 @@ def levy_montalvo(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(levy_montalvo, x, shift_vector)
-    y = base_functions.levy_montalvo(x - shift_vector)
+    y = bf.levy_montalvo(x - shift_vector)
     return y
 
 
@@ -564,7 +564,7 @@ def michalewicz(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(michalewicz, x, shift_vector)
-    y = base_functions.michalewicz(x - shift_vector)
+    y = bf.michalewicz(x - shift_vector)
     return y
 
 
@@ -588,7 +588,7 @@ def salomon(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(salomon, x, shift_vector)
-    y = base_functions.salomon(x - shift_vector)
+    y = bf.salomon(x - shift_vector)
     return y
 
 
@@ -612,7 +612,7 @@ def shubert(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(shubert, x, shift_vector)
-    y = base_functions.shubert(x - shift_vector)
+    y = bf.shubert(x - shift_vector)
     return y
 
 
@@ -636,5 +636,5 @@ def schaffer(x, shift_vector=None):
         scalar fitness.
     """
     shift_vector = load_shift_vector(schaffer, x, shift_vector)
-    y = base_functions.schaffer(x - shift_vector)
+    y = bf.schaffer(x - shift_vector)
     return y
