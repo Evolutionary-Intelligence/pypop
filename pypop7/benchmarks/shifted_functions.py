@@ -92,6 +92,26 @@ def load_shift_vector(func, x, shift_vector=None):
     return shift_vector
 
 
+def cigar(x, shift_vector=None):
+    """**Cigar** test function.
+
+    Parameters
+    ----------
+    x            : ndarray
+                   an input vector.
+    shift_vector : ndarray
+                   a vector with the same size as `x`.
+
+    Returns
+    -------
+    y : float
+        a scalar fitness.
+    """
+    shift_vector = load_shift_vector(cigar, x, shift_vector)
+    y = bf.cigar(x - shift_vector)
+    return y
+
+
 def sphere(x, shift_vector=None):
     """**Sphere** test function.
 
@@ -109,30 +129,6 @@ def sphere(x, shift_vector=None):
     """
     shift_vector = load_shift_vector(sphere, x, shift_vector)
     y = bf.sphere(x - shift_vector)
-    return y
-
-
-def cigar(x, shift_vector=None):
-    """**Cigar** test function.
-
-       .. note:: It's LaTeX formulation is `$$`.
-          If its parameter `shift_vector` is `None`, please use function `generate_shift_vector()` to
-          generate it (stored in *txt* form) in advance.
-
-    Parameters
-    ----------
-    x            : ndarray
-                   input vector.
-    shift_vector : ndarray
-                   a vector with the same size as `x`.
-
-    Returns
-    -------
-    y : float
-        scalar fitness.
-    """
-    shift_vector = load_shift_vector(cigar, x, shift_vector)
-    y = bf.cigar(x - shift_vector)
     return y
 
 
