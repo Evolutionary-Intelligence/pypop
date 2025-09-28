@@ -960,8 +960,6 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
   year={2024}
 }
 
-## Visitors and Stars
+### Stars
 
-![visitors](https://tinyurl.com/4cu8wn4u)
-
-[![Star](https://tinyurl.com/yy7pfjwz)](https://tinyurl.com/w9wwc54f)
+[![Star](https://api.star-history.com/svg?repos=Evolutionary-Intelligence/pypop&type=Date)](https://www.star-history.com/#Evolutionary-Intelligence/pypop&Date)
