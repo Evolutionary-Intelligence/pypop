@@ -950,7 +950,9 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### BibTeX (2024)
 
-@article{JMLR-2024-Duan,
+The *BibTeX* format for PyPop7's citation is given below:
+
+@article{2024-JMLR-Duan,
   title={{PyPop7}: A {pure-Python} library for population-based black-box optimization},
   author={Duan, Qiqi and Zhou, Guochen and Shao, Chang and Others},
   journal={Journal of Machine Learning Research},
