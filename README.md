@@ -943,14 +943,13 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 * A presentation was given by one author (Qiqi Duan in 11
   Jun 2025) in [IEEE-CEC 2025]().
   * Oral: [ppt]().
-* A one-page paper was submitted to [IEEE-CEC 2025]() as
-  one *Journal-to-Conference* ([J2C]()) paper and was
-  accepted in 18 Mar 2025.
-  * J2C: [pdf](https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/presentations/IEEE-CEC-2025-%5BJ2C%5D.pdf).
+* A one-page paper was submitted to *IEEE-CEC 2025* as one
+  *Journal-to-Conference (J2C)* paper and was accepted in
+  18 Mar 2025. [pdf]()
 
 ### BibTeX (2024)
 
-The *BibTeX* format for PyPop7's citation is given in detail below:
+The *BibTeX* citation format for PyPop7 is given in detail below:
 
 @article{2024-JMLR-Duan,
   title={{PyPop7}: A {pure-Python} library for population-based black-box optimization},
