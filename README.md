@@ -940,9 +940,8 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
   (Qiqi Duan in 13 Sept 2025) in Chinese for
   [LEAD (Workshop on Learning-assisted Evolutionary Algorithm Design)](https://sites.google.com/view/leadworkshop2025/).
   * Oral: [ppt (in English)](https://github.com/Evolutionary-Intelligence/pypop-docs/blob/main/PPT/20250913-SCUT-Virtual-LEAD-QiqiDuan.pptx)
-* A presentation was given by one author (Qiqi Duan in 11
-  Jun 2025) in [IEEE-CEC 2025]().
-  * Oral: [ppt]().
+* An oral presentation was given by Qiqi Duan in 11 Jun
+  2025) in *IEEE-CEC 2025*.
 * A one-page paper was submitted to *IEEE-CEC 2025* as one
   *Journal-to-Conference (J2C)* paper and was accepted in
   18 Mar 2025. [pdf]()
