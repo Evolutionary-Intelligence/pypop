@@ -21,6 +21,12 @@ Basic Information of CMA-ES
   Decap Optimization
   (Last Access in 18 June, 2025)
 
+Some of High-Quality Tutorials for CMA-ES
+-----------------------------------------
+
+* `[Tutorial of Nikolaus Hansen on PPSN-2024]
+  <http://www.cmap.polytechnique.fr/~nikolaus.hansen/CMATutorialPPSN2024.pdf>`_
+
 Some Applications of CMA-ES
 ---------------------------
 
