@@ -902,7 +902,7 @@ reported in the (actively-updated) paper list called
 
 ### Some of Pioneers of Population-Based Optimization (PBO)
 
-* [Box, G.E.](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
+* [Box](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
   [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
   JRSS-SC, 6(2), pp.81-101.
 
