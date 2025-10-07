@@ -900,7 +900,7 @@ reported in the (actively-updated) paper list called
     [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3).
     Springer.
 
-## Pioneers of Evolutionary and Swarm-Based Optimization
+### Some of Pioneers of Population-Based Optimization (PBO)
 
 * [Box, G.E.](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
   [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
