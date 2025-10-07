@@ -925,9 +925,9 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### 2026 (Planned Activities)
 
-* A **tutorial** on Open-Source Software for Swarm Intelligence and 
+* A tutorial on Open-Source Software for Swarm Intelligence and 
   Evolutionary Algorithms is planning for [ICSI 2026].
-* A **tutorial** on Open-Source Software for Evolutionary Algorithms
+* A tutorial on Open-Source Software for Evolutionary Algorithms
   and Swarm Intelligence is planning for [IEEE-SSCI 2026].
 
 ### 2025 (Activities)
