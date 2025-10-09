@@ -239,5 +239,10 @@ relationship with all of them:
   * `"无论是学术研究还是工业应用，PyPop7都是一个值得信赖的工具，提供了一流的性能和灵活性"
     <https://blog.csdn.net/gitblog_00094/article/details/139615060>`_
 
+WeChat
+------
+
+
+
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
