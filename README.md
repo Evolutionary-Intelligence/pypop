@@ -730,7 +730,9 @@ reported in the (actively-updated) paper list called
     [Optimization by simulated annealing](https://science.sciencemag.org/content/220/4598/671).
     Science, 220(4598), pp.671-680.
   * Hastings, W.K., 1970. [Monte Carlo sampling methods using Markov chains and their applications](https://academic.oup.com/biomet/article/57/1/97/284580). Biometrika, 57(1), pp.97-109.
-  * Metropolis, N., Rosenbluth, A.W., Rosenbluth, M.N., Teller, A.H. and Teller, E., 1953. [Equation of state calculations by fast computing machines](https://aip.scitation.org/doi/abs/10.1063/1.1699114). Journal of Chemical Physics, 21(6), pp.1087-1092.
+  * Metropolis, Rosenbluth, Rosenbluth, Teller and Teller, 1953.
+    [Equation of state calculations by fast computing machines](https://aip.scitation.org/doi/abs/10.1063/1.1699114).
+    JCP, 21(6), pp.1087-1092.
 * **Genetic Algorithm (GA)**
   * Whitley, D., 2019.
     [Next generation genetic algorithms: A user’s guide and tutorial](https://link.springer.com/chapter/10.1007/978-3-319-91086-4_8).
