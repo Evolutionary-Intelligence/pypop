@@ -933,10 +933,10 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 ### 2025 (Activities)
 
 * The distributed-computing version of PyPop7 started in 17 Sept 2025.
-  * Open-source code: [DPRO3](https://github.com/Evolutionary-Intelligence/DPRO3).
+  * Open-source code (Python): [DPRO3](https://github.com/Evolutionary-Intelligence/DPRO3).
   * With Honglin Jin, Lijun Sun, Yang Shen, etc.
 * The matrix-based version of PyPop7 started in 15 Sept 2025.
-  * Open-source code: [MPRO3](https://github.com/Evolutionary-Intelligence/MPRO3).
+  * Open-source code (Python): [MPRO3](https://github.com/Evolutionary-Intelligence/MPRO3).
   * With Yang Shen, Honglin Jin, Lijun Sun, Zhiwei Xu, etc.
 * An online report was given by Qiqi Duan on 13 Sept 2025 in
   Chinese for [LEAD (Workshop on Learning-assisted Evolutionary
