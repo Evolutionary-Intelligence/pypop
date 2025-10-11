@@ -891,7 +891,7 @@ reported in the (actively-updated) paper list called
   * Matyas, J., 1965.
     [Random optimization](https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=at&paperid=11288).
     ARC, 26(2), pp.246-253.
-  * Rastrigin, L.A., 1963.
+  * Rastrigin, 1963.
     [The convergence of the random search method in the extremal control of a many parameter system](https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=at&paperid=12312).
     ARC, 24, pp.1337-1342.
   * Brooks, 1958.
