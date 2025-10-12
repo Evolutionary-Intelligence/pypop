@@ -888,7 +888,7 @@ reported in the (actively-updated) paper list called
   * Schumer, M.A. and [Steiglitz, K.](https://www.cs.princeton.edu/~ken/), 1968.
     [Adaptive step size random search](https://ieeexplore.ieee.org/abstract/document/1098903).
     TAC, 13(3), pp.270-276.
-  * Matyas, J., 1965.
+  * Matyas, 1965.
     [Random optimization](https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=at&paperid=11288).
     ARC, 26(2), pp.246-253.
   * Rastrigin, 1963.
