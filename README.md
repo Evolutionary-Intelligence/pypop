@@ -885,7 +885,7 @@ reported in the (actively-updated) paper list called
   * Solis, F.J. and Wets, R.J.B., 1981.
     [Minimization by random search techniques](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19).
     MOR, 6(1), pp.19-30.
-  * Schumer, M.A. and [Steiglitz, K.](https://www.cs.princeton.edu/~ken/), 1968.
+  * Schumer and [Steiglitz](https://www.cs.princeton.edu/~ken/), 1968.
     [Adaptive step size random search](https://ieeexplore.ieee.org/abstract/document/1098903).
     TAC, 13(3), pp.270-276.
   * Matyas, 1965.
