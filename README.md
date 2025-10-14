@@ -882,7 +882,7 @@ reported in the (actively-updated) paper list called
   * Baba, N., 1981.
     [Convergence of a random optimization method for constrained optimization problems](https://link.springer.com/article/10.1007/BF00935752).
     JOTA, 33(4), pp.451-461.
-  * Solis, F.J. and Wets, R.J.B., 1981.
+  * Solis and Wets, 1981.
     [Minimization by random search techniques](https://pubsonline.informs.org/doi/abs/10.1287/moor.6.1.19).
     MOR, 6(1), pp.19-30.
   * Schumer and [Steiglitz](https://www.cs.princeton.edu/~ken/), 1968.
