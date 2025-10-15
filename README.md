@@ -879,7 +879,7 @@ reported in the (actively-updated) paper list called
   * Dorea, C.C.Y., 1983.
     [Expected number of steps of a random optimization method](https://link.springer.com/article/10.1007/BF00934526).
     JOTA, 39(2), pp.165-171.
-  * Baba, N., 1981.
+  * Baba, 1981.
     [Convergence of a random optimization method for constrained optimization problems](https://link.springer.com/article/10.1007/BF00935752).
     JOTA, 33(4), pp.451-461.
   * Solis and Wets, 1981.
