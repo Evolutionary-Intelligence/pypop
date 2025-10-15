@@ -11,6 +11,8 @@ Some Interesting Applications of PSO
 Here we are listing some (*rather all*) interesting applications
 involving PSO, though nearly all of them did *NOT* use PyPop7. 
 
+`[Kong et al., Science Advances, 2025]
+<https://www.science.org/doi/10.1126/sciadv.adv2124>`_,
 `[Xie et al., Science Advances, 2025]
 <https://www.science.org/doi/full/10.1126/sciadv.ads7475>`_,
 `[Crespo-Miguel et al., Nature Communications, 2025]
@@ -37,6 +39,7 @@ involving PSO, though nearly all of them did *NOT* use PyPop7.
 <https://arxiv.org/abs/2402.08708>`_,
 `[MNRAS, 2024]
 <https://academic.oup.com/mnras/article/527/3/6506/7286659>`_,
+etc.
 
 
 
