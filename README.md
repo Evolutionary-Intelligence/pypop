@@ -876,7 +876,7 @@ reported in the (actively-updated) paper list called
   * Rastrigin, L.A., 1986.
     [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129).
     In Stochastic Optimization. Springer.
-  * Dorea, C.C.Y., 1983.
+  * Dorea, 1983.
     [Expected number of steps of a random optimization method](https://link.springer.com/article/10.1007/BF00934526).
     JOTA, 39(2), pp.165-171.
   * Baba, 1981.
