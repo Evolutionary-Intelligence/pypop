@@ -873,7 +873,7 @@ reported in the (actively-updated) paper list called
   * [Polyak, B.T.](https://sites.google.com/site/lab7polyak/), 1987.
     [Introduction to optimization](https://sites.google.com/site/lab7polyak/).
     Optimization Software Inc.
-  * Rastrigin, L.A., 1986.
+  * Rastrigin, 1986.
     [Random search as a method for optimization and adaptation](https://link.springer.com/chapter/10.1007/BFb0007129).
     In Stochastic Optimization. Springer.
   * Dorea, 1983.
