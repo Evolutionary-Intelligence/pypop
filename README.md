@@ -870,7 +870,7 @@ reported in the (actively-updated) paper list called
   * Sarma, M.S., 1990.
     [On the convergence of the Baba and Dorea random optimization methods](https://link.springer.com/article/10.1007/BF00939542).
     JOTA, 66, pp.337-343.
-  * [Polyak, B.T.](https://sites.google.com/site/lab7polyak/), 1987.
+  * [Polyak](https://sites.google.com/site/lab7polyak/), 1987.
     [Introduction to optimization](https://sites.google.com/site/lab7polyak/).
     Optimization Software Inc.
   * Rastrigin, 1986.
