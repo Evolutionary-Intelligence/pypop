@@ -864,7 +864,7 @@ reported in the (actively-updated) paper list called
   * [Schmidhuber, J.](), [Hochreiter, S.]() and [Bengio, Y.](), 2001.
     [Evaluating benchmark problems by random guessing](https://ml.jku.at/publications/older/ch9.pdf).
     A Field Guide to Dynamical Recurrent Networks, pp.231-235.
-  * Rosenstein, M.T. and [Barto, A.G.](https://people.cs.umass.edu/~barto/), 2001.
+  * Rosenstein and [Barto](https://people.cs.umass.edu/~barto/), 2001.
     [Robot weightlifting by direct policy search](https://dl.acm.org/doi/abs/10.5555/1642194.1642206).
     IJCAI. (pp. 839-846).
   * Sarma, 1990.
