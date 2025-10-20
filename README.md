@@ -867,7 +867,7 @@ reported in the (actively-updated) paper list called
   * Rosenstein, M.T. and [Barto, A.G.](https://people.cs.umass.edu/~barto/), 2001.
     [Robot weightlifting by direct policy search](https://dl.acm.org/doi/abs/10.5555/1642194.1642206).
     IJCAI. (pp. 839-846).
-  * Sarma, M.S., 1990.
+  * Sarma, 1990.
     [On the convergence of the Baba and Dorea random optimization methods](https://link.springer.com/article/10.1007/BF00939542).
     JOTA, 66, pp.337-343.
   * [Polyak](https://sites.google.com/site/lab7polyak/), 1987.
