@@ -861,7 +861,7 @@ reported in the (actively-updated) paper list called
   * Appel, M.J., Labarre, R. and Radulovic, D., 2004.
     [On accelerated random search](https://epubs.siam.org/doi/abs/10.1137/S105262340240063X).
     SIOPT, 14(3), pp.708-731.
-  * [Schmidhuber, J.](), [Hochreiter, S.]() and [Bengio, Y.](), 2001.
+  * [Schmidhuber](), [Hochreiter]() and [Bengio](), 2001.
     [Evaluating benchmark problems by random guessing](https://ml.jku.at/publications/older/ch9.pdf).
     A Field Guide to Dynamical Recurrent Networks, pp.231-235.
   * Rosenstein and [Barto](https://people.cs.umass.edu/~barto/), 2001.
