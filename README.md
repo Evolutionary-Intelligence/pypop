@@ -851,7 +851,7 @@ reported in the (actively-updated) paper list called
   * [Nesterov, Y.](https://www.nasonline.org/directory-entry/yurii-e-nesterov-5n5mo7/) and Spokoiny, V., 2017.
     [Random gradient-free minimization of convex functions](https://link.springer.com/article/10.1007/s10208-015-9296-2).
     FoCM, 17(2), pp.527-566.
-  * [Stich, S.U.](), 2014.
+  * [Stich](), 2014.
     [On low complexity acceleration techniques for randomized optimization](https://link.springer.com/chapter/10.1007/978-3-319-10762-2_13).
     In PPSN (pp. 130-140). Springer.
   * Appel, Labarre and Radulovic, 2004.
