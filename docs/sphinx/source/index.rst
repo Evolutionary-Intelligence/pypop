@@ -159,5 +159,4 @@ Python library.
    applications
    sponsor
    design-philosophy
-   changing-log
    software-summary
