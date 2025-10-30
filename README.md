@@ -845,7 +845,7 @@ reported in the (actively-updated) paper list called
   * Gao, K. and Sener, O., 2022.
     [Generalizing Gaussian smoothing for random search](https://proceedings.mlr.press/v162/gao22f.html).
     ICML (pp. 7077-7101).
-  * Sener, O. and Koltun, V., 2020.
+  * Sener and Koltun, 2020.
     [Learning to guide random search](https://openreview.net/forum?id=B1gHokBKwS).
     In ICLR.
   * [Nesterov](https://www.nasonline.org/directory-entry/yurii-e-nesterov-5n5mo7/) and Spokoiny, 2017.
