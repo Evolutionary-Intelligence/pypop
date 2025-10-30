@@ -10,12 +10,6 @@
   ([https://pypop.readthedocs.io/en/latest/](https://pypop.readthedocs.io/en/latest/)).
 * `README.md`: A simple description of all basic information for this subfolder `docs`.
 
-## Coverage Rate of Testing
-
-* `coverage-badge.svg`: Coverage rate of testing, calculated via
-  [Coverage.py](https://coverage.readthedocs.io/) and generated via
-  https://smarie.github.io/python-genbadge/
-
 
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop)
