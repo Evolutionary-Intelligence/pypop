@@ -836,7 +836,7 @@ reported in the (actively-updated) paper list called
     [Numerical solution of a minimum problem](https://www.osti.gov/servlets/purl/4377177).
     TR, Los Alamos Scientific Lab.
 ### **Random Search/Optimization (RS/RO)**
-  * Wang, X., Hong, L.J., Jiang, Z. and Shen, H., 2025.
+  * Wang, et al., 2025.
     [Gaussian process-based random search for continuous optimization via simulation](https://pubsonline.informs.org/doi/abs/10.1287/opre.2021.0303).
     OR, 73(1), pp.385-407.
   * Sel, B., et al., 2023, June.
