@@ -1,3 +1,6 @@
+# For simplicity, only the *minimization* form of the optimization problem
+# is considered in this `core` module, since *maximization* could be
+# easily transformed into *minimization*.
 import time
 # only for the class `Terminations`
 from enum import IntEnum
