@@ -8,7 +8,7 @@ import numpy as np
 class Terminations(IntEnum):
     """Helper class used by all global optimizers.
 
-    Four different termination conditions are considered, as below:
+    A total of 4 termination conditions are considered:
     * MAX_FUNCTION_EVALUATIONS: When the maximum of function evaluations
       is reached, the optimizer will stop to run immediately.
     * MAX_RUNTIME: When the maximum of actual runtime is reached, the
