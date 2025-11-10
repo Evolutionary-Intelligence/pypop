@@ -9,23 +9,27 @@ class Terminations(IntEnum):
     """Helper class used by all global optimizers.
 
     A total of 4 termination conditions are considered:
-    * MAX_FUNCTION_EVALUATIONS: When the maximum of function evaluations
-      is reached, the optimizer will stop to run immediately.
-    * MAX_RUNTIME: When the maximum of actual runtime is reached, the
-      optimizer will stop to run immediately.
-    * FITNESS_THRESHOLD: When the threshold of the *best-so-far* fitness
-      is reached, the optimizer will stop to run immediately.
-    * EARLY_STOPPING: When the condition of early stopping is reached,
-      the optimizer will stop to run immediately.
+    1. MAX_FUNCTION_EVALUATIONS: When the maximum of function evaluations
+       is reached, the optimizer will stop to run immediately.
+    2. MAX_RUNTIME: When the maximum of actual runtime is reached, the
+       optimizer will stop to run immediately.
+    3. FITNESS_THRESHOLD: When the threshold of the *best-so-far* fitness
+       is reached, the optimizer will stop to run immediately.
+    4. EARLY_STOPPING: When the condition of early stopping is reached,
+       the optimizer will stop to run immediately.
+
+    To make any of 4 termination conditions really working, the
+    corresponding setting (e.g., threshold) needs to be predefined during
+    the *initialization* phase of the optimizer.
     """
     NO_TERMINATION = 0
     # maximum of function evaluations
     MAX_FUNCTION_EVALUATIONS = 1
     # maximal runtime to be allowed
     MAX_RUNTIME = 2
-    # when best-so-far fitness is below threshold
+    # when *best-so-far* fitness is below the predefined threshold
     FITNESS_THRESHOLD = 3
-    # when best-so-far fitness does not improve for a long time
+    # when *best-so-far* fitness does not improve for a long time
     EARLY_STOPPING = 4
 
 
