@@ -37,7 +37,8 @@ class Terminations(IntEnum):
 
 
 class Optimizer(object):
-    """Base (abstract) class of all optimizers for continuous black-box **minimization**.
+    """Base (aka **abstract**) class of both individual-based and population-based
+        **approximately global** optimizers for continuous black-box **minimization**.
 
     Parameters
     ----------
