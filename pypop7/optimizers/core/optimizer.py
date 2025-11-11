@@ -38,6 +38,20 @@ class Terminations(IntEnum):
 
 class Optimizer(object):
     """Base (abstract) class of all optimizers for continuous black-box **minimization**.
+
+    Parameters
+    ----------
+    problem : dict
+              problem arguments with the following common settings (`keys`):
+                * 'fitness_function' - objective function to be **minimized** (`func`),
+                * 'ndim_problem'     - number of dimensionality (`int`),
+                * 'upper_boundary'   - upper boundary of search range (`array_like`),
+                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+    options : dict
+              optimizer options with the following common settings (`keys`):
+                * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
+                * 'max_runtime'              - maximal runtime to be allowed (`float`, default: `np.inf`),
+                * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`).
     """
     def __init__(self, problem, options):
         # problem-related basic settings
