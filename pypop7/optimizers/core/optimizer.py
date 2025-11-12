@@ -62,7 +62,7 @@ class Optimizer(object):
         self.ndim_problem = problem.get('ndim_problem')  # number of problem dimensionality
         assert self.ndim_problem > 0
         # mainly for both the *initialization* process and the *constrained sampling* process:
-        # constrained sampling is mainly covered in its extended library called `PyCoPop7`
+        # constrained sampling is mainly covered in its extension library called `PyCoPop7`
         # upper boundary of search range
         self.upper_boundary = problem.get('upper_boundary')
         # lower boundary of search range
