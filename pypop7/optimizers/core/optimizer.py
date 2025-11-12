@@ -56,7 +56,7 @@ class Optimizer(object):
                 * 'seed_rng'                 - seed for random number generation needed to be *explicitly* set (`int`).
     """
     def __init__(self, problem, options):
-        # **problem-related** basic settings
+        # **problem-related** basic settings #
         # to be *minimized* approximately globally
         self.fitness_function = problem.get('fitness_function')
         self.ndim_problem = problem.get('ndim_problem')  # number of problem dimensionality
