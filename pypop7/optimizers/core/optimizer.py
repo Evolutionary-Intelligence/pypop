@@ -45,10 +45,13 @@ class Optimizer(object):
     ----------
     problem : dict
               problem arguments with the following common settings (`keys`):
-                * 'fitness_function' - objective function to be **minimized** (`func`),
-                * 'ndim_problem'     - number of dimensionality (`int`),
-                * 'upper_boundary'   - upper boundary of search range (`array_like`),
-                * 'lower_boundary'   - lower boundary of search range (`array_like`).
+                * 'fitness_function'       - objective function to be **minimized** (`func`),
+                * 'ndim_problem'           - number of dimensionality (`int`),
+                * 'upper_boundary'         - upper boundary of search range (`array_like`),
+                * 'lower_boundary'         - lower boundary of search range (`array_like`),
+                * 'initial_upper_boundary' - upper boundary only for initialization (`array_like`),
+                * 'initial_lower_boundary' - lower boundary only for initialization (`array_like`),
+                * 'problem_name'           - problem name (`str`).
     options : dict
               optimizer options with the following common settings (`keys`):
                 * 'max_function_evaluations' - maximum of function evaluations (`int`, default: `np.inf`),
