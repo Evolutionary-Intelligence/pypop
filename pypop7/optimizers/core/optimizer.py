@@ -81,7 +81,7 @@ class Optimizer(object):
         if (self.problem_name is None) and hasattr(self.fitness_function, '__name__'):
             self.problem_name = self.fitness_function.__name__
 
-        # optimizer-related basic options
+        # *optimizer-related* basic options #
         self.options = options  # NOT use `deep copy` to save memory
         # for `MAX_FUNCTION_EVALUATIONS` in `Terminations`
         self.max_function_evaluations = options.get('max_function_evaluations', np.inf)
