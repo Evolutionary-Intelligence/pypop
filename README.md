@@ -756,10 +756,6 @@ reported in the (actively-updated) paper list called
     [Genetic reinforcement learning for neurocontrol problems](https://tinyurl.com/5n6vvh8k).
     MLJ, 13, pp.259-284.
   * Holland, J.H., 1992.
-    [Adaptation in natural and artificial systems: An introductory analysis with applications to
-    biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
-    MIT Press.
-  * Holland, J.H., 1992.
     [Genetic algorithms](https://www.scientificamerican.com/article/genetic-algorithms/).
     Scientific American, 267(1), pp.66-73.
   * Whitley, D., 1989, December.
@@ -897,8 +893,12 @@ reported in the (actively-updated) paper list called
     [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3).
     Springer.
 
-### Some of Pioneers of Population-Based Optimization (PBO)
+### (Some) (Pioneers) of Population-Based Optimization (PBO) and Search (PBS)
 
+* Holland, 1992.
+  [Adaptation in natural and artificial systems: An introductory analysis with applications to
+  biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
+  MIT Press.
 * [Box](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
   [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
   JRSS-SC, 6(2), pp.81-101.
