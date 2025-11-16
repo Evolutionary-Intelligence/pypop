@@ -82,7 +82,8 @@ class Optimizer(object):
             self.problem_name = self.fitness_function.__name__
 
         # *optimizer-related* basic options #
-        self.options = options  # NOT use `deep copy` to save memory
+        # NOT use `deep copy` to save CPU memory
+        self.options = options
         # for `MAX_FUNCTION_EVALUATIONS` in `Terminations`
         self.max_function_evaluations = options.get('max_function_evaluations', np.inf)
         # for `MAX_RUNTIME` in `MAX_RUNTIME`
