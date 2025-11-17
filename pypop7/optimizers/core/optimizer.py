@@ -90,7 +90,7 @@ class Optimizer(object):
         self.max_runtime = options.get('max_runtime', np.inf)
         # for `FITNESS_THRESHOLD` in `Terminations`
         self.fitness_threshold = options.get('fitness_threshold', -np.inf)
-        # mainly for *population-based optimizers*
+        # mainly for *population-based randomized optimizers*
         self.n_individuals = options.get('n_individuals')  # offspring population size
         self.n_parents = options.get('n_parents')  # parent population size
         # for strict control of randomness, *very important* for ***repeatability***
