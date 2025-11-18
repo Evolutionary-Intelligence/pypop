@@ -93,9 +93,11 @@ class Optimizer(object):
         # for `FITNESS_THRESHOLD` in `Terminations`
         self.fitness_threshold = options.get('fitness_threshold', -np.inf)
         # mainly for *population-based randomized optimizers*
-        self.n_individuals = options.get('n_individuals')  # offspring population size
-        self.n_parents = options.get('n_parents')  # parent population size
-        # for strict control of randomness, *very important* for ***repeatability***
+        # *offspring* population size
+        self.n_individuals = options.get('n_individuals')
+        # *parent* population size
+        self.n_parents = options.get('n_parents')
+        # for strict randomness control to ensure ***repeatability*** AMAP
         self.seed_rng = options.get('seed_rng')
         if self.seed_rng is None:  # highly recommended to explicitly set `seed_rng`
             self.rng = np.random.default_rng()  # NOT use it, if possible
