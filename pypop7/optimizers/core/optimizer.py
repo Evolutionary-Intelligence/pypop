@@ -8,6 +8,8 @@ from enum import IntEnum
 
 import numpy as np
 
+from pypop7.utils.constants import I64M
+
 
 class Terminations(IntEnum):
     """Helper class used by all global optimizers.
