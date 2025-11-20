@@ -1,4 +1,4 @@
-"""
+"""All constants used in PyPop7.
 """
 import numpy as np
 
