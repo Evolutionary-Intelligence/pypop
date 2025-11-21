@@ -98,9 +98,10 @@ class Optimizer(object):
         # *parent* population size
         self.n_parents = options.get('n_parents')
         # for strict randomness control to ensure ***repeatability*** AMAP
+        # **highly recommended** to set `seed_rng` *explicitly*
         self.seed_rng = options.get('seed_rng')
-        if self.seed_rng is None:  # highly recommended to explicitly set `seed_rng`
-            self.rng = np.random.default_rng()  # NOT use it, if possible
+        if self.seed_rng is None:  # please *NOT* use it, if possible
+            self.rng = np.random.default_rng()
         else:
             self.rng = np.random.default_rng(self.seed_rng)
         # better to set both `seed_initialization` and `seed_optimization`
