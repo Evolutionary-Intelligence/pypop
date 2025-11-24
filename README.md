@@ -944,8 +944,6 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
   Chinese for [LEAD (Workshop on Learning-assisted Evolutionary
   Algorithm Design)](https://sites.google.com/view/leadworkshop2025/).
   [ppt (in English)](https://github.com/Evolutionary-Intelligence/pypop-docs/blob/main/PPT/20250913-SCUT-Virtual-LEAD-QiqiDuan.pptx)
-* An oral presentation was given by Qiqi Duan on 11 Jun
-  2025 in *IEEE-CEC 2025*.
 
 ### BibTeX (2024)
 
