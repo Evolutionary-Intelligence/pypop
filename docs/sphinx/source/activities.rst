@@ -4,6 +4,12 @@ Activities
 2025
 ----
 
+* A request for offline representation on `[ICML-2026]
+  <https://icml.cc/Conferences/2026>`_ was submitted to
+  `[The NeurIPS/ICLR/ICML Journal-to-Conference Track] <https://neurips.cc/public/JournalToConference>`_.
+* An offline presentation was given by Qiqi Duan on 6 Nov 2025 in Chinese
+  for School of Artificial Intelligence, Shanghai University.
+  `[pdf (in Chinese)] <https://github.com/Evolutionary-Intelligence/pypop-docs/blob/main/PPT/20251106-SHU-Offline-AI-QiqiDuan.pdf>`_
 * The distributed-computing version of PyPop7 started in 17 Sept 2025.
 
   * Open-source Python code: `[DPRO3] <https://github.com/Evolutionary-Intelligence/DPRO3>`_
