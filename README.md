@@ -934,9 +934,6 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 * An offline report was given by Qiqi Duan on 6 Nov 2025 in Chinese
   for School of Artificial Intelligence, Shanghai University.
   [pdf (in Chinese)](https://github.com/Evolutionary-Intelligence/pypop-docs/blob/main/PPT/20251106-SHU-Offline-AI-QiqiDuan.pdf)
-* The distributed-computing version of PyPop7 started in 17 Sept 2025.
-  * Open-source code (Python): [DPRO3](https://github.com/Evolutionary-Intelligence/DPRO3).
-  * With Honglin Jin, Lijun Sun, Yang Shen, etc.
 
 ### BibTeX (2024)
 
