@@ -903,11 +903,6 @@ reported in the (actively-updated) paper list called
   [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
   JRSS-SC, 6(2), pp.81-101.
 
-## Financial Sponsors
-
-From 2021 to 2023, this open-source pure-Python library was supported by
-**Shenzhen Fundamental Research Program** (a total of 2 000 000 Yuan).
-
 ## Citations
 
 If this open-source Python library is used in your paper or project,
