@@ -929,6 +929,8 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 
 ### 2025 (Activities)
 
+* A request for offline representation on ICML-2026 was submitted to
+  [The NeurIPS/ICLR/ICML Journal-to-Conference Track](https://neurips.cc/public/JournalToConference).
 * An offline report was given by Qiqi Duan on 6 Nov 2025 in Chinese
   for School of Artificial Intelligence, Shanghai University.
   [pdf (in Chinese)](https://github.com/Evolutionary-Intelligence/pypop-docs/blob/main/PPT/20251106-SHU-Offline-AI-QiqiDuan.pdf)
