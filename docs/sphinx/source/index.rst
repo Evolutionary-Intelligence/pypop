@@ -159,4 +159,4 @@ Python library.
    applications
    sponsor
    design-philosophy
-   software-summary
+   activities
