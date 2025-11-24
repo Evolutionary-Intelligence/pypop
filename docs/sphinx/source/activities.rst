@@ -26,3 +26,8 @@ Activities
   *Journal-to-Conference (J2C)* papers and was finally
   accepted in 18 Mar 2025. `[pdf]
   <https://github.com/Evolutionary-Intelligence/pypop-docs/blob/main/Papers/IEEE-CEC-2025-%5BJ2C%5D.pdf>`_
+
+
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
