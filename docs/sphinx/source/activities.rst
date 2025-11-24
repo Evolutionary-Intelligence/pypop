@@ -4,7 +4,7 @@ Activities
 2025
 ----
 
-* A request for offline representation on `[ICML-2026]
+* A request for offline presentation on `[ICML-2026]
   <https://icml.cc/Conferences/2026>`_ was submitted to
   `[The NeurIPS/ICLR/ICML Journal-to-Conference Track] <https://neurips.cc/public/JournalToConference>`_.
 * An offline presentation was given by Qiqi Duan on 6 Nov 2025 in Chinese
