@@ -946,9 +946,6 @@ submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
   [ppt (in English)](https://github.com/Evolutionary-Intelligence/pypop-docs/blob/main/PPT/20250913-SCUT-Virtual-LEAD-QiqiDuan.pptx)
 * An oral presentation was given by Qiqi Duan on 11 Jun
   2025 in *IEEE-CEC 2025*.
-* A one-page paper was submitted to *IEEE-CEC 2025* as one
-  *Journal-to-Conference (J2C)* paper and was accepted in
-  18 Mar 2025. [pdf](https://github.com/Evolutionary-Intelligence/pypop-docs/blob/main/Papers/IEEE-CEC-2025-%5BJ2C%5D.pdf)
 
 ### BibTeX (2024)
 
