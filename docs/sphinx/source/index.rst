@@ -157,7 +157,6 @@ Python library.
    util-functions-for-BBO
    development-guide
    applications
-   sponsor
    design-philosophy
    activities
    how-to-cite-pypop7
