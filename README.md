@@ -908,7 +908,7 @@ reported in the (actively-updated) paper list called
 From 2021 to 2023, this open-source pure-Python library was supported by
 **Shenzhen Fundamental Research Program** (a total of 2 000 000 Yuan).
 
-## Citations and Activities
+## Citations
 
 If this open-source Python library is used in your paper or project,
 it is highly welcomed *but NOT mandatory* to cite the following
@@ -919,21 +919,6 @@ Optimization. arXiv preprint arXiv:2212.05652.** (Now it has been
 submitted to [JMLR](https://jmlr.org/), after 3-round reviews from
 28 Mar 2023 to 01 Nov 2023 to 05 Jul 2024, and finally accepted in
 11 Oct 2024.)
-
-### 2026 (Planned Activities)
-
-* A tutorial on Open-Source Software for Swarm Intelligence and 
-  Evolutionary Algorithms is planning for [ICSI 2026].
-* A tutorial on Open-Source Software for Evolutionary Algorithms
-  and Swarm Intelligence is planning for [IEEE-SSCI 2026].
-
-### 2025 (Activities)
-
-* A request for offline representation on [ICML-2026](https://icml.cc/Conferences/2026) was submitted to
-  [The NeurIPS/ICLR/ICML Journal-to-Conference Track](https://neurips.cc/public/JournalToConference).
-* An offline report was given by Qiqi Duan on 6 Nov 2025 in Chinese
-  for School of Artificial Intelligence, Shanghai University.
-  [pdf (in Chinese)](https://github.com/Evolutionary-Intelligence/pypop-docs/blob/main/PPT/20251106-SHU-Offline-AI-QiqiDuan.pdf)
 
 ### BibTeX (2024)
 
