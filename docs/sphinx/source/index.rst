@@ -160,3 +160,4 @@ Python library.
    sponsor
    design-philosophy
    activities
+   stars
