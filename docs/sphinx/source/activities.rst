@@ -4,6 +4,8 @@ Activities
 2025
 ----
 
+* The matrix-based version of PyPop7 started in 15 Sept 2025.
+  * Open-source Python code: `[MPRO3] <https://github.com/Evolutionary-Intelligence/MPRO3>`_.
 * An online presentation was given by Qiqi Duan on 13 Sept 2025
   in Chinese for `[LEAD (Workshop on Learning-assisted Evolutionary
   Algorithm Design)] <https://sites.google.com/view/leadworkshop2025/>`_.
