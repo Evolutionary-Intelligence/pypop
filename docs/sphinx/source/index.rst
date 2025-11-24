@@ -160,4 +160,5 @@ Python library.
    sponsor
    design-philosophy
    activities
+   how-to-cite-pypop7
    stars
