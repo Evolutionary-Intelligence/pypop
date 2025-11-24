@@ -27,3 +27,8 @@ The BibTeX citation format for PyPop7 is given in detail below:
          pages={1--28},
          year={2024}
 }
+
+
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
