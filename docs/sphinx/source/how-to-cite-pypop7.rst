@@ -1,9 +1,10 @@
 How to Cite PyPop7
 ==================
 
-If this open-source Python library was used in your paper or project,
+If this open-source pure-Python library was used in your paper or project,
 it is highly welcomed but NOT mandatory to cite the following arXiv
-preprint paper (First Edition: 12 Dec 2022): 
+*preprint* paper (First Edition: 12 Dec 2022; Latest Edition: 5 Jul
+2024): 
 
 Duan, Q., Zhou, G., Shao, C., and Others, 2024.
 PyPop7: A Pure-Python Library for Population-Based Black-Box Optimization.
