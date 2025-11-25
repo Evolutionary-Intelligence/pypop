@@ -1,6 +1,9 @@
 How to Cite PyPop7
 ==================
 
+Versions
+--------
+
 If this open-source pure-Python library was used in your paper or project,
 it is highly welcomed but NOT mandatory to cite the following arXiv
 *preprint* paper (First Edition: 12 Dec 2022; Latest Edition: 5 Jul
@@ -13,6 +16,11 @@ arXiv preprint arXiv:2212.05652.**
 Now it has been submitted to JMLR, after 3-round reviews from
 28 Mar 2023 to 01 Nov 2023 to 05 Jul 2024, and finally accepted
 in 11 Oct 2024.)
+
+* [v1] Mon, 12 Dec 2022 (470 KB)
+* [v2] Wed, 29 Mar 2023 (102 KB)
+* [v3] Thu, 2 Nov 2023 (5,442 KB)
+* [v4] Fri, 5 Jul 2024 (14,844 KB)
 
 BibTeX
 ------
