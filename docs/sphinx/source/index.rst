@@ -161,3 +161,4 @@ Python library.
    activities
    how-to-cite-pypop7
    stars
+   reference
