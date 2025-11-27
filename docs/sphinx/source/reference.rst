@@ -6,3 +6,8 @@ Reference
 * 2010: `A rigorous analysis of the * search algorithm: How the
   research community can be misled by a "novel" methodology
   <https://www.igi-global.com/article/rigorous-analysis-harmony-search-algorithm/44954>`_
+
+
+
+.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
+   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
