@@ -216,9 +216,6 @@ Increasingly Growing Papers of Critical Analyses to Metaphors
   <https://www.sciencedirect.com/science/article/abs/pii/S2210650211000034>`_
 * 2011: `Analytical and numerical comparisons of ***-based optimization and genetic
   algorithms <https://www.sciencedirect.com/science/article/abs/pii/S0020025510006067>`_
-* 2010: `A rigorous analysis of the *** search algorithm: How the research community can be
-  misled by a "novel" methodology
-  <https://www.igi-global.com/article/rigorous-analysis-harmony-search-algorithm/44954>`_
 
 
 
