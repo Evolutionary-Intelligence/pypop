@@ -5,7 +5,7 @@ Reference
 Critical Papers to Some (Rather All) Metaphors-Based Optimization
 -----------------------------------------------------------------
 
-* 2025: `On the Structural and Statistical Flaws of the *-* Optimizer
+* 2025: `On the structural and statistical flaws of the *-* optimizer
   <https://arxiv.org/abs/2511.17557>`_
 * 2011: `Analytical and numerical comparisons of *-based optimization
   and genetic algorithms
