@@ -175,9 +175,6 @@ Finally, we expect to see more interesting discussions about BBO from different 
 we provide a *unified* API interface to help freely add them if it satisfies the above design philosophy well. Please
 refer to the `Development Guide <https://pypop.readthedocs.io/en/latest/development-guide.html>`_ for details.
 
-Increasingly Growing Papers of Critical Analyses to Metaphors
--------------------------------------------------------------
-
 * 2025: `The paradox of success in evolutionary and bioinspired optimization: Revisiting
   critical issues, key studies, and methodological pathways
   <https://arxiv.org/abs/2501.07515>`_
