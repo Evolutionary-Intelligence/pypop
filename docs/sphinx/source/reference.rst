@@ -7,6 +7,10 @@ Critical Papers to Some (Rather All) Metaphors-Based Optimization
 
 * 2025: `On the structural and statistical flaws of the *-* optimizer
   <https://arxiv.org/abs/2511.17557>`_
+* 2011: `A practical tutorial on the use of nonparametric statistical
+  tests as a methodology for comparing evolutionary and swarm
+  intelligence algorithms
+  <https://www.sciencedirect.com/science/article/abs/pii/S2210650211000034>`_
 * 2011: `Analytical and numerical comparisons of *-based optimization
   and genetic algorithms
   <https://www.sciencedirect.com/science/article/abs/pii/S0020025510006067>`_
