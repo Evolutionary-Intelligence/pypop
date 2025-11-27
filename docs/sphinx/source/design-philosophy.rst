@@ -208,9 +208,6 @@ refer to the `Development Guide <https://pypop.readthedocs.io/en/latest/developm
   <https://www.sciencedirect.com/science/article/pii/S221471601500010X>`_
 * 2014: `How novel is the “novel” *** optimization approach?
   <https://www.sciencedirect.com/science/article/abs/pii/S0020025514000462>`_
-* 2011: `A practical tutorial on the use of nonparametric statistical tests as a
-  methodology for comparing evolutionary and swarm intelligence algorithms
-  <https://www.sciencedirect.com/science/article/abs/pii/S2210650211000034>`_
 
 
 
