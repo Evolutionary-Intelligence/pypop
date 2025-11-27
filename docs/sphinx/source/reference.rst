@@ -1,6 +1,10 @@
 Reference
 =========
 
+
+Critical Papers to Some (Rather All) Metaphors-Based Optimization
+-----------------------------------------------------------------
+
 * 2025: `On the Structural and Statistical Flaws of the *-* Optimizer
   <https://arxiv.org/abs/2511.17557>`_
 * 2010: `A rigorous analysis of the * search algorithm: How the
