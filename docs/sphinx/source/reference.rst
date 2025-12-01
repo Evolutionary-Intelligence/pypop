@@ -26,6 +26,7 @@ Critical Papers to Some (Rather All) Metaphors-Based Optimization
 * 2010: `A rigorous analysis of the * search algorithm: How the
   research community can be misled by a "novel" methodology
   <https://www.igi-global.com/article/rigorous-analysis-harmony-search-algorithm/44954>`_
+  10.4018/jamc.2010040104
 
 
 
