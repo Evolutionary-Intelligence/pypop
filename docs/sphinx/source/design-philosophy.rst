@@ -201,9 +201,6 @@ refer to the `Development Guide <https://pypop.readthedocs.io/en/latest/developm
   <https://arxiv.org/abs/2007.03488>`_
 * 2019: `Bio-inspired computation: Where we stand and what's next
   <https://www.sciencedirect.com/science/article/abs/pii/S2210650218310277>`_
-* 2018: `An insight into bio-inspired and evolutionary algorithms for global
-  optimization: Review, analysis, and lessons learnt over a decade of competitions
-  <https://doi.org/10.1007/s12559-018-9554-0>`_
 
 
 
