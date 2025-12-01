@@ -8,7 +8,7 @@
 * `sphinx`: All [sphinx](https://www.sphinx-doc.org/en/master/) files for online documentations
   hosted in [readthedocs.io](https://about.readthedocs.com/?ref=readthedocs.org)
   ([https://pypop.readthedocs.io/en/latest/](https://pypop.readthedocs.io/en/latest/)).
-* `README.md`: A simple description of basic information for this subfolder `docs`.
+* `README.md`: A simple description of basic information for this file subfolder called `docs`.
 
 
 
