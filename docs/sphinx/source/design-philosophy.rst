@@ -197,8 +197,6 @@ refer to the `Development Guide <https://pypop.readthedocs.io/en/latest/developm
   <https://link.springer.com/article/10.1007/s11047-020-09820-4>`_
 * 2020: `Nature inspired optimization algorithms or simply variations of metaheuristics?
   <https://link.springer.com/article/10.1007/s10462-020-09893-8>`_
-* 2020: `Benchmarking in optimization: Best practice and open issues
-  <https://arxiv.org/abs/2007.03488>`_
 
 
 
