@@ -5,8 +5,11 @@ Reference
 Critical Papers to Some (Rather All) Metaphors-Based Optimization
 -----------------------------------------------------------------
 
-* 2025: `On the structural and statistical flaws of the *-* optimizer
+* 2025: `On the structural and statistical flaws of the * optimizer
   <https://arxiv.org/abs/2511.17557>`_
+* 2015: `A critical analysis of the *** search algorithm —
+  How not to solve sudoku
+  <https://www.sciencedirect.com/science/article/pii/S221471601500010X>`_
 * 2014: `How novel is the “novel” * optimization approach?
   <https://www.sciencedirect.com/science/article/abs/pii/S0020025514000462>`_
 * 2011: `A practical tutorial on the use of nonparametric statistical
