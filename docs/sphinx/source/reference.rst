@@ -25,10 +25,11 @@ Critical Papers to Some (Rather All) Metaphors-Based Optimization
 * 2011: `Analytical and numerical comparisons of *-based optimization
   and genetic algorithms
   <https://www.sciencedirect.com/science/article/abs/pii/S0020025510006067>`_
+  https://doi.org/10.1016/j.ins.2010.12.006
 * 2010: `A rigorous analysis of the * search algorithm: How the
   research community can be misled by a "novel" methodology
   <https://www.igi-global.com/article/rigorous-analysis-harmony-search-algorithm/44954>`_
-  10.4018/jamc.2010040104
+  https://doi.org/10.4018/jamc.2010040104
 
 
 
