@@ -206,8 +206,6 @@ refer to the `Development Guide <https://pypop.readthedocs.io/en/latest/developm
   <https://doi.org/10.1007/s12559-018-9554-0>`_
 * 2015: `A critical analysis of the *** search algorithm—How not to solve sudoku
   <https://www.sciencedirect.com/science/article/pii/S221471601500010X>`_
-* 2014: `How novel is the “novel” *** optimization approach?
-  <https://www.sciencedirect.com/science/article/abs/pii/S0020025514000462>`_
 
 
 
