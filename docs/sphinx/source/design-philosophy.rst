@@ -195,8 +195,6 @@ refer to the `Development Guide <https://pypop.readthedocs.io/en/latest/developm
   <https://onlinelibrary.wiley.com/doi/full/10.1111/itor.13176>`_
 * 2022: `A new taxonomy of global optimization algorithms
   <https://link.springer.com/article/10.1007/s11047-020-09820-4>`_
-* 2020: `Nature inspired optimization algorithms or simply variations of metaheuristics?
-  <https://link.springer.com/article/10.1007/s10462-020-09893-8>`_
 
 
 
