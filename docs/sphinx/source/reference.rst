@@ -27,6 +27,7 @@ Critical Papers to Some (Rather All) Metaphors-Based Optimization
   tests as a methodology for comparing evolutionary and swarm
   intelligence algorithms
   <https://www.sciencedirect.com/science/article/abs/pii/S2210650211000034>`_
+  https://doi.org/10.1016/j.swevo.2011.02.002
 * 2011: `Analytical and numerical comparisons of *-based optimization
   and genetic algorithms
   <https://www.sciencedirect.com/science/article/abs/pii/S0020025510006067>`_
