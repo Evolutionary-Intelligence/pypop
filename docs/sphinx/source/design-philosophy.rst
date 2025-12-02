@@ -193,8 +193,6 @@ refer to the `Development Guide <https://pypop.readthedocs.io/en/latest/developm
 * 2023: `Exposing the ***, ***, ***, ***, ***, and *** algorithms: six misleading
   optimization techniques inspired by bestial metaphors
   <https://onlinelibrary.wiley.com/doi/full/10.1111/itor.13176>`_
-* 2022: `A new taxonomy of global optimization algorithms
-  <https://link.springer.com/article/10.1007/s11047-020-09820-4>`_
 
 
 
