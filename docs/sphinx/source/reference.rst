@@ -7,6 +7,8 @@ Critical Papers to Some (Rather All) Metaphors-Based Optimization
 
 * 2025: `On the structural and statistical flaws of the * optimizer
   <https://arxiv.org/abs/2511.17557>`_
+* 2022: `A new taxonomy of global optimization algorithms
+  <https://link.springer.com/article/10.1007/s11047-020-09820-4>`_
 * 2020: `Nature inspired optimization algorithms or simply variations
   of metaheuristics?
   <https://link.springer.com/article/10.1007/s10462-020-09893-8>`_
