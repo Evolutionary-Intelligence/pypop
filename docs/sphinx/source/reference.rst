@@ -7,6 +7,9 @@ Critical Papers to Some (Rather All) Metaphors-Based Optimization
 
 * 2025: `On the structural and statistical flaws of the * optimizer
   <https://arxiv.org/abs/2511.17557>`_
+* 2020: `Nature inspired optimization algorithms or simply variations
+  of metaheuristics?
+  <https://link.springer.com/article/10.1007/s10462-020-09893-8>`_
 * 2020: `Benchmarking in optimization: Best practice and open issues
   <https://arxiv.org/abs/2007.03488>`_
 * 2019: `Bio-inspired computation: Where we stand and what's next
