@@ -25,6 +25,7 @@ Critical Papers to Some (Rather All) Metaphors-Based Optimization
   <https://www.sciencedirect.com/science/article/pii/S221471601500010X>`_
 * 2014: `How novel is the “novel” * optimization approach?
   <https://www.sciencedirect.com/science/article/abs/pii/S0020025514000462>`_
+  https://doi.org/10.1016/j.ins.2014.01.026
 * 2011: `A practical tutorial on the use of nonparametric statistical
   tests as a methodology for comparing evolutionary and swarm
   intelligence algorithms
