@@ -8,6 +8,11 @@ Critical Papers to Some Metaphors-Based Optimization
 * 2025: `On the structural and statistical flaws of the * optimizer
   <https://arxiv.org/abs/2511.17557>`_
   https://doi.org/10.48550/arXiv.2511.17557
+* 2024: `Comprehensive taxonomies of nature- and bio-inspired
+  optimization: Inspiration versus algorithmic behavior, critical
+  analysis and recommendations (from 2020 to 2024)
+  <https://arxiv.org/abs/2002.08136>`_
+  https://doi.org/10.1007/s12559-020-09730-8
 * 2024: `Exposing the * optimization algorithm: A misleading
   metaheuristic technique with structural bias
   <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
