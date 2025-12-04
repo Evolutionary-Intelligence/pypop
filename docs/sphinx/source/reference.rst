@@ -2,8 +2,8 @@ Reference
 =========
 
 
-Critical Papers to Some (Rather All) Metaphors-Based Optimization
------------------------------------------------------------------
+Critical Papers to Some Metaphors-Based Optimization
+----------------------------------------------------
 
 * 2025: `On the structural and statistical flaws of the * optimizer
   <https://arxiv.org/abs/2511.17557>`_
