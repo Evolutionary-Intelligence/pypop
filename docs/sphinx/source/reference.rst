@@ -8,6 +8,10 @@ Critical Papers to Some Metaphors-Based Optimization
 * 2025: `On the structural and statistical flaws of the * optimizer
   <https://arxiv.org/abs/2511.17557>`_
   https://doi.org/10.48550/arXiv.2511.17557
+* 2024: `Exposing the * optimization algorithm: A misleading
+  metaheuristic technique with structural bias
+  <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
+  https://doi.org/10.1016/j.asoc.2024.111574
 * 2024: `A literature review and critical analysis of metaheuristics
   recently developed
   <https://link.springer.com/article/10.1007/s11831-023-09975-0>`_
