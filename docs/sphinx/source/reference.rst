@@ -26,6 +26,7 @@ Critical Papers to Some (Rather All) Metaphors-Based Optimization
 * 2015: `A critical analysis of the *** search algorithm —
   How not to solve sudoku
   <https://www.sciencedirect.com/science/article/pii/S221471601500010X>`_
+  https://doi.org/10.1016/j.orp.2015.04.001
 * 2014: `How novel is the “novel” * optimization approach?
   <https://www.sciencedirect.com/science/article/abs/pii/S0020025514000462>`_
   https://doi.org/10.1016/j.ins.2014.01.026
