@@ -188,8 +188,6 @@ refer to the `Development Guide <https://pypop.readthedocs.io/en/latest/developm
   <https://arxiv.org/abs/2002.08136>`_
 * 2024: `Exposing the *** optimization algorithm: A misleading metaheuristic technique with
   structural bias <https://www.sciencedirect.com/science/article/pii/S156849462400348X>`_
-* 2024: `A literature review and critical analysis of metaheuristics recently developed
-  <https://link.springer.com/article/10.1007/s11831-023-09975-0>`_
 
 
 
