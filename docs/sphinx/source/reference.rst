@@ -19,6 +19,7 @@ Critical Papers to Some Metaphors-Based Optimization
   <https://arxiv.org/abs/2007.03488>`_
 * 2019: `Bio-inspired computation: Where we stand and what's next
   <https://www.sciencedirect.com/science/article/abs/pii/S2210650218310277>`_
+  https://doi.org/10.1016/j.swevo.2019.04.008
 * 2018: `An insight into bio-inspired and evolutionary algorithms
   for global optimization: Review, analysis, and lessons learnt
   over a decade of competitions
