@@ -56,7 +56,7 @@ Critical Papers to Some Metaphors-Based Optimization
   over a decade of competitions
   <https://link.springer.com/article/10.1007/s12559-018-9554-0>`_
   https://doi.org/10.1007/s12559-018-9554-0
-* 2015: `A critical analysis of the *** search algorithm —
+* 2015: `A critical analysis of the * search algorithm —
   How not to solve sudoku
   <https://www.sciencedirect.com/science/article/pii/S221471601500010X>`_
   https://doi.org/10.1016/j.orp.2015.04.001
