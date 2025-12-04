@@ -928,7 +928,3 @@ The *BibTeX* citation format for PyPop7 is given in detail below:
   pages={1--28},
   year={2024}
 }
-
-## Stars
-
-[![Star](https://api.star-history.com/svg?repos=Evolutionary-Intelligence/pypop&type=Date)](https://www.star-history.com/#Evolutionary-Intelligence/pypop&Date)
