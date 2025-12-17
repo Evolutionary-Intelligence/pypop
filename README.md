@@ -893,7 +893,7 @@ reported in the (actively-updated) paper list called
     [Design for a brain: The origin of adaptive behaviour](https://link.springer.com/book/10.1007/978-94-015-1320-3).
     Springer.
 
-### (Some) (Pioneers) of Population-Based Optimization (PBO) and Search (PBS)
+### Pioneers of Population-Based Optimization (PBO) and Search (PBS)
 
 * Holland, 1992.
   [Adaptation in natural and artificial systems: An introductory analysis with applications to
