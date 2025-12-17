@@ -8,6 +8,7 @@ Critical Papers to Some Metaphors-Based Optimization
 * 2025: `Structural bias in metaheuristic algorithms: Insights,
   open problems, and future prospects
   <https://www.sciencedirect.com/science/article/pii/S221065022400350X>`_
+  https://doi.org/10.1016/j.swevo.2024.101812
 * 2025: `On the structural and statistical flaws of the * optimizer
   <https://arxiv.org/abs/2511.17557>`_
   https://doi.org/10.48550/arXiv.2511.17557
