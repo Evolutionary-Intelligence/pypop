@@ -895,7 +895,7 @@ reported in the (actively-updated) paper list called
 
 ### Pioneers of Population-Based Optimization (PBO) and Search (PBS)
 
-* Holland, 1992/1975.
+* [Holland](https://cacm.acm.org/research/adaptive-computation/), 1992/1975.
   [Adaptation in natural and artificial systems: An introductory analysis with applications to
   biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
   MIT Press.
