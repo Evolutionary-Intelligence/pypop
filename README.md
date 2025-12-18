@@ -904,7 +904,8 @@ reported in the (actively-updated) paper list called
   JRSS-SC, 6(2), pp.81-101.
 * Turing, 1948.
   [Intelligent machinery](https://weightagnostic.github.io/papers/turing1948.pdf).
-  The Essential Turing (B. Jack Copeland), p.395.
+  [The Essential Turing (B. Jack Copeland)](https://academic.oup.com/book/42030),
+  Oxford University Press.
 
 ## Citation
 
