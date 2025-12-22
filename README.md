@@ -125,6 +125,19 @@ results = lmmaes.optimize()  # to run its (time-consuming) evolution process
 print(results)
 ```
 
+If this library has been used in your project or paper, please cite the
+following **JMLR** software paper:
+
+@article{2024-JMLR-Duan,
+  title={{PyPop7}: A {pure-Python} library for population-based black-box optimization},
+  author={Duan, Qiqi and Zhou, Guochen and Shao, Chang and Others},
+  journal={Journal of Machine Learning Research},
+  volume={25},
+  number={296},
+  pages={1--28},
+  year={2024}
+}
+
 Clearly, to obtain the *nearly optimal* rate of convergence for ```LMMAES```,
 one *key* hyper-parameter ```sigma``` often needs to be well fine-tuned for
 this popular test function ```rosenbrock```. In practice, **Hyper-Parameter
