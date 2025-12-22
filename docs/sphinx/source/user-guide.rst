@@ -159,6 +159,19 @@ hyper-parameters):
        >>> print(f"SCEM: {results['n_function_evaluations']}, {results['best_so_far_y']}")
        SCEM: 1000000, 10.328016143160333
 
+Please refer to e.g., the following books or papers as some of
+representative *references* to **Hyper-Parameter Optimization (HPO)**:
+
+* Hutter, et al., 2019. [Automated machine learning: Methods, systems,
+  challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf).
+  Springer.
+* Bergstra and Bengio, 2012. [Random search for hyper-parameter
+  optimization](https://www.jmlr.org/papers/v13/bergstra12a.html).
+  JMLR, 3(10), pp.281-305.
+* Hoos, 2011. [Automated algorithm configuration and parameter
+  tuning](https://link.springer.com/chapter/10.1007/978-3-642-21434-9_3).
+  In Autonomous Search (pp. 37-71). Springer.
+
 Result Analysis
 ---------------
 
