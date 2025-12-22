@@ -126,7 +126,7 @@ print(results)
 ```
 
 If this library has been used in your project or paper, please cite the
-following **JMLR** software paper:
+following **JMLR** software paper (in the **BibTeX** format):
 
 @article{2024-JMLR-Duan,
   title={{PyPop7}: A {pure-Python} library for population-based black-box optimization},
