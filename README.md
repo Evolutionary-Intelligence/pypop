@@ -906,17 +906,3 @@ reported in the (actively-updated) paper list called
   [Intelligent machinery](https://weightagnostic.github.io/papers/turing1948.pdf).
   [The Essential Turing (B. Jack Copeland)](https://academic.oup.com/book/42030),
   Oxford University Press.
-
-## Citation
-
-### BibTeX for JMLR-2024
-
-@article{2024-JMLR-Duan,
-  title={{PyPop7}: A {pure-Python} library for population-based black-box optimization},
-  author={Duan, Qiqi and Zhou, Guochen and Shao, Chang and Others},
-  journal={Journal of Machine Learning Research},
-  volume={25},
-  number={296},
-  pages={1--28},
-  year={2024}
-}
