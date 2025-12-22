@@ -146,16 +146,14 @@ Optimization (HPO)** is one very common strategy to **approximate** the
 Please refer to e.g., the following books and papers as some (rather all)
 representative *reference*:
 
-* [Hutter, F.](), et al., 2019.
-  [Automated machine learning: Methods, systems,
+* [Hutter](), et al., 2019. [Automated machine learning: Methods, systems,
   challenges](https://www.automl.org/wp-content/uploads/2019/05/AutoML_Book.pdf).
   Springer.
-* Bergstra, J. and [Bengio, Y.](), 2012.
+* Bergstra and [Bengio](), 2012.
   [Random search for hyper-parameter
   optimization](https://www.jmlr.org/papers/v13/bergstra12a.html).
   JMLR, 3(10), pp.281-305.
-* [Hoos, H.H.](), 2011.
-  [Automated algorithm configuration and parameter
+* [Hoos](), 2011. [Automated algorithm configuration and parameter
   tuning](https://link.springer.com/chapter/10.1007/978-3-642-21434-9_3).
   In Autonomous Search (pp. 37-71). Springer.
 
