@@ -138,11 +138,12 @@ following **JMLR** software paper (in the **BibTeX** format):
   year={2024}
 }
 
-Clearly, for obtaining the *nearly optimal* rate of convergence for ```LMMAES```,
-at least one *key* hyper-parameter ```sigma``` often needs to be well fine-tuned
-for this popular test function ```rosenbrock```. In practice, **Hyper-Parameter
-Optimization (HPO)** is a very common strategy to **approximate** the *possibly
-best* setting(s) for the *complex* optimization problem at hand.
+Clearly, for obtaining the *nearly optimal* rate of convergence, at least
+one *key* hyper-parameter ```sigma``` of ```LMMAES``` often needs to be
+well fine-tuned on this popular test function ```rosenbrock```. In
+practice, **Hyper-Parameter Optimization (HPO)** is a very common
+strategy to **approximate** the *possibly best* setting(s) for the
+*complex* optimization problem at hand.
 
 ### Online Documentations, Online Tutorials, and Future Extensions
 
