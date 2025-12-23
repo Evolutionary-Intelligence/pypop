@@ -52,15 +52,7 @@ and improve it **entirely freely** for any (no matter *open-source* or
 
 ## Quickstart
 
-"[In our opinion, the main fact, which should be known to any person dealing with
-optimization models, is that in general, optimization problems are unsolvable.
-This statement, which is usually missing in standard optimization courses, is very
-important for understanding optimization theory and the logic of its development in
-the past and in the future.](https://link.springer.com/book/10.1007/978-3-319-91578-4)"
----From **[Prof. Yurii Nesterov (Member of National Academy of Sciences,
-USA)](https://www.nasonline.org/directory-entry/yurii-e-nesterov-5n5mo7/)**
-
-The following **3** *simple* steps are often enough to utilize the **black-box
+The following **three** steps are often enough to utilize the **black-box
 optimization (BBO)** power of [PyPop7](https://pypi.org/project/pypop7/):
 
 * Recommend using [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the
