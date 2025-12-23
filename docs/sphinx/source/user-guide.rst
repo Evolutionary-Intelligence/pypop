@@ -6,7 +6,7 @@ User Guide
    statement, which is usually missing in standard optimization courses, is very important
    for understanding optimization theory and the logic of its development in the past and
    in the future. <https://link.springer.com/book/10.1007/978-3-319-91578-4>`_"---From
-   `Prof. Yurii Nesterov (International Member of National Academy of Sciences, USA
+   `Prof. Yurii Nesterov (International Member of National Academy of Sciences, USA)
    <https://www.nasonline.org/directory-entry/yurii-e-nesterov-5n5mo7/>`_
 
 Before applying this open-source library `PyPop7` in `PyPI <https://pypi.org/project/pypop7/>`_
