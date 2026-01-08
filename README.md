@@ -901,3 +901,5 @@ reported in the (actively-updated) paper list called
   [Intelligent machinery](https://weightagnostic.github.io/papers/turing1948.pdf).
   [The Essential Turing (B. Jack Copeland)](https://academic.oup.com/book/42030),
   Oxford University Press.
+
+**Contact Info**: [Qiqi Duan](), duanqiqi@jxufe.edu.cn
