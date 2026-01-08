@@ -4,7 +4,10 @@
 alt="drawing" width="21" height="21"/> `PyPop7` has been used and/or cited in one **Nature**
 paper [[Veenstra et al., Nature, 2025]](https://www.nature.com/articles/s41586-025-08646-3) and
 etc. For any questions or helps, please directly use
-[Discussions](https://github.com/Evolutionary-Intelligence/pypop/discussions).
+[Discussions](https://github.com/Evolutionary-Intelligence/pypop/discussions). From Jan 1, 2026,
+this open-source library has been maintained by Dr. Qiqi Duan, a Lecturer in School of Computing
+and Artificial Intelligence, Jiangxi University of Finance and Economics, Nanchang, Jiangxi,
+ChinaJiangxi University of Finance and Economics, China. 
 
 [![Pub](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
 [![arXiv](https://img.shields.io/badge/arXiv-2022-orange)](https://arxiv.org/abs/2212.05652)
