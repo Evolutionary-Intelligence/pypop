@@ -7,7 +7,8 @@ etc. For any questions or helps, please directly use
 [Discussions](https://github.com/Evolutionary-Intelligence/pypop/discussions). From Jan 8, 2026,
 this open-source library has been maintained by Dr. Qiqi Duan, a Lecturer in School of Computing
 and Artificial Intelligence, Jiangxi University of Finance and Economics, Nanchang, Jiangxi,
-China.
+China, after his graduation from the joint Ph.D project of Harbin Institute of Technology and
+Southern University of Science and Technology..
 
 [![Pub](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
 [![arXiv](https://img.shields.io/badge/arXiv-2022-orange)](https://arxiv.org/abs/2212.05652)
@@ -27,7 +28,6 @@ China.
 [![PyTest](https://img.shields.io/badge/pytest-%23ffffff.svg?logo=PyTest&logoColor=2f9fe3)](https://docs.pytest.org/en/stable/)
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation)
 [![Sphinx](https://img.shields.io/badge/Sphinx-000?logo=sphinx&logoColor=fff)](https://www.sphinx-doc.org/en/master/)
-[![WeChat](https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white)](https://github.com/Evolutionary-Intelligence/pypop-docs/blob/main/WeChat/WeChat-20251222.jpg)
 [![EvoI](https://img.shields.io/badge/CCF-A-brown)](https://evolutionary-intelligence.github.io)
 
 ```PyPop7``` is a [Python](https://www.python.org/) library of **population-based
