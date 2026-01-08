@@ -7,7 +7,7 @@ etc. For any questions or helps, please directly use
 [Discussions](https://github.com/Evolutionary-Intelligence/pypop/discussions). From Jan 8, 2026,
 this open-source library has been maintained by Dr. Qiqi Duan, a Lecturer in School of Computing
 and Artificial Intelligence, Jiangxi University of Finance and Economics, Nanchang, Jiangxi,
-China, after his graduation from the joint Ph.D project of Harbin Institute of Technology and
+China, after his graduation from the joint Ph.D. project of Harbin Institute of Technology and
 Southern University of Science and Technology.
 
 [![Pub](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
