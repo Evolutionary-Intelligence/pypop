@@ -902,4 +902,7 @@ reported in the (actively-updated) paper list called
   [The Essential Turing (B. Jack Copeland)](https://academic.oup.com/book/42030),
   Oxford University Press.
 
-**Contact Info**: [Qiqi Duan](), duanqiqi@jxufe.edu.cn
+**Contact Info**:
+[Qiqi Duan](), 
+duanqiqi@jxufe.edu.cn
+(Organizer of Research Center of Distributed Evolution and Swarm Intelligence - Online)
