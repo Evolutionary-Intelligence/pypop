@@ -29,7 +29,7 @@ Guangdong, China).
 [![PyTest](https://img.shields.io/badge/pytest-%23ffffff.svg?logo=PyTest&logoColor=2f9fe3)](https://docs.pytest.org/en/stable/)
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation)
 [![Sphinx](https://img.shields.io/badge/Sphinx-000?logo=sphinx&logoColor=fff)](https://www.sphinx-doc.org/en/master/)
-[![CCF-A](https://img.shields.io/badge/CCF-A-brown)]()
+[![CCF-A](https://img.shields.io/badge/CCF-A-brown)](https://www.ccf.org.cn/Academic_Evaluation/AI/)
 
 ```PyPop7``` is a [Python](https://www.python.org/) library of **population-based
 randomized optimization algorithms** for **single-objective**, **real-parameter**,
