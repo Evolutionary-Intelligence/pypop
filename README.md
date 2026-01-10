@@ -29,13 +29,13 @@ Guangdong, China).
 [![PyTest](https://img.shields.io/badge/pytest-%23ffffff.svg?logo=PyTest&logoColor=2f9fe3)](https://docs.pytest.org/en/stable/)
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation)
 [![Sphinx](https://img.shields.io/badge/Sphinx-000?logo=sphinx&logoColor=fff)](https://www.sphinx-doc.org/en/master/)
-[![EvoI](https://img.shields.io/badge/CCF-A-brown)](https://evolutionary-intelligence.github.io)
+[![CCF-A](https://img.shields.io/badge/CCF-A-brown)]()
 
 ```PyPop7``` is a [Python](https://www.python.org/) library of **population-based
 randomized optimization algorithms** for **single-objective**, **real-parameter**,
-**unconstrained** *black-box optimization* (BBO) problems. Its main design goal is
-to provide a *unified* interface and a large set of *elegant* implementations for
-e.g., [evolutionary algorithms](https://www.nature.com/articles/nature14544),
+**unconstrained** *black-box optimization* (BBO) problems. Its main design goal
+is to provide a *unified* interface and a large set of *elegant* implementations
+for e.g., [evolutionary algorithms](https://www.nature.com/articles/nature14544),
 [swarm optimizers](https://github.com/Evolutionary-Intelligence/SwarmIntelligence-A-Modern-Perspective-SIAMP),
 and [pattern search](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780),
 with at least three functionalities: (1) To facilitate **research repeatability**
