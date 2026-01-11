@@ -9,7 +9,7 @@ this open-source library has been maintained by Dr. Qiqi Duan, a Lecturer in Sch
 and Artificial Intelligence, Jiangxi University of Finance and Economics, Nanchang, Jiangxi,
 China, after his graduation from the joint Ph.D. project of Harbin Institute of Technology
 (Harbin, Heilongjiang, China) and Southern University of Science and Technology (Shenzhen,
-Guangdong, China).
+Guangdong, China) in 2025.
 
 [![Pub](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
 [![arXiv](https://img.shields.io/badge/arXiv-2022-orange)](https://arxiv.org/abs/2212.05652)
