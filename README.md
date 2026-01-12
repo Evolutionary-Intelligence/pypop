@@ -46,12 +46,13 @@ trial-and-error manner.
 Specifically speaking, for alleviating the notorious **curse-of-dimensionality**
 issue on BBO, its focus is to cover **State Of The Art (SOTA) for Large-Scale
 Optimization** only under Black-Box scenarios, though many of small- and
-medium-scaled algorithm versions or variants are also included here (mainly for
-**theoretical** or **benchmarking** or **educational** or **practical** purposes).
-For a *growing* list of its *diverse* use and/or citation cases, please refer to
-[this online website](https://pypop.readthedocs.io/en/latest/applications.html).
-Although we have chosen *GPL-3.0 license* initially, anyone could use, modify,
-and improve it **entirely freely** for any (no matter *open-source* or
+medium-scaled algorithm versions or variants are also included here (for
+**theoretical** or **benchmarking** or **educational** or **practical**
+purposes). For a *growing* list of its *diverse* use and/or citation cases,
+please refer to [this online
+website](https://pypop.readthedocs.io/en/latest/applications.html).
+Although we have chosen *GPL-3.0 license*, anyone could use, modify, and
+improve it **entirely freely** for any (no matter *open-source* or
 *closed-source*) **positive** purposes.
 
 ## Quickstart
