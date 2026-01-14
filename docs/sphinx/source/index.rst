@@ -1,9 +1,15 @@
-PyPop7's Documentations for Black-Box Optimization (BBO)
-========================================================
+PyPop7's Documentations for Continuous Black-Box Optimization (BBO)
+===================================================================
 
 **[News!]** Recently PyPop7 has been used and/or cited in one **Nature** paper:
 `[Veenstra et al., Nature, 2025]
-<https://www.nature.com/articles/s41586-025-08646-3>`_ etc.
+<https://www.nature.com/articles/s41586-025-08646-3>`_, etc.
+From Jan 8, 2026, this open-source library has been maintained by Dr. Qiqi
+Duan, a Lecturer in School of Computing and Artificial Intelligence, Jiangxi
+University of Finance and Economics, Nanchang, Jiangxi, China, after his
+graduation from the joint Ph.D. project of Harbin Institute of Technology
+(Harbin, Heilongjiang, China) and Southern University of Science and
+Technology (Shenzhen, Guangdong, China) in 2025.
 
 .. image:: https://img.shields.io/badge/GitHub-PyPop7-red.svg
    :target: https://github.com/Evolutionary-Intelligence/pypop
