@@ -11,7 +11,7 @@ China, after his graduation from the joint Ph.D. project of Harbin Institute of 
 (Harbin, Heilongjiang, China) and Southern University of Science and Technology (Shenzhen,
 Guangdong, China) in 2025.
 
-[![Pub](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
+[![JMLR](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
 [![arXiv](https://img.shields.io/badge/arXiv-2022-orange)](https://arxiv.org/abs/2212.05652)
 [![Jan26-2021](https://img.shields.io/badge/Jan26-2021-blue)](https://github.com/Evolutionary-Intelligence/pypop/commit/d99805746409d4e6d841dc7729d8eb3463e97e50)
 [![PyPI](https://tinyurl.com/murf7c4m)](https://pypi.org/project/pypop7/)
