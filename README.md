@@ -14,7 +14,7 @@ Guangdong, China) in 2025.
 [![JMLR-2024](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
 [![arXiv-2022](https://img.shields.io/badge/arXiv-2022-orange)](https://arxiv.org/abs/2212.05652)
 [![Jan26-2021](https://img.shields.io/badge/Jan26-2021-blue)](https://github.com/Evolutionary-Intelligence/pypop/commit/d99805746409d4e6d841dc7729d8eb3463e97e50)
-[![PyPI](https://tinyurl.com/murf7c4m)](https://pypi.org/project/pypop7/)
+[![PyPI](https://img.shields.io/badge/PyPI-pypop7-yellowgreen.svg)](https://pypi.org/project/pypop7/)
 [![Docs](https://readthedocs.org/projects/pypop/badge/?version=latest)](http://pypop.rtfd.io/)
 [![Downloads](https://static.pepy.tech/personalized-badge/pypop7?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/pypop7)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop)
