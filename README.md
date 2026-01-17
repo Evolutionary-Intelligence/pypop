@@ -895,6 +895,9 @@ reported in the (actively-updated) paper list called
   [Adaptation in natural and artificial systems: An introductory analysis with applications to
   biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
   MIT Press.
+* [Bremermann](), 1962.
+  [Optimization through evolution and recombination]().
+  Self-Organizing Systems, pp.93-106.
 * [Box](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
   [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
   JRSS-SC, 6(2), pp.81-101.
