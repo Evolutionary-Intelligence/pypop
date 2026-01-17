@@ -895,7 +895,7 @@ reported in the (actively-updated) paper list called
   [Adaptation in natural and artificial systems: An introductory analysis with applications to
   biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
   MIT Press.
-* [Bremermann](), 1962.
+* [Bremermann](https://newsarchive.berkeley.edu/news/media/releases/96legacy/releases.96/14319.html), 1962.
   [Optimization through evolution and recombination]().
   Self-Organizing Systems, pp.93-106.
 * [Box](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
