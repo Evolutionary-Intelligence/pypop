@@ -896,7 +896,7 @@ reported in the (actively-updated) paper list called
   biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
   MIT Press.
 * [Bremermann](https://newsarchive.berkeley.edu/news/media/releases/96legacy/releases.96/14319.html), 1962.
-  [Optimization through evolution and recombination]().
+  [Optimization through evolution and recombination](https://scispace.com/pdf/optimization-through-evolution-and-recombination-3kindrc9fs.pdf).
   Self-Organizing Systems, pp.93-106.
 * [Box](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
   [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
