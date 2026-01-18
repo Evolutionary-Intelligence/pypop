@@ -774,9 +774,6 @@ reported in the (actively-updated) paper list called
   * Bäck, T. and Schwefel, H.P., 1993.
     [An overview of evolutionary algorithms for parameter optimization](https://direct.mit.edu/evco/article-abstract/1/1/1/1092/An-Overview-of-Evolutionary-Algorithms-for).
     ECJ, 1(1), pp.1-23.
-  * Fogel, L.J., Owens, A.J. and Walsh, M.J., 1965.
-    Intelligent decision making through a simulation of evolution.
-    IEEE Transactions on Human Factors in Electronics, 6(1), pp.13-23.
 ### **Pattern/Direct Search (PS/DS)**
   * Porcelli, M. and [Toint, P.L.](https://researchportal.unamur.be/en/persons/phtoint), 2022.
     [Exploiting problem structure in derivative free optimization](https://dl.acm.org/doi/abs/10.1145/3474054).
@@ -895,9 +892,12 @@ reported in the (actively-updated) paper list called
   [Adaptation in natural and artificial systems: An introductory analysis with applications to
   biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
   MIT Press.
-* Fogel, et al., 1966.
+* [Fogel](), et al., 1966.
   Artificial intelligence through simulated evolution.
   John Wiley & Sons Inc.
+* [Fogel](), et al., 1965.
+  [Intelligent decision making through a simulation of evolution]().
+  IEEE Transactions on Human Factors in Electronics, 6(1), pp.13-23.
 * [Bremermann](https://newsarchive.berkeley.edu/news/media/releases/96legacy/releases.96/14319.html), 1962.
   [Optimization through evolution and recombination](https://scispace.com/pdf/optimization-through-evolution-and-recombination-3kindrc9fs.pdf).
   Self-Organizing Systems, pp.93-106.
