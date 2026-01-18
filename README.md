@@ -895,6 +895,9 @@ reported in the (actively-updated) paper list called
   [Adaptation in natural and artificial systems: An introductory analysis with applications to
   biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
   MIT Press.
+* Fogel, et al., 1966.
+  Artificial intelligence through simulated evolution.
+  John Wiley & Sons Inc.
 * [Bremermann](https://newsarchive.berkeley.edu/news/media/releases/96legacy/releases.96/14319.html), 1962.
   [Optimization through evolution and recombination](https://scispace.com/pdf/optimization-through-evolution-and-recombination-3kindrc9fs.pdf).
   Self-Organizing Systems, pp.93-106.
