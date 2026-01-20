@@ -760,9 +760,6 @@ reported in the (actively-updated) paper list called
   * Goldberg, D.E. and Holland, J.H., 1988.
     [Genetic algorithms and machine learning](https://link.springer.com/article/10.1023/A:1022602019183).
     MLJ, 3(2), pp.95-99.
-  * Holland, J.H., 1973.
-    [Genetic algorithms and the optimal allocation of trials](https://epubs.siam.org/doi/10.1137/0202009).
-    SICOMP, 2(2), pp.88-105.
 * Evolutionary Programming (EP)
   * Yao, X., Liu, Y. and Lin, G., 1999. [Evolutionary programming made faster](https://ieeexplore.ieee.org/abstract/document/771163). TEVC, 3(2), pp.82-102.
   * Fogel, D.B., 1999. [An overview of evolutionary programming](https://link.springer.com/chapter/10.1007/978-1-4612-1542-4_5). In Evolutionary Algorithms (pp. 89-109). Springer, New York, NY.
