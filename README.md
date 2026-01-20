@@ -895,6 +895,9 @@ reported in the (actively-updated) paper list called
 * [Fogel](), et al., 1965.
   [Intelligent decision making through a simulation of evolution]().
   IEEE Transactions on Human Factors in Electronics, 6(1), pp.13-23.
+* [Holland](), 1962.
+  [Outline for a logical theory of adaptive systems](https://dl.acm.org/doi/10.1145/321127.321128).
+  JACM, 9(3), pp.297-314.
 * [Bremermann](https://newsarchive.berkeley.edu/news/media/releases/96legacy/releases.96/14319.html), 1962.
   [Optimization through evolution and recombination](https://scispace.com/pdf/optimization-through-evolution-and-recombination-3kindrc9fs.pdf).
   Self-Organizing Systems, pp.93-106.
