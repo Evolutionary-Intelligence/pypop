@@ -886,6 +886,9 @@ reported in the (actively-updated) paper list called
   [Adaptation in natural and artificial systems: An introductory analysis with applications to
   biology, control, and artificial intelligence](https://tinyurl.com/ywm335f5).
   MIT Press.
+* [Rechenberg](), 1989.
+  [Evolution strategy: Nature’s way of optimization](https://link.springer.com/chapter/10.1007/978-3-642-83814-9_6).
+  In Optimization: Methods and Applications, Possibilities and Limitations (pp. 106-126). Springer.
 * [Rechenberg](), 1984.
   [The evolution strategy. A mathematical model of darwinian evolution](https://link.springer.com/chapter/10.1007/978-3-642-69540-7_13).
   In Synergetics—from Microscopic to Macroscopic Order (pp. 122-132). Springer.
