@@ -915,4 +915,4 @@ reported in the (actively-updated) paper list called
 **Contact Info**:
 [Qiqi Duan](), 
 duanqiqi@jxufe.edu.cn
-(Organizer of Research Center of Distributed Evolution and Swarm Intelligence - Online)
+(Organizer of Research Center of Distributed Evolution, Embodied Robotics, and Swarm Intelligence - RCDEERSI)
