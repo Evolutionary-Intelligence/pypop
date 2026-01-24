@@ -553,8 +553,9 @@ reported in the (actively-updated) paper list called
 [DistributedEvolutionaryComputation](https://github.com/Evolutionary-Intelligence/DistributedEvolutionaryComputation).
 
 * **Derivative-Free Optimization (DFO) / Zeroth-Order Optimization (ZOO)**
-  * Berahas, A.S., et al., 2022.
-    [A theoretical and empirical comparison of gradient approximations in derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z).
+  * [Berahas](), et al., 2022.
+    [A theoretical and empirical comparison of gradient approximations in
+    derivative-free optimization](https://link.springer.com/article/10.1007/s10208-021-09513-z).
     FoCM, 22(2), pp.507-560.
   * Larson, J., et al., 2019.
     [Derivative-free optimization methods](https://www.cambridge.org/core/journals/acta-numerica/article/abs/derivativefree-optimization-methods/84479E2B03A9BFFE0F9CD46CF9FCD289).
