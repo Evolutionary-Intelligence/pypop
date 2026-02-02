@@ -1,4 +1,4 @@
-# PyPop7: A Pure-PYthon librarY of POPulation-based OPtimization in black-box continuous cases [CCF-A]
+# PyPop7: A Pure-PYthon librarY of POPulation-based OPtimization in continuous black-box cases [CCF-A]
 
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/MayorIcons.png"
 alt="drawing" width="21" height="21"/> `PyPop7` has been used and/or cited in one **Nature**
