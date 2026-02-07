@@ -5,6 +5,7 @@ Reference
 Critical Papers to Some Metaphors-Based Optimization
 ----------------------------------------------------
 
+* https://github.com/fcampelo/EC-Bestiary
 * 2025: `Structural bias in metaheuristic algorithms: Insights,
   open problems, and future prospects
   <https://www.sciencedirect.com/science/article/pii/S221065022400350X>`_
