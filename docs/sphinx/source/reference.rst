@@ -53,6 +53,10 @@ Critical Papers to Some Metaphors-Based Optimization
 * 2020: `Benchmarking in optimization: Best practice and open issues
   <https://arxiv.org/abs/2007.03488>`_
   https://doi.org/10.48550/arXiv.2007.03488
+* `*, * and * algorithms: Three widespread algorithms that do not
+  contain any novelty
+  <https://link.springer.com/chapter/10.1007/978-3-030-60376-2_10>`_
+  https://doi.org/10.1007/978-3-030-60376-2_10
 * 2019: `The * algorithm: why it cannot be considered a novel
   algorithm: A brief discussion on the use of metaphors in
   optimization <https://link.springer.com/article/10.1007/s11721-019-00165-y>`_
