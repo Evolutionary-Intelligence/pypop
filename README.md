@@ -905,6 +905,9 @@ reported in the (actively-updated) paper list called
 * [Bremermann](https://newsarchive.berkeley.edu/news/media/releases/96legacy/releases.96/14319.html), 1962.
   [Optimization through evolution and recombination](https://scispace.com/pdf/optimization-through-evolution-and-recombination-3kindrc9fs.pdf).
   Self-Organizing Systems, pp.93-106.
+* Friedberg, 1958.
+  [A learning machine: Part I](https://ieeexplore.ieee.org/abstract/document/5392654).
+  IBM Journal of Research and Development, 2(1), pp.2-13.
 * [Box](https://royalsocietypublishing.org/doi/pdf/10.1098/rsbm.2015.0015), 1957.
   [Evolutionary operation: A method for increasing industrial productivity](https://rss.onlinelibrary.wiley.com/doi/abs/10.2307/2985505).
   JRSS-SC, 6(2), pp.81-101.
