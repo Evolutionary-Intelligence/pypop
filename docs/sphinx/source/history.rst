@@ -10,7 +10,8 @@ with Hao Tong, as a Master candidate also in SUSTech, regarding the
 necessarity of an open-source library for evolutionary algorithms (EAs)
 and swarm-based optimizers (SOs). Clearly, it is a huge work to cover as
 many as well-established and newly-emerging versions and variants of EAs
-and SOs.
+and SOs. Here I express my kindly thanks to Dr. Hao Tong, although he
+did not take part in this open-source library finally.
 
 
 
