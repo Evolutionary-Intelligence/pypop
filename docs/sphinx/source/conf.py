@@ -3,8 +3,8 @@ import sys
 sys.path.insert(0, os.path.abspath('../../../'))
 
 project = 'pypop7'
-copyright = '2021-2025, Evolutionary-Intelligence (Qiqi Duan) @ HIT & SUSTech'
-author = 'Evolutionary-Intelligence (Qiqi Duan) @ HIT & SUSTech'
+copyright = '2021-2026, Evolutionary-Intelligence (Qiqi Duan) @ JXUFE & SUSTech & HIT'
+author = 'Evolutionary-Intelligence (Qiqi Duan) @ JXUFE & SUSTech & HIT'
 
 release = '0.0.1'
 extensions = ['sphinx.ext.autodoc',
