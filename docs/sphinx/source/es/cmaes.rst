@@ -99,6 +99,13 @@ Some Applications of CMA-ES
   <https://arc.aiaa.org/doi/abs/10.2514/2.1342>`_:
   Swiss Federal Institute of Technology
 
+Some Interesting Applications in Robotics
+-----------------------------------------
+
+* `[CoRL 2025]
+  <https://openreview.net/pdf?id=UTPBM4dEUS>`_:
+  Carnegie Mellon University, Google DeepMind
+
 
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
