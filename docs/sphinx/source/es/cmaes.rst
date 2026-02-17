@@ -105,11 +105,11 @@ Some Interesting Applications in Robotics
 * `[CoRL 2025]
   <https://openreview.net/pdf?id=UTPBM4dEUS>`_:
   Carnegie Mellon University, Google DeepMind
+* `[Nature Medicine 2023]
+  <https://www.nature.com/articles/s41591-023-02584-1>`_:
+  EPFL et al.
 
 
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
-
-.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-CMAES
-   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-CMAES
