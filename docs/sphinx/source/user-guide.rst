@@ -13,10 +13,10 @@ Before applying this open-source library `PyPop7` in `PyPI <https://pypi.org/pro
 to real-world black-box optimization (BBO) problems, four basic information should be read
 sequentially, as presented in the following:
 
-* 1) `Problem Definition <https://pypop.readthedocs.io/en/latest/user-guide.html#problem-definition>`_,
-* 2) `Optimizer Setting <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_,
-* 3) `Result Analysis <https://pypop.readthedocs.io/en/latest/user-guide.html#result-analysis>`_,
-* 4) `Algorithm Selection and Configuration <https://pypop.readthedocs.io/en/latest/user-guide.html#algorithm-selection-and-configuration>`_.
+* `Problem Definition <https://pypop.readthedocs.io/en/latest/user-guide.html#problem-definition>`_,
+* `Optimizer Setting <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_,
+* `Result Analysis <https://pypop.readthedocs.io/en/latest/user-guide.html#result-analysis>`_,
+* `Algorithm Selection and Configuration <https://pypop.readthedocs.io/en/latest/user-guide.html#algorithm-selection-and-configuration>`_.
 
 Problem Definition
 ------------------
