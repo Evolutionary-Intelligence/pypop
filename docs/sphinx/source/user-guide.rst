@@ -9,14 +9,18 @@ User Guide
    `Prof. Yurii Nesterov (International Member of National Academy of Sciences, USA)
    <https://www.nasonline.org/directory-entry/yurii-e-nesterov-5n5mo7/>`_
 
-Before applying this open-source library `PyPop7` in `PyPI <https://pypi.org/project/pypop7/>`_
+Before applying this Python library `PyPop7` in `PyPI <https://pypi.org/project/pypop7/>`_
 to real-world black-box optimization (BBO) problems, four basic information should be read
 sequentially, as presented in the following:
 
-* `Problem Definition <https://pypop.readthedocs.io/en/latest/user-guide.html#problem-definition>`_,
-* `Optimizer Setting <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_,
-* `Result Analysis <https://pypop.readthedocs.io/en/latest/user-guide.html#result-analysis>`_,
-* `Algorithm Selection and Configuration <https://pypop.readthedocs.io/en/latest/user-guide.html#algorithm-selection-and-configuration>`_.
+* `Problem Definition
+  <https://pypop.readthedocs.io/en/latest/user-guide.html#problem-definition>`_,
+* `Optimizer Setting
+  <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_,
+* `Result Analysis
+  <https://pypop.readthedocs.io/en/latest/user-guide.html#result-analysis>`_,
+* `Algorithm Selection and Configuration
+  <https://pypop.readthedocs.io/en/latest/user-guide.html#algorithm-selection-and-configuration>`_.
 
 Problem Definition
 ------------------
