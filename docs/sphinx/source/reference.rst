@@ -10,7 +10,7 @@ scholars.
 
 * https://github.com/fcampelo/EC-Bestiary
 * 2026: `Beyond metaphors: Rethinking metaphors in metaheuristics
-  algorithm design <https://www.nature.com/articles/s44387-026-00089-z>`
+  algorithm design <https://www.nature.com/articles/s44387-026-00089-z>`_
 * 2025: `Structural bias in metaheuristic algorithms: Insights,
   open problems, and future prospects
   <https://www.sciencedirect.com/science/article/pii/S221065022400350X>`_
