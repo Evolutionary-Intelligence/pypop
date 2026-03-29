@@ -36,7 +36,7 @@ Base Functions
 --------------
 
 Here we introduce the **base** form of some benchmarking functions
-common in the optimization literature, as presented below:
+common in the BBO literature, as presented below:
 
 .. autofunction:: pypop7.benchmarks.base_functions.sphere
 
