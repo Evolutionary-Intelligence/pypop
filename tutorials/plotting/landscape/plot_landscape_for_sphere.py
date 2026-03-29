@@ -12,7 +12,7 @@ matplotlib.rcParams['font.family'] = font_family
 matplotlib.rcParams['font.size'] = font_size
 
 
-# helper function for 2D-plotting
+# helper function for 2D landscape
 def plot_contour(func, x, y):
     levels = [bf(i * np.ones((2,))) for i in np.arange(0, 12, 2)]
     x, y, z = generate_xyz(func, x, y, 500)
@@ -21,7 +21,7 @@ def plot_contour(func, x, y):
 
 
 if __name__ == '__main__':
-    bound=[-10.0, 10.0]
+    bound = [-10.0, 10.0]
     plt.figure(figsize=(2.5, 2.5))
     plt.title(bf.__name__, fontsize=font_size)
     plt.xlim(bound)
