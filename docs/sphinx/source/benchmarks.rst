@@ -54,19 +54,19 @@ common in the BBO literature, as presented below:
 * Generation script of its 3D surface:
   https://github.com/Evolutionary-Intelligence/pypop/blob/main/tutorials/plotting/surface/plot_surface_for_sphere.py
 
-Reference (In Part):
+**Reference** (In Part):
 
 * Loshchilov, I., Glasmachers, T. and Beyer, H.G., 2018.
-  Large scale black-box optimization by limited-memory matrix adaptation.
+  *Large scale black-box optimization by limited-memory matrix adaptation*.
   IEEE Transactions on Evolutionary Computation, 23(2), pp.353-358.
 * Beyer, H.G. and Sendhoff, B., 2017.
-  Simplify your covariance matrix adaptation evolution strategy.
+  *Simplify your covariance matrix adaptation evolution strategy*.
   IEEE Transactions on Evolutionary Computation, 21(5), pp.746-759.
 * Jastrebski, G.A. and Arnold, D.V., 2006, July.
-  Improving evolution strategies through active covariance matrix adaptation.
+  *Improving evolution strategies through active covariance matrix adaptation*.
   In IEEE International Conference on Evolutionary Computation (pp. 2814-2821). IEEE.
 * Zhou, Q. and Li, Y., 2003.
-  Directed variation in evolution strategies.
+  *Directed variation in evolution strategies*.
   IEEE Transactions on Evolutionary Computation, 7(4), pp.356-366.
 
 .. autofunction:: pypop7.benchmarks.base_functions.cigar
