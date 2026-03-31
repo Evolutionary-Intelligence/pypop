@@ -122,13 +122,18 @@ BBO in this seemingly `increasingly popular <https://pypop.readthedocs.io/en/lat
 Python library.
 
 .. note::
-   A total of four *extended* versions of PyPop7 (as PP7) are ongoing or
-   planned for further development, as follows:
+   If this open-source Python library is used in your project or paper, please
+   cite the following **JMLR** paper (in the *BibTeX* format):
 
-   * For Constrained Optimization (PyCoPop7 as PCP7),
-   * For Noisy Optimization (PyNoPop7 as PNP7),
-   * Enhancement via Parallel and Distributed Optimization (PyPop77 as PP77),
-   * Enhancement via Meta-evolution based Optimization (PyMePop7 as PMP7).
+   @article{2024-JMLR-Duan,
+   author={Duan, Qiqi and Zhou, Guochen and Shao, Chang and Others},
+   title={{PyPop7}: A {pure-Python} library for population-based black-box optimization},
+   journal={Journal of Machine Learning Research},
+   volume={25},
+   number={296},
+   pages={1--28},
+   year={2024}
+   }
 
 
 
