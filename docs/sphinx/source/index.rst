@@ -123,7 +123,7 @@ Python library.
 
 .. note::
    If this open-source Python library is used in your project or paper, please
-   cite the following **JMLR** paper (in the *BibTeX* format):
+   cite the following **JMLR** paper (*BibTeX*):
 
    @article{2024-JMLR-Duan,
    author={Duan, Qiqi and Zhou, Guochen and Shao, Chang and Others},
