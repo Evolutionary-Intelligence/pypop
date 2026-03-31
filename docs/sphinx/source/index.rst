@@ -104,7 +104,7 @@ large set of benchmarking functions from different application fields, which hav
     .. code-block:: python
        :linenos:
 
-       >>> from pypop7.optimizers.es.lmmaes import LMMAES  # or to choose any black-box optimizer you prefer in PyPop7
+       >>> from pypop7.optimizers.es.lmmaes import LMMAES  # or choose any black-box optimizer which you prefer in PyPop7
        >>> options = {'fitness_threshold': 1e-10,  # terminate when the best-so-far fitness is lower than 1e-10
        ...            'max_runtime': 3600,  # terminate when the actual runtime exceeds 1 hour (i.e., 3600 seconds)
        ...            'seed_rng': 0,  # seed of random number generation (which should be set for repeatability)
