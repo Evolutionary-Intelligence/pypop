@@ -98,7 +98,8 @@ problem via simply negating.
 Please refer to `this online documentation <https://pypop.readthedocs.io/en/latest/benchmarks.html>`_ for a
 large set of benchmarking functions from different application fields, which have been provided by `PyPop7`.
 
-3. Run one or more black-box optimizers (BBO) from `PyPop7` on the above optimization problem:
+3. Run one black-box optimizers or more from `PyPop7` on
+   the above optimization problem:
 
     .. code-block:: python
        :linenos:
@@ -116,10 +117,9 @@ large set of benchmarking functions from different application fields, which hav
        >>> print(results['best_so_far_y'], results['n_function_evaluations'])
        9.948e-11 2973386
 
-Please refer to `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_
-for details about the **optimizer setting**. The following **API** contents are given mainly for all currently available
-BBO in this seemingly `increasingly popular <https://pypop.readthedocs.io/en/latest/applications.html>`_ open-source
-Python library.
+Please refer to `this online documentation
+<https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_
+for details about **optimizer settings**.
 
 .. note::
    If this open-source Python library is used in your project or paper, please
