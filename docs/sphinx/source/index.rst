@@ -118,7 +118,7 @@ large set of benchmarking functions from different application fields, which hav
        9.948e-11 2973386
 
 Please refer to `this online documentation
-<https://pypop.readthedocs.io/en/latest/user-guide.html#optimizer-setting>`_
+<https://pypop.readthedocs.io/en/latest/user-guide.html#id2>`_
 for details about **optimizer settings**.
 
 .. note::
