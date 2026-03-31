@@ -6,6 +6,7 @@ from pypop7.optimizers.pso.clpso import CLPSO
 from pypop7.optimizers.pso.ipso import IPSO
 from pypop7.optimizers.pso.ccpso2 import CCPSO2
 from pypop7.optimizers.pso.hpso import HPSO
+from pypop7.optimizers.pso.mdpso import MDPSO
 
 
 __all__ = [PSO,  # Particle Swarm Optimizer [1995]
@@ -15,4 +16,5 @@ __all__ = [PSO,  # Particle Swarm Optimizer [1995]
            CLPSO,  # Comprehensive Learning Particle Swarm Optimizer (CLPSO)
            IPSO,  # Incremental Particle Swarm Optimizer (IPSO)
            CCPSO2,  # Cooperative Coevolving Particle Swarm Optimizer (CCPSO2)
-           HPSO]  # History-based Particle Swarm Optimizer (HPSO)
+           HPSO,  # History-based Particle Swarm Optimizer (HPSO)
+           MDPSO]  # Multimodal Delayed Particle Swarm Optimizer (MDPSO)
