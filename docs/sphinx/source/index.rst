@@ -99,7 +99,7 @@ Please refer to `this online documentation <https://pypop.readthedocs.io/en/late
 large set of benchmarking functions from different application fields, which have been provided by `PyPop7`.
 
 3. Run one black-box optimizer or more from `PyPop7` on
-   the above optimization problem:
+   the above problem:
 
     .. code-block:: python
        :linenos:
