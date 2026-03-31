@@ -492,3 +492,6 @@ def step(x):
     x = squeeze_and_check(x)
     y = np.sum(np.square(np.floor(x + 0.5)))
     return y
+
+
+from pypop7.benchmarks.class_of_base_functions import BaseFunction  # noqa: F401, E402
