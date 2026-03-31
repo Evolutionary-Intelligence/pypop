@@ -98,7 +98,7 @@ problem via simply negating.
 Please refer to `this online documentation <https://pypop.readthedocs.io/en/latest/benchmarks.html>`_ for a
 large set of benchmarking functions from different application fields, which have been provided by `PyPop7`.
 
-3. Run one black-box optimizers or more from `PyPop7` on
+3. Run one black-box optimizer or more from `PyPop7` on
    the above optimization problem:
 
     .. code-block:: python
