@@ -45,22 +45,16 @@ included here (some mainly for *theoretical* purposes, some mainly for *educatio
 some mainly for *benchmarking* purposes, and some mainly for *application* purposes on medium
 or low dimensions).
 
-.. image:: images/logo.png
-   :width: 321px
-   :align: center
-
 .. note::
    This `open-source <https://www.gnu.org/>`_ Python library for **continuous** BBO is still under active maintenance.
    In the future, we plan to add some NEW BBO and some SOTA versions of existing BBO families, in order to make this
    library as fresh as possible. Any suggestions, extensions, improvements, usages, and tests (even *criticisms*) to
    this `open-source <https://opensource.org/>`_ Python library are highly welcomed!
 
-   If this open-source pure-Python library **PyPop7** is used in your paper or project, it is highly welcomed but NOT
-   mandatory to cite the following arXiv preprint paper: **Duan, Q., Zhou, G., Shao, C., Wang, Z., Feng, M., Huang,
-   Y., Tan, Y., Yang, Y., Zhao, Q. and Shi, Y., 2024. PyPop7: A pure-Python library for population-based black-box
-   optimization. arXiv preprint arXiv:2212.05652.** (Now this arXiv paper has been submitted to `JMLR
-   <https://jmlr.org/>`_, **accepted** in Fri, 11 Oct 2024 after 3 reviews from Tue, 28 Mar 2023 to Wed, 01 Nov 2023
-   to Fri, 05 Jul 2024.)
+   Now this arXiv paper has been submitted to `JMLR
+   <https://jmlr.org/>`_, **accepted** in Fri, 11
+   Oct 2024 after 3 reviews from Tue, 28 Mar 2023
+   to Wed, 01 Nov 2023 to Fri, 05 Jul 2024.)
 
 **Quick Start**
 
@@ -96,8 +90,8 @@ about *multiple* installation ways.
 Please refer to `this online documentation
 <https://pypop.readthedocs.io/en/latest/user-guide.html#id1>`_
 for details about **problem definition**. Note that any
-*maximization* problem can be easily transformed into
-the *minimization* problem simply via negating it.
+*maximization* problem can be transformed into the
+*minimization* problem simply via negating it.
 
 3. Run one black-box optimizer or more from
    `PyPop7` on the above problem:
