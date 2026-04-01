@@ -53,8 +53,8 @@ or low dimensions).
 
    Now this arXiv paper has been submitted to `JMLR
    <https://jmlr.org/>`_, **accepted** in Fri, 11
-   Oct 2024 after 3 reviews from Tue, 28 Mar 2023
-   to Wed, 01 Nov 2023 to Fri, 05 Jul 2024.)
+   Oct 2024 after 3-round reviews from Tue, 28 Mar
+   2023 to Wed, 01 Nov 2023 to Fri, 05 Jul 2024.)
 
 **Quick Start**
 
