@@ -93,8 +93,8 @@ about *multiple* installation ways.
        ...            'lower_boundary': -5.0*np.ones((ndim_problem,)),  # lower search boundary
        ...            'upper_boundary': 5.0*np.ones((ndim_problem,))}  # upper search boundary
 
-See `this online documentation
-<https://pypop.readthedocs.io/en/latest/user-guide.html>`_
+Please refer to `this online documentation
+<https://pypop.readthedocs.io/en/latest/user-guide.html#id1>`_
 for details about **problem definition**. Note that any
 *maximization* problem can be easily transformed into
 the *minimization* problem simply via negating it.
