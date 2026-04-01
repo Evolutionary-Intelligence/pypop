@@ -76,14 +76,16 @@ Three steps are often enough to utilize the potential of `PyPop7 <https://pypi.o
 Please refer to `this online documentation <https://pypop.readthedocs.io/en/latest/installation.html>`_ for details
 about *multiple* installation ways.
 
-2. Define/code your own objective (aka cost or fitness) function (to be **minimized**) for the `complex
-   <https://doi.org/10.1201/9780367802486>`_ optimization problem at hand:
+2. Define your own *objective* (aka *cost* or *fitness*)
+   function to be **minimized** for the `complex
+   <https://doi.org/10.1201/9780367802486>`_
+   optimization problem at hand:
 
     .. code-block:: python
        :linenos:
 
-       >>> import numpy as np  # for numerical computation, which is also the computing engine used by PyPop7
-       >>> def rosenbrock(x):  # one notorious test function in the optimization community
+       >>> import numpy as np  # for numerical computation (PyPop7's computing engine)
+       >>> def rosenbrock(x):  # one notorious function in the optimization community
        ...     return 100.0*np.sum(np.square(x[1:] - np.square(x[:-1]))) + np.sum(np.square(x[:-1] - 1.0))
        >>> ndim_problem = 1000  # problem dimension
        >>> problem = {'fitness_function': rosenbrock,  # fitness function to be minimized
@@ -91,12 +93,11 @@ about *multiple* installation ways.
        ...            'lower_boundary': -5.0*np.ones((ndim_problem,)),  # lower search boundary
        ...            'upper_boundary': 5.0*np.ones((ndim_problem,))}  # upper search boundary
 
-See `this online documentation <https://pypop.readthedocs.io/en/latest/user-guide.html>`_ for details about the
-**problem definition**. Note that any *maximization* problem can be easily transformed into the *minimization*
-problem via simply negating.
-
-Please refer to `this online documentation <https://pypop.readthedocs.io/en/latest/benchmarks.html>`_ for a
-large set of benchmarking functions from different application fields, which have been provided by `PyPop7`.
+See `this online documentation
+<https://pypop.readthedocs.io/en/latest/user-guide.html>`_
+for details about **problem definition**. Note that any
+*maximization* problem can be easily transformed into
+the *minimization* problem simply via negating it.
 
 3. Run one black-box optimizer or more from
    `PyPop7` on the above problem:
