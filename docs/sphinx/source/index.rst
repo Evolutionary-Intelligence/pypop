@@ -51,10 +51,11 @@ or low dimensions).
    library as fresh as possible. Any suggestions, extensions, improvements, usages, and tests (even *criticisms*) to
    this `open-source <https://opensource.org/>`_ Python library are highly welcomed!
 
-   Now this arXiv paper has been submitted to `JMLR
-   <https://jmlr.org/>`_, **accepted** in Fri, 11
-   Oct 2024 after 3-round reviews from Tue, 28 Mar
-   2023 to Wed, 01 Nov 2023 to Fri, 05 Jul 2024.)
+   Now this arXiv paper (arXiv:2212.05652) has been
+   submitted to `JMLR <https://jmlr.org/>`_,
+   **accepted** in Fri, 11 Oct 2024 after 3-round
+   reviews from Tue, 28 Mar 2023 to Wed, 01 Nov 2023
+   to Fri, 05 Jul 2024.)
 
 **Quick Start**
 
