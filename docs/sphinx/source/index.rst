@@ -28,7 +28,7 @@ etc.
 `"Responsible for adaptation, optimization, and innovation in the living world, evolution
 executes a simple algorithm of diversifcation and natural selection, an algorithm that
 works at all levels of complexity from single protein molecules to whole ecosystems."---
-From Nobel Lecture of Frances H. Arnold in California Institute of Technology
+From Nobel Lecture of Frances H. Arnold (California Institute of Technology)
 <https://www.nobelprize.org/uploads/2018/10/arnold-lecture.pdf>`_
 
 **PyPop7** is a *Pure-PYthon* library of *POPulation-based OPtimization* for single-objective,
