@@ -60,8 +60,8 @@ or low dimensions).
 **Quick Start**
 
 Three basic steps are often enough to utilize the potential of
-`PyPop7 <https://pypi.org/project/pypop7/>`_ for BBO in *many*
-(though not all) cases:
+`PyPop7 <https://pypi.org/project/pypop7/>`_ for many (though
+not all) BBO cases:
 
 1. Use `pip <https://pypi.org/project/pip/>`_ to automatically
    install `pypop7` via `PyPI <https://pypi.org/>`_:
