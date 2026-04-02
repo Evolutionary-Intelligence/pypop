@@ -40,7 +40,7 @@ BBO, and especially real-world applications.
 
 Specifically, for alleviating the well-known ('notorious') **curse of dimensionality**,
 the main focus of `PyPop7 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to
-cover **State-Of-The-Art (SOTA) implementations** for **Large-Scale BBO**, though many
+cover **State-Of-The-Art (SOTA) implementations** on **Large-Scale BBO**, though many
 of *medium- or small-scale* versions (variants) are also included.
 
 .. note::
