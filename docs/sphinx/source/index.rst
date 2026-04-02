@@ -38,13 +38,10 @@ set of *elegant* implementations for **Black-Box Optimizers (BBO)**, particularl
 methods, and pattern search*), in order to facilitate research repeatability, benchmarking of
 BBO, and especially real-world applications.
 
-Specifically, for alleviating the well-known ("notorious") **curse of dimensionality** of BBO,
-the primary focus of `PyPop7 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to
-cover their **State-Of-The-Art (SOTA) implementations for Large-Scale Optimization (LSO)** as
-much as possible, though many of their *medium- or small-scale* versions and variants are also
-included here (some mainly for *theoretical* purposes, some mainly for *educational* purposes,
-some mainly for *benchmarking* purposes, and some mainly for *application* purposes on medium
-or low dimensions).
+Specifically, for alleviating the well-known ('notorious') **curse of dimensionality**,
+the main focus of `PyPop7 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to
+cover **State-Of-The-Art (SOTA) implementations for Large-Scale Optimization**, though
+many of their *medium- or small-scale* versions and variants are also included.
 
 .. note::
    This `open-source <https://www.gnu.org/>`_ Python
