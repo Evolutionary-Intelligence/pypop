@@ -1,9 +1,10 @@
 PyPop7's Documentations for Continuous Black-Box Optimization (BBO)
 ===================================================================
 
-**[NEWS]** Recently PyPop7 has been used and/or cited in one
-**Nature** paper (`[Veenstra et al., Nature, 2025]
-<https://www.nature.com/articles/s41586-025-08646-3>`_), etc.
+**[NEWS]** Recently, PyPop7 has been used and/or cited in
+one **Nature** paper (`[Nature, 2025]
+<https://www.nature.com/articles/s41586-025-08646-3>`_),
+etc.
 
 .. image:: https://img.shields.io/badge/GitHub-PyPop7-red.svg
    :target: https://github.com/Evolutionary-Intelligence/pypop
@@ -46,10 +47,16 @@ some mainly for *benchmarking* purposes, and some mainly for *application* purpo
 or low dimensions).
 
 .. note::
-   This `open-source <https://www.gnu.org/>`_ Python library for **continuous** BBO is still under active maintenance.
-   In the future, we plan to add some NEW BBO and some SOTA versions of existing BBO families, in order to make this
-   library as fresh as possible. Any suggestions, extensions, improvements, usages, and tests (even *criticisms*) to
-   this `open-source <https://opensource.org/>`_ Python library are highly welcomed!
+   This `open-source <https://www.gnu.org/>`_ Python
+   library for **continuous** BBO is still under
+   active maintenance. In the future, we plan to add
+   some NEW BBO algorithms and some SOTA versions of
+   existing BBO families, in order to make this
+   library as fresh as possible. Any suggestions,
+   extensions, improvements, usages, and tests (even
+   *criticisms*) to this `open-source
+   <https://opensource.org/>`_ Python library are
+   highly welcomed!
 
    Now this arXiv paper (arXiv:2212.05652) has been
    submitted to `JMLR <https://jmlr.org/>`_,
