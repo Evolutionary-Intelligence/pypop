@@ -38,15 +38,17 @@ set of *elegant* implementations for **Black-Box Optimizers (BBO)**, particularl
 methods, and pattern search*), in order to facilitate research repeatability, benchmarking of
 BBO, and especially real-world applications.
 
-Specifically, for alleviating the well-known ('notorious') **curse of dimensionality**,
-the main focus of `PyPop7 <https://github.com/Evolutionary-Intelligence/pypop>`_ is to
-cover **State-Of-The-Art (SOTA) implementations** on **Large-Scale BBO**, though many
-of *medium- or small-scale* versions (variants) are also included.
+Specifically, for alleviating the well-known ('notorious')
+**curse of dimensionality**, the main focus of `PyPop7
+<https://github.com/Evolutionary-Intelligence/pypop>`_ is
+to cover **State-Of-The-Art (SOTA) implementations** on
+**Large-Scale BBO**, though many of *medium- or
+small-scale* versions (variants) are also included.
 
 .. note::
    This `open-source <https://www.gnu.org/>`_ Python
    library for **continuous** BBO is still under
-   active maintenance. In the future, we plan to add
+   active maintenance. In the future, we plan adding
    some NEW BBO algorithms and some SOTA versions of
    existing BBO families, in order to make this
    library as fresh as possible. Any suggestions,
