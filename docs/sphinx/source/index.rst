@@ -1,5 +1,5 @@
-PyPop7's Documentations for Continuous Black-Box Optimization (BBO)
-===================================================================
+PyPop7's Documentations for Continuous Black-Box Optimization
+=============================================================
 
 **[NEWS]** Recently, PyPop7 has been used and/or cited in
 one **Nature** paper (`[Nature, 2025]
@@ -31,12 +31,13 @@ works at all levels of complexity from single protein molecules to whole ecosyst
 From Nobel Lecture of Frances H. Arnold (California Institute of Technology)
 <https://www.nobelprize.org/uploads/2018/10/arnold-lecture.pdf>`_
 
-**PyPop7** is a *Pure-PYthon* library of *POPulation-based OPtimization* for single-objective,
-real-parameter, black-box problems. Its design goal is to provide a *unified* interface and a
-set of *elegant* implementations for **Black-Box Optimizers (BBO)**, particularly
-**population-based optimizers** (including *evolutionary algorithms, swarm-based random
-methods, and pattern search*), in order to facilitate research repeatability, benchmarking of
-BBO, and especially real-world applications.
+**PyPop7** is a *Pure-PYthon* library of *POPulation-based OPtimization* for
+single-objective, real-parameter, black-box problems. Its design goal is to
+provide a *unified* interface and a set of *elegant* implementations for
+**Black-Box Optimizers (BBO)**, particularly **population-based optimizers**
+(including *evolutionary algorithms, swarm methods, and pattern search*),
+in order to facilitate research repeatability, algorithmic benchmarking, and
+*especially real-world applications*.
 
 Specifically, for alleviating the well-known ('notorious')
 **curse of dimensionality**, the main focus of `PyPop7
