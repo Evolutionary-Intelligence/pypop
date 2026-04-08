@@ -1,6 +1,16 @@
 Applications
 ============
 
+@misc{2026-arXiv-Qiu,
+author={Wenjie Qiu and Zixin Wang and Hongyu Fang and Zeyuan Ma and Yue-Jiao Gong},
+title={A learning-based cooperative coevolution framework for heterogeneous large-scale global optimization},
+eprint={2604.01241},
+archivePrefix={arXiv},
+primaryClass={cs.NE},
+url={https://arxiv.org/abs/2604.01241},
+year={2026},
+}
+
 Applications&Citations
 ----------------------
 
