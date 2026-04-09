@@ -29,16 +29,16 @@ questions or helps, please directly use
 ```PyPop7``` is a [Python](https://www.python.org/) library of **population-based
 randomized optimization algorithms** for **single-objective**, **real-parameter**,
 **unconstrained** *black-box optimization* (BBO) problems. Its design goal is to
-provide a *unified* interface and a large set of *elegant* implementations for
-e.g., [evolutionary algorithms](https://www.nature.com/articles/nature14544),
+provide a *unified* interface and a large set of *elegant* implementations mainly
+for [evolutionary algorithms](https://www.nature.com/articles/nature14544),
 [swarm optimizers](https://github.com/Evolutionary-Intelligence/SwarmIntelligence-A-Modern-Perspective-SIAMP),
 and [pattern search](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780),
-with three functionalities: (1) To facilitate **research repeatability** in a
-controllable manner, (2) To promote **wide benchmarking** in an open-source
-way, especially (3) To be used in **real-world BBO applications** in a
-trial-and-error manner.
+with three functionalities: (1) to facilitate **research repeatability** in a
+entirely controllable manner, (2) to promote **wide benchmarking** in a fully
+open-source way, especially (3) to be used in **real-world applications** in a
+typically trial-and-error manner.
 
-Specifically speaking, for alleviating the notorious **curse-of-dimensionality**
+Specifically, for alleviating the notorious **curse-of-dimensionality**
 issue on BBO, its focus is to cover **State Of The Art (SOTA) for Large-Scale
 Optimization** only under Black-Box scenarios, though many of small- and
 medium-scaled algorithm versions or variants are also included here (for
