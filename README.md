@@ -2,8 +2,8 @@
 
 <img src="https://github.com/Evolutionary-Intelligence/pypop/blob/main/docs/logo/MayorIcons.png"
 alt="drawing" width="21" height="21"/> `PyPop7` has been used and/or cited in one **Nature**
-paper [[Veenstra et al., Nature, 2025]](https://www.nature.com/articles/s41586-025-08646-3) and
-etc. For any questions or helps, please directly use
+paper [[Nature, 2025]](https://www.nature.com/articles/s41586-025-08646-3) and etc. For any
+questions or helps, please directly use
 [Discussions](https://github.com/Evolutionary-Intelligence/pypop/discussions).
 
 [![JMLR-2024](https://img.shields.io/badge/JMLR-2024-red)](https://jmlr.org/papers/v25/23-0386.html)
