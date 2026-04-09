@@ -33,7 +33,7 @@ provide a *unified* interface and a large set of *elegant* implementations mainl
 for [evolutionary algorithms](https://www.nature.com/articles/nature14544),
 [swarm optimizers](https://github.com/Evolutionary-Intelligence/SwarmIntelligence-A-Modern-Perspective-SIAMP),
 and [pattern search](https://epubs.siam.org/doi/abs/10.1137/S1052623493250780),
-with three functionalities: (1) to facilitate **research repeatability** in a
+with three functionalities: (1) to facilitate **research repeatability** in an
 entirely controllable manner, (2) to promote **wide benchmarking** in a fully
 open-source way, especially (3) to be used in **real-world applications** in a
 typically trial-and-error manner.
