@@ -39,9 +39,9 @@ open-source way, especially (3) to be used in **real-world applications** in a
 typically trial-and-error manner. Specifically, for alleviating the notorious
 **curse-of-dimensionality** issue, its focus is to cover **State Of The Art
 (SOTA) for Large-Scale BBO, though many of small- and medium-scaled algorithm
-versions or variants are also included here. Although we have chosen the
-*GPL-3.0 license*, anyone could use, modify, and improve it **freely** for any
-(no matter *open-source* or *closed-source*) **positive** purposes.
+versions or variants are also included here. Although we chose the *GPL-3.0
+license*, anyone could use, modify, and improve it **freely** for any (no
+matter *open-source* or *closed-source*) **positive** purposes.
 
 ## Quickstart
 
