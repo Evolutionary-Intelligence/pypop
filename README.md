@@ -37,11 +37,11 @@ with three functionalities: (1) to facilitate **research repeatability** in an
 entirely controllable manner, (2) to promote **wide benchmarking** in a fully
 open-source way, especially (3) to be used in **real-world applications** in a
 typically trial-and-error manner. Specifically, for alleviating the notorious
-**curse-of-dimensionality** issue, its focus is to cover **State Of The Art
-(SOTA) for Large-Scale BBO, though many of small- and medium-scaled algorithm
-versions or variants are also included here. Although we chose the *GPL-3.0
-license*, anyone could use, modify, and improve it **freely** for any (no
-matter *open-source* or *closed-source*) **positive** purposes.
+**curse-of-dimensionality** issue, its focus is to cover State Of The Art
+(**SOTA**) for Large-Scale BBO, though many of small- and medium-scaled
+algorithm versions or variants are also included here. Although we chose the
+*GPL-3.0 license*, anyone could use, modify, and improve it **freely** for any
+(no matter *open-source* or *closed-source*) **positive** purposes.
 
 ## Quickstart
 
