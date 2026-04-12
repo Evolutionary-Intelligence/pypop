@@ -130,21 +130,13 @@ practice, **Hyper-Parameter Optimization (HPO)** is a very common
 strategy to **approximate** the *possibly best* setting(s) for the
 *complex* optimization problem at hand.
 
-### Online Documentations, Online Tutorials, and Future Extensions
+### Online Documents and Tutorials
 
-Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/) for online
-documentations and tutorials of this *well-designed* ("**self-boasted**" by
-ourselves) Python library for Black-Box Optimization (e.g., [online praises
-from others](https://pypop.readthedocs.io/en/latest/applications.html)). A
-total of **4** extended versions of PyPop7 (as **PP7**) are *ongoing* or
-*planned* for further development:
+Please refer to [https://pypop.rtfd.io/](https://pypop.rtfd.io/)
+for online documents and tutorials of this *well-designed*
+("*self-boasted*" by ourselves) Python library.
 
-* For Constrained Black-Box Optimization (`PyCoPop7 as PCP7`),
-* For Noisy Black-Box Optimization (`PyNoPop7 as PNP7`),
-* Enhancement via Parallel and Distributed Optimization (`PyDPop7 as PDP7`),
-* Enhancement via Meta-evolution based Optimization (`PyMePop7 as PMP7`).
-
-## Black-Box Optimizers (BBO)
+## A Growing Set of BBO Algorithms
 
 * "[The main lesson of the development of our field in the last few decades is that efficient
 optimization methods can be developed only by intelligently employing the structure of
