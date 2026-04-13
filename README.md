@@ -46,7 +46,7 @@ algorithm versions or variants are also included here. Although we chose the
 ## Quickstart
 
 The following **three** steps are often enough to utilize the **black-box
-optimization (BBO)** power of [PyPop7](https://pypi.org/project/pypop7/):
+optimization** power of [PyPop7](https://pypi.org/project/pypop7/):
 
 * Recommend using [pip](https://pypi.org/project/pip/) to install ```pypop7``` on the
   Python3-based virtual environment via [venv](https://docs.python.org/3/library/venv.html)
