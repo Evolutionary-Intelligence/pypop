@@ -111,12 +111,12 @@ following **JMLR** software paper (in the **BibTeX** format):
   year={2024}
 }
 
-Clearly, for obtaining the *nearly optimal* rate of convergence, at
-least one *key* hyper-parameter ```sigma``` needs to be well
+Clearly, for obtaining the *nearly optimal* rate of convergence,
+at least one *key* hyper-parameter ```sigma``` needs to be well
 fine-tuned for ```LMMAES```. In practice, **Hyper-Parameter
-Optimization (HPO)** is a common strategy to **approximate** the
-*possibly best* setting(s) for the *complex* optimization problem
-at hand.
+Optimization (HPO)** is a common strategy to **approximate**
+the *possibly best* algorithmic setting(s) for the *complex*
+optimization problem at hand.
 
 ### Online Documents and Tutorials
 
