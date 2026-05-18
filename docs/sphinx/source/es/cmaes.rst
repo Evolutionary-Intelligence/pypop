@@ -99,15 +99,15 @@ Some Applications of CMA-ES
   <https://arc.aiaa.org/doi/abs/10.2514/2.1342>`_:
   Swiss Federal Institute of Technology
 
-Some Interesting Applications in Robotics
------------------------------------------
+Some Applications in Robotics
+-----------------------------
 
 * `[CoRL 2025]
-  <https://openreview.net/pdf?id=UTPBM4dEUS>`_:
-  Carnegie Mellon University, Google DeepMind
+  <https://openreview.net/pdf?id=UTPBM4dEUS>`_
 * `[Nature Medicine 2023]
-  <https://www.nature.com/articles/s41591-023-02584-1>`_:
-  EPFL et al.
+  <https://www.nature.com/articles/s41591-023-02584-1>`_
+* `[ICRA, 2023]
+  <https://ieeexplore.ieee.org/abstract/document/10160214>`_
 
 
 
