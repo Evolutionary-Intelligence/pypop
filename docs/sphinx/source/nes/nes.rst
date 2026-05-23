@@ -21,7 +21,7 @@ Enhancements
 ------------
 
 * **RBO**:
-  `[2019-CORL] <https://proceedings.mlr.press/v100/choromanski20a.html>`_
+  `[2020-CORL] <https://proceedings.mlr.press/v100/choromanski20a.html>`_
 
 
 
