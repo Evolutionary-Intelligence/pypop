@@ -77,8 +77,13 @@ Weighted Recombination
   Theoretical Computer Science, 361(1), pp.18-37.
 
 
+Hybridizations
+--------------
+
+* **CAS-MORE**: `[JMLR, 2024]
+  <http://www.jmlr.org/papers/v25/22-0564.html>`_
+
+
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
-.. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-ES
-   :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop-ES
