@@ -17,6 +17,13 @@ Natural Evolution Strategies (NES)
    sges
 
 
+Enhancements
+------------
+
+* **RBO**:
+  `[2019-CORL] <https://proceedings.mlr.press/v100/choromanski20a.html>`_
+
+
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
    :target: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
