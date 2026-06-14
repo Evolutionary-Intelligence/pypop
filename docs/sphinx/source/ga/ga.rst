@@ -12,3 +12,9 @@ Genetic Algorithms (GA)
    gl25
    g3pcx
    genitor
+
+Some Applications
+-----------------
+
+**Robotics**:
+`[2026-TRO] <https://ieeexplore.ieee.org/abstract/document/11536812>`_
