@@ -59,6 +59,14 @@ Some Versions and Variants of PSO
    spsol
    spso
 
+Some Applications of PSO
+------------------------
+
+Robotics:
+
+`[2026-TRO]
+<https://ieeexplore.ieee.org/abstract/document/11355798>`_
+
 
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
