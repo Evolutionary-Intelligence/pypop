@@ -17,4 +17,5 @@ Some Applications
 -----------------
 
 **Robotics**:
+`[2026-Science Robotics] <https://www.science.org/doi/full/10.1126/scirobotics.adr6472>`_
 `[2026-TRO] <https://ieeexplore.ieee.org/abstract/document/11536812>`_
