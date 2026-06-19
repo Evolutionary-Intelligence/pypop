@@ -26,6 +26,11 @@ which directly inspired [Prof. Holland](https://cacm.acm.org/research/adaptive-c
 [proposal](https://direct.mit.edu/books/edited-volume/3809/chapter-abstract/125036/An-Interview-with-John-Holland)
 of [Genetic Algorithms (GA)](https://dl.acm.org/doi/10.1145/321127.321128).
 
+Reference Indexing
+------------------
+
+* `ACM DL <https://dl.acm.org/doi/abs/10.5555/3722577.3722873>`_
+
 
 
 .. image:: https://visitor-badge.laobi.icu/badge?page_id=Evolutionary-Intelligence.pypop
