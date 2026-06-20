@@ -5,7 +5,7 @@ Reference
 Critical Papers to Some Metaphors-Based Optimization
 ----------------------------------------------------
 
-**Most** (*but not all*) of metaphors-Based optimizers
+**Most** (*but not all*) of metaphors-based optimizers
 are highly criticized by more and more scholars,
 researchers, and participant‌s.
 
