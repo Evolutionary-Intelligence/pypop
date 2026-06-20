@@ -9,8 +9,9 @@ Critical Papers to Some Metaphors-Based Optimization
 are highly criticized by more and more scholars,
 researchers, and participant‌s.
 
-Collections: `EC-Bestiary <https://github.com/fcampelo/EC-Bestiary>`_
-from Felipe Campelo (University of Bristol) et al.
+Collections: `EC-Bestiary
+<https://github.com/fcampelo/EC-Bestiary>`_ from
+**Felipe Campelo** (University of Bristol) et al.
 
 * 2026: `Beyond metaphors: Rethinking metaphors in metaheuristics
   algorithm design <https://www.nature.com/articles/s44387-026-00089-z>`_
