@@ -284,6 +284,7 @@ etc.
 
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Success-History based Adaptive DE
   (**SHADE**) [[Tanabe&Fukunaga, 2013, CEC](https://ieeexplore.ieee.org/document/6557555)]
+* ![c](https://img.shields.io/badge/**-c-blue.svg) Multi-population based DE (**[MDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/mde.py)**) [[Karkinli, 2023, NCA](https://doi.org/10.1007/s00521-022-07969-w)]
 * ![lso](https://img.shields.io/badge/***-lso-orange.svg) Adaptive DE (**[JADE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/jade.py)**) [[Zhang&Sanderson, 2009, TEVC](https://doi.org/10.1109/TEVC.2009.2014613)]
 * ![c](https://img.shields.io/badge/**-c-blue.svg) Composite DE (**[CODE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/code.py)**) [[Wang et al., 2011, TEVC](https://doi.org/10.1109/TEVC.2010.2087271)]
 * ![b](https://img.shields.io/badge/*-b-lightgrey.svg) Trigonometric-mutation DE (**[TDE](https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/tde.py)**) [[Fan&Lampinen, 2003, JGO](https://link.springer.com/article/10.1023/A:1024653025686)]
@@ -632,6 +633,7 @@ reported in the (actively-updated) paper list called
   * Mannor, S., Rubinstein, R.Y. and Gat, Y., 2003. [The cross entropy method for fast policy search](https://dl.acm.org/doi/abs/10.5555/3041838.3041903). ICML (pp. 512-519).
 * Differential Evolution (DE)
   * Price, K.V., 2013. [Differential evolution](https://link.springer.com/chapter/10.1007/978-3-642-30504-7_8). In Handbook of Optimization (pp. 187-214). Springer, Berlin, Heidelberg.
+  * Karkinli, A.E., 2023. [Detection of object boundary from point cloud by using multi-population based differential evolution algorithm](https://doi.org/10.1007/s00521-022-07969-w). NCA, 35(7), pp.5193-5206.
   * Tanabe, R. and Fukunaga, A., 2013, June. [Success-history based parameter adaptation for differential evolution](https://ieeexplore.ieee.org/document/6557555). CEC (pp. 71-78). IEEE.
   * Wang, Y., Cai, Z., and Zhang, Q. 2011. [Differential evolution with composite trial vector generation strategies and control parameters](https://doi.org/10.1109/TEVC.2010.2087271). TEVC, 15(1), pp.55–66.
   * Zhang, J., and Sanderson, A. C. 2009. [JADE: Adaptive differential evolution with optional external archive](https://ieeexplore.ieee.org/document/5208221/). TEVC, 13(5), pp.945–958.
