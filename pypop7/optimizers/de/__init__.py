@@ -4,6 +4,7 @@ from pypop7.optimizers.de.tde import TDE
 from pypop7.optimizers.de.jade import JADE
 from pypop7.optimizers.de.code import CODE
 from pypop7.optimizers.de.shade import SHADE
+from pypop7.optimizers.de.mde import MDE
 
 
 __all__ = [DE,  # Differential Evolution [1997]
@@ -11,4 +12,5 @@ __all__ = [DE,  # Differential Evolution [1997]
            TDE,  # Trigonometric-mutation Differential Evolution (TDE)
            JADE,  # Adaptive Differential Evolution (JADE)
            CODE,  # COmposite Differential Evolution (CODE)
-           SHADE]  # Success-History based Adaptive Differential Evolution (SHADE)
+           SHADE,  # Success-History based Adaptive Differential Evolution (SHADE)
+           MDE]  # Multi-population based Differential Evolution (MDE)

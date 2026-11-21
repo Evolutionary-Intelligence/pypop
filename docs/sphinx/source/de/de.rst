@@ -10,6 +10,7 @@ Differential Evolution (DE)
    :caption: DEs:
 
    shade
+   mde
    code
    jade
    tde

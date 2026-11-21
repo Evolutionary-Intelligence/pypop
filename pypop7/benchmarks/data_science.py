@@ -5,7 +5,7 @@ import requests
 import numpy as np  # engine for numerical computing
 from numpy import genfromtxt  # to read datasets
 
-from pypop7.benchmarks.base_functions import BaseFunction
+from pypop7.benchmarks.class_of_base_functions import BaseFunction
 
 
 def cross_entropy_loss_lr(w, x, y):

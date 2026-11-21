@@ -353,6 +353,8 @@ Repeatability Code/Reports
 
  SHADE      `_repeat_shade.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_shade.py>`_           `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_shade.py>`_
 
+ MDE        `_repeat_mde.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_mde.py>`_               `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_mde.py>`_
+
  JADE       `_repeat_jade.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_jade.py>`_             `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_jade.py>`_
 
  CODE       `_repeat_code.py <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_code.py>`_             `data <https://github.com/Evolutionary-Intelligence/pypop/blob/main/pypop7/optimizers/de/_repeat_code.py>`_
